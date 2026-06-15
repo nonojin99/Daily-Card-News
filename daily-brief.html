@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Brief — 2026.06.12</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a18;
+    --muted:#6b6b66;
+    --faint:#9a9a94;
+    --line:#e6e4dd;
+    --bg:#faf9f6;
+    --card:#ffffff;
+    --accent:#3d5a4c;
+    --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,sans-serif;
+    line-height:1.6;
+    padding:0 20px;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+
+  /* Masthead */
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--accent);font-weight:600;margin-bottom:14px;
+  }
+  h1{
+    font-family:'Newsreader',serif;font-weight:500;
+    font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em;
+  }
+  .masthead-meta{
+    display:flex;justify-content:space-between;align-items:baseline;
+    margin-top:18px;flex-wrap:wrap;gap:8px;
+  }
+  .date{font-family:'Newsreader',serif;font-style:italic;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+
+  /* Section label */
+  .section-rule{
+    display:flex;align-items:center;gap:14px;
+    margin:52px 0 22px;
+  }
+  .section-rule .label{
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--faint);font-weight:600;white-space:nowrap;
+  }
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+
+  /* Card */
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:26px 26px 24px;
+    margin-bottom:16px;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .card-top{
+    display:flex;align-items:center;gap:10px;margin-bottom:14px;
+  }
+  .topic{
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:600;color:var(--accent);
+    background:var(--accent-soft);
+    padding:4px 10px;border-radius:20px;
+  }
+  .card h2{
+    font-family:'Newsreader',serif;font-weight:600;
+    font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px;
+  }
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+
+  /* Marketing insight — the signature element */
+  .insight{
+    border-left:2.5px solid var(--accent);
+    padding:11px 0 11px 16px;
+    margin-bottom:14px;
+    background:linear-gradient(90deg,var(--accent-soft),transparent);
+    border-radius:0 8px 8px 0;
+  }
+  .insight .tag{
+    font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:600;color:var(--accent);display:block;margin-bottom:3px;
+  }
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+
+  .source{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:13px;color:var(--muted);text-decoration:none;
+    border-bottom:1px solid var(--line);padding-bottom:1px;
+    transition:color .15s,border-color .15s;
+  }
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+
+  .ref-note{
+    display:inline-block;font-size:11px;color:var(--faint);
+    margin-left:10px;font-style:italic;
+  }
+
+  footer{
+    margin-top:72px;padding-top:24px;border-top:1px solid var(--line);
+    font-size:13px;color:var(--faint);line-height:1.7;
+  }
+  footer .pipe{color:var(--accent);font-weight:600}
+
+  @media (max-width:520px){
+    .wrap{padding:44px 0 72px}
+    .card{padding:22px 20px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>오늘의 13가지</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 6월 12일 금요일</span>
+      <span class="count">13 Fields · 13개 분야</span>
+    </div>
+  </header>
+
+  <!-- ===== 실데이터 분야 ===== -->
+  <div class="section-rule"><span class="label">Now / 지금</span><span class="bar"></span></div>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">우주</span></div>
+    <h2>스페이스X 상장 가시화, 자금이 우주산업으로 몰린다</h2>
+    <p class="summary">스페이스X의 IPO가 2026년 들어 구체화되면서 글로벌 투자자의 시선이 '뉴스페이스'로 집중되고 있다. 국내 ETF 업계도 우주항공 상품 라인업 경쟁에 들어갔다.</p>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>'우주'는 더 이상 과학 카테고리가 아니라 투자 상품 키워드다. 브랜드 콜라보·금융 상품 네이밍에서 우주 모티프 수요가 단기 급증할 시점.</p>
+    </div>
+    <a class="source" href="https://ystreet.co.kr/community/1436/">와이스트릿</a>
+    <span class="ref-note">참고용 · 투자 판단은 본인</span>
+  </article>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">과학</span></div>
+    <h2>"우주가 곧 클린룸"… 스페이스 칩 시대 개막</h2>
+    <p class="summary">발사 비용 하락으로 미세중력·진공 환경에서 고순도 반도체 결정을 생산하는 '우주 제조' 개념이 본격 부상하고 있다.</p>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>B2B 테크 브랜드라면 '지구 밖 제조'라는 서사를 선점할 기회. 프리미엄·정밀성 메시지에 곧바로 붙일 수 있는 신선한 레퍼런스다.</p>
+    </div>
+    <a class="source" href="https://www.hankyung.com/article/2026060965741">한국경제</a>
+    <span class="ref-note">참고용</span>
+  </article>
+
+  <!-- ===== 아래는 구조 확인용 샘플 (자동화 시 매일 실데이터로 교체) ===== -->
+  <div class="section-rule"><span class="label">Culture / 문화</span><span class="bar"></span></div>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">도서</span></div>
+    <h2>이번 주 베스트셀러 1위 — [샘플 제목]</h2>
+    <p class="summary">[리서치 하네스가 채울 자리: 그날의 화제 도서 1건 요약. Haiku가 수집·요약, 편집자 하네스가 분량·사실 검수.]</p>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>[Sonnet 마케팅 하네스가 채울 자리: 콘텐츠/카피 관점 인사이트 1줄.]</p>
+    </div>
+    <a class="source" href="#">출처 링크</a><span class="ref-note">참고용</span>
+  </article>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">영화</span></div>
+    <h2>주말 개봉/화제작 — [샘플 제목]</h2>
+    <p class="summary">[그날의 영화 1건. 박스오피스·개봉 소식·화제성 중 택1.]</p>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>[관객 타깃·바이럴 포인트 분석.]</p>
+    </div>
+    <a class="source" href="#">출처 링크</a><span class="ref-note">참고용</span>
+  </article>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">음악</span></div>
+    <h2>차트 신규 진입 / 화제곡 — [샘플 제목]</h2>
+    <p class="summary">[그날의 음악 1건.]</p>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>[팬덤·숏폼 활용 포인트.]</p>
+    </div>
+    <a class="source" href="#">출처 링크</a><span class="ref-note">참고용</span>
+  </article>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">미술</span></div>
+    <h2>주목 전시 · 주요 작품 거래 — [샘플 제목]</h2>
+    <p class="summary">[진행 중 전시 또는 경매 화제작 1건.]</p>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>[브랜드 아트 콜라보·공간 마케팅 시사점.]</p>
+    </div>
+    <a class="source" href="#">출처 링크</a><span class="ref-note">참고용</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Money & Society / 경제·사회</span><span class="bar"></span></div>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">경제</span></div>
+    <h2>오늘의 경제 키워드 — [샘플]</h2>
+    <p class="summary">[지표·정책·시장 중 그날 핵심 1건.]</p>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>[소비 심리·가격 전략 함의.]</p>
+    </div>
+    <a class="source" href="#">출처 링크</a><span class="ref-note">참고용</span>
+  </article>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">사회</span></div>
+    <h2>오늘의 사회 이슈 — [샘플]</h2>
+    <p class="summary">[그날의 사회 이슈 1건. 편집자 하네스가 중립성·표현 검수.]</p>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>[브랜드가 피해야 할/올라탈 화두 판단.]</p>
+    </div>
+    <a class="source" href="#">출처 링크</a><span class="ref-note">참고용</span>
+  </article>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">IT</span></div>
+    <h2>오늘의 테크 — [샘플]</h2>
+    <p class="summary">[신제품·서비스·AI 동향 중 1건.]</p>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>[얼리어답터 타깃·기능 소구 포인트.]</p>
+    </div>
+    <a class="source" href="#">출처 링크</a><span class="ref-note">참고용</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Life / 생활</span><span class="bar"></span></div>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">쇼핑</span></div>
+    <h2>오늘의 핫딜 · 신상 — [샘플]</h2>
+    <p class="summary">[그날의 쇼핑 딜/론칭 1건. 가격·기간은 변동 가능, 링크로 확인 유도.]</p>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>[프로모션 구조·전환 유도 장치 분석.]</p>
+    </div>
+    <a class="source" href="#">출처 링크</a><span class="ref-note">⚠ 가격·재고 변동 가능, 링크 확인</span>
+  </article>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">축제·행사</span></div>
+    <h2>이번 주 국내 축제 — [샘플]</h2>
+    <p class="summary">[날짜에 맞는 국내 축제/행사 1건.]</p>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>[지역·시즌 마케팅 연계 포인트.]</p>
+    </div>
+    <a class="source" href="#">출처 링크</a><span class="ref-note">참고용</span>
+  </article>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">여행</span></div>
+    <h2>항공권 핫딜 + 이 계절의 추천 여행지 — [샘플]</h2>
+    <p class="summary">[항공권 딜 1건 + 6월에 맞는 추천 여행지 + 간단 일정. 가격은 실시간 변동.]</p>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>[시즌 수요·타깃 여행객 세그먼트 분석.]</p>
+    </div>
+    <a class="source" href="#">항공권 링크</a><span class="ref-note">⚠ 운임 실시간 변동, 링크 확인</span>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치(Haiku) → 편집(Haiku) → 마케팅 인사이트(Sonnet) → 디자인 렌더링(Sonnet)<br>
+    매일 자동 생성 · GitHub Pages 호스팅 예정 · 모든 정보는 참고용이며 출처 링크에서 최종 확인 권장
+  </footer>
+
+</div>
+</body>
+</html>
