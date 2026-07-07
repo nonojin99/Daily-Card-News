@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Culture Brief — 2026.07.08</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#8a4f3d; --accent-soft:#f5ede9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Newsreader',serif;font-style:italic;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Newsreader',serif;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Newsreader',serif;font-weight:600;font-size:22px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15px;color:#33332f;margin-bottom:14px}
+  .know-point{border-left:2.5px solid var(--accent);padding:12px 0 12px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .know-point .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:5px}
+  .know-point p{font-size:14px;color:#2c2c28;line-height:1.6}
+  .know-point p + p{margin-top:8px}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .meta-tag{font-size:12px;color:var(--muted);background:var(--bg);border:1px solid var(--line);padding:3px 10px;border-radius:20px}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .list{display:flex;flex-direction:column;margin-top:4px}
+  .list-row{display:flex;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .list-row:last-child{border-bottom:none}
+  .list-date{font-size:12px;color:var(--faint);width:52px;flex-shrink:0}
+  .list-info{flex:1}
+  .list-title{font-weight:600;font-size:14.5px}
+  .list-detail{color:var(--muted);font-size:13.5px}
+  .list-tag{font-size:10.5px;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:10px;flex-shrink:0}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Culture Brief · 문화 브리핑</div>
+    <h1>이번 주 문화</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 7월 8일 수요일</span>
+      <span class="count">도서 · 영화 · 공연 · 전시</span>
+    </div>
+    <p class="lede">여름 극장가에 거장들이 돌아옵니다. 나홍진은 &lt;곡성&gt; 이후 10년 만에, 놀란은 그리스 서사시를 들고. 무대에선 대작 뮤지컬이, 미술관에선 고야가 관객을 기다립니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">Movies · 영화</span><span class="bar"></span></div>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">영화 · 화제작</span></div>
+    <h2>나홍진의 '호프', 여름 극장가 정조준 — &lt;곡성&gt; 이후 10년</h2>
+    <p class="summary">외계 존재의 습격으로 고립된 항구 마을의 사투를 그린 SF 스릴러 '호프(HOPE)'로 나홍진 감독이 &lt;곡성&gt; 이후 10년 만에 돌아온다. 마이클 패스벤더, 알리시아 비칸데르 등 할리우드 배우가 출연하고 제작비 500억 원이 투입된 대작이다. 같은 여름 크리스토퍼 놀란의 &lt;오디세이&gt;, 7월 29일 &lt;스파이더맨: 브랜드 뉴 데이&gt;까지 가세해 극장가가 달아오른다.</p>
+    <div class="know-point">
+      <span class="tag">🎬 알고 보면 달라지는 것</span>
+      <p>나홍진 감독의 영화를 볼 때 알아두면 좋은 특징이 있다. 그는 '설명하지 않는' 감독이다. &lt;곡성&gt;에서 "그래서 누가 악인이냐"를 끝내 명확히 답하지 않아 관객을 논쟁에 빠뜨렸듯, 그의 영화는 <b>친절한 결말 대신 해석의 여지</b>를 남긴다. '호프'의 외계 존재도 정체를 또렷이 규정하기보다 <b>인간의 공포와 선택을 비추는 거울</b>로 쓰일 가능성이 크다. '무슨 뜻이지?'가 남는 게 실패가 아니라 의도라는 걸 알고 보면, 답답함이 흥미로 바뀐다.</p>
+    </div>
+    <a class="source" href="https://www.d-art.co.kr/news/articleView.html?idxno=4764">데일리아트</a>
+    <span class="ref-note">참고용 · 개봉일은 배급사 공지 확인</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Exhibitions · 전시</span><span class="bar"></span></div>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">전시 · 거장전</span></div>
+    <h2>'고야: 이성이 잠들 때, 괴물이 깨어난다' — 예술의전당</h2>
+    <p class="summary">스페인의 거장 프란시스코 고야의 대규모 전시가 예술의전당 한가람미술관에서 9월 30일까지 열린다. 궁정화가로 출세했지만 청력을 잃고 전쟁의 참상을 목격한 뒤, 인간의 광기와 어둠을 파고든 후기 작품 세계로 유명하다. 전시 제목은 그의 유명한 판화 연작에서 따왔다.</p>
+    <div class="know-point">
+      <span class="tag">🖼️ 알고 보면 달라지는 것</span>
+      <p>전시 제목이 된 '이성이 잠들면 괴물이 깨어난다'는 고야가 판화에 직접 새긴 문구다. 그런데 이 말은 두 가지로 읽힌다 — '이성이 잠들어서 괴물(비합리·광기)이 나온다'는 경고인 동시에, '이성만으로는 부족하고 상상력이 함께해야 한다'는 뜻으로도 해석된다. 고야 자신이 <b>계몽주의자이면서 그 한계를 본 사람</b>이었기에 나온 이중적 문구다. 밝은 궁정 초상화로 시작해 어두운 '검은 그림'으로 끝나는 그의 궤적을 이 문장과 겹쳐 보면, 전시장의 동선 자체가 <b>한 인간이 이성의 빛에서 어둠으로 걸어 들어간 여정</b>으로 읽힌다.</p>
+    </div>
+    <div class="meta-row">
+      <span class="meta-tag">예술의전당 한가람미술관</span>
+      <span class="meta-tag">~2026.09.30</span>
+    </div>
+    <a class="source" href="https://ddoing.co.kr/ddoing_exhibition_schedule">전시 일정</a>
+    <span class="ref-note">참고용 · 관람 시간·예매는 미술관 확인</span>
+  </article>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">전시 · 더 보기</span></div>
+    <div class="list">
+      <div class="list-row">
+        <span class="list-date">~8/2</span>
+        <div class="list-info"><span class="list-title">하루키를 말할 때 우리가 하고 싶은 이야기</span> · <span class="list-detail">플랫폼엘 (강남)</span></div>
+      </div>
+      <div class="list-row">
+        <span class="list-date">~8/17</span>
+        <div class="list-info"><span class="list-title">박대성: 고요가 머무는 곳</span> · <span class="list-detail">가나아트 남산 (무료)</span></div>
+      </div>
+      <div class="list-row">
+        <span class="list-date">7/17~</span>
+        <div class="list-info"><span class="list-title">조은 원화전: 오늘의 정원</span> · <span class="list-detail">그라운드시소 이스트</span></div>
+        <span class="list-tag">신규</span>
+      </div>
+    </div>
+    <span class="ref-note">참고용 · 일정·요금은 각 미술관 확인</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Stage · 공연</span><span class="bar"></span></div>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">뮤지컬·연극</span></div>
+    <h2>여름 무대의 신작들 — '헬스키친'·'죽은 시인의 사회'</h2>
+    <p class="summary">팝스타 앨리샤 키스의 삶과 음악에서 영감을 받은 뮤지컬 '헬스키친'이 7월 GS아트센터에서 개막한다. 동명 영화를 원작으로 한 라이선스 연극 '죽은 시인의 사회'는 7월 15일 대학로 우리카드홀에서 초연을 올린다. 물에 잠긴 미래 서울을 그린 SF 뮤지컬 '다이브'도 초연을 앞두고 있다.</p>
+    <div class="know-point">
+      <span class="tag">🎭 알고 보면 달라지는 것</span>
+      <p>'죽은 시인의 사회'를 연극으로 볼 때의 묘미는 그 유명한 대사 <b>"카르페 디엠(현재를 즐겨라)"</b>이 원래 어떤 맥락이었는지 아는 데 있다. 이 말은 '오늘을 즐기자'는 가벼운 뜻으로 흔히 쓰이지만, 원전(로마 시인 호라티우스)에서는 <b>'내일이 불확실하니 오늘 해야 할 일을 미루지 말라'</b>는 훨씬 절박한 의미였다. 영화·연극 속 키팅 선생이 이 말을 던지는 장면을 이 원뜻으로 들으면, 낭만적 조언이 아니라 <b>삶을 대하는 태도에 대한 도전</b>으로 다가온다.</p>
+    </div>
+    <div class="list" style="margin-top:12px">
+      <div class="list-row">
+        <span class="list-date">7월</span>
+        <div class="list-info"><span class="list-title">헬스키친</span> · <span class="list-detail">GS아트센터 · 앨리샤 키스 소재</span></div>
+        <span class="list-tag">개막</span>
+      </div>
+      <div class="list-row">
+        <span class="list-date">7/15</span>
+        <div class="list-info"><span class="list-title">죽은 시인의 사회</span> · <span class="list-detail">대학로 우리카드홀 · 초연</span></div>
+        <span class="list-tag">초연</span>
+      </div>
+    </div>
+    <a class="source" href="https://www.themusical.co.kr/Magazine/Detail?num=5553">더뮤지컬</a>
+    <span class="ref-note">참고용 · 캐스팅·일정은 예매처 확인</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Books · 도서</span><span class="bar"></span></div>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">도서</span></div>
+    <h2>여름, '벽돌책'의 계절 — 긴 호흡의 독서를 권하는 시즌</h2>
+    <p class="summary">휴가철은 두껍고 긴 책, 이른바 '벽돌책'에 도전하기 좋은 시기로 꼽힌다. 출판가에서도 여름을 겨냥한 장편소설·시리즈물 마케팅이 활발하다. 상반기 베스트셀러 경향은 SF와 국내 문학의 강세로 요약되며, 무더위 속 몰입할 수 있는 두꺼운 이야기들이 다시 주목받고 있다.</p>
+    <div class="know-point">
+      <span class="tag">📖 알고 보면 달라지는 것</span>
+      <p>'여름=벽돌책'이라는 말에는 이유가 있다. 서구권에는 '비치 리드(beach read)'라는 오랜 문화가 있는데, 휴가지에서 시간에 쫓기지 않고 <b>긴 이야기에 푹 잠기는 독서</b>를 뜻한다. 짧은 글에 익숙해진 뇌에는 두꺼운 책이 부담이지만, 사실 긴 서사는 <b>한번 몰입 궤도에 오르면 짧은 글보다 오히려 읽기 쉬워진다.</b> 인물과 세계에 익숙해질수록 페이지가 빨라지기 때문. 휴가처럼 방해가 적은 시간이 벽돌책에 최적인 건 그래서다.</p>
+    </div>
+    <a class="source" href="https://event.kyobobook.co.kr/make/247022">교보문고</a>
+    <span class="ref-note">참고용 · 실시간 순위는 서점 사이트 확인</span>
+  </article>
+
+  <footer>
+    <span class="pipe">문화 브리핑</span> · 매주 수요일 발행 · 도서·영화·공연·전시를 '알고 보면 달라지는 포인트'와 함께 다룹니다<br>
+    화제성으로 거르지 않고 각 분야를 고르게 소개합니다 · 모든 정보는 참고용, 출처에서 최종 확인 권장
+  </footer>
+
+</div>
+</body>
+</html>

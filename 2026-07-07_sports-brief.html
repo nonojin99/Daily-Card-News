@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports Brief — 2026.07.07</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#1f5f8b; --accent-soft:#e8f0f5;
+    --win:#2f7d4f; --lose:#b5463a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Newsreader',serif;font-style:italic;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Newsreader',serif;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:48px 0 20px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .know-point{border-left:2.5px solid var(--accent);padding:12px 0 12px 16px;margin:18px 0;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .know-point .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:5px}
+  .know-point p{font-size:14px;color:#2c2c28;line-height:1.6}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+  .match{display:flex;align-items:center;justify-content:space-between}
+  .team{font-family:'Newsreader',serif;font-size:18px;font-weight:600;flex:1}
+  .team.win{color:var(--ink)}
+  .team.win::before{content:"▸ ";color:var(--win)}
+  .team.lose{color:var(--faint);font-weight:500}
+  .team.right{text-align:right}
+  .score{font-family:'Newsreader',serif;font-size:22px;font-weight:600;padding:0 14px;white-space:nowrap}
+  .tag-final{font-size:10px;color:var(--faint);letter-spacing:.08em;margin-bottom:6px;text-transform:uppercase}
+  .note{font-size:12.5px;color:var(--muted);margin-top:8px}
+  .note.upset{color:var(--lose);font-weight:500}
+  .bracket{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:10px}
+  .bracket-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line)}
+  .bracket-row:last-child{border-bottom:none}
+  .bracket-teams{font-size:15px;font-weight:500}
+  .bracket-time{font-size:12px;color:var(--faint)}
+  .prob{font-size:11.5px;color:var(--muted);margin-top:3px}
+  .standings{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:10px}
+  .st-title{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);margin-bottom:10px}
+  .st-row{display:flex;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+  .st-row:last-child{border-bottom:none}
+  .st-row .rk{width:22px;color:var(--faint);font-size:12px}
+  .st-row .nm{flex:1;font-weight:500}
+  .st-row .rec{color:var(--faint);font-size:13px}
+  footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.team{font-size:16px}.score{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Sports Brief · 스포츠 브리핑</div>
+    <h1>이번 주 스포츠</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 7월 7일 화요일</span>
+      <span class="count">월드컵 16강 · MLB</span>
+    </div>
+    <p class="lede">월드컵 32강이 이변으로 물들었습니다 — 우승 후보 브라질이 침몰했고, 개최국 미국도 벨기에에 대패했습니다. 이제 16강, 오늘 밤 메시의 아르헨티나가 먼저 나섭니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">World Cup · 16강 대진</span><span class="bar"></span></div>
+
+  <p style="font-size:13px;color:#9a9a94;margin:-6px 0 14px;font-style:italic">※ 32강 일부 경기가 진행 중이라, 현재까지 대진이 확정된 16강 5경기만 표시합니다. 나머지 대진은 확정되는 대로 업데이트됩니다.</p>
+
+  <div class="bracket">
+    <div class="bracket-row">
+      <div>
+        <div class="bracket-teams">🇦🇷 아르헨티나 vs 🇪🇬 이집트</div>
+        <div class="prob">승률 예측 — ARG 72% · 무 18% · EGY 9%</div>
+      </div>
+      <div class="bracket-time">내일 01:00</div>
+    </div>
+    <div class="bracket-row">
+      <div>
+        <div class="bracket-teams">🇨🇭 스위스 vs 🇨🇴 콜롬비아</div>
+        <div class="prob">승률 예측 — COL 42% · 무 31% · SUI 27%</div>
+      </div>
+      <div class="bracket-time">내일 05:00</div>
+    </div>
+    <div class="bracket-row">
+      <div>
+        <div class="bracket-teams">🇫🇷 프랑스 vs 🇲🇦 모로코</div>
+        <div class="prob">승률 예측 — FRA 60% · 무 24% · MAR 16%</div>
+      </div>
+      <div class="bracket-time">10일 05:00</div>
+    </div>
+    <div class="bracket-row">
+      <div>
+        <div class="bracket-teams">🇪🇸 스페인 vs 🇧🇪 벨기에</div>
+        <div class="prob">승률 예측 — ESP 59% · 무 24% · BEL 17%</div>
+      </div>
+      <div class="bracket-time">11일 04:00</div>
+    </div>
+    <div class="bracket-row">
+      <div>
+        <div class="bracket-teams">🇳🇴 노르웨이 vs 🏴󠁧󠁢󠁥󠁮󠁧󠁿 잉글랜드</div>
+        <div class="prob">승률 예측 — ENG 50% · 무 26% · NOR 24%</div>
+      </div>
+      <div class="bracket-time">12일 06:00</div>
+    </div>
+  </div>
+
+  <div class="know-point">
+    <span class="tag">🧭 알고 보면 달라지는 것</span>
+    <p>노르웨이가 브라질을 꺾은 건 우연이 아니다. 이 팀엔 현시대 최고 공격수로 꼽히는 <b>엘링 홀란드</b>가 있다. 그동안 노르웨이는 월드컵 본선에 거의 오르지 못해 '홀란드가 월드컵에서 못 뛰는 스타'로 불렸는데, 이번이 사실상 첫 무대다. '강팀 브라질 vs 약팀 노르웨이'가 아니라 '세계 최고 스트라이커의 한풀이'로 보면, 이변이 왜 일어났는지 그림이 달라진다.</p>
+  </div>
+
+  <div class="section-rule"><span class="label">World Cup · 32강 결과</span><span class="bar"></span></div>
+
+  <div class="card">
+    <div class="tag-final">32강 · 종료</div>
+    <div class="match">
+      <span class="team lose">🇧🇷 브라질</span>
+      <span class="score">1 – 2</span>
+      <span class="team win right">노르웨이 🇳🇴</span>
+    </div>
+    <div class="note upset">이변 — 우승 후보 브라질 탈락, 홀란드의 노르웨이 16강행</div>
+  </div>
+
+  <div class="card">
+    <div class="tag-final">32강 · 종료</div>
+    <div class="match">
+      <span class="team lose">🇺🇸 미국</span>
+      <span class="score">1 – 4</span>
+      <span class="team win right">벨기에 🇧🇪</span>
+    </div>
+    <div class="note upset">이변 — 개최국 미국, 안방에서 대패하며 탈락</div>
+  </div>
+
+  <div class="card">
+    <div class="tag-final">32강 · 종료</div>
+    <div class="match">
+      <span class="team win">🏴󠁧󠁢󠁥󠁮󠁧󠁿 잉글랜드</span>
+      <span class="score">3 – 2</span>
+      <span class="team lose right">멕시코 🇲🇽</span>
+    </div>
+    <div class="note">개최국 멕시코와 접전 끝에 잉글랜드 16강행</div>
+  </div>
+
+  <div class="card">
+    <div class="tag-final">32강 · 종료</div>
+    <div class="match">
+      <span class="team win">🇪🇸 스페인</span>
+      <span class="score">1 – 0</span>
+      <span class="team lose right">포르투갈 🇵🇹</span>
+    </div>
+    <div class="note">이베리아 더비, 스페인이 웃었다</div>
+  </div>
+
+  <div class="card">
+    <div class="tag-final">32강 · 종료</div>
+    <div class="match">
+      <span class="team win">🇦🇷 아르헨티나</span>
+      <span class="score">3 – 2</span>
+      <span class="team lose right">카보베르데 🇨🇻</span>
+    </div>
+    <div class="note">메시 1골 1도움 — 연장 접전 끝 신승</div>
+  </div>
+
+  <div class="section-rule"><span class="label">MLB · 오늘의 결과</span><span class="bar"></span></div>
+
+  <div class="card">
+    <div class="tag-final">종료</div>
+    <div class="match">
+      <span class="team win">🔵 LA 다저스</span>
+      <span class="score">8 – 7</span>
+      <span class="team lose right">콜로라도 ⛰️</span>
+    </div>
+    <div class="note">오타니 소속 다저스, 난타전 끝 진땀승</div>
+  </div>
+
+  <div class="card">
+    <div class="tag-final">종료</div>
+    <div class="match">
+      <span class="team win">🌉 샌프란시스코</span>
+      <span class="score">10 – 1</span>
+      <span class="team lose right">토론토 🇨🇦</span>
+    </div>
+    <div class="note">SF 대승 · 워싱턴 12-11 휴스턴 등 난타전도 이어져</div>
+  </div>
+
+  <div class="standings">
+    <div class="st-title">MLB 주요 디비전 선두</div>
+    <div class="st-row"><span class="rk">NL서</span><span class="nm">🔵 LA 다저스</span><span class="rec">리그 최강 승률권</span></div>
+    <div class="st-row"><span class="rk">NL중</span><span class="nm">밀워키 브루어스</span><span class="rec">중부 선두 경쟁</span></div>
+    <div class="st-row"><span class="rk">AL동</span><span class="nm">탬파베이 · 양키스</span><span class="rec">동부 접전</span></div>
+  </div>
+
+  <footer>
+    <span class="pipe">스포츠 브리핑</span> · 매주 화·토 발행 · 그날의 경기 결과와 예정 경기를 모두 보여줍니다<br>
+    ※ 한국 프로야구(KBO)는 데이터 제약으로 이 브리핑에서 제외됩니다 · 결과는 실시간 변동될 수 있습니다
+  </footer>
+
+</div>
+</body>
+</html>
