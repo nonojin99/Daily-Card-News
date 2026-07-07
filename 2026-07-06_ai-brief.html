@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Brief — 2026.07.06</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#8a6d3b; --accent-soft:#f5f0e5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Newsreader',serif;font-style:italic;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Newsreader',serif;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Newsreader',serif;font-weight:600;font-size:22px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15px;color:#33332f;margin-bottom:14px}
+  .know-point{border-left:2.5px solid var(--accent);padding:12px 0 12px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .know-point .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:5px}
+  .know-point p{font-size:14px;color:#2c2c28;line-height:1.6}
+  .know-point p + p{margin-top:8px}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .brief-list{display:flex;flex-direction:column;margin-top:4px}
+  .brief-row{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+  .brief-row:last-child{border-bottom:none}
+  .brief-co{font-weight:600;width:92px;flex-shrink:0;color:var(--accent)}
+  .brief-txt{flex:1;color:#33332f}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.brief-co{width:78px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">AI Brief · AI·테크 브리핑</div>
+    <h1>이번 주 AI</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 7월 6일 월요일</span>
+      <span class="count">AI · 반도체 · 빅테크</span>
+    </div>
+    <p class="lede">AI 업계의 큰 흐름이 바뀌고 있습니다 — 거대 AI 기업들이 하나둘 '엔비디아 없이' 가는 길을 찾기 시작했고, 동시에 'AI가 사람보다 비싸다'는 새로운 고민이 떠올랐습니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">Spotlight · 이번 주 핵심</span><span class="bar"></span></div>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">반도체</span></div>
+    <h2>오픈AI, 자체 칩 '할라페뇨' 공개 — 탈(脫)엔비디아 신호탄</h2>
+    <p class="summary">오픈AI가 브로드컴과 함께 개발한 AI 추론 전용 칩 '할라페뇨'를 공개했다. 챗GPT·코덱스를 운영한 경험을 바탕으로 처음부터 설계한 주문형 반도체(ASIC)로, 연내 데이터센터에 배치된다. TSMC가 양산하고 삼성·SK하이닉스가 메모리를 공급한다. 엔비디아 GPU 최대 고객이던 오픈AI의 이 행보로, 구글(TPU)에 이어 앤트로픽까지 'AI 3강'이 모두 엔비디아 의존을 줄이는 흐름이 뚜렷해졌다.</p>
+    <div class="know-point">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>왜 자체 칩을 만들까? 핵심은 <b>'학습'과 '추론'이 다른 작업</b>이라는 데 있다. 엔비디아 GPU는 AI를 <b>가르치는(학습)</b> 데 최적화된 만능 선수다. 그런데 챗GPT가 답변을 내놓는 <b>추론</b>은 훨씬 단순·반복적인 작업이라, 만능 GPU는 오히려 과하고 비싸다. 그래서 '추론만 잘하는' 전용 칩(ASIC)을 직접 만들면 전력·비용을 크게 줄일 수 있다.</p>
+      <p>비유하자면 GPU는 뭐든 하는 <b>맥가이버 칼</b>, ASIC은 한 가지만 완벽하게 하는 <b>전용 주방칼</b>이다. 서비스가 커질수록 매일 수억 번 반복되는 추론에서 전용칼의 효율이 압도적이라, 큰 AI 기업일수록 자체 칩으로 갈 이유가 생긴다.</p>
+    </div>
+    <a class="source" href="https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02394406645485328">이데일리</a>
+    <span class="ref-note">참고용 · 성능은 측정 진행 중</span>
+  </article>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">빅테크·비용</span></div>
+    <h2>"사람보다 비싼 AI" — 테슬라, 오늘부터 직원 AI 사용료 상한</h2>
+    <p class="summary">테슬라가 오늘(6일)부터 직원 1인당 AI 사용 비용을 주당 200달러로 제한한다. 일부 엔지니어가 주당 수천 달러어치 토큰을 쓰자 나온 조치다. 오픈AI·앤트로픽이 구독제에서 종량제로 전환하면서, 빅테크 곳곳에서 'AI 토큰 비용이 인건비를 넘어섰다'는 분석이 나오는 흐름의 단면이다.</p>
+    <div class="know-point">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>'토큰'이 대체 뭐길래 비용이 폭증할까? <b>토큰은 AI가 글을 처리하는 최소 단위</b>로, 대략 단어 한 개보다 조금 작은 조각이다. 질문과 답변에 쓰인 토큰 수만큼 요금이 매겨진다. 문제는 최신 '추론형 AI'가 답을 내기 전 <b>속으로 길게 생각하는(사고 과정)</b> 데, 이 생각까지 전부 토큰으로 계산된다는 점이다. 겉보기엔 짧은 답이라도 내부적으로 수천~수만 토큰을 태우니, 복잡한 작업을 반복하면 비용이 인건비를 넘어서는 것이다. 'AI를 얼마나 쓰나'보다 '어디에 쓰나'를 골라야 하는 이유다.</p>
+    </div>
+    <a class="source" href="https://www.newsspace.kr/news/article.html?no=14636">뉴스스페이스</a>
+    <span class="ref-note">참고용</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Briefing · 이번 주 짧은 소식</span><span class="bar"></span></div>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">한 눈에 보기</span></div>
+    <div class="brief-list">
+      <div class="brief-row">
+        <span class="brief-co">SK하이닉스</span>
+        <span class="brief-txt">7월 나스닥 상장 추진 (티커 SKHY) — ADR로 최대 45조 원 조달, AI 메모리 슈퍼사이클 실탄 확보</span>
+      </div>
+      <div class="brief-row">
+        <span class="brief-co">앤트로픽</span>
+        <span class="brief-txt">자체 AI 칩 개발 검토 — 삼성전자와 파트너십 논의설. 오픈AI·구글에 이어 탈엔비디아 대열 합류</span>
+      </div>
+      <div class="brief-row">
+        <span class="brief-co">엔비디아</span>
+        <span class="brief-txt">GPU 판매를 넘어 'AI 클라우드 매출 일부까지 가져가는' 새 사업모델 공개 — 수익 구조 다각화</span>
+      </div>
+      <div class="brief-row">
+        <span class="brief-co">삼성·오픈AI</span>
+        <span class="brief-txt">삼성 전 임직원에 챗GPT·코덱스 공급 — 오픈AI 최대 규모 기업 계약. 전사적 AI 전환(AX) 가속</span>
+      </div>
+      <div class="brief-row">
+        <span class="brief-co">국내 투자</span>
+        <span class="brief-txt">삼성 2655조·SK 1100조 규모 AI·반도체 국내 투자 발표 — 서남권 거점·데이터센터 구축</span>
+      </div>
+    </div>
+    <span class="ref-note">참고용 · 각 항목은 기업 발표·보도 기준, 세부는 출처 확인</span>
+  </article>
+
+  <footer>
+    <span class="pipe">AI·테크 브리핑</span> · 매주 월요일 발행 · AI·반도체·빅테크를 '알고 보면 달라지는 포인트'와 함께 다룹니다<br>
+    기술·투자 정보는 빠르게 변하므로 최종 확인은 출처 링크를 권장합니다 · 투자 판단은 본인 몫입니다
+  </footer>
+
+</div>
+</body>
+</html>
