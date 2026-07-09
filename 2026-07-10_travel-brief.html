@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Brief — 2026.07.10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#1f7a6b; --accent-soft:#e5f2ef;
+    --warn:#b5732a; --warn-soft:#f7efe3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Newsreader',serif;font-style:italic;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Newsreader',serif;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .notice{background:var(--warn-soft);border:1px solid #e8d5b8;border-radius:12px;padding:14px 18px;margin-top:22px;font-size:13.5px;color:#7a5320;line-height:1.5}
+  .notice b{color:var(--warn)}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:48px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Newsreader',serif;font-weight:600;font-size:22px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15px;color:#33332f;margin-bottom:14px}
+  .know-point{border-left:2.5px solid var(--accent);padding:12px 0 12px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .know-point .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:5px}
+  .know-point p{font-size:14px;color:#2c2c28;line-height:1.6}
+  .know-point p + p{margin-top:8px}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .meta-tag{font-size:12px;color:var(--muted);background:var(--bg);border:1px solid var(--line);padding:3px 10px;border-radius:20px}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .fest-list{display:flex;flex-direction:column;margin-top:4px}
+  .fest-row{display:flex;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .fest-row:last-child{border-bottom:none}
+  .fest-date{font-size:12px;color:var(--accent);font-weight:600;width:88px;flex-shrink:0}
+  .fest-info{flex:1}
+  .fest-name{font-weight:600;font-size:14.5px}
+  .fest-loc{color:var(--muted);font-size:13px}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.fest-date{width:74px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Travel Brief · 여행 브리핑</div>
+    <h1>이번 주 여행</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 7월 10일 금요일</span>
+      <span class="count">여름 축제 · 국내</span>
+    </div>
+    <p class="lede">장마가 지나면 곧 축제의 계절입니다. 진흙탕에서 뒹구는 머드축제부터 고원의 해바라기밭까지 — 7월 하순부터 전국이 들썩입니다. 지금이 숙소·교통을 잡아둘 타이밍입니다.</p>
+    <div class="notice">
+      <b>⚠ 안전 먼저.</b> 현재 중부 지방에 집중호우가 이어지고 있습니다. 이번 주말 여행은 기상 상황과 하천·계곡 통제 여부를 반드시 확인하고, 무리한 이동은 피하세요. 아래 축제들은 대부분 7월 하순 이후 일정입니다.
+    </div>
+  </header>
+
+  <div class="section-rule"><span class="label">Festival · 여름 대표 축제</span><span class="bar"></span></div>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">축제 · 체험</span></div>
+    <h2>보령머드축제 (7/24~8/9) — 외국인이 더 열광하는 '진흙 파티'</h2>
+    <p class="summary">여름 축제의 대명사 보령머드축제가 7월 24일부터 8월 9일까지 17일간 대천해수욕장 일대에서 열린다. 머드 슬라이드·대형 머드풀·해변 워터파크에 K-POP 공연, 해상 불꽃쇼, EDM 이벤트까지 더해진다. 외국인 관광객 비중이 유독 높은 축제로도 유명하다.</p>
+    <div class="know-point">
+      <span class="tag">🧭 알고 가면 달라지는 것</span>
+      <p>이 축제가 외국인에게 유독 인기인 데는 이유가 있다. 시작은 사실 '관광'이 아니라 '마케팅'이었다 — 1998년 보령시가 지역에서 나는 <b>머드(갯벌 진흙)로 만든 화장품을 홍보하려고</b> 만든 행사였다. 진흙의 미네랄 성분을 몸으로 체험시키자는 아이디어가 뜻밖에 외국인들에게 '한국의 독특한 여름 파티'로 입소문 나며 대표 축제가 됐다. 즉 이 진흙은 아무 흙이 아니라 <b>화장품 원료로 쓰이는 갯벌 머드</b>다. 그걸 알고 뒹굴면 '더러운 진흙탕'이 아니라 '전신 머드팩'으로 느껴진다.</p>
+    </div>
+    <div class="meta-row">
+      <span class="meta-tag">충남 보령 대천해수욕장</span>
+      <span class="meta-tag">7/24~8/9</span>
+    </div>
+    <a class="source" href="https://www.news-wa.com/article/travel/tour-korea/2026/05/18/20260518500017">뉴스와</a>
+    <span class="ref-note">참고용 · 일정·프로그램은 공식 홈페이지 확인</span>
+  </article>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">축제 · 자연</span></div>
+    <h2>태백 해바라기축제 (7/17~8/17) — 한여름에 시원한 '고원의 노랑'</h2>
+    <p class="summary">강원 태백 구와우마을에서 7월 17일부터 8월 17일까지 해바라기축제가 열린다. 해발 800m 안팎 고원지대라 한여름에도 비교적 선선한 것이 강점. 파란 하늘과 어우러진 대규모 해바라기밭이 여름 대표 '인생사진' 명소로 꼽힌다.</p>
+    <div class="know-point">
+      <span class="tag">🧭 알고 가면 달라지는 것</span>
+      <p>해바라기 사진을 잘 찍으려면 <b>'오전'과 '동쪽'</b>을 기억하면 된다. 해바라기는 성장기엔 해를 따라 고개를 돌리지만, 다 자라 꽃이 피면 대부분 <b>동쪽을 향해 고정</b>된다. 그래서 오전에 동쪽에서 찍어야 꽃이 '이쪽을 보는' 정면 사진이 나온다. 오후에 가면 온 꽃밭이 등을 돌리고 있어 뒤통수만 찍히는 셈. 게다가 고원지대라 오전이 덜 덥기까지 하니, 태백 해바라기는 무조건 '오전 방문'이 정답이다.</p>
+    </div>
+    <div class="meta-row">
+      <span class="meta-tag">강원 태백 구와우마을</span>
+      <span class="meta-tag">7/17~8/17</span>
+    </div>
+    <a class="source" href="https://www.news-wa.com/article/travel/tour-korea/2026/06/30/20260630500016">뉴스와</a>
+    <span class="ref-note">참고용 · 개화 상황은 홈페이지 갤러리 확인</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Calendar · 7~8월 축제 캘린더</span><span class="bar"></span></div>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">한눈에 보기</span></div>
+    <div class="fest-list">
+      <div class="fest-row">
+        <span class="fest-date">7/17~8/17</span>
+        <div class="fest-info"><span class="fest-name">태백 해바라기축제</span> · <span class="fest-loc">강원 태백 구와우마을</span></div>
+      </div>
+      <div class="fest-row">
+        <span class="fest-date">7/24~8/9</span>
+        <div class="fest-info"><span class="fest-name">보령머드축제</span> · <span class="fest-loc">충남 보령 대천해수욕장</span></div>
+      </div>
+      <div class="fest-row">
+        <span class="fest-date">7/25~8/2</span>
+        <div class="fest-info"><span class="fest-name">장흥물축제</span> · <span class="fest-loc">전남 장흥 탐진강 일원</span></div>
+      </div>
+      <div class="fest-row">
+        <span class="fest-date">8월 초</span>
+        <div class="fest-info"><span class="fest-name">부산바다축제</span> · <span class="fest-loc">부산 광안리·해운대 일대</span></div>
+      </div>
+    </div>
+    <span class="ref-note">참고용 · 날씨에 따라 일정 변동 가능, 각 지자체 공지 확인</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Trend · 올여름 여행 흐름</span><span class="bar"></span></div>
+
+  <article class="card">
+    <div class="card-top"><span class="topic">트렌드</span></div>
+    <h2>'짧고 강한 여행'이 대세 — 금·토·일 축제형 나들이</h2>
+    <p class="summary">올여름은 2박 3일, 혹은 금토일 일정으로 국내를 짧게 다녀오는 '축제형 여행'이 뜬다. 짧은 시간에 먹거리·공연·야경·체험을 한 번에 즐기려는 수요다. 고환율·항공료 부담에 해외 대신 국내를 택하는 흐름과도 맞물린다.</p>
+    <div class="know-point">
+      <span class="tag">🧭 알고 가면 달라지는 것</span>
+      <p>축제 여행에서 가장 흔한 실수가 '한낮에 도착'이다. 요즘 국내 여름 축제의 무게중심은 낮이 아니라 <b>'밤'</b>으로 옮겨갔다 — 드론쇼, 야간 워터 콘서트, EDM, 해상 불꽃쇼 대부분이 해가 진 뒤 열린다. 폭염을 피하려는 이유도 있지만, 야간 콘텐츠가 사진·영상에 더 극적이기 때문이다. 그래서 오후 늦게 도착해 밤 프로그램에 맞추는 게 '아는 사람들의' 동선. 낮에 도착해 더위에 지쳐 저녁 하이라이트를 놓치는 것만 피해도 만족도가 확 오른다.</p>
+    </div>
+    <a class="source" href="https://www.news-wa.com/article/travel/tour-korea/2026/05/18/20260518500017">뉴스와</a>
+    <span class="ref-note">참고용</span>
+  </article>
+
+  <footer>
+    <span class="pipe">여행 브리핑</span> · 매주 금요일 발행 · 여행지·축제를 '알고 가면 달라지는 포인트'와 함께 다룹니다<br>
+    날씨·일정은 변동이 크므로 출발 전 각 축제 공식 채널과 기상 정보를 반드시 확인하세요 · 모든 정보는 참고용
+  </footer>
+
+</div>
+</body>
+</html>
