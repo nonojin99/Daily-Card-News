@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="AI·테크 브리프 — 2026.07.20">
+<meta property="og:description" content="'AI 2027' 저자들의 방향 전환—2040년까지 초지능 개발을 늦추자 · AI 기업 안전성 최고 점수가 C+ · 5개월째 조용한 구글, 제미나이 3.5를 기다리는 시장 · 270억 매개변수가 아이폰에서 돌아간다 · 상장하지 않는 280조 기업">
+<meta property="og:type" content="article">
+<title>AI &amp; Tech Brief — 2026.07.20</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#2a6b7c; --accent-soft:#e9f0f2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(36px,7.5vw,56px);line-height:1.04;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 128px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 100px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Weekly Tech · AI·테크</div>
+    <h1>속도를 늦추자는 사람들</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 7월 20일 월요일</span>
+      <span class="count">5 Picks · 주간 정리</span>
+    </div>
+    <p class="lede">지난해 "2027년에 초지능이 온다"고 경고했던 연구자들이 새 보고서를 냈습니다. 이번엔 예측이 아니라 제안입니다 — 미국과 중국이 합의해 개발 속도를 의도적으로 늦추자는 것. 한편 안전성 평가에서 AI 기업들이 받은 최고 점수는 C+였습니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">1 — 거버넌스</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">緩</span>
+    <div class="card-top"><span class="topic">AI 2040</span></div>
+    <h2>"2040년까지 초지능 개발을 늦추자" — 경고에서 제안으로</h2>
+    <div class="summary">
+      <p>비영리 연구단체 AI 퓨처스 프로젝트가 새 보고서 'AI 2040: 플랜 A'를 내놨다. 이 단체는 지난해 4월 "이르면 2027년 초지능이 등장하고 인류가 통제력을 잃을 수 있다"는 시나리오 보고서 'AI 2027'로 큰 반향을 일으켰던 곳이다. 저자에는 오픈AI 출신 연구자 대니얼 코코타일로와 토머스 라슨 등 6명이 이름을 올렸다.</p>
+      <p>이번 보고서는 초지능 도달 시점 전망을 2027년에서 <strong>2030년</strong>으로 늦춰 잡으면서도, 미·중 개발 경쟁이 과열되면 재귀적 자기개선 사이클이 가속돼 통제 불능이나 극단적 권력 집중으로 이어질 위험이 크다고 진단했다. 그 대안으로 제시한 것이 미·중이 <strong>'검증 가능한 감속'</strong>에 합의해 2040년까지 초지능 개발을 미루자는 '플랜 A'다.</p>
+      <p>구체적으로는 AI 연산 자원의 엄격한 검증과 단계적 스케일링, 반도체 공급망 관리, 각국 데이터센터에 검증 장치를 설치한 상호 감시 등이 포함된다. AI 기업에는 모델 가중치를 제외한 모든 정보를 공개해 외부 검증을 받도록 하자고 제안했다.</p>
+    </div>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>이 제안의 핵심은 '금지'가 아니라 <strong>'검증'</strong>이다. 서로 믿자는 게 아니라, 데이터센터에 감시 장치를 두고 확인하자는 것 — 냉전기 핵 군축 협정의 문법을 그대로 가져왔다. 흥미로운 건 AI 감속이 기술적으로 가능한 이유가 <em>연산 자원이 눈에 보이기 때문</em>이라는 점이다. 소프트웨어는 숨길 수 있어도, 거대한 데이터센터와 반도체 공급망은 숨기기 어렵다. 규제의 지렛대가 코드가 아니라 콘크리트와 전력에 있다는 뜻이다.</p>
+    </div>
+    <a class="source" href="https://www.axios.com/2026/07/09/ai-report-slow-race-superintelligence">Axios</a>
+    <span class="ref-note">참고용 · 민간 연구단체의 정책 제안 · 실행 여부 미정</span>
+  </article>
+
+  <div class="section-rule"><span class="label">2 — 안전성 평가</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">評</span>
+    <div class="card-top"><span class="topic">AI 안전성 지수</span></div>
+    <h2>최고 점수가 C+…"자발적 약속만으로는 부족"</h2>
+    <div class="summary">
+      <p>미국 비영리 싱크탱크 퓨처오브라이프 인스티튜트(FLI)가 '2026년 상반기 AI 안전성 지수'를 발표했다. 주요 AI 기업 9곳을 평가한 결과, 가장 높은 점수를 받은 앤트로픽이 <strong>C+</strong>에 그쳤다.</p>
+      <ul class="spec">
+        <li><span class="k">앤트로픽</span><span>C+ (최고점)</span></li>
+        <li><span class="k">오픈AI · 구글 딥마인드</span><span>C</span></li>
+        <li><span class="k">메타</span><span>D+ (전년 대비 순위 상승)</span></li>
+        <li><span class="k">xAI · 미스트랄 · 딥시크</span><span>F</span></li>
+      </ul>
+      <p>FLI는 기업들이 스스로 정한 내부 '레드라인' 기준을 약화하거나 폐기하면서 안전보다 개발 경쟁에 치우쳤다고 지적했다. 맥스 테그마크 FLI 회장은 "AI 기업들이 초지능의 위험성을 경고하면서도 개발 경쟁은 멈추지 않는다"며 "자발적인 안전 약속만으로는 충분하지 않다"고 말했다.</p>
+    </div>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>주목할 대목은 <strong>1등이 C+</strong>라는 사실이다. 등수가 아니라 절대 점수를 보라는 얘기다. 이런 평가에서 상위권은 "잘하고 있다"가 아니라 "덜 못하고 있다"에 가깝다. 기업들이 안전 성과를 홍보할 때 '업계 1위'라는 표현을 쓰는 경우가 많은데, 그 리그의 평균 점수가 얼마인지를 함께 봐야 문장이 제대로 읽힌다.</p>
+    </div>
+    <a class="source" href="https://www.seoul.co.kr/news/peoples/2026/07/09/20260709023001">서울신문</a>
+    <span class="ref-note">참고용 · 평가 기관의 자체 기준 · 기업별 반론 있을 수 있음</span>
+  </article>
+
+  <div class="section-rule"><span class="label">3 — 경쟁 구도</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">靜</span>
+    <div class="card-top"><span class="topic">구글의 침묵</span></div>
+    <h2>다들 신모델을 내는데, 구글만 조용하다</h2>
+    <div class="summary">
+      <p>최근 몇 주 사이 앤트로픽이 클로드 페이블 5를, 오픈AI가 GPT-5.6을 내놨고, xAI는 그록 4.5를, 중국 지푸AI는 가격 경쟁력을 앞세운 GLM-5.2를 선보였다. 거의 매주 새 모델이 등장하는 상황에서 가장 조용한 곳은 <strong>구글</strong>이다.</p>
+      <p>구글은 지난 5월 개발자 행사에서 '제미나이 3.5 플래시'를 공개했지만, 플래그십 모델은 2월의 제미나이 2.5 프로 이후 다섯 달 가까이 후속작이 나오지 않고 있다. 업계에서는 최근 경쟁 구도에 대응하기 위해 모델 구조 자체를 새로 설계했을 가능성을 제기하지만, 이는 모두 유출 정보에 기반한 추측이다. 한편 앤트로픽은 페이블 5의 프로모션을 또 연장하며 GPT-5.6에 맞선 방어선을 치고 있다.</p>
+    </div>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>모델 출시가 잦아진 시장에서 <strong>침묵은 두 가지로 읽힌다</strong> — 뒤처졌거나, 크게 준비 중이거나. 문제는 밖에서는 둘을 구분할 수 없다는 점이다. 그래서 경쟁사들은 공백기에 프로모션과 무료 토큰을 뿌려 사용자를 묶어둔다. 다음 모델이 나오기 전에 <em>습관을 만들어 놓겠다</em>는 것이다. 지금 벌어지는 할인 경쟁은 가격 싸움이 아니라 전환 비용 싸움에 가깝다.</p>
+    </div>
+    <a class="source" href="https://www.aitimes.com/news/articleView.html?idxno=212785">AI타임스</a>
+    <span class="ref-note">⚠ 미출시 모델 관련 내용은 유출·추측 기반 · 공식 발표 아님</span>
+  </article>
+
+  <div class="section-rule"><span class="label">4 — 온디바이스</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">端</span>
+    <div class="card-top"><span class="topic">모델 경량화</span></div>
+    <h2>270억 매개변수 모델이 아이폰에서 돌아간다</h2>
+    <div class="summary">
+      <p>270억 개 매개변수 규모의 AI 모델을 성능 저하 없이 아이폰에서 구동했다는 연구 결과가 공개됐다. 그동안 이 정도 규모의 모델은 데이터센터급 하드웨어가 필요하다고 여겨져 왔다.</p>
+      <p>온디바이스 AI는 기기 안에서 연산이 끝나므로 데이터를 외부로 보내지 않아 개인정보 보호에 유리하고, 네트워크 없이도 작동하며, 호출할 때마다 드는 API 비용이 발생하지 않는다. 클라우드 기반 모델과 정면으로 경쟁하기보다, 일상적이고 반복적인 작업을 기기가 맡고 어려운 작업만 클라우드로 넘기는 분업 구조가 자리 잡는 흐름이다.</p>
+    </div>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>온디바이스 AI의 진짜 파급력은 성능이 아니라 <strong>비용 구조</strong>에 있다. 클라우드 모델은 쓸수록 돈이 나가지만, 기기에서 도는 모델은 한 번 팔면 추가 비용이 0에 수렴한다. 이는 AI 기능을 '구독'으로 팔 것이냐 '기기값에 포함'해 팔 것이냐를 가르는 분기점이다. 스마트폰 제조사들이 경량화 연구에 매달리는 이유가 여기에 있다.</p>
+    </div>
+    <a class="source" href="https://www.aitimes.com/news/articleList.html">AI타임스</a>
+    <span class="ref-note">⚠ 개별 연구 결과 · 실사용 환경에서의 재현은 별개</span>
+  </article>
+
+  <div class="section-rule"><span class="label">5 — 자본 시장</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">資</span>
+    <div class="card-top"><span class="topic">기업 가치</span></div>
+    <h2>280조 몸값에도 상장하지 않는 회사</h2>
+    <div class="summary">
+      <p>데이터 분석 플랫폼 기업 데이터브릭스가 신규 투자를 유치하며 기업 가치를 <strong>1,880억 달러(약 280조 원)</strong>로 끌어올렸다. 눈에 띄는 건 이 회사의 선택이다. 오픈AI와 앤트로픽이 기업공개(IPO)를 추진하는 흐름과 달리, 데이터브릭스는 비상장을 유지하며 사모 시장에서 자금을 조달하고 있다.</p>
+      <p>AI 인프라 기업들이 상장 없이도 수십조 원대 자금을 모을 수 있게 되면서, '성장하려면 상장해야 한다'는 오랜 공식이 흔들리고 있다.</p>
+    </div>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>상장을 미루는 건 <strong>공시 의무를 미루는 것</strong>이기도 하다. 상장사는 분기마다 실적을 공개하고 손실을 설명해야 하지만, 비상장사는 그럴 필요가 없다. AI 기업들이 막대한 연산 비용으로 적자를 감수하며 성장하는 국면에서, 이 차이는 결코 작지 않다. 지금 AI 업계의 실제 수익성이 바깥에서 잘 보이지 않는 이유 중 하나이기도 하다.</p>
+    </div>
+    <a class="source" href="https://www.aitimes.com/">AI타임스</a>
+    <span class="ref-note">⚠ 기업 가치는 투자 라운드 기준 평가액 · 실적과 별개</span>
+  </article>
+
+  <footer>
+    <span class="pipe">서브 브리프</span> · AI·테크 (월요일) · 이슈성 있는 AI·테크 소식 폭넓게 (최대 15개)<br>
+    각 항목의 <strong>"🤖 알고 보면 달라지는 것"</strong>은 발표 뒤에 숨은 맥락을 담습니다.<br>
+    미출시 모델 관련 내용은 유출·추측에 기반한 것이며, 안전성 평가와 기업 가치는 평가 기관·투자 라운드 기준이라 해석에 주의가 필요합니다.
+  </footer>
+
+</div>
+<!-- tracker (서브·AI/테크 · 2026-07-20 기준)
+[규칙 적용] 서브는 카드 수 고정 없이 이슈성 있는 항목 전부, 최대 15개. 오늘 5개(거버넌스1·안전성1·경쟁구도1·온디바이스1·자본시장1).
+[AI 2040] AI 퓨처스 프로젝트 'AI 2040: Plan A' 발표(7/9~10). 전작 'AI 2027'(2025.4)에서 초지능 도달 2027년 예측 → 이번에 2030년으로 수정. 미중 '검증 가능한 감속' 합의로 2040년까지 ASI 개발 연기 제안. 4대 전략: 연산자원 검증·단계적 스케일링, 반도체 공급망 관리, 데이터센터 검증장치 상호감시, 기업의 가중치 외 전 정보 공개. 저자 6인(대니얼 코코타일로 전 오픈AI, 토머스 라슨 등). AI 2027은 JD 밴스 부통령도 읽었다고 알려짐
+[FLI 안전성 지수] 2026 상반기 AI Safety Index(7/7 발표, Axios 보도). 9개사 평가: 앤트로픽 C+(최고), 오픈AI·구글 딥마인드 C, 메타 D+, xAI·미스트랄·딥시크 F. 맥스 테그마크 회장 "자발적 약속만으로 불충분", 내부 레드라인 약화·폐기 지적
+[경쟁 구도] 구글 플래그십 공백 — 제미나이 2.5 프로(2월) 이후 5개월. 5월 I/O에서 3.5 플래시만 공개. 3.5 프로 관련 내용은 유출 기반 추측(단정 금지). 최근 출시: 앤트로픽 페이블5(7/1), 오픈AI GPT-5.6(7/9), xAI 그록4.5, 지푸AI GLM-5.2(가격 경쟁력). 앤트로픽 페이블5 프로모션 재연장(GPT-5.6 방어). 오픈AI·앤트로픽 무료 토큰 경쟁 진행 중
+[온디바이스] 270억 매개변수 모델 아이폰 구동(성능 저하 없음) 연구 공개. ※구체 연구팀·모델명 미확인 → 다음 회차 확인
+[자본시장] 데이터브릭스 기업가치 1,880억달러(약 280조원)로 상승, 비상장 유지. 오픈AI·앤트로픽은 IPO 추진 중
+[지난주 다룬 것과 중복 회피] 오픈라우터 중국 모델 8/10 점유(7/13 브리프에서 다룸) — 이번엔 제외
+[미확인·보류] 앤트로픽 국내 무료 사용자 '250억 청구서' 논란 / 삼성전자 2분기 매출 171조·영업이익 89조4천억 보도(수치 이례적으로 커 교차검증 실패, 미수록) / Patreon AI 학습 차단·Meta 사진 기능 철회 → 다음 회차 확인
+[종목 체크리스트(AI·테크)] 신모델 출시 / 벤치마크·평가 / 안전성·규제·거버넌스 / 국내 AI 정책·기업 / 반도체·인프라 / 온디바이스·하드웨어 / 자본시장·투자 / 저작권·데이터 분쟁 — 매주 훑고 이슈 있는 것만 수록
+[다음 월요일(7/27)] 구글 제미나이 3.5 프로 출시 여부 / GPT-5.6 실사용 평가 / 국내 3대 메가프로젝트 후속 / 2분기 빅테크 실적
+[디자인] AI·테크 accent 딥티일 #2a6b7c · accent-soft #e9f0f2 · 스펙표(.spec) 사용
+-->
+</body>
+</html>
