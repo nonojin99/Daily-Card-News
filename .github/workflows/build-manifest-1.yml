@@ -1,0 +1,69 @@
+name: Build manifest
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate manifest.json
+        shell: python
+        run: |
+          import json, os, re, datetime
+          P = re.compile(r'^(\d{4})-(\d{2})-(\d{2})_([a-z]+)-brief\.html$', re.I)
+          files, odd = [], []
+          for root, dirs, names in os.walk('.'):
+              dirs[:] = [d for d in dirs if not d.startswith('.')]
+              rel = os.path.relpath(root, '.')
+              if rel != '.' and not re.fullmatch(r'\d{4}-\d{2}', rel):
+                  continue
+              for n in names:
+                  if not n.lower().endswith(('.html', '.htm')):
+                      continue
+                  if n.lower().startswith('index'):
+                      continue
+                  path = n if rel == '.' else rel + '/' + n
+                  m = P.match(n)
+                  if m:
+                      files.append({
+                          'date': m.group(1) + '-' + m.group(2) + '-' + m.group(3),
+                          'month': m.group(1) + '-' + m.group(2),
+                          'year': m.group(1),
+                          'mon': m.group(2),
+                          'day': m.group(3),
+                          'type': m.group(4).lower(),
+                          'path': path,
+                      })
+                  else:
+                      odd.append(path)
+          files.sort(key=lambda f: f['type'] != 'daily')
+          files.sort(key=lambda f: f['date'], reverse=True)
+          odd.sort()
+          out = {
+              'generated': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+              'count': len(files),
+              'files': files,
+              'odd': odd,
+          }
+          with open('manifest.json', 'w', encoding='utf-8') as fp:
+              json.dump(out, fp, ensure_ascii=False, indent=2)
+              fp.write('\n')
+          print('brief:', len(files), '/ odd:', len(odd))
+
+      - name: Commit manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manifest.json
+          git diff --staged --quiet || git commit -m "chore: update manifest.json [skip ci]"
+          git push
