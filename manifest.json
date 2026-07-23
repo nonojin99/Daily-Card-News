@@ -1,7 +1,529 @@
 {
-  "generated": "2026-07-24T00:00:00Z",
-  "count": 0,
-  "files": [],
-  "odd": [],
-  "_comment": "이 파일은 GitHub Actions(.github/workflows/build-manifest.yml)가 자동으로 덮어씁니다. 첫 워크플로우 실행 전 페이지가 깨지지 않도록 넣어둔 초기값입니다."
+  "generated": "2026-07-23T23:03:07Z",
+  "count": 58,
+  "files": [
+    {
+      "date": "2026-07-24",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "24",
+      "type": "daily",
+      "path": "2026-07-24_daily-brief.html"
+    },
+    {
+      "date": "2026-07-24",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "24",
+      "type": "travel",
+      "path": "2026-07-24_travel-brief.html"
+    },
+    {
+      "date": "2026-07-23",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "23",
+      "type": "daily",
+      "path": "2026-07-23_daily-brief.html"
+    },
+    {
+      "date": "2026-07-23",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "23",
+      "type": "music",
+      "path": "2026-07-23_music-brief.html"
+    },
+    {
+      "date": "2026-07-22",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "22",
+      "type": "daily",
+      "path": "2026-07-22_daily-brief.html"
+    },
+    {
+      "date": "2026-07-22",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "22",
+      "type": "culture",
+      "path": "2026-07-22_culture-brief.html"
+    },
+    {
+      "date": "2026-07-21",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "21",
+      "type": "daily",
+      "path": "2026-07-21_daily-brief.html"
+    },
+    {
+      "date": "2026-07-21",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "21",
+      "type": "sports",
+      "path": "2026-07-21_sports-brief.html"
+    },
+    {
+      "date": "2026-07-20",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "20",
+      "type": "daily",
+      "path": "2026-07-20_daily-brief.html"
+    },
+    {
+      "date": "2026-07-20",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "20",
+      "type": "ai",
+      "path": "2026-07-20_ai-brief.html"
+    },
+    {
+      "date": "2026-07-19",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "19",
+      "type": "science",
+      "path": "2026-07-19_science-brief.html"
+    },
+    {
+      "date": "2026-07-18",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "18",
+      "type": "daily",
+      "path": "2026-07-18_daily-brief.html"
+    },
+    {
+      "date": "2026-07-18",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "18",
+      "type": "activity",
+      "path": "2026-07-18_activity-brief.html"
+    },
+    {
+      "date": "2026-07-16",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "16",
+      "type": "daily",
+      "path": "2026-07-16_daily-brief.html"
+    },
+    {
+      "date": "2026-07-16",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "16",
+      "type": "music",
+      "path": "2026-07-16_music-brief.html"
+    },
+    {
+      "date": "2026-07-14",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "14",
+      "type": "daily",
+      "path": "2026-07-14_daily-brief.html"
+    },
+    {
+      "date": "2026-07-14",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "14",
+      "type": "sports",
+      "path": "2026-07-14_sports-brief.html"
+    },
+    {
+      "date": "2026-07-13",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "13",
+      "type": "daily",
+      "path": "2026-07-13_daily-brief.html"
+    },
+    {
+      "date": "2026-07-13",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "13",
+      "type": "ai",
+      "path": "2026-07-13_ai-brief.html"
+    },
+    {
+      "date": "2026-07-12",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "12",
+      "type": "daily",
+      "path": "2026-07-12_daily-brief.html"
+    },
+    {
+      "date": "2026-07-12",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "12",
+      "type": "science",
+      "path": "2026-07-12_science-brief.html"
+    },
+    {
+      "date": "2026-07-11",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "11",
+      "type": "daily",
+      "path": "2026-07-11_daily-brief.html"
+    },
+    {
+      "date": "2026-07-11",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "11",
+      "type": "activity",
+      "path": "2026-07-11_activity-brief.html"
+    },
+    {
+      "date": "2026-07-10",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "10",
+      "type": "daily",
+      "path": "2026-07-10_daily-brief.html"
+    },
+    {
+      "date": "2026-07-10",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "10",
+      "type": "travel",
+      "path": "2026-07-10_travel-brief.html"
+    },
+    {
+      "date": "2026-07-09",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "09",
+      "type": "daily",
+      "path": "2026-07-09_daily-brief.html"
+    },
+    {
+      "date": "2026-07-09",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "09",
+      "type": "music",
+      "path": "2026-07-09_music-brief.html"
+    },
+    {
+      "date": "2026-07-08",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "08",
+      "type": "daily",
+      "path": "2026-07-08_daily-brief.html"
+    },
+    {
+      "date": "2026-07-08",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "08",
+      "type": "culture",
+      "path": "2026-07-08_culture-brief.html"
+    },
+    {
+      "date": "2026-07-07",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "07",
+      "type": "daily",
+      "path": "2026-07-07_daily-brief.html"
+    },
+    {
+      "date": "2026-07-07",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "07",
+      "type": "sports",
+      "path": "2026-07-07_sports-brief.html"
+    },
+    {
+      "date": "2026-07-06",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "06",
+      "type": "daily",
+      "path": "2026-07-06_daily-brief.html"
+    },
+    {
+      "date": "2026-07-06",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "06",
+      "type": "ai",
+      "path": "2026-07-06_ai-brief.html"
+    },
+    {
+      "date": "2026-07-05",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "05",
+      "type": "daily",
+      "path": "2026-07-05_daily-brief.html"
+    },
+    {
+      "date": "2026-07-05",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "05",
+      "type": "science",
+      "path": "2026-07-05_science-brief.html"
+    },
+    {
+      "date": "2026-07-03",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "03",
+      "type": "daily",
+      "path": "2026-07-03_daily-brief.html"
+    },
+    {
+      "date": "2026-07-03",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "03",
+      "type": "travel",
+      "path": "2026-07-03_travel-brief.html"
+    },
+    {
+      "date": "2026-07-02",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "02",
+      "type": "daily",
+      "path": "2026-07-02_daily-brief.html"
+    },
+    {
+      "date": "2026-07-02",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "02",
+      "type": "music",
+      "path": "2026-07-02_music-brief.html"
+    },
+    {
+      "date": "2026-07-01",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "01",
+      "type": "daily",
+      "path": "2026-07-01_daily-brief.html"
+    },
+    {
+      "date": "2026-07-01",
+      "month": "2026-07",
+      "year": "2026",
+      "mon": "07",
+      "day": "01",
+      "type": "culture",
+      "path": "2026-07-01_culture-brief.html"
+    },
+    {
+      "date": "2026-06-30",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "30",
+      "type": "daily",
+      "path": "2026-06-30_daily-brief.html"
+    },
+    {
+      "date": "2026-06-29",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "29",
+      "type": "daily",
+      "path": "2026-06-29_daily-brief.html"
+    },
+    {
+      "date": "2026-06-28",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "28",
+      "type": "daily",
+      "path": "2026-06-28_daily-brief.html"
+    },
+    {
+      "date": "2026-06-27",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "27",
+      "type": "daily",
+      "path": "2026-06-27_daily-brief.html"
+    },
+    {
+      "date": "2026-06-26",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "26",
+      "type": "daily",
+      "path": "2026-06-26_daily-brief.html"
+    },
+    {
+      "date": "2026-06-25",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "25",
+      "type": "daily",
+      "path": "2026-06-25_daily-brief.html"
+    },
+    {
+      "date": "2026-06-24",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "24",
+      "type": "daily",
+      "path": "2026-06-24_daily-brief.html"
+    },
+    {
+      "date": "2026-06-23",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "23",
+      "type": "daily",
+      "path": "2026-06-23_daily-brief.html"
+    },
+    {
+      "date": "2026-06-22",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "22",
+      "type": "daily",
+      "path": "2026-06-22_daily-brief.html"
+    },
+    {
+      "date": "2026-06-21",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "21",
+      "type": "daily",
+      "path": "2026-06-21_daily-brief.html"
+    },
+    {
+      "date": "2026-06-18",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "18",
+      "type": "daily",
+      "path": "2026-06-18_daily-brief.html"
+    },
+    {
+      "date": "2026-06-17",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "17",
+      "type": "daily",
+      "path": "2026-06-17_daily-brief.html"
+    },
+    {
+      "date": "2026-06-16",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "16",
+      "type": "daily",
+      "path": "2026-06-16_daily-brief.html"
+    },
+    {
+      "date": "2026-06-15",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "15",
+      "type": "daily",
+      "path": "2026-06-15_daily-brief.html"
+    },
+    {
+      "date": "2026-06-14",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "14",
+      "type": "daily",
+      "path": "2026-06-14_daily-brief.html"
+    },
+    {
+      "date": "2026-06-13",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "13",
+      "type": "daily",
+      "path": "2026-06-13_daily-brief.html"
+    },
+    {
+      "date": "2026-06-12",
+      "month": "2026-06",
+      "year": "2026",
+      "mon": "06",
+      "day": "12",
+      "type": "daily",
+      "path": "2026-06-12_daily-brief.html"
+    }
+  ],
+  "odd": []
 }
