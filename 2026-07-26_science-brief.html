@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="우주·과학 롱리드 — 2026.07.26">
+<meta property="og:description" content="8월 13일 새벽, 유럽에 개기일식이 지나고 우리 하늘엔 페르세우스 유성우가 쏟아진다. 두 사건이 겹친 이유, 한국에서 일식을 못 보는 이유, 그리고 유성우에 망원경을 꺼내면 안 되는 이유.">
+<meta property="og:type" content="article">
+<title>Long-read: 우주·과학 — 2026.07.26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d4a7c; --accent-soft:#eceef5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 126px;font-weight:600;color:var(--accent)}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 100px}.timeline .when{flex:0 0 96px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Long-read · 우주·과학</div>
+    <h1>달이 사라지는 밤, 별이 쏟아진다</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 7월 26일 일요일</span>
+      <span class="count">One Topic · 롱리드</span>
+    </div>
+    <p class="lede">3주 뒤, 유럽에서는 한낮이 밤으로 바뀝니다. 같은 시기 우리 하늘에서는 페르세우스 유성우가 극대에 이릅니다. 두 사건이 겹친 건 우연이지만, 겹칠 수 있었던 이유는 우연이 아닙니다. 하나가 다른 하나의 조건을 만들어 주기 때문입니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">1 — 무엇이 겹치나</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">逢</span>
+    <div class="card-top"><span class="topic">일정</span></div>
+    <h2>8월 중순, 하늘에서 두 가지가 동시에 일어난다</h2>
+    <div class="summary">
+      <p>하나는 개기일식이다. 달의 그림자가 북극해에서 시작해 그린란드와 아이슬란드를 지나 스페인을 관통하고 지중해 상공에서 끝난다. 현지 기준으로는 8월 12일이고, 한국시간으로는 8월 13일 새벽에 해당한다. 한국천문연구원이 이 일식을 "8월 13일"로 표기하는 것도 그래서다.</p>
+      <p>다른 하나는 페르세우스자리 유성우다. 한국천문연구원은 극대 시각을 8월 13일 정오(한국시간)로 보고, 관측에는 8월 13일 새벽과 8월 14일 새벽이 유리하다고 안내했다. 사분의자리·쌍둥이자리와 함께 3대 유성우로 꼽히며, 조건이 좋을 때 시간당 100개 안팎이 관측된다.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">8월 12일</span><span>개기일식 (현지 기준) — 그린란드·아이슬란드·스페인</span></li>
+      <li><span class="when">8월 13일 새벽</span><span>같은 일식의 한국시간 · 유성우 관측 1차 적기</span></li>
+      <li><span class="when">8월 13일 정오</span><span>페르세우스 유성우 극대 (한국시간)</span></li>
+      <li><span class="when">8월 14일 새벽</span><span>유성우 관측 2차 적기</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🚀 알고 보면 달라지는 것</span>
+      <p>같은 하늘의 사건인데 날짜가 자료마다 8월 12일과 13일로 갈린다. 오기가 아니라 시간대 문제다. 일식은 세계시(UTC) 기준 8월 12일 늦은 오후에 일어나고, 한국은 거기서 9시간 앞서므로 날짜가 하루 넘어간다. 해외 기사에서 본 날짜와 국내 기관 발표가 다르다면 대개 이 9시간 때문이다.</p>
+    </div>
+    <a class="source" href="https://www.kasi.re.kr/kor/publication/post/newsMaterial/32192">한국천문연구원</a>
+    <span class="ref-note">⚠ 극대 시각·관측 조건은 기관별 산정 기준에 따라 소폭 차이</span>
+  </article>
+
+  <div class="section-rule"><span class="label">2 — 왜 하필 같은 날인가</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">朔</span>
+    <div class="card-top"><span class="topic">역학</span></div>
+    <h2>일식이 있다는 건, 그날 밤 달이 없다는 뜻이다</h2>
+    <div class="summary">
+      <p>일식은 달이 해와 지구 사이에 정확히 끼어들 때만 생긴다. 그 위치가 바로 삭(朔), 곧 신월이다. 신월의 달은 태양과 같은 방향에 있으므로 낮에 하늘을 지나가고, 해가 진 뒤에는 이미 함께 넘어가 있다. 즉 <strong>개기일식이 일어나는 날의 밤하늘에는 달빛이 없다.</strong></p>
+      <p>이것이 유성우에는 결정적이다. 유성우 관측을 가장 크게 방해하는 것이 달빛이기 때문이다. 보름달이 떠 있으면 어두운 유성은 대부분 묻혀서, 같은 유성우라도 관측 수가 몇 분의 일로 줄어든다. 올해 페르세우스 유성우가 "조건이 최상"이라 불리는 이유는 유성이 더 많아져서가 아니라, 방해할 달이 없어서다.</p>
+    </div>
+    <div class="insight">
+      <span class="tag">🚀 알고 보면 달라지는 것</span>
+      <p>페르세우스 유성우의 극대 날짜는 매년 8월 12~13일로 거의 고정돼 있다. 지구가 스위프트-터틀 혜성이 남긴 먼지 띠를 매년 같은 지점에서 통과하기 때문이다. 반면 달의 위상은 약 29.5일 주기로 돌기 때문에 해마다 어긋난다. 그래서 '유성우 대박인 해'와 '달빛에 다 묻히는 해'가 번갈아 오는데, 올해는 삭이 극대에 거의 정확히 얹혔다. 몇 해에 한 번 오는 배치다.</p>
+    </div>
+    <a class="source" href="https://news.nate.com/view/20251224n17935">네이트 뉴스 · 천문연 발표 정리</a>
+    <span class="ref-note">참고용 · 달 위상과 극대 시각의 관계는 해마다 달라짐</span>
+  </article>
+
+  <div class="section-rule"><span class="label">3 — 왜 한국에선 못 보나</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">帶</span>
+    <div class="card-top"><span class="topic">지리</span></div>
+    <h2>그림자의 폭은 수백 킬로미터, 지구는 4만 킬로미터</h2>
+    <div class="summary">
+      <p>달이 지구에 드리우는 본그림자는 생각보다 훨씬 작다. 개기일식을 볼 수 있는 띠, 이른바 총식대의 폭은 보통 수백 킬로미터에 그친다. 이 좁은 띠 밖에서는 해가 일부만 가리는 부분일식으로 보이고, 더 벗어나면 아무 일도 일어나지 않는다.</p>
+      <p>이번 그림자의 경로는 북극해에서 시작해 유럽을 가로지르고 지중해에서 끝난다. 한반도는 그 경로에서 완전히 벗어나 있다. 한국천문연구원도 이번 일식은 북아메리카·서아프리카·유럽에서 관측 가능하며 <strong>우리나라에서는 볼 수 없다</strong>고 밝혔다. 올해 2월 17일 금환일식 역시 남아르헨티나·칠레·남아프리카·남극에서만 보였다.</p>
+      <p>스페인이 특히 주목받는 건 총식대가 국토의 약 40%를 덮기 때문이다. 이베리아반도에서 개기일식을 본 것은 100여 년 만이고, 유럽 본토 기준으로는 1999년 이후 처음이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">경로</span><span>북극해 → 그린란드 → 아이슬란드 → 스페인 → 지중해</span></li>
+      <li><span class="k">스페인</span><span>국토 약 40%가 총식대에 포함</span></li>
+      <li><span class="k">희소성</span><span>유럽 본토 기준 1999년 이후 처음</span></li>
+      <li><span class="k">한국</span><span>관측 불가 (부분일식도 해당 없음)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🚀 알고 보면 달라지는 것</span>
+      <p>개기일식 자체는 지구 어딘가에서 1~2년에 한 번꼴로 일어난다. 드문 건 현상이 아니라 '내가 서 있는 자리'다. 좁은 띠가 지구를 무작위로 훑고 지나가기 때문에, 한 지점에서 다음 개기일식을 보려면 평균 수백 년을 기다려야 한다는 계산이 흔히 인용된다. 일식을 보러 사람들이 비행기를 타는 이유가 여기 있다 — 기다리는 것보다 이동하는 편이 압도적으로 빠르다.</p>
+    </div>
+    <a class="source" href="https://www.tourspain.es/consejerias/tokio/ko/bi-tu-bi/eclipse-total-2026-astroturismo-espana/">스페인관광청</a>
+    <span class="ref-note">⚠ '평균 수백 년' 수치는 통계적 추정 · 산정 방식에 따라 편차 큼</span>
+  </article>
+
+  <div class="section-rule"><span class="label">4 — 이번엔 망원경을 두고 나가자</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">眼</span>
+    <div class="card-top"><span class="topic">관측</span></div>
+    <h2>유성우에 망원경이 불리한 이유</h2>
+    <div class="summary">
+      <p>유성우는 망원경이나 쌍안경을 쓰면 오히려 손해다. 배율을 올릴수록 보이는 하늘의 면적이 좁아지는데, 유성은 하늘 어디서 나타날지 알 수 없기 때문이다. 좁은 시야에 유성이 지나갈 확률은 급격히 떨어진다. 맨눈이 가장 넓은 시야를 확보하는 유일한 방법이고, 그래서 최선의 장비다.</p>
+      <p>복사점(페르세우스자리) 역시 정면으로 응시할 필요가 없다. 복사점 부근에서 나타나는 유성은 관측자 쪽으로 다가오는 각도라 짧게 보이고, 복사점에서 30~40도쯤 떨어진 하늘의 유성이 길게 그어진다. 시선을 하늘 전체에 느슨하게 두는 편이 낫다.</p>
+      <p>눈이 어둠에 적응하는 데는 20~30분이 걸린다. 그 사이 휴대폰 화면을 한 번 보면 적응이 거의 초기화되므로, 시계나 별자리 앱을 확인해야 한다면 화면을 최대한 어둡게 하거나 붉은 필터를 쓰는 편이 좋다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">장비</span><span>맨눈 권장 · 망원경·쌍안경은 오히려 불리</span></li>
+      <li><span class="k">시선</span><span>복사점에서 30~40도 떨어진 하늘</span></li>
+      <li><span class="k">암순응</span><span>20~30분 · 휴대폰 화면에 초기화됨</span></li>
+      <li><span class="k">자세</span><span>눕거나 기대어 하늘 넓게 · 목 부담 최소화</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🚀 알고 보면 달라지는 것</span>
+      <p>"시간당 100개"라는 숫자는 그대로 믿으면 안 된다. 이 값은 ZHR(천정시간율)이라는 지표로, 복사점이 머리 꼭대기에 있고 하늘이 완전히 어두운 <strong>이상적 조건</strong>을 가정한 이론값이다. 실제로는 복사점 고도가 낮을수록, 광해가 심할수록 급격히 줄어든다. 아파트 발코니 같은 도심 관측 환경이라면 시간당 몇 개 수준을 기대하는 편이 현실적이고, 그래서 이번처럼 달이 없는 해에 광해가 적은 곳으로 잠깐이라도 나가는 것이 숫자를 몇 배로 바꾼다.</p>
+    </div>
+    <a class="source" href="https://starwalk.space/en/news/all-you-need-to-know-about-the-perseids">Star Walk</a>
+    <span class="ref-note">참고용 · 실제 관측 수는 하늘 상태·광해·시야에 따라 크게 달라짐</span>
+  </article>
+
+  <div class="section-rule"><span class="label">5 — 그다음은 언제인가</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">待</span>
+    <div class="card-top"><span class="topic">일정</span></div>
+    <h2>스페인의 3년, 그리고 한국의 차례</h2>
+    <div class="summary">
+      <p>이번 일식은 시작일 뿐이다. 2027년 8월 2일에는 스페인 남부와 북아프리카·중동을 지나는 개기일식이 있고, 이집트 룩소르 일대에서는 6분 넘게 이어질 것으로 예상된다. 육지에서 관측 가능한 일식 중 이번 세기 최장급이다. 이어 2028년 1월 26일에는 스페인에서 금환일식이 있다. 3년 사이 같은 나라에서 세 번의 일식이 일어나는 셈이라, 현지에서는 천문 관광을 겨냥한 준비가 이미 진행 중이다.</p>
+      <p>한국 차례는 훨씬 뒤다. 국내 관측 가이드들은 2035년 9월 2일 일식을 한국에서 가장 의미 있는 일식으로 꼽는다. 다만 이 대목은 기관 발표가 아닌 관측 커뮤니티 자료를 근거로 하므로, 시점이 가까워지면 한국천문연구원 공식 발표로 확인하는 편이 좋다.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">2026.08.12</span><span>개기일식 — 아이슬란드·스페인 (유럽 본토 1999년 이후 처음)</span></li>
+      <li><span class="when">2027.08.02</span><span>개기일식 — 스페인 남부·북아프리카·중동 (룩소르 6분대)</span></li>
+      <li><span class="when">2028.01.26</span><span>금환일식 — 스페인</span></li>
+      <li><span class="when">2028.07.22</span><span>개기일식 — 호주 (울룰루 일대)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🚀 알고 보면 달라지는 것</span>
+      <p>일식이 이렇게 몰려 오는 데에는 규칙이 있다. 태양과 달의 궤도가 만나는 지점(교점)을 지구가 지나가는 시기에만 일식이 가능하고, 그 시기가 1년에 두 번씩 찾아온다. 게다가 일식은 약 18년 11일 주기로 비슷한 배열이 되풀이되는데, 이를 사로스 주기라 부른다. 고대 천문학자들이 망원경 없이도 일식을 예측할 수 있었던 건 이 반복을 기록으로 알아냈기 때문이다.</p>
+    </div>
+    <a class="source" href="https://www.esquirekorea.co.kr/article/1897142">에스콰이어 코리아</a>
+    <span class="ref-note">⚠ 2035년 국내 일식 정보는 커뮤니티 자료 기준 · 공식 발표로 재확인 권장</span>
+  </article>
+
+  <footer>
+    <span class="pipe">서브 브리프</span> · 우주·과학 (일요일) · 한 주제 롱리드<br>
+    각 항목의 <strong>"🚀 알고 보면 달라지는 것"</strong>은 현상 뒤의 천문학적·관측적 맥락을 담습니다.<br>
+    일식·유성우의 시각은 시간대(UTC/KST)에 따라 날짜 표기가 달라질 수 있고, 관측 조건은 날씨와 광해에 크게 좌우됩니다. 출처 링크에서 최종 확인을 권장합니다.
+    <!-- tracker: 페르세우스 유성우 극대 8/13~14 새벽 → 8/10경 회차에서 관측 임박 안내 재등장 가능. 개기일식(현지 8/12) 당일 결과 → 8/13~14 회차 후속. 외계위성 후보 최초 발견(네이처 7/23, 갈색왜성 CD-35 2722 B) → 다음 일요일 롱리드 후보. 누리호 5차 발사·달 착륙 2030 목표 → 일정 확정 시 다룸. 엘니뇨-폭염 인과 논쟁(전문가 이견) → 폭염 지속 시 롱리드 후보. -->
+    <!-- review 2026-07-26:
+         [사실] 일식 날짜가 자료마다 8/12(해외)·8/13(천문연)으로 갈림 → UTC/KST 9시간 차이임을 확인하고 양쪽 병기 + 본문에서 원인 설명.
+         [사실] '특정 장소 375년에 한 번' 수치가 블로그 출처뿐 → 단정 대신 '흔히 인용되는 계산'으로 완화하고 ref-note에 편차 명시.
+         [사실] 2035년 한국 일식은 커뮤니티 자료 근거 → 기관 발표 아님을 본문과 ref-note에 명시.
+         [형식] 메인 3·4번 카드가 모두 경향신문이었음 → 4번을 헤럴드경제로 교체해 매체 분산.
+         [판단] 우주·과학 서브는 5개 뉴스 나열이 아니라 한 주제 롱리드 형식(7/19 회차 확인) → 개별 소재(외계위성 등)는 tracker로 이월.
+    -->
+  </footer>
+
+</div>
+</body>
+</html>
