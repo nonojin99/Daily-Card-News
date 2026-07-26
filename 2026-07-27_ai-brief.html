@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="AI·테크 브리프 — 2026.07.27">
+<meta property="og:description" content="구글이 상장 22년 만에 처음 현금을 태웠다 · 빅5, 2027년엔 투자가 벌이를 넘어설 전망 · 오픈AI 3.2GW·메타 12조 채권 · D램 현물가 계약가의 2배 · 이번 주 실적이 시험대">
+<meta property="og:type" content="article">
+<title>Weekly Tech — 2026.07.27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#2a6b7c; --accent-soft:#e9f0f2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 126px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 100px}.timeline .when{flex:0 0 96px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Weekly Tech · AI·테크</div>
+    <h1>돈은 버는데 현금이 마른다</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 7월 27일 월요일</span>
+      <span class="count">5 Picks · 주간 정리</span>
+    </div>
+    <p class="lede">지난주 구글은 매출도 클라우드도 잘 나왔는데 주가는 7% 빠졌습니다. 상장 22년 만에 처음으로 분기 현금이 마이너스가 됐기 때문입니다. AI 논쟁의 축이 '얼마나 잘하나'에서 '언제까지 버티나'로 옮겨간 한 주였습니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">1 — 자본</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">渴</span>
+    <div class="card-top"><span class="topic">재무</span></div>
+    <h2>구글, 상장 이후 첫 분기 현금 유출</h2>
+    <div class="summary">
+      <p>알파벳의 2분기 잉여현금흐름(FCF)이 마이너스 58억5500만 달러를 기록했다. 2004년 나스닥 상장 이후 분기 기준으로 FCF가 마이너스로 돌아선 것은 처음이다. 영업활동으로 391억 달러를 벌었지만 데이터센터와 AI 서버에 449억 달러를 쓴 결과다.</p>
+      <p>실적 자체는 나쁘지 않았다. 클라우드 매출은 AI 서비스 수요에 힘입어 80%를 넘는 성장률로 시장 예상치를 웃돌았다. 그런데도 주가는 발표 후 7%대 급락했다. 아나트 애슈케나지 알파벳 최고재무책임자는 "기술 인프라 투자로 당분간 잉여현금흐름은 압박을 받겠지만, 이를 통해 AI 시장 기회를 선점하고 장기적으로 매력적인 수익을 낼 수 있을 것"이라고 말했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">2분기 FCF</span><span>−58억5500만 달러 (상장 이후 첫 분기 적자)</span></li>
+      <li><span class="k">영업활동 현금</span><span>391억 달러</span></li>
+      <li><span class="k">2분기 CAPEX</span><span>449억 달러 (전년 동기 대비 약 2배 · 전분기 대비 +25.9%)</span></li>
+      <li><span class="k">올해 전망</span><span>최대 1900억 → 2050억 달러로 상향</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>잉여현금흐름은 '영업으로 번 현금 − 설비에 쓴 현금'이다. 그래서 마이너스라는 건 적자가 났다는 뜻이 아니다. 알파벳은 영업이익을 충분히 냈고, 다만 번 것보다 더 많이 투자에 밀어 넣었다. 회계상 이익과 손에 남는 현금은 다르게 움직이며, 배당·자사주 매입·부채 상환은 이익이 아니라 이 현금으로 한다. 투자자가 예민해지는 지점이 여기다.</p>
+    </div>
+    <a class="source" href="https://www.sedaily.com/article/20071054">서울경제</a>
+    <span class="ref-note">⚠ 내년 CAPEX 전망치는 매체별 표기에 차이 있음 · 원자료 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">2 — 구조</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">越</span>
+    <div class="card-top"><span class="topic">산업 구조</span></div>
+    <h2>빅5, 2027년엔 투자가 벌이를 넘어선다</h2>
+    <div class="summary">
+      <p>알파벳만의 일이 아니다. 로이터가 금융정보업체 LSEG 전망치를 분석한 결과, 마이크로소프트·알파벳·아마존·메타·오라클 등 미국 5대 하이퍼스케일러는 현재 추세가 이어지면 <strong>2027년에 자본지출이 잉여현금흐름을 넘어설 전망</strong>이다. 이들의 2027년 영업현금흐름은 2025년보다 연간 약 3400억 달러 늘어날 것으로 예상되는데, 그보다 투자가 더 빨리 늘고 있다는 뜻이다.</p>
+      <p>이미 조짐은 여러 곳에서 보인다. 마이크로소프트는 회계연도 2분기 영업현금흐름이 358억 달러였는데 자본지출은 375억 달러였다. 아마존은 최근 12개월 영업현금흐름이 30% 늘어 1485억 달러를 기록했지만, 잉여현금흐름은 12억 달러까지 쪼그라들었다. 다만 마이크로소프트·알파벳·메타는 아직 배당과 자사주 매입을 감당할 만한 여력을 유지하고 있다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">전망</span><span>빅5 하이퍼스케일러, 2027년 CapEx &gt; FCF (로이터·LSEG)</span></li>
+      <li><span class="k">마이크로소프트</span><span>영업현금 358억 vs 자본지출 375억 달러</span></li>
+      <li><span class="k">아마존</span><span>영업현금 1485억(+30%) · FCF 12억 달러로 축소</span></li>
+      <li><span class="k">관건</span><span>AI 수익화 실패 시 투자 부담이 기업가치에 부메랑</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>아마존의 숫자를 보면 이 구조가 선명하다. 영업현금흐름이 30% 늘었는데도 남은 현금은 12억 달러, 즉 벌어들인 것의 1%도 채 안 된다. 매출이 커질수록 안전해지는 게 아니라, 커지는 속도만큼 투자도 커져서 여유가 사라지는 것이다. 성장률이 높은데 현금이 빠듯한 회사를 볼 때 물어야 할 질문은 "얼마나 성장했나"가 아니라 "그 성장에 얼마를 넣고 있나"다.</p>
+    </div>
+    <a class="source" href="https://www.fnnews.com/news/202607231107419923">파이낸셜뉴스</a>
+    <span class="ref-note">참고용 · LSEG 전망치 기반 추정이며 실제 결과와 다를 수 있음</span>
+  </article>
+
+  <div class="section-rule"><span class="label">3 — 인프라</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">築</span>
+    <div class="card-top"><span class="topic">데이터센터</span></div>
+    <h2>그런데 아무도 멈추지 않는다</h2>
+    <div class="summary">
+      <p>현금 부담이 드러난 그 주에, 오히려 신규 투자 발표가 이어졌다. 오픈AI는 미국 조지아주에 <strong>3.2기가와트(GW)급</strong> 데이터센터를 구축하는 프로젝트를 내놨다. 메타는 세계 최대 자산운용사 블랙록과 함께 데이터센터 건설을 위한 120억 달러 규모 채권 발행을 추진하고 있다. 알파벳은 "내년에도 설비투자가 크게 늘 것"이라고 못박았다.</p>
+      <p>KB증권 이은택 연구원은 "시장은 AI 투자가 좋다는 건 알겠는데 이 투자를 언제까지 버틸 수 있느냐고 묻고 있는 것"이라면서도 "구글의 실적 발표가 보여준 것은 분명하다. FCF가 마이너스로 돌아서더라도 구글은 AI 자본지출을 쉽게 멈출 수 없다"고 짚었다. 챗봇과 AI 에이전트, 피지컬 AI로 서비스 경쟁이 확장되면서 연산 수요가 구조적으로 늘고 있어 투자를 줄이기 어려운 구조라는 분석이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">오픈AI</span><span>조지아주 3.2GW급 데이터센터 프로젝트</span></li>
+      <li><span class="k">메타</span><span>블랙록과 120억 달러 규모 채권 발행 추진</span></li>
+      <li><span class="k">알파벳</span><span>"내년에도 설비투자 크게 늘 것"</span></li>
+      <li><span class="k">배경</span><span>AI 에이전트·피지컬 AI 확장으로 연산 수요 구조적 증가</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>데이터센터 규모를 서버 대수가 아니라 '기가와트'로 세는 것이 이 산업의 성격을 말해준다. 병목이 반도체가 아니라 전력이기 때문이다. 3.2GW는 대형 원전 두세 기분에 해당하는 규모라, 이 정도 시설은 부지를 고를 때 땅값보다 송전망 접속과 전력 요금을 먼저 본다. AI 투자 뉴스에서 전력·냉각 기업이 함께 오르는 이유이자, 지자체와 주민 수용성 문제가 따라붙는 이유다.</p>
+    </div>
+    <a class="source" href="https://www.mt.co.kr/industry/2026/07/23/2026072315081745421">머니투데이</a>
+    <span class="ref-note">⚠ 발표 단계 프로젝트 · 착공·완공 일정은 미확정</span>
+  </article>
+
+  <div class="section-rule"><span class="label">4 — 메모리</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">需</span>
+    <div class="card-top"><span class="topic">반도체</span></div>
+    <h2>D램 현물가가 계약가의 두 배를 넘었다</h2>
+    <div class="summary">
+      <p>AI 데이터센터 투자가 이어지면서 메모리 공급 부족이 심해지고 있다. 메리츠증권에 따르면 서버용 64GB D램의 최근 현물가격은 <strong>3100달러</strong>로, 6월 말 계약가격 1380달러의 두 배를 넘는 수준에서 거래되고 있다. 업계에서는 3분기 D램 계약가격이 전분기보다 25% 이상 오를 것이라는 전망이 나온다.</p>
+      <p>파운드리 쪽으로도 수요가 번졌다. 테슬라는 AI 칩과 휴머노이드 분야 투자를 확대하겠다고 밝히면서, 삼성전자와 TSMC가 생산을 맡을 차세대 AI 칩 <strong>'AI5'</strong>를 내년 중반부터 대량생산할 예정이라고 설명했다. 메모리에 이어 파운드리 수요까지 자극되면서 삼성 파운드리 부문의 실적 반등 가능성도 거론된다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">현물가</span><span>서버용 64GB D램 3100달러</span></li>
+      <li><span class="k">계약가(6월 말)</span><span>1380달러 → 현물이 약 2.25배</span></li>
+      <li><span class="k">3분기 전망</span><span>계약가격 전분기 대비 25% 이상 상승</span></li>
+      <li><span class="k">파운드리</span><span>테슬라 'AI5' — 삼성·TSMC 생산, 내년 중반 양산 예정</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>현물가와 계약가가 두 배 넘게 벌어진 것이 핵심이다. 계약가는 대형 고객과 분기 단위로 미리 정하는 값이고, 현물가는 당장 물건이 급한 쪽이 지불하는 값이다. 이 격차가 벌어질수록 다음 분기 계약가는 끌어올려지므로, 현물가는 메모리 업체 실적의 선행 지표로 읽힌다. 이번 주 두 회사가 장기공급계약을 어떻게 설명하느냐가 관심인 이유도 여기 있다 — 계약 비중이 크면 이 상승분을 덜 가져간다.</p>
+    </div>
+    <a class="source" href="https://www.mt.co.kr/world/2026/07/24/2026072319453184419">머니투데이</a>
+    <span class="ref-note">⚠ 원 기사의 프리미엄 표기(146%)는 제시 수치로 재계산하면 약 124.6% · 본 카드는 배수로 표기</span>
+  </article>
+
+  <div class="section-rule"><span class="label">5 — 분수령</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">試</span>
+    <div class="card-top"><span class="topic">일정</span></div>
+    <h2>이번 주, 나머지 빅테크가 답할 차례</h2>
+    <div class="summary">
+      <p>알파벳과 테슬라가 먼저 성적표를 냈고, 이번 주 나머지가 이어진다. 메타는 AI 기반 광고 추천 시스템의 성과와 자체 모델·데이터센터 투자 계획이, 아마존은 AWS의 생성형 AI 수요와 투자 부담이 핵심 변수로 꼽힌다. 특히 설비투자 과잉 우려가 상대적으로 큰 아마존과, 컴퓨팅 자원 임대 논란이 불거졌던 메타가 투자 의지를 유지할지가 관심사다. 국내에서는 SK하이닉스가 29일, 삼성전자가 30일 실적을 발표한다.</p>
+      <p>다만 이번 주로 결론이 나지는 않을 것으로 보인다. 시장에서는 진정한 AI 투자 성과가 <strong>2027~2028년</strong>에야 판가름 날 것이라는 전망이 나온다. 지금은 현금이 빠져나가는 국면이지만, 이 투자가 감가상각비로 손익계산서에 본격 반영되면 수익성이 실적에 그대로 드러나기 때문이다.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">이미 발표</span><span>알파벳·테슬라 (7월 22일, 현지시간)</span></li>
+      <li><span class="when">7월 29일</span><span>SK하이닉스</span></li>
+      <li><span class="when">7월 30일</span><span>삼성전자 · 미 빅테크(MS·메타 등) 실적 이어짐</span></li>
+      <li><span class="when">7월 31일</span><span>애플·아마존</span></li>
+      <li><span class="when">2027~2028</span><span>감가상각 본격 반영 → 투자 수익성 실체 확인</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>감가상각이 왜 시한폭탄처럼 언급되는지가 이 대목의 핵심이다. 데이터센터를 지을 때 나가는 돈은 현금흐름표에만 찍히고 손익계산서의 비용으로는 잡히지 않는다. 그 지출은 이후 수년에 걸쳐 감가상각비로 나눠 반영된다. 그래서 지금은 '현금은 마르는데 이익은 좋아 보이는' 구간이고, 2~3년 뒤에는 반대로 '현금은 안정되는데 이익이 눌리는' 구간이 온다. AI 매출이 그 사이 충분히 자라 있느냐가 이번 사이클의 결론을 정한다.</p>
+    </div>
+    <a class="source" href="https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=01879446645518128">이데일리</a>
+    <span class="ref-note">⚠ 실적 발표일은 기업 사정에 따라 변경 가능 · 매체별 표기 차이 있음</span>
+  </article>
+
+  <footer>
+    <span class="pipe">서브 브리프</span> · AI·테크 (월요일) · 주간 정리<br>
+    각 항목의 <strong>"🤖 알고 보면 달라지는 것"</strong>은 뉴스 뒤의 기술적·재무적 맥락을 담습니다.<br>
+    실적·전망치는 발표 주체와 산정 기준에 따라 달라질 수 있고, 투자 판단과 책임은 본인에게 있습니다. 출처 링크에서 최종 확인을 권장합니다.
+    <!-- tracker: SK하이닉스 29일·삼성전자 30일 실적 → 발표 후 회차에서 LTA 설명·메모리 전망 후속. 미 빅테크(MS·메타 30일, 애플·아마존 31일) 실적 → CapEx 유지 여부 확인. 3분기 D램 계약가(25%+ 전망) → 확정 시 후속. 테슬라 AI5 삼성 파운드리 양산(내년 중반) → 일정 구체화 시 다룸. 부동산 세제개편안(이달 말~8월 초 발표) → 발표 당일 메인 톱. 페르세우스 유성우 8/13~14(우주·과학 소관). 이재명 '3대 메가 프로젝트'(반도체·AI 데이터센터·피지컬 AI) → 국내 AI 정책 소재로 미사용, 다음 회차 후보. -->
+    <!-- review 2026-07-27:
+         [사실] 원 기사의 D램 프리미엄 '146%'가 제시 수치(3100/1380)로 재계산하면 124.6% → 출처 오기로 판단해 배수(약 2.25배) 표기로 우회하고 ref-note에 명시.
+         [사실] 알파벳 내년 CAPEX 전망이 매체별로 상충(머니투데이=올해 2050억 / 서울경제=내년 1950~2050억) → 올해 수치만 채택하고 내년은 발언 인용으로 대체.
+         [사실] 갤럽 국정지지율(7/21~23 조사)과 부동산 정책 평가(6/30~7/2 조사)의 조사 시점이 다름 → 일부 매체가 지지율을 54%로 표기(7월 초 조사)한 것을 확인, 최신 51% 채택하고 ref-note에 시점 차이 명시.
+         [판단] '호르무즈 해빙·도하 협상' 기사가 검색 상단에 올라왔으나 모두 6월 말~7월 초 자료로 현재 확전 국면과 반대 → 채택하지 않음. 오래된 기사가 최신처럼 노출되는 사례.
+         [판단] 중동은 어제 톱으로 다뤘고 새 진전이 없어 오늘 제외(지속 정보는 변화 있을 때만 원칙 적용).
+         [형식] 실적 발표일이 자료별 상충(스레드=SK 28일·삼성 29일 / 헤럴드경제=SK 29일·삼성 30일) → 최신 기사 채택 + 변경 가능 명시.
+    -->
+  </footer>
+
+</div>
+</body>
+</html>
