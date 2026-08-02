@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.08.01">
+<meta property="og:description" content="코스피 17.91% 폭등, 46년 만의 역대 최대 상승·SK하이닉스 사상 첫 상한가 · 검찰 수사권 완전 폐지, 형사소송법 국회 통과 · 8월 첫 주 일정">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.08.01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>오늘의 하이라이트</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 8월 1일 토요일</span>
+      <span class="count">3 Picks · 화제성 순</span>
+    </div>
+    <p class="lede">사흘 만에 17% 빠졌던 지수가 하루 만에 17.91% 올랐습니다. 46년 만의 최대 상승입니다. 같은 날 국회에서는 70년 넘게 이어진 검찰의 수사 권한이 사라졌습니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">Top — 증시</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">騰</span>
+    <div class="card-top"><span class="topic">경제·증시</span></div>
+    <h2>코스피 17.91% 폭등…46년 만의 역대 최대 상승</h2>
+    <div class="summary">
+      <p>7월 마지막 거래일인 어제(31일) 코스피가 전날보다 <strong>1001.89포인트(17.91%)</strong> 오른 6595.45로 마감했다. 하루 상승폭과 상승률 모두 사상 최대다. 종전 최고 상승률은 2008년의 11.95%였다. 코스닥도 74.98포인트(11.63%) 오른 719.76으로 700선을 회복했다.</p>
+      <p>개장 10분도 안 돼 양 시장에 매수 사이드카가 걸렸고 상승세는 장 마감까지 이어졌다. <strong>SK하이닉스는 29.95% 올라 상한가</strong>(171만8000원)를 기록했다. 상한폭이 30%로 확대된 이래 이 종목의 첫 상한가다. 삼성전자도 26%대 급등하며 역대 최대 상승률을 새로 썼다. 이로써 사흘간의 급락분 1162.19포인트 가운데 86%가 하루 만에 되돌아왔다.</p>
+      <p>수급은 극단적으로 갈렸다. 외국인이 7조2410억원을 순매수했고 대체거래소 거래분을 합치면 8조7709억원으로 역대 최대다. 기관도 1조1400억원을 사들였다. 반면 개인은 8조2740억원을 팔아 역시 역대 최대 순매도를 기록했다. 원/달러 환율은 13.4원 내린 1424.0원에 마감했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">코스피</span><span>6,595.45 (+1,001.89p, +17.91%) — 역대 최대</span></li>
+      <li><span class="k">코스닥</span><span>719.76 (+74.98p, +11.63%)</span></li>
+      <li><span class="k">종목</span><span>SK하이닉스 상한가(+29.95%) · 삼성전자 +26%대</span></li>
+      <li><span class="k">수급</span><span>외국인 +8조7709억(역대 최대) / 개인 −8조2740억</span></li>
+      <li><span class="k">환율</span><span>1,424.0원 (−13.4원)</span></li>
+    </ul>
+    <div class="summary">
+      <p>반등의 근거로는 미국 빅테크의 예상을 웃돈 실적과 AI 설비투자 전망 유지가 꼽힌다. 하나증권 이경수 연구원은 하이퍼스케일러들이 설비투자 전망치를 낮추기는커녕 오히려 올리고 있다고 짚었다. 여기에 삼성전자가 글로벌 빅테크 5개사와 장기공급계약을 맺어 최소 5년간 생산능력의 70%를 확보했다는 소식, 최태원 SK그룹 회장의 자사주 매수 소식이 더해졌다. 다만 7월 한 달로 보면 코스피는 여전히 월간 하락률 역대 3위로 마감했다.</p>
+    </div>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>사흘 폭락과 하루 폭등의 재료가 사실상 같다는 점이 이번 국면의 성격을 말해준다. 'AI 투자가 과하다'는 걱정과 'AI 투자가 계속된다'는 안도가 같은 숫자를 보고 갈렸다. 이런 장에서는 정보가 새로 나와서 가격이 움직이는 게 아니라, 이미 알려진 사실의 해석이 뒤집히며 움직인다. 개인이 역대 최대로 판 날이 지수가 역대 최대로 오른 날이었다는 것도 함께 기억할 만하다.</p>
+    </div>
+    <a class="source" href="https://www.seoul.co.kr/news/economy/2026/07/31/20260731500232">서울신문</a>
+    <span class="ref-note">⚠ 지수·환율은 변동 · 투자 판단과 책임은 본인에게 · 전문가 견해는 참고용</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Politics — 사법</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">權</span>
+    <div class="card-top"><span class="topic">정치·사법</span></div>
+    <h2>검찰 수사권 완전 폐지…형사소송법 국회 통과</h2>
+    <div class="summary">
+      <p>검사의 직접수사권과 보완수사권을 폐지하는 형사소송법 개정안이 어제 국회 본회의를 통과했다. 재석 178명 가운데 찬성 175명, 반대 2명, 기권 1명이었다. 국민의힘은 필리버스터로 맞섰으나 표결로 종결됐고, 법안 표결에는 참여하지 않았다. 민주당 곽상언 의원과 개혁신당 이주영 의원이 반대표를, 민주당 이소영 의원이 기권표를 던졌다.</p>
+      <p>핵심은 <strong>수사와 기소의 분리</strong>다. 70여 년간 기소권과 수사권을 함께 쥐어온 검찰에서 수사 기능을 떼어낸다. 개정안이 시행되는 <strong>10월 2일부터</strong> 공소청과 중대범죄수사청 체제가 출범한다. 대신 검사는 경찰을 통제할 보완수사 요구권을 강화된 형태로 갖는다. 검사가 보완수사를 요구하면 경찰은 한 달 안에 이행해야 하고, 따르지 않으면 검사가 직무배제와 징계를 요구할 수 있다.</p>
+      <p>피해자 보호 장치도 담겼다. 경찰의 무혐의 처리에 대한 이의신청권이 확대되고, 피해자에게 사건기록 열람·등사 권한이 부여된다. 민주당은 "권력 집중을 끝내는 역사적 전환점"이라고 평가한 반면, 국민의힘은 대통령에게 재의요구권 행사를 요구했다. 학계와 일부 피해자단체에서도 우려가 제기됐다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">표결</span><span>재석 178 · 찬성 175 · 반대 2 · 기권 1 (국민의힘 불참)</span></li>
+      <li><span class="k">핵심</span><span>검사 직접수사권·보완수사권 폐지 → 수사·기소 분리</span></li>
+      <li><span class="k">시행</span><span>10월 2일 — 공소청·중대범죄수사청 출범</span></li>
+      <li><span class="k">대체 장치</span><span>보완수사 요구권 강화(1개월 내 이행, 미이행 시 징계 요구)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>'수사권을 없앤다'는 헤드라인 뒤에서 실제로 바뀌는 건 권한의 형태다. 검사가 직접 캐묻던 자리가 '요구하고 확인하는' 자리로 옮겨간다. 조직 개편에서도 비슷한 일이 벌어진다 — 실행 권한을 떼어내면 그 조직은 대개 검증·승인 기능으로 이동하지, 영향력이 그대로 사라지지는 않는다. 10월 시행까지 두 달, 실제 작동 방식은 그 사이 세부 규정에서 정해진다.</p>
+    </div>
+    <a class="source" href="https://www.hankookilbo.com/news/article/A2026073116320001361">한국일보</a>
+    <span class="ref-note">⚠ 재의요구권 행사 여부에 따라 절차가 달라질 수 있음 · 세부 시행 규정은 추후 확정</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Preview — 8월 첫 주</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">週</span>
+    <div class="card-top"><span class="topic">일정</span></div>
+    <h2>8월 첫 주, 세제개편안과 전대 토론</h2>
+    <div class="summary">
+      <p>7월의 변동성이 컸던 만큼 8월 첫 주 일정이 더 주목된다. 가장 큰 건 <strong>부동산 세제개편안</strong>이다. 정부는 8월 초 발표를 예고했고, 종부세 공정시장가액비율을 60%에서 70%로 올리고 거주하지 않는 1주택자의 기본공제를 12억원에서 9억원으로 낮추는 방안이 유력하게 거론된다.</p>
+      <p>정치권에서는 더불어민주당 전당대회 일정이 이어진다. 3일 OBS에서 최고위원 후보 토론이, 5일 KBS에서 당대표 후보 2차 토론이 열린다. 권리당원 투표는 이미 진행 중이고 전당대회는 17일이다. 한편 어제 통과된 형사소송법에 대해 야당이 재의요구권 행사를 요구한 상태라 그 처리 여부도 변수다.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">8월 3일(월)</span><span>민주당 최고위원 후보 TV 토론 (OBS)</span></li>
+      <li><span class="when">8월 5일(수)</span><span>민주당 당대표 2차 토론 (KBS) · 영화 《오디세이》 개봉</span></li>
+      <li><span class="when">8월 초</span><span>부동산 세제개편안 발표 예정</span></li>
+      <li><span class="when">8월 12일(수)</span><span>민주당 당대표 3차 토론 (SBS)</span></li>
+      <li><span class="when">8월 17일(월)</span><span>민주당 전당대회 — 당대표 선출</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>세제개편안이 8월 초에 몰린 데는 이유가 있다. 정부 세법개정안은 통상 8월 중 입법예고를 거쳐 9월 정기국회 전에 제출해야 해서, 7월 말~8월 초가 사실상 마감 시한이다. 매년 이맘때 부동산·세금 기사가 쏟아지는 것은 정책 판단이 그때 이뤄져서가 아니라 절차의 달력이 그렇게 짜여 있기 때문이다.</p>
+    </div>
+    <a class="source" href="https://www.etoday.co.kr/news/view/2608650">이투데이</a>
+    <span class="ref-note">⚠ 발표 시점·일정은 변동 가능 · 세제개편안은 검토 단계이며 확정 아님</span>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 마케팅 인사이트 → 디자인 렌더링 → 검토<br>
+    큐레이션: 화제성 우선 · 한 사건당 최대 3개 카드 · 지속 정보는 변화 있을 때만 등장 · 오늘 3개 선별<br>
+    (펜타포트·부산 축제와 폭염 속 나들이는 오늘자 액티비티 서브에서 정리) · 모든 정보는 참고용, 출처 링크에서 최종 확인 권장
+  </footer>
+
+</div>
+</body>
+</html>
