@@ -1,7 +1,43 @@
 {
-  "generated": "2026-07-30T22:40:49Z",
-  "count": 72,
+  "generated": "2026-08-02T07:37:42Z",
+  "count": 76,
   "files": [
+    {
+      "date": "2026-08-02",
+      "month": "2026-08",
+      "year": "2026",
+      "mon": "08",
+      "day": "02",
+      "type": "daily",
+      "path": "2026-08-02_daily-brief.html"
+    },
+    {
+      "date": "2026-08-02",
+      "month": "2026-08",
+      "year": "2026",
+      "mon": "08",
+      "day": "02",
+      "type": "science",
+      "path": "2026-08-02_science-brief.html"
+    },
+    {
+      "date": "2026-08-01",
+      "month": "2026-08",
+      "year": "2026",
+      "mon": "08",
+      "day": "01",
+      "type": "daily",
+      "path": "2026-08-01_daily-brief.html"
+    },
+    {
+      "date": "2026-08-01",
+      "month": "2026-08",
+      "year": "2026",
+      "mon": "08",
+      "day": "01",
+      "type": "activity",
+      "path": "2026-08-01_activity-brief.html"
+    },
     {
       "date": "2026-07-31",
       "month": "2026-07",
