@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.08.07">
+<meta property="og:description" content="코스피 4.58% 급락·매도 사이드카, 코스닥은 5일 연속 상승해 800선 복귀 · 입추에 수도권 40도 육박, 태풍 돌핀은 10일경 중국 남부 상륙 전망">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.08.07</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>오늘의 하이라이트</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 8월 7일 금요일</span>
+      <span class="count">2 Picks · 화제성 순</span>
+    </div>
+    <p class="lede">어제 코스피는 4.58% 빠졌는데 코스닥은 올랐습니다. 이번 주 내내 반복된 장면입니다. 그리고 오늘은 입추인데 수도권 기온이 40도에 가깝습니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">Top — 증시</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">背</span>
+    <div class="card-top"><span class="topic">경제·증시</span></div>
+    <h2>코스피 −4.58%, 코스닥은 800선 복귀…엇갈린 한 주</h2>
+    <div class="summary">
+      <p>어제 코스피는 301.88포인트(<strong>4.58%</strong>) 내린 6296.38로 마감했다. 전날 3.76% 급등한 지 하루 만의 반전이다. 오전 10시 18분에는 코스피200 선물지수가 5% 넘게 떨어지며 <strong>매도 사이드카</strong>가 발동됐다. 이틀 전 매수 사이드카가 걸렸던 시장이 하루 만에 반대편 조치를 받은 셈이다. 장중에는 6238.32(−5.46%)까지 밀렸다.</p>
+      <p>반면 코스닥은 2.08포인트(0.26%) 오른 801.67로 <strong>5거래일 연속 상승</strong>했다. 종가 기준 800선 복귀는 지난달 15일 이후 15거래일 만이다. 코스닥도 장 초반 779.08(−2.57%)까지 밀렸으나 제약·바이오와 이차전지가 받치며 돌아섰다.</p>
+      <p>하락의 방아쇠는 미국이었다. 5일(현지시간) 필라델피아 반도체지수가 1.4% 내렸는데, 샌디스크와 웨스턴디지털의 실적 가이던스가 시장 기대를 밑돌고 AMD도 부진한 매출 전망을 내놓은 영향이다. 신한투자증권 강진혁 연구원은 이 두 회사의 부진이 메모리 대형주에 악재로 인식되면서 삼성전자·SK하이닉스 등 AI 밸류체인 종목이 약세를 보였다고 설명했다. 외국인이 3조3274억원을 순매도했고 개인이 3조3387억원을 사들였다. 원/달러 환율은 0.7원 내린 1423.8원.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">8월 3일</span><span>코스피 −5.12% / 코스닥 +2.44%</span></li>
+      <li><span class="when">8월 4일</span><span>코스피 +1.62% / 코스닥 +5.88%</span></li>
+      <li><span class="when">8월 5일</span><span>코스피 +3.76% / 코스닥 +2.42% · 매수 사이드카</span></li>
+      <li><span class="when">8월 6일</span><span>코스피 −4.58% / 코스닥 +0.26% · 매도 사이드카</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>한 주 동안 코스피는 오르내림을 반복했는데 코스닥은 닷새 내리 올랐다. 같은 시장에서 이런 분리가 이어진다면 돈이 빠져나간 게 아니라 무엇을 사느냐가 바뀐 것이다. 반도체는 해외 실적 발표 한 줄에 흔들리지만 제약·바이오나 로봇은 국내 재료로 움직인다. 지수 하나로 '시장 심리'를 요약할 수 없는 국면이고, 이럴 때는 평균이 아니라 분포를 봐야 한다.</p>
+    </div>
+    <a class="source" href="https://www.fnnews.com/news/202608061558511584">파이낸셜뉴스</a>
+    <span class="ref-note">⚠ 지수는 변동 · 투자 판단과 책임은 본인에게</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Weather — 폭염</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">秋</span>
+    <div class="card-top"><span class="topic">기상·생활</span></div>
+    <h2>오늘 입추인데 40도 육박…태풍은 중국으로 갈 듯</h2>
+    <div class="summary">
+      <p>오늘은 가을의 문턱이라는 <strong>입추</strong>다. 그런데 서울 등 수도권을 중심으로 40도에 가까운 기온이 예보됐다. 기상청 이광연 예보분석관은 대기 상층까지 연계된 고기압이 머무르며 맑은 날씨가 이어져 열이 축적되고 있다고 설명했다. 일본보다 우리나라 기온이 높은 이유도 여기 있다. 일본은 고기압 가장자리에 놓여 하층 바람이 들어오는 반면, 우리나라는 고기압 한가운데라 바람이 없다.</p>
+      <p>주말에는 낮 기온이 다소 내려가지만 여전히 폭염경보 수준이다. 광주·전남 기준으로 오늘 최저 25~26도·최고 35~38도, 내일 33~35도가 예보됐다. 기상청은 <strong>폭염 절정이 아직 지나지 않았다</strong>고 본다. 북태평양고기압과 티베트고기압의 최전성기가 통상 8월 중순에서 하순이기 때문이다.</p>
+      <p>제13호 태풍 <strong>돌핀</strong>은 오늘 오전 오키나와 동쪽 약 250㎞까지 접근한 뒤 내일 오전 오키나와 서북서쪽 약 60㎞를 지날 전망이다. 이후 속도가 느려져 10일쯤 <strong>중국 남부에 상륙</strong>할 것으로 예상된다. 한국·유럽·미국 예보모델이 대체로 같은 진로를 제시하고 있다. 한반도 직접 영향은 제한적이겠지만 제주도와 남해상은 직간접 영향권에 들 수 있고, 태풍이 밀어 올리는 열기가 유입되면 내륙 폭염은 오히려 심해질 수 있다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">오늘</span><span>입추 · 수도권 40도 육박 · 광주·전남 최고 35~38도</span></li>
+      <li><span class="k">주말</span><span>기온 다소 하락하나 폭염경보 수준 유지</span></li>
+      <li><span class="k">태풍 돌핀</span><span>8일 오키나와 인근 → 10일경 중국 남부 상륙 전망</span></li>
+      <li><span class="k">국내 영향</span><span>제주·남해 직간접 영향 가능 · 내륙은 열기 유입으로 폭염 강화 우려</span></li>
+      <li><span class="k">폭염 절정</span><span>8월 중순~하순 (두 고기압 최전성기)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>태풍이 멀리 지나가는데 오히려 더워질 수 있다는 대목이 이번 예보의 핵심이다. 태풍이 반시계 방향으로 돌면서 그 오른쪽 가장자리로 뜨거운 공기를 한반도에 밀어 넣기 때문이고, 이 공기가 백두대간을 넘으면 푄 현상으로 기온이 더 오른다. '태풍이 오면 시원해진다'는 통념이 늘 맞지는 않는 이유다. 다음 주 초 진로가 구체화될 때까지는 두 시나리오를 모두 열어두는 편이 낫다.</p>
+    </div>
+    <a class="source" href="https://www.fnnews.com/news/202608061608117238">파이낸셜뉴스 · 기상청 브리핑</a>
+    <span class="ref-note">⚠ 8월 6일 기상청 브리핑 기준 · 태풍 진로·기온은 수시 변동, 최신 예보 확인 필수</span>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 마케팅 인사이트 → 디자인 렌더링 → 검토<br>
+    큐레이션: 화제성 우선 · 한 사건당 최대 3개 카드 · 지속 정보는 변화 있을 때만 등장 · 오늘 2개 선별<br>
+    (부산바다축제 개막과 주말 나들이 정보는 오늘자 여행 서브에서 정리 · 세제개편안은 어제 다뤘고 새 절차 진행 미확인으로 제외) · 모든 정보는 참고용, 출처 링크에서 최종 확인 권장
+  </footer>
+
+</div>
+</body>
+</html>

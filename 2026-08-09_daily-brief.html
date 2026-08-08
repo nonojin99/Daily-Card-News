@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.08.09">
+<meta property="og:description" content="8월 첫 주 결산, 코스피와 코스닥이 정반대로 갈렸다 · 세제개편안 입법예고 절차 진행 · 이번 주 개기일식과 페르세우스 유성우, 광복절은 토요일">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.08.09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>오늘의 하이라이트</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 8월 9일 일요일</span>
+      <span class="count">3 Picks · 주말 정리</span>
+    </div>
+    <p class="lede">8월 첫 주가 끝났습니다. 코스피는 7주 연속 내렸고 코스닥은 5주 만에 올랐습니다. 이번 주에는 유럽에서 낮이 밤으로 바뀌고, 우리 하늘에는 별이 쏟아집니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">Review — 8월 첫 주</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">靜</span>
+    <div class="card-top"><span class="topic">경제·증시</span></div>
+    <h2>한 주에 사이드카 두 번…방향이 갈린 시장</h2>
+    <div class="summary">
+      <p>8월 첫 주 국내 증시는 하루 단위로 방향을 바꿨다. 3일 코스피가 5.12% 급락했다가 4~5일 이틀 연속 올랐고, 6일 다시 4.58% 떨어졌다. 5일에는 매수 사이드카가, 6일에는 매도 사이드카가 발동됐다. <strong>같은 주에 반대 방향 사이드카가 모두 걸린 셈</strong>이다.</p>
+      <p>주간으로 보면 두 시장의 성적표가 정반대다. 코스피는 5%대 하락해 7주 연속 약세를 기록했다. 2022년 12월 이후 가장 긴 연속 하락이다. 반면 코스닥은 10%대 상승해 5주 만에 상승 전환했다. 반도체 대형주가 미국 실적과 가이던스에 흔들리는 동안 제약·바이오, 이차전지, 로봇이 따로 움직인 결과다.</p>
+      <p>금요일 종가는 코스피 6258.77, 코스닥 798.81. 원/달러 환율은 1416.1원이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">코스피</span><span>6,258.77 · 주간 −5%대 · 7주 연속 하락</span></li>
+      <li><span class="k">코스닥</span><span>798.81 · 주간 +10%대 · 5주 만에 상승 전환</span></li>
+      <li><span class="k">사이드카</span><span>8월 5일 매수 / 8월 6일 매도 — 한 주에 양방향</span></li>
+      <li><span class="k">환율</span><span>1,416.1원</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>이런 주에는 '시장이 좋았나 나빴나'라는 질문 자체가 성립하지 않는다. 어느 지수를 보느냐로 답이 갈리기 때문이다. 성과를 하나의 대표 숫자로 요약하는 습관이 위험해지는 순간이 이런 국면이고, 평균 대신 분포를 봐야 실제로 무슨 일이 있었는지 보인다.</p>
+    </div>
+    <a class="source" href="https://www.businesskorea.co.kr/news/articleView.html?idxno=274390">비즈니스코리아</a>
+    <span class="ref-note">⚠ 주간 등락률은 매체별 집계 기준에 따라 소폭 차이 · 투자 판단과 책임은 본인에게</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Policy — 후속</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">案</span>
+    <div class="card-top"><span class="topic">부동산·세제</span></div>
+    <h2>세제개편안, 이제 입법 절차로</h2>
+    <div class="summary">
+      <p>지난 3일 세제발전심의위원회에서 확정된 「2026년 세제개편안」은 이제 입법예고와 국무회의를 거쳐 <strong>9월 3일 이전 정기국회에 제출</strong>된다. 개정 대상 법률은 국세 10개와 관세 1개를 합쳐 11개다.</p>
+      <p>부동산 세제의 골자는 두 가지 전환이다. 종합부동산세 기본공제가 거주 여부에 따라 갈려 실거주 1세대 1주택은 공시가격 14억원, 거주하지 않는 1주택은 9억원까지 공제된다. 현행은 일괄 12억원이다. 세율도 주택 수가 아닌 주택가액 기준으로 일원화된다. 공정시장가액비율은 3주택 이상 보유자와 조정대상지역 주택 보유자에 대해 2027년 70%, 2028년 이후 80%로 오른다.</p>
+      <p>다만 이는 정부 개정안이며 국회를 통과해야 확정된다. 5년간(2027~2031년) 세수효과는 약 3조4430억원 증가로 추정되고, 이 가운데 종부세가 2조1815억원을 차지한다.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">8월 3일</span><span>세제발전심의위원회 확정·발표</span></li>
+      <li><span class="when">8월 중</span><span>입법예고</span></li>
+      <li><span class="when">9월 3일 이전</span><span>국무회의 거쳐 정기국회 제출</span></li>
+      <li><span class="when">이후</span><span>국회 심의·의결 (내용 변경 가능)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>발표와 시행 사이의 이 한 달이 실제로는 가장 조용하면서 중요한 구간이다. 조문에 적히지 않은 시행령과 세부 기준이 이때 정해지고, 그것이 현장에서 체감되는 변화의 대부분을 만든다. 규제 변화를 따라간다면 발표 당일 헤드라인보다 입법예고 기간에 어떤 의견이 올라오는지를 보는 편이 실질적이다.</p>
+    </div>
+    <a class="source" href="https://www.taxnet.co.kr/contents/taxnetpost/post-detail?id=4802&gubunCode=TP0020">택스넷 · 세제개편안 정리</a>
+    <span class="ref-note">⚠ 정부 개정안이며 국회 통과 전 · 세부 조문은 기획재정부 원문 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Preview — 이번 주</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">展</span>
+    <div class="card-top"><span class="topic">일정</span></div>
+    <h2>일식과 유성우, 그리고 토요일 광복절</h2>
+    <div class="summary">
+      <p>이번 주 하늘에 두 가지가 겹친다. <strong>12일(현지시간)</strong> 그린란드와 아이슬란드, 스페인을 지나는 개기일식이 있고, 같은 시기 <strong>페르세우스자리 유성우</strong>가 극대에 이른다. 한국시간으로는 13일 새벽과 14일 새벽이 유성우 관측에 유리하다. 일식은 한국에서 볼 수 없다.</p>
+      <p>정치권에서는 민주당 전당대회 일정이 이어진다. 12일 당대표 후보 3차 토론이 SBS에서 열리고, 17일 전당대회에서 당대표가 선출된다. 권리당원 투표는 진행 중이다. 광복절인 15일은 토요일이라 대체공휴일 없이 지나간다.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">8월 12일(수)</span><span>민주당 당대표 3차 토론(SBS) · 개기일식(현지시간, 유럽)</span></li>
+      <li><span class="when">8월 13일(목)</span><span>페르세우스 유성우 관측 적기(새벽) · 부산바다축제 종료</span></li>
+      <li><span class="when">8월 14일(금)</span><span>유성우 관측 2차 적기(새벽)</span></li>
+      <li><span class="when">8월 15일(토)</span><span>광복절 (대체공휴일 없음)</span></li>
+      <li><span class="when">8월 17일(월)</span><span>민주당 전당대회 — 당대표 선출</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>광복절이 토요일에 걸리면 소비 흐름이 눈에 띄게 달라진다. 연휴가 생기지 않아 장거리 이동 수요는 줄지만, 하루짜리 근교 나들이와 배달·홈파티 수요는 오히려 늘어난다. 달력이 만드는 이런 차이는 매년 반복되는 만큼 미리 계산해둘 수 있는 변수다.</p>
+    </div>
+    <a class="source" href="https://www.kasi.re.kr/kor/publication/post/newsMaterial/32192">한국천문연구원</a>
+    <span class="ref-note">⚠ 일정은 변동 가능 · 천문 현상 시각은 시간대(UTC/KST)에 따라 날짜 표기가 달라짐</span>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 마케팅 인사이트 → 디자인 렌더링 → 검토<br>
+    큐레이션: 화제성 우선 · 주말은 한 주 정리와 다음 주 미리보기 중심 · 오늘 3개 선별<br>
+    (폭염이 만들어지는 원리는 오늘자 우주·과학 서브에서 롱리드로 다룹니다) · 모든 정보는 참고용, 출처 링크에서 최종 확인 권장
+  </footer>
+
+</div>
+</body>
+</html>
