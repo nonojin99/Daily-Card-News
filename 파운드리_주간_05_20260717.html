@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>파운드리 주간 · 제5호 (2026.07.17)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#161310;--ink-soft:#3c372f;--ink-faint:#6e675b;
+    --paper:#f7f4ee;--paper-card:#fffdf8;--line:#e3ddd0;--line-strong:#c6bda9;
+    --tsmc:#106b5a;--tsmc-bg:#e3f0eb;
+    --samsung:#1763c0;--samsung-bg:#e6f0fb;
+    --intel:#5b5fb0;--intel-bg:#ececf8;
+    --smic:#9a4b2e;--smic-bg:#f6e7df;
+    --hr:#8a5a1a;--hr-bg:#f5ecda;
+    --up:#157a52;--down:#bd3a2a;--accent:#9a3b2e;--gold:#b9760a;--maxw:880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+  header.masthead{border-bottom:3px solid var(--ink);background:var(--paper);padding-top:40px;}
+  .kicker-row{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+  .kicker{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--samsung);font-weight:700;}
+  .issue{font-size:12.5px;color:var(--ink-faint);font-weight:700;letter-spacing:.04em;}
+  h1.title{font-family:"Noto Serif KR",serif;font-weight:900;font-size:clamp(30px,6vw,46px);line-height:1.1;letter-spacing:-.02em;margin:0 0 14px;}
+  .dateline{font-size:14px;color:var(--ink-faint);padding:14px 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 22px;}
+  .dateline b{color:var(--ink-soft);font-weight:700;}
+
+  .pulse{display:flex;gap:0;margin:26px 0 8px;border-radius:11px;overflow:hidden;border:1px solid var(--line);}
+  .pulse .cell{flex:1;padding:15px 16px;background:var(--paper-card);border-right:1px solid var(--line);}
+  .pulse .cell:last-child{border-right:none;}
+  .pulse .co-name{font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:5px;}
+  .pulse .co-name.t{color:var(--tsmc);}
+  .pulse .co-name.s{color:var(--samsung);}
+  .pulse .co-name.i{color:var(--intel);}
+  .pulse .arrow{font-size:20px;font-weight:900;font-family:"Noto Serif KR",serif;line-height:1;margin-bottom:3px;}
+  .pulse .arrow.up{color:var(--up);}
+  .pulse .arrow.down{color:var(--down);}
+  .pulse .arrow.flat{color:var(--ink-faint);}
+  .pulse .note{font-size:12px;color:var(--ink-faint);line-height:1.45;}
+  .pulse-cap{font-size:11.5px;color:var(--ink-faint);margin:8px 0 0;text-align:right;}
+
+  .lead{background:var(--ink);color:#f3f0e9;border-radius:14px;padding:26px 28px;margin:24px 0 44px;}
+  .lead h2{font-family:"Noto Serif KR",serif;font-size:19px;font-weight:700;margin:0 0 14px;color:#fff;display:flex;align-items:center;gap:10px;}
+  .lead h2::before{content:"";width:24px;height:3px;background:var(--samsung);}
+  .lead p{margin:0;color:#e3ddd0;font-size:15px;line-height:1.72;}
+  .lead p+p{margin-top:11px;}
+  .lead b{color:#fff;}
+
+  section{padding:6px 0;}
+  .sec-label{display:flex;align-items:center;gap:12px;margin:42px 0 18px;}
+  .sec-label .num{font-family:"Noto Serif KR",serif;font-weight:900;font-size:22px;color:var(--samsung);}
+  .sec-label .txt{font-family:"Noto Serif KR",serif;font-weight:700;font-size:20px;}
+  .sec-label .line{flex:1;height:1px;background:var(--line-strong);}
+  .sec-label.hr .num,.sec-label.hr .txt{color:var(--hr);}
+
+  .story{background:var(--paper-card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:16px;position:relative;overflow:hidden;}
+  .story::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;}
+  .story.t::before{background:var(--tsmc);}
+  .story.s::before{background:var(--samsung);}
+  .story.i::before{background:var(--intel);}
+  .story.c::before{background:var(--smic);}
+  .story.hr::before{background:var(--hr);}
+  .story .tagrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px;}
+  .badge{font-size:11px;font-weight:700;letter-spacing:.05em;padding:3px 10px;border-radius:30px;color:#fff;}
+  .badge.t{background:var(--tsmc);}
+  .badge.s{background:var(--samsung);}
+  .badge.i{background:var(--intel);}
+  .badge.c{background:var(--smic);}
+  .badge.hr{background:var(--hr);}
+  .badge.hot{background:var(--accent);}
+  .story .when{font-size:11.5px;color:var(--ink-faint);font-weight:600;}
+  .story h3{font-family:"Noto Serif KR",serif;font-size:19px;font-weight:700;margin:0 0 10px;line-height:1.3;color:var(--ink);}
+  .story p{margin:0 0 12px;font-size:14.5px;color:var(--ink-soft);}
+  .story p:last-child{margin-bottom:0;}
+  .takeaway{font-size:13.5px;color:var(--ink-soft);background:var(--samsung-bg);border-radius:8px;padding:11px 14px;margin-top:6px;}
+  .takeaway b{color:var(--samsung);font-weight:700;}
+  .story.t .takeaway{background:var(--tsmc-bg);}
+  .story.t .takeaway b{color:var(--tsmc);}
+  .story.i .takeaway{background:var(--intel-bg);}
+  .story.i .takeaway b{color:var(--intel);}
+  .story.hr .takeaway{background:var(--hr-bg);}
+  .story.hr .takeaway b{color:var(--hr);}
+
+  .co{font-weight:700;white-space:nowrap;}
+  .co.t{color:var(--tsmc);}
+  .co.s{color:var(--samsung);}
+  .co.i{color:var(--intel);}
+  .co.c{color:var(--smic);}
+  .stat{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;}
+  .pos{color:var(--up);font-weight:700;}
+  .neg{color:var(--down);font-weight:700;}
+
+  .watch{background:var(--paper-card);border:1px solid var(--line);border-radius:12px;padding:8px 8px;margin:8px 0;}
+  .watch .item{display:flex;gap:14px;padding:13px 16px;border-bottom:1px solid var(--line);align-items:baseline;}
+  .watch .item:last-child{border-bottom:none;}
+  .watch .date{font-size:12.5px;font-weight:700;color:var(--samsung);white-space:nowrap;min-width:84px;}
+  .watch .desc{font-size:14px;color:var(--ink-soft);}
+
+  .glance{margin:8px 0;overflow-x:auto;border:1px solid var(--line);border-radius:11px;}
+  table{border-collapse:collapse;width:100%;min-width:540px;background:var(--paper-card);font-size:13.5px;}
+  thead th{text-align:left;padding:12px 15px;font-size:12.5px;font-weight:700;border-bottom:2px solid var(--ink);background:var(--paper);}
+  tbody th{text-align:left;padding:12px 15px;font-weight:700;font-size:12.5px;color:var(--ink-soft);background:var(--paper);border-bottom:1px solid var(--line);white-space:nowrap;}
+  tbody td{padding:12px 15px;border-bottom:1px solid var(--line);color:var(--ink-soft);}
+  tbody tr:last-child th,tbody tr:last-child td{border-bottom:none;}
+
+  .caveats{margin:14px 0;}
+  .caveats ul{margin:0;padding:0;list-style:none;display:grid;gap:9px;}
+  .caveats li{font-size:13px;color:var(--ink-faint);line-height:1.55;padding-left:18px;position:relative;}
+  .caveats li::before{content:"\203B";position:absolute;left:0;top:0;color:var(--line-strong);}
+
+  footer{border-top:3px solid var(--ink);margin-top:50px;padding:24px 0 56px;font-size:12.5px;color:var(--ink-faint);line-height:1.7;}
+  footer b{color:var(--ink-soft);}
+  .reissue{background:var(--samsung-bg);border:1px solid #bcd6f4;border-radius:10px;padding:14px 18px;margin:18px 0;font-size:13.5px;color:var(--ink-soft);}
+  .reissue b{color:var(--samsung);}
+
+  @media (max-width:600px){
+    body{font-size:15px;}
+    .lead{padding:22px 20px;}
+    .pulse{flex-direction:column;}
+    .pulse .cell{border-right:none;border-bottom:1px solid var(--line);}
+    .pulse .cell:last-child{border-bottom:none;}
+    .watch .item{flex-direction:column;gap:3px;}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker-row">
+      <span class="kicker">Foundry Weekly &middot; 파운드리 주간</span>
+      <span class="issue">제5호 / Edition #5</span>
+    </div>
+    <h1 class="title">이번 주 파운드리</h1>
+    <div class="dateline">
+      <span><b>주간</b> 2026.07.11 ~ 07.17</span>
+      <span><b>발행</b> 2026년 7월 17일 (금)</span>
+      <span><b>이번 주 헤드라인</b> TSMC 2분기 '역대급' 어닝 — 순익 +77%, 첫 2nm 매출</span>
+    </div>
+
+    <div class="pulse">
+      <div class="cell">
+        <div class="co-name t">TSMC</div>
+        <div class="arrow up">▲▲</div>
+        <div class="note">2Q 순익 +77% 신기록, 첫 2nm 매출. AI 수요 '지속' 확인</div>
+      </div>
+      <div class="cell">
+        <div class="co-name s">삼성 파운드리</div>
+        <div class="arrow flat">→</div>
+        <div class="note">TSMC 호실적의 낙수(오버플로) 기대 / 수율·인력 과제 여전</div>
+      </div>
+      <div class="cell">
+        <div class="co-name i">인텔 파운드리</div>
+        <div class="arrow flat">→</div>
+        <div class="note">7/23 실적 대기. 이번 주는 관망</div>
+      </div>
+    </div>
+    <p class="pulse-cap">이번 주 모멘텀 (전망 대비 방향성, 주가가 아님)</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="lead">
+    <h2>이번 주 한 줄</h2>
+    <p><b>"TSMC가 AI 사이클의 지속을 숫자로 증명한 주"</b>였다. 7/16 발표된 <span class="co t">TSMC 2분기</span>는 매출 402억 달러(+34% YoY), 순익 <strong>+77%</strong>로 사상 최대. 첫 <strong>2nm 매출</strong>이 잡혔고, HPC(AI)가 매출의 <strong>66%</strong>를 차지했다. 총이익률 67.7%, 2026년 capex는 520~560억 달러 상단.</p>
+    <p>TSMC의 기록적 실적은 <b>"AI capex 사이클이 아직 꺾이지 않았다"</b>는 업계 전체의 청신호다. 캐파가 수요의 110~120%로 계속 모자라, 그 초과분이 <span class="co s">삼성</span>·<span class="co i">인텔</span>로 흘러가는 구조는 그대로. 다음 주 <span class="co i">인텔 실적(7/23)</span>이 '제2 공급처' 서사의 실체를 가른다.</p>
+  </div>
+
+  <!-- 헤드라인 -->
+  <section>
+    <div class="sec-label"><span class="num">1</span><span class="txt">이번 주 헤드라인</span><span class="line"></span></div>
+
+    <div class="story t">
+      <div class="tagrow">
+        <span class="badge hot">HOT</span>
+        <span class="badge t">TSMC</span>
+        <span class="when">7월 16일 · 실적발표</span>
+      </div>
+      <h3>TSMC 2분기 순익 +77% 신기록… 첫 2nm 매출, AI가 매출 66%</h3>
+      <p><span class="co t">TSMC</span> 2Q26 매출 <strong>402억 달러</strong>(NT$1.27조, +36% YoY, +12% QoQ)로 가이던스 상단 돌파. 순이익 NT$706.56억으로 <strong>+77.4%</strong> 사상 최대. <strong>첫 2nm(N2) 매출</strong>이 인식됐고, HPC 비중 66%. 총이익률 67.7%(해외 팹 램프업 부담에도). 2026 capex는 520~560억 달러 상단, 연간 매출 성장률 가이던스도 30%+ 유지·상향 기대.</p>
+      <p>단, 신중론도 있다 — 밸류에이션이 '정점 마진·정점 가동률'을 반영하고 있어 수요가 조금만 흔들려도 이익·현금흐름 민감도가 크다는 지적. 파운드리 매출은 고객 발주를 1~3분기 후행하므로, 하이퍼스케일러 capex가 식으면 시차를 두고 반영된다.</p>
+      <div class="takeaway"><b>전망 함의 →</b> AI 수요 지속이 재확인돼 <b>3사 모두에 우호적</b>. 캐파 부족(수요의 110~120%)이 유지되는 한 삼성·인텔로의 오버플로도 지속. 다만 '후행 지표'라는 구조상, 지금 숫자가 미래를 보장하진 않는다.</p>
+    </div>
+
+    <div class="story t">
+      <div class="tagrow">
+        <span class="badge t">가격</span>
+        <span class="when">이번 주 · 공급망 보도</span>
+      </div>
+      <h3>TSMC, 선단 공정 5~10% 가격 인상 롤아웃… 애플·엔비디아·퀄컴 통보</h3>
+      <p>TSMC가 7nm 이하 선단 공정에 <strong>5~10% 가격 인상</strong>을 애플·엔비디아·퀄컴 등 주요 고객에 통보하고 실제 적용에 들어갔다. 캐파 부족이 협상력으로 직결되는 구조. 미디어텍도 공급 제약 품목의 가격 인상 공지.</p>
+      <div class="takeaway"><b>전망 함의 →</b> TSMC 가격 인상은 <b>삼성의 가격 경쟁력(언더컷)</b>을 상대적으로 부각시킨다. 수율만 받쳐주면 "저렴한 제2 공급처"라는 삼성의 무기가 더 매력적으로.</p>
+    </div>
+
+    <div class="story s">
+      <div class="tagrow">
+        <span class="badge s">삼성</span>
+        <span class="when">최근 · 종합</span>
+      </div>
+      <h3>삼성, TSMC 호황의 '낙수' 기대… 수율·대형고객이 관건</h3>
+      <p>TSMC 캐파가 계속 모자라면서, <span class="co s">삼성</span>은 퀄컴 2nm·애플 검토·테슬라 A16 단독 등 <strong>제2 공급처 수요</strong>의 최대 수혜 후보. 다만 2nm 수율 약 55%가 양산 문턱(60%+) 직전이고, 대형 모바일·AI 고객의 <strong>본계약 전환</strong>은 아직. Galaxy S26의 Exynos 2600(2nm) 성능 검증이 외부 고객 신뢰의 시금석.</p>
+      <div class="takeaway"><b>전망 함의 →</b> 시장 환경(TSMC 병목·가격 인상)은 삼성에 유리하게 조성됐다. 이제 변수는 외부가 아니라 <b>내부 실행(수율·양산 안정)</b>. 양산기술의 시간.</p>
+    </div>
+  </section>
+
+  <!-- 인력·조직 리스크 -->
+  <section>
+    <div class="sec-label hr"><span class="num">2</span><span class="txt">인력 · 조직 리스크</span><span class="line"></span></div>
+
+    <div class="story hr">
+      <div class="tagrow">
+        <span class="badge hr">HR</span>
+        <span class="when">추적 지표 · 상시</span>
+      </div>
+      <h3>TSMC 초격차 실적이 '성과급 격차' 서사를 다시 키운다</h3>
+      <p>TSMC의 역대급 어닝과 SK하이닉스의 HBM 초호황이 맞물리며, <span class="co s">삼성 비메모리</span> 인력의 상대적 박탈감을 자극하는 환경이 이어진다. 메모리·경쟁사 대비 성과급 격차가 부각될수록 <strong>파운드리 핵심 인재의 이탈 유인</strong >이 커지는 구조. SK하이닉스는 이번 주 미국 관련 사업 논의도 보도되는 등 확장 기조가 뚜렷하다.</p>
+      <p>다만 이번 주에도 <strong>삼성→경쟁사 실제 이탈 규모의 공식 수치는 확인되지 않았다.</strong> 여전히 '심리·정황' 단계이며, 회사의 성과급 협약 변경 등 구체적 대응 움직임도 아직 공식화되지 않았다.</p>
+      <div class="takeaway"><b>전망 함의 →</b> 경쟁사(TSMC·SK)가 잘 될수록 삼성 파운드리 내부의 상대적 박탈은 커진다. 이 고리를 끊는 유일한 근본책은 <b>파운드리 자체의 흑자·수율 성과</b>. 3Q 실적과 테일러 가동이 분기점.</p>
+    </div>
+  </section>
+
+  <!-- 단신 -->
+  <section>
+    <div class="sec-label"><span class="num">3</span><span class="txt">짧은 소식</span><span class="line"></span></div>
+
+    <div class="story t">
+      <div class="tagrow"><span class="badge t">수요</span><span class="when">7/07 · The Diligence Stack</span></div>
+      <h3>"선단 웨이퍼 수요, TSMC 캐파의 110~120%"… 공급망 확장 한계</h3>
+      <p>AI 가속기·커스텀 ASIC·모바일이 겹치며 <strong>선단 웨이퍼 수요가 TSMC 캐파의 110~120%</strong>로 추정된다는 분석. AI 수요가 '이렇게 빨리 커지도록 설계되지 않은' 공급망 계층을 드러내고 있다는 진단. 구조적 공급 부족이 당분간 지속.</p>
+    </div>
+
+    <div class="story c">
+      <div class="tagrow"><span class="badge c">메모리·전장</span><span class="when">이번 주 · DIGITIMES</span></div>
+      <h3>마이크론-GM 장기 차량용 메모리 공급 계약</h3>
+      <p>마이크론이 GM과 <strong>차량용 메모리 장기 공급 계약</strong>을 체결. AI·자율주행이 파운드리뿐 아니라 메모리 수요까지 끌어올리는 흐름. SK하이닉스의 미국 관련 논의도 함께 보도.</p>
+    </div>
+
+    <div class="story i">
+      <div class="tagrow"><span class="badge i">인텔</span><span class="when">7/23 예정</span></div>
+      <h3>인텔 실적 D-6… 18A 외부 고객 커밋이 최대 관전 포인트</h3>
+      <p>다음 주 <strong>7/23 인텔 실적</strong>에서 애플·구글 등 외부 고객 커밋 언급 여부가 '제2 공급처' 경쟁의 실체 검증대. 18A 수율(50~55%)·Panther Lake 일정도 확인 포인트. 파운드리 인력 유지에 분기 $1,500만을 쓰는 상황.</p>
+    </div>
+  </section>
+
+  <!-- 숫자 -->
+  <section>
+    <div class="sec-label"><span class="num">4</span><span class="txt">한눈에 보는 숫자</span><span class="line"></span></div>
+    <div class="glance">
+      <table>
+        <thead><tr><th>지표</th><th>현재</th><th>이번 주 포인트</th></tr></thead>
+        <tbody>
+          <tr><th>TSMC 2Q 매출</th><td>402억 달러(+34% YoY)</td><td>가이던스 상단·사상 최대</td></tr>
+          <tr><th>TSMC 2Q 순익</th><td>+77.4% YoY</td><td>첫 2nm 매출 인식</td></tr>
+          <tr><th>TSMC HPC 비중</th><td>매출의 66%</td><td>AI가 성장 견인</td></tr>
+          <tr><th>선단 수요</th><td>캐파의 110~120%</td><td>구조적 공급부족 지속</td></tr>
+          <tr><th>TSMC 선단 가격</th><td>+5~10% 인상</td><td>삼성 가격경쟁력 부각</td></tr>
+          <tr><th>삼성 2nm 수율</th><td>약 55%</td><td>양산 문턱 직전</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 다음주 워치 -->
+  <section>
+    <div class="sec-label"><span class="num">5</span><span class="txt">다음 주 체크포인트</span><span class="line"></span></div>
+    <div class="watch">
+      <div class="item"><span class="date">7/23</span><span class="desc">인텔 실적 — 애플·구글 <b>고객 커밋</b> + 18A 수율/Panther Lake 일정</span></div>
+      <div class="item"><span class="date">7월말</span><span class="desc">삼성전자 2분기 잠정 실적 — <b>DS 내 파운드리 적자 폭</b> 축소 여부</span></div>
+      <div class="item"><span class="date">3Q26</span><span class="desc">삼성 파운드리 <b>분기 흑자</b> 달성 + 지속성 (2028 구조 흑자와 구분)</span></div>
+      <div class="item"><span class="date">상시(HR)</span><span class="desc">성과급 협약·노조 동향 / SK 경력 채용 / 삼성→SK <b>실제 이탈 수치화</b></span></div>
+      <div class="item"><span class="date">하반기</span><span class="desc">삼성 <b>2nm 수율 60%+</b> · 테일러 팹 가동 · 퀄컴/애플 최종 향방</span></div>
+    </div>
+  </section>
+
+  <div class="reissue">
+    <b>매주 갱신 안내</b> — 다음 호가 필요하면 <b>"파운드리 주간"</b>이라고 보내주세요. 「인력·조직 리스크」는 상시 꼭지로 유지합니다. Terafab은 유의미한 진전(IPO 조달, EUV 발주, AI5 테이프아웃, 대형 채용 변동)이 있을 때만 단신 포함 — 이번 주는 해당 없어 제외.
+  </div>
+
+  <div class="caveats">
+    <ul>
+      <li>'모멘텀' 화살표는 주가가 아니라 전망 시나리오 대비 방향성. 삼성 파운드리 손익·수율은 회사 미공개 업계 추산치.</li>
+      <li>TSMC 2분기 매출은 확정치이나, 순이익·총이익률·capex 일부 수치는 발표 직후 집계·컨센서스가 혼재해 출처별 소폭 차이가 있다(매출 US$402억 ↔ 일부 US$396억 환산). 가격 인상·삼성 수율·이탈 기류는 공급망/언론 보도 기반이다.</li>
+      <li>본 자료는 정보 제공 목적이며 투자 권유가 아니다.</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <b>파운드리 주간 (Foundry Weekly)</b> · 제5호 · 2026.07.17 발행<br>
+    출처: DIGITIMES · TradingKey · Forbes · Tech Times · The Diligence Stack · TrendForce · Tom's Hardware · Yahoo Finance (2026.07)<br><br>
+    심층 전망은 「파운드리 시장 전망 &amp; 삼성 파운드리 입지 변화 (1·3·5·10년)」 리포트 참조 — 분기 단위 갱신 권장.
+  </div>
+</footer>
+
+</body>
+</html>

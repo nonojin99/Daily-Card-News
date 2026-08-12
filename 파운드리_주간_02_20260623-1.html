@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>파운드리 주간 · 제2호 (2026.06.23)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#161310;--ink-soft:#3c372f;--ink-faint:#6e675b;
+    --paper:#f7f4ee;--paper-card:#fffdf8;--line:#e3ddd0;--line-strong:#c6bda9;
+    --tsmc:#106b5a;--tsmc-bg:#e3f0eb;
+    --samsung:#1763c0;--samsung-bg:#e6f0fb;
+    --intel:#5b5fb0;--intel-bg:#ececf8;
+    --smic:#9a4b2e;--smic-bg:#f6e7df;
+    --up:#157a52;--down:#bd3a2a;--accent:#9a3b2e;--gold:#b9760a;--maxw:880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+  header.masthead{border-bottom:3px solid var(--ink);background:var(--paper);padding-top:40px;}
+  .kicker-row{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+  .kicker{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--samsung);font-weight:700;}
+  .issue{font-size:12.5px;color:var(--ink-faint);font-weight:700;letter-spacing:.04em;}
+  h1.title{font-family:"Noto Serif KR",serif;font-weight:900;font-size:clamp(30px,6vw,46px);line-height:1.1;letter-spacing:-.02em;margin:0 0 14px;}
+  .dateline{font-size:14px;color:var(--ink-faint);padding:14px 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 22px;}
+  .dateline b{color:var(--ink-soft);font-weight:700;}
+
+  .pulse{display:flex;gap:0;margin:26px 0 8px;border-radius:11px;overflow:hidden;border:1px solid var(--line);}
+  .pulse .cell{flex:1;padding:15px 16px;background:var(--paper-card);border-right:1px solid var(--line);}
+  .pulse .cell:last-child{border-right:none;}
+  .pulse .co-name{font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:5px;}
+  .pulse .co-name.t{color:var(--tsmc);}
+  .pulse .co-name.s{color:var(--samsung);}
+  .pulse .co-name.i{color:var(--intel);}
+  .pulse .arrow{font-size:20px;font-weight:900;font-family:"Noto Serif KR",serif;line-height:1;margin-bottom:3px;}
+  .pulse .arrow.up{color:var(--up);}
+  .pulse .arrow.down{color:var(--down);}
+  .pulse .arrow.flat{color:var(--ink-faint);}
+  .pulse .note{font-size:12px;color:var(--ink-faint);line-height:1.45;}
+  .pulse-cap{font-size:11.5px;color:var(--ink-faint);margin:8px 0 0;text-align:right;}
+
+  .lead{background:var(--ink);color:#f3f0e9;border-radius:14px;padding:26px 28px;margin:24px 0 44px;}
+  .lead h2{font-family:"Noto Serif KR",serif;font-size:19px;font-weight:700;margin:0 0 14px;color:#fff;display:flex;align-items:center;gap:10px;}
+  .lead h2::before{content:"";width:24px;height:3px;background:var(--samsung);}
+  .lead p{margin:0;color:#e3ddd0;font-size:15px;line-height:1.72;}
+  .lead p+p{margin-top:11px;}
+  .lead b{color:#fff;}
+
+  section{padding:6px 0;}
+  .sec-label{display:flex;align-items:center;gap:12px;margin:42px 0 18px;}
+  .sec-label .num{font-family:"Noto Serif KR",serif;font-weight:900;font-size:22px;color:var(--samsung);}
+  .sec-label .txt{font-family:"Noto Serif KR",serif;font-weight:700;font-size:20px;}
+  .sec-label .line{flex:1;height:1px;background:var(--line-strong);}
+
+  .story{background:var(--paper-card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:16px;position:relative;overflow:hidden;}
+  .story::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;}
+  .story.t::before{background:var(--tsmc);}
+  .story.s::before{background:var(--samsung);}
+  .story.i::before{background:var(--intel);}
+  .story.c::before{background:var(--smic);}
+  .story .tagrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px;}
+  .badge{font-size:11px;font-weight:700;letter-spacing:.05em;padding:3px 10px;border-radius:30px;color:#fff;}
+  .badge.t{background:var(--tsmc);}
+  .badge.s{background:var(--samsung);}
+  .badge.i{background:var(--intel);}
+  .badge.c{background:var(--smic);}
+  .badge.hot{background:var(--accent);}
+  .story .when{font-size:11.5px;color:var(--ink-faint);font-weight:600;}
+  .story h3{font-family:"Noto Serif KR",serif;font-size:19px;font-weight:700;margin:0 0 10px;line-height:1.3;color:var(--ink);}
+  .story p{margin:0 0 12px;font-size:14.5px;color:var(--ink-soft);}
+  .story p:last-child{margin-bottom:0;}
+  .takeaway{font-size:13.5px;color:var(--ink-soft);background:var(--samsung-bg);border-radius:8px;padding:11px 14px;margin-top:6px;}
+  .takeaway b{color:var(--samsung);font-weight:700;}
+  .story.t .takeaway{background:var(--tsmc-bg);}
+  .story.t .takeaway b{color:var(--tsmc);}
+  .story.i .takeaway{background:var(--intel-bg);}
+  .story.i .takeaway b{color:var(--intel);}
+
+  .co{font-weight:700;white-space:nowrap;}
+  .co.t{color:var(--tsmc);}
+  .co.s{color:var(--samsung);}
+  .co.i{color:var(--intel);}
+  .co.c{color:var(--smic);}
+  .stat{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;}
+  .pos{color:var(--up);font-weight:700;}
+  .neg{color:var(--down);font-weight:700;}
+
+  .watch{background:var(--paper-card);border:1px solid var(--line);border-radius:12px;padding:8px 8px;margin:8px 0;}
+  .watch .item{display:flex;gap:14px;padding:13px 16px;border-bottom:1px solid var(--line);align-items:baseline;}
+  .watch .item:last-child{border-bottom:none;}
+  .watch .date{font-size:12.5px;font-weight:700;color:var(--samsung);white-space:nowrap;min-width:84px;}
+  .watch .desc{font-size:14px;color:var(--ink-soft);}
+
+  .glance{margin:8px 0;overflow-x:auto;border:1px solid var(--line);border-radius:11px;}
+  table{border-collapse:collapse;width:100%;min-width:540px;background:var(--paper-card);font-size:13.5px;}
+  thead th{text-align:left;padding:12px 15px;font-size:12.5px;font-weight:700;border-bottom:2px solid var(--ink);background:var(--paper);}
+  tbody th{text-align:left;padding:12px 15px;font-weight:700;font-size:12.5px;color:var(--ink-soft);background:var(--paper);border-bottom:1px solid var(--line);white-space:nowrap;}
+  tbody td{padding:12px 15px;border-bottom:1px solid var(--line);color:var(--ink-soft);}
+  tbody tr:last-child th,tbody tr:last-child td{border-bottom:none;}
+
+  .caveats{margin:14px 0;}
+  .caveats ul{margin:0;padding:0;list-style:none;display:grid;gap:9px;}
+  .caveats li{font-size:13px;color:var(--ink-faint);line-height:1.55;padding-left:18px;position:relative;}
+  .caveats li::before{content:"\203B";position:absolute;left:0;top:0;color:var(--line-strong);}
+
+  footer{border-top:3px solid var(--ink);margin-top:50px;padding:24px 0 56px;font-size:12.5px;color:var(--ink-faint);line-height:1.7;}
+  footer b{color:var(--ink-soft);}
+  .reissue{background:var(--samsung-bg);border:1px solid #bcd6f4;border-radius:10px;padding:14px 18px;margin:18px 0;font-size:13.5px;color:var(--ink-soft);}
+  .reissue b{color:var(--samsung);}
+
+  @media (max-width:600px){
+    body{font-size:15px;}
+    .lead{padding:22px 20px;}
+    .pulse{flex-direction:column;}
+    .pulse .cell{border-right:none;border-bottom:1px solid var(--line);}
+    .pulse .cell:last-child{border-bottom:none;}
+    .watch .item{flex-direction:column;gap:3px;}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker-row">
+      <span class="kicker">Foundry Weekly &middot; 파운드리 주간</span>
+      <span class="issue">제2호 / Edition #2</span>
+    </div>
+    <h1 class="title">이번 주 파운드리</h1>
+    <div class="dateline">
+      <span><b>주간</b> 2026.06.20 ~ 06.23</span>
+      <span><b>발행</b> 2026년 6월 23일 (화)</span>
+      <span><b>이번 주 헤드라인</b> 인텔, '백악관 業고' 받고 삼성 회복에 정면 위협</span>
+    </div>
+
+    <div class="pulse">
+      <div class="cell">
+        <div class="co-name t">TSMC</div>
+        <div class="arrow flat">→</div>
+        <div class="note">독주 유지. 캐파 잠김이 경쟁사 기회로 계속 흘러감</div>
+      </div>
+      <div class="cell">
+        <div class="co-name s">삼성 파운드리</div>
+        <div class="arrow flat">▲→</div>
+        <div class="note">고객 유입 지속(테슬라 A16 단독)이나 인텔發 역풍 부상</div>
+      </div>
+      <div class="cell">
+        <div class="co-name i">인텔 파운드리</div>
+        <div class="arrow up">▲▲</div>
+        <div class="note">트럼프 지지 + 구글 TPU 300만개 + 애플 M7설. 이번 주 최대 변수</div>
+      </div>
+    </div>
+    <p class="pulse-cap">이번 주 모멘텀 (전망 대비 방향성, 주가가 아님)</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="lead">
+    <h2>이번 주 한 줄</h2>
+    <p><b>"인텔이 정부를 등에 업고, 삼성이 차지하려던 '제2 파운드리' 자리를 정면으로 노린 주"</b>였다. 트럼프가 인텔 파운드리에 강한 백악관 지지를 시사했고, 같은 흐름에서 <span class="co i">구글 TPU 300만 개(2028년)</span>·<span class="co i">애플 M7(2027년) 18A-P</span> 물량 정황이 보도됐다.</p>
+    <p>지난주 삼성의 반사이익(AMD·구글·테슬라·Groq·BYD 문의)이 이어지는 와중에 나온 소식이라, <b>"제2 공급처 수요를 삼성·인텔이 나눠 갖는 구도"</b>가 빠르게 굳어지는 중. 삼성은 테슬라 A16 단독 수주·북미 파운드리 수장(전 TSMC 임원) 영입으로 맞불을 놓았다.</p>
+  </div>
+
+  <!-- 헤드라인 -->
+  <section>
+    <div class="sec-label"><span class="num">1</span><span class="txt">이번 주 헤드라인</span><span class="line"></span></div>
+
+    <div class="story i">
+      <div class="tagrow">
+        <span class="badge hot">HOT</span>
+        <span class="badge i">인텔</span>
+        <span class="when">6월 19~20일 · KED Global / TweakTown</span>
+      </div>
+      <h3>트럼프 "인텔 파운드리 지지"… 삼성 회복에 새 위협</h3>
+      <p>트럼프 대통령이 인텔의 위탁생산 야심에 강한 백악관 지지를 시사. 미 정부가 인텔 지분 약 10%(약 360억 달러 가치)를 보유한 상황에서, 이는 삼성·TSMC가 갖지 못한 <strong>정치적 순풍</strong>이다. 같은 주, <span class="co i">구글이 2028년용 TPU 300만 개 이상을 인텔에 발주</span>했고, <span class="co i">애플은 2027년 M7을 인텔 18A-P로 생산</span>하는 방안을 검토 중이라는 보도가 겹쳤다.</p>
+      <p>다만 인텔 18A 수율은 여전히 50~55%대로 TSMC(70%+)에 뒤지고, 애플·구글 모두 <strong>본계약·물량 확정 전</strong>이다. 인텔 다음 실적발표(7/23)에서 고객 커밋 언급이 검증 포인트.</p>
+      <div class="takeaway"><b>전망 함의 →</b> 3년 전망에서 짚은 핵심 변수 — "인텔 18A가 잡히면 삼성의 '유일한 대안' 서사가 희석" — 이 현실화 중. 삼성은 이제 TSMC가 아니라 <b>인텔과 2위 자리를 다투는</b> 국면.</p>
+    </div>
+
+    <div class="story s">
+      <div class="tagrow">
+        <span class="badge s">삼성</span>
+        <span class="when">6월 19일 · Nikkei Asia / TechSpot</span>
+      </div>
+      <h3>테슬라 A16 삼성 테일러 '단독' 생산… 고객 유입은 계속</h3>
+      <p>지난주 보도(AMD·구글·테슬라·Groq·BYD 문의)가 구체화. <span class="co s">테슬라 A15는 삼성+TSMC 병행, 차세대 A16은 삼성이 텍사스 테일러 팹에서 단독 생산</span>으로 보도됐다. Groq의 LP30 추론칩은 삼성 4nm, BYD 자율주행 SoC도 "고급 협의" 단계. AMD는 차세대 Epyc 서버 CPU를 삼성 2세대 2nm로 듀얼소싱하는 정황.</p>
+      <div class="takeaway"><b>전망 함의 →</b> 1년 전망의 '흑자전환 동력(가동률·수주)'이 계속 채워지는 중. 단 "문의·협의"가 다수라 본계약 전환율이 관건.</p>
+    </div>
+
+    <div class="story s">
+      <div class="tagrow">
+        <span class="badge s">삼성</span>
+        <span class="when">이번 주 · KED Global</span>
+      </div>
+      <h3>삼성, 北美 파운드리 수장에 'TSMC 출신' 영입</h3>
+      <p>삼성이 적자 중인 미국 파운드리 사업을 강화하기 위해 <strong>전 TSMC 임원</strong>을 북미 파운드리 운영 책임자로 영입. 테일러 팹 가동(하반기)·고객 확대를 앞둔 실행력 보강 포석.</p>
+      <div class="takeaway"><b>전망 함의 →</b> 5년 전망의 '구조적 2위 굳히기'를 위한 조직·실행 투자. 인력 영입은 셋업·수율 안정화 의지의 신호.</p>
+    </div>
+  </section>
+
+  <!-- 단신 -->
+  <section>
+    <div class="sec-label"><span class="num">2</span><span class="txt">짧은 소식</span><span class="line"></span></div>
+
+    <div class="story t">
+      <div class="tagrow"><span class="badge t">TSMC</span><span class="when">이번 주</span></div>
+      <h3>웨이 CEO "수요 못 맞춘다"… 캐파 잠김 지속</h3>
+      <p>TSMC 선단 캐파가 엔비디아·애플·AMD·브로드컴으로 잠겨 추가 물량 여지 부족. 순수 파운드리 1Q26 +30% YoY. "공급이 수요를 따라잡는 데 오랜 시간"이라는 웨이 CEO 발언이 경쟁사 반사이익의 근원으로 재확인.</p>
+    </div>
+
+    <div class="story i">
+      <div class="tagrow"><span class="badge i">패키징</span><span class="when">이번 주</span></div>
+      <h3>구글 8세대 추론 TPU 패키징, 인텔에… EMIB 채택 확대</h3>
+      <p>MediaTek이 중개하는 구도에서 구글 8세대 <strong>추론 TPU 어드밴스드 패키징을 인텔(EMIB)</strong>에, 학습 TPU 패키징은 TSMC(CoWoS)에 배분. TSMC CoWoS 병목이 인텔 패키징에 기회를 열고 있다.</p>
+    </div>
+
+    <div class="story s">
+      <div class="tagrow"><span class="badge s">기술</span><span class="when">최근</span></div>
+      <h3>삼성 SF1.4 2027 양산 목표 재확인 · HBM5 목업 공개</h3>
+      <p>삼성 로드맵: SF2→SF2P→SF2X(HPC,'26)→SF2A(차량)/SF2Z(BSPDN,'27), 그리고 <strong>SF1.4(1.4nm급) 2027 양산 목표</strong>. Heat Path Block 냉각 적용 HBM5 첫 목업도 공개. 반복 개선으로 수율을 점진 끌어올리는 전략.</p>
+    </div>
+
+    <div class="story c">
+      <div class="tagrow"><span class="badge c">메모리·안전</span><span class="when">이번 주</span></div>
+      <h3>SK하이닉스 선단 메모리 공장서 유독가스 화재… 7명 병원</h3>
+      <p>SK하이닉스 첨단 메모리 공장에서 유독가스 화재로 7명이 병원 이송. 파운드리 직접 이슈는 아니나 반도체 제조 안전·가동 리스크 환기 차원에서 기록.</p>
+    </div>
+  </section>
+
+  <!-- 숫자 -->
+  <section>
+    <div class="sec-label"><span class="num">3</span><span class="txt">한눈에 보는 숫자</span><span class="line"></span></div>
+    <div class="glance">
+      <table>
+        <thead><tr><th>지표</th><th>현재</th><th>이번 주 변화</th></tr></thead>
+        <tbody>
+          <tr><th>인텔 18A 수율</th><td>약 50~55%</td><td>TSMC 70%+에 여전히 열위</td></tr>
+          <tr><th>구글 TPU(인텔)</th><td>300만 개+ (2028)</td><td>신규 발주 정황</td></tr>
+          <tr><th>애플 M7</th><td>18A-P (2027) 검토</td><td>예비 단계</td></tr>
+          <tr><th>테슬라 A16</th><td>삼성 테일러 단독</td><td>병행→단독으로 구체화</td></tr>
+          <tr><th>삼성 2nm 수율</th><td>약 55%</td><td>양산 문턱(60%+) 근접</td></tr>
+          <tr><th>美 인텔 지분</th><td>약 10% (~$36B)</td><td>트럼프 "가치 급등" 주장</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 다음주 워치 -->
+  <section>
+    <div class="sec-label"><span class="num">4</span><span class="txt">다음 주 체크포인트</span><span class="line"></span></div>
+    <div class="watch">
+      <div class="item"><span class="date">7/23</span><span class="desc">인텔 실적발표 — <b>애플·구글 고객 커밋</b> 언급 여부 (18A/18A-P 검증)</span></div>
+      <div class="item"><span class="date">3Q26</span><span class="desc">삼성 파운드리 <b>분기 흑자</b> 실제 달성 — 턴어라운드 확정 신호</span></div>
+      <div class="item"><span class="date">하반기</span><span class="desc">삼성 <b>테일러 팹 가동</b> + 2nm 수율 60%+ 돌파 여부</span></div>
+      <div class="item"><span class="date">진행중</span><span class="desc">AMD·구글·BYD의 삼성 논의가 <b>본계약</b>으로 전환되는지</span></div>
+      <div class="item"><span class="date">상시</span><span class="desc">인텔 18A 수율 70%+ 도달 시 → 삼성 "제2 대안" 입지 추가 잠식</span></div>
+    </div>
+  </section>
+
+  <div class="reissue">
+    <b>매주 갱신 안내</b> — 다음 호가 필요하시면 <b>"파운드리 주간"</b>이라고 보내주세요. 그 주 최신 뉴스로 이 포맷 그대로 새 호를 만듭니다. Terafab은 유의미한 진전(IPO 조달 확정, EUV 발주, AI5 테이프아웃, 대형 채용 변동 등)이 있을 때만 단신으로 포함합니다 — 이번 주는 해당 없어 제외했습니다.
+  </div>
+
+  <div class="caveats">
+    <ul>
+      <li>'모멘텀' 화살표는 주가가 아니라 본 전망 시나리오 대비 방향성. 삼성 파운드리 손익·수율은 회사 미공개 업계 추산치.</li>
+      <li>애플 M7·구글 TPU·AMD Epyc의 삼성/인텔 배분은 예비·협의·정황 보도로 본계약이 아니다. 트럼프의 인텔 지분 가치 발언도 미감사 주장으로 인텔 공식 공시 전.</li>
+      <li>본 자료는 정보 제공 목적이며 투자 권유가 아니다.</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <b>파운드리 주간 (Foundry Weekly)</b> · 제2호 · 2026.06.23 발행<br>
+    출처: Nikkei Asia · KED Global · TweakTown · TechSpot · Investing.com · TrendForce · Tom's Hardware · The Elec (2026.06)<br><br>
+    심층 전망은 「파운드리 시장 전망 &amp; 삼성 파운드리 입지 변화 (1·3·5·10년)」 리포트 참조 — 분기 단위 갱신 권장.
+  </div>
+</footer>
+
+</body>
+</html>

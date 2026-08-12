@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>파운드리 주간 · 제4호 (2026.07.04)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#161310;--ink-soft:#3c372f;--ink-faint:#6e675b;
+    --paper:#f7f4ee;--paper-card:#fffdf8;--line:#e3ddd0;--line-strong:#c6bda9;
+    --tsmc:#106b5a;--tsmc-bg:#e3f0eb;
+    --samsung:#1763c0;--samsung-bg:#e6f0fb;
+    --intel:#5b5fb0;--intel-bg:#ececf8;
+    --smic:#9a4b2e;--smic-bg:#f6e7df;
+    --hr:#8a5a1a;--hr-bg:#f5ecda;
+    --up:#157a52;--down:#bd3a2a;--accent:#9a3b2e;--gold:#b9760a;--maxw:880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+  header.masthead{border-bottom:3px solid var(--ink);background:var(--paper);padding-top:40px;}
+  .kicker-row{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+  .kicker{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--samsung);font-weight:700;}
+  .issue{font-size:12.5px;color:var(--ink-faint);font-weight:700;letter-spacing:.04em;}
+  h1.title{font-family:"Noto Serif KR",serif;font-weight:900;font-size:clamp(30px,6vw,46px);line-height:1.1;letter-spacing:-.02em;margin:0 0 14px;}
+  .dateline{font-size:14px;color:var(--ink-faint);padding:14px 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 22px;}
+  .dateline b{color:var(--ink-soft);font-weight:700;}
+
+  .pulse{display:flex;gap:0;margin:26px 0 8px;border-radius:11px;overflow:hidden;border:1px solid var(--line);}
+  .pulse .cell{flex:1;padding:15px 16px;background:var(--paper-card);border-right:1px solid var(--line);}
+  .pulse .cell:last-child{border-right:none;}
+  .pulse .co-name{font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:5px;}
+  .pulse .co-name.t{color:var(--tsmc);}
+  .pulse .co-name.s{color:var(--samsung);}
+  .pulse .co-name.i{color:var(--intel);}
+  .pulse .arrow{font-size:20px;font-weight:900;font-family:"Noto Serif KR",serif;line-height:1;margin-bottom:3px;}
+  .pulse .arrow.up{color:var(--up);}
+  .pulse .arrow.down{color:var(--down);}
+  .pulse .arrow.flat{color:var(--ink-faint);}
+  .pulse .note{font-size:12px;color:var(--ink-faint);line-height:1.45;}
+  .pulse-cap{font-size:11.5px;color:var(--ink-faint);margin:8px 0 0;text-align:right;}
+
+  .lead{background:var(--ink);color:#f3f0e9;border-radius:14px;padding:26px 28px;margin:24px 0 44px;}
+  .lead h2{font-family:"Noto Serif KR",serif;font-size:19px;font-weight:700;margin:0 0 14px;color:#fff;display:flex;align-items:center;gap:10px;}
+  .lead h2::before{content:"";width:24px;height:3px;background:var(--samsung);}
+  .lead p{margin:0;color:#e3ddd0;font-size:15px;line-height:1.72;}
+  .lead p+p{margin-top:11px;}
+  .lead b{color:#fff;}
+
+  section{padding:6px 0;}
+  .sec-label{display:flex;align-items:center;gap:12px;margin:42px 0 18px;}
+  .sec-label .num{font-family:"Noto Serif KR",serif;font-weight:900;font-size:22px;color:var(--samsung);}
+  .sec-label .txt{font-family:"Noto Serif KR",serif;font-weight:700;font-size:20px;}
+  .sec-label .line{flex:1;height:1px;background:var(--line-strong);}
+  .sec-label.hr .num,.sec-label.hr .txt{color:var(--hr);}
+
+  .story{background:var(--paper-card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:16px;position:relative;overflow:hidden;}
+  .story::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;}
+  .story.t::before{background:var(--tsmc);}
+  .story.s::before{background:var(--samsung);}
+  .story.i::before{background:var(--intel);}
+  .story.c::before{background:var(--smic);}
+  .story.hr::before{background:var(--hr);}
+  .story .tagrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px;}
+  .badge{font-size:11px;font-weight:700;letter-spacing:.05em;padding:3px 10px;border-radius:30px;color:#fff;}
+  .badge.t{background:var(--tsmc);}
+  .badge.s{background:var(--samsung);}
+  .badge.i{background:var(--intel);}
+  .badge.c{background:var(--smic);}
+  .badge.hr{background:var(--hr);}
+  .badge.hot{background:var(--accent);}
+  .story .when{font-size:11.5px;color:var(--ink-faint);font-weight:600;}
+  .story h3{font-family:"Noto Serif KR",serif;font-size:19px;font-weight:700;margin:0 0 10px;line-height:1.3;color:var(--ink);}
+  .story p{margin:0 0 12px;font-size:14.5px;color:var(--ink-soft);}
+  .story p:last-child{margin-bottom:0;}
+  .takeaway{font-size:13.5px;color:var(--ink-soft);background:var(--samsung-bg);border-radius:8px;padding:11px 14px;margin-top:6px;}
+  .takeaway b{color:var(--samsung);font-weight:700;}
+  .story.t .takeaway{background:var(--tsmc-bg);}
+  .story.t .takeaway b{color:var(--tsmc);}
+  .story.i .takeaway{background:var(--intel-bg);}
+  .story.i .takeaway b{color:var(--intel);}
+  .story.hr .takeaway{background:var(--hr-bg);}
+  .story.hr .takeaway b{color:var(--hr);}
+
+  .co{font-weight:700;white-space:nowrap;}
+  .co.t{color:var(--tsmc);}
+  .co.s{color:var(--samsung);}
+  .co.i{color:var(--intel);}
+  .co.c{color:var(--smic);}
+  .stat{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;}
+  .pos{color:var(--up);font-weight:700;}
+  .neg{color:var(--down);font-weight:700;}
+
+  .watch{background:var(--paper-card);border:1px solid var(--line);border-radius:12px;padding:8px 8px;margin:8px 0;}
+  .watch .item{display:flex;gap:14px;padding:13px 16px;border-bottom:1px solid var(--line);align-items:baseline;}
+  .watch .item:last-child{border-bottom:none;}
+  .watch .date{font-size:12.5px;font-weight:700;color:var(--samsung);white-space:nowrap;min-width:84px;}
+  .watch .desc{font-size:14px;color:var(--ink-soft);}
+
+  .glance{margin:8px 0;overflow-x:auto;border:1px solid var(--line);border-radius:11px;}
+  table{border-collapse:collapse;width:100%;min-width:540px;background:var(--paper-card);font-size:13.5px;}
+  thead th{text-align:left;padding:12px 15px;font-size:12.5px;font-weight:700;border-bottom:2px solid var(--ink);background:var(--paper);}
+  tbody th{text-align:left;padding:12px 15px;font-weight:700;font-size:12.5px;color:var(--ink-soft);background:var(--paper);border-bottom:1px solid var(--line);white-space:nowrap;}
+  tbody td{padding:12px 15px;border-bottom:1px solid var(--line);color:var(--ink-soft);}
+  tbody tr:last-child th,tbody tr:last-child td{border-bottom:none;}
+
+  .caveats{margin:14px 0;}
+  .caveats ul{margin:0;padding:0;list-style:none;display:grid;gap:9px;}
+  .caveats li{font-size:13px;color:var(--ink-faint);line-height:1.55;padding-left:18px;position:relative;}
+  .caveats li::before{content:"\203B";position:absolute;left:0;top:0;color:var(--line-strong);}
+
+  footer{border-top:3px solid var(--ink);margin-top:50px;padding:24px 0 56px;font-size:12.5px;color:var(--ink-faint);line-height:1.7;}
+  footer b{color:var(--ink-soft);}
+  .reissue{background:var(--samsung-bg);border:1px solid #bcd6f4;border-radius:10px;padding:14px 18px;margin:18px 0;font-size:13.5px;color:var(--ink-soft);}
+  .reissue b{color:var(--samsung);}
+
+  @media (max-width:600px){
+    body{font-size:15px;}
+    .lead{padding:22px 20px;}
+    .pulse{flex-direction:column;}
+    .pulse .cell{border-right:none;border-bottom:1px solid var(--line);}
+    .pulse .cell:last-child{border-bottom:none;}
+    .watch .item{flex-direction:column;gap:3px;}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker-row">
+      <span class="kicker">Foundry Weekly &middot; 파운드리 주간</span>
+      <span class="issue">제4호 / Edition #4</span>
+    </div>
+    <h1 class="title">이번 주 파운드리</h1>
+    <div class="dateline">
+      <span><b>주간</b> 2026.06.28 ~ 07.04</span>
+      <span><b>발행</b> 2026년 7월 4일 (토)</span>
+      <span><b>이번 주 헤드라인</b> 애플·퀄컴 '멀티파운드리' 굳어짐 + 인력·조직 리스크 신설</span>
+    </div>
+
+    <div class="pulse">
+      <div class="cell">
+        <div class="co-name t">TSMC</div>
+        <div class="arrow flat">→</div>
+        <div class="note">캐파 병목이 오히려 고객 이탈을 부르는 구조 지속</div>
+      </div>
+      <div class="cell">
+        <div class="co-name s">삼성 파운드리</div>
+        <div class="arrow flat">▲→</div>
+        <div class="note">퀄컴 2nm·애플 검토 등 수주 저변↑ / 인력 유출 리스크 병존</div>
+      </div>
+      <div class="cell">
+        <div class="co-name i">인텔 파운드리</div>
+        <div class="arrow flat">▲→</div>
+        <div class="note">애플·구글 '검토' 지속. 7/23 실적이 실체 검증대</div>
+      </div>
+    </div>
+    <p class="pulse-cap">이번 주 모멘텀 (전망 대비 방향성, 주가가 아님)</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="lead">
+    <h2>이번 주 한 줄</h2>
+    <p><b>"빅테크의 멀티파운드리 전략이 되돌릴 수 없는 흐름으로 굳어진 주"</b>였다. 애플이 TSMC 외에 <span class="co s">삼성</span>·<span class="co i">인텔</span>을 코어칩용으로 저울질하는 정황이 재확인됐고, 퀄컴은 차세대 모바일 AP에 <span class="co s">삼성 2nm</span>를 쓸 가능성이 유력하게 거론됐다. 모두 TSMC 캐파 병목이 근원이다.</p>
+    <p>이번 호부터 <b>「인력·조직 리스크」</b> 꼭지를 신설한다. 삼성 비메모리(파운드리·시스템LSI)와 메모리 간 성과급 격차, SK하이닉스의 공격적 경력 채용이 <b>파운드리 경쟁력의 근간인 '사람'</b>을 흔들고 있어서다. 수율·수주만큼 중요한 변수라 상시 추적한다.</p>
+  </div>
+
+  <!-- 헤드라인 -->
+  <section>
+    <div class="sec-label"><span class="num">1</span><span class="txt">이번 주 헤드라인</span><span class="line"></span></div>
+
+    <div class="story s">
+      <div class="tagrow">
+        <span class="badge hot">HOT</span>
+        <span class="badge s">삼성</span>
+        <span class="when">최근 · KED Global / TrendForce</span>
+      </div>
+      <h3>퀄컴 차세대 AP, 삼성 2nm 유력… 단 'TSMC 잔류설'도 병존</h3>
+      <p>퀄컴이 차세대 모바일 AP(스냅드래곤)를 <span class="co s">삼성 2nm GAA</span>로 생산할 가능성이 유력하게 거론됐다. 삼성은 메모리 공급과 파운드리를 묶는 <strong>인센티브 패키지</strong>(고성능 메모리 우선 공급 ↔ 웨이퍼 물량 이전)로 고객을 유인하는 전략. 다만 일부(TrendForce)는 <span class="co s">삼성 2nm 수율 약 55%</span>가 양산 문턱에 못 미쳐 퀄컴이 TSMC를 택할 수 있다고 봐, 보도가 엇갈린다.</p>
+      <div class="takeaway"><b>전망 함의 →</b> 대형 모바일 고객 확보는 흑자전환의 핵심 지렛대. 관건은 여전히 <b>수율 60%+ 돌파</b>. 양산기술 관점에선 이 수율 곡선이 수주 성사의 임계선.</p>
+    </div>
+
+    <div class="story i">
+      <div class="tagrow">
+        <span class="badge i">인텔·애플</span>
+        <span class="when">최근 · Bloomberg / The Elec</span>
+      </div>
+      <h3>애플, 코어칩 'TSMC 탈피' 검토 지속… 삼성·인텔 동시 저울질</h3>
+      <p>애플이 TSMC 편중을 줄이려 <span class="co s">삼성 테일러 팹</span>과 <span class="co i">인텔 18A-P</span>를 동시에 검토 중이라는 정황이 이어졌다. 다만 <strong>아직 어느 쪽도 실제 수주로 이어지지 않았고</strong>, 애플은 비(非)TSMC 기술 채택에 여전히 신중하다. 애플 A10 이후 15년을 TSMC 단독에 맡겨온 터라, 재분산은 상징성이 크다.</p>
+      <div class="takeaway"><b>전망 함의 →</b> 애플이 삼성·인텔 중 누굴 택하든 '제2 공급처' 지위의 분수령. 삼성엔 애플의 '인증(endorsement)' 효과가 수율 이상의 무게를 가진다.</p>
+    </div>
+
+    <div class="story t">
+      <div class="tagrow">
+        <span class="badge t">TSMC</span>
+        <span class="when">이번 주</span>
+      </div>
+      <h3>TSMC, 2025년 경쟁사 대비 4배 빠른 성장… 병목의 역설 지속</h3>
+      <p><span class="co t">TSMC</span>가 2025년 파운드리 경쟁사 대비 약 4배 빠르게 성장했다는 분석. 3nm 리드타임 1년 초과·선단 캐파 2028년까지 완판이 이어지며, 병목이 <strong>고객을 삼성·인텔로 밀어내는 역설</strong>이 구조화. 애플·엔비디아·AMD·퀄컴·미디어텍을 두루 안고 있어 일부 이탈에도 타격은 제한적.</p>
+      <div class="takeaway"><b>전망 함의 →</b> TSMC 지배력과 경쟁사 기회는 동시에 커진다. "점유율 격차 확대"와 "제2 공급처 수요 증가"는 모순이 아니라 같은 동전의 양면.</p>
+    </div>
+  </section>
+
+  <!-- 인력·조직 리스크 (신설) -->
+  <section>
+    <div class="sec-label hr"><span class="num">2</span><span class="txt">인력 · 조직 리스크 (신설)</span><span class="line"></span></div>
+
+    <div class="story hr">
+      <div class="tagrow">
+        <span class="badge hr">HR</span>
+        <span class="when">추적 지표 · 상시</span>
+      </div>
+      <h3>성과급 격차가 파운드리 인재를 흔든다</h3>
+      <p>2026년 임금협약으로 삼성 DS는 <strong>특별경영성과급 재원의 60%를 사업부 실적 기준</strong>으로 배분(2027년분부터). 적자인 <span class="co s">파운드리·시스템LSI</span>는 구조적으로 성과급이 깎이는 설계다. 반면 SK하이닉스는 사업부 손익과 무관한 전사 이익 10% 재원 구조로, 올해 초 기본급의 <strong>2964%</strong> 규모 PS를 지급했다. 메모리·비메모리 간 성과급이 <strong>몇 배</strong> 차이라는 평가.</p>
+      <p>여기에 SK하이닉스가 6월 신입 세 자릿수 채용(학력요건 폐지)에 이어 <strong>6/24 경력 54개 직무(Tech R&D 31개, HBM 파운드리 PI 포함)</strong>를 공고하며 삼성 비메모리 인력을 정조준. 삼성 내부에선 저연차까지 이직을 검토하는 기류가 보도됐다. 단, <strong>실제 이탈 규모의 공식 수치는 아직 없다</strong> — 현재는 심리·정황 단계.</p>
+      <div class="takeaway"><b>전망 함의 →</b> HBM 호황이 커질수록 메모리 성과급은 뛰고, 로직다이를 내부거래로 만들어주는 파운드리는 상대적 박탈이 커지는 <b>구조적 역설</b>. 이 고리를 끊는 건 결국 파운드리 흑자전환뿐. 인재 유출이 수율·수주에 타격을 주기 전까지 회사가 근본 수술(내부거래 시장가화·분사)에 나설 유인은 약하다.</p>
+    </div>
+  </section>
+
+  <!-- 단신 -->
+  <section>
+    <div class="sec-label"><span class="num">3</span><span class="txt">짧은 소식</span><span class="line"></span></div>
+
+    <div class="story s">
+      <div class="tagrow"><span class="badge s">삼성</span><span class="when">이번 주</span></div>
+      <h3>삼성 테일러 팹 하반기 가동 준비 · 2nm 신규 고객 저변 확대</h3>
+      <p>삼성 테일러(텍사스) F1(2nm GAA)이 4/23 장비 반입식 후 <strong>하반기 가동, 내년 양산</strong> 목표. F2 착수도 초기 검토. 최근 테슬라 A16 단독·Groq LP30(4nm)·중국 채굴칩 2곳 등 <strong>가동률 채우기용 저변</strong>이 늘고 있다.</p>
+    </div>
+
+    <div class="story i">
+      <div class="tagrow"><span class="badge i">인텔</span><span class="when">최근</span></div>
+      <h3>인텔 18A, 로드맵은 가장 공격적 · 검증은 7/23 실적</h3>
+      <p>인텔은 GAA(RibbonFET)+BSPDN(PowerVia)+High-NA(2027~28)로 <strong>가장 공격적이나 변동성 큰 로드맵</strong>. 구글 8세대 추론 TPU 패키징(EMIB)·애플 M시리즈 검토가 모멘텀. 다만 스마트폰·차량 특화 노드가 없다는 약점. <strong>7/23 실적</strong>에서 외부 고객 커밋이 실체 검증대.</p>
+    </div>
+
+    <div class="story t">
+      <div class="tagrow"><span class="badge t">기술·A14</span><span class="when">최근</span></div>
+      <h3>A14 로직 PDK 등장… 1.4nm 세대 경쟁 준비</h3>
+      <p>TSMC A14(1.4nm급)용 로직·eDRAM PDK가 공개되며 <strong>1.4nm 세대 경쟁</strong>이 채비 단계. 삼성 SF1.4는 2027 양산 목표, 인텔 14A는 High-NA로 2027~28. 이 세대에서 삼성이 격차를 좁히느냐가 5년 전망의 핵심.</p>
+    </div>
+  </section>
+
+  <!-- 숫자 -->
+  <section>
+    <div class="sec-label"><span class="num">4</span><span class="txt">한눈에 보는 숫자</span><span class="line"></span></div>
+    <div class="glance">
+      <table>
+        <thead><tr><th>지표</th><th>현재</th><th>포인트</th></tr></thead>
+        <tbody>
+          <tr><th>삼성 2nm 수율</th><td>약 55%</td><td>양산 문턱(60%+) 직전</td></tr>
+          <tr><th>퀄컴 차세대 AP</th><td>삼성 2nm 유력 ↔ TSMC설</td><td>보도 엇갈림</td></tr>
+          <tr><th>SK 경력 채용</th><td>54개 직무(HBM PI 포함)</td><td>삼성 비메모리 정조준</td></tr>
+          <tr><th>삼성 성과급 차등</th><td>사업부 60% 기준(2027~)</td><td>적자 파운드리 불리</td></tr>
+          <tr><th>실제 이탈 규모</th><td>공식 수치 없음</td><td>심리·정황 단계</td></tr>
+          <tr><th>테일러 팹</th><td>하반기 가동/내년 양산</td><td>일정 준수 여부 관건</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 다음주 워치 -->
+  <section>
+    <div class="sec-label"><span class="num">5</span><span class="txt">다음 주 체크포인트</span><span class="line"></span></div>
+    <div class="watch">
+      <div class="item"><span class="date">7/23</span><span class="desc">인텔 실적 — 애플·구글 <b>고객 커밋</b> 언급 여부</span></div>
+      <div class="item"><span class="date">3Q26</span><span class="desc">삼성 파운드리 <b>분기 흑자</b> 달성 + 지속성 (2028 구조 흑자 목표와 구분)</span></div>
+      <div class="item"><span class="date">상시(HR)</span><span class="desc">삼성 성과급 협약·노조 교섭 동향 / SK 경력 채용 규모·직무(파운드리 PI)</span></div>
+      <div class="item"><span class="date">상시(HR)</span><span class="desc">삼성→SK <b>실제 이탈 규모</b> 수치화 여부</span></div>
+      <div class="item"><span class="date">하반기</span><span class="desc">삼성 <b>2nm 수율 60%+</b> + 테일러 팹 가동 + 퀄컴·애플 최종 향방</span></div>
+    </div>
+  </section>
+
+  <div class="reissue">
+    <b>매주 갱신 안내</b> — 다음 호가 필요하면 <b>"파운드리 주간"</b>이라고 보내주세요. 이번 호부터 <b>「인력·조직 리스크」</b>를 상시 꼭지로 편성합니다. Terafab은 유의미한 진전(IPO 조달, EUV 발주, AI5 테이프아웃, 대형 채용 변동)이 있을 때만 단신 포함 — 이번 주는 해당 없어 제외.
+  </div>
+
+  <div class="caveats">
+    <ul>
+      <li>'모멘텀' 화살표는 주가가 아니라 전망 시나리오 대비 방향성. 삼성 파운드리 손익·수율은 회사 미공개 업계 추산치.</li>
+      <li>퀄컴·애플의 삼성/인텔 채택은 예비·검토·정황 보도로 본계약이 아니다. 성과급 격차·이직 기류는 언론·커뮤니티 보도 기반이며 실제 이탈 규모의 공식 수치는 제시된 바 없다.</li>
+      <li>본 자료는 정보 제공 목적이며 투자 권유가 아니다.</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <b>파운드리 주간 (Foundry Weekly)</b> · 제4호 · 2026.07.04 발행<br>
+    출처: KED Global · Bloomberg · The Elec · TrendForce · TechSpot · Tom's Hardware · Nikkei Asia · 블로터 · 인베스트조선 · 머니투데이 (2026.06~07)<br><br>
+    심층 전망은 「파운드리 시장 전망 &amp; 삼성 파운드리 입지 변화 (1·3·5·10년)」 리포트 참조 — 분기 단위 갱신 권장.
+  </div>
+</footer>
+
+</body>
+</html>

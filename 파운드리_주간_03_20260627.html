@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>파운드리 주간 · 제3호 (2026.06.27)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#161310;--ink-soft:#3c372f;--ink-faint:#6e675b;
+    --paper:#f7f4ee;--paper-card:#fffdf8;--line:#e3ddd0;--line-strong:#c6bda9;
+    --tsmc:#106b5a;--tsmc-bg:#e3f0eb;
+    --samsung:#1763c0;--samsung-bg:#e6f0fb;
+    --intel:#5b5fb0;--intel-bg:#ececf8;
+    --smic:#9a4b2e;--smic-bg:#f6e7df;
+    --up:#157a52;--down:#bd3a2a;--accent:#9a3b2e;--gold:#b9760a;--maxw:880px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+  header.masthead{border-bottom:3px solid var(--ink);background:var(--paper);padding-top:40px;}
+  .kicker-row{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+  .kicker{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--samsung);font-weight:700;}
+  .issue{font-size:12.5px;color:var(--ink-faint);font-weight:700;letter-spacing:.04em;}
+  h1.title{font-family:"Noto Serif KR",serif;font-weight:900;font-size:clamp(30px,6vw,46px);line-height:1.1;letter-spacing:-.02em;margin:0 0 14px;}
+  .dateline{font-size:14px;color:var(--ink-faint);padding:14px 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 22px;}
+  .dateline b{color:var(--ink-soft);font-weight:700;}
+
+  .pulse{display:flex;gap:0;margin:26px 0 8px;border-radius:11px;overflow:hidden;border:1px solid var(--line);}
+  .pulse .cell{flex:1;padding:15px 16px;background:var(--paper-card);border-right:1px solid var(--line);}
+  .pulse .cell:last-child{border-right:none;}
+  .pulse .co-name{font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:5px;}
+  .pulse .co-name.t{color:var(--tsmc);}
+  .pulse .co-name.s{color:var(--samsung);}
+  .pulse .co-name.i{color:var(--intel);}
+  .pulse .arrow{font-size:20px;font-weight:900;font-family:"Noto Serif KR",serif;line-height:1;margin-bottom:3px;}
+  .pulse .arrow.up{color:var(--up);}
+  .pulse .arrow.down{color:var(--down);}
+  .pulse .arrow.flat{color:var(--ink-faint);}
+  .pulse .note{font-size:12px;color:var(--ink-faint);line-height:1.45;}
+  .pulse-cap{font-size:11.5px;color:var(--ink-faint);margin:8px 0 0;text-align:right;}
+
+  .lead{background:var(--ink);color:#f3f0e9;border-radius:14px;padding:26px 28px;margin:24px 0 44px;}
+  .lead h2{font-family:"Noto Serif KR",serif;font-size:19px;font-weight:700;margin:0 0 14px;color:#fff;display:flex;align-items:center;gap:10px;}
+  .lead h2::before{content:"";width:24px;height:3px;background:var(--samsung);}
+  .lead p{margin:0;color:#e3ddd0;font-size:15px;line-height:1.72;}
+  .lead p+p{margin-top:11px;}
+  .lead b{color:#fff;}
+
+  section{padding:6px 0;}
+  .sec-label{display:flex;align-items:center;gap:12px;margin:42px 0 18px;}
+  .sec-label .num{font-family:"Noto Serif KR",serif;font-weight:900;font-size:22px;color:var(--samsung);}
+  .sec-label .txt{font-family:"Noto Serif KR",serif;font-weight:700;font-size:20px;}
+  .sec-label .line{flex:1;height:1px;background:var(--line-strong);}
+
+  .story{background:var(--paper-card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:16px;position:relative;overflow:hidden;}
+  .story::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;}
+  .story.t::before{background:var(--tsmc);}
+  .story.s::before{background:var(--samsung);}
+  .story.i::before{background:var(--intel);}
+  .story.c::before{background:var(--smic);}
+  .story .tagrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px;}
+  .badge{font-size:11px;font-weight:700;letter-spacing:.05em;padding:3px 10px;border-radius:30px;color:#fff;}
+  .badge.t{background:var(--tsmc);}
+  .badge.s{background:var(--samsung);}
+  .badge.i{background:var(--intel);}
+  .badge.c{background:var(--smic);}
+  .badge.hot{background:var(--accent);}
+  .story .when{font-size:11.5px;color:var(--ink-faint);font-weight:600;}
+  .story h3{font-family:"Noto Serif KR",serif;font-size:19px;font-weight:700;margin:0 0 10px;line-height:1.3;color:var(--ink);}
+  .story p{margin:0 0 12px;font-size:14.5px;color:var(--ink-soft);}
+  .story p:last-child{margin-bottom:0;}
+  .takeaway{font-size:13.5px;color:var(--ink-soft);background:var(--samsung-bg);border-radius:8px;padding:11px 14px;margin-top:6px;}
+  .takeaway b{color:var(--samsung);font-weight:700;}
+  .story.t .takeaway{background:var(--tsmc-bg);}
+  .story.t .takeaway b{color:var(--tsmc);}
+  .story.i .takeaway{background:var(--intel-bg);}
+  .story.i .takeaway b{color:var(--intel);}
+
+  .co{font-weight:700;white-space:nowrap;}
+  .co.t{color:var(--tsmc);}
+  .co.s{color:var(--samsung);}
+  .co.i{color:var(--intel);}
+  .co.c{color:var(--smic);}
+  .stat{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;}
+  .pos{color:var(--up);font-weight:700;}
+  .neg{color:var(--down);font-weight:700;}
+
+  .watch{background:var(--paper-card);border:1px solid var(--line);border-radius:12px;padding:8px 8px;margin:8px 0;}
+  .watch .item{display:flex;gap:14px;padding:13px 16px;border-bottom:1px solid var(--line);align-items:baseline;}
+  .watch .item:last-child{border-bottom:none;}
+  .watch .date{font-size:12.5px;font-weight:700;color:var(--samsung);white-space:nowrap;min-width:84px;}
+  .watch .desc{font-size:14px;color:var(--ink-soft);}
+
+  .glance{margin:8px 0;overflow-x:auto;border:1px solid var(--line);border-radius:11px;}
+  table{border-collapse:collapse;width:100%;min-width:540px;background:var(--paper-card);font-size:13.5px;}
+  thead th{text-align:left;padding:12px 15px;font-size:12.5px;font-weight:700;border-bottom:2px solid var(--ink);background:var(--paper);}
+  tbody th{text-align:left;padding:12px 15px;font-weight:700;font-size:12.5px;color:var(--ink-soft);background:var(--paper);border-bottom:1px solid var(--line);white-space:nowrap;}
+  tbody td{padding:12px 15px;border-bottom:1px solid var(--line);color:var(--ink-soft);}
+  tbody tr:last-child th,tbody tr:last-child td{border-bottom:none;}
+
+  .caveats{margin:14px 0;}
+  .caveats ul{margin:0;padding:0;list-style:none;display:grid;gap:9px;}
+  .caveats li{font-size:13px;color:var(--ink-faint);line-height:1.55;padding-left:18px;position:relative;}
+  .caveats li::before{content:"\203B";position:absolute;left:0;top:0;color:var(--line-strong);}
+
+  footer{border-top:3px solid var(--ink);margin-top:50px;padding:24px 0 56px;font-size:12.5px;color:var(--ink-faint);line-height:1.7;}
+  footer b{color:var(--ink-soft);}
+  .reissue{background:var(--samsung-bg);border:1px solid #bcd6f4;border-radius:10px;padding:14px 18px;margin:18px 0;font-size:13.5px;color:var(--ink-soft);}
+  .reissue b{color:var(--samsung);}
+
+  @media (max-width:600px){
+    body{font-size:15px;}
+    .lead{padding:22px 20px;}
+    .pulse{flex-direction:column;}
+    .pulse .cell{border-right:none;border-bottom:1px solid var(--line);}
+    .pulse .cell:last-child{border-bottom:none;}
+    .watch .item{flex-direction:column;gap:3px;}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker-row">
+      <span class="kicker">Foundry Weekly &middot; 파운드리 주간</span>
+      <span class="issue">제3호 / Edition #3</span>
+    </div>
+    <h1 class="title">이번 주 파운드리</h1>
+    <div class="dateline">
+      <span><b>주간</b> 2026.06.24 ~ 06.27</span>
+      <span><b>발행</b> 2026년 6월 27일 (토)</span>
+      <span><b>이번 주 헤드라인</b> TSMC 3nm 리드타임 1년 돌파 &amp; 삼성 흑자 시점 '엇갈린 신호'</span>
+    </div>
+
+    <div class="pulse">
+      <div class="cell">
+        <div class="co-name t">TSMC</div>
+        <div class="arrow up">▲</div>
+        <div class="note">3nm 리드타임 1년+. 공급난이 가격·협상력 모두 강화</div>
+      </div>
+      <div class="cell">
+        <div class="co-name s">삼성 파운드리</div>
+        <div class="arrow flat">→</div>
+        <div class="note">수주 유입은 지속하나 '흑자 시점' 신호 엇갈림(3Q설 vs 2028설)</div>
+      </div>
+      <div class="cell">
+        <div class="co-name i">인텔 파운드리</div>
+        <div class="arrow flat">▲→</div>
+        <div class="note">오버플로 수혜 지속. 7/23 실적이 다음 분수령</div>
+      </div>
+    </div>
+    <p class="pulse-cap">이번 주 모멘텀 (전망 대비 방향성, 주가가 아님)</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="lead">
+    <h2>이번 주 한 줄</h2>
+    <p><b>"조용했지만, 삼성 흑자전환 시점의 컨센서스가 흔들린 주"</b>였다. DIGITIMES(6/25)는 한국 업계 소식통을 인용해 <span class="co s">삼성 파운드리의 턴어라운드 목표를 '2028년'</span>으로, 향후 <b>2~3년이 안정적 가동에 달린 분수령</b>이라고 보도했다. 직전까지 돌던 "3분기 흑자전환" 관측과는 온도차가 분명하다.</p>
+    <p>한편 <span class="co t">TSMC 3nm 리드타임이 1년을 넘어섰다.</span> 선단 캐파가 2028년까지 잠긴 구조가 재확인되며, 경쟁사 반사이익의 근원은 그대로다. OpenAI가 <b>브로드컴 설계·TSMC 제조</b> 추론칩을 공개하는 등 커스텀 ASIC 다변화도 이어졌다.</p>
+  </div>
+
+  <!-- 헤드라인 -->
+  <section>
+    <div class="sec-label"><span class="num">1</span><span class="txt">이번 주 헤드라인</span><span class="line"></span></div>
+
+    <div class="story s">
+      <div class="tagrow">
+        <span class="badge hot">HOT</span>
+        <span class="badge s">삼성</span>
+        <span class="when">6월 25일 · DIGITIMES</span>
+      </div>
+      <h3>삼성 흑자전환 '2028년 목표'설… "향후 2~3년이 분수령"</h3>
+      <p>DIGITIMES가 한국 업계 소식통을 인용, <span class="co s">삼성 파운드리의 턴어라운드 목표 시점을 2028년</span>으로 제시하며 안정적 가동(stable operations)이 관건이라 보도. 앞서 일부 보도의 "3분기 흑자전환" 관측보다 보수적이다. 두 신호의 간극은 <strong>"일부 분기 흑자"와 "구조적 흑자"의 차이</strong>로 해석하는 게 합리적 — 단기 흑자가 떠도, 사업부 전체의 지속 흑자는 2027~28년 과제라는 의미.</p>
+      <div class="takeaway"><b>전망 함의 →</b> 1년 전망의 '흑자전환 원년' 서사는 유효하되, <b>"한 분기 반짝 흑자 ≠ 턴어라운드 완성"</b>임을 분리해서 봐야 한다. 다음 분기 실적의 지속성이 진짜 지표.</p>
+    </div>
+
+    <div class="story t">
+      <div class="tagrow">
+        <span class="badge t">TSMC</span>
+        <span class="when">6월 25일 · DIGITIMES</span>
+      </div>
+      <h3>TSMC 3nm 리드타임, 1년 돌파… 공급난 심화</h3>
+      <p><span class="co t">TSMC 3nm 리드타임이 1년을 넘어섰다.</span> 3nm·2nm 캐파가 엔비디아·애플·브로드컴 우선 배정으로 2028년까지 사실상 완판. 공급난이 가격 인상과 협상력을 동시에 강화하는 구조. 이 잠김이 AMD·구글·테슬라를 삼성·인텔로 흘려보내는 동력이다.</p>
+      <div class="takeaway"><b>전망 함의 →</b> 경쟁사 입장에선 "TSMC가 못 받는 물량"이 기회의 원천. 단 리드타임 폭증은 TSMC 지배력의 방증이기도 해, 점유율 격차 축소와는 별개다.</p>
+    </div>
+
+    <div class="story s">
+      <div class="tagrow">
+        <span class="badge s">삼성</span>
+        <span class="when">최근 · KED Global / TrendForce</span>
+      </div>
+      <h3>삼성, 2nm 신규 고객 추가… 단 퀄컴 향방은 '엇갈림'</h3>
+      <p>삼성이 2nm로 <strong>중국 암호화폐 채굴업체 2곳</strong>을 신규 수주. 퀄컴 차세대 모바일 AP의 삼성 2nm 적용 가능성도 거론되나, 일부(TrendForce)는 <span class="co t">퀄컴이 TSMC를 택할 수 있다</span>고 봐 보도가 엇갈린다. 채굴칩 같은 물량은 수율 부담이 낮아 <strong>가동률·수율 램프업의 디딤돌</strong> 역할.</p>
+      <div class="takeaway"><b>전망 함의 →</b> 대형 선단 고객(퀄컴·애플급) 확정 전까지는, 중소 물량으로 가동률을 채워 수율을 끌어올리는 단계. 양산기술 관점에선 수율 곡선이 핵심.</p>
+    </div>
+  </section>
+
+  <!-- 단신 -->
+  <section>
+    <div class="sec-label"><span class="num">2</span><span class="txt">짧은 소식</span><span class="line"></span></div>
+
+    <div class="story t">
+      <div class="tagrow"><span class="badge t">ASIC</span><span class="when">6월 25일 · DIGITIMES</span></div>
+      <h3>OpenAI, 브로드컴 설계·TSMC 제조 추론칩 공개</h3>
+      <p>OpenAI가 자체 추론칩을 공개 — <strong>브로드컴 설계 + TSMC 제조</strong> 구조. 모델 기업들의 실리콘 다변화(custom ASIC) 흐름이 이어지며, 대부분 물량이 여전히 TSMC로 집중되는 현실을 재확인.</p>
+    </div>
+
+    <div class="story s">
+      <div class="tagrow"><span class="badge s">삼성</span><span class="when">최근 · Nikkei / Let's Data Science</span></div>
+      <h3>AMD CPU(2028~)·구글 Axion·엔비디아 Thor… 삼성과 협의 지속</h3>
+      <p>AMD가 2028년부터 일부 CPU를 삼성 2nm에 듀얼소싱하는 논의, 구글 차세대 <strong>Axion</strong> AI 가속기 일부, 엔비디아 <strong>Drive AGX Thor</strong> 예비 협의가 진행 중. 다만 모두 "협의/예비" 단계 — 멀티소싱은 설계 재작업 부담이 커 자금력 있는 고객만 현실적.</p>
+    </div>
+
+    <div class="story i">
+      <div class="tagrow"><span class="badge i">인텔</span><span class="when">이번 주</span></div>
+      <h3>인텔, 오버플로 수혜 지속… 18A 로드맵 '가장 공격적'</h3>
+      <p>인텔은 GAA(RibbonFET)+BSPDN(PowerVia) 동시 적용에 High-NA EUV(2027~28)까지 가장 공격적인 로드맵으로 평가. TSMC 캐파 오버플로 수혜도 지속. 다만 수율·실행 변동성이 가장 큰 카드라는 평가는 유지. 7/23 실적이 고객 커밋 검증 분수령.</p>
+    </div>
+  </section>
+
+  <!-- 숫자 -->
+  <section>
+    <div class="sec-label"><span class="num">3</span><span class="txt">한눈에 보는 숫자</span><span class="line"></span></div>
+    <div class="glance">
+      <table>
+        <thead><tr><th>지표</th><th>현재</th><th>이번 주 포인트</th></tr></thead>
+        <tbody>
+          <tr><th>TSMC 3nm 리드타임</th><td>1년 초과</td><td>공급난 심화·가격 협상력↑</td></tr>
+          <tr><th>TSMC 선단 캐파</th><td>2028년까지 완판</td><td>오버플로가 경쟁사로</td></tr>
+          <tr><th>삼성 흑자전환</th><td>2028 목표설 ↔ 3Q26설</td><td>신호 엇갈림(분기 vs 구조)</td></tr>
+          <tr><th>삼성 2nm 수율</th><td>약 50~55%</td><td>양산 문턱(60%+) 근접</td></tr>
+          <tr><th>삼성 신규 수주</th><td>中 채굴칩 2곳 등</td><td>가동률 채우기 단계</td></tr>
+          <tr><th>인텔 18A-P</th><td>리스크 양산</td><td>7/23 실적이 검증대</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 다음주 워치 -->
+  <section>
+    <div class="sec-label"><span class="num">4</span><span class="txt">다음 주 체크포인트</span><span class="line"></span></div>
+    <div class="watch">
+      <div class="item"><span class="date">7/23</span><span class="desc">인텔 실적 — 애플·구글 <b>고객 커밋</b> 언급 여부</span></div>
+      <div class="item"><span class="date">3Q26</span><span class="desc">삼성 파운드리 <b>분기 흑자</b> 달성 여부 + 그 <b>지속성</b> (2028 구조적 흑자 목표와 구분)</span></div>
+      <div class="item"><span class="date">하반기</span><span class="desc">삼성 <b>테일러 팹 가동</b> + 2nm 수율 60%+ 돌파</span></div>
+      <div class="item"><span class="date">진행중</span><span class="desc">퀄컴 차세대 AP <b>삼성 vs TSMC</b> 최종 향방 (보도 엇갈림)</span></div>
+      <div class="item"><span class="date">진행중</span><span class="desc">AMD·구글 Axion·엔비디아 Thor 협의의 <b>본계약</b> 전환 여부</span></div>
+    </div>
+  </section>
+
+  <div class="reissue">
+    <b>매주 갱신 안내</b> — 다음 호가 필요하면 <b>"파운드리 주간"</b>이라고 보내주세요. Terafab은 유의미한 진전(IPO 조달 확정, EUV 발주, AI5 테이프아웃, 대형 채용 변동 등)이 있을 때만 단신으로 포함합니다 — 이번 주는 해당 없어 제외했습니다.
+  </div>
+
+  <div class="caveats">
+    <ul>
+      <li>'모멘텀' 화살표는 주가가 아니라 본 전망 시나리오 대비 방향성. 삼성 파운드리 손익·수율은 회사 미공개 업계 추산치이며, 흑자 시점(3Q26 vs 2028)은 출처별로 엇갈린다.</li>
+      <li>AMD·구글 Axion·엔비디아 Thor·퀄컴의 삼성 적용은 예비·협의·정황 보도로 본계약이 아니다. DIGITIMES 기사 일부는 유료 구독 영역으로 핵심 수치는 공개 스니펫 기준.</li>
+      <li>본 자료는 정보 제공 목적이며 투자 권유가 아니다.</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <b>파운드리 주간 (Foundry Weekly)</b> · 제3호 · 2026.06.27 발행<br>
+    출처: DIGITIMES · Nikkei Asia · KED Global · TrendForce · Tom's Hardware · Let's Data Science · The Elec (2026.06)<br><br>
+    심층 전망은 「파운드리 시장 전망 &amp; 삼성 파운드리 입지 변화 (1·3·5·10년)」 리포트 참조 — 분기 단위 갱신 권장.
+  </div>
+</footer>
+
+</body>
+</html>
