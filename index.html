@@ -16,6 +16,7 @@
     --blue:#1f5f8b; --blue-soft:#e8f0f5;
     --purple:#6b3f8a; --purple-soft:#f0eaf5;
     --gold:#8a6d3b; --gold-soft:#f5f0e5;
+    --rust:#9a3b2e; --rust-soft:#f7ecea;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
@@ -48,6 +49,12 @@
   .b-sports{color:var(--blue);background:var(--blue-soft)}
   .b-music{color:var(--purple);background:var(--purple-soft)}
   .b-etc{color:var(--gold);background:var(--gold-soft)}
+  .b-foundry{color:var(--rust);background:var(--rust-soft)}
+  .chips{display:flex;gap:7px;overflow-x:auto;margin:0 0 24px;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex-shrink:0;font-family:inherit;font-size:13px;font-weight:500;padding:7px 15px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;white-space:nowrap;transition:background .15s,color .15s,border-color .15s}
+  .chip:hover{border-color:#cfcdc4}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 
   .state{text-align:center;color:var(--faint);padding:48px 0;font-size:14px}
   footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
@@ -92,8 +99,21 @@ const TYPE_MAP = {
   "ai":       { label: "AI·테크",    cls: "b-etc",     order: 1 },
   "tech":     { label: "AI·테크",    cls: "b-etc",     order: 1 },
   "science":  { label: "우주·과학",  cls: "b-etc",     order: 1 },
-  "space":    { label: "우주·과학",  cls: "b-etc",     order: 1 }
+  "space":    { label: "우주·과학",  cls: "b-etc",     order: 1 },
+  "foundry":  { label: "파운드리",   cls: "b-foundry", order: 2 }
 };
+
+// 상단 필터. types는 위 TYPE_MAP의 키 기준
+const GROUPS = [
+  { key: "all",     label: "전체",      types: null },
+  { key: "daily",   label: "일일뉴스",  types: ["daily"] },
+  { key: "ai",      label: "IT",        types: ["ai", "tech"] },
+  { key: "travel",  label: "여행",      types: ["travel", "activity"] },
+  { key: "sports",  label: "스포츠",    types: ["sports"] },
+  { key: "culture", label: "문화",      types: ["culture", "music"] },
+  { key: "science", label: "우주·과학", types: ["science", "space"] },
+  { key: "foundry", label: "파운드리",  types: ["foundry"] }
+];
 
 async function load(){
   const el = document.getElementById("content");
@@ -106,12 +126,13 @@ async function load(){
     // manifest의 각 항목에 화면 표시용 타입 정보를 붙임
     const files = (data.files || []).map(f => ({
       ...f,
+      raw: String(f.type).toLowerCase(),
       type: TYPE_MAP[String(f.type).toLowerCase()]
             || { label: f.type, cls: "b-etc", order: 2 }
     }));
     const odd = data.odd || [];
 
-    const warn = odd.length === 0 ? "" : `<div style="background:#fdf3f2;border:1px solid #e8c8c4;border-radius:12px;padding:14px 18px;margin-bottom:24px;font-size:13.5px;color:#8a3d33;line-height:1.7">⚠ <b>파일명 규칙에 안 맞는 HTML ${odd.length}개</b> — 목록에 표시되지 않으며 링크가 깨질 수 있습니다.<br>${odd.map(n=>`<code>${n}</code>`).join(", ")}<br>올바른 형식: <code>YYYY-MM-DD_type-brief.html</code> (소문자·공백 없음·"(1)" 같은 접미사 주의)</div>`;
+    const warn = odd.length === 0 ? "" : `<div style="background:#fdf3f2;border:1px solid #e8c8c4;border-radius:12px;padding:14px 18px;margin-bottom:24px;font-size:13.5px;color:#8a3d33;line-height:1.7">⚠ <b>파일명 규칙에 안 맞는 HTML ${odd.length}개</b> — 목록에 표시되지 않으며 링크가 깨질 수 있습니다.<br>${odd.map(n=>`<code>${n}</code>`).join(", ")}<br>올바른 형식: <code>YYYY-MM-DD_type-brief.html</code> 또는 <code>파운드리_주간_NN_YYYYMMDD.html</code> (소문자·공백 없음·"(1)" 같은 접미사 주의)</div>`;
 
     if(files.length === 0){
       el.innerHTML = warn + '<div class="state">아직 발행된 브리프가 없습니다.</div>';
@@ -121,36 +142,67 @@ async function load(){
     // 최신 날짜 → 같은 날은 메인 먼저
     files.sort((a,b) => b.date.localeCompare(a.date) || a.type.order - b.type.order);
 
-    const latest = files[0];
     const weekday = ["일","월","화","수","목","금","토"];
     const fmtDate = f => {
       const d = new Date(`${f.date}T00:00:00`);
       return `${Number(f.mon)}월 ${Number(f.day)}일 (${weekday[d.getDay()]})`;
     };
 
-    let html = warn + `
-      <a class="latest" href="${latest.path}">
-        <div class="lt-label">📌 최신 브리프</div>
-        <div class="lt-title">${latest.type.label} 브리프</div>
-        <div class="lt-date">${latest.year}년 ${fmtDate(latest)}</div>
-      </a>`;
+    // 파운드리 주간은 '브리프' 대신 호수를 표기
+    const dispName = f => f.issue ? `${f.type.label} 주간 제${f.issue}호` : `${f.type.label} 브리프`;
 
-    // 월별 그룹
-    let currentMonth = "";
-    for(const f of files){
-      if(f.month !== currentMonth){
-        currentMonth = f.month;
-        html += `<div class="month-label"><span class="m">${f.year}년 ${Number(f.mon)}월</span><span class="bar"></span></div>`;
+    // 실제 파일이 있는 분류만 노출
+    const avail = GROUPS.filter(g => !g.types || files.some(f => g.types.includes(f.raw)));
+    let cur = "all";
+
+    function draw(){
+      const g = GROUPS.find(x => x.key === cur);
+      const list = g.types ? files.filter(f => g.types.includes(f.raw)) : files;
+
+      const chips = `<div class="chips">${avail.map(x =>
+        `<button class="chip${x.key === cur ? " on" : ""}" data-k="${x.key}">${x.label}</button>`
+      ).join("")}</div>`;
+
+      if(list.length === 0){
+        el.innerHTML = warn + chips + '<div class="state">해당 분류의 브리프가 없습니다.</div>';
+        return;
       }
-      html += `
-        <a class="row" href="${f.path}">
-          <span class="r-date">${f.mon}.${f.day}</span>
-          <span class="r-badge ${f.type.cls}">${f.type.label}</span>
-          <span class="r-name">${f.type.label} 브리프 — ${fmtDate(f)}</span>
-          <span class="r-arrow">→</span>
+
+      const latest = list[0];
+      let html = warn + chips + `
+        <a class="latest" href="${latest.path}">
+          <div class="lt-label">📌 ${cur === "all" ? "최신 브리프" : g.label + " 최신"}</div>
+          <div class="lt-title">${dispName(latest)}</div>
+          <div class="lt-date">${latest.year}년 ${fmtDate(latest)}</div>
         </a>`;
+
+      // 월별 그룹
+      let currentMonth = "";
+      for(const f of list){
+        if(f.month !== currentMonth){
+          currentMonth = f.month;
+          html += `<div class="month-label"><span class="m">${f.year}년 ${Number(f.mon)}월</span><span class="bar"></span></div>`;
+        }
+        html += `
+          <a class="row" href="${f.path}">
+            <span class="r-date">${f.mon}.${f.day}</span>
+            <span class="r-badge ${f.type.cls}">${f.type.label}</span>
+            <span class="r-name">${dispName(f)} — ${fmtDate(f)}</span>
+            <span class="r-arrow">→</span>
+          </a>`;
+      }
+      el.innerHTML = html;
     }
-    el.innerHTML = html;
+
+    // el 자체는 교체되지 않으므로 위임으로 한 번만 연결
+    el.addEventListener("click", e => {
+      const b = e.target.closest(".chip");
+      if(!b) return;
+      cur = b.dataset.k;
+      draw();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    draw();
   }catch(e){
     el.innerHTML = '<div class="state">목록을 불러오지 못했습니다. 잠시 후 새로고침 해주세요.<br>(manifest.json이 아직 생성되지 않았거나 일시적인 오류일 수 있습니다)</div>';
   }
