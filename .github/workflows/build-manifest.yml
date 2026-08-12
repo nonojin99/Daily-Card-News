@@ -20,7 +20,10 @@ jobs:
         shell: python
         run: |
           import json, os, re, datetime
+          # 데일리 브리프:  YYYY-MM-DD_type-brief.html
           P = re.compile(r'^(\d{4})-(\d{2})-(\d{2})_([a-z]+)-brief\.html$', re.I)
+          # 파운드리 주간:  파운드리_주간_NN_YYYYMMDD.html  (다운로드 중복 접미사 -1 허용)
+          PF = re.compile(r'^파운드리_주간_(\d{2})_(\d{4})(\d{2})(\d{2})(?:-\d+)?\.html$')
           files, odd = [], []
           for root, dirs, names in os.walk('.'):
               dirs[:] = [d for d in dirs if not d.startswith('.')]
@@ -34,6 +37,7 @@ jobs:
                       continue
                   path = n if rel == '.' else rel + '/' + n
                   m = P.match(n)
+                  mf = PF.match(n)
                   if m:
                       files.append({
                           'date': m.group(1) + '-' + m.group(2) + '-' + m.group(3),
@@ -42,6 +46,17 @@ jobs:
                           'mon': m.group(2),
                           'day': m.group(3),
                           'type': m.group(4).lower(),
+                          'path': path,
+                      })
+                  elif mf:
+                      files.append({
+                          'date': mf.group(2) + '-' + mf.group(3) + '-' + mf.group(4),
+                          'month': mf.group(2) + '-' + mf.group(3),
+                          'year': mf.group(2),
+                          'mon': mf.group(3),
+                          'day': mf.group(4),
+                          'type': 'foundry',
+                          'issue': int(mf.group(1)),
                           'path': path,
                       })
                   else:
