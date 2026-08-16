@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="AI·테크 브리프 — 2026.08.17">
+<meta property="og:description" content="구글 제미나이 3.7 플래시, '작업당 비용' 전쟁 신호 · 딥시크 V4-Pro 내며 API 최대 1,100% 인상 · 애플, 중국 전용 AI를 알리바바와 직접 훈련 · 국산 '독자 AI 파운데이션 모델' 4→3팀 압축 임박 · SMIC 매출 첫 30억달러, AI 낙수효과 성숙노드까지">
+<meta property="og:type" content="article">
+<title>AI Brief — 2026.08.17</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#2a6b7c; --accent-soft:#e9f0f2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">AI Brief · AI·테크 서브</div>
+    <h1>주말에 쌓인 AI</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 8월 17일 월요일</span>
+      <span class="count">7 Picks · 고르게</span>
+    </div>
+    <p class="lede">이번 주말 AI 뉴스의 공통 화두는 '값'입니다. 구글은 값싼 모델을 반값에 먼저 풀고, 딥시크는 거꾸로 가격을 열 배 올렸으며, 파운드리는 구형 칩까지 값을 올려 받습니다. 성능 자랑이 잦아든 자리를, 이제 '얼마에·누구 손으로'라는 질문이 채웁니다. 서로 다른 일곱 갈래를 골고루 담았습니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">AI 모델 — 글로벌</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">速</span>
+    <div class="card-top"><span class="topic">AI모델·빅테크</span></div>
+    <h2>구글 '제미나이 3.7 플래시' 공개…코딩·에이전트에 초점</h2>
+    <div class="summary">
+      <p>구글이 8월 13일 경량·고효율 모델 <strong>Gemini 3.7 Flash</strong>를 공개했다. 코딩과 에이전트 작업에 초점을 맞췄고, 자체 벤치마크에서 여러 항목에서 경쟁 모델을 앞섰다고 밝혔다. 직전 세대(3.6 Flash)보다 <strong>가격을 낮춰</strong>, 값싼 '플래시' 라인으로 개발자 수요를 겨냥했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">출시일</span><span>2026-08-13</span></li>
+      <li><span class="k">초점</span><span>코딩 · 에이전트(agentic) 작업</span></li>
+      <li><span class="k">성능 주장</span><span>자체 벤치서 경쟁 모델 다수 항목 우위</span></li>
+      <li><span class="k">가격</span><span>직전 세대(3.6 Flash) 대비 인하(자체 발표)</span></li>
+      <li><span class="k">직전 모델 간격</span><span>3.6 Flash 대비 약 3주</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>프론티어 경쟁의 축이 '최고 성능'에서 '작업당 비용(cost-per-task)'으로 옮겨가는 신호다. 값싼 플래시 라인을 직전 세대보다 더 낮은 값에 푸는 건, 개발자를 자사 API 생태계에 묶어두려는 방어전에 가깝다. 벤치마크 수치는 대부분 '자체 측정'이라는 점을 감안해 읽어야 한다.</p>
+    </div>
+    <a class="source" href="https://siliconangle.com/2026/08/13/google-launches-gemini-3-7-flash-coding-ai-agent-projects/">SiliconANGLE</a>
+    <span class="ref-note">참고용 · 벤치마크는 제조사 자체 발표 · 구글 공식 블로그 병행 확인 권장</span>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">價</span>
+    <div class="card-top"><span class="topic">AI모델·중국</span></div>
+    <h2>딥시크 'V4-Pro' 내놓으며 API 가격 최대 1,100% 인상</h2>
+    <div class="summary">
+      <p>중국 딥시크가 8월 14일 플래그십 <strong>V4-Pro</strong>(에이전트 역량 강화)를 정식 출시하면서 API 가격을 대폭 올렸다. '싼값'으로 시장을 흔들던 딥시크가 수익화 국면으로 방향을 트는 상징적 장면이다. 다만 인상 후에도 단가는 여전히 서방 모델보다 크게 낮다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">출시일</span><span>2026-08-14</span></li>
+      <li><span class="k">캐시 입력</span><span>0.025→0.3위안/100만 토큰 (+1,100%)</span></li>
+      <li><span class="k">미캐시 입력</span><span>3→9위안 (+200%)</span></li>
+      <li><span class="k">출력</span><span>6→27위안 (+350%)</span></li>
+      <li><span class="k">요금 구조</span><span>피크/비피크 차등(비피크 50% 할인)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>'피크/비피크 차등요금'은 사용자를 한산한 시간대로 유도하는 장치인데, 뒤집어 보면 GPU 자원이 빡빡하다는 자백이기도 하다. '싸서 쓰던' 딥시크가 값을 열 배 올려도 될 만큼 수요가 붙었다는 뜻이자, '싼 중국 AI'라는 공식이 흔들리기 시작한 첫 사례로 읽을 대목이다. (출시일은 매체별 8/13~14로 갈려 중국 매체 기준을 따랐다.)</p>
+    </div>
+    <a class="source" href="https://www.caixinglobal.com/2026-08-14/tech-brief-aug-14-deepseek-launches-v4-pro-and-raises-api-prices-by-as-much-as-1100-102474222.html">Caixin Global</a>
+    <span class="ref-note">⚠ 위안화 표기 요금 · 환율·프로모션에 따라 실부담 변동, 원문 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">빅테크 — 지정학</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">果</span>
+    <div class="card-top"><span class="topic">빅테크·지정학</span></div>
+    <h2>애플, 중국 전용 AI 모델을 알리바바와 함께 직접 훈련</h2>
+    <div class="summary">
+      <p>로이터 보도에 따르면 애플이 중국 시장 'Apple Intelligence'용 자체 LLM을 <strong>알리바바</strong> 지원으로 훈련한 것으로 8월 14일 확인됐다. 애플은 중국 정부로부터 자체 AI 모델 제공을 승인받은 <strong>첫 외국 기업</strong>으로, 알리바바의 지원을 받아 모델을 훈련한 것으로 알려졌다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">확인 보도</span><span>2026-08-14 (로이터 원출처)</span></li>
+      <li><span class="k">협력사</span><span>알리바바 (모델 훈련 지원)</span></li>
+      <li><span class="k">지위</span><span>中 정부 승인 자체모델 제공 '첫 외국기업'</span></li>
+      <li><span class="k">中 출시 시점</span><span>"향후 수개월 내" 예정</span></li>
+      <li><span class="k">배경</span><span>화웨이 등 현지 경쟁 견제</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>다른 지역에선 ChatGPT를 붙여 쓰는 애플이 중국에선 '자체 모델+알리바바'라는 전혀 다른 스택을 짜야 했다는 점이 핵심이다. AI가 국가 단위로 쪼개지는(fragmentation) 현실을 보여주는 사례로, 규제 통과를 위해 미국 기업이 중국 파트너에 모델 훈련을 의존하는 구조가 만들어진 셈이다.</p>
+    </div>
+    <a class="source" href="https://www.macrumors.com/2026/08/14/apple-trained-own-ai-model-for-china/">MacRumors (로이터 인용)</a>
+    <span class="ref-note">참고용 · 세부는 로이터 원문·애플 공식 발표에서 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">국내 AI — 정책</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">選</span>
+    <div class="card-top"><span class="topic">정책·국내AI</span></div>
+    <h2>국산 '독자 AI 파운데이션 모델' 2차 평가 임박…4팀→3팀 압축</h2>
+    <div class="summary">
+      <p>정부의 '독자 AI 파운데이션 모델' 프로젝트 <strong>2차 평가</strong> 결과가 이르면 이번 주 발표될 예정이다. 4개 팀 중 1팀이 탈락해 3팀으로 압축되고, 12월 최종 <strong>2팀</strong>이 선정된다. 참가 팀은 LG AI연구원(EXAONE), SK텔레콤(A.X), 업스테이지(SOLAR), 모티프테크놀로지스(Motif)다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">결과 발표</span><span>2026년 8월 셋째 주(이르면)</span></li>
+      <li><span class="k">압축 단계</span><span>4팀 → 3팀 → (12월) 2팀</span></li>
+      <li><span class="k">2차 초점</span><span>에이전틱 AI·오케스트레이션 역량</span></li>
+      <li><span class="k">생존팀 지원</span><span>NVIDIA B200 GPU·데이터 구축비 등</span></li>
+      <li><span class="k">참가</span><span>LG·SKT·업스테이지·모티프</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>1차 잣대가 '언어 이해·모델 완성도'였다면 2차는 '실제 업무 적용·에이전트 성능'으로 바뀐 게 관전 포인트다. 앞서 8월 11일 과기정통부는 이 팀들의 모델이 미국 에포크AI '주목할 모델'에 올랐다고 밝혔는데, 올해 이 급 모델을 낸 나라가 미·중·한 3개국뿐이라는 점이 이번 '탈락 1팀'을 업계 초긴장 사안으로 만든다.</p>
+    </div>
+    <a class="source" href="https://zdnet.co.kr/view/?no=20260813172911">ZDNet Korea</a>
+    <span class="ref-note">⚠ 발표 시점·탈락 팀 미확정 · 과기정통부 공식 발표에서 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">반도체 — 파운드리</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">溢</span>
+    <div class="card-top"><span class="topic">반도체·파운드리</span></div>
+    <h2>중국 SMIC 매출 첫 30억달러 돌파…AI 낙수 성숙노드까지</h2>
+    <div class="summary">
+      <p>중국 최대 파운드리 <strong>SMIC</strong>가 8월 14일 발표한 2분기 실적에서 매출 <strong>30억달러</strong>로 사상 처음 30억선을 넘었다. 가동률은 <strong>93.7%</strong>로 사실상 풀가동, 평균판매가(ASP)는 전분기 대비 5.7% 올랐다. 첨단 HBM이 아니라 성숙노드(구형 로직·아날로그) 쪽 수요가 끌어올린 결과다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">발표일</span><span>2026-08-14</span></li>
+      <li><span class="k">매출</span><span>US$3.0B (QoQ·YoY 각 +20%대)</span></li>
+      <li><span class="k">총이익률</span><span>25.3% (전분기 대비 +5.2%p)</span></li>
+      <li><span class="k">가동률</span><span>93.7% · ASP +5.7%</span></li>
+      <li><span class="k">3분기 가이던스</span><span>매출 +2~4% · GM 26~28%</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>AI 붐이 첨단 GPU·HBM만 달구는 게 아니라, 전력·아날로그·구형 로직 같은 '성숙노드'까지 공급 부족을 만들고 있다는 신호다. SMIC가 3분기 웨이퍼를 이미 새 가격에 팔고 있다고 밝힌 만큼, 파운드리 가격 인상 사이클이 메모리와 별개로 전방위 확산 중임을 보여준다.</p>
+    </div>
+    <a class="source" href="https://www.trendforce.com/news/2026/08/14/news-smic-2q26-gross-margin-hits-25-3-eyes-26-28-in-3q-as-ai-spillover-pricing-momentum-build/">TrendForce</a>
+    <span class="ref-note">참고용 · 실적 수치는 SMIC IR 원자료에서 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">로봇 — 자율주행·물류</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">歐</span>
+    <div class="card-top"><span class="topic">로봇·자율주행</span></div>
+    <h2>포니.ai·우버, 유럽 5개 도시에 로보택시 2,000대+ 배치</h2>
+    <div class="summary">
+      <p>중국 자율주행 기업 <strong>Pony.ai</strong>가 8월 13~14일 우버와의 협력 확대를 발표했다. 유럽 5개 도시에 로보택시 <strong>2,000대 이상</strong>을 배치하며, 이미 상용 운영 중인 크로아티아 자그레브에 4개 도시를 추가한다. 현지 플릿 파트너가 일상 운영을 맡는 구조다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">발표일</span><span>2026-08-13~14</span></li>
+      <li><span class="k">배치 규모</span><span>로보택시 2,000대+ · 유럽 5개 도시</span></li>
+      <li><span class="k">기존 운영지</span><span>자그레브 (크로아티아)</span></li>
+      <li><span class="k">협력 시작</span><span>2025년 5월 (이번이 확대)</span></li>
+      <li><span class="k">구조</span><span>포니 기술 + 우버 플랫폼 + 현지 운영사</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>'중국 기술 + 미국 플랫폼 + 유럽 현지 운영'이라는 3자 분업이 핵심이다. 미·중 갈등 속에서 중국 로보택시가 유럽을 우회로로 삼아 글로벌화하는 경로다. 도심을 직접 운영하는 웨이모와 달리, 포니는 '기술 공급자'로 포지셔닝해 규제·자본 부담을 현지 파트너에 분산시키는 전략을 택했다.</p>
+    </div>
+    <a class="source" href="https://www.cnbc.com/2026/08/14/uber-partners-with-chinas-ponyai-for-2000-robotaxis-in-europe.html">CNBC</a>
+    <span class="ref-note">참고용 · 배치 대수·일정은 포니.ai 공식 발표 병행 확인 권장</span>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">倉</span>
+    <div class="card-top"><span class="topic">로봇·AI물류</span></div>
+    <h2>아마존 물류 AI 'DeepFleet'…로봇 100만 대, 승부는 '데이터 연결'</h2>
+    <div class="summary">
+      <p>8월 16일 국내 분석 기사가 아마존의 물류 AI 시스템 <strong>DeepFleet</strong>을 조명했다. 아마존 물류로봇은 2025년 6월 기준 <strong>100만 대</strong>를 넘겼고 300개 이상 시설에서 운영된다. DeepFleet 적용으로 로봇 이동효율이 10%, 수요예측 정확도가 20% 개선됐다는 수치가 제시됐다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">기사일</span><span>2026-08-16</span></li>
+      <li><span class="k">물류로봇</span><span>100만 대(2025.6) · 시설 300개+</span></li>
+      <li><span class="k">이동효율</span><span>+10% (DeepFleet)</span></li>
+      <li><span class="k">수요예측</span><span>정확도 +20% (2025 2Q)</span></li>
+      <li><span class="k">핵심</span><span>대수보다 데이터 표준화·투명성</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>물류 경쟁력은 '로봇 몇 대냐'가 아니라 '수요예측→재고배치→피킹→배차'를 하나의 학습망으로 잇는 데이터 통합에서 갈린다는 관점이다. 앞의 포니(도로 위 자율주행)와 대비되는 '창고 안 물류 AI'라는 다른 축으로, 한국은 로봇 보급 속도보다 데이터 표준화·성과 검증이 뒤처져 있다는 지적이 붙는다.</p>
+    </div>
+    <a class="source" href="https://www.newspim.com/news/view/20260814000676">뉴스핌</a>
+    <span class="ref-note">참고용 · 개선 수치는 아마존 발표 기반 인용 · 원문 확인 권장</span>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 디테일 포인트 → 디자인 렌더링 → 검토<br>
+    AI·테크 서브(월) · 화제성으로 거르지 않고 분야를 고르게 · 오늘 7개(글로벌 모델 2 · 빅테크 1 · 국내정책 1 · 반도체 1 · 로봇 2)<br>
+    모든 정보는 참고용, 각 카드 출처 링크에서 최종 확인 권장
+    <!-- tracker: 2026-08-17 ai-brief
+         [오늘 다룬 항목] ①제미나이 3.7 플래시(8/13) ②딥시크 V4-Pro·API +최대1,100%(8/14) ③애플 중국전용 AI 알리바바와 훈련(로이터 8/14) ④독자 AI 파운데이션 모델 2차평가 4→3팀(발표 임박) ⑤SMIC 2Q 매출 30억달러 첫 돌파(8/14) ⑥포니.ai·우버 유럽 로보택시 2,000대+(8/13~14) ⑦아마존 DeepFleet 물류로봇 100만대(8/16 기사)
+         [추적] 독파모 2차 결과 발표(이번 주)·12월 최종 2팀 → 후속. 딥시크 가격인상 후 점유율 변화. 구글 제미나이 상위(Pro) 라인 후속 출시 여부.
+         [제외] 메모리 계약가·삼성 HBM4(8/10 서브 반복, 새 전개 없음) · '젠슨 황 효과' 반도체 주가급등(수급 기사) · OpenAI GPT-5.6 'Sol' 초고속모드(원문 미검증, 지난주 GPT-5.6설 미채택 이력) · Applied Materials 실적(반도체 갈래 SMIC와 중복) · 양자컴 실적·Z.ai/Writer 신모델(원문 본문 미검증)
+    -->
+  </footer>
+
+</div>
+</body>
+</html>
