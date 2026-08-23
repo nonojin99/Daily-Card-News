@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="AI·테크 브리프 — 2026.08.24">
+<meta property="og:description" content="독자 AI 파운데이션 모델 '3파전'…모티프 탈락·순위 비공개 · 네바다, 로보택시 8,000대 유료 허가 · 中, 엔비디아 H200 '소량 반입' 허용 · 카카오·LG '모두의 AI' 출사표 · 엔비디아, 풀사이드 모델공장 60억달러 확보 · 웨이모, 자체 5나노 칩 공개">
+<meta property="og:type" content="article">
+<title>AI Brief — 2026.08.24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#2a6b7c; --accent-soft:#e9f0f2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">AI Brief · AI·테크 서브</div>
+    <h1>선을 다시 긋다</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 8월 24일 월요일</span>
+      <span class="count">6 Picks · 고르게</span>
+    </div>
+    <p class="lede">이번 주말 AI 뉴스의 공통 화두는 '경계선'입니다. 정부는 국산 모델의 생존선을 다시 긋고, 미국의 한 주는 로보택시가 달릴 수 있는 선을 열었으며, 미·중은 칩이 넘나들 수 있는 선을 두고 서로 다른 빗장을 걸었습니다. 엔비디아는 모델을 만드는 능력 자체를 사들이고, 웨이모는 칩까지 직접 그립니다. 여섯 갈래를 고르게 담았습니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">국내 AI — 정책</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">選</span>
+    <div class="card-top"><span class="topic">정책·국내AI</span></div>
+    <h2>독자 AI 파운데이션 모델 '3파전'…모티프 탈락, 순위는 비공개</h2>
+    <div class="summary">
+      <p>과기정통부는 <strong>8월 18일</strong> 정부서울청사에서 '독자 AI 파운데이션 모델' 프로젝트 <strong>2차 단계평가</strong> 결과를 발표하며 <strong>업스테이지·SK텔레콤·LG AI연구원</strong> 3사의 다음 단계 진출을 확정했다. 기존 4팀 중 <strong>모티프테크놀로지스</strong>가 탈락했는데, 벤치마크 성적이 좋았음에도 활용성·실용성 평가에서 밀린 것으로 전해졌다.</p>
+      <p>정부는 이번엔 <strong>개별 기업 점수와 순위를 공개하지 않고</strong> 항목별 평균값만 내놨다. 류제명 2차관은 "결정적 항목을 꼽기 어려울 만큼 종합적으로 평가한 결과"라며, 향후 '생존경쟁' 방식 자체를 손질할 수 있다고 시사했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">통과 팀</span><span>업스테이지 · SKT · LG AI연구원 (3사)</span></li>
+      <li><span class="k">탈락 팀</span><span>모티프테크놀로지스 (4→3)</span></li>
+      <li><span class="k">벤치마크(40점)</span><span>4팀 평균 22.5</span></li>
+      <li><span class="k">전문가평가(35점)</span><span>4팀 평균 28.8</span></li>
+      <li><span class="k">이용자평가(25점)</span><span>4팀 평균 17.6</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>지난주 서브에서 "4→3팀, 12월 최종 2팀"으로 예고했던 사안의 실제 결과다. 핵심은 정부가 순위를 감춘 대목 — '옥석 가리기'에서 '전체 경쟁력 끌어올리기'로 프레임을 바꾸겠다는 신호이자, 12월 2팀 압축 구도 자체가 흔들릴 수 있다는 뜻이다. 벤치마크 잘 나온 모티프가 '실용성'에서 떨어졌다는 점은, 평가 무게중심이 성능 지표에서 실서비스 활용으로 옮겨가고 있음을 보여준다.</p>
+    </div>
+    <a class="source" href="https://www.newspim.com/news/view/20260818000724">뉴스핌</a>
+    <span class="ref-note">⚠ 3차 일정·최종 팀 수 미확정 · 개별 순위 미공개 · 과기정통부 공식 발표에서 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">국내 AI — 서비스</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">民</span>
+    <div class="card-top"><span class="topic">AI서비스·국내</span></div>
+    <h2>카카오·LG 손잡은 '모두의 AI'…카톡·엑사원으로 전 국민 AI 도전</h2>
+    <div class="summary">
+      <p>카카오가 <strong>8월 19일</strong> 과기정통부의 '<strong>모두의 AI</strong>' 국민 서비스 사업에 LG유플러스 등과 함께 <strong>14개사 컨소시엄</strong>으로 출사표를 냈다. LG AI연구원의 <strong>K-엑사원</strong>을 기반으로 카카오톡 위에서 범용 챗봇과 의료·금융·교육·고용·돌봄 분야 공공 AI 에이전트를 제공하는 구상이다.</p>
+      <p>정부는 심사를 거쳐 <strong>6개 컨소시엄</strong>(SKT·KT·이스트소프트 등 경쟁) 중 2~3곳을 선정해 <strong>9월 말 베타, 12월 정식</strong> 서비스를 목표로 한다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">주관·핵심</span><span>카카오 + LG유플러스 (14개사)</span></li>
+      <li><span class="k">기반 모델</span><span>LG AI연구원 K-엑사원</span></li>
+      <li><span class="k">제공 분야</span><span>의료·금융·교육·고용·돌봄 등</span></li>
+      <li><span class="k">경쟁 구도</span><span>6개 컨소시엄 중 2~3곳 선정</span></li>
+      <li><span class="k">일정</span><span>9월 말 베타 → 12월 정식</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>위 '독자 파운데이션 모델'이 원천기술 경쟁이라면, 이건 그 모델을 전 국민에게 뿌리는 '서비스 레이어' 경쟁이다 — 국산 AI 정책이 개발·보급 두 축으로 굴러가고 있음을 보여준다. 핵심은 국산 파운데이션 모델(엑사원)이 국내 최대 메신저(카톡)를 유통 창구로 얻는 구조라는 점이다. 선정만 되면 단숨에 전 국민 접점을 확보하는 셈이라, 정부 사업 트랙에서 진영이 갈릴수록 이용자 락인 경쟁의 판도도 달라진다.</p>
+    </div>
+    <a class="source" href="https://www.fnnews.com/news/202608191029424671">파이낸셜뉴스</a>
+    <span class="ref-note">⚠ 선정 결과·출시 일정 유동적 · 공식 발표에서 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">반도체 — 지정학</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">閘</span>
+    <div class="card-top"><span class="topic">반도체·지정학</span></div>
+    <h2>中, 엔비디아 H200 '소량 반입' 허용…바이트댄스·텐센트 각 1만 개</h2>
+    <div class="summary">
+      <p>8월 19일 보도에 따르면 중국이 엔비디아 <strong>H200</strong> AI 칩의 제한적 반입을 허용해, <strong>바이트댄스·텐센트</strong>가 최근 각각 약 <strong>1만 개</strong>를 확보했다. 미국은 기업당 최대 <strong>10만 개</strong>까지 구매를 승인했으나, 중국 당국은 구매 물량 대부분을 본토 밖(홍콩 등)에 두도록 요구하고 있다.</p>
+      <p>H200은 엔비디아 최신 칩보다 최소 <strong>2세대</strong> 뒤진 제품이다. 중국은 화웨이 등 자국 반도체 육성을 위해 수입을 통제하면서도, 모델 학습용으로는 엔비디아 의존을 이어가는 모순적 상황에 놓여 있다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">확보 기업</span><span>바이트댄스 · 텐센트 (각 약 1만 개)</span></li>
+      <li><span class="k">美 승인 한도</span><span>기업당 최대 10만 개</span></li>
+      <li><span class="k">中 조건</span><span>물량 대부분 본토 밖 보관 요구</span></li>
+      <li><span class="k">칩 세대</span><span>최신 대비 최소 2세대 뒤짐</span></li>
+      <li><span class="k">용도 구분</span><span>학습=엔비디아 · 추론=국산 우선</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>'수출 허용'이라는 헤드라인과 달리, 실제로는 미국(판매 허가)과 중국(본토 반입 제한)이 서로 다른 방향의 빗장을 건 이중 규제 구조가 핵심이다. 중국이 자국 기업에게조차 최신 칩을 못 쓰게 막는 이유는 화웨이 생태계로 수요를 몰아주려는 산업정책이다. '1만 개 확보'가 곧 중국 AI의 반등을 뜻하진 않는다 — 홍콩 데이터센터 용량 탓에 실제 활용은 제약된다.</p>
+    </div>
+    <a class="source" href="https://www.newspim.com/news/view/20260819000654">뉴스핌</a>
+    <span class="ref-note">⚠ 수출 정책·물량 수시 변동 · 원문 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">AI 모델 — 빅테크</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">廠</span>
+    <div class="card-top"><span class="topic">빅테크·AI모델</span></div>
+    <h2>엔비디아, 스타트업 '풀사이드' 모델공장 60억달러에 통째 확보</h2>
+    <div class="summary">
+      <p>엔비디아가 <strong>8월 20~21일</strong>, AI 스타트업 <strong>풀사이드(Poolside)</strong>의 모델 개발 시스템 '<strong>모델 팩토리</strong>'를 <strong>60억 달러</strong>에 라이선스하고, 라구나(Laguna) 모델을 만든 직원 <strong>109명</strong>을 데려오는 딜을 발표했다. 확보한 기술은 엔비디아의 오픈소스 모델군 '<strong>네모트론(Nemotron)</strong>' 강화에 쓰인다.</p>
+      <p>풀사이드 창업자 3인은 회사에 남고, 남은 법인은 <strong>120억 달러</strong> 기업가치(프리머니)에 10억 달러를 새로 투자받는다. 딜 서한은 "인수도 애크하이어(인재 인수)도 아니다"라고 명시해, 규제 심사를 피하는 구조를 택했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">라이선스 금액</span><span>60억 달러 (모델 팩토리)</span></li>
+      <li><span class="k">이동 인력</span><span>109명 (라구나 모델 팀)</span></li>
+      <li><span class="k">활용처</span><span>엔비디아 네모트론 오픈모델</span></li>
+      <li><span class="k">남은 법인</span><span>120억달러 밸류에 10억달러 투자</span></li>
+      <li><span class="k">딜 성격</span><span>"인수 아님" — 규제 회피 구조</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>빅테크의 'M&A 아닌 M&A' 패턴의 전형이다 — 회사를 사지 않고 '핵심 기술 라이선스 + 인력 이동'으로 규제 심사를 우회한다. 칩 회사 엔비디아가 '모델 만드는 법' 자체를 사들인다는 건, 하드웨어를 넘어 자체 오픈모델(네모트론)로 소프트웨어 스택까지 장악하려는 수직계열화 신호로 읽힌다.</p>
+    </div>
+    <a class="source" href="https://the-decoder.com/nvidia-is-acquiring-poolsides-model-factory-and-109-employees-for-6-billion/">The Decoder (블룸버그 교차확인)</a>
+    <span class="ref-note">⚠ 금액·밸류에이션 관련 · 원문·공식 발표에서 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">로봇 — 자율주행</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">許</span>
+    <div class="card-top"><span class="topic">로봇·자율주행</span></div>
+    <h2>네바다, 로보택시 최대 8,000대 유료 허가…테슬라 5,000·웨이모·우버 각 1,000</h2>
+    <div class="summary">
+      <p>네바다 교통청(NTA)이 <strong>8월 20일</strong> 만장일치로, 라스베이거스가 포함된 클라크 카운티에 로보택시 <strong>유료 운행</strong>을 승인했다. 업체별 상한은 <strong>테슬라 최대 5,000대, 웨이모 1,000대, 우버(모셔널·죽스 제휴) 1,000대, 죽스 100대</strong>다. 프로그램 총 상한은 12개월간 <strong>8,000대</strong>로, 업체별 상한을 단순 합산한 값과는 별개다.</p>
+      <p>테슬라 측은 "5,000은 상한이며 연내 현실적 배치는 <strong>2,500대</strong> 수준"이라고 밝혔다. 운행 구역은 공항~라스베이거스대로 사이 '골든 트라이앵글', 다운타운, 타운스퀘어 등이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">승인 주체</span><span>네바다 교통청(NTA) · 만장일치</span></li>
+      <li><span class="k">총 상한</span><span>12개월간 8,000대 (업체별 상한 합산과 별개)</span></li>
+      <li><span class="k">테슬라</span><span>최대 5,000대 (현실 배치 2,500대 전망)</span></li>
+      <li><span class="k">웨이모·우버</span><span>각 최대 1,000대 (죽스 100대 별도)</span></li>
+      <li><span class="k">운행 구역</span><span>라스베이거스 골든 트라이앵글·다운타운</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>미국 한 주가 3대 사업자에게 동시에 '수천 대급' 유료 면허를 열어준 첫 사례다. 한 도시에 경쟁사가 한꺼번에 진입하면 요금 경쟁과 데이터 축적 속도가 빨라진다. 지역 택시·리무진 업계는 '골든 트라이앵글 포화'를 이유로 반발했는데, 로보택시 확산의 다음 병목이 기술이 아니라 도로 혼잡·이해관계 조정임을 보여준다.</p>
+    </div>
+    <a class="source" href="https://techcrunch.com/2026/08/20/tesla-uber-and-waymo-all-get-the-ok-to-operate-thousands-of-robotaxis-in-nevada/">TechCrunch</a>
+    <span class="ref-note">⚠ 실제 배치 대수·운행 시점 유동적 · 원문 확인 권장</span>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">晶</span>
+    <div class="card-top"><span class="topic">반도체·자율주행</span></div>
+    <h2>웨이모, 자체 5나노 칩 공개…로보택시 원가 낮추는 진짜 무기</h2>
+    <div class="summary">
+      <p>테크크런치가 <strong>8월 23일</strong> 보도한 웨이모의 차세대 차량 '<strong>오하이(Ojai)</strong>'에는, 센서 원천 데이터를 주행 코어 앞단에서 처리하는 <strong>자체 설계 5나노 ASIC</strong>이 탑재됐다. 이 칩은 <strong>1,000 TOPS 이상</strong> 성능으로 엔비디아 드라이브 AGX 토르급이며, 카메라 13대의 데이터를 소화한다.</p>
+      <p>웨이모는 협력사로 <strong>AMD·마이크론·엔비디아·삼성·샌디스크·소시오넥스트·TSMC</strong> 등을 (일부는 처음) 공개했다. 오하이는 LA·피닉스·샌프란시스코에서 이용자에게 개방됐다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">칩 종류</span><span>자체 설계 5나노 ASIC</span></li>
+      <li><span class="k">성능</span><span>1,000+ TOPS (엔비디아 Thor급)</span></li>
+      <li><span class="k">입력</span><span>고정밀 카메라 13대 데이터</span></li>
+      <li><span class="k">협력사</span><span>AMD · 삼성 · TSMC · 마이크론 등</span></li>
+      <li><span class="k">개방 도시</span><span>LA · 피닉스 · 샌프란시스코</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>앞의 네바다 승인이 '얼마나 많이 굴리느냐(규모)'라면, 이건 '얼마나 싸게 굴리느냐(원가)'의 이야기다 — 로보택시 흑자의 관건은 차량 1대당 하드웨어 비용이고, 웨이모는 칩을 직접 설계해 이를 낮추는 수직계열화로 답했다. 삼성·TSMC가 협력사로 처음 공개된 점은, 자율주행 커스텀 실리콘이 파운드리의 새 먹거리로 떠올랐다는 신호다.</p>
+    </div>
+    <a class="source" href="https://techcrunch.com/2026/08/23/techcrunch-mobility-the-custom-chip-driving-waymos-robotaxi-ambitions/">TechCrunch</a>
+    <span class="ref-note">참고용 · 사양은 웨이모 공식 발표에서 확인 권장</span>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 디테일 포인트 → 디자인 렌더링 → 검토<br>
+    AI·테크 서브(월) · 화제성으로 거르지 않고 분야를 고르게 · 오늘 6개(국내정책 1 · 국내서비스 1 · 반도체지정학 1 · AI모델 1 · 자율주행 2)<br>
+    모든 정보는 참고용, 각 카드 출처 링크에서 최종 확인 권장
+    <!-- tracker: 2026-08-24 ai-brief
+         [오늘 다룬 항목] ①독자 AI 파운데이션 모델 2차평가 결과 3파전(모티프 탈락·순위 비공개, 8/18) ②카카오·LG '모두의 AI' 컨소시엄 출사표(8/19) ③中 엔비디아 H200 소량반입 허용·바이트댄스·텐센트 각 1만개(8/19) ④엔비디아 풀사이드 '모델 팩토리' 60억달러 확보·109명(8/20~21) ⑤네바다 로보택시 8,000대 유료허가(테슬라5천·웨이모/우버 각1천, 8/20) ⑥웨이모 자체 5나노 ASIC 공개·오하이(8/23)
+         [추적] 독파모 3차 일정·12월 최종 2팀(방식 손질 시사) → 후속. '모두의 AI' 선정 결과(2~3곳)·9월 베타 → 후속. H200 대중국 수출 정책 변동. 엔비디아 네모트론 오픈모델 후속.
+         [지난주(8/17) 다룬 항목, 새 전개 없으면 제외] 제미나이 3.7 플래시 · 딥시크 V4-Pro 가격인상 · 애플 중국전용AI(알리바바) · SMIC 2Q 실적 · 포니.ai·우버 유럽 로보택시 · 아마존 DeepFleet
+         [제외] 테슬라 사이버캡 로보택시 출시 티저(네바다 항목과 중복·출시일 미확정) · GLM-5.2 Turbo/5.3(튜닝판·본문 검증처 부족) · GPT-5.6 Bedrock·GPT-Image-2·DiffusionGemma(2차 집계만·본문 미검증) · LG·엔비디아 휴머노이드(8/15·예고성, 로봇 갈래 충분) · Anthropic 밸류에이션(5월 기사·신규성 없음) · HBM4/TSMC 2나노(이번 주 신규 발표 미확인)
+    -->
+  </footer>
+
+</div>
+</body>
+</html>

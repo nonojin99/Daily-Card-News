@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>파운드리 주간 제11호 · 2026.08.24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Noto+Serif+KR:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#161310; --ink-soft:#3c372f; --ink-faint:#6e675b;
+  --paper:#f7f4ee; --paper-card:#fffdf8; --line:#e3ddd0; --line-strong:#c6bda9;
+  --tsmc:#106b5a; --tsmc-bg:#e3f0eb;  --samsung:#1763c0; --samsung-bg:#e6f0fb;
+  --intel:#5b5fb0; --intel-bg:#ececf8; --smic:#9a4b2e; --smic-bg:#f6e7df;
+  --hr:#8a5a1a; --hr-bg:#f5ecda;
+  --up:#157a52; --down:#bd3a2a; --accent:#9a3b2e; --gold:#b9760a; --maxw:880px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.7; word-break:keep-all;
+}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:36px 20px 72px}
+.serif{font-family:"Noto Serif KR","Noto Sans KR",serif}
+
+/* ── 마스트헤드 ── */
+.mast{border-bottom:3px solid var(--ink); padding-bottom:20px; margin-bottom:22px}
+.kicker{font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; font-weight:800; color:var(--accent)}
+.mast-meta{font-size:13px; color:var(--ink-faint); margin-top:6px; font-weight:500}
+h1{font-family:"Noto Serif KR",serif; font-weight:900; font-size:clamp(30px,6vw,46px);
+   line-height:1.28; margin:14px 0 10px; letter-spacing:-.01em}
+.subline{font-size:15.5px; color:var(--ink-soft); margin:0 0 14px}
+.audience{font-size:12.5px; color:var(--ink-faint); border-top:1px solid var(--line);
+  padding-top:10px; letter-spacing:.01em}
+
+/* ── 펄스 바 ── */
+.pulse{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:0 0 26px}
+.pcard{background:var(--paper-card); border:1px solid var(--line); border-radius:12px;
+  padding:14px 14px 15px; border-top:4px solid var(--line-strong)}
+.pcard.tsmc{border-top-color:var(--tsmc)}
+.pcard.samsung{border-top-color:var(--samsung)}
+.pcard.intel{border-top-color:var(--intel)}
+.pname{font-size:12.5px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-faint)}
+.parrow{font-family:"Noto Serif KR",serif; font-size:27px; font-weight:900; line-height:1.2; margin:2px 0 4px}
+.pcard.tsmc .parrow{color:var(--tsmc)} .pcard.samsung .parrow{color:var(--samsung)} .pcard.intel .parrow{color:var(--intel)}
+.pwhy{font-size:13px; color:var(--ink-soft); line-height:1.55}
+
+/* ── 다크 박스 ── */
+.lead{background:var(--ink); color:#f4efe6; border-radius:14px; padding:22px 22px 20px; margin:0 0 34px}
+.lead .pill{display:inline-block; font-size:11.5px; font-weight:800; letter-spacing:.08em;
+  background:rgba(244,239,230,.14); color:#f4efe6; padding:4px 11px; border-radius:999px; margin-bottom:12px}
+.lead p{margin:0 0 12px; font-size:15.5px; line-height:1.78}
+.lead p:last-child{margin-bottom:0; color:#ded6c8}
+
+/* ── 섹션 ── */
+section{margin:0 0 34px}
+h2{font-family:"Noto Serif KR",serif; font-size:20px; font-weight:900; margin:0 0 16px;
+  padding-bottom:8px; border-bottom:2px solid var(--ink); display:flex; align-items:baseline; gap:9px}
+h2 .num{color:var(--accent); font-size:16px; font-weight:900; letter-spacing:.02em}
+
+/* ── 스토리 카드 ── */
+.story{background:var(--paper-card); border:1px solid var(--line); border-left:4px solid var(--line-strong);
+  border-radius:12px; padding:18px 19px; margin:0 0 16px}
+.story.tsmc{border-left-color:var(--tsmc)}
+.story.samsung{border-left-color:var(--samsung)}
+.story.intel{border-left-color:var(--intel)}
+.story.smic{border-left-color:var(--smic)}
+.sthead{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:9px}
+.badge{font-size:11.5px; font-weight:800; padding:3px 9px; border-radius:5px; letter-spacing:.02em}
+.badge.tsmc{background:var(--tsmc-bg); color:var(--tsmc)}
+.badge.samsung{background:var(--samsung-bg); color:var(--samsung)}
+.badge.intel{background:var(--intel-bg); color:var(--intel)}
+.badge.smic{background:var(--smic-bg); color:var(--smic)}
+.badge.hot{background:var(--accent); color:#fff}
+.src{font-size:12px; color:var(--ink-faint)}
+.story h3{font-family:"Noto Serif KR",serif; font-size:18.5px; font-weight:800; line-height:1.45; margin:0 0 10px}
+.story p{margin:0 0 11px; font-size:15px; color:var(--ink-soft)}
+.grade{display:inline-block; font-size:11px; border:1px solid var(--line-strong); border-radius:4px;
+  padding:1px 6px; color:var(--ink-faint); font-weight:700; vertical-align:middle; margin:0 2px; white-space:nowrap}
+.counter{background:#f1ece2; border-left:3px solid var(--line-strong); border-radius:9px;
+  padding:12px 14px; margin:12px 0; font-size:14px; color:var(--ink-soft)}
+.counter b{color:var(--ink); font-weight:800}
+.impl{border-radius:10px; padding:12px 14px; margin:12px 0 0; font-size:14.2px; font-weight:500; line-height:1.68}
+.impl.tsmc{background:var(--tsmc-bg); color:#0a4c40}
+.impl.samsung{background:var(--samsung-bg); color:#0f4685}
+.impl.intel{background:var(--intel-bg); color:#3f4291}
+.impl.smic{background:var(--smic-bg); color:#743722}
+.impl.hr{background:var(--hr-bg); color:#6d4512}
+
+/* ── 인력 꼭지 ── */
+.hrcard{background:var(--hr-bg); border:1px solid #e6d6b4; border-left:4px solid var(--hr);
+  border-radius:12px; padding:18px 19px; margin:0 0 14px}
+.hrcard h3{font-family:"Noto Serif KR",serif; font-size:16.5px; font-weight:800; margin:0 0 8px; color:#6d4512}
+.hrcard p{margin:0 0 9px; font-size:14.6px; color:#4d3a1c}
+.hrcard p:last-child{margin-bottom:0}
+.hbadge{display:inline-block; background:#eddfc2; color:#6d4512; font-size:11.5px; font-weight:800;
+  padding:3px 9px; border-radius:5px; margin-right:7px}
+.track{font-size:12.5px; color:#7a5c26; font-weight:700; letter-spacing:.03em; margin-bottom:10px}
+
+/* ── 표 ── */
+.tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px; background:var(--paper-card)}
+table{width:100%; border-collapse:collapse; font-size:14.2px; min-width:520px}
+th{background:#efe9dc; text-align:left; font-weight:800; font-size:12.5px; letter-spacing:.03em;
+  padding:10px 12px; color:var(--ink-soft); border-bottom:1px solid var(--line)}
+td{padding:11px 12px; border-bottom:1px solid var(--line); color:var(--ink-soft); vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.val{font-family:"Noto Serif KR",serif; font-weight:700; color:var(--ink); white-space:nowrap}
+
+/* ── 체크포인트 ── */
+.cp{display:grid; grid-template-columns:118px 1fr; gap:10px 14px; align-items:start;
+  padding:12px 0; border-bottom:1px solid var(--line)}
+.cp:last-of-type{border-bottom:none}
+.cpdate{font-family:"Noto Serif KR",serif; font-weight:800; color:var(--accent); font-size:14px}
+.cptxt{font-size:14.6px; color:var(--ink-soft)}
+
+/* ── 안내/주의 ── */
+.notice{background:var(--paper-card); border:1px dashed var(--line-strong); border-radius:12px;
+  padding:16px 18px; margin:30px 0 0; font-size:14px; color:var(--ink-soft)}
+.notice b{color:var(--ink)}
+.caveats{margin:26px 0 0; padding:16px 18px; background:#f1ece2; border-radius:12px}
+.caveats h4{font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; font-weight:800;
+  color:var(--ink-faint); margin:0 0 9px}
+.caveats ol{margin:0; padding-left:19px; font-size:13.2px; color:var(--ink-soft); line-height:1.65}
+.caveats li{margin-bottom:5px}
+footer{margin-top:30px; padding-top:16px; border-top:1px solid var(--line);
+  font-size:12.5px; color:var(--ink-faint)}
+
+@media (max-width:600px){
+  .wrap{padding:24px 15px 56px}
+  .pulse{grid-template-columns:1fr}
+  .cp{grid-template-columns:1fr; gap:3px; padding:11px 0}
+  .lead{padding:18px 17px 16px}
+  .story,.hrcard{padding:15px 15px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ═══════ 마스트헤드 ═══════ -->
+<header class="mast">
+  <div class="kicker">Foundry Weekly · 파운드리 주간 · 제11호</div>
+  <div class="mast-meta">커버 기간 2026.08.17(월) ~ 08.23(일) · 발행 2026.08.24(월) 06:00 KST</div>
+  <h1>삼성이 값을 올렸다 — 다만 2나노가 아니라 4·5·8나노에서</h1>
+  <p class="subline">로이터가 전한 최대 15% 단가 인상은 SF2 경쟁력이 아니라 TSMC 캐파 포화가 만든 가격이다. 같은 주 TSMC는 A16 개발 완료를 알렸고, 인텔은 230억 달러를 다 채웠지만 새 고객 이름은 없었다.</p>
+  <div class="audience">독자: 삼성전자 파운드리 Etch 설비 엔지니어 · 업계 실무자 관점 · 한국어</div>
+</header>
+
+<!-- ═══════ 모멘텀 펄스 바 ═══════ -->
+<div class="pulse">
+  <div class="pcard tsmc">
+    <div class="pname">TSMC</div>
+    <div class="parrow">▲</div>
+    <div class="pwhy">A16(1.6nm) 개발·검증 완료 및 4Q26 양산 목표 보도. 선단 캐파 타이트가 경쟁사 가격까지 끌어올릴 만큼 구조적.</div>
+  </div>
+  <div class="pcard samsung">
+    <div class="pname">삼성 파운드리</div>
+    <div class="parrow">▲→</div>
+    <div class="pwhy">단가 최대 15% 인상으로 손익 개선 경로는 확보. 그러나 인상 대상이 SF4·SF5·8nm 성숙 노드라 SF2 검증과는 무관.</div>
+  </div>
+  <div class="pcard intel">
+    <div class="pname">인텔 파운드리</div>
+    <div class="parrow">→</div>
+    <div class="pwhy">초과배정 전량 행사로 총 약 230억 달러 조달 완결 — 14A 자금 리스크는 해소. 신규 외부 고객 실명은 여전히 0건 추가.</div>
+  </div>
+</div>
+
+<!-- ═══════ 이번 주 한 줄 ═══════ -->
+<div class="lead">
+  <span class="pill">이번 주 한 줄</span>
+  <p>삼성 파운드리의 손익이 <b>제품이 아니라 시황으로</b> 개선되기 시작한 주였다. 로이터가 전한 SF4·SF5·8nm 단가 인상은 삼성이 협상력을 얻었다는 신호가 맞지만, 그 협상력의 출처는 SF2 수율 곡선이 아니라 TSMC 선단 캐파가 2028년까지 완판된 데 따른 물량 넘침이다. 값을 올린 라인과 회사가 이기고 싶어 하는 라인이 서로 다르다.</p>
+  <p>실무 관점에서 이 구분이 중요한 이유는 투자·인력·설비 배분의 우선순위가 갈리기 때문이다. 성숙 노드 가격이 오르면 P2·P3의 기존 챔버 가동률과 PM 윈도를 방어하는 일이 당장의 수익 방어선이 되고, SF2는 여전히 별도의 골든 수율 게이트를 스스로 넘어야 한다. 다음 분기점은 세 가지 — 3Q26 파운드리 손익(10월 초 잠정), 테일러 팹1 연말 가동 전 툴 인증 일정, 그리고 SF2 수율의 검증 가능한 갱신치다.</p>
+</div>
+
+<!-- ═══════ 01 헤드라인 ═══════ -->
+<section>
+  <h2><span class="num">01</span> 이번 주 헤드라인</h2>
+
+  <!-- HOT -->
+  <article class="story samsung">
+    <div class="sthead">
+      <span class="badge hot">HOT</span>
+      <span class="badge samsung">삼성 파운드리</span>
+      <span class="src">8/19 · 로이터 (국내 인용: 뉴스핌·서울경제·파이낸셜뉴스)</span>
+    </div>
+    <h3>로이터 “삼성전자, 파운드리 단가 최대 15% 인상” — 4·5·8나노 대상, 7월부터 적용</h3>
+    <p>로이터는 복수 소식통을 인용해 삼성전자가 지난 7월부터 일부 파운드리 단가를 인상했다고 <span class="grade">보도</span> 전했다. 인상 폭은 SF4(4나노)가 중국·미국 고객 10~15%·대만 고객 5~10%, SF5(5나노) 10~15%, 8나노 약 10%다. 배경으로는 AI 반도체 수요 급증과 TSMC의 생산능력 포화가 지목됐다. 삼성전자는 “운영상 세부 사항은 공개하지 않는다”며 <span class="grade">확정</span> 논평을 거부했다.</p>
+    <p>증권가 반응도 나왔다. BNK투자증권은 추가 인상이 이어질 경우 파운드리 사업부의 흑자 전환 시점이 당초 예상보다 앞당겨져 <span class="grade">추정</span> 이르면 내년 중 가능하다고 봤고, AI·HPC 응용처 매출 비중이 지난해 10%대 후반에서 올해 30% 이상으로 오를 것으로 <span class="grade">추정</span> 전망했다. 국내 보도는 평택 SF4 라인이 최대 가동률로 돌고 있다는 업계 관계자 발언을 함께 실었다.</p>
+    <div class="counter">
+      <b>반대 근거·한계.</b> ① 인상 대상이 전부 성숙·레거시 노드다. SF2는 인상 목록에 없고, 이는 2나노에서 아직 가격을 매길 만한 협상 지위가 아니라는 해석도 가능하다. ② 인상 동인이 자사 경쟁력이 아니라 TSMC 캐파 포화라면, TSMC 증설이 따라붙는 2027~2028년에 되돌아갈 수 있는 가격이다. ③ 삼성이 논평을 거부했으므로 인상 폭·적용 범위는 회사 확인 사실이 아니다. ④ 흑자 전환 시점 전망은 증권사 단일 추정치이며, 회사는 7/30 컨콜에서 “가까운 시일 내”라고만 밝혔다. ⑤ 가격 인상은 저가 수주로 물량을 채우던 국면의 종료를 뜻하기도 하지만, 가격에 민감한 중국계 고객 이탈 리스크를 동시에 키운다.
+    </div>
+    <div class="impl samsung">→ 전망 함의. 1년 시나리오의 “파운드리 분기 흑자 달성” 항목은 확률이 올라갔다 — 단 <b>가격·가동률發 흑자</b>이지 <b>노드 경쟁력發 흑자</b>가 아니라는 단서가 붙는다. 3·5년 시나리오의 “제2 공급처 지위 확보”는 이번 뉴스로 검증되지 않는다. 오히려 3년 구간의 리스크 항목 — <i>성숙 노드 의존이 길어지면 SF2/SF1.4 램프에 투입할 캐파·인력이 잠긴다</i> — 쪽이 강화됐다. Etch 실무로 옮기면: 값이 오른 라인은 신규 증설이 아니라 <b>기존 챔버의 가동률·PM 윈도·파트 수명 연장</b>으로 물량을 뽑아야 하는 라인이다. SF4/SF5 챔버 매칭 편차와 컨디셔닝 웨이퍼 비중이 바로 마진에 반영되는 국면이고, 반대로 SF2 램프용 신규 툴 셋업 인력은 같은 조직에서 빠져나간다. 두 요구가 3분기 내내 충돌한다.</div>
+  </article>
+
+  <!-- TSMC -->
+  <article class="story tsmc">
+    <div class="sthead">
+      <span class="badge tsmc">TSMC</span>
+      <span class="src">8/20 · 자유시보(대만) 보도 → 국내외 인용</span>
+    </div>
+    <h3>TSMC, A16(1.6nm) 개발·검증 완료 보도 — 4분기 양산 목표, 백면전력(SPR) 적용</h3>
+    <p>대만 자유시보는 TSMC가 A16 공정의 개발과 검증을 마쳤으며 2026년 4분기 양산에 들어갈 것으로 <span class="grade">보도</span> 전했다. 개선 폭은 강화형 2나노 대비 속도 8~10%, 소비전력 15~20% 절감, 밀도 8~10% 향상으로 제시됐다. 핵심은 전원선과 신호선을 분리하는 후면 전력공급(Super Power Rail)이며, AI·HPC용 대면적 다이가 1차 타깃으로 거론된다.</p>
+    <div class="counter">
+      <b>반대 근거·한계.</b> ① TSMC 공식 발표가 아니라 대만 언론 보도다 <span class="grade">단일 출처 계열·검증 필요</span>. 회사 로드맵 자료를 근거로 A16 양산을 2027년으로 보는 기사도 병존한다. ② “개발·검증 완료”는 램프 준비 상태이지 수율 확보가 아니다. SPR는 웨이퍼 후면 박화·TSV·후면 배선이 추가되는 공정으로, 초기 수율·웨이퍼 파손률·핸들링 리스크가 N2 대비 확실히 크다. ③ 2나노는 2Q26 기준 TSMC 웨이퍼 매출의 3%에 불과하다. A16의 매출 기여는 2027년 이후 문제이며, 이번 주 숫자를 바꾸지 않는다.
+    </div>
+    <div class="impl tsmc">→ 전망 함의. 3년·5년 시나리오의 핵심 가정 — “TSMC는 노드 리듬을 놓치지 않는다” — 가 또 한 번 유지되는 쪽으로 기울었다. 삼성 입장에서 중요한 건 A16 자체가 아니라 <b>백면전력의 시장 투입 시기</b>다. 삼성 SF2는 백면전력 없이 GAA만으로 경쟁하는 구간이 길고, SF1.4(2027 목표)에서 이를 따라잡는 그림이다. TSMC가 4Q26에 실제로 SPR 제품을 뽑으면 5년 구간의 “후면전력 세대에서 격차가 다시 벌어진다” 시나리오가 앞당겨진다. 설비 관점에서는 후면 공정이 늘어난다는 것 자체가 신호다 — 웨이퍼 본딩·박화 이후의 <b>저손상 식각(low-damage etch)과 얇은 웨이퍼 척킹·아킹 관리</b>가 다음 세대 Etch 난제로 올라온다.</div>
+  </article>
+
+  <!-- INTEL -->
+  <article class="story intel">
+    <div class="sthead">
+      <span class="badge intel">인텔 파운드리</span>
+      <span class="src">8/17~8/21 · 인텔 공시·CNBC·모틀리풀 등</span>
+    </div>
+    <h3>인텔 유상증자 초과배정분까지 전량 소화 — 총 약 230억 달러 조달, 다만 주가는 공모가 하회</h3>
+    <p>인텔은 당초 150억 달러로 제안한 보통주 공모를 200억 달러(주당 95달러, 2억1,053만 주)로 증액해 확정했고 <span class="grade">확정</span>, 초과배정 옵션(3,158만 주)까지 행사되면서 총 조달액은 약 230억 달러 규모로 늘었다. 발행주식 수는 약 4.8% 증가했다. 자금은 일반 기업 목적과 설비투자·운전자본으로 명시됐고, 시장은 이를 14A 팹 툴링 재원으로 해석한다 <span class="grade">추정</span>.</p>
+    <p>같은 기간 나온 증권사 노트는 18A 수율 상승과 고객 참여 확대, EMIB 패키징의 구글 외 확대 가능성, IFS의 2027년 4분기 현금흐름 손익분기 도달을 <span class="grade">추정</span> 제시했다. 여기에 애플의 관여가 강하다는 언급도 붙었으나 <span class="grade">단일 출처 계열·검증 필요</span> 회사 확인은 없다.</p>
+    <div class="counter">
+      <b>반대 근거·한계.</b> ① 조달은 <i>자금</i>이지 <i>수주</i>가 아니다. 이번 주에도 새로 공개된 외부 고객 실명은 없다 — 18A는 Fortinet 1곳, 14A 공개 커밋은 테슬라뿐. ② 8월 21일 기준 인텔 주가는 공모가 95달러를 밑도는 92달러대에서 거래됐다. 증자 소화 자체가 시장의 승인으로 읽히기 어렵다. ③ 애플 관여·EMIB 확대는 브로커 노트의 추정이며 인텔·애플 어느 쪽도 확인하지 않았다. ④ 파운드리 외부 매출은 2Q26 기준 2.93억 달러로 전체의 5% 수준이며, 이 숫자는 아직 움직이지 않았다.
+    </div>
+    <div class="impl intel">→ 전망 함의. 1년 시나리오의 “인텔이 14A 자금난으로 좌초” 분기는 이번 조달로 사실상 닫혔다. 남은 것은 3년 시나리오의 진짜 관문 — <b>2026년 하반기 중 14A 외부 고객 실명 공개 여부</b>다. 인텔 우위가 수율 지표 기반이지 수주 지표 기반이 아니라는 본지 서사는 이번 주에도 반증되지 않았다. 삼성에는 미묘한 소식이다: 인텔의 자금 리스크가 사라진 만큼 “제2 공급처” 경쟁은 2027~2029년까지 끌고 가는 장기전이 되고, 삼성이 SF2·SF1.4에서 승부를 볼 시간은 벌었지만 여유는 줄었다.</div>
+  </article>
+</section>
+
+<!-- ═══════ 02 인력·조직 ═══════ -->
+<section>
+  <h2><span class="num">02</span> 인력·조직 리스크</h2>
+  <div class="track">상시 추적 4종 · 제11호 현황</div>
+
+  <div class="hrcard">
+    <h3><span class="hbadge">①</span> 삼성 성과급 협약·노조 교섭 — 8/21 DX 동행노조 서초사옥 집회, 갈등축이 DS 대 DX로</h3>
+    <p>8월 21일 금요일 저녁, 삼성전자 DX부문 동행노조가 서울 서초사옥 인근에서 집회를 열었다 <span class="grade">확정</span>. 참가 규모는 보도에 따라 약 1,500명(추산)에서 3,000명(노조 주장)까지 엇갈린다 <span class="grade">보도</span>. 요구는 DX·DS 간 보상 격차 시정, 1인당 자사주 1,000주 지급, 희망퇴직·전배 등 고용 불안 해소이며, 노조는 한남동 일대 추가 집회와 공정대표의무 위반을 다투는 법적 대응을 예고했다.</p>
+    <p>실무자에게 의미 있는 대목은 <b>갈등축의 이동</b>이다. 지난 호까지 성과급 이슈는 “DS 영업이익의 10.5% 재원·자사주 지급·2027년분부터 사업부 60% 차등”이라는 DS 내부 설계 문제였는데, 이번 집회는 그 설계로 DS가 받게 될 몫에 DX가 반발하는 구도다. 동시에 초기업노조가 내년 공동교섭단 구성을 거부하면서 노조 전선이 분열됐다 <span class="grade">보도</span>. 교섭 창구가 갈라지면 DS 성과급 차등 설계는 협상 난도가 올라간다.</p>
+    <div class="impl hr">→ 전망 함의. 1년 구간에서 파운드리 흑자 전환이 실제로 이뤄질 경우, 그 성과가 DS 내부에서 메모리 대비 어떻게 배분되는지는 물론 <b>DX와의 상대 격차</b>까지 함께 걸리는 사안이 됐다. 3년 구간의 “인력 유지 리스크”는 임금 절대액보다 배분 규칙의 예측 가능성에서 온다. 2027년분부터 적용되는 사업부 60% 차등이 실제로 어떤 문언으로 확정되는지가 여전히 최대 변수다.</div>
+  </div>
+
+  <div class="hrcard">
+    <h3><span class="hbadge">②</span> SK하이닉스 채용 — 이번엔 경력이 아니라 신입 23개 직무, 학력 제한 폐지</h3>
+    <p>SK하이닉스가 신입 공채를 23개 직무로 열었고 접수는 8월 26일 마감이다 <span class="grade">확정</span>. 직무에는 설계·소자·R&D 공정·제품 엔지니어링·패키지개발·솔루션 SW/HW·<b>양산기술</b>·품질보증이 포함되며 근무지는 이천·청주·용인·분당·서울이다. 학력 제한을 없앴고, 11월 심층 면접에 LLM 활용 문제해결 프레젠테이션을 도입한다. 총 채용 규모는 공개되지 않았다.</p>
+    <p>같은 주 삼성전자는 외국인 경력사원 채용을 8월 20일~9월 2일 일정으로 진행 중이다 <span class="grade">확정</span>. DS부문 모집 직무는 패키지개발·회로설계·시스템 구조 설계·AI/ML·데이터 분석, 그리고 <b>팹·인프라 자동화</b>다. DX부문은 12개 분야 중 9개가 휴머노이드·산업용 로봇 직무로 채워졌다.</p>
+    <div class="impl hr">→ 전망 함의. 이번 주 인력 흐름은 “SK하이닉스가 삼성 경력자를 빨아들인다”는 지난 호들의 구도와 결이 다르다. SK는 신입 파이프라인을, 삼성은 국내 경력이 아닌 <b>해외 경력</b>과 자동화 인력을 각각 보강했다. 5년 구간에서 봐야 할 것은 총원이 아니라 직무 구성이다 — 양산기술·팹 자동화 채용이 늘어난다는 건 두 회사 모두 <b>사람 손이 들어가던 공정 판단을 시스템으로 옮기는 단계</b>에 진입했다는 뜻이고, Etch 설비 직군에는 챔버 상태 판정·PM 주기 결정의 자동화라는 형태로 먼저 도달한다.</div>
+  </div>
+
+  <div class="hrcard">
+    <h3><span class="hbadge">③</span> 삼성→경쟁사 실제 이탈 규모 — <b>이번 주에도 공식 수치화된 자료 없음</b></h3>
+    <p>제4호에서 이 꼭지를 신설한 이래 여덟 번째로 같은 결론을 적는다. 삼성전자에서 경쟁사(SK하이닉스·TSMC·인텔·중국계)로의 실제 이탈 인원을 공시·통계·회사 확인 형태로 제시한 자료는 <b>이번 주에도 없었다</b>. 이번 주 보도 역시 “보상 격차에 대한 불만”, “고용 불안”이라는 정성적 서술에 머물렀다.</p>
+    <p>따라서 본지의 판정은 유지된다 — 이탈 이슈는 여전히 <b>심리·정황 단계</b>다. 집회 참가 인원, 자사주 요구, 채용 공고 건수는 모두 <i>이직 의향의 환경 지표</i>이지 <i>이직 실적</i>이 아니다. 이 구분을 무너뜨리는 순간 기사와 체감이 뒤섞인다.</p>
+    <div class="impl hr">→ 전망 함의. 3년 시나리오의 “핵심 인력 유출로 램프 속도 저하” 분기는 아직 발화하지 않았다. 이 항목이 정황에서 사실로 넘어가는 신호는 셋 중 하나다 — 사업보고서상 DS 인원·평균 근속의 유의미한 감소, 경쟁사의 특정 직군 대량 경력 채용 공고, 또는 회사가 인정하는 형태의 리텐션 프로그램 발표.</div>
+  </div>
+
+  <div class="hrcard">
+    <h3><span class="hbadge">④</span> 파운드리 흑자전환 진척 — 세 갈래 전망에 “2027년 조기 흑자”가 추가</h3>
+    <p>기존 세 갈래(3Q26 흑자설 / 회사의 “가까운 시일 내” / 2028년 구조적 흑자설)에 이번 주 BNK투자증권의 <span class="grade">추정</span> “가격 인상 지속 시 이르면 내년(2027) 흑자 전환” 견해가 더해졌다. 회사는 여전히 파운드리 단독 손익을 공개하지 않으며, 2Q26 확정치 기준 DS 매출 127.5조·영업익 89.2조 안에 묻혀 있다 <span class="grade">확정</span>.</p>
+    <p>본지 입장은 그대로다. <b>한 분기 반짝 흑자는 턴어라운드 완성이 아니다.</b> 성숙 노드 가격 인상과 가동률로 만든 흑자는 TSMC 증설이 따라붙는 순간 되돌아갈 수 있고, 구조적 흑자는 SF2 대형 양산 물량이 손익분기 캐파를 채울 때 비로소 성립한다.</p>
+    <div class="impl hr">→ 전망 함의. 1년 시나리오의 검증 시점은 10월 초 3Q26 잠정 실적과 10월 하순 확정 실적이다. 확인할 것은 흑자 여부 자체보다 <b>흑자의 구성</b> — 가격·가동률 기여인지, HBM4 베이스다이·레거시 기여인지, SF2 물량 기여인지. 회사가 파운드리 단독 손익을 공개하지 않는 한 이 분해는 컨콜 문언과 업계 추산으로만 접근 가능하다.</div>
+  </div>
+</section>
+
+<!-- ═══════ 03 짧은 소식 ═══════ -->
+<section>
+  <h2><span class="num">03</span> 짧은 소식</h2>
+
+  <article class="story samsung">
+    <div class="sthead">
+      <span class="badge samsung">삼성 · 설비</span>
+      <span class="src">8/20 · ZDNet Korea (업계 관계자 인용)</span>
+    </div>
+    <h3>테일러 팹2, 스펙 확정 전 SEMI 인증부터 — 삼성이 장비 협력사에 선제 인증 요청</h3>
+    <p>삼성전자가 복수 반도체 장비 협력사에 미국 테일러 팹2 투자에 대비한 SEMI 인증(장비 안전성 평가)을 <b>구체 사양 확정 이전에</b> 미리 취득하도록 요청하고 있다고 <span class="grade">보도</span> 전해졌다. 팹2는 올해 말 착공, 2030년 양산 목표이며, 삼성이앤에이의 현지 인력 파견도 추진 중이다. 팹1은 연말 가동을 목표로 2나노 장비 설치가 진행 중이고, 지난해 체결한 테슬라 22조7,600억원 규모 계약이 핵심 물량으로 지목된다 <span class="grade">확정</span>.</p>
+    <div class="counter"><b>반대 근거·한계.</b> 익명 업계 관계자 인용이며 대상 협력사·장비군은 특정되지 않았다. 선제 인증 요청은 일정 단축 의지의 신호이되, 팹2 자체는 아직 착공 전이고 2030년 양산은 여러 차례 조정된 일정이다. 요청이 곧 발주는 아니다.</div>
+    <div class="impl samsung">→ 전망 함의. Etch 설비 실무에는 이번 주 소식 중 가장 직접적이다. 사양 확정 전 SEMI S2 취득을 요구한다는 것은 <b>툴 인증과 스펙 프리즈를 병렬로 돌리겠다</b>는 뜻이고, 그 대가는 인증 후 사양 변경에 따른 재평가 부담이 협력사와 셋업 조직으로 넘어간다는 것이다. 국내 팹에서 검증한 SF2 챔버 레시피를 테일러로 이식할 때의 <b>사이트 간 챔버 매칭</b>(가스 라인 길이, 배기 컨덕턴스, 유틸리티 편차)은 원래도 램프 초기 수율의 주요 변수인데, 툴 사양이 늦게 굳으면 이 편차가 커진다. 3년 시나리오의 “테일러 램프가 국내 대비 얼마나 지연되는가” 항목을 판단할 조기 지표로 이 인증 진척을 추적할 가치가 있다.</div>
+  </article>
+
+  <article class="story tsmc">
+    <div class="sthead">
+      <span class="badge tsmc">시장 구조</span>
+      <span class="src">Counterpoint (1Q26 기준, 6/5 발표) · 이번 주 갱신 없음</span>
+    </div>
+    <h3>2Q26 파운드리 점유율 발표는 아직 — 최신 확인치는 여전히 1Q26</h3>
+    <p>주요 조사기관의 2026년 2분기 순수 파운드리 점유율은 이번 주까지 공개되지 않았다. 확인 가능한 최신치는 1Q26 기준 TSMC 73%·삼성 7%·SMIC 5%·UMC 4%·GF 3%이며, 순수 파운드리 시장은 전년 동기 대비 30% 성장했다 <span class="grade">확정</span>. 통상 8월 말~9월 초 2분기 집계가 나온다.</p>
+    <div class="counter"><b>반대 근거·한계.</b> 조사기관마다 “순수 파운드리” 정의와 IDM 파운드리 매출 포함 여부가 달라 삼성 점유율은 6.5~7%대에서 기관별로 갈린다. 단일 수치를 확정치처럼 인용하지 않는 편이 안전하다.</div>
+    <div class="impl tsmc">→ 전망 함의. 이번 주 가격 인상이 물량 지표에 반영되려면 최소 2개 분기가 필요하다. 삼성 점유율이 7% 벽을 넘느냐는 3Q26~4Q26 집계에서 판정되며, 그때도 상승분의 출처(성숙 노드 vs SF2)를 분해해야 5년 시나리오에 반영할 수 있다.</div>
+  </article>
+
+  <article class="story smic">
+    <div class="sthead">
+      <span class="badge smic">중국 · 정책</span>
+      <span class="src">이번 주 신규 발표 없음</span>
+    </div>
+    <h3>중국·수출통제 — 조용한 주, 다만 삼성 가격 인상의 배경에 규제가 깔려 있다</h3>
+    <p>SMIC 및 미 수출통제와 관련해 이번 주 새로 확인된 공식 발표나 규정 변경은 없었다. 다만 삼성 단가 인상 보도에서 <b>중국·미국 고객의 인상 폭(10~15%)이 대만 고객(5~10%)보다 크다</b>는 대목은 주목할 만하다. 국내 보도는 대중 첨단 장비 수출 규제로 중국 기업의 해외 파운드리 의존도가 커진 상황을 배경으로 지목했다 <span class="grade">추정</span>.</p>
+    <div class="counter"><b>반대 근거·한계.</b> 고객군별 인상 폭 차이는 규제 외에 계약 구조·물량·환율·기존 단가 수준 등으로도 설명된다. 인과를 규제 하나로 돌리는 것은 과잉 해석이다.</div>
+    <div class="impl smic">→ 전망 함의. 5년·10년 시나리오에서 중국계 수요는 삼성 성숙 노드의 완충재이자 동시에 정책 리스크다. 규제가 강해질수록 단기 단가는 오르지만, 규제가 우회 주문까지 겨냥하는 방향으로 확대되면 그 물량 자체가 사라진다. 이 완충재에 얼마나 기대는지를 매 분기 확인해 둘 필요가 있다.</div>
+  </article>
+</section>
+
+<!-- ═══════ 04 숫자 ═══════ -->
+<section>
+  <h2><span class="num">04</span> 한눈에 보는 숫자</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th style="width:31%">지표</th><th style="width:24%">현재값</th><th>포인트</th></tr></thead>
+    <tbody>
+      <tr><td>삼성 파운드리 단가 인상폭</td><td class="val">5~15%</td><td>SF4·SF5·8nm 대상, 7월 적용. SF2는 대상 아님 · 로이터 보도, 회사 미확인</td></tr>
+      <tr><td>순수 파운드리 점유율 (1Q26)</td><td class="val">TSMC 73% / 삼성 7%</td><td>SMIC 5%, UMC 4%, GF 3%. 2Q26 집계는 미발표 · Counterpoint</td></tr>
+      <tr><td>삼성 SF2 수율</td><td class="val">약 60%</td><td>업계 추산치, <b>이번 주 검증된 갱신 없음</b>. 대형 양산 계약 문턱은 약 70% 지적 병존</td></tr>
+      <tr><td>TSMC A16 양산 목표</td><td class="val">4Q26</td><td>개발·검증 완료 보도. 2027년으로 보는 자료 병존 · 백면전력(SPR) 적용</td></tr>
+      <tr><td>TSMC 7월 매출</td><td class="val">NT$467.58B</td><td>+44.7% YoY, +5.6% MoM. 1~7월 누계 NT$2,872.06B(+37.0%)</td></tr>
+      <tr><td>인텔 유상증자 총 조달</td><td class="val">약 230억$</td><td>주당 95$, 초과배정 전량 행사. 발행주식 +4.8%. 8/21 종가는 공모가 하회</td></tr>
+      <tr><td>인텔 파운드리 외부 매출 (2Q26)</td><td class="val">2.93억$</td><td>파운드리 전체 매출의 약 5%. 공개 고객은 18A Fortinet·14A 테슬라뿐</td></tr>
+      <tr><td>삼성 2Q26 DS 실적 (확정)</td><td class="val">매출 127.5조 / 영업익 89.2조</td><td>파운드리 단독 손익 미공개 — 흑자 여부는 추산 영역</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════ 05 체크포인트 ═══════ -->
+<section>
+  <h2><span class="num">05</span> 다음 주 체크포인트</h2>
+
+  <div class="cp"><div class="cpdate">8/26 (수)</div><div class="cptxt">SK하이닉스 신입 공채 접수 마감. 23개 직무 중 <b>양산기술·품질보증</b> 비중과 최종 채용 규모 공개 여부 — 설비 직군 수요의 선행 지표.</div></div>
+  <div class="cp"><div class="cpdate">8/24~8/28</div><div class="cptxt">삼성 단가 인상에 대한 <b>고객사 측 반응·반론 보도</b> 여부. 로이터 후속 또는 대만·미국 매체의 교차 확인이 나오면 “보도” 등급을 올릴 수 있다.</div></div>
+  <div class="cp"><div class="cpdate">8월 말~9월 초</div><div class="cptxt">TrendForce·카운터포인트의 <b>2Q26 파운드리 점유율</b> 발표. 삼성 6.5%대 → 7%대 회복 여부와 그 출처(성숙 노드 vs 선단).</div></div>
+  <div class="cp"><div class="cpdate">9/1 (화)</div><div class="cptxt">퀄컴 칩 가격 두 자릿수 % 인상 발효 예정. 파운드리 단가 인상이 세트 단가로 전이되는 첫 사례 — 인상 지속 가능성의 실물 검증.</div></div>
+  <div class="cp"><div class="cpdate">9/2 (수)</div><div class="cptxt">삼성전자 외국인 경력사원 접수 마감(DS: 패키지개발·회로설계·팹 인프라 자동화 등). <b>(HR)</b> 국내 이탈을 해외 채용으로 상쇄하는 구도인지 확인.</div></div>
+  <div class="cp"><div class="cpdate">상시</div><div class="cptxt"><b>삼성 파운드리 분기 흑자</b> — 3Q26설 vs “가까운 시일 내”(회사) vs 2027 조기설(BNK) vs 2028 구조적 흑자설. 10월 초 잠정 실적이 1차 판정선. / <b>SF2 수율 70% 돌파·테일러 팹1 연말 가동</b> — 팹2 SEMI 인증 진척이 조기 지표. / <b>인텔 14A 외부 고객 실명 공개</b> — 회사 가이던스상 2026년 하반기, PDK 0.9는 10월 목표. / <b>(HR) 이탈 규모의 최초 수치화</b> — 여전히 0건.</div></div>
+</section>
+
+<!-- ═══════ 안내 ═══════ -->
+<div class="notice">
+  <b>다음 호가 필요하면 “파운드리 주간”이라고 요청하세요.</b><br>
+  발행 주기: 매주 월요일 06:00 KST · 직전 1주일(월~일) 커버. 발행 당일(월) 뉴스는 다음 호로 넘기고 이번 호에서는 “다음 주 체크포인트”에 예고로만 올립니다.<br>
+  <b>Terafab 정책:</b> Tesla/SpaceX의 Terafab(오스틴)은 상시 꼭지에서 제외하며, SpaceX IPO 조달 확정·ASML EUV 발주 공식화·AI5/AI6 테이프아웃 및 양산 일정·대규모 채용 변동 등 유의미한 진전이 있을 때만 단신으로 다룹니다. <b>이번 주는 해당 없어 제외했습니다.</b>
+</div>
+
+<div class="caveats">
+  <h4>Caveats</h4>
+  <ol>
+    <li>모멘텀 화살표는 <b>주가가 아니라 중장기 전망 시나리오 대비 방향성</b>입니다. 주가 등락과 무관하게 부여됩니다.</li>
+    <li>삼성 파운드리의 <b>단독 손익과 노드별 수율은 회사가 공개하지 않습니다.</b> 본문의 수율·흑자 관련 수치는 업계 추산치 또는 증권사 추정치이며 확정 사실이 아닙니다.</li>
+    <li>예비 합의·협의·MOU 단계 보도는 <b>본계약이 아닙니다.</b> 이번 호의 단가 인상 보도 역시 삼성전자가 논평을 거부한 상태의 언론 보도입니다.</li>
+    <li>삼성전자에서 경쟁사로의 <b>실제 인력 이탈 규모는 이번 주에도 공식 수치가 없습니다.</b> 관련 서술은 모두 심리·정황 단계로 표기했습니다.</li>
+    <li>본 뉴스레터는 <b>정보 제공 목적</b>이며 특정 종목의 매매를 권유하지 않습니다.</li>
+    <li>확실성 등급 표기: <span class="grade">확정</span> 실적발표·공시·공식 보도자료 / <span class="grade">보도</span> 언론 보도 / <span class="grade">추정</span> 업계·증권가 추산 / <span class="grade">단일 출처 계열·검증 필요</span> 교차 확인이 되지 않은 단일 계열 보도.</li>
+  </ol>
+</div>
+
+<footer>
+  파운드리 주간(Foundry Weekly) 제11호 · 커버 2026.08.17~08.23 · 발행 2026.08.24<br>
+  주요 참고: 로이터(뉴스핌·서울경제·파이낸셜뉴스 인용), 자유시보(대만), Intel Investor Relations, CNBC, Tom's Hardware, ZDNet Korea, 뉴시스, 뉴스핌, 이투데이, Counterpoint Research.
+</footer>
+
+</div>
+</body>
+</html>
