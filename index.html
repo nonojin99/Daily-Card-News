@@ -209,5 +209,22 @@ async function load(){
 }
 load();
 </script>
+<script>
+(function(){
+  try{
+    var seg = location.pathname.split('/').filter(Boolean)[0];
+    var id = (seg || location.hostname.split('.')[0] || 'home').toLowerCase().slice(0, 50);
+    fetch("https://fpjgjwazqpfiffnsgume.supabase.co/rest/v1/play_events", {
+      method: "POST",
+      headers: {
+        apikey: "sb_publishable_I1YgcnYNBOaGy0WwozO2wQ_PGwsLtU5",
+        Authorization: "Bearer sb_publishable_I1YgcnYNBOaGy0WwozO2wQ_PGwsLtU5",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ game_id: id, event: "load" })
+    }).catch(function(){});
+  } catch(e) {}
+})();
+</script>
 </body>
 </html>
