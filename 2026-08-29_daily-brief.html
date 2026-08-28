@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.08.29">
+<meta property="og:description" content="이재명 대통령 지지율 42% 취임 후 최저·부정평가 첫 50% · 강남 음주 마세라티 6중 추돌 배달기사 사망 · 코로나 소상공인 장기연체 채무 소각 추진 · 기초연금 '중위소득 90%' 개편 검토 · 엔비디아 어닝 서프라이즈에 삼성·SK 메모리 반사이익 · SK하이닉스 미 인디애나 첫 HBM 공장 기공">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.08.29</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>숫자가 보낸 신호</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 8월 29일 토요일</span>
+      <span class="count">6 Picks · 화제성 순</span>
+    </div>
+    <p class="lede">오늘은 숫자들이 저마다 신호를 보내는 하루입니다. 대통령 지지율의 곡선이 취임 후 가장 낮은 지점을 찍고, 강남 도심의 밤엔 한 배달 노동자의 삶이 음주운전에 멈췄습니다. 정부는 154조 원의 '코로나 빚' 일부를 지우려 하고, 수백만 노년의 연금 문턱을 다시 그립니다. 태평양 건너 엔비디아의 실적은 삼성·SK의 메모리로 되돌아오고, SK하이닉스는 미국 땅에 첫 HBM 공장의 첫 삽을 떴습니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">Politics — 여론</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">輿</span>
+    <div class="card-top"><span class="topic">정치·여론</span></div>
+    <h2>이재명 대통령 지지율 42%…취임 후 최저, 부정평가 첫 50%</h2>
+    <div class="summary">
+      <p>한국갤럽이 <strong>8월 넷째 주(25~27일)</strong> 실시한 조사에서 이재명 대통령의 직무수행 긍정평가가 <strong>42%</strong>로, 직전 조사(44%)보다 2%포인트 내려 취임 후 최저치를 새로 썼다. 부정평가는 <strong>50%</strong>로 취임 이후 처음 절반에 도달했다.</p>
+      <p>부정평가 이유로는 <strong>부동산 정책(27%)</strong>이 가장 많이 꼽혔고, 검찰 권한 축소·경제민생·본인 재판 관련이 각 7%로 뒤를 이었다. 정당 지지도는 더불어민주당 39%, 국민의힘 25%였다. 조사는 전국 만 18세 이상 1,001명을 대상으로 했고 표본오차는 95% 신뢰수준에서 ±3.1%포인트다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">긍정평가</span><span>42% (직전 44% · -2%p · 취임 후 최저)</span></li>
+      <li><span class="k">부정평가</span><span>50% (취임 후 처음 절반)</span></li>
+      <li><span class="k">부정 이유</span><span>부동산 정책 27% (최다)</span></li>
+      <li><span class="k">정당 지지도</span><span>민주 39% · 국힘 25%</span></li>
+      <li><span class="k">조사</span><span>한국갤럽 8/25~27 · 1,001명 · ±3.1%p</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>여론조사에서 진짜 분기점은 긍정의 하락이 아니라 부정의 '절반 도달'이다. 40%대 초반의 긍정은 흔히 오가지만, 부정이 절반에 이르는 순간 프레임은 '지지가 빠졌다'에서 '반대가 절반'으로 넘어간다 — 브랜드 평판도 호감의 감소보다 비호감의 임계 도달을 더 경계한다. 다만 단일 조사의 2%포인트는 오차 범위 안이라 추세로 굳는지는 더 지켜봐야 한다.</p>
+    </div>
+    <a class="source" href="https://biz.heraldcorp.com/article/10855202">헤럴드경제</a>
+    <span class="ref-note">참고용 · 단일 여론조사 · 자세한 내용은 중앙선거여론조사심의위 등록자료 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Society — 사건</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">醉</span>
+    <div class="card-top"><span class="topic">사회·사건</span></div>
+    <h2>강남 '음주 마세라티' 6중 추돌…배달 오토바이 운전자 사망</h2>
+    <div class="summary">
+      <p><strong>8월 27일 오후 11시 46분</strong>께 서울 서초구 뱅뱅사거리 남부터미널역 방면 도로에서 마세라티 승용차가 오토바이 1대와 차량 5대를 잇달아 들이받는 <strong>6중 추돌</strong> 사고가 났다. 오토바이를 몰던 배달 노동자 1명이 심정지 상태로 병원에 옮겨졌으나 끝내 숨졌고, 3명이 경상을 입었다.</p>
+      <p>운전자는 <strong>음주 상태</strong>로 사고 직후 현행범 체포됐다. 경찰은 도로교통법 위반과 함께 특정범죄가중처벌법상 <strong>위험운전치사</strong> 혐의를 적용해 사고 경위를 조사하고 있다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">발생</span><span>8/27 오후 11:46 · 서초구 뱅뱅사거리</span></li>
+      <li><span class="k">규모</span><span>6중 추돌 (오토바이 1 · 차량 5)</span></li>
+      <li><span class="k">피해</span><span>배달 노동자 1명 사망 · 3명 경상</span></li>
+      <li><span class="k">운전자</span><span>음주 상태 · 현행범 체포</span></li>
+      <li><span class="k">혐의</span><span>위험운전치사·도로교통법 위반(수사 중)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>현행범 체포는 수사의 출발점이지 형의 확정이 아니다. 혐의 적용과 실제 양형은 앞으로의 조사와 재판에 달려 있다. 반복되는 음주운전 참사 앞에서 분노는 자연스럽지만, 한 사람이 생계의 길 위에서 목숨을 잃었다는 사실의 무게를 앞세워, 사실관계와 절차를 차분히 지켜보는 절제가 필요하다.</p>
+    </div>
+    <a class="source" href="https://www.kmib.co.kr/article/view.asp?arcid=9000007038&code=61121211&sid1=soc">국민일보</a>
+    <span class="ref-note">참고용 · 수사 초기 단계 · 혐의는 확정된 사실이 아님</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Economy — 민생</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">債</span>
+    <div class="card-top"><span class="topic">경제·민생</span></div>
+    <h2>정부, 코로나 피해 소상공인 장기연체 채무 소각·조정 추진</h2>
+    <div class="summary">
+      <p>구윤철 부총리 겸 재정경제부 장관이 <strong>8월 28일</strong> 비상경제본부회의에서 코로나 피해 소상공인의 채무조정 방침을 밝혔다. 코로나 대출 총 <strong>358조7,000억 원</strong> 가운데 <strong>154조7,000억 원(43.1%)</strong>이 아직 상환되지 않았고, 3개월 이상 연체된 금액이 <strong>6조3,000억 원(4.1%)</strong>에 이른다.</p>
+      <p>정부는 2023년 6월 이전에 발생해 오래 이어진 장기연체채권을 대상으로, <strong>3년 이상 연체 채무는 소각·조정</strong>하고 20년 이상 장기 연체채권은 일괄 소각하기로 했다. 성실 상환자에게는 0.3%포인트 우대금리와 한도 상향·이자 감면을 제공한다. 구체적인 방안은 <strong>4분기</strong>에 발표될 예정이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">발표</span><span>8/28 · 비상경제본부회의(구윤철 부총리)</span></li>
+      <li><span class="k">남은 빚</span><span>154조7,000억 원 (총 358.7조의 43.1%)</span></li>
+      <li><span class="k">장기연체</span><span>6조3,000억 원 (4.1%)</span></li>
+      <li><span class="k">대상</span><span>2023.6 이전 발생 장기연체채권</span></li>
+      <li><span class="k">시행</span><span>구체안 4분기 발표 예정 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>'탕감'이라는 단어는 늘 형평성 논쟁을 부른다 — 갚은 사람은 왜 손해냐는 물음이다. 그래서 정부가 성실 상환자 우대(우대금리·한도)를 같은 발표에 끼워 넣은 것은 우연이 아니다. 혜택을 설계할 때 '받는 쪽'만큼 '이미 지킨 쪽'의 서운함을 관리해야 정책이든 프로모션이든 반발을 줄인다.</p>
+    </div>
+    <a class="source" href="https://biz.heraldcorp.com/article/10855162">헤럴드경제</a>
+    <span class="ref-note">⚠ 변동 가능 · 세부 대상·요건은 4분기 정부 공식 발표 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Welfare — 복지</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">年</span>
+    <div class="card-top"><span class="topic">복지·정책</span></div>
+    <h2>기초연금 선정기준 '소득 하위 70%→중위소득 90%' 개편 검토</h2>
+    <div class="summary">
+      <p>정부가 기초연금 선정 기준을 현행 '65세 이상 <strong>소득 하위 70%</strong>'에서 '<strong>기준 중위소득 90%</strong>'로 바꾸는 방안을 검토하고 있다. 올해 기준 중위소득이 96.3%까지 오른 만큼, 새 기준은 지금보다 문턱이 다소 낮아진다.</p>
+      <p>당초 100% 안도 거론됐으나 중위소득이 역대 최고 증가율(6.7%)을 기록한 점을 고려해 <strong>90%대</strong>로 가닥을 잡았다. 아낀 재원은 저소득층의 연금을 높이는 <strong>'하후상박'</strong> 개편에 쓰고, 수년에 걸쳐 중위소득 80%까지 단계적으로 낮추는 방안도 함께 검토된다. 올해 기초연금 수급자는 <strong>778만8,000명</strong>이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">현행</span><span>65세↑ 소득 하위 70%</span></li>
+      <li><span class="k">개편안</span><span>기준 중위소득 90% (장기 80%까지 검토)</span></li>
+      <li><span class="k">현 중위소득</span><span>96.3% 수준</span></li>
+      <li><span class="k">방향</span><span>'하후상박' 재분배 구조</span></li>
+      <li><span class="k">올해 수급자</span><span>778만8,000명 ⚠ 검토 단계</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>'하위 70%'와 '중위소득 90%'는 결국 비슷한 대상을 가리키지만, 전자는 '탈락'을 세고 후자는 '포함'을 센다. 같은 선을 어떤 언어로 그리느냐가 정책의 인상을 바꾼다 — '상위 30% 제외'보다 '90%까지 지급'이 훨씬 넉넉하게 들린다. 다만 아직 검토 단계라 최종안·재원 부담은 확정되지 않았다.</p>
+    </div>
+    <a class="source" href="https://www.hankyung.com/article/202608277817i">한국경제</a>
+    <span class="ref-note">참고용 · 정부 검토 단계 · 확정 시 기준·시기 달라질 수 있음</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Market — 증시·반도체</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">波</span>
+    <div class="card-top"><span class="topic">경제·증시</span></div>
+    <h2>엔비디아 '어닝 서프라이즈'…삼성·SK 메모리 반사이익 기대</h2>
+    <div class="summary">
+      <p>엔비디아가 2분기 매출 <strong>962억2,000만 달러</strong>(약 133조 원)로 전년 대비 <strong>106%</strong> 늘어난 실적을 발표했다. 데이터센터 매출이 <strong>890억 달러</strong>로 전체의 92%를 차지했고, 3분기 가이던스로 <strong>1,080억 달러</strong>를 제시했다.</p>
+      <p>메모리 확보를 위한 구매약정이 직전 1,190억 달러에서 <strong>2,790억 달러</strong>로 2.3배 늘며 HBM(고대역폭메모리) 공급 부족이 이어질 것임을 뒷받침했다. 이에 삼성전자·SK하이닉스로의 훈풍이 예상된다. 골드만삭스는 내년 HBM 평균가격이 <strong>44%</strong> 오를 것으로 내다봤다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">2Q 매출</span><span>962.2억 달러 (전년比 +106%)</span></li>
+      <li><span class="k">데이터센터</span><span>890억 달러 (전체의 92%)</span></li>
+      <li><span class="k">3Q 가이던스</span><span>1,080억 달러</span></li>
+      <li><span class="k">구매약정</span><span>1,190억 → 2,790억 달러 (2.3배)</span></li>
+      <li><span class="k">HBM 내년 가격</span><span>+44% 전망(골드만삭스) ⚠ 전망치</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>이번 실적에서 시장이 가장 주목한 숫자는 매출이 아니라 '구매약정 2.3배'다. 지금 판 것보다 앞으로 확보하려는 물량이 더 큰 신호이기 때문이다 — 소비에서도 재구매 예약·대기 주문이 현재 매출보다 미래를 더 정확히 말한다. 다만 HBM 가격 전망은 어디까지나 예측이라 실제 계약가로 확인해야 한다.</p>
+    </div>
+    <a class="source" href="https://www.ajunews.com/view/20260827143807907">아주경제</a>
+    <span class="ref-note">⚠ 해외 실적·전망치 포함 · 국내 기업 실적 영향은 향후 지표로 확인 권장</span>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">礎</span>
+    <div class="card-top"><span class="topic">기업·반도체</span></div>
+    <h2>SK하이닉스, 미 인디애나 첫 HBM 생산거점 기공…2029년 양산</h2>
+    <div class="summary">
+      <p>SK하이닉스가 현지시간 <strong>8월 27일</strong> 미국 인디애나주 웨스트라피엣에서 HBM 공장 기공식을 열었다. 7세대 HBM인 <strong>HBM4E</strong>를 <strong>2029년 하반기</strong>부터 양산할 계획으로, 회사의 첫 미국 내 HBM 생산거점이다.</p>
+      <p>곽노정 대표이사는 메모리 "공급 부족 상황이 <strong>2030년 말까지</strong> 이어질 것"이라며, AI 시대에는 고객 맞춤형 제품이 늘어 경기 하강기에도 수요가 급감하기보다 완만히 줄거나 보합할 가능성을 제시했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">위치</span><span>미 인디애나주 웨스트라피엣</span></li>
+      <li><span class="k">기공식</span><span>8/27 (현지시간)</span></li>
+      <li><span class="k">양산</span><span>2029년 하반기</span></li>
+      <li><span class="k">제품</span><span>7세대 HBM(HBM4E)</span></li>
+      <li><span class="k">CEO 전망</span><span>공급 부족 2030년 말까지(곽노정)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>양산이 2029년인 공장의 첫 삽을 지금 뜨는 이유는, 고객(수요처)이 있는 곳에 생산을 붙여야 하기 때문이다. 관세·통상 리스크가 커질수록 '어디서 파느냐'만큼 '어디서 만드느냐'가 경쟁력이 된다 — 시장에 가까운 생산은 그 자체로 고객에게 보내는 약속의 신호다. 앞의 엔비디아 실적과 나란히 놓으면, 수요 확신이 곧 대규모 선투자로 이어지는 사이클이 보인다.</p>
+    </div>
+    <a class="source" href="https://www.mt.co.kr/industry/2026/08/28/2026082809114242962">머니투데이</a>
+    <span class="ref-note">참고용 · 투자 규모·고용 등 세부는 원문·공식 발표 확인 권장</span>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 마케팅 인사이트 → 디자인 렌더링 → 검토<br>
+    큐레이션: 화제성 우선 · 한 사건당 최대 3개 카드 · 지속 정보는 변화 있을 때만 등장 · 오늘 6개 선별(정치 1 + 사회 1 + 경제·복지 2 + 증시·반도체 2)<br>
+    토요일 액티비티·쇼핑 브리프는 오늘자 서브 브리프에서 · 모든 정보는 참고용, 출처 링크에서 최종 확인 권장
+    <!-- tracker: 2026-08-29
+         [추적 상태] 이재명 대통령 지지율: 8/25~27 한국갤럽 긍정 42%(취임 후 최저)·부정 50%(첫 절반 도달), 민주39%/국힘25% → 추세 지속 여부 추적. [8/26 다룬 지지율 40.0%(타 조사)에서 새 갤럽 조사·부정 첫 과반이라는 새 전개로 재등장]
+         강남 음주 마세라티 6중 추돌: 8/27 밤 서초 뱅뱅사거리, 배달 노동자 1명 사망·3명 경상, 운전자 음주 현행범 체포, 위험운전치사 수사 → 구속·기소 절차 추적. (Context 톤)
+         코로나 소상공인 채무 소각: 8/28 구윤철 부총리 발표, 미상환 154.7조·장기연체 6.3조, 3년↑ 소각·조정/20년↑ 일괄소각, 구체안 4분기 → 세부안·형평성 논쟁 추적.
+         기초연금 개편: 소득 하위 70%→중위소득 90% 검토(장기 80%), 수급자 778.8만 → 확정안·재원 추적. (검토 단계)
+         엔비디아 실적·HBM: 2Q 매출 962.2억달러(+106%), 구매약정 2.3배, HBM 내년가 +44% 전망 → 삼성·SK 실적 반영 추적.
+         SK하이닉스 인디애나 HBM 기공: 8/27 기공, HBM4E 2029 하반기 양산, 공급부족 2030말까지(곽노정) → 착공·양산 일정 추적.
+         [기존 추적 유지] 네팔 라수와 홍수(한국인 9명 이송·현장소장 1명 잔류·현지 인명 유동) · 김현태 707단장 1심 12년 항소심 · 한국은행 금리 3.00%(다음 금통위) · 서울 출산율 0.63명 반등 지속성 · 부산 베트남 유학생 살해 구속영장 · 박근혜 국민의힘 연찬회 후속 · 이준석 개혁신당 사퇴·전당대회 · 이진숙 제명 결의(제명 재적2/3 절차) · 재생에너지 220GW(전력수급기본계획 확정) · 시외·고속버스 요금 10월 9%↑ · 싸이 약식기소 · 경산 유학생 사망 수사 · 여수 영아학대 상고심 · SK하이닉스 성과급 재투표 · 고려아연 vs MBK·영풍 · 이재명 재판 · 문재인 국민참여재판 · 삼성전자 주주환원 · 한미약품 HM17321 기술수출 · 특별감찰관 최길수 청문 · 조희대 서면제청 · 종부세 개편(9/3 국회 제출) · 현대차 노사 교섭 · 카카오 인적분할(12/17 임시주총) · 전기차 개소세 감면축소(10월) — 새 전개 시 재등장.
+         [오늘 다룬 항목] ①이재명 지지율 42%·부정 첫 50% ②강남 음주 마세라티 6중 추돌 사망 ③코로나 소상공인 채무 소각 ④기초연금 중위소득 90% 개편 검토 ⑤엔비디아 어닝 서프라이즈·삼성SK 반사이익 ⑥SK하이닉스 인디애나 HBM 기공
+         [제외] 네팔 홍수(8/28 이후 뚜렷한 국내 앵글 새 전개 부족) · 삼성전자 주주환원/기준금리 등 최근 다룸+새 전개 없음 · 스포츠(화요일 로테이션) · 액티비티·쇼핑(오늘 서브로 이관)
+    -->
+  </footer>
+
+</div>
+</body>
+</html>
