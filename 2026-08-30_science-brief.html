@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="우주·과학 롱리드 — 2026.08.30">
+<meta property="og:description" content="오늘 발사되는 NASA 낸시 그레이스 로먼 우주망원경 — 허블과 똑같은 2.4m 거울로 하늘을 100배 넓게 훑는 '우주 인구조사관'. 첩보위성에서 온 거울, 떠돌이 행성 400개, 다크에너지 지도까지 5각도 롱리드.">
+<meta property="og:type" content="article">
+<title>Science Long-read — 2026.08.30</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d4a7c; --accent-soft:#eceef5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Long-read · 우주·과학</div>
+    <h1>허블의 눈, 백 배 넓게</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 8월 30일 일요일</span>
+      <span class="count">One Topic · 롱리드</span>
+    </div>
+    <p class="lede">오늘(현지시간 8월 30일) 미국에서 로켓 하나가 특별한 망원경을 우주로 실어 나릅니다. 이름은 낸시 그레이스 로먼. 거울 크기는 허블과 똑같은 2.4m인데, 한 번에 담는 하늘은 100배 넓습니다. 깊이 파고드는 제임스웹, 정밀하게 들여다보는 허블과 달리 로먼은 하늘을 통째로 훑어 다크에너지와 수십억 개의 은하, 별에 묶이지 않은 떠돌이 행성을 세는 '우주 인구조사관'입니다. 그리고 그 심장인 거울은, 원래 지상을 감시하려던 첩보위성의 부품이었습니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">1 — 무슨 일이 벌어지고 있나</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">發</span>
+    <div class="card-top"><span class="topic">발사</span></div>
+    <h2>오늘, 우주로 던져지는 '광각의 눈'</h2>
+    <div class="summary">
+      <p>현지시간 <strong>2026년 8월 30일 오전 7시 26분(EDT)</strong> 미국 플로리다 케네디우주센터 39A 발사대에서 스페이스X <strong>팰컨 헤비</strong> 로켓이 NASA의 낸시 그레이스 로먼 우주망원경을 싣고 이륙한다. 우리 시간으로는 같은 날 저녁 무렵이다. 목적지는 지구에서 약 <strong>160만 km</strong> 떨어진 태양-지구 제2 라그랑주점(L2) — 제임스웹 망원경이 자리한 바로 그곳이다.</p>
+      <p>완전 전개 시 길이 약 13m·무게 약 8,000kg에 이르는 이 관측선에는 총 사업비 약 <strong>43억 달러</strong>가 투입됐다. 기본 임무 기간은 5년이며 최대 5년 추가 연장이 가능하도록 설계됐다. 다크에너지, 외계행성, 은하 등 우주의 근본 질문을 '통계적 규모'로 파고드는 것이 목표다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">발사</span><span>8/30(일) 07:26 EDT · KST 저녁</span></li>
+      <li><span class="k">발사체·장소</span><span>팰컨 헤비 · 케네디우주센터 LC-39A</span></li>
+      <li><span class="k">목적지</span><span>태양-지구 L2 (약 160만 km)</span></li>
+      <li><span class="k">총 사업비</span><span>약 43억 달러</span></li>
+      <li><span class="k">임무 기간</span><span>기본 5년 (+최대 5년 연장) ⚠ 일정 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>L2는 태양·지구가 늘 같은 쪽에 모여 있어, 차광막 하나로 태양·지구·달빛을 동시에 가릴 수 있는 '명당'이다. 웹이 이미 거기 있고 로먼이 합류하면서, L2는 사실상 인류의 심우주 관측 전초기지가 된다. 발사가 끝이 아니라, 160만 km를 날아가 자리를 잡는 것부터가 임무의 시작이다.</p>
+    </div>
+    <a class="source" href="https://www.space.com/space-exploration/launches-spacecraft/spacex-falcon-heavy-rocket-launching-nasas-roman-space-telescope-on-aug-30-how-to-watch-it-live">Space.com</a>
+    <span class="ref-note">발사·제원은 발표 사실 · 일정은 기상 등으로 변동 가능(백업일 8/31) (확인 2026-08-30)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">2 — 어떻게 보는가</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">廣</span>
+    <div class="card-top"><span class="topic">관측기기</span></div>
+    <h2>같은 눈, 100배 넓은 시야</h2>
+    <div class="summary">
+      <p>로먼의 핵심 장비는 '광시야 관측기(Wide Field Instrument, WFI)'다. 주경 지름은 <strong>2.4m</strong>로 허블과 정확히 같다. 그런데 결정적 차이는 '한 번에 보는 하늘의 넓이'다. WFI의 시야는 허블의 근적외선 카메라(WFC3-IR)보다 NASA 공식 표현으로 "<strong>최소 100배</strong>" 넓다. 허블급 선명도를 유지하면서 하늘을 통째로 훑는 셈이다.</p>
+      <p>이 넓은 시야를 담는 초점면에는 4,096×4,096 화소짜리 검출기 <strong>18개</strong>가 배열돼 총 약 <strong>3억 화소(300메가픽셀)</strong>를 이룬다. 관측 파장은 0.48~2.3마이크로미터의 가시광~근적외선 대역으로, 먼지를 뚫고 먼 우주에서 붉게 늘어진 빛을 잡아낸다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">주경 지름</span><span>2.4 m (허블과 동일)</span></li>
+      <li><span class="k">시야</span><span>허블 근적외 카메라의 최소 100배(NASA)</span></li>
+      <li><span class="k">검출기</span><span>4096×4096 화소 18개</span></li>
+      <li><span class="k">총 화소</span><span>약 3억 화소(300MP)</span></li>
+      <li><span class="k">관측 파장</span><span>0.48~2.3μm (가시광~근적외선)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>웹이 '깊이 파는 망원경', 허블이 '정밀 관측'이라면, 로먼은 '넓게 훑는 서베이 망원경'이다. 허블이 밤하늘의 우표 한 장을 찍는다면, 로먼은 한 컷에 보름달 수십~수백 개 넓이를 같은 해상도로 담는다. 크기가 아니라 '역할'이 다른 3형제인 셈이다.</p>
+    </div>
+    <a class="source" href="https://science.nasa.gov/mission/roman-space-telescope/wfi-technical/">NASA (Roman WFI)</a>
+    <span class="ref-note">기기 제원은 발표 사실 · 시야 배율은 NASA 공식 '최소 100배' 표현 기준 (확인 2026-08-30)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">3 — 왜 이 망원경이 존재하는가</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">鏡</span>
+    <div class="card-top"><span class="topic">우주사·비하인드</span></div>
+    <h2>첩보위성 창고에서 온 거울</h2>
+    <div class="summary">
+      <p>로먼의 심장인 2.4m 거울은 원래 천문학용이 아니었다. <strong>2012년</strong>, 미국 국가정찰국(NRO·첩보위성 담당 기관)이 뉴욕주 로체스터에 보관해 두었던 허블급 광학 하드웨어를 NASA에 넘겼다. 지상을 감시하려 만든 스파이 광학계가, 방향만 우주로 돌려 천문대의 눈이 된 것이다.</p>
+      <p>이 거울은 허블과 같은 2.4m지만 무게는 약 <strong>186kg</strong>으로, 허블 거울(약 828kg)의 4분의 1에 불과하다. 원래 1.5m급으로 구상되던 WFIRST 계획은 이 뜻밖의 큰 거울 덕분에 더 야심 찬 2.4m 관측선으로 확장돼 오늘의 로먼이 됐다.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">2010</span><span>미 천문 10년계획, WFIRST 우선순위 지정 (당시 1.5m 구상)</span></li>
+      <li><span class="when">2011~2012</span><span>NRO, 미사용 첩보망원경급 광학을 NASA에 이관 (로체스터 보관)</span></li>
+      <li><span class="when">이후</span><span>2.4m 거울 기반 관측선으로 확장</span></li>
+      <li><span class="when">2020</span><span>'낸시 그레이스 로먼'의 이름으로 명명</span></li>
+      <li><span class="when">2026</span><span>발사</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>'공짜 망원경'이 아니었다는 점이 핵심이다. NASA는 거울만 받았을 뿐, 그 주위로 광학계·검출기 전체를 새로 설계해야 했고 최종 43억 달러가 들었다. 이름의 주인공 낸시 그레이스 로먼은 NASA 최초의 수석 천문학자이자, 허블 계획을 밀어붙인 '허블의 어머니'로 불린다.</p>
+    </div>
+    <a class="source" href="https://physicstoday.aip.org/news/the-roman-space-telescope-isnt-the-only-us-observatory-built-from-spy-tech">Physics Today</a>
+    <span class="ref-note">NRO 이관 경위는 Physics Today 보도 · 거울 무게(186kg/828kg)는 NASA 제원 기준 (확인 2026-08-30)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">4 — 무엇을 찾아낼까</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">探</span>
+    <div class="card-top"><span class="topic">외계행성·서베이</span></div>
+    <h2>한 번에 수십억 개를 세는 우주 인구조사</h2>
+    <div class="summary">
+      <p>로먼이 내놓을 숫자는 압도적이다. '중력 미시렌즈(microlensing)' 기법만으로 <strong>1,000개 이상</strong>의 외계행성을 새로 찾을 것으로 기대되며, 여기엔 별에 묶이지 않고 홀로 떠도는 '<strong>떠돌이 행성</strong>'이 대거 포함된다. 오사카대·NASA 고더드 연구팀은 로먼이 지구질량급 떠돌이 행성을 약 <strong>400개</strong> 찾을 수 있다고 추산했는데, 이는 이전 예측치(약 50개)의 8배다.</p>
+      <p>다크에너지 연구를 위한 광역 서베이로는 <strong>10억 개 이상</strong>의 은하를 촬영하고, 은하면 서베이로는 최대 <strong>200억 개</strong>의 별을 지도화한다. 최대 규모 핵심 서베이는 하늘의 약 <strong>12%</strong>(5,100제곱도)를 훑는다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">미시렌즈 행성</span><span>1,000개+ 신규 기대 (모델)</span></li>
+      <li><span class="k">떠돌이 행성</span><span>지구질량급 약 400개 (기존 8배·모델)</span></li>
+      <li><span class="k">은하 촬영</span><span>10억 개 이상 (계획)</span></li>
+      <li><span class="k">은하면 별 지도</span><span>최대 200억 개 (계획)</span></li>
+      <li><span class="k">핵심 서베이</span><span>5,100제곱도 (하늘의 약 12%)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>미시렌즈는 앞쪽 천체의 중력이 뒤쪽 별빛을 잠깐 밝게 휘게 하는 아인슈타인의 현상이다. 행성이 스스로 내는 빛이 아니라 '중력이 남긴 순간의 밝기 스파이크'로 존재를 들키게 하므로, 빛 한 점 없이 홀로 떠도는 행성까지 탐지할 수 있다. 로먼이 '떠돌이 행성 사냥꾼'인 이유다.</p>
+    </div>
+    <a class="source" href="https://www.nasa.gov/missions/roman-space-telescope/new-study-reveals-nasas-roman-could-find-400-earth-mass-rogue-planets">NASA</a>
+    <span class="ref-note">발사·기법은 사실 · 행성·은하 개수는 모델·추정치(떠돌이행성 400개는 2023년 연구 추정) (확인 2026-08-30)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">5 — 무엇을 바꾸나</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">暗</span>
+    <div class="card-top"><span class="topic">우주론·다크에너지</span></div>
+    <h2>우주가 왜 점점 빨리 멀어지는가</h2>
+    <div class="summary">
+      <p>로먼의 궁극 목표는 우주의 약 <strong>70%</strong>를 채우고 있으면서도 정체를 모르는 <strong>다크에너지</strong>의 지도를 그리는 일이다. 넓은 시야로 서로 다른 시대의 은하 수십억 개, 그리고 Ia형 초신성의 거리와 '바리온 음향진동(BAO)'을 관측해 우주의 팽창 속도가 시간에 따라 어떻게 변해왔는지를 재구성한다. 이는 다크에너지가 '변하지 않는 상수'인지, 시간에 따라 달라지는 무엇인지를 가를 정밀 실험이 된다.</p>
+      <p>여기에 별빛을 가려 행성을 직접 촬영하는 '<strong>코로나그래프(Coronagraph)</strong>'가 기술 시연으로 탑재된다. 목성급 궤도를 도는 목성 크기 외계행성의 반사광을 직접 담아내는 것이 목표로, 미래에 지구 닮은 행성의 대기를 직접 찍으려는 차세대 관측선의 예행연습이다.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">발사 후</span><span>L2 도착·전개·초기 점검</span></li>
+      <li><span class="when">임무 초기</span><span>코로나그래프 기술 시연</span></li>
+      <li><span class="when">기본 5년</span><span>다크에너지·미시렌즈·초신성 대형 서베이</span></li>
+      <li><span class="when">목표</span><span>우주 팽창사 정밀 측정 · 다크에너지 성질 규명</span></li>
+      <li><span class="when">유산</span><span>차세대 '거주가능 세계 관측선' 코로나그래프 검증</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>로먼은 웹·허블과 경쟁하지 않고 분업한다. 로먼이 넓게 훑어 '흥미로운 대상'을 무더기로 찾아내면, 웹이 그 하나하나를 깊이 들여다보는 식이다. 즉 로먼은 앞으로 10년 우주과학의 '표적 발굴 기계' 역할을 하게 된다.</p>
+    </div>
+    <a class="source" href="https://www.esa.int/Science_Exploration/Space_Science/Cutting-edge_infrared_space_telescope_Roman_set_to_launch">ESA</a>
+    <span class="ref-note">다크에너지 지도·코로나그래프는 계획·목표 · 발사·L2는 사실 (확인 2026-08-30)</span>
+  </article>
+
+  <footer>
+    <span class="pipe">서브 브리프</span> · 우주·과학 (일요일) · 한 주제 롱리드<br>
+    각 항목의 <strong>"🔭 알고 보면 달라지는 것"</strong>은 현상 뒤의 과학적·관측적 맥락을 담습니다.<br>
+    서베이 규모·행성 개수 등은 모델·추정 기반으로 자료별 차이가 큽니다. 출처 링크와 NASA·ESA의 최신 발표에서 확인을 권장합니다.
+    <!-- tracker: 2026-08-30
+         [이번 주제] NASA 낸시 그레이스 로먼 우주망원경(Roman Space Telescope) 발사 롱리드 — 2026-08-30 07:26 EDT 팰컨 헤비, 케네디우주센터 LC-39A, 목적지 L2. 주경 2.4m(허블 동일), WFI 시야 허블의 최소 100배, 검출기 18개·약 3억 화소, 사업비 약 43억 달러. NRO 첩보위성 거울(186kg, 허블 828kg의 1/4) 유래. 미시렌즈 외계행성 1,000개+·떠돌이행성 약 400개(모델), 은하 10억+·별 최대 200억 지도, 다크에너지·코로나그래프. → 발사 성공·초기 점검·첫 데이터 나오면 업데이트 가능(백업일 8/31).
+         [지난 회차와 중복 회피] 8/23 블랙홀별 MoM-BH*-1, 8/16 성간 혜성 3I/ATLAS, 8/9 폭염 과학, 8/2 갈색왜성 도는 천체 — 모두 회피. 이번은 관측장비·서베이·다크에너지 주제.
+         [형식] 각 카드 ref-note에 '발표 사실'과 '모델·추정/계획'을 구분 표기. 행성·은하 개수는 예측치임을 본문·스펙에 (모델)/(계획)으로 명시. 시야 배율은 NASA '최소 100배' 공식 표현 채택(일부 매체 200배 표기와 혼동 방지). 거울 무게 186kg은 NASA Hubble-vs-Roman 제원 기준.
+         [출처 분산] Space.com(1) · NASA WFI 기술페이지(2) · Physics Today(3) · NASA 떠돌이행성 연구(4) · ESA(5) — 각 1회, 동일 URL 3회 미만.
+    -->
+  </footer>
+
+</div>
+</body>
+</html>
