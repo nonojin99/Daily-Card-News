@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="AI·테크 브리프 — 2026.08.31">
+<meta property="og:description" content="하정우 국가AI전략위 상근부위원장·이해민 신임 AI수석 '3각축' · 오픈AI, 스페이스X 인수된 커서에 모델 공급 중단 · 中 CXMT LPDDR6 첫 공급하며 美 국방부에 맞소송 · 웨이모 '카메라만으론 자율주행 안 된다' · 전북 피지컬AI 거점 7,368억 · 오사카 지하철 제미나이 휴머노이드 · 소니·워너, 앤스로픽 제소">
+<meta property="og:type" content="article">
+<title>AI Brief — 2026.08.31</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#2a6b7c; --accent-soft:#e9f0f2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">AI Brief · AI·테크 서브</div>
+    <h1>손이 바뀐다</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 8월 31일 월요일</span>
+      <span class="count">7 Picks · 고르게</span>
+    </div>
+    <p class="lede">이번 주말 AI 뉴스는 '누가 손을 쥐느냐'로 모입니다. 정부는 AI 정책의 손을 다시 배치했고, 오픈AI는 모델을 공급하던 손을 거둬들이며 기반 모델 소유사의 힘을 드러냈습니다. 중국의 메모리 기업은 선단 D램을 처음 폰에 얹으며 소송이라는 손을 내밀었고, 웨이모는 카메라만으론 부족하다며 센서를 겹칩니다. 공장과 지하철에는 사람의 손을 대신할 AI가 들어서고, 음악업계는 학습한 손의 출처를 법정에서 따집니다. 일곱 갈래를 고르게 담았습니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">국내 AI — 거버넌스</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">政</span>
+    <div class="card-top"><span class="topic">정책·국내AI</span></div>
+    <h2>하정우 국가AI전략위 상근부위원장…이해민 신임 AI수석 '3각축'</h2>
+    <div class="summary">
+      <p>정부가 <strong>8월 30일</strong> 하정우 전 대통령실 AI미래기획수석을 <strong>국가인공지능전략위원회 상근부위원장</strong>으로 내정했다. 2025년 6월 초대 AI수석에 발탁됐던 그가 전략위의 실무 총괄로 자리를 옮기고, 공석이 된 AI미래기획수석 자리는 구글 출신으로 국회에서 AI 입법을 주도한 <strong>이해민</strong>(조국혁신당) 의원이 채운다. 여기에 과기정통부 라인 배경훈을 더해 '3각축' 체제가 다시 가동된다는 평가다.</p>
+      <p>국가AI전략위는 2026년 2월 '대한민국 인공지능 행동계획'을 확정하며 <strong>99개 과제·326개 정책권고</strong>를 담은 바 있다. 수석 공백기 동안 지지부진했던 이 계획의 집행이 다시 속도를 낼지가 관건이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">상근부위원장</span><span>하정우 (전 AI수석)</span></li>
+      <li><span class="k">신임 AI수석</span><span>이해민 (구글 출신·조국혁신당 의원)</span></li>
+      <li><span class="k">체제</span><span>하정우·이해민·배경훈 '3각축'</span></li>
+      <li><span class="k">행동계획</span><span>99개 과제·326개 정책권고 (2026.2)</span></li>
+      <li><span class="k">발표</span><span>2026년 8월 30일</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>한국 AI 거버넌스는 '대통령실 수석(정책 기획)'과 '전략위(범부처 조정)'가 양대 축인데, 이번 인사는 오래 기획을 맡던 인물(하정우)을 집행·조정 쪽으로 옮긴 것이다. 선언적 계획을 실제 예산·과제로 밀어붙이는 단계로 넘어가겠다는 신호로 읽힌다. 입법 경험이 있는 이해민 수석이 들어오면서 AI기본법 후속 규제 정비에 무게가 실릴 가능성도 있다.</p>
+    </div>
+    <a class="source" href="https://zdnet.co.kr/view/?no=20260830123054">지디넷코리아</a>
+    <span class="ref-note">참고용 · 인선 발표 단계 · 공식 발표에서 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">빅테크 — AI 모델</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">絶</span>
+    <div class="card-top"><span class="topic">빅테크·AI모델</span></div>
+    <h2>오픈AI, 스페이스X가 인수한 '커서'에 모델 공급 중단</h2>
+    <div class="summary">
+      <p>오픈AI가 AI 코딩 플랫폼 <strong>커서(Cursor)</strong>에 대한 모델 공급을 <strong>11월 12일</strong>자로 중단한다고 <strong>8월 30일(한국시간)</strong> 밝혔다. 직접적 계기는 스페이스X가 8월 14일 커서를 <strong>600억 달러</strong>에 인수한 것으로, 오픈AI는 "일론 머스크가 이끄는 기업들의 과거 계약 위반 전력"을 들며 이용약관 준수를 신뢰하기 어렵다고 설명했다.</p>
+      <p>오픈AI 모델은 현재 커서 전체 트래픽의 약 <strong>5%</strong>에 불과해 즉각적 서비스 타격은 제한적이다. 오히려 경쟁사 앤스로픽은 커서에 대한 클로드 지원과 컴퓨팅 자원을 확대하며 반사이익을 노리는 모습이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">공급 중단일</span><span>2026년 11월 12일</span></li>
+      <li><span class="k">인수</span><span>스페이스X, 커서 600억 달러 (8/14)</span></li>
+      <li><span class="k">오픈AI 비중</span><span>커서 트래픽 내 약 5%</span></li>
+      <li><span class="k">명분</span><span>머스크 기업들의 계약 위반 전력</span></li>
+      <li><span class="k">반사이익</span><span>앤스로픽, 클로드 지원 확대</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>이 사건은 단순 거래 분쟁이 아니라 머스크-알트먼 갈등의 연장선이다. 머스크는 2015년 오픈AI를 공동창업했다 2018년 이사회를 떠났고, 2024년엔 영리 전환이 창업 원칙을 위반했다며 소송을 냈다. 모델 공급사가 하위 플랫폼을 끊는 건 처음이 아니다 — 앤스로픽도 2025년 코딩 플랫폼 윈드서프에 클로드 공급을 끊은 전례가 있다. '기반 모델 소유사'가 사실상 킬 스위치를 쥔 구조가 다시 확인된 셈이다.</p>
+    </div>
+    <a class="source" href="https://zdnet.co.kr/view/?no=20260830085855">지디넷코리아</a>
+    <span class="ref-note">참고용 · 기업 발표·시점 변동 가능 · 원문 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">반도체 — 지정학</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">憶</span>
+    <div class="card-top"><span class="topic">반도체·지정학</span></div>
+    <h2>中 CXMT, LPDDR6 첫 공급하며 美 국방부에 맞소송</h2>
+    <div class="summary">
+      <p>중국 최대 메모리 기업 창신메모리(<strong>CXMT</strong>)가 차세대 저전력 D램 <strong>LPDDR6</strong> 양산을 시작해 9월 출시 예정인 '샤오미18 폴드'에 처음 공급한다. 이 LPDDR6는 최대 <strong>12,800Mbps</strong> 전송속도를 지원하며, 샤오미 자체 설계 3나노 AP '엑스링 O3'에 적용된다. 삼성·SK하이닉스·마이크론이 주도해온 선단 모바일 D램의 격차를 좁히는 행보다.</p>
+      <p>동시에 CXMT는 <strong>8월 30일</strong> 워싱턴DC 연방지방법원에 미 국방부를 상대로 <strong>1260H 블랙리스트</strong> 제외를 요구하는 행정소송을 냈다. "자사 반도체는 순수 민수·상업용"이라는 주장이다. CXMT는 2025년 1월 첫 등재→2월 일시 제외→6월 YMTC와 함께 재지정되는 부침을 겪었다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">제품</span><span>LPDDR6, 최대 12,800Mbps</span></li>
+      <li><span class="k">첫 탑재</span><span>샤오미18 폴드(9월)·엑스링 O3(3나노)</span></li>
+      <li><span class="k">소송</span><span>8/30 워싱턴DC 연방법원</span></li>
+      <li><span class="k">쟁점</span><span>美 국방부 1260H 블랙리스트 제외</span></li>
+      <li><span class="k">위상</span><span>세계 4위권 D램 제조사</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>1260H 리스트는 '중국 군사기업'으로 지정하는 국방부 명단으로, 직접 수출 금지는 아니지만 미 정부·계약업체와의 거래를 사실상 막는 '평판 제재'다. CXMT가 소송이라는 정면돌파를 택한 건, AI 인프라 붐으로 D램 품귀가 심해지며 중국 업체들이 장기계약으로 CXMT 물량을 선점할 만큼 사업 자신감이 붙었기 때문이다. LPDDR6 양산은 D램에서 중국의 추격이 '레거시'를 넘어 선단으로 넘어오고 있다는 신호다.</p>
+    </div>
+    <a class="source" href="https://www.ddaily.co.kr/page/view/2026083011082745984">디지털데일리</a>
+    <span class="ref-note">⚠ 소송 진행 중·제품 출시 전 · 원문 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">모빌리티 — 자율주행</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">眼</span>
+    <div class="card-top"><span class="topic">자율주행·논쟁</span></div>
+    <h2>웨이모 "카메라만으론 자율주행 안 된다"…테슬라 방식 정면 비판</h2>
+    <div class="summary">
+      <p>구글 계열 웨이모가 <strong>8월 30일</strong> 블로그를 통해 "카메라 단독으로는 안전한 자율주행을 구현하기 어렵다"며 테슬라의 카메라 중심 접근을 정면 비판했다. <strong>라이다·레이더·GPS</strong>를 융합해야 폭우·안개 등 카메라 시야가 가려지는 상황에서도 도로를 인식할 수 있다는 논리다. 웨이모는 최근 누적 주행거리 <strong>2억 마일</strong> 달성을 근거로 제시했다.</p>
+      <p>웨이모는 카메라가 표지판·신호등 색상을 읽는 동안 레이더가 악천후를 보완하고, HD 지도와 시각-언어모델(VLM)을 병행하는 다중 센서 융합이 필수라고 강조했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">발표</span><span>웨이모 공식 블로그 (8/30)</span></li>
+      <li><span class="k">핵심 주장</span><span>카메라 단독 불충분, 센서 융합 필수</span></li>
+      <li><span class="k">센서 구성</span><span>라이다+레이더+GPS+HD맵+VLM</span></li>
+      <li><span class="k">근거</span><span>누적 주행 2억 마일</span></li>
+      <li><span class="k">대비</span><span>테슬라 = 카메라 중심(비전 온리)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>이 논쟁의 본질은 '비용 vs 안전'의 노선 차이다. 테슬라는 값비싼 라이다를 빼고 카메라+AI로만 승부해 차량 원가와 확장성을 잡으려 하고, 웨이모는 센서를 겹겹이 쌓아 안전 마진을 확보하는 대신 차량당 원가가 높다. 웨이모가 굳이 '2억 마일'을 앞세운 건, 규제·여론이 실주행 데이터를 안전성의 잣대로 보기 때문이다. 로보택시 상용화 경쟁이 가열되며 두 진영의 기술 철학 충돌이 다시 표면화됐다.</p>
+    </div>
+    <a class="source" href="https://zdnet.co.kr/view/?no=20260830100232">지디넷코리아</a>
+    <span class="ref-note">참고용 · 기업 주장·사양 공식 발표에서 확인 권장</span>
+  </article>
+
+  <div class="section-rule"><span class="label">피지컬 AI — 로봇·제조</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">工</span>
+    <div class="card-top"><span class="topic">로봇·제조AI</span></div>
+    <h2>7,368억 투입 '전북 피지컬AI 거점'…공장이 통째로 AI 실험장</h2>
+    <div class="summary">
+      <p>과기정통부와 정보통신산업진흥원(NIPA)이 전북대를 거점으로 5년간 총 <strong>7,368억원</strong>(국비 5,150억1,000만원)을 투입하는 '<strong>피지컬 AI</strong>' 실증 거점 사업을 본격화한다. 전북대 캠퍼스 내 6,470㎡ 임시 실증랩에서 자동차 부품 생산을 모델로 한 <strong>9개 공정</strong>을 이미 운영 중이며, 최종적으로 완주에 실증 메타팩토리·국산 NPU 검증시설·산학연 공동R&D센터를 구축한다.</p>
+      <p>핵심은 공장운영체제(SDF-OCS)·디지털트윈·파운데이션 모델·보안 등 6개 총괄·12개 세부과제다. '범용 소프트웨어를 만들고 기업이 필요에 맞게 수정'하는 개방형 생태계가 목표다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">총사업비</span><span>5년 7,368억원 (국비 5,150억1,000만)</span></li>
+      <li><span class="k">주관</span><span>과기정통부·NIPA·전북대</span></li>
+      <li><span class="k">1단계 실증랩</span><span>전북대 6,470㎡·9개 공정 운영</span></li>
+      <li><span class="k">최종 거점</span><span>완주 메타팩토리·NPU 검증·공동R&D</span></li>
+      <li><span class="k">핵심기술</span><span>SDF-OCS(공장 OS)·디지털트윈·파운데이션 모델</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>'피지컬 AI(Physical AI)'는 화면 속 챗봇이 아니라 로봇·기계·공장 설비를 직접 제어하는 AI를 뜻하는 엔비디아發 용어다. 이 사업이 자동차 부품 공정을 택한 건 한국 제조업 구조상 표준화·데이터화가 가장 잘 돼 있어 AI 이식이 빠르기 때문이다. 관건은 '범용 SW'라는 개방형 접근인데, 특정 대기업 전용이 아니라 SI 기업이 뜯어고쳐 확산시키는 방식이라 성공 시 중소 제조업까지 낙수효과가 크다.</p>
+    </div>
+    <a class="source" href="https://www.ddaily.co.kr/page/view/2026082822270551829">디지털데일리</a>
+    <span class="ref-note">⚠ 5년 사업·단계별 구축 · 세부 일정·예산 공식 발표에서 확인 권장</span>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">驛</span>
+    <div class="card-top"><span class="topic">로봇·서비스AI</span></div>
+    <h2>오사카 지하철에 '제미나이 휴머노이드' 역무원 등장</h2>
+    <div class="summary">
+      <p>일본 KDDI와 로봇기업 AVITA가 공동 개발한 휴머노이드가 구글 생성형 AI '<strong>제미나이</strong>'를 탑재하고 <strong>8월 31일부터 9월 15일까지</strong> 오사카메트로 역사에서 역무원 역할을 실증한다. 8월 31일~9월 6일은 미도스지선 <strong>우메다역</strong>, 9월 9~15일은 <strong>다니마치큐초메역</strong>에 배치되며, 역무 안내·환승 경로·관광 정보를 <strong>일본어·영어·중국어</strong> 3개국어로 대응한다.</p>
+      <p>실증(PoC) 단계로, 승객 응대의 정확성과 신뢰도를 검증하는 것이 목적이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">개발</span><span>KDDI + AVITA (제미나이 탑재)</span></li>
+      <li><span class="k">장소</span><span>오사카메트로 우메다역·다니마치큐초메역</span></li>
+      <li><span class="k">기간</span><span>2026.8.31~9.15 (구간별 순차)</span></li>
+      <li><span class="k">기능</span><span>역무·환승·관광 안내 · 3개국어</span></li>
+      <li><span class="k">성격</span><span>실증(PoC) 운영</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>통신사 KDDI가 로봇 실증에 나선 건 우연이 아니다. 휴머노이드가 실시간 다국어 응대를 하려면 방대한 대화를 저지연으로 처리할 통신·엣지 인프라가 필수라, 통신사에겐 5G/6G 수요를 만드는 킬러앱이 된다. 배치 장소가 '관광객이 헤매는 환승역'이라는 점도 핵심 — 인력난이 심한 일본 대중교통이 휴머노이드로 인력을 메우려는 실험이라, 성공 여부는 기술보다 '승객이 로봇 안내를 신뢰하는가'에 달려 있다.</p>
+    </div>
+    <a class="source" href="https://zdnet.co.kr/view/?no=20260829084245">지디넷코리아</a>
+    <span class="ref-note">참고용 · 실증 운영 · 일정·구간 변동 가능</span>
+  </article>
+
+  <div class="section-rule"><span class="label">AI 규제 — 저작권</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">訟</span>
+    <div class="card-top"><span class="topic">AI규제·저작권</span></div>
+    <h2>소니뮤직·워너, 앤스로픽 제소…"노골적 지식재산 절도"</h2>
+    <div class="summary">
+      <p>소니뮤직퍼블리싱과 워너채플 등 음악 퍼블리셔들이 <strong>8월 29일</strong> 캘리포니아 북부연방지방법원에 앤스로픽과 공동창업자 다리오 아모데이·벤저민 만을 상대로 저작권 침해 소송을 냈다. "가사와 악보가 담긴 수백만 권의 책을 불법 토렌트·스크래핑·다운로드해 클로드 학습에 썼다"는 '노골적 해적행위' 주장이다.</p>
+      <p>앞서 앤스로픽은 작가들이 낸 'Bartz v. Anthropic' 소송에서 "AI 학습 목적의 저작물 사용은 합법일 수 있으나 해적판으로 취득한 건 불법"이라는 판단에 따라 <strong>15억 달러</strong> 규모의 배상 합의(settlement)에 이른 바 있다. 이번 소송 대리인 일부는 2026년 1월 콩코드·유니버설이 낸 소송에도 참여했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">원고</span><span>소니뮤직퍼블리싱·워너채플 등</span></li>
+      <li><span class="k">제소</span><span>8/29 캘리포니아 북부연방법원</span></li>
+      <li><span class="k">피고</span><span>앤스로픽 + 아모데이·만</span></li>
+      <li><span class="k">쟁점</span><span>해적판 서적 통한 클로드 학습</span></li>
+      <li><span class="k">前 선례</span><span>Bartz 소송서 15억 달러 배상 합의</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>미국 AI 저작권 소송의 전선은 '학습해도 되는가'에서 '어떻게 취득했는가'로 옮겨갔다. Bartz 판결이 만든 논리 — 학습(공정이용 가능성)과 해적판 취득(불법)을 분리 — 이 이번 음악업계 소송의 무기다. 원고들은 AI 학습 자체를 부정하지 않고 '불법 다운로드'라는 취득 경위를 파고든다. 창업자 개인까지 피고로 넣은 점도 이례적으로, 배상 압박을 극대화하려는 전략이다.</p>
+    </div>
+    <a class="source" href="https://techcrunch.com/2026/08/29/sony-music-warner-sue-anthropic-alleging-a-brazen-campaign-of-intellectual-property-theft/">TechCrunch</a>
+    <span class="ref-note">참고용 · 소송 진행 중 · 원문·법원 자료에서 확인 권장</span>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 디테일 포인트 → 디자인 렌더링 → 검토<br>
+    AI·테크 서브(월) · 화제성으로 거르지 않고 분야를 고르게 · 오늘 7개(국내정책 1 · 빅테크모델 1 · 반도체지정학 1 · 자율주행 1 · 로봇제조 1 · 로봇서비스 1 · AI규제 1)<br>
+    모든 정보는 참고용, 각 카드 출처 링크에서 최종 확인 권장
+    <!-- tracker: 2026-08-31 ai-brief
+         [오늘 다룬 항목] ①하정우 국가AI전략위 상근부위원장·이해민 신임 AI수석 '3각축'(8/30) ②오픈AI, 스페이스X 인수 커서에 모델공급 중단(11/12부·트래픽5%, 8/30) ③中 CXMT LPDDR6 샤오미18폴드 첫 공급+美 국방부 1260H 맞소송(8/30) ④웨이모 "카메라만으론 안 된다" 테슬라 비판·2억마일(8/30) ⑤전북 피지컬AI 거점 7,368억(전북대·완주 메타팩토리) ⑥오사카 지하철 제미나이 휴머노이드 역무원 실증(8/31~9/15) ⑦소니·워너, 앤스로픽 저작권 제소(8/29·Bartz 15억달러 합의 선례)
+         [추적] 국가AI전략위 행동계획(99과제·326권고) 집행·AI기본법 후속 → 후속. 커서-오픈AI 공급중단(11/12) 실제 영향·앤스로픽 반사이익 → 후속. CXMT 1260H 소송 결과·LPDDR6 양산 안착 → 후속. 앤스로픽 저작권 소송(음악·출판) 진행 → 후속.
+         [지난주(8/24) 다룬 항목, 새 전개 없으면 제외] 독자 AI 파운데이션 모델 3파전(모티프 탈락) · 카카오·LG '모두의 AI' · 中 H200 소량반입(바이트댄스·텐센트) · 엔비디아 풀사이드 모델팩토리 · 네바다 로보택시 8000대 · 웨이모 5나노 ASIC
+         [제외] 포니.ai 로보택시 200대 한국 상륙(자율주행 갈래 웨이모와 중복·8/17 포니 기다룸) · 앤스로픽 MHS(같은 앤스로픽 소재 중복) · 인텔 1.4나노 14A(반도체 CXMT와 중복) · SK하이닉스 인디애나 HBM 분업(세부수치 제한·반도체 채움) · 시스코 개인AI에이전트/코히어 파스5/구글 항공권(개별 제품 화제성 약함) · 中 엔터 AI영상 95%·글래스도어 AI반감(트렌드 분석성, 팩트카드 부적합)
+    -->
+  </footer>
+
+</div>
+</body>
+</html>
