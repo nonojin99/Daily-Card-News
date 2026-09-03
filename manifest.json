@@ -1,7 +1,25 @@
 {
-  "generated": "2026-09-02T21:37:29Z",
-  "count": 150,
+  "generated": "2026-09-03T22:18:12Z",
+  "count": 152,
   "files": [
+    {
+      "date": "2026-09-04",
+      "month": "2026-09",
+      "year": "2026",
+      "mon": "09",
+      "day": "04",
+      "type": "daily",
+      "path": "2026-09-04_daily-brief.html"
+    },
+    {
+      "date": "2026-09-04",
+      "month": "2026-09",
+      "year": "2026",
+      "mon": "09",
+      "day": "04",
+      "type": "travel",
+      "path": "2026-09-04_travel-brief.html"
+    },
     {
       "date": "2026-09-03",
       "month": "2026-09",
