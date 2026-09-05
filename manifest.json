@@ -1,7 +1,25 @@
 {
-  "generated": "2026-09-04T23:20:15Z",
-  "count": 154,
+  "generated": "2026-09-05T21:55:56Z",
+  "count": 156,
   "files": [
+    {
+      "date": "2026-09-06",
+      "month": "2026-09",
+      "year": "2026",
+      "mon": "09",
+      "day": "06",
+      "type": "daily",
+      "path": "2026-09-06_daily-brief.html"
+    },
+    {
+      "date": "2026-09-06",
+      "month": "2026-09",
+      "year": "2026",
+      "mon": "09",
+      "day": "06",
+      "type": "science",
+      "path": "2026-09-06_science-brief.html"
+    },
     {
       "date": "2026-09-05",
       "month": "2026-09",
