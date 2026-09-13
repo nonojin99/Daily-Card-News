@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="AI 브리프 — 2026.09.14">
+<meta property="og:description" content="아모데이 '개발 속도 늦추자' 에세이에 올트먼·머스크·허사비스 호응, 오픈AI 연내 조기 상장 배제 · 필즈상 25명 'AI 목표 불일치' 공동성명 · 中 AI칩 최대 50% 인상, HBM 병목 · 방미통위 AI 이용자보호법 별도 제정 추진 · HD현대·삼성벤처, 로봇 촉각센서에 160억 · 수노 v6 라이선스 학습 전환 · 최태원 '울산 AIDC 900MW까지'">
+<meta property="og:type" content="article">
+<title>AI Brief — 2026.09.14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#2a6b7c; --accent-soft:#e9f0f2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+
+  <header>
+    <div class="kicker">AI Brief · AI·테크 서브</div>
+    <h1>속도를 늦추자는 말</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 9월 14일 월요일</span>
+      <span class="count">7 Picks · 고르게</span>
+    </div>
+    <p class="lede">주말 AI 소식은 '더 빨리'가 아니라 '얼마나 천천히'를 두고 모였습니다. 앤스로픽 CEO가 개발 속도를 늦추자고 공개 제안했고, 경쟁사 수장들이 드물게 동의했습니다. 오픈AI는 연내 상장 가능성을 닫았습니다. 수학자들은 AI가 90년 묵은 난제를 풀었다는 발표에 축하 대신 공동성명으로 답했습니다. 중국에서는 AI 칩값이 두 달 새 최대 50% 올랐는데 이유가 메모리였고, 방송미디어통신위원회는 AI 이용자의 권리를 따로 법으로 세우겠다고 했습니다. 로봇에서는 손끝 감각에 160억 원이 들어갔고, 음악 생성 AI는 학습 데이터를 갈아엎었습니다. 마지막은 전기 이야기입니다. 일곱 갈래를 고르게 담았습니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">Frontier — 모델·안전</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">遲</span>
+    <div class="card-top"><span class="topic">AI 안전·정책</span></div>
+    <h2>AI 3대 수장, 속도 조절에 동의했다</h2>
+    <div class="summary">
+      <p>다리오 아모데이 앤스로픽 CEO가 12일(현지시간) 자신의 웹사이트에 에세이 '우리는 프런티어의 속도를 조절해야 한다(We Must Pace the Frontier)'를 올리고 "AI 모델의 성능을 개선하는 속도를 늦춰야 한다"고 공개 제안했다. 그는 올여름 이후 AI 발전 속도가 극적으로 빨라졌다며, 개발 속도를 늦춰 모델이 임계 수준 능력에 도달하기까지 <strong>1~2년의 시간을 더 벌고</strong> 그 시간을 정렬(alignment) 기술에 쓰면 심각한 위험을 크게 줄일 수 있다고 주장했다. 정렬에 실패한 에이전트 무리가 <strong>6~12개월 안에</strong> 인터넷의 상당 부분을 지속형 봇넷으로 장악할 수 있다는 경고도 담았다.</p>
+      <p>경쟁사 수장들이 곧바로 호응한 것이 이례적이다. 일론 머스크는 X에 "다리오가 옳다"고 썼고, 샘 올트먼 오픈AI CEO는 최첨단 AI 개발 속도를 조절해야 한다는 데 동의한다며 <strong>독립 평가기관에 직원에 준하는 접근권</strong>을 주겠다고 밝혔다. 데미스 허사비스 구글 딥마인드 CEO도 빠른 AI 발전이 프런티어 시스템 점검에 새로운 접근을 요구한다는 취지로 호응했다.</p>
+      <p>올트먼은 13일 보도된 인터뷰에서 "안전과 관련해 벌어지는 모든 일을 고려하면 지금 상장은 현명하지 않은 시점"이라며 압박을 느끼지 않는다고 밝혔다. 오픈AI는 지난 6월 비공개로 상장 서류를 제출했고 8월에는 최고재무책임자가 2027년 상장을 목표로 제시한 바 있어, 이번 발언은 <strong>연내 조기 상장 가능성을 닫은 것</strong>에 가깝다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">에세이</span><span>다리오 아모데이(앤스로픽 CEO) · 본인 웹사이트 게재 · 9/12 현지시간</span></li>
+      <li><span class="k">핵심 요구</span><span>개발 속도 조절로 1~2년 확보 · 독립 평가기관 상시 접근권</span></li>
+      <li><span class="k">경고</span><span>정렬 실패 에이전트 무리, 6~12개월 내 인터넷 상당 부분 봇넷화 가능</span></li>
+      <li><span class="k">동조</span><span>머스크 · 올트먼 · 허사비스</span></li>
+      <li><span class="k">파급</span><span>오픈AI, 연내 조기 상장 가능성 배제 — 2027년 목표 유지</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>여기서 열쇠말은 <strong>재귀적 자기개선</strong>이다. AI가 인간 개입 없이 스스로 더 나은 AI를 설계하는 단계를 뜻하는데, 이 단계에 들어서면 성능 향상 속도가 안전장치 마련 속도를 앞질러 개발사조차 결과를 예측하기 어려워진다. 아모데이가 말한 '1~2년'은 개발 중단이 아니라 이 추월이 일어나기 전까지의 완충 시간이다. 올트먼이 약속한 '직원에 준하는 접근권'도 함의가 크다. 지금까지 외부 안전 평가는 출시 직전 완성된 모델을 잠깐 만져보는 수준이었지만, 상시 내부 접근이 되면 훈련 중간의 위험 신호까지 외부가 보게 된다. 업계 선두들이 자발적 감속과 외부 감사를 함께 꺼낸 것은, 규제가 들어오기 전에 자율 규범의 틀을 스스로 짜두려는 움직임으로도 읽힌다.</p>
+    </div>
+    <a class="source" href="https://zdnet.co.kr/view/?no=20260913143726">지디넷코리아</a> <a class="source" href="https://zdnet.co.kr/view/?no=20260913133339">지디넷코리아(IPO)</a>
+    <span class="ref-note">⚠ 상장 일정은 변동 가능 · 에세이 내용·경쟁사 반응·상장 발언=지디넷코리아 본문 대조, 파이낸셜뉴스·전자신문·글로벌이코노믹 교차확인 · 에세이는 FT가 아니라 아모데이 본인 웹사이트 게재 · 허사비스 발언은 직접 인용이 확인되지 않아 취지만 표기 (확인 2026-09-14)</span>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">證</span>
+    <div class="card-top"><span class="topic">AI·수학</span></div>
+    <h2>AI가 난제 풀자, 필즈상 25명이 반발했다</h2>
+    <div class="summary">
+      <p>오픈AI는 8일 비공개 내부 모델이 구동한 다중 에이전트 체계로 <strong>나비에-스토크스 방정식</strong>의 해의 존재성과 매끄러움 문제를 풀었다고 발표했다. <strong>최대 1만 개</strong>까지 에이전트를 늘려 투입해 첫 에이전트 가동 뒤 <strong>약 88시간</strong> 만에 해법에 도달했다는 설명이다. 에이전트들은 캐시된 자료를 읽고 코드를 실행하며 소그룹 단위로 메시지를 주고받아 여러 증명 경로를 병렬 탐색했다. 이 문제는 2000년 미국 클레이수학연구소가 지정한 7대 '밀레니엄 문제' 중 하나로 상금은 100만 달러지만, 오픈AI는 상금을 청구할 의사가 없다고 밝혔다.</p>
+      <p>그런데 수학계 반응은 축하가 아니었다. 11일(현지시간) 필즈상 수상자 <strong>25명</strong>이 "수학 분야에서 AI의 심각한 목표 불일치"라는 제목의 공동성명을 냈다. 허준이 프린스턴대 교수와 테런스 타오 UCLA 교수가 이름을 올렸다. 이들은 "문제를 푸는 것은 개념적 이해와 통찰이라는 가장 중요한 목표를 달성하기 위한 도구이자 대리 지표에 불과하다"며, AI 기업들이 유명 난제 풀이를 성능 지표로 삼는 관행이 연구 공동체에 해를 끼치고 있다고 지적했다.</p>
+      <p>검증 절차는 아직 남아 있다. 클레이수학연구소는 이 해법을 공식 인정하지 않았고, 오픈AI도 사용자 제공 연구 데이터가 모델 학습에 영향을 미쳤을 가능성을 완전히 배제하지는 못한 상태다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">문제</span><span>나비에-스토크스 존재성·매끄러움 · 밀레니엄 문제 7개 중 하나 · 상금 100만 달러</span></li>
+      <li><span class="k">투입 자원</span><span>최대 1만 개 병렬 에이전트 · 약 88시간</span></li>
+      <li><span class="k">발표</span><span>오픈AI 9/8 → 필즈상 공동성명 9/11 현지시간</span></li>
+      <li><span class="k">서명</span><span>필즈상 수상자 25명 (허준이·테런스 타오 등)</span></li>
+      <li><span class="k">검증 상태</span><span>클레이수학연구소 공식 인정 없음 · 오픈AI는 상금 청구 의사 없다고 밝힘 — '주장' 단계</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>밀레니엄 문제의 상금 규정 자체가 이 논란의 핵심을 설명한다. 클레이연구소는 해법이 <strong>동료평가 학술지에 실리고 2년간 학계의 검증을 견뎌야</strong> 상금을 준다. '풀었다'는 주장과 '풀렸다'는 인정 사이에 최소 2년의 제도적 간극이 있고, 이번 발표는 그 출발선에 선 것에 불과하다. 수학자들이 고른 <strong>'목표 불일치(misalignment)'</strong>라는 단어도 의도적이다. 원래 AI 안전 분야에서 'AI가 인간이 실제 원한 것 대신 측정 가능한 대리 지표만 최적화하는 현상'을 가리키는 용어인데, 성명은 그 개념을 AI 기업 쪽에 돌려준 셈이다. 벤치마크 점수는 수학적 이해의 대리 지표일 뿐인데, 그 지표만 쫓다 보면 증명 검증·공로 배분·지식 전승이라는 수학의 실제 작동 방식이 무너진다는 것이다.</p>
+    </div>
+    <a class="source" href="https://www.etnews.com/20260913000085">전자신문</a> <a class="source" href="https://www.newsspace.kr/news/article.html?no=15629">뉴스스페이스</a>
+    <span class="ref-note">발표 내용·에이전트 규모·성명 서명자=전자신문·뉴스스페이스 본문 대조, 동아사이언스·조선비즈 교차확인 · 해법은 아직 공식 검증 전이며 확정된 사실이 아님 (확인 2026-09-14)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Semiconductor — 반도체</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">價</span>
+    <div class="card-top"><span class="topic">반도체</span></div>
+    <h2>中 AI칩 최대 50% 인상, 범인은 HBM</h2>
+    <div class="summary">
+      <p>중국 주요 AI 반도체 기업들이 HBM 조달 비용 폭등을 이유로 제품 가격을 줄줄이 올렸다. 11일 로이터 보도를 인용한 국내 매체들에 따르면 <strong>화웨이는 어센드 950DT 가격을 25만 위안(약 5000만 원) 이상</strong>으로 책정해 두 달 전 대비 20~50% 올렸다. 구형도 예외가 아니어서 어센드 950PR은 6만 위안에서 <strong>8만 위안</strong>으로 약 33%, 어센드 910C는 9만 위안에서 <strong>11만 위안 이상</strong>으로 20% 넘게 올랐다.</p>
+      <p>캄브리콘은 차세대 주력 칩 '690' 가격을 두 달 전보다 20~30% 인상했고, 메타엑스·일루바타르코어엑스도 비슷한 폭으로 올린 것으로 전해졌다. 미국의 수출 통제로 정상 유통망이 막히자 중국 기업들이 회색시장에서 정상가의 몇 배를 주고 HBM을 사들이면서 원가가 치솟은 결과다.</p>
+      <p>협상력은 한국 쪽에 쏠려 있다. 카운터포인트리서치 기준 2026년 2분기 글로벌 HBM 시장 매출 점유율은 <strong>SK하이닉스 50%, 삼성전자 33%, 마이크론 18%</strong>(반올림)로, 사실상 세 회사가 전량을 쥐고 있다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">어센드 950DT</span><span>25만 위안 이상 · 두 달 전 대비 20~50% 인상</span></li>
+      <li><span class="k">어센드 950PR</span><span>6만 → 8만 위안 (약 33%)</span></li>
+      <li><span class="k">어센드 910C</span><span>9만 → 11만 위안 이상 (20%+)</span></li>
+      <li><span class="k">캄브리콘 690</span><span>20~30% 인상</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>AI 가속기에서 HBM은 부품 하나가 아니라 원가에서 가장 큰 몫을 차지하는 단일 항목이다. 그래서 HBM 가격이 흔들리면 칩 가격표가 통째로 움직인다. 더 근본적인 문제는 대체 불가능성이다. 로직 칩은 성능을 낮추고 여러 개를 붙이는 식으로 어느 정도 우회가 되지만, HBM은 <strong>TSV(실리콘 관통전극)로 D램을 수직으로 쌓는 공정</strong>이 핵심이고 그 수율을 잡는 데만 수년의 양산 경험이 필요하다. 중국이 범용 D램에서는 빠르게 추격했으면서 HBM에서는 격차를 좁히지 못하는 이유다. 놓치기 쉬운 대목 하나 — 이 인상은 중국 AI 칩이 안 팔려서가 아니라 <strong>너무 잘 팔려서</strong> 벌어진 일이다. 엔비디아 대체 수요는 확실한데 메모리가 따라주지 않는 구조적 병목이라, 중국 빅테크의 AI 인프라 투자 일정 자체를 늦출 수 있다.</p>
+    </div>
+    <a class="source" href="https://theguru.co.kr/news/article.html?no=106956">더구루</a> <a class="source" href="https://www.hankyung.com/article/2026091194276">한국경제</a>
+    <span class="ref-note">⚠ 회색시장 가격은 변동 폭이 큼 · 가격 인상폭=더구루·한국경제 본문 대조(원출처 로이터) · HBM 점유율은 카운터포인트리서치 2Q26 매출 기준 (확인 2026-09-14)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Korea — 정책·산업</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">護</span>
+    <div class="card-top"><span class="topic">AI 규제</span></div>
+    <h2>방미통위, AI 이용자보호법 따로 만든다</h2>
+    <div class="summary">
+      <p>방송미디어통신위원회가 AI 기본법과 별개로 <strong>'AI 이용자 보호법'(가칭)</strong> 제정을 추진한다. 류신환 비상임위원(위원장 직무대행)은 11일 동북아공동체ICT포럼 조찬간담회에서 이 구상을 공개하며 "현행 AI 기본법이 AI 산업 전반을 규율한다면, AI 이용자 보호법은 이용자 권익 보호에 특화된 별도 법체계"라고 설명했다.</p>
+      <p>제정안은 정보통신망을 통해 제공되는 AI 서비스를 수범 대상으로 삼는다. 사업자에는 <strong>정보제공의무와 약관명시의무</strong> 등을 부과하고, 이용자에게는 <strong>접근권·이용거부권·정보제공 결정권·이의제기 및 설명요구권</strong>을 보장한다. 여기에 사업자 이용자보호업무 평가와 분쟁조정위원회 설치가 더해진다. 방송·미디어 같은 혁신 영역에는 자율규제를, 딥페이크·허위조작정보처럼 피해가 확인된 영역에는 강한 집행을 적용하는 이원 방식이다.</p>
+      <p>배경에는 관계형 챗봇의 급증이 있다. 스캐터랩의 '제타'는 월간활성이용자가 2024년 4월 5만 8069명에서 지난달 <strong>158만 6000명</strong>으로 약 27배 늘었다. 방미통위는 청소년의 정서적 의존, 연령 확인의 실효성을 문제로 꼽았고 <strong>11월 공론화</strong>를 거쳐 법안을 구체화할 계획이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">주체·단계</span><span>방송미디어통신위원회 류신환 비상임위원(위원장 직무대행) · 9/11 · 현재 정책연구 단계</span></li>
+      <li><span class="k">이용자 권리</span><span>접근권 · 이용거부권 · 정보제공 결정권 · 이의제기 및 설명요구권</span></li>
+      <li><span class="k">사업자 의무</span><span>정보제공·약관명시 · 이용자보호업무 평가 · 분쟁조정</span></li>
+      <li><span class="k">규제 방식</span><span>혁신 영역 자율규제 / 딥페이크·허위정보 강한 집행</span></li>
+      <li><span class="k">배경 지표</span><span>'제타' MAU 5만 8069명(2024.4) → 158만 6000명</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>'또 하나의 AI 규제법'으로 보이지만 겨누는 지점이 다르다. AI 기본법은 모델을 만드는 쪽(고영향 AI 판정, 학습 데이터, 안전 의무)을 향한 <strong>산업 규제</strong>인 반면, 이 법안은 <strong>서비스를 쓰는 쪽의 권리</strong>를 세우는 이용자 보호 규제다. 통신·방송 분야에서 오래 다뤄온 '이용자보호업무 평가'와 '분쟁조정' 틀을 AI에 옮겨온 구조라고 보면 이해가 쉽다. 눈여겨볼 조항은 '이용거부권'이다. AI 처리 자체를 거부하고 사람의 판단을 요구할 수 있다는 뜻으로, EU AI법과 GDPR 22조(자동화된 의사결정 거부권) 계보에 가깝다. 규제 주체가 과기정통부가 아니라 방미통위라는 점도 의미가 있는데, 소관이 갈리면 사업자는 하나의 서비스로 두 감독 체계를 동시에 상대하게 된다.</p>
+    </div>
+    <a class="source" href="https://www.etnews.com/20260911000217">전자신문</a> <a class="source" href="https://www.ajunews.com/view/20260910150357246">아주경제</a>
+    <span class="ref-note">법안 구상·권리 4개 항목=전자신문, 관계형 챗봇 지표=아주경제 본문 대조, 지디넷코리아 교차확인 · 현 단계는 정책연구·구상 공개이며 입법예고·발의가 아님 (확인 2026-09-14)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Robotics — 로보틱스</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">觸</span>
+    <div class="card-top"><span class="topic">로보틱스</span></div>
+    <h2>로봇 손끝 감각에 160억이 들어갔다</h2>
+    <div class="summary">
+      <p>로봇 감각지능 기업 <strong>에이딘로보틱스</strong>가 11일 HD현대로보틱스와 삼성벤처투자로부터 <strong>총 160억 원</strong> 규모의 전략적 투자를 유치했다고 밝혔다. HD현대로보틱스는 지분을 취득하고 전략적 파트너로 참여한다. 두 투자자의 개별 투자액은 공개되지 않았다.</p>
+      <p>에이딘로보틱스는 정전용량 측정 방식의 힘·촉각 센서를 자체 설계·생산한다. 물체와 접촉할 때 발생하는 힘과 촉각을 정밀하게 감지하며 소형화와 가격 경쟁력이 강점이다. 주력인 <strong>6축 힘·토크 센서</strong>는 협동로봇이 연마·그라인딩 같은 표면처리 작업을 자동화할 수 있게 해준다.</p>
+      <p>양사는 조선·중공업에 특화한 <strong>다섯 손가락 로봇손</strong>과 표면처리 자동화 솔루션을 공동 개발하고, HD현대 조선소 현장 실증으로 데이터를 쌓는다. HD현대로보틱스가 개발 중인 휴머노이드용 고출력 로봇손 협업도 포함됐다. 에이딘로보틱스는 이번 자금으로 <strong>연 3만 개</strong> 규모의 힘·토크 센서 양산 체제를 구축할 계획이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">투자 규모</span><span>총 160억 원 · HD현대로보틱스 + 삼성벤처투자 (개별 금액 비공개)</span></li>
+      <li><span class="k">발표</span><span>2026년 9월 11일</span></li>
+      <li><span class="k">핵심 기술</span><span>정전용량 방식 6축 힘·토크 센서</span></li>
+      <li><span class="k">공동 개발</span><span>조선·중공업용 다섯 손가락 로봇손 · 표면처리 자동화</span></li>
+      <li><span class="k">양산 목표</span><span>힘·토크 센서 연 3만 개 생산 체제</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>휴머노이드 이야기는 대개 다리와 두뇌로 쏠리지만, 산업 현장 투입을 실제로 막는 건 손끝이다. <strong>힘·토크(F/T) 센서</strong>는 로봇 손목에 붙어 3축 힘과 3축 모멘트, 즉 여섯 방향의 하중을 실시간으로 읽는다. 덕분에 로봇은 '지금 얼마나 세게 누르고 있는지'를 안다. 위치만 제어하는 로봇은 곡면 용접부를 균일하게 갈아내지 못하지만, 힘을 제어하는 로봇은 표면이 조금 튀어나와도 압력을 일정하게 유지한다 — 조선소 연마·도장 같은 비정형 작업 자동화의 전제조건이 바로 이것이다. 기존 F/T 센서는 스트레인 게이지 방식이 주류라 단가가 높아 로봇 한 대에 여러 개 붙이기 어려웠는데, 정전용량 방식은 구조가 단순해 원가와 크기를 줄일 여지가 있다. 연 3만 개 양산 계획은 이 부품을 '연구용 특수 센서'에서 '조립 부품'으로 옮기겠다는 선언에 가깝다.</p>
+    </div>
+    <a class="source" href="https://zdnet.co.kr/view/?no=20260910155705">지디넷코리아</a>
+    <span class="ref-note">투자 규모·기술·공동개발 범위=지디넷코리아 본문 대조, 파이낸셜뉴스 교차확인 · 투자자별 개별 금액은 원문에 공개되지 않아 미표기 (확인 2026-09-14)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Content — 음악·저작권</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">音</span>
+    <div class="card-top"><span class="topic">생성AI·저작권</span></div>
+    <h2>수노 v6, 무단학습 끊고 라이선스로</h2>
+    <div class="summary">
+      <p>AI 음악 생성 스타트업 <strong>수노(Suno)</strong>가 9일(현지시간) 신규 모델군 <strong>v6</strong>를 공개했다. 핵심은 성능이 아니라 데이터 출처다. 수노는 <strong>워너뮤직그룹·BMG·빌리브</strong>와 라이선스 계약을 맺고 정식 라이선스 음원만으로 v6를 새로 학습시켰다고 밝혔다. 무단 데이터로 학습한 이전 세대 모델은 v6 배포에 맞춰 순차 단종한다고 밝혔다.</p>
+      <p>모델은 세 종류다. 특정 창작 목표에 맞춘 안정형 <strong>v6</strong>, 실험적 사운드를 탐색하는 <strong>v6-wild</strong>, 무료 등급에 제공되는 경량 <strong>v6-mini</strong>다. 가사 단위 정밀 수정, 텍스트·음성 메모·이미지·영상을 입력으로 받는 멀티모달 생성, 보컬과 악기의 분리·재조합이 가능해졌다. 수노 최고제품책임자는 아티스트 이름을 직접 입력하는 방식은 허용하지 않는다고 못 박았다. 다만 <strong>소니뮤직과 유니버설뮤직은 여전히 수노를 상대로 저작권 침해 소송을 진행 중</strong>이다.</p>
+      <p>국내에서도 대응이 시작됐다. 한국음악저작권협회를 비롯한 <strong>6개 단체</strong>와 플랫폼 사업자가 공동 공고를 내고 <strong>AI 생성 음악 식별 프로그램</strong>을 도입하기로 했다. 업체 선정은 막바지 단계다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">모델·공개</span><span>v6 · v6-wild · v6-mini · 9/9 현지시간</span></li>
+      <li><span class="k">라이선스 파트너</span><span>워너뮤직그룹 · BMG · 빌리브</span></li>
+      <li><span class="k">데이터 정책</span><span>라이선스 음원만 학습 · 이전 세대 모델 순차 단종</span></li>
+      <li><span class="k">미해결 소송</span><span>소니뮤직 · 유니버설뮤직 진행 중</span></li>
+      <li><span class="k">국내 대응</span><span>음저협 등 6개 단체 + 플랫폼, AI 음악 식별 프로그램 공동 도입</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>이 발표의 무게중심은 "이전 모델을 단종했다"는 문장이다. 저작권 소송에서 AI 기업의 가장 큰 부담은 배상액이 아니라 <strong>모델 폐기 명령</strong> 가능성이다. 무단 데이터로 학습한 가중치는 사후에 특정 곡만 골라 지워낼 수 없어서, 침해가 인정되면 모델 전체를 버려야 할 수 있다. 소송이 끝나기도 전에 스스로 구모델을 내리고 '깨끗한' 데이터로 다시 학습한 건, 최악의 판결이 나와도 서비스는 살려두겠다는 방어선을 미리 그은 셈이다. 국내 6개 단체의 식별 프로그램 도입도 같은 맥락이다. 저작권료 분배는 '누가 만들었나'를 전제로 작동하는데, AI 생성물이 유통망에 섞여 들어오면 분배 자체가 불가능해진다. 탐지는 규제의 전 단계가 아니라 <strong>정산 인프라의 전제조건</strong>이다.</p>
+    </div>
+    <a class="source" href="https://www.aitimes.com/news/articleView.html?idxno=215106">AI타임스</a> <a class="source" href="https://stock.mk.co.kr/news/view/1158119">매일경제(연합뉴스)</a>
+    <span class="ref-note">⚠ 국내 식별 프로그램은 업체 선정 진행 중 · v6 모델 구성·라이선스 계약=AI타임스, 국내 6개 단체 식별 프로그램=연합뉴스 본문 대조, 디지털투데이·빌보드코리아 교차확인 · 라이선스 수익 분배 금액은 비공개 (확인 2026-09-14)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Infra — 데이터센터</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">電</span>
+    <div class="card-top"><span class="topic">AI 인프라</span></div>
+    <h2>최태원 "울산 AIDC, 900MW까지 왔다"</h2>
+    <div class="summary">
+      <p>최태원 SK그룹 회장이 11일 울산 울주군에서 열린 <strong>2026 울산포럼</strong>에서 울산 AI 데이터센터(AIDC) 사업 진척 상황을 언급했다. 그는 "거의 <strong>900메가와트(MW)</strong>까지 다 왔고, 아마 그것이 다 끝나면 곧 발표할 수 있을 것 같기도 하다"고 말했다. 글로벌 빅테크와의 협력에 대해서도 "계속 만나고 있으며 상당히 빠른 속도로 진척되고 있다"고 했다.</p>
+      <p>울산 AIDC는 SK그룹이 <strong>아마존웹서비스(AWS)</strong>와 손잡고 <strong>1기가와트(GW)급</strong>으로 추진 중인 프로젝트다. 초기 100MW 규모로 출발해 1GW로 단계 확장하는 구조이며, SK는 울산에 이어 영남권 등에도 1GW 이상 AIDC를 순차 조성한다는 방침을 밝혀왔다.</p>
+      <p>최 회장은 같은 자리에서 "AI가 버블 우려를 씻으려면 이익을 창출해 재투자할 수 있어야 한다"며 수익화를 다음 과제로 꼽았다. SK이노베이션이 AI 전환 컨설팅까지 제공하는 기업으로 변모하고 있다며 "굴뚝 산업이라고 AI를 안 쓰는 것은 아니다"라고도 했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">발언</span><span>최태원 SK그룹 회장 · 9/11 · 2026 울산포럼(울주군)</span></li>
+      <li><span class="k">협의 진척</span><span>약 900MW — "다 끝나면 곧 발표"</span></li>
+      <li><span class="k">최종 목표</span><span>1GW급 (초기 100MW에서 단계 확장)</span></li>
+      <li><span class="k">협력사</span><span>아마존웹서비스(AWS)</span></li>
+      <li><span class="k">확장 계획</span><span>영남권 등에 1GW 이상 AIDC 순차 조성</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>AI 데이터센터를 면적이 아니라 <strong>메가와트로 세는 이유</strong>를 알면 이 숫자가 달리 보인다. AIDC의 병목은 땅이 아니라 전력이고, 사업 규모는 곧 확보한 계약 전력량이다. 900MW는 원전 1기 설비용량(약 1GW)에 육박하는 수준으로, 중소도시 하나의 전력 수요와 맞먹는다. "900MW까지 왔다"는 표현도 건물을 그만큼 지었다는 뜻이 아니라 <strong>전력 수급 협의가 거기까지 진전됐다</strong>는 의미에 가깝다. 실제로 글로벌 하이퍼스케일러들이 부지를 고를 때 가장 먼저 보는 것이 '수년 안에 수백 MW를 끌어올 계통이 있는가'다. 울산이 후보가 된 배경에도 대규모 산업단지용 송배전망이 이미 깔려 있다는 조건이 있다. "GPU를 더 꽂고 싶어도 전기가 없다"는 말이 나오는 지금, AIDC 경쟁의 실질은 칩 확보가 아니라 계통 접속 순번 경쟁이다.</p>
+    </div>
+    <a class="source" href="https://www.etnews.com/20260912000027">전자신문</a> <a class="source" href="https://www.news1.kr/amp/industry/general-industry/6288560">뉴스1</a>
+    <span class="ref-note">⚠ 협의 진행 중 수치로 최종 계약과 다를 수 있음 · 발언·사업 구조=전자신문·뉴스1 본문 대조, 연합뉴스·조선비즈 교차확인 · 공식 발표 전 단계 (확인 2026-09-14)</span>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 디테일 포인트 → 디자인 렌더링 → 검토<br>
+    서브 브리프 규칙: 화제성으로 거르지 않고 분야를 고르게 · 오늘 7개(모델·안전 2 + 반도체 1 + 국내 정책 1 + 로보틱스 1 + 콘텐츠·저작권 1 + 인프라 1)<br>
+    월요일은 AI·테크 · 모든 정보는 참고용, 출처 링크에서 최종 확인 권장
+    <!-- tracker: 2026-09-14 ai-brief
+         [오늘 다룬 항목] ①아모데이 FT 기고 '개발 속도 조절'(9/12 현지)·머스크/올트먼/허사비스 동조·오픈AI 2026 IPO 철회(9/13 보도) ②오픈AI 나비에-스토크스 해법 주장(9/8, 약 1만 에이전트·88시간)과 필즈상 25명 공동성명(9/11 현지) ③中 AI칩 가격 인상(화웨이 950DT 25만 위안·20~50%, 950PR 30%, 910C 20%+, 캄브리콘 690 20~30%)·HBM 병목(9/11 로이터) ④방미통위 AI 이용자보호법 제정 추진(9/11 공개, 11월 공론화) ⑤에이딘로보틱스 160억 투자유치, HD현대로보틱스 130억(9/11) ⑥수노 v6 라이선스 학습 전환·구모델 단종(9/9~10 현지)·국내 6개 단체 AI 음악 식별 프로그램 ⑦최태원 울산 AIDC 900MW 진척 발언(9/11 울산포럼)
+         [추적] 아모데이 제안의 실제 이행 형태(독립 평가기관 접근권 제도화) → 후속. 오픈AI IPO 재추진 시점(2027 이후) → 후속. 나비에-스토크스 해법의 학술지 게재·클레이연구소 판단(규정상 게재 후 2년) → 후속. 中 AI칩 가격 추가 인상·중국 빅테크 투자 일정 조정 → 후속. AI 이용자보호법 11월 공론화·입법예고 → 후속. 에이딘로보틱스 연 3만 개 양산 가동·HD현대 조선소 실증 → 후속. 수노 소니·UMG 소송 진행·국내 식별 프로그램 업체 선정 → 후속. 울산 AIDC 공식 발표·1GW 계약 → 후속.
+         [지난주(9/7) 다룬 항목, 새 전개 없어 제외] GPT-6 아스트라 출시·코드 아레나 1위 · 삼성 HBM 33% 반등(→ ③에서 배경 수치로만 인용) · 테슬라 사이버캡 오스틴 운행·NHTSA 조사 · 시애틀타임스·뉴스데이 오픈AI·MS 제소 · AIDC 특별법 시행령 기술기준 · '모두의 AI' SKT·KT·카카오 개발 착수 · 엔스케일 35억달러 조달
+         [그 전주(8/31·8/24) 항목도 배제] 하정우 국가AI전략위 · 오픈AI 커서 모델공급 중단 · CXMT LPDDR6 · 웨이모 카메라 논쟁 · 전북 피지컬AI 거점 · 오사카 지하철 휴머노이드 · 소니뮤직·워너 앤스로픽 제소 · AI 파운데이션 모델 3파전 · 中 H200 반입 · 엔비디아 풀사이드 · 네바다 로보택시 8000대 · 웨이모 5나노 ASIC
+         [제외] 中 CXMT 2분기 영업이익률 82% — 9/13 메인 브리프에서 다룸 → 제외 · 엔비디아 허깅페이스 129억달러 인수 — 공식 발표 9/3로 대상 기간 밖 → 제외 · 스태빌리티AI 시리즈B 7600만달러 — 8월 말 발표분의 기획성 회고 → 제외 · 샤오펑 휴머노이드 IRON 생산라인 — 확인 결과 2025년 기사, 연도 불일치 → 제외 · 10대 85% 주 2회 이상 AI 사용 — 단일 사업자 조사(표본 500명), 교차확인 불가 → 제외 · 티빙 계정 유출 — 보안 사고로 AI·테크 범위 밖 → 제외 · 지상파 3사 vs 네이버 AI 저작권 소송 변론 종결 임박 — 9/9 보도, 선고 등 확정 전개 없음 → 제외 · LG AI연구원-국민연금 MOU — MOU 단계, 규모·일정 미공개 → 제외 · 삼성 구형 가전 AI 접목 등 제품 소개 — 홍보성 → 제외 · 中 최고인민법원 AI 재판기준(9/8) · 오라클 실적 — 기간·성격 미달 → 제외 · 오픈AI 내부 에이전트 시험 관련 보안 사건 — 피해 범위·조사 결과 미확정이라 카드화하지 않고 ①의 배경으로도 미표기
+         [접근 차단] The Verge · Ars Technica · 한겨레 · 매일경제(주식) (재시도 없이 지디넷·전자신문 등 국내 매체로 대체)
+         [검토 하네스에서 잡아 고친 것] ①아모데이 에세이를 "파이낸셜타임스 기고"로 적었으나 실제로는 본인 웹사이트 게재('We Must Pace the Frontier') → 본문·스펙·ref-note 정정하고 출처를 한겨레(접근 차단)에서 지디넷코리아로 교체. ②"6~12개월 내 인터넷 장악"은 원문('인터넷 상당 부분을 지속형 봇넷으로')의 과장 → 원문 표현으로 복원. ③허사비스 "올바른 방향"은 직접 인용 근거를 찾지 못해 따옴표 제거하고 취지만 표기. ④"2026년 IPO 계획을 접겠다"는 과장 — 오픈AI는 8월에 이미 2027년 상장 목표를 밝힌 상태였으므로 "연내 조기 상장 가능성을 닫은 것"으로 정정. ⑤"약 1만 개 에이전트"→원문 "최대 1만 개까지"로 정정. ⑥오픈AI가 상금 청구 의사가 없다고 밝힌 사실이 빠져 상금 문장이 오해를 부를 수 있어 본문·스펙에 추가. ⑦어센드 950PR "8만 위안 이상·약 30%"는 원문 왜곡이자 자체 모순 → "8만 위안·약 33%"로 정정. ⑧HBM 점유율 스펙 행이 9/7 서브와 중복이고 합계가 101%로 읽혀 스펙에서 삭제하고 본문에 (반올림) 명시. ⑨류신환 "상임위원"→"비상임위원(위원장 직무대행)", 행사명도 동북아공동체ICT포럼 조찬간담회로 정정. ⑩이용자 권리에서 '이의제기'가 누락돼 있어 보완. ⑪에이딘로보틱스 "HD현대로보틱스 130억"은 인용한 지디넷 원문이 "각각 얼마인지 알려지지 않았다"고 명시해 정면 배치 → 금액 삭제하고 비공개로 표기. ⑫포털 단축 URL(v.daum.net)은 기사 본문 URL 규칙에 어긋나 삭제하고 교차확인 표기로 대체. ⑬수노 v6 공개일 "9~10일"→"9일", "단종했다"→원문 진행형에 맞춰 "순차 단종한다고 밝혔다"로 정정. ⑭리드의 "100년 난제"는 다수 매체 표기(90년)와 달라 "90년 묵은 난제"로 정정.
+    -->
+  </footer>
+
+</div>
+</body>
+</html>
