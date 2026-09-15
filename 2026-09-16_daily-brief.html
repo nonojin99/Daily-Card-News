@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.09.16">
+<meta property="og:description" content="코스피 나흘 연속 하락 6,627.26·환율 1,359.4원 · 미 10년물 장중 5% 돌파, FOMC 결과는 17일 새벽 · 제1차 한·중앙아시아 정상회의 오늘 개막 · 초대 중수청장 인선 진통, 대통령 추가 검증 지시 · 수시 먹통 후폭풍, 17개 대학 접수 취소 검토 · 美 상원 클래리티법 심의 착수 무산">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.09.16</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>5%라는 문턱</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 9월 16일 수요일</span>
+      <span class="count">6 Picks · 화제성 순</span>
+    </div>
+    <p class="lede">미국 국채 10년물 금리가 장중 5%를 넘었습니다. 2023년 10월 이후 처음입니다. 금리와 유가가 함께 오른 대가는 서울에서도 치러졌습니다 — 코스피는 어제까지 나흘 연속 밀려 6,627선, 환율은 1,359원까지 올랐습니다. 연준의 결정은 한국시간 내일 새벽에 나옵니다. 여의도에서는 다음 달 출범할 중대범죄수사청의 초대 수장 인선이 여권 안에서 먼저 막혔고, 교육부는 수시 원서 먹통의 후폭풍으로 '접수 취소'를 검토하고 있습니다. 청와대에서는 중앙아시아 다섯 나라 정상이 한자리에 모입니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">Markets — 증시·금리</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">換</span>
+    <div class="card-top"><span class="topic">증시·경제</span></div>
+    <h2>코스피 나흘째 하락, 환율 1,359원</h2>
+    <div class="summary">
+      <p>15일 코스피가 전 거래일보다 <strong>0.85% 내린 6,627.26</strong>에 마감했다. 지난주 7,000선을 밟았던 지수가 10일부터 <strong>4거래일 연속</strong> 하락한 결과다. 코스닥은 반대로 0.70% 오른 <strong>812.41</strong>로 상승 전환했다.</p>
+      <p>더 눈에 띈 건 환율이었다. 원·달러 환율은 <strong>12.1원 오른 1,359.4원</strong>에 거래를 마쳤다. 유가증권시장에서는 외국인과 기관이 함께 팔고 개인이 받아냈지만, 순매도 규모는 매체별 집계가 엇갈려 여기서는 표기하지 않는다.</p>
+      <p>어제 4% 넘게 빠졌던 반도체 두 종목은 삼성전자 -0.20%, SK하이닉스 -0.41%로 낙폭을 줄였다. 대신 금융·보험이 자리를 바꿨다 — KB금융 -3.19%, 삼성생명 -4.19%다. 반면 LG에너지솔루션은 3.98% 올라 2차전지가 반사 강세를 보였다. 시장은 미 국채금리와 국제유가의 동반 상승을 공통 원인으로 지목했다(다음 카드).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">코스피</span><span>6,627.26 · -0.85% (4거래일 연속 하락)</span></li>
+      <li><span class="k">코스닥</span><span>812.41 · +0.70%</span></li>
+      <li><span class="k">원·달러 환율</span><span>1,359.4원 · +12.1원</span></li>
+      <li><span class="k">약세 업종</span><span>금융·보험 (KB금융 -3.19%, 삼성생명 -4.19%)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>어제와 오늘 사이에 <strong>파는 대상이 바뀌었다</strong>. 그제는 반도체가 지수를 끌어내렸고, 어제는 반도체가 버티는 동안 금융·보험이 밀렸다. 금리가 오르면 은행 이자이익은 좋아지는 게 교과서인데 주가는 반대로 갔다 — 시장이 지금 보는 건 이자마진이 아니라 <strong>보유 채권의 평가손실과 환율</strong>이라는 뜻이다. 하루 단위 '급락 원인' 서사를 그대로 인용하는 브랜드 메시지가 위험한 이유이기도 하다. 원인은 이틀 만에도 갈린다.</p>
+    </div>
+    <a class="source" href="https://m.ytn.co.kr/news_view.amp.php?param=0102_202609151640098724">YTN</a> <a class="source" href="https://www.sentv.co.kr/article/view/sentv202609150194">서울경제TV</a>
+    <span class="ref-note">⚠ 9/15 정규장 종가 기준, 이후 변동 가능 · 유가증권시장 순매도 규모는 인용 두 매체가 같은 시장 기준으로 서로 다른 값(외국인 1조5,000억 vs 1조7,056억)을 보도해 교차확인 실패로 표기하지 않음 (확인 2026-09-16)</span>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">五</span>
+    <div class="card-top"><span class="topic">국제·금리</span></div>
+    <h2>미 10년물, 장중 5%를 넘었다</h2>
+    <div class="summary">
+      <p>세계 금리의 기준점인 미국 10년 만기 국채금리가 <strong>장중 5.012%</strong>까지 올랐다. 2023년 10월 이후 처음으로 5% 선을 넘은 것이다. 10년물은 올해 들어 약 <strong>80bp</strong>(1bp=0.01%포인트) 올랐고, 30년물은 약 5.37% 수준이다.</p>
+      <p>직접 원인은 유가다. 14일 뉴욕장 기준 브렌트유 11월 인도분은 배럴당 <strong>105.68달러</strong>(아시아 장중 108달러), WTI는 <strong>101.39달러</strong>였다. 사우디아라비아 '동서 송유관'은 11일 드론 피격으로 멈춘 뒤 아직 가동되지 않고 있다 — 길이 1,200km, 하루 수송능력 700만 배럴 규모다. 복구에 수 주가 걸릴 것이라는 전망이 나온다.</p>
+      <p>그래서 시장은 연준이 금리를 올리는 쪽에 걸고 있다. CME 페드워치 기준 <strong>0.25%p 인상 확률은 92%대</strong>다(아주경제 92.3%·한국경제 92.5%). 한 달 전 33.9%, 1주 전 59.4%였던 수치다. 현실화되면 기준금리는 연 3.50~3.75%에서 <strong>3.75~4.00%</strong>로 오르고, <strong>3년 만의 첫 인상</strong>이 된다. 다만 이건 어디까지나 확률이다. 9월 FOMC 결과는 <strong>한국시간 17일 오전 3시</strong>에 공개된다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">미 10년물</span><span>장중 5.012% (2023년 10월 이후 최초) · 연초 대비 약 +80bp</span></li>
+      <li><span class="k">미 30년물</span><span>약 5.37%</span></li>
+      <li><span class="k">브렌트(11월물)</span><span>105.68달러 · 아시아 장중 108달러 (9/14 기준)</span></li>
+      <li><span class="k">WTI</span><span>101.39달러 (9/14 기준)</span></li>
+      <li><span class="k">0.25%p 인상 확률</span><span>92%대 (CME 페드워치) — 결정 아님</span></li>
+      <li><span class="k">FOMC 발표</span><span>한국시간 9월 17일 오전 3시</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>이 숫자들은 금융 지표이기 전에 <strong>전쟁의 가격표</strong>다. 유가를 밀어올린 건 미·이란 전쟁의 장기화와 송유관 피격이고, 금리를 밀어올린 건 그 유가다. 연준이 인상으로 기울었다는 것도 경기가 좋아서가 아니라 <strong>공급 충격이 만든 물가</strong>를 눌러야 하기 때문이다. 이런 국면에서는 확률과 결정을 구분해 읽는 게 중요하다. 92%는 아직 결정이 아니고, 5%는 '장중' 고점이다.</p>
+    </div>
+    <a class="source" href="https://www.ajunews.com/view/20260915144711955">아주경제</a> <a class="source" href="https://www.hankyung.com/article/2026091544946">한국경제</a>
+    <span class="ref-note">⚠ 금리·유가는 실시간 변동 · 5% 돌파는 '장중' 고점 기준 · 유가 수치는 9/14 뉴욕장 기준으로 어제 브리프와 동일값 · 인상 확률은 선물시장 반영치로 확정된 결정이 아님 · 일부 매체의 "19년 만의 최고치" 표현은 다른 매체와 어긋나 채택하지 않음 (확인 2026-09-16)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Korea — 정치·외교</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">首</span>
+    <div class="card-top"><span class="topic">외교</span></div>
+    <h2>중앙아 5개국, 첫 정상회의는 오늘</h2>
+    <div class="summary">
+      <p>이재명 대통령이 <strong>오늘 오후 서울에서 제1차 한·중앙아시아 정상회의</strong>를 주재한다. 카자흐스탄·우즈베키스탄·키르기스스탄·타지키스탄·투르크메니스탄 5개국 정상이 모두 참석한다. 한국이 이들과 다자 정상회의를 여는 것은 처음으로, 기존 장관급 협의체를 정상급으로 격상한 것이다.</p>
+      <p>정상들은 중장기 협력 비전을 담은 <strong>'서울선언'을 채택할 예정</strong>이다. 주제는 '한-중앙아 협력 방향 및 혁신·번영·연계성 강화를 위한 파트너십'으로, 중앙아의 자원과 한국의 기술을 잇는 <strong>핵심광물·에너지 공급망 다변화</strong>, 통관·규제·지식재산권 협력, 인프라·플랜트 사업 발굴이 논의된다. 500명 규모 경제 행사도 함께 열린다.</p>
+      <p>앞선 양자외교에서 성과가 먼저 나왔다. 15일 한-카자흐스탄 정상회담에서 양국은 2009년 수립한 '전략적 동반자 관계'를 <strong>17년 만에 '미래지향적 포괄적 전략 동반자 관계'로 격상</strong>했다. 같은 날 투르크메니스탄, 14일 우즈베키스탄과 회담했고, 오늘은 타지키스탄·키르기스스탄과의 양자 정상회담이 이어진다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">일시·장소</span><span>2026년 9월 16일 오후 · 서울</span></li>
+      <li><span class="k">참가</span><span>한국 + 중앙아 5개국</span></li>
+      <li><span class="k">채택 문서</span><span>'서울선언' — 채택 예정 (아직 채택 전)</span></li>
+      <li><span class="k">한-카자흐</span><span>전략적 동반자(2009) → 미래지향적 포괄적 전략 동반자</span></li>
+      <li><span class="k">부속 행사</span><span>경제 행사 500명 규모</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>'격상'이라는 단어는 외교 보도에서 흔히 지나치기 쉽지만, <strong>실제로는 협력 채널의 개수를 늘리는 장치</strong>다. 관계 등급이 올라가면 정례 협의체·차관급 채널·기업 전용 창구가 문서에 붙는다. 그래서 이 뉴스의 실질은 '선언문'이 아니라 <strong>내년 이후 실제 수주로 전환되는 비율</strong>에 있다. 핵심광물·데이터센터·플랜트를 다루는 기업이라면 선언문 문구보다 부속 합의의 형태를 봐야 한다.</p>
+    </div>
+    <a class="source" href="https://www.newsis.com/view/NISX20260915_0003790798">뉴시스</a> <a class="source" href="https://www.news1.kr/politics/president/6291376">뉴스1</a>
+    <span class="ref-note">⚠ 정상회의는 오늘 오후 예정 · '서울선언'은 채택 전이므로 "채택했다"가 아님 · MOU 건수는 매체 요약에서 국가별로 동일 수치가 반복돼 신뢰도가 낮아 표기하지 않음 (확인 2026-09-16)</span>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">檢</span>
+    <div class="card-top"><span class="topic">정치</span></div>
+    <h2>초대 중수청장, 여권에서 먼저 막혔다</h2>
+    <div class="summary">
+      <p>10월 2일 출범하는 <strong>중대범죄수사청(중수청)</strong>의 초대 청장 인선이 진통을 겪고 있다. 윤호중 행정안전부 장관이 제청한 <strong>김지용 변호사(검찰 출신)</strong>에 대해 이재명 대통령이 <strong>추가 검증을 지시</strong>했다. 윤 장관은 "후보자에 대한 사회적 관심이 높아지면서 검증을 더 철저히 하는 절차"라며 지명 보류는 아니라는 입장을 밝혔다.</p>
+      <p>반발은 범여권에서 먼저 나왔다. <strong>조국혁신당은 김준형 원내대표 등이 기자회견을 열고 지명 철회를 요구</strong>하며, 김 후보자가 "검찰개혁의 역사에 정반대 위치에 있던 사람"이라고 주장했다. 더불어민주당 내 검찰개혁 강경파도 과거 행적을 문제 삼았다.</p>
+      <p>반면 민주당 주류는 출범까지 물리적 시간이 부족하고 수사 전문성이 필요하다며 지명 유지에 무게를 두고 있다. 국민의힘도 각기 다른 이유로 재검토를 요구했고, 대통령의 재검증 지시 자체를 문제 삼는 목소리도 나왔다. 절차상 김 후보자는 <strong>인사청문 대상이며, 인사청문 요청서는 아직 제출되지 않았다</strong>.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">후보자</span><span>김지용 변호사 (검찰 출신)</span></li>
+      <li><span class="k">직위</span><span>초대 중대범죄수사청장</span></li>
+      <li><span class="k">중수청 출범</span><span>2026년 10월 2일</span></li>
+      <li><span class="k">현재 단계</span><span>대통령 추가 검증 지시 · 인사청문 요청서 미제출</span></li>
+      <li><span class="k">절차</span><span>윤호중 행안부 장관 제청 → 대통령 임명</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>이 갈등의 구조는 기업의 조직 신설과 똑같다. <strong>새 조직을 만들 때 "그 일을 해본 사람"과 "그 일을 바꾸려는 사람" 중 누구를 앉힐지</strong>의 문제다. 전문성을 택하면 기존 관행이 따라오고, 명분을 택하면 실행 속도가 떨어진다. 출범이 보름 남은 상황에서 시간이 전문성 쪽에 힘을 실어준다는 점도 조직 개편의 흔한 역학이다. 지금은 '추가 검증' 단계이고, 철회도 임명도 아니다.</p>
+    </div>
+    <a class="source" href="https://www.segye.com/newsView/20260915516260">세계일보</a> <a class="source" href="https://www.hani.co.kr/arti/politics/assembly/1277937.html">한겨레</a>
+    <span class="ref-note">⚠ '추가 검증 지시' 단계로 지명 철회·낙마·청문회 개최 모두 아님 · 각 정당 주장은 해당 정당의 주장으로 인용 · 유동적 사안으로 상황 변동 가능 (확인 2026-09-16)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Korea — 사회</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">願</span>
+    <div class="card-top"><span class="topic">사회·교육</span></div>
+    <h2>17개 대학, 수시 접수 취소 검토</h2>
+    <div class="summary">
+      <p>2027학년도 대입 수시모집 원서접수 서버 장애의 후폭풍이 커졌다. 교육부 집계에 따르면 11일 마감시간이 연장됐음에도 <strong>당초 마감시각인 오후 6시에 최종 경쟁률을 공개한 대학이 17곳</strong>이었다. 뒤늦게 지원한 수험생이 경쟁률이라는 정보 우위를 얻었다는 문제가 제기됐다.</p>
+      <p>교육부는 <strong>최종 경쟁률을 확인한 뒤 지원한 것으로 의심되는 사례에 대해 17개 대학과 협의해 접수를 취소하는 조치 등을 검토</strong>할 예정이라고 밝혔다. 시간대를 보면 대행업체 유웨이어플라이의 시스템 장애는 11일 오후 5시 50분경 — 마감 10분 전 — 에 발생해 오후 6시 20분까지 약 30분간 이어졌고, 마감은 오후 7시로 한 시간 연장됐다.</p>
+      <p>구제 대상은 <strong>약 1,200명</strong>으로 집계됐지만, 장애 오류 로그와 해당 시각 원서접수 이력(작성·저장·제출·결제 시도)을 모두 요구하는 기준을 엄격히 적용하면 실제 인원은 줄어들 전망이다. 구제 신청은 <strong>오늘까지</strong> 받는다 — 마감 시각은 대학별로 다를 수 있어 지원 대학 공지에서 직접 확인해야 한다. 원서접수를 민간업체에 위탁해 온 구조 자체를 손봐야 한다는 지적도 함께 나왔다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">경쟁률 조기공개</span><span>17개 대학 (마감 연장 전 오후 6시에 공개)</span></li>
+      <li><span class="k">장애 발생·지속</span><span>9월 11일 17시 50분경 ~ 18시 20분 (약 30분)</span></li>
+      <li><span class="k">마감 시각</span><span>18시 → 19시로 1시간 연장</span></li>
+      <li><span class="k">구제 대상</span><span>약 1,200명 (기준 엄격 적용 시 감소 전망)</span></li>
+      <li><span class="k">교육부 조치</span><span>접수 취소 등 <strong>검토</strong> 단계 (확정 아님)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>30분의 장애가 '구제'로 끝나지 않는 이유는, 마감 직전 <strong>경쟁률이라는 정보가 공개되는 순간 지원 전략 자체가 달라지기</strong> 때문이다. 먼저 낸 학생은 모르고 냈고 나중에 낸 학생은 알고 냈다. 그래서 구제 조치가 다시 형평성 문제를 만든다. 근본 원인은 특정 업체의 장애가 아니라 마감 시각과 경쟁률 공개 시각이 같은 설계에 있다. 당장 수험생에게 필요한 건 논쟁이 아니라 지원 대학 공지에 적힌 오늘 마감 시각의 확인이다.</p>
+    </div>
+    <a class="source" href="https://www.mt.co.kr/policy/2026/09/15/2026091523013719538">머니투데이</a> <a class="source" href="https://www.hankookilbo.com/news/article/amp/A2026091523320005629">한국일보</a>
+    <span class="ref-note">⚠ '검토' 단계로 접수 취소가 결정·확정된 것이 아님 · 구제 신청·재접수 마감 시각은 인용 출처에 명시되지 않아 표기하지 않음, 지원 대학 공지 확인 필수 · 원서접수 민간위탁 기간(연수)은 매체별로 엇갈려 표기하지 않음 (확인 2026-09-16)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">World — 국제</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">票</span>
+    <div class="card-top"><span class="topic">국제·금융</span></div>
+    <h2>50대 49, 미 코인 규제법이 멈췄다</h2>
+    <div class="summary">
+      <p>미국 가상자산 시장의 규제 체계를 처음으로 법제화하려던 <strong>'디지털자산 시장 명확성법(CLARITY Act)'</strong>이 상원 문턱을 넘지 못했다. 15일(현지시간) 본격 심의 착수를 위한 <strong>클로처(토론종결) 표결에서 찬성 50표, 반대 49표</strong>가 나와 필요 정족수 60표에 미달했다. 법안 자체에 대한 최종 표결이 아니라 <strong>본회의 심의 개시가 막힌 것</strong>이다.</p>
+      <p>법안의 핵심은 가상자산을 증권으로 볼지 상품으로 볼지 가르는 기준을 법으로 정해 SEC와 CFTC의 관할권 다툼을 정리하는 데 있었다. 협상은 두 지점에서 깨졌다. 첫째, 스테이블코인 이자 지급을 재무부가 일시 금지할 수 있는 '서킷브레이커' 조항이 들어갔으나 은행업계는 "대규모 예금 이탈이 일어난 뒤에야 작동한다"며 반발했다. 둘째, 윤리조항을 놓고 공화당은 강력하다고 자평했지만 민주당은 트럼프 대통령 일가의 가상자산 수익을 막지 못한다고 비판했다.</p>
+      <p>시장은 즉각 반응했다. 비트코인은 24시간 기준 4%대 하락해 <strong>7만5,000~7만6,000달러대</strong>로 밀렸다. 전망도 밝지 않다. 의회는 이달 중 11월 중간선거 체제로 전환되며, 신시아 러미스 의원은 "사실상 끝났다"고 말했다. 현 의회는 올해 말 종료되고 새 의회는 내년 1월 출범한다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">표결 종류</span><span>클로처(토론종결) — 심의 착수 여부</span></li>
+      <li><span class="k">결과</span><span>찬성 50 · 반대 49 (필요 60표 미달)</span></li>
+      <li><span class="k">일시</span><span>2026년 9월 15일 (현지시간)</span></li>
+      <li><span class="k">핵심 쟁점</span><span>스테이블코인 이자 서킷브레이커 · 윤리조항</span></li>
+      <li><span class="k">비트코인</span><span>7만5,000~7만6,000달러대 (24시간 -4%대)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>이 표결이 알려주는 건 코인 시세가 아니라 <strong>규제 공백의 유지 비용</strong>이다. 법이 없으면 "증권인가 상품인가"를 기관마다 다르게 판단하고, 그 불확실성은 사업 계획의 할인율로 붙는다. 그래서 스테이블코인·결제 연동을 검토하는 기업에게 이 뉴스의 의미는 '연내 처리 불투명'이 아니라 <strong>최소 내년 상반기까지 현행 해석 체계로 설계해야 한다</strong>는 실무 조건이다. 법안은 형식상 살아 있지만 심의 일정은 비어 있다.</p>
+    </div>
+    <a class="source" href="https://www.edaily.co.kr/News/Read?newsId=01649846645580776&mediaCodeNo=257">이데일리</a> <a class="source" href="https://www.newspim.com/news/view/20260916000028">뉴스핌</a>
+    <span class="ref-note">⚠ 법안 부결·폐기가 아니라 클로처 표결 부결로 심의 착수가 무산된 단계 · 비트코인 시세는 실시간 변동이며 하락률은 매체별 3~4%대로 상이해 폭으로 표기 (확인 2026-09-16)</span>
+  </article>
+
+  <footer>
+    <span class="pipe">Daily Card News</span> · 2026년 9월 16일 수요일 발행 · 6 Picks<br>
+    리서치 → 편집 → 마케팅 인사이트 → 디자인 → 검토 하네스를 거쳐 제작했습니다.<br>
+    모든 정보는 참고용이며, 최종 확인은 각 카드의 출처 링크를 권장합니다.
+
+    <!-- tracker: 2026-09-16
+         [추적 중인 스토리 현재 상태]
+         연준·금리: 9월 FOMC 결과 한국시간 9/17 오전 3시 발표 예정(현지 9/15~16 회의). 미 10년물 장중 5.012%로 2023년 10월 이후 첫 5% 돌파, 30년물 약 5.37%, 연초 대비 +80bp. CME 페드워치 0.25%p 인상 확률 92%대(아주경제 92.3%/한국경제 92.5%, 한 달 전 33.9%→1주 전 59.4%→전일 86.6% 추이). 인상 시 3.50~3.75%→3.75~4.00%, 3년 2개월 만의 첫 인상 → 실제 결정·점도표·단발 vs 연쇄 문구 추적. (9/15 '금리 인상 문턱'에서 이어짐, 확률 수치 80%대→92%대로 상향)
+         국내 증시: 9/15 코스피 6,627.26(-0.85%), 4거래일 연속 하락(9/10~9/15). 코스닥 812.41(+0.70%)로 상승 전환. 원·달러 1,359.4원(+12.1원). 유가증권 외국인 -1조5,000억/기관 -9,300억/개인 +8,300억. 반도체는 낙폭 축소(삼성전자 -0.20%, SK하이닉스 -0.41%), 대신 금융·보험 약세(KB금융 -3.19%, 삼성생명 -4.19%), LG에너지솔루션 +3.98% → FOMC 이후 반등·환율 1,360원 돌파 여부 추적. (9/15 '3.26% 급락 6,684.37'에서 이어짐)
+         호르무즈·유가: 브렌트 11월물 105.68달러(장중 108달러), WTI 101.39달러. 사우디 동서송유관(1,200km·최대 700만 배럴/일) 9/11 드론 피격 후 가동 중단 지속, 복구 수 주 전망. 이란-GCC 지역회의 새 일정 여전히 미정 → 회의 재개 날짜·송유관 복구 추적. (9/13~9/15에서 이어짐, 이번 회차는 금리 카드에 흡수)
+         중앙아 외교: 9/16 오후 서울에서 제1차 한·중앙아시아 정상회의(5개국) 개최, '서울선언' 채택 예정(채택 전). 9/15 한-카자흐 관계를 2009년 '전략적 동반자'에서 '미래지향적 포괄적 전략 동반자'로 17년 만에 격상, 같은 날 투르크메니스탄 회담, 9/16 오전 타지키스탄 회담 예정. 경제 행사 500명 규모 → 서울선언 내용·실제 수주 전환 추적. MOU 건수는 매체 요약에서 국가별 동일 수치 반복으로 신뢰도 낮아 미표기. (9/15 '한-우즈벡 정상회담'에서 이어짐)
+         중수청 인선: 초대 중대범죄수사청장 후보 김지용 변호사(검찰 출신)에 대해 대통령이 추가 검증 지시. 윤호중 행안장관 제청, "지명 보류 아님" 입장. 조국혁신당(김준형 원내대표) 지명 철회 요구, 민주당 강경파 반발, 민주당 주류·여권 다수는 지명 유지에 무게. 인사청문 요청서 미제출. 중수청 출범 10/2 → 인사청문 요청서 제출·철회 여부 추적. (신규)
+         수시 원서 장애: 마감 연장 전 오후 6시에 최종 경쟁률을 공개한 대학 17곳 확인. 교육부가 17개 대학과 협의해 '경쟁률 확인 후 지원' 의심 사례 접수 취소 등 검토 예정(검토 단계). 장애는 9/11 17:50경~18:20 약 30분, 마감 18시→19시 연장. 구제 대상 약 1,200명(기준 엄격 적용 시 감소 전망), 구제 신청 9/16 마감·일부 대학 9/16 22시까지 접수 연장 → 실제 취소 사례 발생 여부·구제 확정 규모 추적. (9/14 '1200명 구제'에서 이어짐)
+         미 가상자산 입법: 클래리티법 클로처 표결 찬성 50·반대 49로 60표 미달(9/15 현지시간), 심의 착수 무산. 법안은 형식상 존속. 쟁점=스테이블코인 이자 서킷브레이커, 트럼프 일가 관련 윤리조항. 비트코인 7만5,000~7만6,000달러대(-4%대). 현 의회 연말 종료, 새 의회 2027년 1월 → 재상정 여부 추적. (신규)
+         [기존 추적 유지] 남자농구 AG 8강 9/16 오전 10시 vs 요르단(9/15 스포츠 서브에서 다룸, 결과는 발행 후) · 홍지선 국토부 후보자 청문회 9/16·최길수 9/17 · 김승원 법무부 후보자 청문보고서 채택 여부 · 이창동 '가능한 사랑' 9/23 개봉(9/14 메인에서 다룸, 오늘자 문화 서브 ②의 개봉 목록에만 언급) · 한미 투자협정 9/18 서명 목표 · SK하이닉스 임단협 2차 잠정합의안 재표결 9/16 · 북한 SRBM(9/12 원산, 새 발표 없음) · CXMT 범용 D램 이익률 82% · KBO 관중 1100만 · 경찰 한동훈 수사자료 유출 수사 · 김병기 영장 재신청 여부 · 윤석열 이종섭 도피조력 1심 무죄 항소 여부 · 충청권 392조 메가프로젝트 · 카카오 인적분할(12/17) · 홈플러스 회생계획 · 2027 예산안 820.9조 · 한은 기준금리 3.00% · 고려아연 vs MBK·영풍 · 파주 냉동창고 사건 검찰 처분 — 새 전개 시 재등장.
+         [오늘 다룬 항목] ①코스피 4거래일 연속 하락 6,627.26·환율 1,359.4원(9/15 종가) ②미 10년물 장중 5.012% 돌파·유가·FOMC 인상 확률 92%대(발표 9/17 03시) ③제1차 한·중앙아시아 정상회의 오늘 오후 개막·한-카자흐 관계 격상 ④초대 중수청장 김지용 추가 검증 지시·조국혁신당 철회 요구 ⑤수시 경쟁률 조기공개 17개 대학·접수 취소 검토 ⑥미 상원 클래리티법 클로처 50-49 부결
+         [검토 하네스에서 잡아 고친 것] ①카드② 본문·스펙이 "연초 대비 약 80bp"를 30년물에 붙였으나 출처(아주경제) 원문은 10년물 상승폭 → 10년물로 재귀속하고 30년물은 수준값만 표기. ②카드① 유가증권시장 순매도 규모를 YTN 값(외국인 1조5,000억·기관 9,300억·개인 8,300억)으로 적었으나 같은 시장 기준으로 서울경제TV는 1조7,056억·1조1,432억·1조1,940억을 보도 — 교차확인 실패로 수급 수치를 본문·스펙에서 삭제. 또한 ref-note가 어제 문구("코스피 전체 vs 업종")를 재활용해 실제와 다른 불일치 사유를 적었던 것을 정정. ③카드② "3년 2개월 만의 첫 인상"은 인용 두 출처가 모두 "3년 만에"로만 써 정밀도를 낮춰 "3년 만의 첫 인상"으로 수정. ④카드② 유가 3개 수치(브렌트 105.68·WTI 101.39·장중 108달러)가 9/14 뉴욕장 값이자 어제 브리프와 동일값인데 시점 표기가 없어 "9/14 기준"을 본문·스펙·ref-note에 명기. ⑤카드③ "오늘 오전 타지키스탄 정상회담"은 출처가 오전/오후를 명시하지 않고 키르기스스탄도 같은 날 회담 대상으로 적고 있어 "오늘 타지키스탄·키르기스스탄과 양자 정상회담"으로 수정. ⑥카드④ "쟁점은 보완수사권 유지 옹호 이력"은 인용 매체 4곳에서 확인되지 않아(한겨레는 WebFetch 차단) 문장 삭제. ⑦카드④ 인사이트 라벨을 'Marketing View'에서 'Context · 맥락 읽기'로 교체 — 검찰개혁 인선 갈등을 조직 배치 문제로 환원하지 않도록. ⑧카드⑤ "일부 대학은 오늘 오후 10시까지 접수 연장"과 "30년간 민간업체 위탁"은 인용 두 출처에 없는 정보(위탁 기간은 다른 매체가 "1990년대 후반부터"로 표기)여서 각각 삭제하고 "대학별 공지 확인"으로 대체.
+         [제외] 9월 FOMC 결과 — 한국시간 9/17 03시 발표로 미발표, 어제 '예정'으로 이미 다뤄 중복 → 확률만 ②의 보조 수치로 사용 · 사우디 송유관·이란-GCC 회의 연기 단독 카드 — 9/15 ③에서 다룸, 독립 카드로 올리면 유가·중동 3카드 초과 → ②에 흡수 · 김승원 법무부 후보자 청문회 장면(눈물·자료 제출 거부) — 9/15 ④에서 3인 청문회를 다룸, 수치화 가능한 진전 없음 → 제외 · 홍지선 국토부 후보자 청문회 — 9/16 개최 예정이나 발행 시점 진행 전으로 검증 가능한 발언 없음 → 제외 · 남자농구 AG 8강 vs 요르단 프리뷰 — 9/15 스포츠 서브 브리프에서 이미 다룬 동일 경기 프리뷰 → 반복 필터로 제외 · AI 개발 속도조절론 — 머스크 직접 인용·공동성명 서명자 확인 실패, 1차 출처 미확보 → ①의 배경 언급만 · SK하이닉스 임단협 재표결 — 단일 출처, 표결 결과 미확정 → 제외 · 경찰 고위간부 아들 코인 사기 — 피해액 매체별 상이(2억2천만 vs 수천만), 교차확인 실패 → 제외 · 김병기 영장 후속(박성주 전 국수본장 고발 예정) — '예정' 단계 단독 보도 → 제외 · 파주 사건 신상공개 여부 — 전망 기사 수준, 강력범죄 반복 노출 부적절 → 제외 · 44개월 여아 사망 내사 종결·대학병원 오혈액형 수혈 사망·창원 흉기난동 — 민감 소재 밀집 및 절차 단계 복잡으로 오기 위험 → 제외 · 한미 투자협정 9/18 서명 — 최근 24시간 새 보도 없음 → 제외 · 미 10년물 "19년 만의 최고치" 표현 — 아주경제·이데일리('2023년 이후 처음')·서울경제('2007년 이후 세 번째')와 어긋남 → 표현 미채택 · 코스피 외국인·기관 순매도 총액 — 2조4,000억~2조8,488억 매체별 상이(집계 범위 차) → 유가증권시장 개별 수치만 표기 · MOU 건수 — 투르크메니스탄·카자흐스탄에 동일하게 '13건'이 붙어 신뢰도 낮음 → 미표기 · 비트코인 하락률 — 3~4%대 매체별 상이 → 폭으로 표기
+    -->
+  </footer>
+
+</div>
+</body>
+</html>
