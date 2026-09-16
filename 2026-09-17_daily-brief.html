@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.09.17">
+<meta property="og:description" content="연준, 3년 2개월 만에 기준금리 0.25%p 인상 3.75~4.00% · 코스피 닷새 만에 반등 6,717.97·환율 1,368.6원 · 한·중앙아시아 '서울선언' 채택, 2년 주기 정례화 · 3,500억 달러 대미투자 국회보고·서명 모두 연기 · SK하이닉스 임단협 57.08% 가결 · 남자농구 114-80, 8년 만의 아시안게임 4강">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.09.17</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>방향이 바뀌었다</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 9월 17일 목요일</span>
+      <span class="count">6 Picks · 화제성 순</span>
+    </div>
+    <p class="lede">오늘 새벽 연방준비제도가 기준금리를 0.25%포인트 올렸습니다. 2023년 7월 이후 3년 2개월 만의 인상이고, 2년 넘게 이어진 인하 기조가 방향을 튼 순간입니다. 국내 시장은 이 소식을 아직 반영하지 못한 채 어제 닷새 만에 반등했고, 환율은 다섯 거래일째 올랐습니다. 외교에서는 중앙아시아 다섯 나라와의 '서울선언'이 채택됐지만, 3,500억 달러 대미투자의 국회 보고와 서명은 날짜가 통째로 비었습니다. 여의도 바깥에서는 SK하이닉스 성과급 분쟁이 두 번째 표결 끝에 봉합됐고, 농구 대표팀은 8년 만에 아시안게임 4강에 올랐습니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">Markets — 금리·증시</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">利</span>
+    <div class="card-top"><span class="topic">금리·국제</span></div>
+    <h2>연준, 3년 2개월 만에 올렸다</h2>
+    <div class="summary">
+      <p>미 연방준비제도가 현지시간 16일 연방공개시장위원회(FOMC)에서 기준금리를 <strong>0.25%포인트 인상</strong>해 <strong>3.75~4.00%</strong>로 결정했다. 한국시간으로는 17일 새벽에 전해졌다. 종전은 3.50~3.75%였다.</p>
+      <p>연준이 금리를 올린 것은 <strong>2023년 7월 이후 3년 2개월 만</strong>이다. 그 사이 연준은 인하 기조를 유지해 왔으므로, 이번 결정은 금리 사이클의 방향이 바뀐 지점이 된다. 케빈 워시 의장은 "인플레이션이 너무 높고 너무 오랫동안 지속돼 왔다"는 점을 결정 근거로 들었다.</p>
+      <p>함께 공개된 점도표에서는 <strong>다수 위원이 연말까지 추가 인상</strong>을 예상한 것으로 전해졌다. 다만 구체적인 위원 수는 매체별 표기가 엇갈려 아래 표에는 방향성만 적는다. 배경 지표로는 8월 소비자물가가 전년 대비 3.4% 오르며 목표치 2%를 웃돈 점이 인용됐다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">인상폭</span><span>0.25%포인트 (25bp)</span></li>
+      <li><span class="k">새 기준금리</span><span>3.75~4.00% (종전 3.50~3.75%)</span></li>
+      <li><span class="k">직전 인상</span><span>2023년 7월 — 3년 2개월 만</span></li>
+      <li><span class="k">연준 의장</span><span>케빈 워시</span></li>
+      <li><span class="k">점도표</span><span>다수 위원이 연말까지 추가 인상 전망 (위원 수는 매체별 상이)</span></li>
+      <li><span class="k">발표</span><span>현지 9월 16일 · 한국시간 9월 17일 새벽</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>수치보다 중요한 건 <strong>전제가 바뀌었다는 사실</strong>이다. 지난 2년간 거의 모든 사업계획서는 "금리는 점진적으로 내려간다"를 바닥에 깔고 쓰였다. 할인율, 재고 회전 계획, 마케팅비 집행 시점, 부동산·설비 투자 결정이 전부 그 가정 위에 있었다. 인상 자체는 0.25%포인트지만 <strong>점도표가 가리키는 건 한 번으로 끝나지 않을 가능성</strong>이고, 그렇다면 내년 상반기 계획은 인하가 아닌 <strong>횡보 또는 완만한 상승</strong>을 기본 시나리오로 다시 짜야 한다. 실무적으로는 두 가지가 먼저 움직인다 — 자금 조달 일정을 앞당길지, 그리고 한미 금리차 확대에 노출된 수입 원가를 언제 헤지할지다.</p>
+    </div>
+    <a class="source" href="https://www.fnnews.com/news/202609170441068669">파이낸셜뉴스</a> <a class="source" href="https://www.newdaily.co.kr/site/data/html/2026/09/17/2026091700005.html">뉴데일리</a>
+    <span class="ref-note">⚠ 점도표 위원 수가 매체별로 엇갈려(파이낸셜뉴스 "19명 중 18명" vs 영문 매체 다른 표기) 구체 수치는 표기하지 않고 방향성만 기재 · 표결 만장일치 여부는 인용 두 출처에서 확인되지 않아 미표기 (확인 2026-09-17)</span>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">反</span>
+    <div class="card-top"><span class="topic">증시·경제</span></div>
+    <h2>코스피 닷새 만에 반등, 환율은 계속 올랐다</h2>
+    <div class="summary">
+      <p>16일 코스피는 전 거래일보다 <strong>90.71포인트(1.37%) 오른 6,717.97</strong>에 마감했다. 10일부터 나흘간 이어진 하락을 끊고 <strong>5거래일 만에 반등</strong>한 것이다. 코스닥도 0.44% 올랐다. 반등의 축은 반도체였다.</p>
+      <p>환율은 방향이 달랐다. 원·달러 환율은 <strong>9.2원 오른 1,368.6원</strong>에 마감해 <strong>닷새 연속</strong> 원화 약세를 이어갔다. 지수는 올랐지만 통화는 밀린 셈이다.</p>
+      <p>중요한 건 시점이다. 이 수치는 모두 <strong>연준 결정이 나오기 전의 종가</strong>다. 앞 카드의 금리 인상이 국내 시장에 반영되는 것은 오늘 개장부터이며, 이 브리프 발행 시점(오전 6시)에는 아직 확인할 수 없다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">코스피 종가</span><span>6,717.97 · +90.71p (+1.37%) — 5거래일 만 반등</span></li>
+      <li><span class="k">코스닥</span><span>+0.44%</span></li>
+      <li><span class="k">원·달러 환율</span><span>1,368.6원 · +9.2원 (5거래일 연속 상승)</span></li>
+      <li><span class="k">반등 주도</span><span>반도체 — 수급 개선 기대</span></li>
+      <li><span class="k">기준 시점</span><span>9월 16일 종가 · FOMC 발표 이전</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>지수와 환율이 반대로 움직인 날은 읽는 법이 따로 있다. 주가가 오른 건 반도체 업황이라는 <strong>개별 산업의 이야기</strong>고, 환율이 오른 건 달러라는 <strong>바깥의 이야기</strong>다. 수출 기업에게 이 조합은 나쁘지 않지만, 원자재·부품을 달러로 사는 쪽에는 다섯 거래일 누적으로 이미 부담이 쌓였다. 그리고 이 종가에는 <strong>어젯밤 연준의 결정이 들어 있지 않다</strong>. 오늘 시장을 보고 판단하려는 사람에게 필요한 건 전망이 아니라 이 한 가지 사실 — 어제 숫자는 이미 낡았다.</p>
+    </div>
+    <a class="source" href="https://www.seoul.co.kr/news/economy/securities/2026/09/16/20260916500208">서울신문</a> <a class="source" href="https://www.gukjenews.com/news/articleView.html?idxno=3697410">국제뉴스</a>
+    <span class="ref-note">⚠ 증시·환율은 실시간 변동 · 9월 16일 종가 기준이며 FOMC 결정 반영 전 수치 · 외국인·기관 수급 수치는 매체별 집계 범위 차로 표기하지 않음 (확인 2026-09-17)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Diplomacy — 외교·통상</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">盟</span>
+    <div class="card-top"><span class="topic">외교</span></div>
+    <h2>중앙아 5개국과 '서울선언', 2년마다 다시 만난다</h2>
+    <div class="summary">
+      <p>16일 서울에서 열린 <strong>제1차 한·중앙아시아 정상회의</strong>에서 카자흐스탄·키르기스스탄·타지키스탄·투르크메니스탄·우즈베키스탄 5개국과 한국이 <strong>'서울선언'을 채택</strong>했다. 어제 브리프에서 '채택 예정'으로 전했던 사안의 결과다.</p>
+      <p>선언은 4대 협력 비전 — 파트너십 제도화, 평화와 안정을 향한 동행, 혁신과 번영을 향한 미래, 사람과 신뢰를 통한 연결 — 을 담았다. 정상회의는 <strong>2년마다 정례 개최</strong>하고, 향후 30년 협력 비전을 세우기로 했다.</p>
+      <p>실물 경제와 맞닿은 대목은 <strong>산업장관 협의체 신설</strong>과 <strong>핵심광물 협력 강화</strong>다. 전기차·배터리·반도체 소재를 명시했고, 교통·에너지 인프라와 물류망 구축도 협력 항목에 들어갔다. 한반도의 완전한 비핵화와 항구적 평화 구축에 대한 의지도 명시됐다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">형식</span><span>선언 채택 — 법적 구속력 있는 협정 체결과는 구분</span></li>
+      <li><span class="k">참가</span><span>한국 + 중앙아시아 5개국</span></li>
+      <li><span class="k">정례화</span><span>2년 주기 정상회의</span></li>
+      <li><span class="k">신설 기구</span><span>산업장관 협의체</span></li>
+      <li><span class="k">핵심 협력</span><span>핵심광물(전기차·배터리·반도체 소재) · 공급망 · 물류</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>선언문은 구속력이 없다. 그래서 여기서 볼 것은 문구가 아니라 <strong>'2년마다'와 '산업장관 협의체'라는 두 개의 일정표</strong>다. 외교 성과가 실제 계약으로 바뀌는 통로는 대개 선언이 아니라 그 뒤에 생기는 정례 회의체이고, 장관급 협의체가 생겼다는 건 앞으로 <strong>안건을 올릴 창구가 상시로 열린다</strong>는 뜻이다. 핵심광물 다변화를 검토하는 기업에게 실무적 의미는 '중앙아로 가자'가 아니라, 정부 채널이 언제 열리는지를 이제 달력에 적을 수 있다는 것이다. 다만 첫 회의의 성과는 2028년 2차 회의 전까지 검증되지 않는다.</p>
+    </div>
+    <a class="source" href="https://www.seoul.co.kr/news/politics/diplomacy/2026/09/17/20260917006011">서울신문</a> <a class="source" href="https://www.dailian.co.kr/news/view/1691359">데일리안</a>
+    <span class="ref-note">⚠ '채택'이며 협정 '체결'이 아님 · 차기 개최지·연도(2028년 카자흐스탄 아스타나)는 인용 두 출처 중 한 곳에만 있어 본문에 단정하지 않음 · MOU 건수는 매체 요약에서 신뢰도가 낮아 미표기 (확인 2026-09-17)</span>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">延</span>
+    <div class="card-top"><span class="topic">통상·경제</span></div>
+    <h2>3,500억 달러, 날짜가 통째로 비었다</h2>
+    <div class="summary">
+      <p>3,500억 달러 규모 대미 투자와 관련한 <strong>국회 보고(17일 예정)와 정식 양해각서 서명(18일 예정)이 모두 연기</strong>됐다. 어제까지 '18일 서명 목표'로 추적하던 일정이 양쪽 다 사라진 것이다.</p>
+      <p>걸림돌로는 두 가지가 꼽힌다. <strong>알래스카 LNG 사업의 경제성</strong>에 대한 이견, 그리고 <strong>웨스팅하우스 지분 조건</strong>이다. 한국 측은 15% 이상 지분과 이사회 참여를 요구하는 반면 미국 측은 소수 지분을 원하는 것으로 전해졌다.</p>
+      <p>새 일정은 <strong>미정</strong>이다. 17일로 잡혀 있던 것은 국회 산업통상자원중소벤처기업위원회 비공개 전체회의였고, 산중위 관계자는 "새 일정은 아직 잡지 않았다"고 밝혔다. 일부 매체가 9월 22일 가능성을 거론했으나 이는 관측 수준이며 확정된 일정이 아니다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">연기된 것</span><span>국회 산중위 비공개 전체회의(9/17 예정) · MOU 서명(9/18 예정) — 둘 다</span></li>
+      <li><span class="k">쟁점 ①</span><span>알래스카 LNG 사업 경제성 이견</span></li>
+      <li><span class="k">쟁점 ②</span><span>웨스팅하우스 지분 — 한국 15%+이사회 vs 미국 소수지분</span></li>
+      <li><span class="k">새 일정</span><span>미정 (9/22설은 관측 단계, 확정 아님)</span></li>
+      <li><span class="k">규모</span><span>3,500억 달러</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>연기의 사유가 '일정 조율'이 아니라 <strong>지분율과 사업성이라는 실체적 쟁점</strong>이라는 점이 핵심이다. 형식적 지연은 며칠이면 풀리지만, 이사회 참여권 같은 항목은 한쪽이 물러서야 끝난다. 그래서 원자력·에너지·조선 쪽에서 이 협정을 전제로 일정을 잡아둔 기업이라면 지금 필요한 건 새 날짜를 기다리는 게 아니라, <strong>협정 없이도 진행 가능한 공정과 협정을 전제로 한 공정을 분리해 두는 일</strong>이다. 그리고 거론되는 9월 22일은 확정이 아니므로 그 날짜에 맞춰 무언가를 예약하지 않는 편이 낫다.</p>
+    </div>
+    <a class="source" href="https://www.etoday.co.kr/news/view/2626242">이투데이 (보고 연기)</a> <a class="source" href="https://www.etoday.co.kr/news/view/2626379">이투데이 (쟁점·일정)</a>
+    <span class="ref-note">⚠ 새 서명 일정은 확정되지 않음 · 2025년 11월 1차 서명과는 별개의 후속 절차 · 지분 조건의 구체 수치는 협상 중 사안으로 변동 가능 · 두 출처 모두 이투데이이나 각각 다른 기사(연기 사실 / 쟁점·일정)로 상호 보완 (확인 2026-09-17)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Industry — 산업·노동</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">協</span>
+    <div class="card-top"><span class="topic">산업·노동</span></div>
+    <h2>SK하이닉스 임단협, 두 번째 표결에서 갈렸다</h2>
+    <div class="summary">
+      <p>SK하이닉스 전임직 노동조합이 15~16일 진행한 수정합의안 조합원 총투표에서 <strong>찬성 57.08%(8,731표)</strong>로 임금·단체협약이 최종 타결됐다. 8월 25일 1차 잠정합의안이 <strong>반대 50.08%(7,535표)</strong>로 부결된 뒤 재협상을 거친 결과다.</p>
+      <p>쟁점은 성과급을 무엇으로 받느냐였다. 1차안은 <strong>현금 40%·주식 60%</strong>였는데, 수정안은 당해 지급분(80%)을 <strong>현금 50%·주식 30%</strong>로 바꿔 현금 비중을 10%포인트 높였다. 나머지 20%는 1년 뒤와 2년 뒤에 각 10%씩 주식으로 이연 지급된다.</p>
+      <p>직원이 원하면 현금분도 <strong>10% 단위로 주식 전환</strong>해 받을 수 있어, 전액을 주식으로 받는 선택지도 열렸다. 회사가 적자일 경우 임금 일부를 이연할 수 있다는 조항은 이번에 새로 명문화됐다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">결과</span><span>가결 — 찬성 57.08% (8,731표)</span></li>
+      <li><span class="k">투표 기간</span><span>9월 15일 06시 ~ 9월 16일 09시</span></li>
+      <li><span class="k">1차안 부결</span><span>8월 25일 · 반대 50.08% (7,535표)</span></li>
+      <li><span class="k">당해 지급분(80%)</span><span>현금 50% · 주식 30% (1차안은 현금 40%·주식 60%)</span></li>
+      <li><span class="k">이연 지급분(20%)</span><span>1년 뒤 10% · 2년 뒤 10% — 주식</span></li>
+      <li><span class="k">신설 조항</span><span>적자 시 임금 일부 이연 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>표결 두 번의 차이는 <strong>10%포인트의 현금</strong>이었다. 회사 입장에서 주식 지급은 현금 유출을 늦추고 직원을 주가에 묶는 장치지만, 받는 쪽에서는 <strong>변동성이 붙은 보상</strong>이다. 1차안 부결과 수정안 가결 사이의 간극이 그 체감차를 보여준다. 흥미로운 건 수정안이 현금 비중을 높이면서 동시에 <strong>원하면 전액 주식으로 바꿀 선택권</strong>을 얹었다는 점이다 — 비율을 강제하는 대신 선택하게 만든 설계다. 성과급 구조를 손보려는 다른 기업에게 이 사례가 남기는 실무 교훈은 비율 자체보다 이쪽에 가깝다. 다만 찬성률 57%는 압도적 합의가 아니라 <strong>절반을 조금 넘긴 봉합</strong>이라는 점도 함께 읽어야 한다.</p>
+    </div>
+    <a class="source" href="https://www.fnnews.com/news/202609161826408713">파이낸셜뉴스</a> <a class="source" href="https://www.thedailypost.kr/news/articleView.html?idxno=115651">더데일리포스트</a>
+    <span class="ref-note">⚠ 총 투표 참여 인원은 매체별 표기가 정리되지 않아 표기하지 않음 · 성과급 실수령액·주가 연동분은 향후 주가에 따라 변동 (확인 2026-09-17)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Sports — 스포츠</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">籠</span>
+    <div class="card-top"><span class="topic">스포츠</span></div>
+    <h2>114-80, 8년 만의 아시안게임 4강</h2>
+    <div class="summary">
+      <p>16일 아시안게임 남자농구 8강에서 한국이 요르단을 <strong>114-80</strong>으로 꺾고 4강에 올랐다. 2018년 자카르타·팔렘방 대회 이후 <strong>8년 만</strong>이다.</p>
+      <p>중심은 <strong>이현중</strong>이었다. 20분만 뛰고 <strong>28점 9리바운드 5어시스트</strong>, 3점슛 6개를 꽂았다. 유기상 16점, 이정현 12점 6어시스트, 여준석 9점이 뒤를 받쳤고, <strong>엔트리 12명 전원이 득점</strong>했다. 팀 리바운드 44개, 어시스트 36개다.</p>
+      <p>준결승은 <strong>18일</strong>, 이란-바레인전 승자와 만난다. 상대는 아직 확정되지 않았다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">스코어</span><span>한국 114 - 80 요르단</span></li>
+      <li><span class="k">이현중</span><span>28점 9리바운드 5어시스트 · 3점 6개 · 20분 출전</span></li>
+      <li><span class="k">뒷받침</span><span>유기상 16점 · 이정현 12점 6어시스트 · 여준석 9점</span></li>
+      <li><span class="k">팀 기록</span><span>12명 전원 득점 · 리바운드 44 · 어시스트 36</span></li>
+      <li><span class="k">4강 진출</span><span>2018년 이후 8년 만</span></li>
+      <li><span class="k">준결승</span><span>9월 18일 · 상대 미정 (이란-바레인전 승자)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>스코어보다 눈에 띄는 건 <strong>20분에 28점</strong>이라는 출전시간 대비 생산성, 그리고 <strong>12명 전원 득점</strong>이다. 앞은 스타 서사가 만들어지는 지점이고, 뒤는 그 서사가 한 명에게만 쏠리지 않았다는 증거다. 34점 차 승리는 중계와 하이라이트 입장에서 다루기 애매한 경기지만, 개인 기록이 선명하면 <strong>경기가 아니라 선수가 콘텐츠로 남는다</strong>. 다만 준결승 상대가 정해지지 않은 지금 이 흐름을 미리 확대해석할 이유는 없다 — 18일 한 경기에 4강 서사의 가치가 대부분 걸려 있다.</p>
+    </div>
+    <a class="source" href="https://news.sbs.co.kr/news/endPage.do?news_id=N1008755986">SBS</a> <a class="source" href="https://www.segye.com/newsView/20260916508891">세계일보</a>
+    <span class="ref-note">⚠ 준결승 상대는 이란-바레인 경기 결과에 따라 확정 · 경기 시각은 공식 일정 확인 권장 (확인 2026-09-17)</span>
+  </article>
+
+  <footer>
+    <span class="pipe">Daily Card News</span> · 2026년 9월 17일 목요일 발행 · 6 Picks<br>
+    리서치 → 편집 → 마케팅 인사이트 → 디자인 → 검토 하네스를 거쳐 제작했습니다.<br>
+    모든 정보는 참고용이며, 최종 확인은 각 카드의 출처 링크를 권장합니다.
+
+    <!-- tracker: 2026-09-17
+         [추적 중인 스토리 현재 상태]
+         연준·금리: 9월 FOMC 결과 확정 — 현지 9/16 0.25%p 인상, 3.50~3.75%→3.75~4.00%. 2023년 7월 이후 3년 2개월 만의 첫 인상으로 인하 사이클 종료. 케빈 워시 의장 "인플레이션이 너무 높고 너무 오랫동안 지속" 발언. 점도표는 다수 위원이 연말까지 추가 인상 전망(위원 수는 파이낸셜뉴스 19명 중 18명 vs 영문 매체 표기 상이로 미채택). 배경 지표 8월 미 CPI 전년비 3.4%. → 10월 FOMC 추가 인상 여부·한은 대응·한미 금리차 추적. (9/15~9/16 '인상 문턱·확률 92%대'에서 이어짐, 결과 확정으로 전환)
+         국내 증시: 9/16 코스피 6,717.97(+90.71p, +1.37%)로 5거래일 만에 반등, 코스닥 +0.44%. 원·달러 1,368.6원(+9.2원)으로 5거래일 연속 상승. 반등 주도는 반도체. 단 이 종가는 모두 FOMC 발표 이전 수치 → 9/17 개장 후 금리 인상 반영분·환율 1,370원 돌파 여부 추적. (9/16 '나흘째 하락 6,627.26·환율 1,359.4원'에서 이어짐)
+         중앙아 외교: 제1차 한·중앙아시아 정상회의 9/16 서울 개최, '서울선언' 채택 완료. 2년 주기 정례화, 향후 30년 협력 비전, 산업장관 협의체 신설, 핵심광물(전기차·배터리·반도체 소재)·공급망·교통에너지 물류망 협력, 한반도 완전한 비핵화 의지 명시. 차기 개최지로 2028년 카자흐스탄 아스타나가 데일리안에 언급되나 서울신문에는 없어 본문 미채택 → 산업장관 협의체 첫 회의·실제 수주 전환 추적. (9/15~9/16 '릴레이 회담·채택 예정'에서 이어짐, 채택 완료로 전환)
+         한미 투자협정: 3,500억 달러 대미투자의 국회 보고(9/17 예정)와 정식 MOU 서명(9/18 목표)이 모두 연기, 새 일정 미정. 쟁점=알래스카 LNG 경제성 이견, 웨스팅하우스 지분(한국 15%+이사회 참여 요구 vs 미국 소수지분 희망). 9/22설은 관측 수준 → 새 서명일 확정 여부 추적. (9/16 트래커 '9/18 서명 목표'에서 이어짐, 연기로 전환)
+         SK하이닉스 임단협: 9/15~16 수정합의안 총투표 찬성 57.08%(8,731표)로 가결·최종 타결. 8월 25일 1차안은 반대 50.08%(7,535표)로 부결. 당해 지급분(80%) 현금 50%·주식 30%로 현금 비중 10%p 상향, 이연분 20%는 1·2년 뒤 각 10% 주식. 현금분 10% 단위 주식 전환 선택 가능. 적자 시 임금 이연 조항 신설 → 종결, 타사 성과급 협상 파급 시에만 재등장. (9/16 트래커 '2차 잠정합의안 재표결 9/16'에서 이어짐)
+         남자농구 AG: 9/16 8강 한국 114-80 요르단 승, 8년 만의 4강(2018 자카르타·팔렘방 이후). 이현중 20분 28점 9리바운드 5어시스트·3점 6개, 유기상 16점, 이정현 12점 6어시스트, 여준석 9점, 12명 전원 득점, 팀 리바운드 44·어시스트 36. 준결승 9/18, 상대는 이란-바레인전 승자로 미정 → 9/18 준결승 결과 추적. (9/15 스포츠 서브 '8강 프리뷰'에서 이어짐)
+         [기존 추적 유지] 초대 중수청장 김지용 추가 검증·인사청문 요청서 제출 여부(중수청 출범 10/2) · 수시 원서 장애 구제 확정 규모와 17개 대학 접수 취소 실제 발생 여부 · 미 클래리티법 재상정 여부(현 의회 연말 종료) · 사우디 동서송유관 복구(미 에너지장관 "수일 내 재가동" 전망)·이란-GCC 회의 일정 · 홍지선 국토부 후보자(9/16 청문회, 병역 쟁점)·최길수 9/17 청문회 · 김승원 법무부 후보자 청문보고서 채택 여부 · 이창동 '가능한 사랑' 9/23 개봉 · 북한 SRBM(9/12 원산, 새 발표 없음) · CXMT 범용 D램 이익률 82% · KBO 관중 1100만 · 경찰 한동훈 수사자료 유출 수사 · 김병기 영장 재신청 여부 · 충청권 392조 메가프로젝트 · 카카오 인적분할(12/17) · 홈플러스 회생계획 · 2027 예산안 820.9조 · 한은 기준금리 3.00% · 고려아연 vs MBK·영풍 · 파주 냉동창고 사건 검찰 처분 — 새 전개 시 재등장.
+         [오늘 다룬 항목] ①연준 0.25%p 인상·3.75~4.00%·3년 2개월 만(케빈 워시) ②코스피 6,717.97 5거래일 만 반등·환율 1,368.6원(9/16 종가, FOMC 반영 전) ③한·중앙아 '서울선언' 채택·2년 주기 정례화·산업장관 협의체 신설 ④3,500억 달러 대미투자 국회보고·MOU 서명 모두 연기, 새 일정 미정 ⑤SK하이닉스 임단협 수정안 57.08% 가결 ⑥남자농구 114-80 요르단 승, 8년 만의 AG 4강
+         [검토 하네스에서 잡아 고친 것] ①카드④의 두 번째 출처였던 헤럴드경제 기사(biz.heraldcorp.com/article/10869861)가 9/11자 "김정관 장관 방미 마무리" 기사로, 연기 사실·알래스카 LNG·웨스팅하우스 쟁점을 전혀 담고 있지 않아 카드 내용과 불일치 → 연기를 직접 보도한 이투데이 기사(2626242)로 교체. 두 출처가 모두 이투데이가 되었으나 각각 다른 기사(연기 사실 / 쟁점·22일설)로 상호 보완되며, 이 사실을 ref-note에 명기. ②같은 교체 과정에서 확인된 "국회 산중위 비공개 전체회의"라는 회의 성격과 산중위 관계자의 "새 일정은 아직 잡지 않았다" 발언을 본문·스펙에 반영해 '연기'가 관측이 아닌 확인된 사실임을 보강. ③카드⑥(농구) ref-note에 ⚠ 표기가 빠져 다른 5개 카드와 변동정보 경고 일관성이 깨진 것을 정정. ④점도표 위원 수는 파이낸셜뉴스 원문이 "19명 중 18명"으로 확인되나 영문 매체 표기와 어긋나 방향성("다수 위원")만 유지하기로 재확인. ⑤코스피 6,627.26+90.71=6,717.97, 환율 1,359.4+9.2=1,368.6, 금리 3.50~3.75%+0.25%p=3.75~4.00%, 2023년 7월→2026년 9월=38개월(3년 2개월), 농구 개인 득점 합 65≤팀 114를 각각 계산 검증해 정합성 확인. ⑥연준 인상폭·코스피 종가·SK하이닉스 찬성률·농구 스코어를 서울경제·폴리뉴스·시사저널·데일리스포츠한국 등 다른 매체로 교차확인 완료.
+         [제외] 홍지선 국토부 후보자 청문회 — 병역 쟁점만 확인되고 의결·보고서 채택 등 절차적 진전 없음, 스펙 표를 채울 검증 수치 부족 → 제외 · 최길수 후보자 청문회 — 9/17 개최 예정으로 발행 시점(오전 6시) 미개최 → 제외 · 사우디 동서송유관 "수일 내 재가동" — 미 에너지장관 전망 수준이며 9/13·9/15에서 유가·중동을 이미 다룸, 확정 복구 아님 → 제외 · FOMC 점도표 위원 수 — 국내외 매체 표기 상이(19명 중 18명 vs 18명 중 12명)로 교차확인 실패 → 방향성만 ①에 반영 · 한미 MOU 2025년 11월 1차 서명 건 — 작년 사안으로 오늘 뉴스 아님, 신규 전개인 '서명 연기'로 대체 · SK하이닉스 총 투표 인원 — 찬성표·반대표 역산값이 매체 표기와 어긋나 미표기 · 코스피 외국인·기관 수급 — 매체별 집계 범위 차로 미표기 · 중앙아 차기 개최지 2028년 아스타나 — 인용 두 출처 중 한 곳에만 있어 본문 미채택, 트래커에만 기록
+    -->
+  </footer>
+
+</div>
+</body>
+</html>
