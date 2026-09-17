@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.09.18">
+<meta property="og:description" content="코스피 6,715.41 약보합·환율 1,382.2원 3주 만에 1380원대 · 한미 금리차 1%포인트 복귀, 한은 다음 결정은 10월 · 3,500억 달러 대미투자 서명 재연기, 원전 지분·100억 달러 선납 쟁점 · 김승원 법무장관 후보자 청문보고서 법사위 채택 · 중수청·공소청 10월 2일 출범 14일 전 청장·직제 공백 · 남자농구 4강 이란전 오늘 오후 4시">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.09.18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>환율이 먼저 반응했다</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 9월 18일 금요일</span>
+      <span class="count">6 Picks · 화제성 순</span>
+    </div>
+    <p class="lede">어제 코스피는 연준의 인상을 이미 아는 값으로 받아들이며 2.56포인트 내린 자리에서 멈췄습니다. 반응은 다른 데서 나왔습니다 — 원·달러 환율이 하루 13.6원 올라 1,382.2원, 3주 만의 1,380원대입니다. 미국이 4% 문턱에 올라서면서 한국은행 3.00%와의 격차는 다시 1%포인트로 벌어졌고, 우리 쪽 답은 10월로 넘어갔습니다. 여의도에서는 3,500억 달러 대미투자 서명이 또 밀렸는데, 이번에는 원전 지분과 100억 달러 선납이라는 구체적인 쟁점이 드러났습니다. 법사위는 김승원 후보자 보고서를 야당 퇴장 속에 채택했고, 2주 뒤 문을 여는 중수청은 아직 청장도 직제도 없습니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">Markets — 증시·환율</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">貨</span>
+    <div class="card-top"><span class="topic">증시·환율</span></div>
+    <h2>지수는 멈췄고, 환율이 뛰었다</h2>
+    <div class="summary">
+      <p>9월 17일 코스피는 전 거래일보다 2.56포인트(0.04%) 내린 <strong>6,715.41</strong>에 마감했다. 장 초반에는 6,779.02로 0.91% 오르며 출발해 장중 한때 6,795.53까지 올랐지만, 오후 들어 상승분을 전부 반납하고 약보합으로 돌아섰다. 코스닥은 6.20포인트(0.76%) 오른 <strong>822.18</strong>로 3거래일 연속 상승했다. 연준의 0.25%포인트 인상이 이미 선반영됐다는 해석 속에 지수는 비교적 조용히 움직인 셈이다.</p>
+      <p>흔들린 쪽은 외환시장이었다. 원·달러 환율 주간거래 종가는 전일 1,368.6원보다 <strong>13.6원 오른 1,382.2원</strong>으로, 3주 만에 다시 1,380원대에 올라섰다. 장중 고점은 오전 10시 56분의 <strong>1,384.5원</strong>이었다. 9월 10일 이후 6거래일 동안 누적 상승폭은 <strong>46.1원</strong>이다. 달러인덱스는 100.161로 100선을 넘었고, 원·엔 환율은 100엔당 888.24원으로 9.07원 올랐다.</p>
+      <p>수급에서는 외국인이 <strong>7거래일 연속</strong> 순매도를 이어갔다. 유가증권시장에서만 이날 <strong>2조 2,771억 원</strong>어치를 팔았다. 종목별로는 반도체가 약했다. 삼성전자는 0.39% 내린 25만 2,500원, SK하이닉스는 0.80% 내린 174만 5,000원에 마감했다. 반면 금융주는 강세로, KB금융이 1.41% 올랐다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">코스피</span><span>6,715.41 (-2.56p, -0.04%)</span></li>
+      <li><span class="k">코스닥</span><span>822.18 (+6.20p, +0.76%) — 3거래일 연속 상승</span></li>
+      <li><span class="k">원·달러</span><span>1,382.2원 (+13.6원) · 장중 고점 1,384.5원</span></li>
+      <li><span class="k">6거래일 누적</span><span>환율 +46.1원 (9월 10일 이후)</span></li>
+      <li><span class="k">반도체</span><span>삼성전자 252,500원(-0.39%) · SK하이닉스 1,745,000원(-0.80%)</span></li>
+      <li><span class="k">외국인</span><span>7거래일 연속 순매도 · 9월 17일 2조 2,771억 원</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>같은 날 지수는 0.04% 움직였고 환율은 1% 움직였다. <strong>이 비대칭이 오늘의 정보</strong>다. 금리 인상은 주식시장에 미리 가격이 매겨져 있었지만, 원화 가치에는 그렇지 않았다는 뜻이다. 실무적으로 이건 "증시 조용하니 별일 없다"로 읽으면 안 되는 신호다. <strong>수입 원가·해외 광고비·클라우드 사용료처럼 달러로 나가는 비용은 6거래일 만에 이미 3.4%가량 비싸졌다</strong>. 연말 예산을 1,330~1,350원대로 잡아둔 조직이라면 4분기 집행 계획부터 다시 계산해야 하고, 반대로 수출 비중이 큰 쪽은 같은 기간에 마진이 자동으로 늘어난 상태다. 환율은 지수보다 느리게 뉴스가 되지만, 손익계산서에는 훨씬 빨리 도착한다.</p>
+    </div>
+    <a class="source" href="https://www.kado.net/news/articleView.html?idxno=2073376">강원도민일보</a> <a class="source" href="https://www.betanews.net/article/view/beta202609170081">베타뉴스</a>
+    <span class="ref-note">⚠ 시세는 9월 17일 종가 기준, 변동 가능 · 외국인 순매도 2조 2,771억 원은 복수 매체 일치 확인, 기관·개인 순매수 금액은 매체별 집계가 엇갈려 미표기 (확인 2026-09-18)</span>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">差</span>
+    <div class="card-top"><span class="topic">금리·통화</span></div>
+    <h2>격차는 1%포인트, 답은 10월로</h2>
+    <div class="summary">
+      <p>연준이 기준금리를 연 <strong>3.75~4.00%</strong>로 올리면서 연 <strong>3.00%</strong>인 한국은행 기준금리와의 격차가 상단 기준 <strong>1.0%포인트</strong>로 다시 벌어졌다. 한은은 앞서 7월과 8월 두 차례 연속으로 금리를 올린 상태다.</p>
+      <p>함께 공개된 점도표에서는 다수 위원이 연말까지 추가 인상을 예상한 것으로 전해졌다. 구체적인 위원 수는 매체별 표기가 계속 엇갈려 아래 표에도 방향성만 적는다. 미 10년물 국채금리는 5% 안팎에서 움직이고 있다.</p>
+      <p>한은의 다음 금리 결정은 <strong>10월 금융통화위원회</strong>다. 시장 전망은 갈린다. 연속 인상 효과를 점검할 시간이 필요하다는 이유로 10월 동결을 점치는 쪽과, 환율·물가 압력을 들어 연내 추가 인상이 불가피하다는 쪽이 맞서 있다. 어느 쪽이든 판단 재료는 같다 — 1%포인트로 벌어진 금리차와 1,380원대에 올라선 환율이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">미 기준금리</span><span>연 3.75~4.00% (9월 16일 현지 인상)</span></li>
+      <li><span class="k">한은 기준금리</span><span>연 3.00%</span></li>
+      <li><span class="k">한·미 금리차</span><span>1.0%포인트 (상단 기준)</span></li>
+      <li><span class="k">한은 최근 행보</span><span>7월·8월 연속 인상</span></li>
+      <li><span class="k">연준 점도표</span><span>다수 위원 연말까지 추가 인상 전망 (위원 수는 매체별 상이)</span></li>
+      <li><span class="k">다음 결정</span><span>10월 금융통화위원회</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>금리차 1%포인트 자체는 역사적으로 낯선 숫자가 아니다. 문제는 <strong>방향</strong>이다. 지난 2년간 이 격차는 좁혀지는 쪽으로 움직였고, 그 전제 위에서 환헤지 비율과 외화 조달 일정이 짜였다. 이제 격차는 벌어지는 쪽으로 돌아섰고, 연준 점도표는 한 번으로 끝나지 않을 가능성을 가리킨다. <strong>한은이 10월에 무엇을 하든 그건 '따라가느냐 버티느냐'의 선택이지 격차를 없애는 선택은 아니다</strong>. 그러니 계획을 세울 때 기다려야 할 것은 한은의 결정이 아니라, 지금 환율 수준이 얼마나 오래 유지될지에 대한 자기 시나리오다.</p>
+    </div>
+    <a class="source" href="https://www.hankyung.com/article/2026091718256">한국경제</a> <a class="source" href="https://www.segye.com/newsView/20260917516904">세계일보</a>
+    <span class="ref-note">⚠ 금리차·한은 연속 인상은 두 매체 교차확인 · 점도표 위원 수는 어제에 이어 매체별 표기가 엇갈려 미표기 · 10월 금통위 구체 일자와 총재 발언은 단일 매체에서만 확인돼 날짜를 적지 않고 '10월'로만 기재 (확인 2026-09-18)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Trade — 통상·에너지</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">署</span>
+    <div class="card-top"><span class="topic">통상·원전</span></div>
+    <h2>서명이 또 밀렸다, 이번엔 원전 지분</h2>
+    <div class="summary">
+      <p>3,500억 달러 규모 대미투자 양해각서(MOU)의 최종 서명이 다시 미뤄졌다. 산업통상부는 9월 17일로 예정됐던 국회 산업통상자원중소벤처기업위원회 비공개 전체회의 보고를 연기해달라고 요청했고, 당초 <strong>9월 18일</strong>로 잡혀 있던 한미 간 최종 서명도 함께 지연됐다. 정부는 국회 보고 일정을 <strong>9월 21~22일</strong>로 다시 조율하고 있다. 산업부는 미국과 협의를 이어가고 있으며 접점을 찾는 데 시간이 걸리고 있다는 입장이다.</p>
+      <p>최대 쟁점은 원전이다. 텍사스에 짓기로 한 대형 원전 8기의 노형은 웨스팅하우스 <strong>AP1000 6기</strong>와 한국형 <strong>APR1400 2기</strong>로 가닥이 잡혔지만, 웨스팅하우스 지분을 두고 이견이 크다. 한국은 <strong>20% 안팎의 지분과 이사회 참여</strong>를 요구하는 반면 미국은 <strong>5~10%의 소수 지분</strong>만 허용하려는 것으로 전해졌다. 이틀 전 보도에서는 한국 요구가 '최소 15% 이상'으로 전해졌던 사안이다.</p>
+      <p>여기에 미국이 연간 대미투자 한도 <strong>200억 달러</strong>의 절반에 해당하는 현금 <strong>약 100억 달러</strong>를 연말까지 송금하라고 요구한 것으로 알려졌다. 알래스카 LNG 개발의 상업적 합리성을 둘러싼 정부·여당 내 우려도 그대로 남아 있다. 어제 이 자리에서 '날짜가 통째로 비었다'고 적었던 사안은, 하루 만에 <strong>비어 있던 이유가 무엇인지</strong>가 드러난 셈이 됐다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">투자 규모</span><span>3,500억 달러</span></li>
+      <li><span class="k">연간 한도</span><span>200억 달러</span></li>
+      <li><span class="k">미측 요구</span><span>약 100억 달러 연말까지 현금 송금</span></li>
+      <li><span class="k">원전 노형</span><span>텍사스 8기 — AP1000 6기 + APR1400 2기</span></li>
+      <li><span class="k">지분 쟁점</span><span>한국 20% 안팎+이사회 참여 ↔ 미국 5~10% 소수지분</span></li>
+      <li><span class="k">현재 단계</span><span>협상 중 · 서명 전 — 국회 보고 9월 21~22일 조율</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>연기 자체보다 읽을 것은 <strong>쟁점이 돈에서 구조로 옮겨갔다</strong>는 점이다. 3,500억 달러라는 총액은 이미 합의된 숫자이고, 지금 다투는 건 지분율과 이사회 자리, 그리고 선납 시점이다. 이 셋은 전부 <strong>'누가 의사결정권을 갖느냐'</strong>에 대한 질문이다. 20%와 5%의 차이는 배당이 아니라 거부권이고, 100억 달러를 연내에 보내느냐 마느냐는 협상 지렛대를 언제 내려놓느냐의 문제다. 원전·에너지 밸류체인에 걸린 기업이라면 총액 뉴스가 아니라 <strong>지분 구조가 어떻게 정리되는지</strong>를 봐야 한다. 그게 향후 10년 수주의 발언권을 정한다.</p>
+    </div>
+    <a class="source" href="https://www.fnnews.com/news/202609171845512144">파이낸셜뉴스</a> <a class="source" href="https://www.etoday.co.kr/news/view/2626379">이투데이</a>
+    <span class="ref-note">⚠ 현재 단계는 '협상 중·서명 전'이며 타결·확정이 아님 · 국회 절차도 '보고'로 의결이 아님 · 웨스팅하우스 지분 요구치는 9/16 '최소 15% 이상'에서 9/17 '20% 안팎'으로 보도가 갱신돼 최신 수치를 기재 · 이투데이는 9월 16일자 배경 확인용 (확인 2026-09-18)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Politics — 정치·사법</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">法</span>
+    <div class="card-top"><span class="topic">정치·인사</span></div>
+    <h2>법사위, 12분 만의 보고서 채택</h2>
+    <div class="summary">
+      <p>국회 법제사법위원회가 9월 17일 전체회의를 열어 김승원 법무부 장관 후보자의 <strong>인사청문경과보고서를 채택</strong>했다. 더불어민주당 주도로 처리됐고, 국민의힘 의원들은 회의 시작 <strong>12분 만에 퇴장</strong>했다.</p>
+      <p>국민의힘 법사위 간사인 박형수 의원은 보고서 채택 안건 상정 자체가 지금까지의 청문회가 요식행위였음을 증명한다고 비판했다. 민주당은 청문회에서 의혹이 소명됐다는 입장인 반면 국민의힘은 규명되지 않았다고 맞섰다.</p>
+      <p>쟁점은 두 가지였다. 코로나19 신약 임상시험 승인 청탁 의혹, 그리고 가족이 근무하는 사회적협동조합 특혜 의혹이다. 이번 채택은 <strong>상임위 단계</strong>로, 본회의 표결이나 임명 절차와는 구분된다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">후보자</span><span>김승원 법무부 장관 후보자</span></li>
+      <li><span class="k">절차 단계</span><span>법사위 전체회의 청문보고서 채택 (본회의 표결 아님)</span></li>
+      <li><span class="k">일시</span><span>2026년 9월 17일</span></li>
+      <li><span class="k">야당 대응</span><span>국민의힘, 회의 시작 12분 만에 퇴장</span></li>
+      <li><span class="k">쟁점 ①</span><span>코로나19 신약 임상시험 승인 청탁 의혹</span></li>
+      <li><span class="k">쟁점 ②</span><span>가족 근무 사회적협동조합 특혜 의혹</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>지난주 이 자리에서 다룬 것은 후보자 한 명의 낙마였고, 이번 주는 같은 위원회에서 보고서가 12분 만에 채택된 장면이다. <strong>같은 절차가 두 가지 결과를 낸 셈</strong>인데, 그 차이를 만든 건 청문회 내용이 아니라 처리 방식이었다. 기업 입장에서 인사청문은 남의 집 일처럼 보이지만, 법무부 장관이 누구냐는 공정거래·기업수사·준법감시 기조에 직접 닿는다. 다만 오늘 확인된 건 <strong>상임위 문턱 하나를 넘었다는 사실</strong>뿐이고, 임명까지의 절차와 일정은 아직 남아 있다. 여기서 '결정됐다'로 앞서 읽지 않는 것이 실무적으로 중요하다.</p>
+    </div>
+    <a class="source" href="https://www.seoul.co.kr/news/politics/2026/09/17/20260917500159">서울신문</a> <a class="source" href="https://www.mt.co.kr/politics/2026/09/17/2026091711473499923">머니투데이</a>
+    <span class="ref-note">⚠ 상임위 단계 '채택'으로 본회의 의결·임명과 구분 · 표결 찬반 수치와 임명 예정일은 인용 두 출처에서 확인되지 않아 미표기 (확인 2026-09-18)</span>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">廳</span>
+    <div class="card-top"><span class="topic">사법·조직</span></div>
+    <h2>출범 2주 전, 청장도 직제도 없다</h2>
+    <div class="summary">
+      <p>10월 2일 출범 예정인 <strong>중대범죄수사청</strong>과 <strong>공소청</strong>이 개청을 2주 앞두고 지휘부 인선과 직제를 모두 확정하지 못했다. 중수청장 후보로는 김지용 변호사가 9월 7일 제청됐지만, 검찰 개혁 취지와 맞지 않는다는 여권 내 반발로 대통령이 추가 검증을 지시하면서 인사청문회 일정조차 잡히지 않았다. 제청 이후 열흘이 지난 상태다.</p>
+      <p>공소청 쪽은 더 비어 있다. 검찰총장 후보추천위원회가 <strong>첫 회의 일정조차 잡지 못했고</strong>, 박규형 대검 기획조정부장이 당분간 대리 업무를 맡을 가능성이 거론된다. 공소청 직제안은 여권의 문제 제기와 대통령의 수정 지시로 재조정 중이다. 검사 정원은 당초안 <strong>2,292명</strong>을 유지하되 일반직 정원을 <strong>8,414명에서 6,120명으로</strong> 줄이는 안이 논의되고 있다. 확정된 안이 아니다.</p>
+      <p>인력 특례임용도 매끄럽지 않다. 1차 특례임용에 <strong>2,375명</strong>이 신청했으나 철회 기간에 <strong>615명</strong>이 빠져 <strong>1,760명</strong>으로 줄었고, 2차 특례임용은 9월 15~20일 접수를 거쳐 10월 2일부터 순차 임용될 계획이다. 이 밖에 5급 이상 수사관 인사 지연, 하위 법령 정비 미완, 형사사법정보시스템 연계 지연에 따른 영장 서면 제출 가능성, 청사 내부 공사 미착수가 함께 지적됐다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">출범일</span><span>2026년 10월 2일 — 9월 18일 기준 14일 전</span></li>
+      <li><span class="k">중수청장</span><span>김지용 후보 9월 7일 제청, 추가 검증 중 · 청문 일정 미정</span></li>
+      <li><span class="k">공소청장</span><span>미정 — 추천위 첫 회의도 미개최</span></li>
+      <li><span class="k">1차 특례임용</span><span>2,375명 신청 → 615명 철회 → 1,760명</span></li>
+      <li><span class="k">2차 특례임용</span><span>9월 15~20일 접수 · 10월 2일부터 순차 임용</span></li>
+      <li><span class="k">직제안(논의 중)</span><span>검사 2,292명 유지 · 일반직 8,414명 → 6,120명</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>조직을 새로 만들어 본 사람이라면 이 목록이 익숙할 것이다 — 수장 미정, 정원 미확정, 시스템 연계 지연, 사무실 공사 미착수. 어느 하나도 치명적이지 않지만 <strong>겹치면 개청일 이후 몇 달치 업무가 그대로 밀린다</strong>. 기업 관점에서 실질적인 함의는 하나다. 수사기관 재편기에는 <strong>진행 중인 사건의 관할과 담당자가 바뀔 수 있고, 그 전환기에 응답 속도가 느려진다</strong>. 법무·컴플라이언스 부서가 지금 해둘 일은 새 기관의 조직도를 기다리는 게 아니라, 계류 중인 사안의 이송 경로와 연락 창구를 미리 확인해두는 쪽이다.</p>
+    </div>
+    <a class="source" href="https://m.sedaily.com/article/20092330">서울경제</a> <a class="source" href="https://view.asiae.co.kr/article/2026091709441769703">아시아경제</a>
+    <span class="ref-note">⚠ 직제안·정원은 '재조정 중·논의 중'으로 확정이 아님 · 특례임용 신청 2,375명·철회 615명·잔여 1,760명은 서울경제, 직제안 검사 2,292명·일반직 8,414→6,120명은 아시아경제 보도 · 중수청 총 인력 규모는 최신 기사에서 확인되지 않아 미표기 (확인 2026-09-18)</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Sports — 스포츠</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">籃</span>
+    <div class="card-top"><span class="topic">스포츠·프리뷰</span></div>
+    <h2>오늘 오후 4시, 6연패의 이란전</h2>
+    <div class="summary">
+      <p>2026 아이치·나고야 아시안게임 남자농구 준결승에서 한국이 <strong>오늘 오후 4시</strong>(한국시간) 나고야 아이치 인터내셔널 아레나에서 <strong>이란</strong>과 맞붙는다. 당초 오후 7시 20분으로 예정됐으나, 개최국 일본이 9월 16일 대만을 85-78로 꺾고 4강에 오르면서 일본-중국전이 저녁 시간대로 배정돼 한국-이란전이 앞당겨졌다. 반대편 4강은 일본과 중국, 결승은 <strong>9월 20일 오후 7시 40분</strong> 같은 장소다.</p>
+      <p>한국은 8강에서 요르단을 <strong>114-80</strong>으로 꺾고 올라왔다. 니콜라이스 마줄스 감독이 지휘하며, 8강전에서는 엔트리 전원 득점이 나왔다.</p>
+      <p>이란과의 역대 전적은 한국이 <strong>13승 10패</strong>로 앞서지만, 최근 흐름은 반대다. 2014년 인천 아시안게임 결승에서 79-77로 이겨 금메달을 딴 이후 <strong>6연패</strong> 중이다. 오늘 이기면 12년 만에 아시안게임 결승에 오른다. 이 브리프가 나가는 시점에는 아직 경기 전이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">경기</span><span>남자농구 준결승 — 한국 vs 이란</span></li>
+      <li><span class="k">일시</span><span>9월 18일 오후 4시 (한국시간) — 발행 시점 경기 전</span></li>
+      <li><span class="k">장소</span><span>나고야 아이치 인터내셔널 아레나</span></li>
+      <li><span class="k">역대 전적</span><span>한국 13승 10패 — 2014년 이후 6연패</span></li>
+      <li><span class="k">8강 결과</span><span>한국 114-80 요르단 (전원 득점)</span></li>
+      <li><span class="k">결승</span><span>9월 20일 오후 7시 40분 · 반대편 4강 일본-중국</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>이 경기의 서사는 <strong>"13승 10패인데 6연패"</strong>라는 한 줄에 다 들어 있다. 통산 전적은 앞서지만 최근 12년은 내리 졌다는 뜻이고, 숫자 두 개가 정반대 이야기를 한다. 성과 지표를 다루는 사람에게 이건 익숙한 함정이다 — <strong>누적 수치는 좋아 보이는데 최근 추세는 무너져 있는 경우</strong>가 실제로 더 흔하다. 대시보드에서 통산·연간 지표만 보면 6연패가 안 보인다. 오늘 결과가 어느 쪽이든, 봐야 할 건 평균이 아니라 최근 구간이라는 점은 그대로다.</p>
+    </div>
+    <a class="source" href="https://www.etoday.co.kr/news/view/2626783">이투데이</a> <a class="source" href="https://www.newspim.com/news/view/20260916001059">뉴스핌</a> <a class="source" href="https://www.gukjenews.com/news/articleView.html?idxno=3698907">국제뉴스</a>
+    <span class="ref-note">⚠ 발행 시점(9월 18일 오전) 기준 경기 전 · 역대 전적 13승 10패와 2014년 인천 결승 79-77은 국제뉴스(9/18) 확인 · 경기 시간은 변경 가능 · 8강 스코어는 매체별로 114-80과 114-102가 엇갈려 어제 게재분·뉴스핌과 일치하는 114-80을 유지 · 개인 기록은 교차확인 실패로 미표기 (확인 2026-09-18)</span>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 팩트체크 → 마케팅 인사이트 → 디자인 렌더링 → 검토<br>
+    2026년 9월 18일 금요일 메인 브리프 · 증시·환율 1 + 금리 1 + 통상 1 + 정치·사법 2 + 스포츠 1 · 어제(9/17) 항목과 중복 배제, 동일 소재는 새 전개가 확인된 것만 각도를 바꿔 재등장<br>
+    모든 정보는 참고용이며, 최종 확인은 각 카드의 출처 링크를 권장합니다
+    <!-- tracker: 2026-09-18
+         [추적 중인 스토리 현재 상태]
+         연준·금리: 9/16(현지) 0.25%p 인상 3.75~4.00% 확정 이후 국내 반영 국면. 한·미 금리차 상단 기준 1.0%p로 재확대(한은 3.00%, 7·8월 연속 인상 상태). 점도표 위원 수는 이틀째 매체별 표기 불일치로 미채택, 방향성(다수 위원 연말 추가 인상)만 유지. 한은 다음 결정은 10월 금통위 → 구체 일자는 단일 매체만 확인돼 미표기. → 10월 금통위 결정·환율 1,400원 접근 여부 추적. (9/17 '인상 확정'에서 이어짐)
+         국내 증시·환율: 9/17 코스피 6,715.41(-2.56p, -0.04%) 약보합, 장중 고점 6,795.53에서 상승분 전량 반납. 코스닥 822.18(+0.76%) 3거래일 연속 상승. 원·달러 1,382.2원(+13.6원)으로 3주 만에 1,380원대, 장중 고점 1,384.5원, 9/10 이후 6거래일 누적 +46.1원. 달러인덱스 100.161. 외국인 7거래일 연속 순매도, 9/17 유가증권시장 2조 2,771억 원 순매도(기관·개인 금액은 매체별 상이로 미표기). 삼성전자 252,500원(-0.39%), SK하이닉스 1,745,000원(-0.80%). → 환율 1,390~1,400원대 진입 여부·외국인 순매도 지속 추적. (9/17 '6,717.97·1,368.6원'에서 이어짐)
+         한미 투자협정: 9/17 국회 산중위 비공개 보고 연기, 9/18 목표였던 최종 서명도 함께 지연. 국회 보고 새 일정 9/21~22 조율 중. 신규 확인 쟁점 — 텍사스 원전 8기 노형 AP1000 6기+APR1400 2기, 웨스팅하우스 지분 한국 20% 안팎+이사회 참여 요구 vs 미국 5~10% 소수지분, 미측 연말까지 약 100억 달러(연 한도 200억 달러의 절반) 현금 선납 요구. 알래스카 LNG 상업적 합리성 우려 유지. 지분 요구치는 9/16 '최소 15% 이상' → 9/17 '20% 안팎'으로 보도 갱신. 헤럴드경제발 '9/23 발표 유력'설은 9/17 기사에서 확인 안 돼 미채택. → 9/21~22 국회 보고 실제 개최 여부·새 서명일 확정 추적. (9/17 '연기, 새 일정 미정'에서 이어짐)
+         중수청·공소청: 10/2 출범 14일 전. 중수청장 김지용 9/7 제청 후 추가 검증으로 청문 일정 미정. 공소청장 추천위 첫 회의 미개최, 박규형 대검 기조부장 대리 가능성 거론. 직제안 재조정 중(검사 2,292명 유지, 일반직 8,414→6,120명 논의). 1차 특례임용 2,375명 신청 → 615명 철회 → 1,760명, 2차 9/15~20 접수 후 10/2부터 순차 임용. KICS 연계 지연·청사 공사 미착수 지적. → 청장 인사청문 일정 확정·직제 확정 여부 추적. (9/16 '초대 중수청장 여권 반발'에서 이어짐, 개청 준비 전반으로 확장)
+         법무부 인사: 김승원 후보자 9/17 법사위 전체회의 청문보고서 채택(민주당 주도, 국민의힘 12분 만에 퇴장, 박형수 간사 비판). 쟁점=코로나19 신약 임상시험 승인 청탁 의혹, 가족 근무 사회적협동조합 특혜 의혹. 상임위 단계이며 본회의·임명 절차 남음. 표결 찬반 수치·임명 예정일 미확인. → 임명 시점 추적 후 종결.
+         남자농구 AG: 9/18 오후 4시 준결승 한국 vs 이란(나고야 아이치 인터내셔널 아레나). 당초 19:20에서 앞당겨짐(일본이 9/16 대만 85-78 승으로 4강 진출, 일본-중국전이 저녁 배정). 8강 한국 114-80 요르단. 역대 13승 10패, 2014 인천 결승 79-77 승 이후 6연패. 결승 9/20 19:40. 발행 시점 경기 전이라 프리뷰로만 게재. → 9/18 준결승 결과·9/20 결승 진출 여부 추적.
+         [기존 추적 유지] 한·중앙아 '서울선언' 산업장관 협의체 첫 회의·실제 수주 전환 · SK하이닉스 임단협 타결(종결, 타사 성과급 파급 시 재등장) · 최길수 후보자 9/17 청문회 결과(검색으로 확인 실패, 재확인 필요) · 수시 원서 장애 구제 확정 규모·17개 대학 접수 취소 · 미 클래리티법 재상정 · 사우디 동서송유관 복구·이란-GCC 회의 · 홍지선 국토부 후보자 · 이창동 '가능한 사랑' 9/23 개봉 · 북한 SRBM(9/12 원산) · CXMT 범용 D램 · KBO 관중 1100만 · 경찰 한동훈 수사자료 유출 수사 · 김병기 영장 재신청 · 충청권 392조 메가프로젝트 · 카카오 인적분할(12/17) · 홈플러스 회생계획 · 2027 예산안 820.9조 · 고려아연 vs MBK·영풍 · 파주 냉동창고 사건 검찰 처분 — 새 전개 시 재등장.
+         [오늘 다룬 항목] ①코스피 6,715.41 약보합·환율 1,382.2원(+13.6원) 3주 만 1380원대·외국인 2조 2,771억 순매도 ②한·미 금리차 1.0%p 재확대, 한은 다음 결정 10월 ③대미투자 MOU 서명 재연기 — 원전 지분 20% vs 5~10%·100억 달러 선납 요구 ④김승원 법무장관 후보자 법사위 청문보고서 채택(국힘 12분 만 퇴장) ⑤중수청·공소청 10/2 출범 14일 전 청장·직제 공백 ⑥남자농구 4강 이란전 오늘 16시 프리뷰(6연패 중)
+
+         [검토 하네스에서 잡아 고친 것] ①카드①의 ref-note가 "투자주체별 순매수 금액은 매체별 집계가 상반돼 미표기"라고 적었으나, 인용한 강원도민일보 본문에 외국인 순매도 2조 2,771억 원이 명시돼 있고 복수 매체가 같은 수치를 보도한 것이 확인돼 배제 사유 자체가 사실과 달랐다 → 금액을 본문·스펙에 반영하고 주석은 "기관·개인 순매수 금액만 매체별 상이"로 정정. ②카드⑤ ref-note가 특례임용 수치 네 개를 "두 매체 일치 확인"이라고 적었으나, 서울경제에는 검사 2,292명·일반직 8,414→6,120명이 없고 아시아경제에만 있으며 잔여 1,760명은 반대로 서울경제에만 있었다 → 어느 수치가 어느 매체 확인분인지 분리 표기. ③카드⑥의 역대 전적 13승 10패와 2014년 인천 결승 79-77이 인용한 두 출처(이투데이·뉴스핌) 어디에도 없어 무출처 상태였다 → 해당 수치를 실은 국제뉴스(9/18) 기사를 WebFetch로 직접 확인해 세 번째 출처로 추가하고 주석에 명기. ④출처 링크 12개를 전부 WebFetch로 열어 기사 제목·발행일·카드 수치를 대조, 죽은 링크·내용 불일치 없음 확인. ⑤코스피 6,717.97-2.56=6,715.41, 환율 1,368.6+13.6=1,382.2, 13.6/1,368.6=0.99%(인사이트 "1% 움직였다"), 46.1/1,336.1=3.45%("3.4%가량"), 연준 상단 4.00%-한은 3.00%=1.0%p, 2,375-615=1,760, 9/18→10/2=14일을 각각 계산 검증. ⑥카드③(협상 중·서명 전)·카드④(상임위 채택, 본회의 아님)·카드⑤(직제안 논의 중)의 절차 단계 표기와, 카드⑥에 경기 결과가 섞이지 않았는지를 정밀 확인.
+         [제외] 3분기 실적 컨센서스 줄하향(삼성전자·SK하이닉스·현대차) — 출처 1곳뿐으로 교차확인 실패, 게다가 해당 기사는 '원화 강세'를 악재로 들어 같은 날 카드①의 '환율 급등'과 독자에게 모순으로 읽힐 위험 → 제외 · 추석 고속도로 통행료 면제·KTX 할인 — 검색 상위 정책브리핑 원문이 2024년 9월자로 확인, 2026년판 1차 출처 미확보 + 9/14에 '추석 할인 1930억' 게재 → 제외 · 석유 최고가격 동결·국제유가 — 9/15에 '브렌트 108달러' 게재, 동결은 '가닥' 단계로 확정 아님, 두바이유 127.7달러가 브렌트 108.75달러를 19달러 상회하는 이례적 역전이 단일 출처뿐 → 제외 · 최길수 후보자 9/17 청문회 결과 — 검색으로 결과 기사 확보 실패, 지어내지 않고 제외(추적 유지) · 코스피 투자주체별 순매수 금액 — 매체 간 부호까지 상반돼 미표기 · 연준 점도표 위원 수 — 이틀째 표기 불일치로 미표기 · 사회·사건사고 및 국제 일반 — 검색 커버리지 제한으로 검증 가능한 개별 사안 특정 실패, 억지로 채우지 않음
+         [리서치 도구 이슈] mcp__Firecrawl__firecrawl_search가 전 호출 HTTP 402(크레딧 소진)로 실패해 1단계 발견을 WebSearch로 대체. 2단계 WebFetch 본문 검증은 지시대로 전량 수행. Firecrawl의 date 필드를 쓸 수 없어 발행 시각은 기사 본문의 입력·수정 시각(KST)으로 대체 확인. 사회·국제 섹션 커버리지가 이 영향으로 축소됨.
+    -->
+
+  </footer>
+
+</div>
+</body>
+</html>
