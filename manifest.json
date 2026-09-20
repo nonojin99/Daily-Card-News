@@ -1,7 +1,53 @@
 {
-  "generated": "2026-09-18T22:05:40Z",
-  "count": 184,
+  "generated": "2026-09-20T21:39:07Z",
+  "count": 189,
   "files": [
+    {
+      "date": "2026-09-21",
+      "month": "2026-09",
+      "year": "2026",
+      "mon": "09",
+      "day": "21",
+      "type": "daily",
+      "path": "2026-09-21_daily-brief.html"
+    },
+    {
+      "date": "2026-09-21",
+      "month": "2026-09",
+      "year": "2026",
+      "mon": "09",
+      "day": "21",
+      "type": "ai",
+      "path": "2026-09-21_ai-brief.html"
+    },
+    {
+      "date": "2026-09-21",
+      "month": "2026-09",
+      "year": "2026",
+      "mon": "09",
+      "day": "21",
+      "type": "foundry",
+      "issue": 15,
+      "path": "파운드리_주간_15_20260921.html"
+    },
+    {
+      "date": "2026-09-20",
+      "month": "2026-09",
+      "year": "2026",
+      "mon": "09",
+      "day": "20",
+      "type": "daily",
+      "path": "2026-09-20_daily-brief.html"
+    },
+    {
+      "date": "2026-09-20",
+      "month": "2026-09",
+      "year": "2026",
+      "mon": "09",
+      "day": "20",
+      "type": "science",
+      "path": "2026-09-20_science-brief.html"
+    },
     {
       "date": "2026-09-19",
       "month": "2026-09",
