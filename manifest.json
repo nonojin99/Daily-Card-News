@@ -1,7 +1,25 @@
 {
-  "generated": "2026-09-21T21:58:36Z",
-  "count": 191,
+  "generated": "2026-09-22T22:53:34Z",
+  "count": 193,
   "files": [
+    {
+      "date": "2026-09-23",
+      "month": "2026-09",
+      "year": "2026",
+      "mon": "09",
+      "day": "23",
+      "type": "daily",
+      "path": "2026-09-23_daily-brief.html"
+    },
+    {
+      "date": "2026-09-23",
+      "month": "2026-09",
+      "year": "2026",
+      "mon": "09",
+      "day": "23",
+      "type": "culture",
+      "path": "2026-09-23_culture-brief.html"
+    },
     {
       "date": "2026-09-22",
       "month": "2026-09",
@@ -35,8 +53,9 @@
       "year": "2026",
       "mon": "09",
       "day": "21",
-      "type": "ai",
-      "path": "2026-09-21_ai-brief.html"
+      "type": "foundry",
+      "issue": 15,
+      "path": "파운드리_주간_15_20260921.html"
     },
     {
       "date": "2026-09-21",
@@ -44,9 +63,8 @@
       "year": "2026",
       "mon": "09",
       "day": "21",
-      "type": "foundry",
-      "issue": 15,
-      "path": "파운드리_주간_15_20260921.html"
+      "type": "ai",
+      "path": "2026-09-21_ai-brief.html"
     },
     {
       "date": "2026-09-20",
@@ -443,8 +461,9 @@
       "year": "2026",
       "mon": "08",
       "day": "31",
-      "type": "ai",
-      "path": "2026-08-31_ai-brief.html"
+      "type": "foundry",
+      "issue": 10,
+      "path": "파운드리_주간_10_20260831.html"
     },
     {
       "date": "2026-08-31",
@@ -452,9 +471,8 @@
       "year": "2026",
       "mon": "08",
       "day": "31",
-      "type": "foundry",
-      "issue": 10,
-      "path": "파운드리_주간_10_20260831.html"
+      "type": "ai",
+      "path": "2026-08-31_ai-brief.html"
     },
     {
       "date": "2026-08-30",
@@ -579,9 +597,8 @@
       "year": "2026",
       "mon": "08",
       "day": "24",
-      "type": "foundry",
-      "issue": 11,
-      "path": "파운드리_주간_11_20260824.html"
+      "type": "ai",
+      "path": "2026-08-24_ai-brief.html"
     },
     {
       "date": "2026-08-24",
@@ -589,8 +606,9 @@
       "year": "2026",
       "mon": "08",
       "day": "24",
-      "type": "ai",
-      "path": "2026-08-24_ai-brief.html"
+      "type": "foundry",
+      "issue": 11,
+      "path": "파운드리_주간_11_20260824.html"
     },
     {
       "date": "2026-08-23",
@@ -715,8 +733,9 @@
       "year": "2026",
       "mon": "08",
       "day": "17",
-      "type": "ai",
-      "path": "2026-08-17_ai-brief.html"
+      "type": "foundry",
+      "issue": 10,
+      "path": "파운드리_주간_10_20260817.html"
     },
     {
       "date": "2026-08-17",
@@ -724,9 +743,8 @@
       "year": "2026",
       "mon": "08",
       "day": "17",
-      "type": "foundry",
-      "issue": 10,
-      "path": "파운드리_주간_10_20260817.html"
+      "type": "ai",
+      "path": "2026-08-17_ai-brief.html"
     },
     {
       "date": "2026-08-16",
@@ -969,9 +987,8 @@
       "year": "2026",
       "mon": "08",
       "day": "03",
-      "type": "foundry",
-      "issue": 8,
-      "path": "파운드리_주간_08_20260803.html"
+      "type": "ai",
+      "path": "2026-08-03_ai-brief.html"
     },
     {
       "date": "2026-08-03",
@@ -979,8 +996,9 @@
       "year": "2026",
       "mon": "08",
       "day": "03",
-      "type": "ai",
-      "path": "2026-08-03_ai-brief.html"
+      "type": "foundry",
+      "issue": 8,
+      "path": "파운드리_주간_08_20260803.html"
     },
     {
       "date": "2026-08-02",
@@ -1087,9 +1105,8 @@
       "year": "2026",
       "mon": "07",
       "day": "28",
-      "type": "foundry",
-      "issue": 7,
-      "path": "파운드리_주간_07_20260728.html"
+      "type": "sports",
+      "path": "2026-07-28_sports-brief.html"
     },
     {
       "date": "2026-07-28",
@@ -1097,8 +1114,9 @@
       "year": "2026",
       "mon": "07",
       "day": "28",
-      "type": "sports",
-      "path": "2026-07-28_sports-brief.html"
+      "type": "foundry",
+      "issue": 7,
+      "path": "파운드리_주간_07_20260728.html"
     },
     {
       "date": "2026-07-27",
@@ -1205,8 +1223,9 @@
       "year": "2026",
       "mon": "07",
       "day": "22",
-      "type": "culture",
-      "path": "2026-07-22_culture-brief.html"
+      "type": "foundry",
+      "issue": 6,
+      "path": "파운드리_주간_06_20260722.html"
     },
     {
       "date": "2026-07-22",
@@ -1214,9 +1233,8 @@
       "year": "2026",
       "mon": "07",
       "day": "22",
-      "type": "foundry",
-      "issue": 6,
-      "path": "파운드리_주간_06_20260722.html"
+      "type": "culture",
+      "path": "2026-07-22_culture-brief.html"
     },
     {
       "date": "2026-07-21",
