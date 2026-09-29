@@ -1,7 +1,25 @@
 {
-  "generated": "2026-09-27T22:41:04Z",
-  "count": 204,
+  "generated": "2026-09-29T08:24:20Z",
+  "count": 206,
   "files": [
+    {
+      "date": "2026-09-29",
+      "month": "2026-09",
+      "year": "2026",
+      "mon": "09",
+      "day": "29",
+      "type": "daily",
+      "path": "2026-09-29_daily-brief.html"
+    },
+    {
+      "date": "2026-09-29",
+      "month": "2026-09",
+      "year": "2026",
+      "mon": "09",
+      "day": "29",
+      "type": "sports",
+      "path": "2026-09-29_sports-brief.html"
+    },
     {
       "date": "2026-09-28",
       "month": "2026-09",
