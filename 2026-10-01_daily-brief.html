@@ -58,6 +58,51 @@
   footer .pipe{color:var(--accent);font-weight:600}
   @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
 </style>
 </head>
 <body><div class="wrap">
@@ -115,6 +160,26 @@
       <p>문제는 간격이다. 추경 대비 세수 오차율은 <strong>15.2%</strong>로 역대 5위 수준인데, 그 추경을 편성한 지 <strong>일곱 달</strong> 만에 다시 60조원대 오차가 났다. 2년 연속 세수 결손을 겪다가 3년 만에 장부가 반대 방향으로 뒤집힌 셈이다.</p>
       <p>증가분을 끌어올린 것은 <strong>법인세</strong>였다. 136조4000억원으로 추경 대비 35조원 늘었고, 소득세가 152조4000억원으로 15조6000억원, 농어촌특별세가 20조3000억원으로 6조7000억원 늘었다. 증권거래세도 12조4000억원으로 1조9000억원 증가했다.</p>
     </div>
+    <figure class="chart">
+      <figcaption>국세수입 전망 — 세 번의 추계</figcaption>
+      <div class="cv-legend"><span class="k1"><i></i>추계액</span><span class="k2"><i></i>추경 대비 초과분</span></div>
+      <svg class="cv" viewBox="0 0 640 174" role="img" aria-label="2026년 국세수입 전망: 본예산 390.2조, 추경 415.4조, 재추계 478.6조로 추경 대비 63.2조 초과">
+<text class="cv-t" x="0" y="14">단위: 조원</text>
+<path class="cv-bar cv-s1" d="M118 30 h342.4237358963644 v22 h-342.4237358963644 Z"/>
+<text class="cv-val" x="468.4" y="45.0">390.2</text>
+<text class="cv-cat" x="108" y="45.0" text-anchor="end">본예산</text>
+<path class="cv-bar cv-s1" d="M118 70 h364.53823652319267 v22 h-364.53823652319267 Z"/>
+<text class="cv-val" x="490.5" y="85.0">415.4</text>
+<text class="cv-cat" x="108" y="85.0" text-anchor="end">추경</text>
+<path class="cv-bar cv-s1" d="M480.53823652319267 110 H122 a4 4 0 0 0 -4 4 V128 a4 4 0 0 0 4 4 H480.53823652319267 Z"/>
+<path class="cv-bar cv-s2" d="M482.53823652319267 110 H534.0 a4 4 0 0 1 4 4 V128 a4 4 0 0 1 -4 4 H482.53823652319267 Z"/>
+<text class="cv-val cv-mid" x="510.3" y="105">+63.2</text>
+<text class="cv-val" x="546.0" y="125.0">478.6</text>
+<text class="cv-cat" x="108" y="125.0" text-anchor="end">재추계 9/30</text>
+<text class="cv-t" x="0" y="170">추경 대비 오차율 15.2%</text>
+</svg>
+      <p class="cv-note">막대 길이는 전망액에 정비례한다. 주황 구간이 <strong>추경 대비 초과분 63.2조</strong>다 — 이 카드가 말하는 "오차"가 바로 이 조각이다. 세 값 모두 서울신문·경향신문 교차 확인분이며, <strong>확정 실적이 아니라 전망치</strong>다.</p>
+    </figure>
     <ul class="spec">
       <li><span class="k">총 국세수입</span><span>478조6000억원 전망 (일반회계 455조3000억 + 특별회계 23조3000억)</span></li>
       <li><span class="k">추경 대비</span><span>+63조2000억원 — 오차율 15.2%(역대 5위)</span></li>
@@ -144,6 +209,30 @@
       <p>낙폭을 만든 곳은 뚜렷하다. 광공업 생산이 4.8% 줄었고, 그 안에서 <strong>자동차 생산이 24.8% 급감</strong>했다. 반대로 서비스업 생산은 0.5%, 건설기성은 1.9% 늘어 전체 낙폭을 일부 상쇄했다.</p>
       <p>경기 지표는 엇갈렸다. 현재 경기를 보는 <strong>동행지수 순환변동치는 0.5포인트 올랐고</strong>, 앞을 보는 <strong>선행지수 순환변동치는 0.1포인트 내렸다</strong>.</p>
     </div>
+    <figure class="chart">
+      <figcaption>같은 지표, 다른 기준 — 부호가 갈린다</figcaption>
+      <div class="cv-legend"><span class="k1"><i></i>전월비</span><span class="k2"><i></i>전년동월비</span></div>
+      <svg class="cv" viewBox="0 0 640 214" role="img" aria-label="8월 산업활동동향: 전월비와 전년동월비 비교">
+<text class="cv-t" x="0" y="12">단위: % · 8월 산업활동동향</text>
+<line class="cv-zero" x1="0" y1="125.2" x2="640" y2="125.2"/>
+<path class="cv-bar cv-s1" d="M95.0 125.19999999999999 V128.49333333333334 a3.2933333333333366 3.2933333333333366 0 0 0 3.2933333333333366 3.2933333333333366 H115.70666666666666 a3.2933333333333366 3.2933333333333366 0 0 0 3.2933333333333366 -3.2933333333333366 V125.19999999999999 Z"/>
+<text class="cv-val cv-mid" x="107.0" y="147.8">−1.3</text>
+<path class="cv-bar cv-s2" d="M121.0 125.19999999999999 V119.57333333333334 a4 4 0 0 1 4 -4 H141.0 a4 4 0 0 1 4 4 V125.19999999999999 Z"/>
+<text class="cv-val cv-mid" x="133.0" y="108.6">+1.9</text>
+<text class="cv-cat cv-mid" x="120.0" y="208">전산업생산</text>
+<path class="cv-bar cv-s1" d="M295.0 125.19999999999999 V130.32 a4 4 0 0 0 4 4 H315.0 a4 4 0 0 0 4 -4 V125.19999999999999 Z"/>
+<text class="cv-val cv-mid" x="307.0" y="150.3">−1.8</text>
+<path class="cv-bar cv-s2" d="M321.0 125.19999999999999 V125.96 a0.7600000000000051 0.7600000000000051 0 0 0 0.7600000000000051 0.7600000000000051 H344.24 a0.7600000000000051 0.7600000000000051 0 0 0 0.7600000000000051 -0.7600000000000051 V125.19999999999999 Z"/>
+<text class="cv-val cv-mid" x="333.0" y="142.7">−0.3</text>
+<text class="cv-cat cv-mid" x="320.0" y="208">소매판매</text>
+<path class="cv-bar cv-s1" d="M495.0 125.19999999999999 V169.33333333333334 a4 4 0 0 0 4 4 H515.0 a4 4 0 0 0 4 -4 V125.19999999999999 Z"/>
+<text class="cv-val cv-mid" x="507.0" y="189.3">−9.5</text>
+<path class="cv-bar cv-s2" d="M521.0 125.19999999999999 V47.626666666666665 a4 4 0 0 1 4 -4 H541.0 a4 4 0 0 1 4 4 V125.19999999999999 Z"/>
+<text class="cv-val cv-mid" x="533.0" y="36.6">+16.1</text>
+<text class="cv-cat cv-mid" x="520.0" y="208">설비투자</text>
+</svg>
+      <p class="cv-note">0선을 기준으로 위아래가 갈린다. 설비투자는 전월비 −9.5%인데 전년동월비는 +16.1%로, <strong>같은 수치가 기준을 바꾸면 방향이 뒤집힌다</strong>. 이 카드 인사이트의 근거가 이 그림이다.</p>
+    </figure>
     <ul class="spec">
       <li><span class="k">전산업생산</span><span>전월비 -1.3% (전년동월비 +1.9%)</span></li>
       <li><span class="k">소매판매액지수</span><span>전월비 -1.8% (전년동월비 -0.3%)</span></li>
@@ -171,6 +260,36 @@
       <p>수급은 한 방향이었다. 코스피에서 외국인이 <strong>2조2,747억원</strong>, 기관이 <strong>8,586억원</strong>을 순매도했고 개인이 <strong>1조4,544억원</strong>을 순매수하며 받아냈다. 외국인 순매도는 <strong>4거래일 연속</strong>이다.</p>
       <p>대형주는 갈렸다. 삼성전자가 1.47% 내린 반면 SK하이닉스는 0.62%, LG에너지솔루션은 1.28% 올랐다. 원·달러 환율은 <strong>3.9원 내린 1,352.8원</strong>에 마감했다.</p>
     </div>
+    <figure class="chart">
+      <figcaption>코스피 · 코스닥 — 9/28 종가 = 100</figcaption>
+      <div class="cv-legend"><span class="k1"><i></i>코스피</span><span class="k2"><i></i>코스닥</span></div>
+      <svg class="cv" viewBox="0 0 640 196" role="img" aria-label="코스피와 코스닥 지수화 추이, 9월 28일 종가를 100으로">
+<text class="cv-t" x="0" y="12">9/28 종가 = 100</text>
+<line class="cv-grid" x1="70" y1="131.3" x2="548" y2="131.3"/>
+<text class="cv-ax" x="62" y="135.3" text-anchor="end">99.5</text>
+<line class="cv-grid" x1="70" y1="104.7" x2="548" y2="104.7"/>
+<text class="cv-ax" x="62" y="108.7" text-anchor="end">100.0</text>
+<line class="cv-grid" x1="70" y1="78.0" x2="548" y2="78.0"/>
+<text class="cv-ax" x="62" y="82.0" text-anchor="end">100.5</text>
+<line class="cv-grid" x1="70" y1="51.3" x2="548" y2="51.3"/>
+<text class="cv-ax" x="62" y="55.3" text-anchor="end">101.0</text>
+<line class="cv-base" x1="70" y1="104.7" x2="548" y2="104.7"/>
+<text class="cv-cat cv-mid" x="70.0" y="188">9/28</text>
+<text class="cv-cat cv-mid" x="309.0" y="188">9/29</text>
+<text class="cv-cat cv-mid" x="548.0" y="188">9/30</text>
+<polyline class="cv-line cv-s1" points="70.0,104.7 309.0,119.3 548.0,144.7"/>
+<circle class="cv-dot cv-s1" cx="70.0" cy="104.7" r="4.5"/>
+<circle class="cv-dot cv-s1" cx="309.0" cy="119.3" r="4.5"/>
+<circle class="cv-dot cv-s1" cx="548.0" cy="144.7" r="4.5"/>
+<text class="cv-val" x="560.0" y="148.7">99.25</text>
+<polyline class="cv-line cv-s2" points="70.0,104.7 309.0,84.4 548.0,45.9"/>
+<circle class="cv-dot cv-s2" cx="70.0" cy="104.7" r="4.5"/>
+<circle class="cv-dot cv-s2" cx="309.0" cy="84.4" r="4.5"/>
+<circle class="cv-dot cv-s2" cx="548.0" cy="45.9" r="4.5"/>
+<text class="cv-val" x="560.0" y="49.9">101.10</text>
+</svg>
+      <p class="cv-note">코스피 6,889.74와 코스닥 846.58은 절대 수준이 8배 넘게 달라 <strong>한 그림에 세로축을 두 개 두면 없는 상관을 만들어낸다</strong>. 그래서 두 지수를 9/28 종가 100으로 환산해 한 축에 올렸다(코스피 99.73→99.25, 코스닥 100.38→101.10). 원지수는 아래 표에 그대로 있다.</p>
+    </figure>
     <ul class="spec">
       <li><span class="k">코스피</span><span>6,838.04 (-32.77p, -0.48%) — 사흘 연속 하락</span></li>
       <li><span class="k">코스닥</span><span>855.91 (+6.11p, +0.72%)</span></li>
@@ -198,6 +317,21 @@
       <p>특검은 추 시장이 계엄 선포 직후 윤석열 전 대통령과 통화한 뒤, 국민의힘 의원 <strong>108명의 집결 장소를 여러 차례 바꿔</strong> 표결 참여를 차단했다고 주장했다.</p>
       <p>변호인단은 혐의를 전면 부인했다. 사후 수사로 드러난 사실을 행위 당시로 소급해 내란 가담으로 엮는 것은 죄형법정주의에 반한다는 취지이며, 집결지 변경은 외부 상황에 따른 불가피한 조치였다고 반박했다. <strong>선고 기일은 확인되지 않았다.</strong></p>
     </div>
+    <figure class="chart">
+      <figcaption>재판은 지금 어디까지 왔나</figcaption>
+      
+      <svg class="cv" viewBox="0 0 640 96" role="img" aria-label="재판 단계: 9월 30일 결심공판에서 구형, 1심 선고는 기일 미정">
+<line class="cv-axis" x1="18" y1="40" x2="622" y2="40"/>
+<circle class="cv-stepdot cv-st-now" cx="18.0" cy="40" r="8"/>
+<circle class="cv-steplab-ring" cx="18.0" cy="40" r="13"/>
+<text class="cv-val cv-st-now-t" x="14.0" y="18" text-anchor="start">결심공판</text>
+<text class="cv-ax" x="14.0" y="66" text-anchor="start">9/30 · 특검 징역 20년 구형</text>
+<circle class="cv-stepdot cv-st-next" cx="622.0" cy="40" r="6"/>
+<text class="cv-val cv-st-next-t" x="626.0" y="18" text-anchor="end">1심 선고</text>
+<text class="cv-ax" x="626.0" y="66" text-anchor="end">기일 미정 — 아직 형이 정해지지 않았다</text>
+</svg>
+      <p class="cv-note"><strong>구형은 검사 측이 요청하는 형량이고, 선고는 법원이 정하는 형이다.</strong> 9월 30일에 끝난 것은 결심공판이며 1심 선고 기일은 인용 기사에 없다. 헤드라인의 "징역 20년"만 떼어 읽으면 형이 확정된 것처럼 보이므로 단계를 그림으로 고정했다.</p>
+    </figure>
     <ul class="spec">
       <li><span class="k">구형</span><span>징역 20년 — <strong>구형이며 선고가 아니다</strong></span></li>
       <li><span class="k">피고인</span><span>추경호 대구시장 (사건 당시 국민의힘 원내대표)</span></li>
@@ -225,6 +359,25 @@
       <p>선제골을 먼저 내줬다. <strong>전반 33분 이영준</strong>이 헤더로 동점골을 넣어 따라붙었고, <strong>후반 37분 배준호</strong>(스토크시티)가 역전 결승골을 터뜨렸다.</p>
       <p>결승은 <strong>10월 3일 오후 7시 30분 도요타 스타디움</strong>에서 열린다. 상대는 우즈베키스탄-일본 준결승 승자로 아직 정해지지 않았다. 한국은 2014 인천 대회부터 이어온 <strong>아시안게임 남자축구 4연패</strong>까지 한 경기를 남겼다.</p>
     </div>
+    <figure class="chart">
+      <figcaption>득점 시각 — 90분 축</figcaption>
+      
+      <svg class="cv" viewBox="0 0 640 104" role="img" aria-label="한국 중국 준결승 득점 시간: 전반 33분 이영준, 후반 37분 배준호">
+<text class="cv-t" x="0" y="12">한국 득점 시각 · 90분 축</text>
+<line class="cv-axis" x1="24" y1="62" x2="560" y2="62"/>
+<line class="cv-grid" x1="292.0" y1="49" x2="292.0" y2="75"/>
+<text class="cv-ax cv-mid" x="292.0" y="90">하프타임</text>
+<text class="cv-ax" x="24" y="90">0′</text>
+<text class="cv-ax" x="560" y="90" text-anchor="end">90′</text>
+<circle class="cv-dot cv-s1" cx="220.5" cy="62" r="5.5"/>
+<text class="cv-val cv-mid" x="220.5" y="36">이영준</text>
+<text class="cv-ax cv-mid" x="220.5" y="49">전반 33′ · 1-1</text>
+<circle class="cv-dot cv-s1" cx="512.4" cy="62" r="5.5"/>
+<text class="cv-val cv-mid" x="512.4" y="36">배준호</text>
+<text class="cv-ax cv-mid" x="512.4" y="49">후반 37′ · 2-1</text>
+</svg>
+      <p class="cv-note">후반 37분은 축 위에서 82분(45+37)에 찍었다. <strong>중국의 선제골은 인용한 두 기사 본문에 시각이 없어 표시하지 않았다</strong> — 모르는 값은 그리지 않는다.</p>
+    </figure>
     <ul class="spec">
       <li><span class="k">결과</span><span>한국 2-1 중국 (역전승)</span></li>
       <li><span class="k">득점</span><span>이영준(전반 33분, 헤더 동점골) · 배준호(후반 37분, 역전 결승골)</span></li>
@@ -252,6 +405,25 @@
       <p>대호 김종서함은 2007년 세종대왕함으로 시작된 <strong>국산 이지스함 6척 개발 계획의 마지막(6번째) 함정</strong>이자, <strong>정조대왕급(KDX-Ⅲ Batch-Ⅱ)의 3번함</strong>이다. 경하배수량 약 <strong>8,200톤</strong>, 길이 170m, 폭 21m다. 이지스 전투체계와 함대지 탄도미사일, 함대공미사일을 싣는다. <strong>해군 인도는 2027년 12월 예정</strong>이다.</p>
       <p>이 대통령은 <strong>"우리 대한민국은 이제 세계 최고 수준의 군함을 스스로 설계하고, 스스로 건조해 스스로 운용하는 국가가 됐다"</strong>며 <strong>"자주국방은 곧 주권"</strong>이라고 말했고, 핵추진 잠수함과 유무인 전력모함 등을 꾸준히 확보하겠다고 밝혔다. 함명은 세종 때 북방 6진을 개척한 김종서 장군의 이름에 그의 별호 <strong>'대호(큰 호랑이)'</strong>를 붙인 것이다.</p>
     </div>
+    <figure class="chart">
+      <figcaption>진수 · 시운전 · 인도 — 세 날짜는 다르다</figcaption>
+      
+      <svg class="cv" viewBox="0 0 640 96" role="img" aria-label="함정 단계: 2026년 9월 진수, 시운전 약 1년 3개월, 2027년 12월 해군 인도 예정">
+<line class="cv-axis" x1="18" y1="40" x2="622" y2="40"/>
+<circle class="cv-stepdot cv-st-done" cx="18.0" cy="40" r="6"/>
+<text class="cv-val cv-st-done-t" x="14.0" y="18" text-anchor="start">진수</text>
+<text class="cv-ax" x="14.0" y="66" text-anchor="start">2026-09-30 · 배가 물에 떴다</text>
+<line class="cv-step-done" x1="18.0" y1="40" x2="320.0" y2="40"/>
+<circle class="cv-stepdot cv-st-now" cx="320.0" cy="40" r="8"/>
+<circle class="cv-steplab-ring" cx="320.0" cy="40" r="13"/>
+<text class="cv-val cv-st-now-t" x="320.0" y="18" text-anchor="middle">전투체계 탑재·시운전</text>
+<text class="cv-ax" x="320.0" y="66" text-anchor="middle">약 1년 3개월</text>
+<circle class="cv-stepdot cv-st-next" cx="622.0" cy="40" r="6"/>
+<text class="cv-val cv-st-next-t" x="626.0" y="18" text-anchor="end">해군 인도</text>
+<text class="cv-ax" x="626.0" y="66" text-anchor="end">2027-12 예정</text>
+</svg>
+      <p class="cv-note"><strong>진수는 배가 처음 물에 뜨는 날이지 싸울 수 있게 되는 날이 아니다.</strong> 전투체계 탑재와 시운전에 약 1년 3개월이 더 걸리고 해군 인도는 2027년 12월 예정이다. 방산 뉴스에서 진수·인도·전력화는 각각 다른 날짜를 가리킨다.</p>
+    </figure>
     <ul class="spec">
       <li><span class="k">함명</span><span>대호 김종서함 — 김종서 장군 + 별호 '대호(큰 호랑이)'</span></li>
       <li><span class="k">함급</span><span>정조대왕급(KDX-Ⅲ Batch-Ⅱ) <strong>3번함</strong> — 동시에 국산 이지스함 <strong>6척 계획의 6번째이자 마지막</strong> 함정 (두 숫자는 기준이 다르다)</span></li>
@@ -271,6 +443,7 @@
   <footer>
     <span class="pipe">Daily Card News</span> · 2026년 10월 1일 목요일 · 7 Picks<br>
     각 카드의 대표 출처 기사 본문을 직접 열어 수치·고유명사·발행일시를 확인했고, 인용 기사에 없는 값은 별도 출처를 붙이거나 뺐습니다. 한국어 원문을 확보하지 못한 발언은 따옴표로 묶지 않고 취지만 간접 서술했습니다. 그럼에도 정보는 참고용이며, 최종 확인은 각 카드의 출처 링크를 권장합니다.<br>
+    📊 이번 회차부터 <strong>수치·단계가 있는 카드에 한해</strong> 인라인 SVG 도표를 넣었습니다(차트 4 · 단계 스테퍼 2). 도표에 쓰인 값은 모두 같은 카드의 본문·스펙 표에 그대로 있고, 도형 좌표는 그 값에서 계산했습니다. <strong>그림이 유일한 전달 수단인 값은 없습니다.</strong><br>
     ⚠ 주가·환율은 9월 30일 종가 기준이며 계속 변동됩니다. 국세수입 478조6000억원은 <strong>재추계 전망치</strong>이고 확정 실적이 아닙니다. 추경호 대구시장의 징역 20년은 <strong>구형</strong>이며 선고가 아닙니다. 유엔사의 정전협정 위반은 <strong>판단</strong> 단계이고 조치는 진행 중입니다(합참은 같은 사실을 "명백한 위반"으로 표현했습니다 — 두 발표의 수위가 다릅니다). 대호 김종서함은 <strong>진수</strong>됐을 뿐 전력화(해군 인도)는 2027년 12월 예정입니다. 아시안게임 남자축구 결승 상대는 아직 정해지지 않았습니다.
 
     <!-- tracker: 2026-10-01
@@ -307,6 +480,15 @@
          ㉴<strong>인사이트 반복</strong>. 카드④(증시)가 9/27·9/29·9/30에 이어 4회째인데 인사이트가 어제와 같은 구조("지수는 조금 빠졌는데 외국인은 크게 팔았다")였다. <strong>3분기 마감일이라는 이번 회차만의 관점(기간 마지막 날의 숫자는 그 기간을 대표하지 않는다)으로 다시 썼다.</strong>
          [오늘 다룬 항목] ①유엔사 "정전협정 위반 판단"·합참 "명백한 위반"·김여정 "서울의 자작광대극" — 같은 날 세 입장문의 수위 차이, 북한 첫 공식 부인이며 대내 매체에는 미게재 ②국세 478조6000억 전망, 추경 대비 63조2000억 초과 · 오차율 15.2% ③8월 트리플 감소, 자동차 생산 전월비 -24.8% ④3분기 마감 코스피 6,838.04, 외국인 나흘 연속 2조2,747억 순매도 ⑤추경호 대구시장에 징역 20년 구형, 쟁점은 108명 집결지 ⑥남자축구 중국 2-1 역전, 결승은 10/3 도요타 ⑦대호 김종서함 진수 — 이지스함 6척 계획의 마지막, 8,200톤 · 인도 2027년 12월
          [제외한 항목] 현대차 투싼 국산 SUV 첫 누적 1000만대(경향 9/30, 단독 본문 검증 + 중국 전용 포함/제외 두 기준 병존 — 항목 수 상한으로 제외, 다음 회차 후보) · 공소청·중수청 10/2 출범 D-1 — 창구 내 새 전개 본문 검증 실패, <strong>내일 1순위 후보</strong> · 10/1 국군의 날 행사 — 창구 내 기사 본문 미확보 · 삼성 헬릭스 10억 달러 — 이틀째 신규 보도 미포착 · 배드민턴 메달 — 매체 간 정면 충돌 + 9/30 중복 · AG 일자별 누계 메달 — 지시대로 시도 안 함 · 트럼프 "김정은 내 임기에는 괜찮을 것" — 번역 인용 리스크 + 항목 수 상한 · 여고생 살해 1심 무기징역 / 김승원 의원 성추행 의혹 수사 착수 — 성범죄·강력범죄 민감 소재이며 본문 미검증, 카드뉴스 부적합 판단 · 미·중 관세 맞인하 — 9/30 기수록, 새 전개 없음
+         [시각화 도입 — 2026-10-01 첫 적용]
+         수치·단계가 있는 카드 6장에 인라인 SVG 도표를 넣었다(차트 4 · 스테퍼 2). <strong>사진은 쓰지 않는다 — 언론사 보도사진은 저작권이 있고 무인 실행에서 라이선스를 확인할 수 없다.</strong>
+         ①<strong>계열색은 브리프 액센트와 분리한다.</strong> 액센트 #3d5a4c 는 채도 0.042 로 데이터 색으로 쓰면 회색으로 읽힌다(팔레트 검증기 채도하한 FAIL). 집 팔레트 조합도 전부 실패했다 — 그린+테라코타는 protan ΔE 2.6, 그린+블루는 정상시야 ΔE 10.1 로 둘 다 구분 불가. <strong>차트 전용 2색 #2f6d9e / #c06a24 로 확정</strong>(전 항목 PASS, protan ΔE 18.9 · tritan 26.2 · 정상시야 25.3). 다음 회차도 이 두 색을 그대로 쓸 것.
+         ②<strong>이중축 금지.</strong> 코스피(6,889)와 코스닥(846)은 절대 수준이 8배 달라 한 그림에 세로축을 둘 두면 없는 상관이 만들어진다. <strong>9/28 종가 = 100 으로 지수화해 한 축에</strong> 올렸다.
+         ③<strong>스테퍼는 계열색을 쓰지 않는다.</strong> 계열색을 상태 표시에 재사용하면 "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다. 상태는 액센트+회색으로만.
+         ④<strong>모르는 값은 그리지 않는다.</strong> 축구 카드의 중국 선제골은 인용 기사에 시각이 없어 축에 찍지 않았다.
+         ⑤<strong>렌더링해서 눈으로 확인하는 단계에서 버그 3건을 잡았다</strong>: 소매판매 −0.3 처럼 높이가 2r 보다 작은 막대에서 모서리 라운드 path 가 자기교차해 깨지던 것(r 을 h/2 로 클램프), 모바일에서 SVG 텍스트가 0.48배로 줄어 못 읽히던 것(560px 이하에서 user unit 확대), 축 라벨이 viewBox 왼쪽으로 삐져나가던 것(플롯 좌측 여백 52→70). <strong>390px·820px 두 폭에서 텍스트 넘침을 자동 측정해 통과 확인했다.</strong>
+         ⑥<strong>호버 툴팁·다크모드는 넣지 않았다.</strong> 이 저장소는 209개 파일이 JS 0줄로 운영돼 왔고 무인 실행이 매일 JS 를 관리하는 것은 위험 요소다. 대신 <strong>모든 도표 값이 같은 카드의 스펙 표에 그대로 있어</strong> 그림이 유일한 전달 수단인 값은 0건이다(기계적으로 확인).
+         ⑦음악 등 서브 브리프는 차트로 만들 수치가 거의 없다(공연 프로그램·크레디트 중심). <strong>도표는 사실상 메인 브리프 기능</strong>으로 운영하고, 서브는 단계·일정이 있을 때만 스테퍼를 검토한다.
          [리서치 도구 이슈] 지시에 따라 <strong>mcp__Firecrawl__* 도구는 한 번도 호출하지 않았다</strong>. WebSearch 발견 → 기사 본문 WebFetch 검증 2단계로만 수행했다. <strong>새로 정상 동작을 확인한 도메인</strong>: etoday.co.kr(산업활동동향 상보 — 전월비/전년동월비 병기가 가장 정확), isplus.com, gukjenews.com, topstarnews.net, newscj.com, kukak21.com, swtvnews.com, vegannews.co.kr, starnewskorea.com/en. <strong>새로 차단을 확인한 도메인</strong>: billboard.co.kr <strong>403</strong>, billboard.com <strong>402(유료)</strong>, goldderby.com 402 — 다음 회차에 시도하지 말 것. 언론사 루트 도메인 직접 fetch(khan.co.kr / hankookilbo.com / ytn.co.kr / newsis.com)는 이번에도 섹션 경로보다 안정적이었다.
     -->
 
