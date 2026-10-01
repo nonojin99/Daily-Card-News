@@ -169,6 +169,10 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
 | `cdn.esawebb.org` | ESA/Webb | CC BY 4.0 | 이미지 페이지의 Credit 줄 원문 그대로 |
 | `cdn.esahubble.org` | ESA/Hubble | CC BY 4.0 | 이미지 페이지의 Credit 줄 원문 그대로 (Acknowledgement 줄 포함) |
 
+- **포토코리아(한국관광공사)는 2026.10.01 검토 후 제외.** 사진마다 공공누리 유형이 다르고(1~4유형, 일부 사용불가),
+  목록 페이지는 WebFetch 403, 관광사진 API(apis.data.go.kr)·이미지 서버(tong.visitkorea.or.kr)는 작성 환경에서
+  네트워크 정책 차단이라 **사진별 유형을 무인 실행이 확인할 수 없다.** data.go.kr 인증키 발급 + 네트워크 허용이
+  생기면 재검토(API 데이터셋은 공공누리 1유형으로 안내됨, 출처표시 형식 "ⓒ한국관광공사 포토코리아-촬영자").
 - **NASA 이미지 라이브러리(images.nasa.gov)는 넣지 않았다.** 퍼블릭 도메인이 원칙이지만 페이지가
   JS 로 그려져 WebFetch 로 크레디트·제3자 표시를 확인할 수 없다. **APOD 는 개인 사진가 저작물이 많아 금지.**
 - **크기는 반드시 `/archives/images/screen/` URL** (약 400KB). 같은 이미지의 large JPEG 는 286MB 인
