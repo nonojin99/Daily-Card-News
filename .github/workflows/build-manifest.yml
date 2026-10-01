@@ -16,6 +16,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 원격 이미지(ESA/Webb·ESA/Hubble)를 저장소로 받아 src 를 로컬 경로로 바꾼다.
+      # 실패해도 빌드는 계속된다 — 그 이미지는 핫링크로 남는다.
+      - name: Install Pillow (optional, for resizing)
+        run: |
+          python3 -m pip install --quiet --break-system-packages pillow \
+            || python3 -m pip install --quiet pillow \
+            || echo "::warning::Pillow install failed - images will be saved without resizing"
+
+      - name: Localize remote images
+        # 선택 기능이 기존 manifest 생성을 막지 않도록 — 이 스텝이 통째로 죽어도 다음 스텝은 돈다
+        continue-on-error: true
+        env:
+          LOCALIZE_OUT: ${{ runner.temp }}/localized.txt
+        run: python3 .github/scripts/localize_images.py
+
       - name: Generate manifest.json
         shell: python
         run: |
@@ -80,5 +95,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add manifest.json
-          git diff --staged --quiet || git commit -m "chore: update manifest.json [skip ci]"
+          if [ -s "$RUNNER_TEMP/localized.txt" ]; then
+            xargs -a "$RUNNER_TEMP/localized.txt" -d '\n' git add --
+          fi
+          git diff --staged --quiet || git commit -m "chore: update manifest.json, localize images [skip ci]"
           git push
