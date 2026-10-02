@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.10.03">
+<meta property="og:description" content="코스피 7,003.74, 5거래일 만에 7,000선 회복 · 9월 소비자물가 2.9% 두 달 만에 2%대, 석유류 14.8%·경유 20.0% · 신한·국민·하나·부산은행 AI 자동화 해킹, 경찰 내사 착수 · 이 대통령, 북한군 포로 공개 문제로 우크라이나에 공개사과 요구 · G7, 4개월간 비축유 최대 1억 배럴 방출 · 최태원 SK㈜ 지분 2.3% 9,440억 원 매각 · 오세훈 항소심 특검 징역 1년 6개월 구형, 23일 선고">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.10.03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>7,000을 되찾은 금요일</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 10월 3일 토요일 · 개천절</span>
+      <span class="count">7 Picks · 분야별</span>
+    </div>
+    <p class="lede">연휴 전 마지막 거래일이던 어제, 코스피는 7,003.74로 마감해 5거래일 만에 7,000선을 되찾았습니다. 같은 날 아침 나온 9월 소비자물가는 2.9%로 두 달 만에 다시 2%대로 내려왔지만, 석유류는 14.8% 올랐습니다. 그 기름값을 잡겠다며 G7이 비축유와 경유 최대 1억 배럴을 풀기로 했습니다. 금융권에서는 신한·국민·하나·부산은행 시스템이 AI 자동화 도구를 쓴 공격에 뚫린 사실이 알려져 경찰이 내사에 들어갔습니다. 이재명 대통령은 북한군 포로 공개 문제로 우크라이나에 공개 사과를 요구했고, 최태원 SK 회장은 재산분할금을 마련하려고 SK㈜ 지분 2.3%를 팔기로 했습니다. 오세훈 서울시장 항소심에서는 특검이 징역 1년 6개월을 구형했습니다. 선고는 23일입니다.</p>
+  </header>
+
+  <div class="section-rule"><span class="label">Markets — 연휴 전 마지막 거래일</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">市</span>
+    <div class="card-top"><span class="topic">증시</span></div>
+    <h2>6,938에서 출발해 7,003.74로 닫았다</h2>
+    <div class="summary">
+      <p><strong>2일</strong> 코스피는 전일보다 <strong>32.39포인트(0.46%) 오른 7,003.74</strong>로 마감했다. 전날 종가 6,971.35보다 낮은 <strong>6,938.27</strong>에서 출발해 장중 <strong>6,927.88</strong>까지 밀렸다가 <strong>7,011.04</strong>까지 오른 뒤 7,000선 위에서 장을 마쳤다. <strong>5거래일 만의 7,000선 회복</strong>이다.</p>
+      <p>코스닥은 <strong>1.00포인트(0.11%) 내린 893.29</strong>로 하루 만에 숨을 골랐다. 원·달러 환율은 오후 3시 30분 기준 <strong>7.8원 내린 1,350.6원</strong>이었다.</p>
+      <p>지수를 받친 것은 기관이었다. 유가증권시장에서 기관이 <strong>3,814억 원</strong>을 순매수했고, 개인은 <strong>1조7,206억 원</strong>, 외국인은 <strong>1,438억 원</strong>을 순매도했다. 종목별로는 LG에너지솔루션(+2.91%)·삼성전기(+1.28%)·SK하이닉스(+0.44%)가 오르고 삼성바이오로직스(-4.51%)·현대차(-0.72%)는 내렸다.</p>
+    </div>
+    <figure class="chart">
+      <figcaption>10월 2일 코스피 — 장중 범위와 시가·종가</figcaption>
+      <div class="cv-legend"><span class="k1"><i></i>장중 저가 → 고가</span><span class="k2"><i></i>시가 → 종가</span></div>
+      <svg class="cv" viewBox="0 0 640 176" role="img" aria-label="10월 2일 코스피 장중 저가 6,927.88, 고가 7,011.04, 시가 6,938.27, 종가 7,003.74, 전일 종가 6,971.35">
+<text class="cv-t" x="0" y="14">단위: 포인트 · 축 6,920 ~ 7,020</text>
+<line class="cv-zero" x1="498.00" y1="28" x2="498.00" y2="132"/>
+<text class="cv-ax cv-mid" x="498.00" y="150">7,000</text>
+<line class="cv-axis" x1="366.21" y1="28" x2="366.21" y2="132"/>
+<text class="cv-ax cv-mid" x="366.21" y="170">전일 종가 6,971.35</text>
+<text class="cv-val" x="166.25" y="44">6,927.88</text>
+<text class="cv-val" x="548.78" y="44" text-anchor="end">7,011.04</text>
+<rect class="cv-bar cv-s1" x="166.25" y="54" width="382.53" height="10" rx="4"/>
+<text class="cv-cat" x="120" y="63" text-anchor="end">장중</text>
+<text class="cv-val" x="214.04" y="100">6,938.27</text>
+<text class="cv-val" x="515.20" y="100" text-anchor="end">7,003.74</text>
+<rect class="cv-bar cv-s2" x="214.04" y="110" width="301.16" height="10" rx="4"/>
+<text class="cv-cat" x="120" y="119" text-anchor="end">시가→종가</text>
+</svg>
+      <p class="cv-note">가로 위치는 지수값에 비례한다(1포인트 = 4.6 단위). 시가 6,938.27은 전일 종가 6,971.35보다 33.08포인트 낮았다 — 하락 출발 뒤 7,000선 위로 올라선 하루였다. 검산: 6,971.35 + 32.39 = 7,003.74 ✓</p>
+    </figure>
+    <ul class="spec">
+      <li><span class="k">코스피</span><span>7,003.74 (+32.39p, +0.46%) — 5거래일 만에 7,000선 회복</span></li>
+      <li><span class="k">장중 흐름</span><span>시가 6,938.27 · 저가 6,927.88 · 고가 7,011.04 · 전일 종가 6,971.35</span></li>
+      <li><span class="k">코스닥</span><span>893.29 (-1.00p, -0.11%)</span></li>
+      <li><span class="k">원·달러 환율</span><span>1,350.6원 (-7.8원, 오후 3시 30분 기준)</span></li>
+      <li><span class="k">투자자별</span><span>기관 +3,814억 · 개인 -1조7,206억 · 외국인 -1,438억 (코스피)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>헤드라인은 "7,000 회복"이지만 하루 상승폭은 0.46%다. 같은 날 코스닥은 내렸다. <strong>상징적인 숫자를 넘는 순간은 실제 변화보다 크게 기억된다</strong> — 6,999와 7,003.74의 차이는 0.1%도 되지 않지만 기사 제목은 완전히 달라진다.<br>성과 보고에서도 같은 일이 생긴다. "목표 달성"이라는 문장 옆에 <strong>얼마나 넘었는지, 다른 지표는 어땠는지</strong>를 함께 적어야 다음 판단이 흔들리지 않는다.</p>
+    </div>
+    <a class="source" href="https://www.news1.kr/finance/market-exr/6309178">뉴스1</a> <a class="source" href="https://www.seoul.co.kr/news/economy/securities/2026/10/02/20261002500187">서울신문 — 장중·수급·환율</a>
+    <span class="ref-note">지수 종가·등락폭은 뉴스1(10/2 15:37)·서울신문(10/2 15:45) <strong>교차 확인</strong> · 시가·장중 고저, 투자자별 순매수, 환율, 종목 등락률은 <strong>서울신문 단독</strong> 확인분 · "5거래일 만에 7000 회복"은 서울신문 본문 표현 · 외국인 순매도가 며칠째인지는 본문으로 확인하지 못해 쓰지 않았다</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Prices — 9월 소비자물가</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">價</span>
+    <div class="card-top"><span class="topic">경제</span></div>
+    <h2>물가는 2.9%로 내려왔고, 경유는 20.0% 올랐다</h2>
+    <div class="summary">
+      <p>국가데이터처가 <strong>2일</strong> 발표한 9월 소비자물가는 1년 전보다 <strong>2.9%</strong> 올랐다. 8월 <strong>3.1%</strong>에서 두 달 만에 다시 2%대로 내려왔다. 전월 대비로는 0.3% 상승이다.</p>
+      <p>내려온 이유는 기저효과다. 지난해 통신요금 할인으로 낮아졌던 비교 기준이 9월에는 사라지면서 상승률이 줄었다. 반면 기름값은 그대로였다. <strong>석유류가 14.8%</strong> 올랐고 그중 <strong>경유는 20.0%</strong>, 휘발유는 11.8% 올랐다. 국제항공료도 22.5% 뛰었다.</p>
+      <p>장바구니는 반대 방향이다. 농산물이 <strong>-4.0%</strong>(사과 -9.2%, 배추 -15.2%)로 내리면서 농축수산물 전체가 -0.3%를 기록했다. 공업제품은 4.2%, 가공식품 2.1%, 서비스 2.7% 올랐다. 한국은행은 10월 물가를 3% 안팎으로 내다봤다.</p>
+    </div>
+    <figure class="chart">
+      <figcaption>소비자물가 상승률 — 전년 동월 대비</figcaption>
+      <svg class="cv" viewBox="0 0 640 138" role="img" aria-label="소비자물가 상승률 7월 2.8%, 8월 3.1%, 9월 2.9%">
+<text class="cv-t" x="0" y="14">단위: % · 2026년</text>
+<path class="cv-bar cv-s1" d="M118 30 H457.2 a4 4 0 0 1 4 4 V48 a4 4 0 0 1 -4 4 H118 Z"/>
+<text class="cv-val" x="473.2" y="45">2.8</text>
+<text class="cv-cat" x="108" y="45" text-anchor="end">7월</text>
+<path class="cv-bar cv-s1" d="M118 70 H494.0 a4 4 0 0 1 4 4 V88 a4 4 0 0 1 -4 4 H118 Z"/>
+<text class="cv-val" x="510.0" y="85">3.1</text>
+<text class="cv-cat" x="108" y="85" text-anchor="end">8월</text>
+<path class="cv-bar cv-s1" d="M118 110 H469.5 a4 4 0 0 1 4 4 V128 a4 4 0 0 1 -4 4 H118 Z"/>
+<text class="cv-val" x="485.5" y="125">2.9</text>
+<text class="cv-cat" x="108" y="125" text-anchor="end">9월</text>
+</svg>
+      <p class="cv-note">막대 길이는 상승률에 정비례한다(0%에서 시작). 8월의 3.1%에는 지난해 통신요금 할인에 따른 기저효과가 섞여 있었고, 9월에는 그 효과가 빠졌다.</p>
+    </figure>
+    <ul class="spec">
+      <li><span class="k">9월 소비자물가</span><span>+2.9% (전년 동월 대비) · 전월 대비 +0.3%</span></li>
+      <li><span class="k">직전 흐름</span><span>7월 2.8% → 8월 3.1% → 9월 2.9%</span></li>
+      <li><span class="k">석유류</span><span>+14.8% — 경유 +20.0% · 휘발유 +11.8%</span></li>
+      <li><span class="k">농축수산물</span><span>-0.3% — 농산물 -4.0% (사과 -9.2% · 배추 -15.2%)</span></li>
+      <li><span class="k">그 외</span><span>공업제품 +4.2% · 가공식품 +2.1% · 서비스 +2.7% · 국제항공료 +22.5%</span></li>
+      <li><span class="k">전망</span><span>한국은행 — 10월 3% 안팎</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>평균은 2.9%인데 소비자가 실제로 마주치는 숫자는 주유소의 <strong>경유 +20.0%</strong>와 마트의 <strong>사과 -9.2%</strong>다. 평균이 내려와도 체감이 따라오지 않는 이유다.<br>가격 커뮤니케이션을 하는 쪽이라면 '물가 안정' 같은 큰 말보다 <strong>고객이 매주 사는 품목의 가격</strong>을 말하는 편이 설득력이 있다. 기름값이 오른 달에는 배송비·이동비 같은 연관 비용이 먼저 불만으로 돌아온다.</p>
+    </div>
+    <a class="source" href="https://www.news1.kr/economy/trend/6308628">뉴스1</a> <a class="source" href="https://www.ytn.co.kr/_ln/0102_202610020814162795">YTN — 품목별</a>
+    <span class="ref-note">총지수 2.9%·8월 3.1%·석유류 14.8%는 뉴스1(10/2 10:31)·YTN(10/2 08:14) <strong>교차 확인</strong> · 기저효과 설명·한은 전망은 뉴스1 본문 · 7월 2.8%와 농산물·사과·배추 등 품목별 수치는 YTN 본문 확인분</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Security — 은행권 해킹</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">侵</span>
+    <div class="card-top"><span class="topic">금융·보안</span></div>
+    <h2>은행 네 곳이 뚫렸고, 도구는 AI였다</h2>
+    <div class="summary">
+      <p>경찰청 사이버테러대응수사대가 <strong>2일</strong> 시중은행을 겨냥한 해킹 공격에 대해 <strong>입건 전 조사(내사)</strong>에 들어갔다. 아직 정식 수사 단계는 아니다.</p>
+      <p>가장 큰 피해는 신한은행이다. <strong>9월 29~30일</strong> 모바일 홈페이지의 대출모집인용 조회 서비스가 뚫려 약 <strong>2만5,000명</strong>의 고객명·전화번호·연소득·대출한도가 빠져나갔다. KB국민은행(직원용 모바일 업무지원 시스템, 119명), 하나은행(영업지원시스템, 89명), BNK부산은행(외주 개발직원 11명)에서도 정보가 노출됐다.</p>
+      <p>공격자는 <strong>AI 기반 자동화 도구</strong>로 직원·영업 지원 시스템의 취약점을 찾아 반복 침투한 것으로 파악됐다. 금융위원회는 긴급회의를 열어 외부에 노출된 시스템을 긴급 점검하라고 지시했다. 정상혁 신한은행장은 사과하고 피해 <strong>전액 보상</strong>을 약속했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">수사 단계</span><span>경찰청 사이버테러대응수사대 <strong>내사(입건 전 조사)</strong> — 10/2 착수</span></li>
+      <li><span class="k">신한은행</span><span>약 2만5,000명 · 9/29~30 대출모집인용 조회 서비스 · 고객명·전화번호·연소득·대출한도</span></li>
+      <li><span class="k">KB국민은행</span><span>119명 · 9/30 직원용 모바일 업무지원 시스템</span></li>
+      <li><span class="k">하나은행</span><span>89명 · 영업지원시스템(ODS)</span></li>
+      <li><span class="k">BNK부산은행</span><span>외주 개발직원 11명</span></li>
+      <li><span class="k">당국 조치</span><span>금융위 긴급회의·외부 노출 시스템 긴급 점검 지시</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>이번에 뚫린 곳은 고객용 앱의 핵심 기능이 아니라 <strong>대출모집인용 조회 서비스, 직원용 업무 시스템</strong>처럼 고객이 잘 모르는 주변부였다. 보안 사고는 대개 가장 덜 신경 쓴 문에서 시작된다.<br>고객 신뢰 측면에서 회사가 고를 수 있는 것은 사고 여부가 아니라 <strong>알리는 속도와 보상의 명확성</strong>이다. "전액 보상"이라는 말이 실제로 어떤 절차로 이어지는지가 다음 몇 주의 평판을 결정한다.</p>
+    </div>
+    <a class="source" href="https://www.hankookilbo.com/news/article/A2026100221240001350">한국일보</a> <a class="source" href="https://www.newspim.com/news/view/20261002001307">뉴스핌 — 은행별 피해</a> <a class="source" href="https://www.ytn.co.kr/_ln/0102_202610020518289412">YTN — 신한 유출</a>
+    <span class="ref-note">내사 착수는 한국일보(10/2 22:03)·뉴스핌(10/2 20:40) <strong>교차 확인</strong> · <strong>은행별 피해 인원과 시스템명은 뉴스핌 단독</strong> 확인분 · AI 자동화 도구·금융위 조치는 한국일보 본문 · 신한 유출 항목과 행장 사과·전액 보상은 YTN(10/2 05:18) 본문 · 아주경제는 대상 은행을 6곳(우리·농협 포함)으로, 국민은행 피해를 "약 100건"으로 적어 <strong>매체별 표기 불일치</strong> — 이 카드는 4개 매체 공통인 4개 은행 기준 · 한국일보가 적은 주민등록번호·연계정보(CI) 포함 건수는 단일 매체라 쓰지 않았다</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Diplomacy — 한·우크라이나</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">謝</span>
+    <div class="card-top"><span class="topic">외교</span></div>
+    <h2>"묵과할 수 없다", 포로 두 명을 둘러싼 공개 사과 요구</h2>
+    <div class="summary">
+      <p>이재명 대통령이 <strong>2일 엑스(X)에 올린 글</strong>에서 우크라이나에 <strong>"대한민국 국민과 국가의 위신에 관한 문제로서 묵과할 수 없다"</strong>며 <strong>"사실인정과 공개사과를 계속 거부하면 추가조치를 해 나갈 것"</strong>이라고 밝혔다.</p>
+      <p>발단은 <strong>9월 23일(현지시간)</strong> 뉴욕 유엔총회다. 젤렌스키 우크라이나 대통령이 북한군 포로 2명을 한국에 인도한다는 사실을 공개했다. 대통령은 우크라이나 쪽 요청으로 비공개에 동의했던 사안인데 일방적으로 공개한 뒤 합의 사실은 부인했다고 주장한다.</p>
+      <p>외교부는 9월 28일 우크라이나 대리대사를 초치했고, 청와대는 박기창 주우크라이나 대사를 소환하는 방안을 <strong>검토</strong>하는 것으로 전해졌다. 우크라이나 외무장관은 "외교적 오해"라며 해결되기를 바란다고 말했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">대통령 메시지</span><span>10/2 엑스(X) 게시글 — 사실인정·공개사과 요구, 거부 시 "추가조치"</span></li>
+      <li><span class="k">발단</span><span>9/23(현지) 유엔총회 — 젤렌스키, 북한군 포로 2명 한국 인도 공개</span></li>
+      <li><span class="k">외교부</span><span>9/28 우크라이나 대리대사 초치</span></li>
+      <li><span class="k">대사 소환</span><span>청와대 <strong>검토</strong> 단계(전해짐) — 결정 아님</span></li>
+      <li><span class="k">우크라이나</span><span>외무장관 "외교적 오해" — 해결 희망</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>쟁점은 포로 인도 자체가 아니라 <strong>"비공개로 하기로 했느냐"</strong>는 합의의 존재 여부다. 한쪽은 합의가 있었다고, 다른 쪽은 오해라고 말한다. 대사 소환은 아직 검토 단계이고, '추가조치'가 무엇인지도 밝혀지지 않았다. 다음 신호는 우크라이나의 공식 답변과 소환 결정 여부다.</p>
+    </div>
+    <a class="source" href="https://www.newspim.com/news/view/20261002000500">뉴스핌</a> <a class="source" href="https://www.sedaily.com/article/20097755">서울경제 — 초치·소환 검토</a>
+    <span class="ref-note"><strong>젤렌스키 연설일은 서울신문·알자지라 기준 9월 23일(현지)</strong> — 뉴스핌은 22일로 표기 · 대통령 게시글 요지는 뉴스핌(10/2 11:04)·서울경제(10/2 18:02)·뉴스1 <strong>교차 확인</strong>, 직접인용은 뉴스핌 본문 문자열 · 대리대사 초치 날짜(9/28)와 청와대의 대사 소환 검토는 <strong>서울경제 단독</strong> 확인분 · 비공개 합의 경위는 대통령 측 주장으로 적었다 · 포로가 실제로 인도됐는지는 본문으로 확인하지 못했다</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Energy — G7 비축유</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">油</span>
+    <div class="card-top"><span class="topic">국제·에너지</span></div>
+    <h2>넉 달 동안 1억 배럴, 경유부터 먼저 푼다</h2>
+    <div class="summary">
+      <p>G7 의장국 프랑스의 마크롱 대통령이 국제에너지기구(IEA) 조율 아래 <strong>4개월간 최대 1억 배럴</strong>의 비축유를 방출한다고 발표했다. 첫 20일 안에 <strong>경유</strong>를 상당량 먼저 푼다.</p>
+      <p>트럼프 미국 대통령은 이후 <strong>미국산 경유 수출을 금지하지 않겠다</strong>고 밝혔다. 미국 경유 가격은 갤런당 <strong>6.37달러</strong>로, 9월 22일 기록한 고점 6.52달러에서 조금 내려온 수준이다.</p>
+      <p>배경에는 <strong>2월 28일</strong> 시작된 미국·이스라엘과 이란의 전쟁이 있다. 호르무즈 해협 통항에 차질이 생기면서 연료 가격이 뛰었다. 위 물가 카드의 <strong>경유 +20.0%</strong>도 같은 흐름 위에 있다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">방출 규모</span><span>최대 1억 배럴 · 4개월간 · IEA 조율</span></li>
+      <li><span class="k">순서</span><span>첫 20일 안에 경유 상당량 우선 방출</span></li>
+      <li><span class="k">미국</span><span>트럼프 "경유 수출 금지 안 한다"</span></li>
+      <li><span class="k">미 경유 가격</span><span>갤런당 6.37달러 (고점 9/22 6.52달러) ⚠ 변동 가능</span></li>
+      <li><span class="k">배경</span><span>2/28 개전 · 호르무즈 해협 통항 차질</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>이 방출은 공급을 되살리는 조치가 아니라 <strong>시간을 버는 조치</strong>다. 1억 배럴은 넉 달에 걸쳐 나뉘어 풀리고, 해협이 다시 열리지 않는 한 같은 문제가 남는다. 국내 기름값에 언제, 얼마나 반영될지는 아직 보도로 확인되지 않았고, 한국의 참여 여부도 확인되지 않았다.</p>
+    </div>
+    <a class="source" href="https://www.fnnews.com/news/202610030001485601">파이낸셜뉴스</a> <a class="source" href="https://www.newspim.com/news/view/20261003000014">뉴스핌 — 경유 수출</a> <a class="source" href="https://www.aljazeera.com/news/2026/10/2/trump-says-europe-agrees-to-release-massive-amount-diesel-stockpile">Al Jazeera</a>
+    <span class="ref-note">1억 배럴·4개월은 파이낸셜뉴스(10/3 00시대)·뉴스핌(10/3 05:46)·알자지라(10/2) <strong>교차 확인</strong> · 방출분의 경유·원유 구성비는 파이낸셜뉴스 단독이라 쓰지 않았다 · 첫 20일 경유 우선 방출·미 경유 가격·고점·개전일은 알자지라 본문 · 10/2 호르무즈 유조선 피격 보도는 링크 기사 본문에 없어 쓰지 않았다 · 미국 경유 수출 규모는 뉴스핌 단독이라 생략 · 전쟁 관련 사안이라 '맥락 읽기'로 표기</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Business — SK</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">株</span>
+    <div class="card-top"><span class="topic">재계</span></div>
+    <h2>165만3,924주, 9,440억 원 — 11년 만의 지분 매각</h2>
+    <div class="summary">
+      <p>최태원 SK그룹 회장이 지주회사 SK㈜ 주식 <strong>165만3,924주(2.3%)</strong>를 <strong>9,440억 원</strong>에 팔기로 했다. 노소영 아트센터 나비 관장에게 지급할 재산분할금을 마련하기 위해서다.</p>
+      <p>매각은 두 갈래다. 전략적 투자자에게 넘기는 블록딜이 <strong>5,440억 원</strong>, 증권사와 맺는 주가수익스와프(PRS)가 <strong>4,000억 원</strong>이다. 매각 개시일은 <strong>11월 2일</strong>이다.</p>
+      <p>매각 뒤 최 회장 보유 주식은 1,297만5,472주에서 <strong>1,132만1,548주</strong>로, 개인 지분율은 <strong>15.5%</strong>로 줄어든다. 특수관계인을 포함한 지분율은 25.2%에서 <strong>22.9%</strong>가 된다. 서울경제는 2015년 지주사 체제 출범 이후 첫 지분 매각이라고 전했다. SK는 특수관계인 포함 지분율 20% 이상(의결권 기준 30% 이상)을 유지해 <strong>"회사의 안정적 경영 기반에는 변함이 없다"</strong>고 밝혔다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">매각 규모</span><span>165만3,924주(2.3%) · 9,440억 원</span></li>
+      <li><span class="k">방식</span><span>블록딜 5,440억 + PRS 4,000억 = 9,440억</span></li>
+      <li><span class="k">매각 개시</span><span>11월 2일</span></li>
+      <li><span class="k">보유 주식</span><span>1,297만5,472주 → 1,132만1,548주</span></li>
+      <li><span class="k">지분율</span><span>개인 → 15.5% · 특수관계인 포함 25.2% → 22.9%</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>9,440억 원을 한 번에 시장에 던지지 않고 <strong>블록딜과 PRS로 나눈 구조</strong>가 이 공시의 핵심이다. 대량 매도가 주가에 주는 충격을 줄이면서, 지배력 숫자(22.9%)를 함께 공개해 경영 기반에는 변함이 없다는 메시지를 같은 날 묶었다.<br>민감한 결정을 알릴 때는 <strong>무엇을 하는지와 무엇이 바뀌지 않는지를 한 문장에 넣는 것</strong>이 시장의 해석 범위를 좁힌다.</p>
+    </div>
+    <a class="source" href="https://m.sedaily.com/article/20097678">서울경제</a> <a class="source" href="https://www.seoul.co.kr/news/economy/industry/2026/10/02/20261002800013">서울신문</a>
+    <span class="ref-note">주식 수·금액·지분율 변화는 서울경제(10/2 16:29, 수정 17:05)·서울신문(10/2) <strong>교차 확인</strong> · 블록딜·PRS 구성과 "지주사 출범 이후 첫 매각"은 서울경제 본문 · 매각 전 개인 지분율은 서울경제 17.9%, 서울신문 17.8%로 <strong>매체별 표기 불일치</strong>라 쓰지 않았다 · 재산분할 소송의 진행 단계는 본문으로 확인하지 못해 적지 않았다 · 검산: 5,440 + 4,000 = 9,440 ✓ · 1,297만5,472 − 165만3,924 = 1,132만1,548 ✓</span>
+  </article>
+
+  <div class="section-rule"><span class="label">Court — 서울시장 항소심</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">審</span>
+    <div class="card-top"><span class="topic">정치·법원</span></div>
+    <h2>1심은 벌금 1,000만 원, 2심 구형은 징역 1년 6개월</h2>
+    <div class="summary">
+      <p>오세훈 서울시장의 '여론조사비 대납' 의혹 <strong>항소심 결심공판</strong>이 <strong>2일</strong> 열렸다. 민중기 특검팀은 오 시장에게 <strong>징역 1년 6개월과 추징금 3,300만 원</strong>을 구형했다. 1심 선고 형량은 <strong>벌금 1,000만 원</strong>이었다.</p>
+      <p>오 시장은 2021년 서울시장 보궐선거 당내 경선을 앞두고 명태균 씨를 통한 여론조사 비용을 대납받았다는 정치자금법 위반 혐의를 받는다. 특검은 강철원 전 정무부시장과 사업가 김모 씨에게도 각각 징역 1년을 구형했다.</p>
+      <p>오 시장은 최후진술에서 <strong>"모든 게 제 불찰"</strong>이라고 말했다. 항소심 선고는 <strong>10월 23일 오후 2시</strong>다. 구형은 검사 쪽 의견이며, 형량은 선고에서 정해진다.</p>
+    </div>
+    <figure class="chart">
+      <figcaption>오세훈 시장 사건 — 지금은 어느 단계인가</figcaption>
+      <svg class="cv" viewBox="0 0 640 96" role="img" aria-label="재판 단계: 1심 선고 벌금 1,000만 원, 10월 2일 항소심 결심 구형, 10월 23일 항소심 선고 예정">
+<line class="cv-axis" x1="18" y1="40" x2="622" y2="40"/>
+<circle class="cv-stepdot cv-st-done" cx="18.0" cy="40" r="6"/>
+<text class="cv-val cv-st-done-t" x="14.0" y="18" text-anchor="start">1심 선고</text>
+<text class="cv-ax" x="14.0" y="66" text-anchor="start">벌금 1,000만 원</text>
+<line class="cv-step-done" x1="18.0" y1="40" x2="320.0" y2="40"/>
+<circle class="cv-stepdot cv-st-now" cx="320.0" cy="40" r="8"/>
+<circle class="cv-steplab-ring" cx="320.0" cy="40" r="13"/>
+<text class="cv-val cv-st-now-t" x="320.0" y="18" text-anchor="middle">항소심 결심</text>
+<text class="cv-ax" x="320.0" y="66" text-anchor="middle">10/2 · 구형 징역 1년 6개월</text>
+<circle class="cv-stepdot cv-st-next" cx="622.0" cy="40" r="6"/>
+<text class="cv-val cv-st-next-t" x="626.0" y="18" text-anchor="end">항소심 선고</text>
+<text class="cv-ax" x="626.0" y="66" text-anchor="end">10/23 14:00</text>
+</svg>
+      <p class="cv-note">점 간격은 단계 순서일 뿐 기간에 비례하지 않는다. <strong>구형은 형이 정해진 것이 아니다.</strong> 항소심 선고 뒤에도 상고하면 대법원 판단이 남는다.</p>
+    </figure>
+    <ul class="spec">
+      <li><span class="k">단계</span><span>항소심 <strong>결심공판</strong>(구형) — 선고 전, 확정 아님</span></li>
+      <li><span class="k">특검 구형</span><span>오세훈 징역 1년 6개월 · 추징금 3,300만 원 / 강철원·김모 씨 각 징역 1년</span></li>
+      <li><span class="k">1심</span><span>벌금 1,000만 원</span></li>
+      <li><span class="k">혐의</span><span>정치자금법 위반 — 2021년 보궐선거 경선 전 여론조사비 대납 의혹</span></li>
+      <li><span class="k">선고</span><span>10월 23일 오후 2시</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>"징역 1년 6개월"이라는 숫자는 제목에서 가장 크게 보이지만, 아직 <strong>검사의 요구</strong>일 뿐이다. 1심에서는 같은 혐의에 벌금형이 나왔다. 법원 기사에서 '구형'과 '선고'를 구분하지 않으면 독자는 이미 형이 정해진 것으로 읽는다.<br>정보를 다루는 쪽이라면 <strong>숫자보다 단계를 먼저 전달하는 습관</strong>이 오해를 막는다.</p>
+    </div>
+    <a class="source" href="https://www.newspim.com/news/view/20261002001218">뉴스핌</a> <a class="source" href="https://www.news1.kr/society/court-prosecution/6309081">뉴스1</a>
+    <span class="ref-note">구형(징역 1년 6개월·추징 3,300만 원)과 1심 형량(벌금 1,000만 원)은 뉴스핌(10/2 17:43)·뉴스1(10/2 14:55) <strong>교차 확인</strong> · 선고 일시, 공동피고인 구형, 최후진술 인용은 <strong>뉴스핌 단독</strong> 확인분</span>
+  </article>
+
+  <footer>
+    <span class="pipe">Daily Card News</span> · 2026년 10월 3일 토요일 · 7 Picks<br>
+    각 카드의 대표 출처 기사 본문을 직접 열어 수치·고유명사·발행일시를 확인했고, 인용 기사에 없는 값은 빼거나 매체 불일치로 표시했습니다. 직접인용은 출처 본문 문자열 그대로만 따옴표로 묶었습니다. 정보는 참고용이며, 최종 확인은 각 카드의 출처 링크를 권장합니다.<br>
+    📊 수치·단계가 있는 카드 3장에 인라인 SVG 도표를 넣었습니다. 도표의 값은 모두 같은 카드의 본문·스펙 표에 있고, 도형 좌표는 그 값에서 계산했습니다.<br>
+    ⚠ 주가·환율은 10월 2일 종가 기준이며 계속 변동됩니다. 은행 해킹은 <strong>내사</strong> 단계, 대사 소환은 <strong>검토</strong> 단계, 오세훈 시장 재판은 <strong>구형</strong> 단계로 모두 확정이 아닙니다.
+    <!-- tracker: 2026-10-03
+         [추적 중인 스토리 현재 상태]
+         국내 증시: 10/2 코스피 <strong>7,003.74(+32.39p, +0.46%)</strong> 5거래일 만에 7,000 회복(서울신문 표현) · 시가 6,938.27 · 저가 6,927.88 · 고가 7,011.04 · 코스닥 893.29(-1.00p, -0.11%) · 원·달러 1,350.6원(-7.8원, 15:30 기준). 투자자별(코스피, 서울신문 단독): 기관 +3,814억 · 개인 -1조7,206억 · 외국인 -1,438억. ※ 외국인 연속 순매도 일수는 본문 미확인 → 미기재. 검산 6,971.35+32.39 ✓ / 894.29-1.00 ✓ / 1,358.4-7.8 ✓. → 연휴 뒤 첫 거래일 추적.
+         9월 소비자물가(신규): 국가데이터처 10/2 발표 2.9%(8월 3.1%, 7월 2.8%), 전월비 +0.3%. 석유류 +14.8%(경유 +20.0%, 휘발유 +11.8%), 농산물 -4.0%, 공업제품 +4.2%. 하락 요인 = 작년 통신요금 할인 기저효과 소멸. 한은 10월 3% 안팎 전망. → 10월 물가, 한은 10월 금통위.
+         은행권 AI 해킹(신규, 10/2 '신한 유출' 제외 후보의 새 전개): 경찰청 사이버테러대응수사대 <strong>내사(입건 전 조사)</strong> 10/2 착수. 신한 약 2.5만명(9/29~30 모바일 홈페이지 대출모집인용 조회 서비스) · 국민 119명(직원용 모바일 업무지원 시스템) · 하나 89명(영업지원시스템 ODS) · 부산 외주 개발직원 11명 — 은행별 수치 뉴스핌 단독. ※ 아주경제는 6곳(우리·농협 포함)·국민 "약 100건" → 불일치, 4곳 기준. → 정식 수사 전환, 금감원 검사 결과, 추가 은행.
+         한·우크라이나(새 전개): 대통령 10/2 엑스 게시글 — 사실인정·공개사과 요구, 거부 시 추가조치. 젤렌스키 유엔총회 공개일 = <strong>9/23(현지)</strong>(뉴스핌은 22일로 오기). 외교부 9/28 대리대사 초치. 박기창 대사 소환 = <strong>청와대 검토(전해짐)</strong>. 우크라 외무장관 "외교적 오해". → 소환 결정·우크라 공식 답변.
+         G7 비축유(신규): 마크롱 발표 4개월간 최대 1억 배럴(IEA 조율), 첫 20일 경유 우선. 트럼프 경유 수출 금지 안 함. 미 경유 갤런당 6.37달러(고점 9/22 6.52). 2/28 개전. ※ 경유·원유 5천만씩 구성은 파이낸셜뉴스 단독 → 미기재. ※ 10/2 호르무즈 유조선 피격은 링크 본문에 없어 미기재(아주경제 보도 존재). → 한국 참여 여부, 국내 유가.
+         SK 지분(신규): 최태원 SK㈜ 165만3,924주(2.3%) 9,440억(블록딜 5,440+PRS 4,000), 매각 개시 11/2, 보유 1,132만1,548주·개인 15.5%·특수관계인 25.2→22.9%. ※ 매각 전 개인 지분 17.9 vs 17.8 불일치 → 미기재. ※ 뉴스1은 "944억" 오기.
+         오세훈 항소심(신규): 10/2 결심, 특검 징역 1년6개월·추징 3,300만 <strong>구형</strong>(1심 벌금 1,000만), 강철원·김모 씨 각 징역 1년 구형, <strong>선고 10/23 14:00</strong>.
+         아시안게임: 10/2 금 3(양궁 리커브 남자 단체·요트 하지민·LoL), 누계 금 33(파이낸셜뉴스 단독) — 이번 회차 미채택. 남자축구 결승 10/3 19:30 · 폐막 10/4 → 내일 결과·최종 순위로 카드화 권장.
+         [기존 추적 유지 — 새 전개 미확인/미채택] 중수청장 김지용 후보자 청문회("빠르면 10/8", 미확정) · 강훈식 비서실장 사의 표명(거취 미정) · 대미투자 MOU · 9월 수출 확정치 · DMZ 지뢰 · 국세 재추계 · 추경호 1심 선고 · 한은 10월 금통위 · 서울 집값.
+         [오늘 다룬 항목] ①코스피 7,003.74 5거래일 만의 7,000 회복 ②9월 물가 2.9%·경유 +20.0% ③은행 4곳 AI 해킹·경찰 내사 ④대통령, 우크라 공개사과 요구(Context) ⑤G7 비축유 1억 배럴(Context) ⑥최태원 SK㈜ 2.3% 9,440억 매각 ⑦오세훈 항소심 징역 1년6개월 구형
+         [제외한 항목] 아시안게임 10/2 금 3개 — 결승·폐막과 묶어 내일 · 중수청 후속·청문회 — 일정 미확정, 어제와 겹침 · 비서실장 거취 — 새 전개 없음 · 서울 아파트 86주 상승 — 발표일 창구 밖 가능성, 본문 미검증 · 네팔 폭우 — 10/1 기사·수치 미확인 · Flydubai 고의추락 시도 — 본문 미검증 · 국군의 날·응급실 뺑뺑이 방지법·산안법·대미투자 MOU — 새 근거 없음 · 개천절 경축식 — 창구 안 기사 없음 · 현대차·기아 9월 실적·BTS 투어 매출 — 10/1 발행·화제성
+         [검토 하네스(독립 검증 에이전트)에서 잡아 고친 것]
+         ①우크라 카드 젤렌스키 공개일 9/22 → 9/23(현지)(서울신문·알자지라, 뉴스핌 오기) ②대사 소환 검토 주체 "대통령실" → "청와대"(서울경제 원문, "전해졌다") ③"비공개 합의는 인정하지 않았다"(외무장관) 출처 미확인 → 삭제 ④G7 카드 10/2 유조선 피격이 링크 기사 어디에도 없음 → 본문·스펙 삭제, "봉쇄" → "통항 차질"(알자지라 constrictions) ⑤은행 카드 '대출상담사 조회 서비스' → 대출모집인용 조회 서비스(뉴스핌·YTN), 하나 "운영데이터시스템" → 영업지원시스템(ODS), 부산 "외부 계약자" → 외주 개발직원, "10/2 04:30" 날짜 특정 불가 → 삭제 ⑥은행 ref-note 내사 교차 확인에서 YTN(05:18, 내사 전) 제외 ⑦SK 입장 직접인용을 원문("회사의 안정적 경영 기반에는 변함이 없다")으로 교체 ⑧물가 ref-note 7월 2.8% 귀속 뉴스1 → YTN.
+         [시각화] 도표 3(코스피 장중 범위·시가→종가 / 물가 7~9월 막대 / 오세훈 재판 단계 스테퍼). 계열색 #2f6d9e·#c06a24, 스테퍼 액센트+회색, 이중축 없음. 390px·820px Playwright 렌더링 텍스트 넘침·겹침 0건, 검증 에이전트가 좌표 재계산 일치 확인.
+         [리서치 도구] mcp__Firecrawl__* 호출 0회. WebSearch 발견 → WebFetch 본문 검증.
+    -->
+  </footer>
+
+</div>
+</body>
+</html>
