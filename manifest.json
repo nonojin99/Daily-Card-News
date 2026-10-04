@@ -1,7 +1,35 @@
 {
-  "generated": "2026-10-03T21:42:13Z",
-  "count": 216,
+  "generated": "2026-10-04T21:32:59Z",
+  "count": 219,
   "files": [
+    {
+      "date": "2026-10-05",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "05",
+      "type": "daily",
+      "path": "2026-10-05_daily-brief.html"
+    },
+    {
+      "date": "2026-10-05",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "05",
+      "type": "foundry",
+      "issue": 17,
+      "path": "파운드리_주간_17_20261005.html"
+    },
+    {
+      "date": "2026-10-05",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "05",
+      "type": "ai",
+      "path": "2026-10-05_ai-brief.html"
+    },
     {
       "date": "2026-10-04",
       "month": "2026-10",
