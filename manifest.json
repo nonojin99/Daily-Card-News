@@ -1,7 +1,25 @@
 {
-  "generated": "2026-10-08T21:31:55Z",
-  "count": 227,
+  "generated": "2026-10-09T21:42:58Z",
+  "count": 229,
   "files": [
+    {
+      "date": "2026-10-10",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "10",
+      "type": "daily",
+      "path": "2026-10-10_daily-brief.html"
+    },
+    {
+      "date": "2026-10-10",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "10",
+      "type": "activity",
+      "path": "2026-10-10_activity-brief.html"
+    },
     {
       "date": "2026-10-09",
       "month": "2026-10",
