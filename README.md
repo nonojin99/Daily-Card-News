@@ -75,6 +75,11 @@ AI 멀티 에이전트 파이프라인("하네스" 구조)으로 제작되며, G
     - `src` 와 `data-remote` 가 같은 URL 인가?
     - 이미지가 없어도 캡션만으로 내용이 전달되는가?
 
+14. **낭독 원고** — `<details class="audio-script">` 가 있다면:
+    - 원고의 모든 사실·숫자가 **같은 브리프 카드 본문·스펙 표에 있는가?** (원고에서 새 사실 금지)
+    - 숫자는 반올림만 했는가? 매체별로 엇갈리는 수치는 범위·"여러 명"처럼 말했는가?
+    - 재난·참사 카드는 담담한 톤인가? '마케터의 시선'을 읽지 않았는가?
+
 > 이 체크리스트는 실제 겪은 오류에서 나왔다.
 > 1·2번은 '8강에 10팀' 오류(2026-07-07), 3번은 오래된 은하 뉴스,
 > 4번은 전시 3일 반복, 7번은 미검증 선수 기록에서 비롯됐다.
@@ -221,6 +226,38 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
       text-decoration-color:var(--line)}
 ```
 
+### 오디오 — 낭독 원고 + 자동 MP3 (2026.10.11~)
+
+카드를 귀로도 듣게 한다. **원고는 브리프 작성 때 쓰고, 음성은 GitHub Actions 가 만든다.**
+작성 환경(클라우드)에서는 TTS 서버가 네트워크 정책으로 차단되고, 오프라인 무료 음성은 품질이 낮아 쓰지 않는다.
+
+- **원고 위치**: `</header>` 바로 뒤 `<details class="audio-script"><summary>🎧 낭독 원고 보기</summary><p>…</p></details>`.
+  문단 하나가 `<p>` 하나. JS 없음 — 듣기 어려운 독자를 위한 대본 역할도 한다.
+- **원고 쓰는 법** (메인 기준 공백 제외 1,000~1,800자, 3~5분)
+  - 오프닝 "M월 D일 X요일, 데일리 브리프입니다." → 카드 순서대로 한 문단씩 → 클로징.
+  - 괄호·출처 표기·"매체별 불일치" 같은 말은 빼고, 출처는 단일 출처 수치에만 "○○에 따르면".
+  - 숫자는 귀에 맞게 반올림만(1,342.8원 → 1,340원대). **엇갈리는 수치는 "30여 명", "여러 명"으로.**
+  - '마케터의 시선'은 읽지 않는다. 듣는 사람에게 쓸모 있는 한 줄은 카드에 있는 값으로만.
+- **생성 흐름**: push → Actions `make_audio.py` 가 원고를 문단별로 Google Cloud TTS(Chirp 3 HD, 기본 `ko-KR-Chirp3-HD-Kore`)로
+  합성 → 64kbps 모노 MP3 → **Releases 태그 `audio-YYYY-MM`** 에 `YYYY-MM-DD_<type>.mp3` 업로드 →
+  `</header>` 뒤에 `<div class="audio-player"><audio controls preload="none" src="…">` 삽입 후 커밋(`[skip ci]`).
+- **실패 원칙**: 키(`GOOGLE_TTS_API_KEY` 시크릿)가 없거나 합성·업로드가 실패하면 그 브리프는 건드리지 않는다 →
+  재생기 없이 원고만 보인다. 빌드는 실패하지 않는다. 이미 재생기가 있는 브리프는 다시 만들지 않는다
+  (다시 만들려면 `audio-player` div 를 지우고 push).
+- **MP3 는 레포에 넣지 않는다.** 하루 약 1.5MB라 1년이면 500MB 이상 — Releases 에 둬 레포를 가볍게 유지한다.
+- 목소리·속도는 워크플로 env `TTS_VOICE`·`TTS_RATE` 로 바꾼다.
+
+**CSS** (`<style>` 끝 — 어제 파일에서 그대로 복사)
+
+```css
+.audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+.audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+.audio-player audio{width:100%;height:40px}
+.audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+.audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+.audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+```
+
 ---
 
 ## 파일 규칙
@@ -264,6 +301,8 @@ YYYY-MM-DD_music-brief.html      서브 브리프 (music/culture/sports/travel/.
   "그림에만 있는 값 금지" 원칙과 검증 체크리스트 12번 추가
 - **2026.10.01** — **공공 이미지 도입(과학 브리프 한정)**: ESA/Webb·ESA/Hubble(CC BY 4.0)만 허용.
   핫링크로 즉시 표시하고 push 시 GitHub Actions 가 `img/` 로 내려받아 영구 보존. 검증 체크리스트 13번 추가
+- **2026.10.11** — **오디오 도입**: 브리프마다 낭독 원고(`<details class="audio-script">`)를 쓰고,
+  push 시 Actions 가 Google Cloud TTS(Chirp 3 HD)로 MP3 를 만들어 Releases 에 올린 뒤 재생기를 넣는다. 검증 체크리스트 14번 추가
 
 ---
 
