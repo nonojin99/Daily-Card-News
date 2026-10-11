@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>파운드리 주간 제18호 · 2026.10.12</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Noto+Serif+KR:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--ink:#161310; --ink-soft:#3c372f; --ink-faint:#6e675b;
+--paper:#f7f4ee; --paper-card:#fffdf8; --line:#e3ddd0; --line-strong:#c6bda9;
+--tsmc:#106b5a; --tsmc-bg:#e3f0eb;  --samsung:#1763c0; --samsung-bg:#e6f0fb;
+--intel:#5b5fb0; --intel-bg:#ececf8; --smic:#9a4b2e; --smic-bg:#f6e7df;
+--hr:#8a5a1a; --hr-bg:#f5ecda;
+--up:#157a52; --down:#bd3a2a; --accent:#9a3b2e; --gold:#b9760a; --maxw:880px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+background:var(--paper); color:var(--ink);
+font-family:'Noto Sans KR',system-ui,sans-serif;
+font-size:16px; line-height:1.7; word-break:keep-all;
+-webkit-text-size-adjust:100%;
+}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:36px 20px 72px}
+
+/* ── 마스트헤드 ── */
+.mast{border-bottom:3px solid var(--ink); padding-bottom:18px; margin-bottom:22px}
+.kicker{font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; font-weight:800; color:var(--accent)}
+.mast-meta{font-size:13px; color:var(--ink-faint); margin-top:6px; font-weight:500}
+h1{font-family:'Noto Serif KR',serif; font-size:clamp(30px,6vw,46px); font-weight:900;
+   line-height:1.28; margin:14px 0 10px; letter-spacing:-.01em}
+.subline{font-size:15.5px; color:var(--ink-soft); margin:0 0 14px}
+.audience{font-size:12.5px; color:var(--ink-faint); border-top:1px solid var(--line);
+  padding-top:11px; letter-spacing:.01em}
+
+/* ── 펄스 바 ── */
+.pulse{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:0 0 24px}
+.pz{background:var(--paper-card); border:1px solid var(--line); border-radius:12px;
+   border-top:4px solid var(--line-strong); padding:14px 14px 15px}
+.pz.t{border-top-color:var(--tsmc)} .pz.s{border-top-color:var(--samsung)} .pz.i{border-top-color:var(--intel)}
+.pz-co{font-size:12.5px; font-weight:800; letter-spacing:.04em; color:var(--ink-faint); text-transform:uppercase}
+.pz-ar{font-family:'Noto Serif KR',serif; font-size:27px; font-weight:900; line-height:1.15; margin:3px 0 5px}
+.pz.t .pz-ar{color:var(--tsmc)} .pz.s .pz-ar{color:var(--samsung)} .pz.i .pz-ar{color:var(--intel)}
+.pz-wy{font-size:13px; color:var(--ink-soft); line-height:1.55}
+
+/* ── 다크 박스 ── */
+.lead{background:var(--ink); color:#f4efe6; border-radius:14px; padding:22px 22px 24px; margin:0 0 30px}
+.lead .pill{display:inline-block; font-size:11.5px; font-weight:800; letter-spacing:.08em;
+  text-transform:uppercase; background:rgba(244,239,230,.14); color:#f4efe6;
+  padding:4px 10px; border-radius:999px; margin-bottom:12px}
+.lead p{margin:0 0 12px; font-size:15.5px; line-height:1.72}
+.lead p:last-child{margin-bottom:0; color:#ded6c6}
+
+/* ── 섹션 ── */
+section{margin:0 0 34px}
+h2{font-family:'Noto Serif KR',serif; font-size:20px; font-weight:900;
+   border-bottom:2px solid var(--ink); padding-bottom:8px; margin:0 0 18px}
+h2 .n{color:var(--accent); margin-right:9px}
+
+/* ── 스토리 카드 ── */
+.story{background:var(--paper-card); border:1px solid var(--line); border-left:4px solid var(--line-strong);
+  border-radius:12px; padding:18px 18px 19px; margin:0 0 16px}
+.story.t{border-left-color:var(--tsmc)} .story.s{border-left-color:var(--samsung)}
+.story.i{border-left-color:var(--intel)} .story.c{border-left-color:var(--smic)}
+.btag{display:inline-block; font-size:11.5px; font-weight:800; letter-spacing:.03em;
+  padding:3px 9px; border-radius:5px; margin-right:7px; vertical-align:2px}
+.btag.t{background:var(--tsmc-bg); color:var(--tsmc)} .btag.s{background:var(--samsung-bg); color:var(--samsung)}
+.btag.i{background:var(--intel-bg); color:var(--intel)} .btag.c{background:var(--smic-bg); color:var(--smic)}
+.btag.hot{background:var(--accent); color:#fff}
+.src{font-size:12px; color:var(--ink-faint); font-weight:500}
+h3{font-family:'Noto Serif KR',serif; font-size:19px; font-weight:800; line-height:1.4; margin:11px 0 9px}
+.story p{margin:0 0 11px; font-size:15.5px}
+.grade{display:inline-block; font-size:11px; border:1px solid var(--line-strong); border-radius:4px;
+  padding:1px 6px; color:var(--ink-faint); font-weight:700; letter-spacing:.01em;
+  white-space:nowrap; vertical-align:1px}
+.counter{background:#f1ece2; border-left:3px solid var(--line-strong); border-radius:9px;
+  padding:12px 14px; margin:12px 0; font-size:14.5px; line-height:1.65; color:var(--ink-soft)}
+.counter b{color:var(--ink)}
+.impl{border-radius:10px; padding:12px 14px; margin:12px 0 0; font-size:14.5px; line-height:1.65; font-weight:500}
+.impl.t{background:var(--tsmc-bg); color:#0b4d41} .impl.s{background:var(--samsung-bg); color:#114a8f}
+.impl.i{background:var(--intel-bg); color:#42468a} .impl.c{background:var(--smic-bg); color:#73371f}
+
+/* ── 인력 꼭지 ── */
+.hrcard{background:var(--hr-bg); border:1px solid #e6d6b4; border-left:4px solid var(--hr);
+  border-radius:12px; padding:18px; margin:0 0 14px}
+.hrcard h3{margin-top:8px}
+.btag.hr{background:#eddfc2; color:var(--hr)}
+.hrcard p{margin:0 0 11px; font-size:15.5px}
+.hritem{border-top:1px solid #e0cfa9; padding-top:13px; margin-top:13px}
+.hritem:first-of-type{border-top:0; padding-top:0; margin-top:0}
+.hrlab{font-size:12.5px; font-weight:800; color:var(--hr); letter-spacing:.02em; margin-bottom:5px}
+
+/* ── 표 ── */
+.tw{overflow-x:auto; -webkit-overflow-scrolling:touch}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--paper-card)}
+th{background:#efe9dc; text-align:left; font-size:12.5px; font-weight:800; letter-spacing:.03em;
+  color:var(--ink-soft); padding:10px 11px; border-bottom:1px solid var(--line-strong)}
+td{padding:11px; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.55}
+td:nth-child(2){font-family:'Noto Serif KR',serif; font-weight:700; white-space:nowrap}
+tr:last-child td{border-bottom:0}
+
+/* ── 체크포인트 ── */
+.ck{display:grid; grid-template-columns:118px 1fr; gap:10px 14px; align-items:start}
+.ck dt{font-family:'Noto Serif KR',serif; font-weight:800; color:var(--accent); font-size:14.5px}
+.ck dd{margin:0 0 4px; font-size:15px; color:var(--ink-soft)}
+
+/* ── 안내 / caveats ── */
+.again{background:var(--paper-card); border:1px dashed var(--line-strong); border-radius:12px;
+  padding:16px 18px; margin:0 0 26px; font-size:14.5px; color:var(--ink-soft)}
+.again b{color:var(--ink)}
+.cav{border-top:1px solid var(--line-strong); padding-top:16px; font-size:13px; color:var(--ink-faint); line-height:1.65}
+.cav h4{font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; font-weight:800;
+  color:var(--ink-soft); margin:0 0 9px}
+.cav ol{margin:0; padding-left:20px} .cav li{margin-bottom:6px}
+footer{margin-top:26px; padding-top:14px; border-top:1px solid var(--line);
+  font-size:12px; color:var(--ink-faint); letter-spacing:.02em}
+
+/* ── 4-2 시각화 ── */
+.fig{margin:4px 0 16px}
+.fig figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--ink-faint);margin-bottom:9px}
+.cv{width:100%;height:auto;display:block;overflow:visible}
+.cv-grid{stroke:#e6e4dd;stroke-width:1}
+.cv-axis,.cv-base{stroke:#b9b7ad;stroke-width:1}
+.cv-ln{fill:none;stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.cv-mk{stroke:var(--paper-card);stroke-width:2}
+.cv-ax,.cv-t{font-family:'Noto Sans KR',sans-serif;font-size:11px;fill:var(--ink-faint);font-variant-numeric:tabular-nums}
+.cv-cat{font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:500;fill:var(--ink-soft)}
+.cv-val{font-family:'Noto Serif KR',serif;font-size:12.5px;font-weight:800;fill:#33332f;font-variant-numeric:tabular-nums}
+.cv-mid{text-anchor:middle}
+.k-t{stroke:var(--tsmc)} .f-t{fill:var(--tsmc)}
+.k-s{stroke:var(--samsung)} .f-s{fill:var(--samsung)}
+.k-i{stroke:var(--intel);stroke-dasharray:7 4} .f-i{fill:var(--intel)}
+.k-c{stroke:var(--smic);stroke-dasharray:2 3} .f-c{fill:var(--smic)}
+.cv-bar-t{fill:var(--tsmc)} .cv-bar-s{fill:var(--samsung)} .cv-bar-i{fill:var(--intel)}
+.cv-band{fill:var(--samsung);opacity:.22}
+.lgd{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap;font-size:12px;color:var(--ink-soft)}
+.lgd span{display:inline-flex;align-items:center;gap:6px} .lgd svg{flex:none}
+.cv-note{font-size:11.5px;color:var(--ink-faint);margin-top:9px;font-style:italic;line-height:1.55}
+.st-done{fill:var(--line-strong)} .st-now{fill:var(--accent)}
+.st-next{fill:#fff;stroke:var(--line-strong);stroke-width:2}
+.st-ln-done{stroke:var(--line-strong);stroke-width:2}
+.st-ln-next{stroke:var(--line-strong);stroke-width:2;stroke-dasharray:4 4}
+.st-lab{font-family:'Noto Serif KR',serif;font-size:12.5px;font-weight:800;fill:var(--ink-soft)}
+.st-lab.now{fill:var(--accent)}
+.cv-bar-n{fill:var(--line-strong)}
+@media (max-width:680px){.cv-ax,.cv-t{font-size:15px}.cv-cat{font-size:16px}.cv-val{font-size:17px}.st-lab{font-size:17px}}
+@media (max-width:560px){.cv-ax,.cv-t{font-size:20px}.cv-cat{font-size:22px}.cv-val{font-size:23px}.st-lab{font-size:23px}}
+@media (max-width:460px){.cv-ax,.cv-t{font-size:25px}.cv-cat{font-size:27px}.cv-val{font-size:28px}.st-lab{font-size:28px}}
+
+/* ── 모바일 ── */
+@media (max-width:600px){
+  .tw{overflow-x:visible}
+  table,tbody,tr,td{display:block;width:100%}
+  thead{display:none}
+  table{background:transparent}
+  tr{background:var(--paper-card);border:1px solid var(--line);border-radius:10px;
+     padding:13px 14px;margin-bottom:10px}
+  tr:last-child{margin-bottom:0}
+  td{border-bottom:0;padding:0}
+  td:nth-child(1){font-size:12.5px;font-weight:800;letter-spacing:.03em;
+     text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px}
+  td:nth-child(2){font-size:20px;line-height:1.35;white-space:normal;margin-bottom:5px}
+  td:nth-child(3){font-size:14.5px;color:var(--ink-soft)}
+  .wrap{padding:24px 14px 56px}
+  .pulse{grid-template-columns:1fr; gap:10px}
+  .ck{grid-template-columns:1fr; gap:2px 0}
+  .ck dt{margin-top:10px}
+  .ck dd{margin-bottom:0; padding-bottom:4px}
+  .lead{padding:18px}
+  .story,.hrcard{padding:15px}
+  body{font-size:15.5px}
+  h3{font-size:17.5px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="mast">
+  <div class="kicker">파운드리 주간 · Foundry Weekly</div>
+  <div class="mast-meta">제18호 &nbsp;·&nbsp; 커버 주간 2026.10.05(월)~10.11(일) &nbsp;·&nbsp; 발행 2026.10.12(월) 06:00 KST</div>
+  <h1>분기 영업익 107조의 삼성, 파운드리는 네 번째 해도 적자</h1>
+  <p class="subline">전사 사상 최대 실적이 파운드리 적자를 덮었지만 덮은 것은 숫자뿐이다. 같은 주 TSMC는 9월·3분기 모두 기록을 세웠고, ASML은 교체부품 값을 10% 올렸다.</p>
+  <div class="audience">독자: 삼성전자 파운드리 Etch 설비 엔지니어 · 업계 실무자 관점 · 한국어</div>
+</header>
+
+<div class="pulse">
+  <div class="pz t">
+    <div class="pz-co">TSMC</div>
+    <div class="pz-ar">▲▲</div>
+    <div class="pz-wy">9월 매출 NT$511.9B, 3분기 NT$1.494T — 자체 가이던스와 시장 컨센서스를 모두 상회한 분기 사상 최대.</div>
+  </div>
+  <div class="pz s">
+    <div class="pz-co">삼성 파운드리</div>
+    <div class="pz-ar">▲→</div>
+    <div class="pz-wy">전사는 분기 영업익 107.4조로 사상 최대지만, 파운드리·시스템LSI는 또 적자. 점유율 5.9%로 SMIC(5.4%)와 0.5%p.</div>
+  </div>
+  <div class="pz i">
+    <div class="pz-co">인텔 파운드리</div>
+    <div class="pz-ar">→</div>
+    <div class="pz-wy">커버 주간 중 발행일 확인이 되는 파운드리 신규 소식 없음. 14A PDK 0.9와 외부 고객 실명은 여전히 미공개.</div>
+  </div>
+</div>
+
+<div class="lead">
+  <span class="pill">이번 주 한 줄</span>
+  <p>메모리가 회사를 사상 최대 실적으로 끌어올리고, 그 실적 발표문 어디에도 파운드리 숫자는 없었던 한 주였다. 삼성전자는 10월 8일 3분기 잠정 매출 195조원·영업이익 107.4조원(영업이익률 55.1%)을 공시했다. 국내 테크기업 첫 분기 영업익 100조 돌파다. 그러나 사업부별 실적은 공개되지 않았고, 증권가·언론 추산은 파운드리와 시스템LSI를 합쳐 3분기에도 1조~1.5조원대 영업손실로 모아진다. 연초부터 돌던 "3분기 흑자전환설"은 이번 분기에 확인되지 않았다.</p>
+  <p>함의는 단순하다. 메모리 현금이 파운드리 투자 재원을 대준다는 구조는 강해졌지만, 그 구조는 파운드리가 스스로 번다는 증거가 아니다. 가동률은 4nm 중심으로 100%에 근접했고 선단 공정 가격도 최대 15% 올렸는데도 적자라면, 남은 변수는 SF2P 수율과 테일러 팹 감가상각 두 개로 좁혀진다. 다음 분기점은 10월 15일 TSMC 컨콜(2027년 캐파·가격 가이던스)과 10월 하순 삼성 확정 실적 발표다. 확정 실적에서도 부문 손익은 공개되지 않을 것이므로, 실제로 볼 것은 컨콜에서 나오는 "흑자전환" 표현의 변화다.</p>
+</div>
+
+<section>
+<h2><span class="n">01</span>이번 주 헤드라인</h2>
+
+<div class="story s">
+  <span class="btag hot">HOT</span><span class="btag s">삼성전자</span>
+  <span class="src">10/08 · 삼성전자 뉴스룸(잠정실적 공시) / 10/08~09 디지털데일리·세계일보·서울신문</span>
+  <h3>3분기 영업익 107.4조 사상 최대 — 그러나 파운드리·시스템LSI는 1조~1.5조 적자 추산</h3>
+  <p>삼성전자는 10월 8일 2026년 3분기 잠정실적으로 매출 195조원, 영업이익 107.4조원을 발표했다 <span class="grade">확정</span>. 전분기 대비 매출 +13.7%, 영업이익 +20.0%이며 전년 동기 대비로는 영업이익이 +782.5% 늘었다. 영업이익률 55.1%는 회사 사상 최고치다. 여기에는 약 12.6조원 규모의 임직원 성과급 충당금이 반영돼 있다 <span class="grade">보도</span>.</p>
+  <p>부문별 손익은 공시되지 않았다. 증권가는 DS부문 영업이익을 108조~110조원으로 추산하는데 매체별 표기가 엇갈린다 <span class="grade">추정</span>. 파운드리·시스템LSI 합산은 3분기 약 1조원 적자(디지털데일리·세계일보, 2분기 대비 축소)와 1.5조원 적자(유진투자증권 9/29 추정)로 갈린다 <span class="grade">추정</span>. 운영 측면에서 확인된 것은 세 가지다. 가동률은 4nm를 중심으로 100%에 근접했고, 주요 선단 공정 가격은 최대 15% 인상됐으며, 2세대 2나노(SF2P)는 하반기 양산에 진입하되 수율이 70%를 넘어야 한다는 과제가 남았다 <span class="grade">보도</span>. 테일러 팹은 올해 가동에 들어갔지만 감가상각과 초기 인프라 비용이 수익성을 누르고 있다.</p>
+  <div class="counter">
+    <b>반대 근거·한계.</b> ① 적자 폭 추산이 1.0조와 1.5조로 50% 벌어져 있다 — 두 수치 모두 회사 미공개 추정치이고, 어느 쪽이 맞는지는 확정 실적에서도 확인되지 않는다. ② 가동률 100% 근접은 4nm 중심이라는 단서가 붙는다. SF2의 성공 지표가 아니라 레거시·성숙 선단의 가동 지표이며, HBM4 베이스다이 기여분도 섞여 있다. ③ 반대로 적자의 상당 부분이 테일러 감가상각과 성과급 충당금처럼 수율과 무관한 고정비라면, 이번 숫자는 공정 경쟁력 악화의 증거가 아니다. ④ "3분기 흑자전환" 미달성이 곧 전략 실패는 아니다 — 7월 컨콜의 표현은 "가까운 시일 내"였고 분기를 특정하지 않았다.
+  </div>
+  <div class="impl s">→ 전망 함의. 1년 시나리오의 핵심 분기점인 "분기 흑자 달성"은 3분기에 검증되지 않았고, 4분기도 유진투자증권은 1.7조 적자를 본다. 한 분기 반짝 흑자와 구조적 흑자를 구분해야 한다는 3년 시나리오 쪽 전제가 상대적으로 강화됐다. 5·10년 시나리오의 "메모리+로직 턴키"는 오히려 선명해졌다 — 메모리 현금이 2나노 수율 안정화 재원을 대는 그림이 이번 분기에 실제 숫자로 나타났다. <b>Etch 실무 관점:</b> 가동률 100% 근접과 SF2P 양산 진입이 겹치는 국면은 설비 측에서 가장 까다로운 조합이다. 램프업 중 레시피 전환과 챔버 매칭을 돌릴 유휴 챔버가 없고, PM 윈도가 생산 스케줄에 밀려 좁아진다. 수율 70% 벽이 공정 자체의 한계인지 챔버 간 편차에서 오는 것인지는 매칭 데이터가 먼저 말해 준다 — 이 구간의 수율 곡선 기울기는 레시피보다 설비 가용성에서 결정될 가능성이 크다.</div>
+</div>
+
+<div class="story t">
+  <span class="btag t">TSMC</span>
+  <span class="src">10/08 TSMC 투자자 보도자료(pr.tsmc.com) / 10/09 뉴시스</span>
+  <h3>9월 매출 NT$511.9B·3분기 NT$1.494T — 분기 사상 최대, 가이던스 상회</h3>
+  <p>TSMC는 10월 8일 9월 매출 NT$511.86B을 공시했다. 전년 동월 대비 +54.6%, 전월 대비 -0.6%다 <span class="grade">확정</span>. 1~9월 누계는 NT$3,898.73B으로 전년 동기 대비 +41.1%이며, 이미 2025년 연간 매출을 넘어섰다. 3분기 합산은 NT$1.4942T으로 전년 동기 대비 +50.95%, 전분기 대비 +17.62%의 분기 사상 최대다 <span class="grade">확정</span>.</p>
+  <p>이 숫자는 두 기준을 모두 넘었다. 7월 컨콜에서 제시한 3분기 가이던스는 US$44.6~45.8B이었고, LSEG 집계 애널리스트 19인 컨센서스는 약 NT$1.46T이었다 <span class="grade">보도</span>. 수요 동인은 AI 서버·HPC와 2나노 모바일 물량으로 지목된다. 3분기 실적 컨퍼런스콜은 10월 15일로 예정돼 있다.</p>
+  <div class="counter">
+    <b>반대 근거·한계.</b> ① 9월 전월 대비 -0.6%는 5개월 만의 첫 월간 감소다. 월 매출은 고객 인도 스케줄에 좌우돼 변동이 크지만, AI 수요가 무한 우상향이라는 서사에는 단서가 붙는 숫자다. ② 2026년 매출 성장률 40% 이상·캐파엑스 US$60~64B·미국 투자 US$265B는 7월 컨콜 시점의 상향 가이던스이므로, 10월 15일 컨콜에서 갱신될 수 있다. 현재값으로 고정해 읽을 수치가 아니다 <span class="grade">단일 보도 계열 · 검증 필요</span>. ③ 매출 기록이 곧 2나노 성공은 아니다. 2나노는 2분기 기준 웨이퍼 매출의 3% 수준이었고, 이번 기록의 대부분은 3·4·5nm가 만든 것이다.
+  </div>
+  <div class="impl t">→ 전망 함의. "TSMC 독주는 불변"이라는 핵심 서사의 1·3년 대목이 다시 검증됐다 — 가이던스를 넘기는 분기가 반복되면 2028년까지 선단 캐파 완판이라는 전제가 숫자로 굳는다. 다만 10년 시나리오의 변수는 가격이다. 2027년부터 선단 최대 10% 인상 통보가 실제로 집행되면 "제2 공급처" 수요는 삼성·인텔의 수율과 무관하게 발생한다. 10월 15일 컨콜에서 2027년 가격·캐파 가이던스가 나오면, 삼성 입장에서는 수주 협상 테이블의 조건이 먼저 바뀐다.</div>
+</div>
+
+<div class="story s">
+  <span class="btag s">삼성전자 · 인력</span>
+  <span class="src">10/10 이코노미스트</span>
+  <h3>성과급 사업부 차등 첫 구체화 — 메모리 7.5억 vs 파운드리·시스템LSI 2.4억</h3>
+  <p>DS부문 특별 성과급이 사업부별로 얼마나 갈리는지 처음 구체적 숫자로 보도됐다 <span class="grade">추정</span>. 노조 추산 기준 세전 메모리 약 7.5억원, 전사 공통 조직 약 5.3억원, 시스템LSI·파운드리 약 2.4억원이다. 메모리와 시스템LSI·파운드리의 격차는 약 5.1억원이다. 재원은 DS부문 영업이익의 10.5%이고, 이 중 40%는 부문 공통으로, <b>60%는 사업부 성과에 따라</b> 배분된다. 8월 시점 스냅샷에서 "2027년분부터 사업부 60% 차등"으로 예고됐던 구조가 이번 지급분(2027년 3~4월 예정)에 적용되는 형태로 수치화된 것이다.</p>
+  <p>지급 방식도 함께 보도됐다. 원천징수 49.5%에 건강·고용보험 4.967%를 더해 공제율은 약 54.5%이고, 잔액은 전액 삼성 자사주로 지급된다. 즉시 매도 가능 물량은 1/3이며 나머지는 1년·2년 락업이 걸린다. 메모리 기준 주식분 약 3.23억원 중 즉시 매도 가능분은 약 1.08억원이다. 자발적 퇴사나 징계 해고 시 락업 주식은 반환해야 한다. 정기 OPI는 별도로 2027년 1월 말 지급 예상이고, 특별 성과급 지급률은 2월 확정, 자사주 활용에 주주총회 승인이 필요하므로 실제 지급은 2027년 3월 말~4월 초로 예상된다.</p>
+  <div class="counter">
+    <b>반대 근거·한계.</b> ① 모든 금액은 <b>연간 영업이익 약 370조원</b>이라는 증권가 전망을 노조가 대입한 추산치다. 회사가 확정한 지급률이 아니고, 4분기 실적과 환율에 따라 달라진다. ② 자사주 지급은 주총 승인 사안이다 — 승인이 남은 변수라는 점이 보도에서도 가장 큰 불확실성으로 꼽혔다. ③ 격차 자체는 제도 설계의 결과이지 파운드리 조직에 대한 평가 하향이 아니다. 사업부 성과 60% 차등은 흑자 사업부에 유리하게 작동하도록 만들어진 규칙이고, 파운드리가 적자인 동안은 구조적으로 불리하다. ④ SK하이닉스는 재원이 연간 영업이익의 10%로 세전 평균 약 7억원 수준이며, 현금 50%·자사주 50%(최대 100% 주식 선택 가능) 구조에 노사 합의가 이뤄졌다 — 8월 시점의 "5차 교섭 결렬"에서 상황이 바뀌었다.
+  </div>
+  <figure class="fig">
+    <figcaption>DS부문 특별 성과급 사업부별 세전 추산 (단위: 억원)</figcaption>
+    <svg class="cv" viewBox="0 0 640 215" role="img" aria-label="DS부문 특별 성과급 사업부별 세전 추산치 막대그래프. 메모리 7.5억원, 전사 공통 5.3억원, 파운드리·시스템LSI 2.4억원. 노조 추산치.">
+      <line class="cv-grid" x1="70" y1="28" x2="600" y2="28"/>
+      <line class="cv-grid" x1="70" y1="63.5" x2="600" y2="63.5"/>
+      <line class="cv-grid" x1="70" y1="99" x2="600" y2="99"/>
+      <line class="cv-grid" x1="70" y1="134.5" x2="600" y2="134.5"/>
+      <line class="cv-axis" x1="70" y1="28" x2="70" y2="170"/>
+      <line class="cv-base" x1="70" y1="170" x2="600" y2="170"/>
+      <text class="cv-ax" x="62" y="32" text-anchor="end">8</text>
+      <text class="cv-ax" x="62" y="67.5" text-anchor="end">6</text>
+      <text class="cv-ax" x="62" y="103" text-anchor="end">4</text>
+      <text class="cv-ax" x="62" y="138.5" text-anchor="end">2</text>
+      <text class="cv-ax" x="62" y="174" text-anchor="end">0</text>
+      <rect class="cv-bar-s" x="95" y="36.9" width="90" height="133.1"/>
+      <rect class="cv-bar-s" x="275" y="75.9" width="90" height="94.1"/>
+      <rect class="cv-bar-s" x="455" y="127.4" width="90" height="42.6"/>
+      <text class="cv-val cv-mid" x="140" y="30">7.5</text>
+      <text class="cv-val cv-mid" x="320" y="69">5.3</text>
+      <text class="cv-val cv-mid" x="500" y="120">2.4</text>
+      <text class="cv-cat cv-mid" x="140" y="194">메모리</text>
+      <text class="cv-cat cv-mid" x="320" y="194">공통</text>
+      <text class="cv-cat cv-mid" x="500" y="194">파운드리</text>
+    </svg>
+    <p class="cv-note">세 값 모두 노조 추산치이며 확정 지급액이 아니다(연간 영업이익 약 370조원 가정). "공통"은 전사 공통 조직, "파운드리"는 시스템LSI·파운드리 합산 기준. 출처: 이코노미스트 2026.10.10. 세전 금액이며 공제율 약 54.5% 적용 전 수치다.</p>
+  </figure>
+  <div class="impl s">→ 전망 함의. 3년 시나리오에서 가장 과소평가되는 변수가 인력 유지다. 사업부 60% 차등이 숫자로 공개되는 순간, 파운드리 조직의 보상은 파운드리 손익에 직접 연동된다 — 흑자전환이 더 이상 사업 지표만이 아니라 조직 유지 조건이 된다. 5.1억원 격차가 2년 연속 반복되면 10년 시나리오의 "메모리+로직 턴키" 강점은 설비·공정 인력이 메모리 쪽으로 쏠리면서 내부에서 약해질 수 있다. 다만 이 경로는 아직 심리·정황 단계이며, 실제 이탈로 이어졌다는 공식 수치는 존재하지 않는다(02 ③ 참조). <b>Etch 실무 관점:</b> 락업 구조상 보상의 2/3가 1~2년 묶이므로 단기 이탈 억제력은 있다 — 보상 격차가 바로 설비 인력 공백으로 나타나지는 않는다. 관찰할 지표는 이직률이 아니라 챔버당 담당 엔지니어 수와 PM 지연 건수다.</div>
+</div>
+</section>
+<section>
+<h2><span class="n">02</span>인력·조직 리스크</h2>
+<div class="hrcard">
+  <span class="btag hr">상시 추적</span>
+  <span class="src">10/10 이코노미스트 / 9/29 유진투자증권 / 10/08 디지털데일리·세계일보</span>
+  <h3>차등은 수치화됐고, 이탈은 아직 수치화되지 않았다</h3>
+
+  <div class="hritem">
+    <div class="hrlab">① 삼성 성과급 협약·노조 교섭</div>
+    <p>DS부문 영업이익 10.5% 재원 구조는 유지, 배분은 공통 40% / 사업부 성과 60%로 확인됐다 <span class="grade">추정</span>. 사업부별 세전 추산은 메모리 7.5억·전사 공통 5.3억·시스템LSI·파운드리 2.4억원으로, 8월 시점에 "2027년분부터"로만 예고됐던 차등이 금액으로 드러났다(01 ③ 참조). 전액 자사주 지급·즉시 매도 1/3·1·2년 락업 구조도 그대로다. 남은 변수는 2027년 3월 주주총회의 자사주 활용 승인. 노조 교섭 자체의 타결·결렬 여부는 커버 주간 중 새로 확인된 보도가 없다.</p>
+  </div>
+
+  <div class="hritem">
+    <div class="hrlab">② SK하이닉스 경력 채용 규모·직무</div>
+    <p>커버 주간 중 발행일이 확인되는 신규 경력 채용 공고·규모 보도를 찾지 못했다 — 이번 호에서는 <b>미확인</b>으로 둔다. 대신 보상 구조 쪽에서 변화가 있었다. SK하이닉스는 재원을 연간 영업이익의 10%로 두고 세전 평균 약 7억원을 예상하며, 현금 50%·자사주 50%(직원 선택 시 최대 100% 주식) 구조에 <b>노사 합의가 이뤄졌다</b> <span class="grade">보도</span>. 8월 시점 스냅샷의 "PS 자사주 지급·적자 시 임금 조정 조항 쟁점, 5차 교섭 결렬"에서 상황이 진전된 것이다. 삼성의 전액 자사주·락업 구조와 비교하면 현금 유동성 면에서 SK가 유리한 조건이 됐다.</p>
+  </div>
+
+  <div class="hritem">
+    <div class="hrlab">③ 삼성 → 경쟁사 실제 이탈 규모의 공식 수치화</div>
+    <p><b>현재까지 없다.</b> 이번 호에서도 삼성 파운드리 인력의 경쟁사 이탈 규모를 공식적으로 집계한 수치는 확인되지 않았다 — 회사 공시, 노조 공식 발표, 정부 통계 어느 쪽에도 없다. 성과급 격차(5.1억원)와 보상 구조 차이는 이탈 <b>유인</b>이지 이탈 <b>실적</b>이 아니다. 이 꼭지는 매 호와 동일하게 <b>"심리·정황 단계"</b>로 둔다. 과장해서 읽지 말 것: 보상 격차 보도가 늘어나는 것과 사람이 실제로 나가는 것은 다른 사건이고, 후자에 대한 데이터는 여전히 0건이다.</p>
+  </div>
+
+  <div class="hritem">
+    <div class="hrlab">④ 파운드리 흑자전환 진척</div>
+    <p>3분기 흑자는 <b>달성되지 않았다</b>. 파운드리·시스템LSI 합산 3분기 영업손실 추산은 1.0조원(디지털데일리·세계일보, 2분기 대비 축소)과 1.5조원(유진투자증권)으로 갈린다 <span class="grade">추정</span>. 같은 증권사는 4분기 1.7조원 적자, 2027년 연간 약 0.2조원 적자를 보며 분기 흑자 시점을 2027년 4분기로 제시했다 <span class="grade">단일 보도 계열 · 검증 필요</span>. 8월 시점의 세 갈래(3Q26설 / "가까운 시일 내" / 2028 구조적 흑자) 중 3Q26설은 이번 분기로 소멸했고, 남은 두 갈래의 간격은 좁혀지지 않았다.</p>
+    <figure class="fig">
+      <figcaption>파운드리 흑자전환 — 현재 어느 단계인가</figcaption>
+      <svg class="cv" viewBox="0 0 640 110" role="img" aria-label="파운드리 흑자전환 3단계 스테퍼. 1단계 적자 축소는 완료, 2단계 분기 흑자가 현재 단계로 미달성, 3단계 구조적 흑자는 예정.">
+        <line class="st-ln-done" x1="113" y1="40" x2="307" y2="40"/>
+        <line class="st-ln-next" x1="333" y1="40" x2="527" y2="40"/>
+        <circle class="st-done" cx="100" cy="40" r="13"/>
+        <circle class="st-now" cx="320" cy="40" r="13"/>
+        <circle class="st-next" cx="540" cy="40" r="13"/>
+        <text class="st-lab cv-mid" x="100" y="80">적자축소</text>
+        <text class="st-lab now cv-mid" x="320" y="80">분기흑자</text>
+        <text class="st-lab cv-mid" x="540" y="80">구조흑자</text>
+      </svg>
+      <p class="cv-note">진홍색 원이 현재 걸려 있는 단계다. 1단계(적자 축소)는 3분기 추산이 2분기보다 줄었다는 보도에 근거한 완료 표시이며, 회사 확정치가 아니다. 2단계는 미달성 상태로 2026년 3분기에 통과되지 않았다. 3단계(구조적 흑자)는 2027년 4분기~2028년 사이로 전망이 갈린다. 단계 색은 회사 계열색이 아니라 진행 상태만을 뜻한다.</p>
+    </figure>
+  </div>
+</div>
+</section>
+
+<section>
+<h2><span class="n">03</span>짧은 소식</h2>
+
+<div class="story s">
+  <span class="btag s">공급망 · 장비</span>
+  <span class="src">10/11 디일렉 / 10/11 글로벌이코노믹 (원 보도: Wccftech 10/10)</span>
+  <h3>ASML 교체부품 10% 인상, 삼성·SK하이닉스 수용 — 2027년 1월 납품분부터</h3>
+  <p>ASML이 한국에 공급하는 EUV·DUV 노광장비 교체부품 가격을 일괄 10% 인상하고, 삼성전자와 SK하이닉스가 이를 수용했다 <span class="grade">보도</span>. 적용 시점은 2027년 1월 납품분부터다. 범위는 정기 구매 소모품과 고장·성능 저하 시 교체하는 주요 부품 전반으로, 광학계(렌즈·미러), 광원, 정밀 구동계가 포함된다. 디일렉은 ASML 본사가 9월 초 한국 법인을 통해 통보한 뒤 양사 구매 조직과의 협의를 거쳐 확정됐다고 보도했다. 원자재가 급등 시 개별 부품값을 조정해 온 관행과 달리 일괄 인상은 이례적이다. ASML의 서비스·부품·업그레이드 매출은 전년 €81.93억으로 전체 €326.67억의 약 25%였고, 올해 30% 이상 성장을 전망한다. 어플라이드 머티어리얼즈·도쿄일렉트론도 인상에 나섰다는 언급이 있으나 교차 확인되지 않았다 <span class="grade">단일 보도 계열 · 검증 필요</span>.</p>
+  <div class="counter">
+    <b>반대 근거·한계.</b> 노광 부품 인상이 Etch 설비의 부품 단가를 직접 올리는 것은 아니다. 다만 ① 팹 전체의 유지보수 예산은 한 주머니에서 나오고, ② 인상이 노광에서 시작해 식각·증착 벤더로 번진다는 관측이 이미 나온 상태이며, ③ 삼성이 수용했다는 사실 자체가 공급사 교섭력이 역전된 국면을 보여준다. 반대로 부품값 10%는 웨이퍼 원가에서 차지하는 비중이 작아, 선단 공정 가격을 15% 올릴 수 있는 국면에서는 전가 가능한 수준이라는 해석도 성립한다.</div>
+  <div class="impl s">→ 전망 함의. 1년 시나리오의 파운드리 손익 개선 경로에 비용 쪽 역풍이 하나 추가됐다. 선단 가격 인상분이 부품·소모품 인상에 상쇄되면 흑자전환 시점은 뒤로 밀린다. <b>Etch 실무 관점:</b> 부품 단가가 오르는 국면에서 가장 먼저 압박받는 것은 PM 주기다. 교체 주기를 늘리는 쪽으로 의사결정이 쏠리면 챔버 컨디션 편차가 커지고, 그 편차는 SF2P 램프업 중인 지금 수율 곡선에 그대로 실린다. 부품비 절감과 챔버 매칭 유지는 같은 분기에 동시에 달성하기 어려운 목표이며, 2027년 1월 적용 전까지가 소모품 재고·교체 계획을 다시 짜 둘 수 있는 유일한 창이다.</div>
+</div>
+
+<div class="story s">
+  <span class="btag s">후공정</span>
+  <span class="src">10/06 한미반도체 공시 / 10/06~07 한국경제·서울신문</span>
+  <h3>한미반도체, 삼성전기에 245억 패키징 장비 공급</h3>
+  <p>한미반도체는 10월 6일 삼성전기와 244억8000만원 규모의 MSVP(Micro Saw &amp; Vision Placement) 공급 계약을 공시했다 <span class="grade">확정</span>. 패키지 절단용 마이크로 쏘와 웨이퍼 절단·검사용 비전 플레이스먼트를 결합한 후공정 장비로, D램·낸드·HBM 생산에 쓰인다. 2011년 특허 분쟁(한미반도체 대 세크론, 현 세메스) 이후 축소됐던 삼성그룹과의 거래가 회복되는 신호로 읽힌다. 2025년 10월 송재혁 삼성전자 CTO와 곽동신 한미반도체 회장의 반도체 전시회 회동 이후 관계가 개선돼 왔다는 보도다 <span class="grade">보도</span>. 금액 자체는 크지 않지만, 삼성이 패키징 공급망에서 사내 벤더 의존을 줄이는 방향으로 움직인다면 파운드리 턴키 전략의 후공정 축에 영향을 준다.</p>
+</div>
+
+<div class="story c">
+  <span class="btag c">중국 · SMIC</span>
+  <span class="src">9/09~11 TrendForce 집계 보도 (커버 주간 신규 보도 없음)</span>
+  <h3>SMIC, 점유율 0.5%p 차로 삼성 추격 — 이번 주 신규 변동은 없음</h3>
+  <p>커버 주간 중 SMIC·중국 파운드리 관련해 발행일이 확인되는 신규 보도를 찾지 못했다. 가장 최근 확인값은 TrendForce 2026년 2분기 집계로, SMIC 매출은 US$30억 이상(전분기 대비 +20%)에 점유율 5.4%로 3위이며, 2위 삼성(5.9%)과의 격차는 0.5%p다 <span class="grade">보도</span>. EUV 제재로 7nm급이 한계라는 구조는 변하지 않았고, 미국 수출통제·우회 주문 규제 논의도 이번 주 새로 확인된 진전이 없다. 분기 성장률만 보면 SMIC(+20%)가 삼성(+1.8%)의 10배를 넘는다 — 레거시 수요가 받쳐 주는 한 2위 자리는 수율이 아니라 물량으로 흔들릴 수 있다.</p>
+</div>
+</section>
+<section>
+<h2><span class="n">04</span>한눈에 보는 숫자</h2>
+<p style="font-size:15px;color:var(--ink-soft);margin:0 0 14px">아래 점유율 그림은 추이가 아니라 2026년 2분기 한 시점의 스냅샷이다. 분기별 추이를 그리려면 발행일이 확인된 복수 분기 집계가 필요한데 이번 호에서는 2분기 집계만 확보됐다. 같은 집계의 4·5위는 UMC 3.9%, 글로벌파운드리 3.2%다.</p>
+<figure class="fig">
+  <figcaption>파운드리 점유율 — 2026년 2분기 스냅샷 (TrendForce)</figcaption>
+  <svg class="cv" viewBox="0 0 640 264" role="img" aria-label="2026년 2분기 파운드리 점유율 가로 막대그래프. TSMC 72.5퍼센트, 삼성 5.9퍼센트, SMIC 5.4퍼센트, UMC 3.9퍼센트, 글로벌파운드리 3.2퍼센트.">
+    <line class="cv-axis" x1="70" y1="20" x2="70" y2="254"/>
+    <text class="cv-cat" x="70" y="26">TSMC</text>
+    <text class="cv-val" x="560" y="26" text-anchor="end">72.5%</text>
+    <rect class="cv-bar-t" x="70" y="34" width="473.7" height="20"/>
+    <text class="cv-cat" x="70" y="76">삼성</text>
+    <text class="cv-val" x="560" y="76" text-anchor="end">5.9%</text>
+    <rect class="cv-bar-s" x="70" y="84" width="38.6" height="20"/>
+    <text class="cv-cat" x="70" y="126">SMIC</text>
+    <text class="cv-val" x="560" y="126" text-anchor="end">5.4%</text>
+    <rect class="f-c" x="70" y="134" width="35.3" height="20"/>
+    <text class="cv-cat" x="70" y="176">UMC</text>
+    <text class="cv-val" x="560" y="176" text-anchor="end">3.9%</text>
+    <rect class="cv-bar-n" x="70" y="184" width="25.5" height="20"/>
+    <text class="cv-cat" x="70" y="226">GF</text>
+    <text class="cv-val" x="560" y="226" text-anchor="end">3.2%</text>
+    <rect class="cv-bar-n" x="70" y="234" width="20.9" height="20"/>
+  </svg>
+  <p class="cv-note">TrendForce 2026년 2분기 상위 10대 파운드리 집계(합산 매출 약 US$534.9억, 전분기 대비 +11.5%) 기준, 2026.09.10 보도. 같은 보도 안에서도 TSMC 점유율이 72.9%와 72.5%로 함께 표기돼 있어 본문·표에는 72.5%를 쓴다. 삼성 점유율은 이 집계(순수 파운드리 기준)에서 5.9%이고, 다른 기준으로 6.5%를 쓰는 매체도 있다 — 표기 불일치다. UMC·GF는 계열색을 쓰지 않는 회색으로 두었다.</p>
+</figure>
+<div class="tw">
+<table>
+<thead><tr><th>지표</th><th>현재값</th><th>포인트</th></tr></thead>
+<tbody>
+<tr><td>TSMC 9월 매출</td><td>NT$511.86B</td><td>전년 동월 +54.6%, 전월 -0.6% — 5개월 만의 첫 월간 감소. 1~9월 누계 NT$3,898.73B(+41.1%)</td></tr>
+<tr><td>TSMC 3분기 매출</td><td>NT$1.4942T</td><td>전년 동기 +50.95%, 전분기 +17.62%. 분기 사상 최대이자 가이던스(US$44.6~45.8B)·컨센서스(NT$1.46T) 모두 상회</td></tr>
+<tr><td>삼성전자 3Q26 영업이익</td><td>107.4조원</td><td>사상 최대, 영업이익률 55.1%. 매출 195조원. 성과급 충당금 약 12.6조원 반영</td></tr>
+<tr><td>삼성 파운드리·시스템LSI 3Q 손익</td><td>-1.0조 ~ -1.5조원</td><td>회사 미공개, 매체·증권사 추산 구간. "3분기 흑자전환"은 미달성</td></tr>
+<tr><td>파운드리 점유율(2Q26)</td><td>TSMC 72.5% / 삼성 5.9%</td><td>SMIC 5.4%로 격차 0.5%p. 삼성은 기준에 따라 6.5% 표기도 병존</td></tr>
+<tr><td>삼성 SF2P 수율 목표선</td><td>70% 이상</td><td>하반기 양산 진입. 대형 양산 계약 문턱으로 지목되는 수준</td></tr>
+<tr><td>ASML 교체부품 인상률</td><td>+10%</td><td>EUV·DUV 전 부품 일괄. 2027년 1월 납품분부터, 삼성·SK하이닉스 수용</td></tr>
+<tr><td>DS 성과급 사업부 격차</td><td>5.1억원</td><td>메모리 7.5억 vs 시스템LSI·파운드리 2.4억(노조 추산, 세전). 사업부 성과 60% 차등 적용</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section>
+<h2><span class="n">05</span>다음 주 체크포인트</h2>
+<dl class="ck">
+  <dt>10/15 (목)</dt>
+  <dd><b>TSMC 3분기 컨퍼런스콜.</b> 2027년 선단 공정 최대 10% 인상 통보의 실제 집행 여부, 캐파엑스·2나노 캐파 가이던스 갱신, 4분기 가이던스. 7월에 올려 둔 수치(연 성장 40% 이상, 캐파엑스 US$60~64B)가 이 자리에서 바뀔 수 있다.</dd>
+
+  <dt>10월 하순</dt>
+  <dd><b>삼성전자 3분기 확정 실적·컨콜.</b> 부문별 손익은 이번에도 공개되지 않을 가능성이 높으므로, 실제로 볼 것은 "흑자전환" 표현의 변화와 2나노 수주 과제 건수 언급이다. 7월 컨콜의 "가까운 시일 내"가 유지되는지 후퇴하는지가 핵심.</dd>
+
+  <dt>10월 하순</dt>
+  <dd><b>인텔 3분기 실적.</b> 파운드리 외부 매출 비중(2Q26 기준 전체의 5%, US$2.93억)이 올라왔는지, 14A PDK 0.9 배포(10월 목표)가 지켜졌는지, <b>외부 고객 실명 공개</b>가 있는지. 커버 주간 중 인텔 쪽 검증 가능한 신규 소식이 없었던 만큼 이번 실적이 유일한 확인 창이다.</dd>
+
+  <dt>상시</dt>
+  <dd><b>삼성 2나노 수율 70% 돌파와 테일러 팹.</b> SF2P 램프업 중 수율 곡선 기울기, 테일러 팹 가동 안정화와 감가상각 부담 흐름. 설비 측에서는 챔버 매칭 데이터와 PM 윈도 확보가 선행 지표다.</dd>
+
+  <dt>상시 (HR)</dt>
+  <dd><b>성과급·채용·이탈.</b> 특별 성과급 지급률 확정(2027년 2월)과 자사주 활용 주총 승인(2027년 3월), SK하이닉스 경력 채용 규모·직무 재확인, 삼성→경쟁사 이탈 규모의 공식 수치 등장 여부(현재까지 0건).</dd>
+
+  <dt>다음 호 예고</dt>
+  <dd>10월 12일(월) 이후 발생한 뉴스는 이번 호가 아니라 <b>제19호(10월 19일 발행)</b>에서 다룬다. 발행일 당일 뉴스는 다음 호로 넘긴다는 원칙에 따른 것이다.</dd>
+</dl>
+</section>
+
+<div class="again">
+  <b>다음 호가 필요하면 "파운드리 주간"이라고 요청하세요.</b> 발행 주기는 매주 월요일 06:00 KST이며, 직전 1주일(월~일)을 커버합니다. 다음 호는 제19호, 커버 주간 2026.10.12~10.18입니다.<br><br>
+  <b>Terafab 정책:</b> Tesla/SpaceX의 Terafab(오스틴)은 상시 꼭지에서 제외하고, SpaceX IPO 조달 확정·ASML EUV 발주 공식화·AI5·AI6 테이프아웃·양산 일정·대규모 채용 변동 등 유의미한 진전이 있을 때만 단신으로 다룹니다. <b>이번 주는 해당 없어 제외</b>했습니다.
+</div>
+
+<div class="cav">
+<h4>Caveats</h4>
+<ol>
+  <li>모멘텀 화살표는 <b>주가가 아니라</b> 중장기 전망 시나리오 대비 방향성입니다. 주가·투자 성과와 무관합니다.</li>
+  <li>삼성 파운드리의 손익과 수율은 <b>회사가 공개하지 않는 업계 추산치</b>입니다. 본문의 1.0조~1.5조 적자 구간, SF2P 수율 70% 목표선, 성과급 사업부별 금액은 모두 추정이며 확정치가 아닙니다.</li>
+  <li>예비·협의·MOU 단계 보도는 <b>본계약이 아닙니다.</b> 수주·고객 확보 보도는 실명 공개와 양산 물량이 확인될 때까지 확정으로 읽지 마십시오.</li>
+  <li>삼성에서 경쟁사로의 <b>실제 이탈 규모에 대한 공식 수치는 존재하지 않습니다.</b> 보상 격차는 유인이며, 이 뉴스레터는 이를 "심리·정황 단계"로만 표기합니다.</li>
+  <li>이 문서는 <b>정보 제공 목적</b>이며 투자 권유가 아닙니다. 특정 종목의 매수·매도·보유를 권하지 않습니다.</li>
+</ol>
+</div>
+
+<footer>
+파운드리 주간 제18호 · 커버 주간 2026.10.05~10.11 · 발행 2026.10.12 06:00 KST<br>
+수치는 각 꼭지에 표기된 출처의 발행일 기준이며, 커버 주간 밖 기사는 비교·배경 목적으로만 인용하고 그 사실을 명시했습니다. 도표 3개.
+</footer>
+</div>
+</body>
+</html>
