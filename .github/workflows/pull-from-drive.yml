@@ -1,0 +1,49 @@
+name: Pull briefs from Drive
+
+# 카드뉴스 세션이 Google Drive '발행함'에 올린 브리프를 레포에 커밋한다.
+# 매일 06:00~09:45 KST(21:00~00:45 UTC) 15분마다 확인 + 수동 실행 가능.
+on:
+  schedule:
+    - cron: '*/15 21-23 * * *'
+    - cron: '*/15 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: pull-from-drive
+  cancel-in-progress: false
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pull new files from Drive
+        env:
+          GOOGLE_DRIVE_API_KEY: ${{ secrets.GOOGLE_DRIVE_API_KEY }}
+          DRIVE_INBOX_ID: ${{ vars.DRIVE_INBOX_ID }}
+          PULL_OUT: ${{ runner.temp }}/pulled.txt
+        run: python3 .github/scripts/pull_from_drive.py
+
+      - name: Commit and push
+        id: commit
+        run: |
+          if [ ! -s "$RUNNER_TEMP/pulled.txt" ]; then echo "changed=0" >> "$GITHUB_OUTPUT"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          xargs -a "$RUNNER_TEMP/pulled.txt" -d '\n' git add --
+          git diff --staged --quiet && { echo "changed=0" >> "$GITHUB_OUTPUT"; exit 0; }
+          git commit -m "brief: $(paste -sd ' ' "$RUNNER_TEMP/pulled.txt") (from Drive)"
+          git push
+          echo "changed=1" >> "$GITHUB_OUTPUT"
+
+      # GITHUB_TOKEN 으로 한 push 는 다른 워크플로를 깨우지 않는다 → manifest·오디오 빌드를 직접 호출
+      - name: Run Build manifest
+        if: steps.commit.outputs.changed == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run build-manifest.yml --ref "${{ github.ref_name }}"
