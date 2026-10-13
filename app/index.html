@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Daily Brief</title>
+<meta name="description" content="매일 아침 카드뉴스 브리프 — 읽고, 듣고, 날씨까지">
+<meta name="theme-color" content="#faf9f6">
+<link rel="manifest" href="app.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Daily Brief">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --green:#3d5a4c; --green-soft:#eef2ee;
+    --safe-b:env(safe-area-inset-bottom,0px);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{background:var(--bg)}
+  body{color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;
+       padding:env(safe-area-inset-top,0px) 16px calc(150px + var(--safe-b))}
+  .wrap{max-width:640px;margin:0 auto}
+  button{font-family:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  a{color:inherit}
+
+  /* ── 상단 ── */
+  .top{padding:28px 0 18px}
+  .kicker{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:600}
+  .today{font-family:'Newsreader','Noto Serif KR',serif;font-weight:500;font-size:34px;line-height:1.15;letter-spacing:-.01em;margin-top:8px}
+  .weather{margin-top:14px;padding:11px 14px;border-radius:12px;background:var(--green-soft);font-size:14px;line-height:1.55}
+  .weather.rain{background:#e8f0f5}
+  .weather small{display:block;font-size:11.5px;color:var(--faint);margin-top:2px}
+
+  /* ── 전체 듣기 ── */
+  .playall{display:flex;align-items:center;gap:14px;width:100%;margin:18px 0 8px;padding:16px 18px;
+           border-radius:16px;background:var(--ink);color:#fff;text-align:left}
+  .playall .pa-ic{width:44px;height:44px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;flex-shrink:0}
+  .playall .pa-t{font-weight:600;font-size:15.5px}
+  .playall .pa-s{font-size:12.5px;opacity:.7;margin-top:1px}
+  .playall[disabled]{opacity:.4}
+
+  /* ── 브리프 카드 ── */
+  .sec{display:flex;align-items:center;gap:12px;margin:30px 0 14px}
+  .sec span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .sec i{flex:1;height:1px;background:var(--line)}
+  .bc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 14px;margin-bottom:12px;
+      border-top:3px solid var(--ac,var(--green))}
+  .bc .badge{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+             padding:3px 10px;border-radius:20px;color:var(--ac);background:var(--acs)}
+  .bc h2{font-family:'Newsreader','Noto Serif KR',serif;font-weight:600;font-size:22px;line-height:1.3;margin:10px 0 6px;letter-spacing:-.01em}
+  .bc p{font-size:14px;color:var(--muted);line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .bc .acts{display:flex;gap:8px;margin-top:14px}
+  .bc .acts button{flex:1;padding:10px 0;border-radius:10px;font-size:14px;font-weight:600;border:1px solid var(--line)}
+  .bc .acts .listen{background:var(--acs);color:var(--ac);border-color:transparent}
+  .bc .meta{font-size:12px;color:var(--faint);margin-top:8px}
+
+  /* ── 지난 브리프 행 ── */
+  .row{display:flex;align-items:center;gap:10px;width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;
+       background:var(--card);margin-bottom:8px;text-align:left}
+  .row .d{font-size:12px;color:var(--faint);width:56px;flex-shrink:0;font-variant-numeric:tabular-nums}
+  .row .b{font-size:10.5px;font-weight:600;letter-spacing:.06em;padding:3px 9px;border-radius:20px;flex-shrink:0;color:var(--ac);background:var(--acs)}
+  .row .n{font-size:14px;font-weight:500;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .row .ar{color:var(--faint);font-size:13px}
+  .chips{display:flex;gap:7px;overflow-x:auto;margin:6px -16px 18px;padding:0 16px 4px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex-shrink:0;font-size:13px;font-weight:500;padding:7px 15px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:var(--muted)}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .month{font-family:'Newsreader',serif;font-size:18px;font-weight:600;margin:26px 0 12px}
+  .state{text-align:center;color:var(--faint);padding:48px 0;font-size:14px}
+
+  /* ── 설치 안내 ── */
+  .install{display:none;margin-top:16px;padding:12px 14px;border-radius:12px;border:1px dashed #cfcdc4;font-size:13px;color:var(--muted);line-height:1.6}
+  .install.show{display:flex;gap:10px;align-items:flex-start}
+  .install b{color:var(--ink)}
+  .install button{margin-left:auto;font-size:18px;line-height:1;color:var(--faint);padding:0 2px}
+
+  /* ── 미니 플레이어 + 탭바 ── */
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(250,249,246,.94);
+        -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding-bottom:var(--safe-b)}
+  .player{display:none;max-width:640px;margin:0 auto;padding:10px 16px 8px;border-bottom:1px solid var(--line)}
+  .player.show{display:block}
+  .pl-row{display:flex;align-items:center;gap:12px}
+  .pl-info{flex:1;min-width:0}
+  .pl-t{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pl-s{font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums}
+  .pl-btn{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+  .pl-btn.main{background:var(--ink);color:#fff}
+  .pl-bar{height:4px;border-radius:2px;background:var(--line);margin-top:9px;position:relative;overflow:hidden;cursor:pointer}
+  .pl-bar i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--ink);border-radius:2px}
+  .tabs{display:flex;max-width:640px;margin:0 auto}
+  .tabs button{flex:1;padding:10px 0 9px;font-size:11.5px;font-weight:600;color:var(--faint);display:flex;flex-direction:column;align-items:center;gap:3px}
+  .tabs button.on{color:var(--ink)}
+  svg{display:block}
+
+  /* ── 리더(브리프 보기) ── */
+  .reader{position:fixed;inset:0;z-index:30;background:var(--bg);display:none;flex-direction:column}
+  .reader.show{display:flex}
+  .rd-bar{display:flex;align-items:center;gap:8px;padding:calc(env(safe-area-inset-top,0px) + 8px) 10px 8px;border-bottom:1px solid var(--line);background:var(--bg)}
+  .rd-bar .t{flex:1;min-width:0;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rd-bar button{padding:8px 10px;border-radius:10px;font-size:14px;font-weight:600}
+  .rd-bar .listen{background:var(--green-soft);color:var(--green)}
+  .reader iframe{flex:1;width:100%;border:0;background:var(--bg)}
+  .reader.with-player iframe{margin-bottom:calc(64px + var(--safe-b))}
+  .reader.show ~ .dock .tabs{display:none}
+  .reader.show:not(.with-player) ~ .dock{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div id="view"><div class="state">불러오는 중…</div></div>
+</div>
+
+<div class="reader" id="reader" aria-hidden="true">
+  <div class="rd-bar">
+    <button id="rdBack" aria-label="닫기">← 닫기</button>
+    <div class="t" id="rdTitle"></div>
+    <button class="listen" id="rdListen" hidden>▶ 듣기</button>
+  </div>
+  <iframe id="rdFrame" title="브리프"></iframe>
+</div>
+
+<div class="dock">
+  <div class="player" id="player">
+    <div class="pl-row">
+      <div class="pl-info"><div class="pl-t" id="plTitle"></div><div class="pl-s" id="plSub"></div></div>
+      <button class="pl-btn" id="plPrev" aria-label="이전"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+      <button class="pl-btn main" id="plToggle" aria-label="재생/일시정지"></button>
+      <button class="pl-btn" id="plNext" aria-label="다음"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+    </div>
+    <div class="pl-bar" id="plBar"><i id="plFill"></i></div>
+  </div>
+  <nav class="tabs">
+    <button id="tabToday" class="on"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>오늘</button>
+    <button id="tabArchive"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16v12.5H4zM3 4h18v3H3zM10 11h4"/></svg>아카이브</button>
+  </nav>
+</div>
+
+<audio id="audio" preload="none"></audio>
+
+<script>
+"use strict";
+// 브리프 목록은 GitHub Actions 가 만드는 ../manifest.json 에서 읽는다.
+// 파운드리(개인 문서)는 앱에서 제외한다.
+const BASE = "../";
+const EXCLUDE = new Set(["foundry"]);
+const TYPES = {
+  daily:   {label:"메인",      ac:"#3d5a4c"},
+  ai:      {label:"AI·테크",   ac:"#2a6b7c"}, tech:{label:"AI·테크", ac:"#2a6b7c"},
+  sports:  {label:"스포츠",    ac:"#1f5f8b"},
+  culture: {label:"문화",      ac:"#8a4f3d"},
+  music:   {label:"음악",      ac:"#6b3f8a"},
+  travel:  {label:"여행",      ac:"#8a6d3b"},
+  activity:{label:"액티비티",  ac:"#a84f66"},
+  science: {label:"우주·과학", ac:"#3d4a7c"}, space:{label:"우주·과학", ac:"#3d4a7c"}
+};
+const GROUPS = [
+  {k:"all", label:"전체", t:null}, {k:"daily", label:"메인", t:["daily"]},
+  {k:"ai", label:"AI·테크", t:["ai","tech"]}, {k:"sports", label:"스포츠", t:["sports"]},
+  {k:"culture", label:"문화·음악", t:["culture","music"]}, {k:"travel", label:"여행·액티비티", t:["travel","activity"]},
+  {k:"science", label:"과학", t:["science","space"]}
+];
+const WD = ["일","월","화","수","목","금","토"];
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const typeOf = t => TYPES[t] || {label:t, ac:"#6b6b66"};
+const soft = hex => hex + "1a";   // 액센트 10% 배경
+const fmtDay = d => { const x = new Date(d + "T00:00:00"); return `${x.getMonth()+1}월 ${x.getDate()}일 ${WD[x.getDay()]}요일`; };
+const store = { get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } },
+                set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} } };
+
+let FILES = [], tab = "today", chip = "all";
+const detailCache = new Map();
+
+// ── 브리프 HTML 에서 제목·리드·날씨·오디오 뽑기 ──
+async function detail(f){
+  if(detailCache.has(f.path)) return detailCache.get(f.path);
+  const p = (async () => {
+    const url = new URL(BASE + f.path, location.href);
+    const res = await fetch(url, {cache:"no-cache"});
+    if(!res.ok) throw new Error(res.status);
+    const doc = new DOMParser().parseFromString(await res.text(), "text/html");
+    const txt = sel => (doc.querySelector(sel)?.textContent || "").replace(/\s+/g," ").trim();
+    const au = doc.querySelector(".audio-player audio");
+    const css = [...doc.querySelectorAll("style")].map(s => s.textContent).join("");
+    const ac = (css.match(/--accent:\s*(#[0-9a-f]{6})/i) || [])[1];
+    const wx = doc.querySelector(".weather");
+    let weather = null;
+    if(wx){
+      const note = wx.querySelector(".wx-note"); const noteTxt = note ? note.textContent.replace(/\s+/g," ").trim() : "";
+      if(note) note.remove();
+      weather = {text: wx.textContent.replace(/\s+/g," ").trim().replace(/[—-]\s*$/,""), note: noteTxt};
+    }
+    const mins = (txt(".audio-player .label").match(/(\d+)\s*분/) || [])[1];
+    return {
+      title: txt("h1"), lede: txt(".lede"), count: txt(".count"),
+      ac: ac || typeOf(f.type).ac,
+      audio: au && au.getAttribute("src") ? new URL(au.getAttribute("src"), url).href : null,
+      mins: mins ? Number(mins) : null, weather
+    };
+  })();
+  detailCache.set(f.path, p);
+  p.catch(() => detailCache.delete(f.path));
+  return p;
+}
+
+// ── 오늘 탭 ──
+async function drawToday(){
+  const v = $("view");
+  if(!FILES.length){ v.innerHTML = '<div class="state">아직 발행된 브리프가 없습니다.</div>'; return; }
+  const latest = FILES[0].date;
+  const todays = FILES.filter(f => f.date === latest);
+  const recent = FILES.filter(f => f.date !== latest).slice(0, 12);
+  const ds = await Promise.all(todays.map(f => detail(f).catch(() => null)));
+  if(tab !== "today") return;
+
+  const daily = todays.findIndex(f => f.type === "daily");
+  const wx = daily >= 0 && ds[daily] ? ds[daily].weather : null;
+  const queue = todays.map((f,i) => ds[i] && ds[i].audio ? {f, d:ds[i]} : null).filter(Boolean);
+  const total = queue.reduce((s,q) => s + (q.d.mins || 0), 0);
+
+  let h = `<div class="top">
+      <div class="kicker">Daily Brief · 데일리 브리프</div>
+      <div class="today">${esc(fmtDay(latest))}</div>
+      ${wx ? `<div class="weather${/우산|비|눈/.test(wx.text) ? " rain" : ""}">${esc(wx.text)}${wx.note ? `<small>${esc(wx.note)}</small>` : ""}</div>` : ""}
+      <div class="install" id="install"><div>📲 <b>앱처럼 쓰기</b> — Safari 아래쪽 <b>공유</b> 버튼 → <b>홈 화면에 추가</b></div><button id="installX" aria-label="닫기">×</button></div>
+    </div>
+    <button class="playall" id="playAll" ${queue.length ? "" : "disabled"}>
+      <span class="pa-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></span>
+      <span><div class="pa-t">오늘 브리프 듣기</div>
+      <div class="pa-s">${queue.length ? queue.map(q => typeOf(q.f.type).label).join(" → ") + (total ? ` · 약 ${total}분` : "") : "오디오 준비 중 — 발행 직후 몇 분 걸려요"}</div></span>
+    </button>
+    <div class="sec"><span>오늘의 브리프</span><i></i></div>`;
+  todays.forEach((f,i) => {
+    const d = ds[i], t = typeOf(f.type), ac = d ? d.ac : t.ac;
+    h += `<article class="bc" style="--ac:${ac};--acs:${soft(ac)}">
+      <span class="badge">${esc(t.label)}</span>
+      <h2>${esc(d ? d.title : t.label + " 브리프")}</h2>
+      ${d && d.lede ? `<p>${esc(d.lede)}</p>` : ""}
+      <div class="acts"><button data-read="${esc(f.path)}">읽기</button>
+      ${d && d.audio ? `<button class="listen" data-listen="${esc(f.path)}">▶ 듣기${d.mins ? ` · ${d.mins}분` : ""}</button>` : ""}</div>
+      ${d && d.count ? `<div class="meta">${esc(d.count)}</div>` : ""}
+    </article>`;
+  });
+  if(recent.length){
+    h += `<div class="sec"><span>지난 브리프</span><i></i></div>`;
+    h += recent.map(rowHtml).join("");
+  }
+  v.innerHTML = h;
+  $("playAll").onclick = () => queue.length && Player.load(queue, 0);
+  const ua = navigator.userAgent, ios = /iPhone|iPad|iPod/.test(ua);
+  const standalone = navigator.standalone || matchMedia("(display-mode: standalone)").matches;
+  if(ios && !standalone && !store.get("installX")) $("install").classList.add("show");
+  $("installX").onclick = () => { store.set("installX","1"); $("install").classList.remove("show"); };
+}
+
+function rowHtml(f){
+  const t = typeOf(f.type);
+  return `<button class="row" data-read="${esc(f.path)}" style="--ac:${t.ac};--acs:${soft(t.ac)}">
+    <span class="b">${esc(t.label)}</span>
+    <span class="n">${esc(fmtDay(f.date))}</span><span class="ar">→</span></button>`;
+}
+
+// ── 아카이브 탭 ──
+function drawArchive(){
+  const avail = GROUPS.filter(g => !g.t || FILES.some(f => g.t.includes(f.type)));
+  const g = GROUPS.find(x => x.k === chip) || GROUPS[0];
+  const list = g.t ? FILES.filter(f => g.t.includes(f.type)) : FILES;
+  let h = `<div class="top"><div class="kicker">Archive · 아카이브</div><div class="today">지난 브리프</div></div>
+    <div class="chips">${avail.map(x => `<button class="chip${x.k === chip ? " on" : ""}" data-chip="${x.k}">${x.label}</button>`).join("")}</div>`;
+  let m = "";
+  for(const f of list){
+    if(f.month !== m){ m = f.month; h += `<div class="month">${f.year}년 ${Number(f.mon)}월</div>`; }
+    h += rowHtml(f);
+  }
+  $("view").innerHTML = h || '<div class="state">브리프가 없습니다.</div>';
+}
+
+function setTab(t){
+  tab = t;
+  $("tabToday").classList.toggle("on", t === "today");
+  $("tabArchive").classList.toggle("on", t === "archive");
+  window.scrollTo(0, 0);
+  t === "today" ? drawToday() : drawArchive();
+}
+
+// ── 리더: 브리프를 앱 안에서 연다(홈 화면 앱에는 뒤로가기 버튼이 없어서) ──
+const Reader = {
+  path: null,
+  async open(path, push = true){
+    const f = FILES.find(x => x.path === path);
+    this.path = path;
+    $("rdTitle").textContent = f ? `${typeOf(f.type).label} · ${fmtDay(f.date)}` : "";
+    $("rdFrame").src = BASE + path;
+    $("reader").classList.add("show"); $("reader").setAttribute("aria-hidden","false");
+    if(push) history.pushState({reader:path}, "", "#" + encodeURIComponent(path));
+    $("rdListen").hidden = true;
+    if(f){ try{ const d = await detail(f); if(this.path === path && d.audio){ $("rdListen").hidden = false;
+      $("rdListen").onclick = () => Player.load([{f, d}], 0); } }catch(e){} }
+  },
+  close(){ $("reader").classList.remove("show"); $("reader").setAttribute("aria-hidden","true"); $("rdFrame").src = "about:blank"; this.path = null; }
+};
+$("rdBack").onclick = () => history.state && history.state.reader ? history.back() : Reader.close();
+addEventListener("popstate", e => { e.state && e.state.reader ? Reader.open(e.state.reader, false) : Reader.close(); });
+
+// ── 플레이어: 메인 → 서브 연속 재생, 잠금화면 제어 ──
+const ICON_PLAY = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg>';
+const ICON_PAUSE = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>';
+const mmss = s => isFinite(s) ? `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,"0")}` : "0:00";
+const Player = {
+  a: $("audio"), q: [], i: 0,
+  load(queue, i){ this.q = queue; this.play(i); },
+  play(i){
+    if(i < 0 || i >= this.q.length) return;
+    this.i = i; const {f, d} = this.q[i];
+    this.a.src = d.audio; this.a.play().catch(() => {});
+    $("player").classList.add("show"); $("reader").classList.add("with-player");
+    $("plTitle").textContent = d.title || typeOf(f.type).label;
+    this.meta();
+    if("mediaSession" in navigator){
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: d.title || typeOf(f.type).label + " 브리프",
+        artist: `Daily Brief · ${typeOf(f.type).label}`, album: fmtDay(f.date),
+        artwork: [{src: new URL("icons/icon-512.png", location.href).href, sizes:"512x512", type:"image/png"}]
+      });
+    }
+  },
+  toggle(){ if(!this.q.length) return; this.a.paused ? this.a.play().catch(() => {}) : this.a.pause(); },
+  meta(){
+    if(!this.q.length) return;
+    const {f} = this.q[this.i];
+    $("plSub").textContent = `${this.i+1}/${this.q.length} · ${typeOf(f.type).label} · ${mmss(this.a.currentTime)} / ${mmss(this.a.duration)}`;
+    $("plFill").style.width = this.a.duration ? (this.a.currentTime / this.a.duration * 100) + "%" : "0";
+    $("plToggle").innerHTML = this.a.paused ? ICON_PLAY : ICON_PAUSE;
+  }
+};
+const A = Player.a;
+["timeupdate","play","pause","loadedmetadata"].forEach(ev => A.addEventListener(ev, () => Player.meta()));
+A.addEventListener("ended", () => { if(Player.i + 1 < Player.q.length) Player.play(Player.i + 1); else Player.meta(); });
+$("plToggle").onclick = () => Player.toggle();
+$("plNext").onclick = () => Player.play(Player.i + 1);
+$("plPrev").onclick = () => A.currentTime > 5 ? (A.currentTime = 0) : Player.play(Player.i - 1);
+$("plBar").onclick = e => { if(A.duration){ const r = e.currentTarget.getBoundingClientRect(); A.currentTime = (e.clientX - r.left) / r.width * A.duration; } };
+if("mediaSession" in navigator){
+  const ms = navigator.mediaSession;
+  ms.setActionHandler("play", () => A.play());
+  ms.setActionHandler("pause", () => A.pause());
+  ms.setActionHandler("nexttrack", () => Player.play(Player.i + 1));
+  ms.setActionHandler("previoustrack", () => Player.play(Player.i - 1));
+  try{ ms.setActionHandler("seekto", e => { A.currentTime = e.seekTime; }); }catch(e){}
+}
+
+// ── 클릭 위임 ──
+document.addEventListener("click", async e => {
+  const r = e.target.closest("[data-read]"); if(r){ Reader.open(r.dataset.read); return; }
+  const l = e.target.closest("[data-listen]");
+  if(l){ const f = FILES.find(x => x.path === l.dataset.listen); if(f){ const d = await detail(f); Player.load([{f, d}], 0); } return; }
+  const c = e.target.closest("[data-chip]"); if(c){ chip = c.dataset.chip; drawArchive(); }
+});
+$("tabToday").onclick = () => setTab("today");
+$("tabArchive").onclick = () => setTab("archive");
+
+// ── 시작 ──
+(async () => {
+  try{
+    const res = await fetch(BASE + "manifest.json", {cache:"no-cache"});
+    if(!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    FILES = (data.files || [])
+      .map(f => ({...f, type: String(f.type).toLowerCase()}))
+      .filter(f => !EXCLUDE.has(f.type) && TYPES[f.type])
+      .sort((a,b) => b.date.localeCompare(a.date) || (a.type === "daily" ? -1 : b.type === "daily" ? 1 : 0));
+    await drawToday();
+    if(location.hash.length > 1){ const p = decodeURIComponent(location.hash.slice(1)); if(FILES.some(f => f.path === p)) Reader.open(p, false); }
+  }catch(err){
+    $("view").innerHTML = '<div class="state">목록을 불러오지 못했어요.<br>연결을 확인하고 다시 열어 주세요.</div>';
+  }
+})();
+
+if("serviceWorker" in navigator){
+  addEventListener("load", () => navigator.serviceWorker.register(BASE + "sw.js", {scope: BASE}).catch(() => {}));
+}
+</script>
+</body>
+</html>
