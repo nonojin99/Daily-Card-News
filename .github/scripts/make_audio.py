@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-브리프 HTML 의 낭독 원고로 MP3 를 만들어 GitHub Releases 에 올리고, 브리프에 재생기를 넣는다.
+브리프 HTML 의 낭독 원고로 MP3 를 만들어 레포 audio/ 폴더에 두고, 브리프에 재생기를 넣는다.
 
   대상  <details class="audio-script"> 가 있고 아직 class="audio-player" 가 없는 브리프
   음성  Google Cloud Text-to-Speech (Chirp 3 HD) — 문단마다 합성한 뒤 이어 붙인다
-  저장  Releases 태그 audio-YYYY-MM 에 YYYY-MM-DD_<type>.mp3 로 업로드
-  교체  </header> 바로 뒤에 <div class="audio-player"><audio ...></div> 삽입
+  저장  audio/YYYY-MM/YYYY-MM-DD_<type>.mp3 (48kbps 모노)
+  교체  </header> 바로 뒤에 <div class="audio-player"><audio src="상대경로"></div> 삽입
+
+왜 Releases 가 아니라 레포인가 (2026-10-13)
+  Releases 파일은 application/octet-stream + attachment 로 내려와 iPhone Safari 가 재생하지 않았다.
+  레포 파일은 GitHub Pages 가 audio/mpeg 로 서빙한다. 예전에 Releases 로 넣은 재생기는
+  실행할 때마다 audio/ 로 옮기고 src 를 고친다(마이그레이션).
 
 실패 원칙
   - 키(GOOGLE_TTS_API_KEY)가 없으면 아무것도 하지 않는다
@@ -19,6 +24,9 @@ API_KEY = os.environ.get("GOOGLE_TTS_API_KEY", "").strip()
 VOICE = os.environ.get("TTS_VOICE", "ko-KR-Chirp3-HD-Kore")
 RATE = float(os.environ.get("TTS_RATE", "1.0"))
 REPO = os.environ.get("GITHUB_REPOSITORY", "nonojin99/Daily-Card-News")
+AUDIO_DIR = "audio"
+BITRATE = "48k"
+RELEASE_SRC = re.compile(r'(<audio\b[^>]*\bsrc=")https://github\.com/[^/]+/[^/]+/releases/download/([^/"]+)/([^"]+\.mp3)(")')
 OUT_LIST = os.environ.get("AUDIO_OUT")          # 바뀐 HTML 경로 목록(커밋 스텝이 읽음)
 DRY_RUN = os.environ.get("AUDIO_DRY_RUN") == "1"  # 로컬 테스트용: API·업로드 대신 무음
 ENDPOINT = "https://texttospeech.googleapis.com/v1/text:synthesize"
@@ -94,18 +102,44 @@ def build_mp3(paras, mp3_path):
     with wave.open(wav_path, "wb") as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SAMPLE_RATE); w.writeframes(bytes(pcm))
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", wav_path,
-                    "-ac", "1", "-b:a", "64k", mp3_path], check=True)
+                    "-ac", "1", "-b:a", BITRATE, mp3_path], check=True)
     os.unlink(wav_path)
     return len(pcm) / 2 / SAMPLE_RATE
 
 
-def upload(mp3_path, tag):
-    if DRY_RUN:
-        return
-    if subprocess.run(["gh", "release", "view", tag], capture_output=True).returncode != 0:
-        subprocess.run(["gh", "release", "create", tag, "--title", tag,
-                        "--notes", "데일리 브리프 낭독 MP3 (자동 생성)"], check=True)
-    subprocess.run(["gh", "release", "upload", tag, mp3_path, "--clobber"], check=True)
+def audio_path(y, mo, mp3_name):
+    d = os.path.join(AUDIO_DIR, "%s-%s" % (y, mo))
+    os.makedirs(d, exist_ok=True)
+    return os.path.join(d, mp3_name)
+
+
+def rel_src(html_path, mp3_path):
+    return os.path.relpath(mp3_path, os.path.dirname(html_path) or ".").replace(os.sep, "/")
+
+
+def migrate(path, doc, changed):
+    """Releases URL 재생기 → 레포 audio/ 로 옮기고 src 교체."""
+    m = RELEASE_SRC.search(doc)
+    if not m:
+        return doc
+    tag, mp3_name = m.group(2), m.group(3)
+    nm = re.match(r"^(\d{4})-(\d{2})-", mp3_name)
+    if not nm:
+        return doc
+    dest = audio_path(nm.group(1), nm.group(2), mp3_name)
+    if not os.path.exists(dest):
+        if DRY_RUN:
+            open(dest, "wb").close()
+        else:
+            subprocess.run(["gh", "release", "download", tag, "-R", REPO, "-p", mp3_name,
+                            "-D", os.path.dirname(dest), "--clobber"], check=True)
+        changed.append(dest)
+    doc = doc[:m.start()] + m.group(1) + rel_src(path, dest) + m.group(4) + doc[m.end():]
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(doc)
+    changed.append(path)
+    print("migrated:", path, "→", dest)
+    return doc
 
 
 def player(url, seconds):
@@ -118,30 +152,27 @@ def player(url, seconds):
 def process(path, name_match, changed):
     with open(path, encoding="utf-8") as f:
         doc = f.read()
+    doc = migrate(path, doc, changed)
     if 'class="audio-player"' in doc or "</header>" not in doc:
         return
     paras = paragraphs(doc)
     if not paras:
         return
     y, mo, d, kind = name_match.groups()
-    tag = "audio-%s-%s" % (y, mo)
     mp3_name = "%s-%s-%s_%s.mp3" % (y, mo, d, kind.lower())
-    with tempfile.TemporaryDirectory() as td:
-        mp3_path = os.path.join(td, mp3_name)
-        seconds = build_mp3(paras, mp3_path)
-        upload(mp3_path, tag)
-    url = "https://github.com/%s/releases/download/%s/%s" % (REPO, tag, mp3_name)
+    mp3_path = audio_path(y, mo, mp3_name)
+    seconds = build_mp3(paras, mp3_path)
+    url = rel_src(path, mp3_path)
     doc = doc.replace("</header>", "</header>" + player(url, seconds), 1)
     with open(path, "w", encoding="utf-8") as f:
         f.write(doc)
-    changed.append(path)
+    changed.extend([mp3_path, path])
     print("audio:", path, "→", url, "(%.0fs)" % seconds)
 
 
 def main():
     if not API_KEY and not DRY_RUN:
-        print("GOOGLE_TTS_API_KEY 가 없어 오디오 생성을 건너뜁니다.")
-        return
+        print("GOOGLE_TTS_API_KEY 가 없어 새 오디오 생성은 건너뜁니다(마이그레이션만 수행).")
     changed = []
     for root, dirs, names in os.walk("."):
         dirs[:] = [x for x in dirs if not x.startswith(".")]
@@ -154,12 +185,16 @@ def main():
                 continue
             path = n if rel == "." else os.path.join(rel, n)
             try:
-                process(path, m, changed)
+                if API_KEY or DRY_RUN:
+                    process(path, m, changed)
+                else:
+                    with open(path, encoding="utf-8") as f:
+                        migrate(path, f.read(), changed)
             except Exception as e:             # 한 파일 실패가 다른 파일을 막지 않게
                 print("::warning::audio failed for %s: %s" % (path, e))
     if OUT_LIST and changed:
         with open(OUT_LIST, "w", encoding="utf-8") as f:
-            f.write("\n".join(changed) + "\n")
+            f.write("\n".join(dict.fromkeys(changed)) + "\n")
 
 
 if __name__ == "__main__":
