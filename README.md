@@ -297,6 +297,18 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
 .weather .wx-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 ```
 
+### 앱 (PWA) — `app/` (2026.10.13~)
+
+브리프를 앱처럼 쓰는 화면. 주소 `…/Daily-Card-News/app/` 를 iPhone Safari 에서 열고 **공유 → 홈 화면에 추가**.
+
+- **오늘 탭**: 최신 날짜의 메인·서브 카드(제목·리드), 메인 브리프의 서울 날씨 한 줄, **"오늘 브리프 듣기"** — 메인 → 서브 오디오 연속 재생(잠금화면 제어).
+- **아카이브 탭**: 분야별 칩 + 월별 목록. **파운드리는 앱에 나오지 않는다**(`EXCLUDE`).
+- 브리프는 앱 안 리더(iframe)로 열린다 — 홈 화면 앱에는 브라우저 뒤로가기 버튼이 없어서.
+- 데이터는 `manifest.json` + 각 브리프 HTML 에서 읽는다(h1·.lede·.count·.weather·.audio-player). **브리프 구조를 바꾸면 앱도 확인할 것.**
+- 파일: `app/index.html`(앱 전체) · `app/app.webmanifest` · `app/icons/` · 루트 `sw.js`(서비스 워커 — 루트에 있어야 브리프까지 오프라인 저장).
+  서비스 워커는 네트워크 우선, 오프라인일 때만 저장본. MP3·외부 폰트는 건드리지 않는다. 앱을 고치면 `sw.js` 의 `VERSION` 을 올린다.
+- **"JS 0줄" 원칙은 브리프 HTML 에만 적용**한다. 앱 셸(`app/`, `sw.js`, 기존 `index.html`)은 예외. 데일리 자동 작성은 `app/`·`sw.js` 를 건드리지 않는다.
+
 ---
 
 ## 파일 규칙
@@ -308,6 +320,26 @@ YYYY-MM-DD_music-brief.html      서브 브리프 (music/culture/sports/travel/.
 
 - 날짜(YYYY-MM-DD)를 앞에 두어 폴더에서 자동 정렬
 - 파일이 쌓이면 월별 폴더로 정리 권장: `2026-06/`, `2026-07/` ...
+
+---
+
+## 발행 경로 — Google Drive 발행함 (2026.10.13~)
+
+카드뉴스를 쓰는 클라우드 세션은 이 레포에 직접 push 할 수 없다(git proxy 403). 대신 Google Drive 에는 쓸 수 있으므로
+Drive 폴더를 **발행함**으로 두고, GitHub Actions 가 가져와 커밋한다. **PC 없이 완전 자동.**
+
+```
+세션 → Drive「Daily-Card-News 발행함」에 HTML 업로드
+     → Actions「Pull briefs from Drive」(06:00~09:45 KST, 15분마다) 가 새 파일을 커밋
+     → 같은 워크플로가「Build manifest」를 호출 → manifest·오디오(MP3)·재생기 생성
+```
+
+- 폴더: `Daily-Card-News 발행함` (ID `17ob52bA_haqqQD3l09UmxE1sLOVwezAj`) — **링크가 있는 모든 사용자: 뷰어** 공유 필요(브리프는 원래 공개).
+- 가져오는 파일: `YYYY-MM-DD_<type>-brief.html` 와 `README.md` 만. 같은 이름이 여러 개면 **가장 최근 것**. 수정본은 같은 이름으로 다시 올리면 된다.
+- 검사: 2MB 이하 · UTF-8 · 완전한 HTML · 레포와 내용이 다를 때만 커밋. 최근 3일 안에 올린 파일만 본다.
+- 설정: 저장소 시크릿 `GOOGLE_DRIVE_API_KEY`(Drive API 허용된 키) · 저장소 변수(Variables) `DRIVE_INBOX_ID`.
+- 급할 때는 Actions 탭에서 **Pull briefs from Drive → Run workflow** 로 바로 실행.
+- 스크립트 `.github/scripts/pull_from_drive.py`, 워크플로 `.github/workflows/pull-from-drive.yml`.
 
 ---
 
@@ -342,6 +374,8 @@ YYYY-MM-DD_music-brief.html      서브 브리프 (music/culture/sports/travel/.
   핫링크로 즉시 표시하고 push 시 GitHub Actions 가 `img/` 로 내려받아 영구 보존. 검증 체크리스트 13번 추가
 - **2026.10.11** — **오디오 도입**: 브리프마다 낭독 원고(`<details class="audio-script">`)를 쓰고,
   push 시 Actions 가 Google Cloud TTS(Chirp 3 HD)로 MP3 를 만들어 Releases 에 올린 뒤 재생기를 넣는다. 검증 체크리스트 14번 추가
+- **2026.10.13** — **Drive 발행함 자동 커밋**: 세션 → Google Drive → Actions 가 커밋. PC·수동 push 없이 발행
+- **2026.10.13** — **앱(PWA) 시안** `app/` 추가: 오늘 브리프·날씨·메인→서브 연속 재생·아카이브(파운드리 제외)·오프라인
 - **2026.10.13** — iPhone Safari 재생 불가로 **MP3 저장 위치를 Releases → 레포 `audio/`** 로 변경(48kbps), 기존 재생기 자동 마이그레이션
 - **2026.10.11** — 오디오를 **서브 브리프 전체**로 확대(여행·액티비티는 1분 소개), **메인 상단 서울 날씨 한 줄** 추가(원고에서는 마지막에 읽음). 체크리스트 15번 추가
 
