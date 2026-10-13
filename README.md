@@ -253,13 +253,17 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
   - 숫자는 귀에 맞게 반올림만(1,342.8원 → 1,340원대). **엇갈리는 수치는 "30여 명", "여러 명"으로.**
   - '마케터의 시선'은 읽지 않는다. 듣는 사람에게 쓸모 있는 한 줄은 카드에 있는 값으로만.
 - **생성 흐름**: push → Actions `make_audio.py` 가 원고를 문단별로 Google Cloud TTS(Chirp 3 HD, 기본 `ko-KR-Chirp3-HD-Kore`)로
-  합성 → 64kbps 모노 MP3 → **Releases 태그 `audio-YYYY-MM`** 에 `YYYY-MM-DD_<type>.mp3` 업로드 →
-  `</header>` 뒤에 `<div class="audio-player"><audio controls preload="none" src="…">` 삽입 후 커밋(`[skip ci]`).
+  합성 → 48kbps 모노 MP3 → **레포 `audio/YYYY-MM/YYYY-MM-DD_<type>.mp3`** 에 저장 →
+  `</header>` 뒤에 `<div class="audio-player"><audio controls preload="none" src="audio/…">`(상대경로) 삽입 후 MP3와 함께 커밋(`[skip ci]`).
 - **실패 원칙**: 키(`GOOGLE_TTS_API_KEY` 시크릿)가 없거나 합성·업로드가 실패하면 그 브리프는 건드리지 않는다 →
   재생기 없이 원고만 보인다. 빌드는 실패하지 않는다. 이미 재생기가 있는 브리프는 다시 만들지 않는다
-  (다시 만들려면 `audio-player` div 를 지우고 push).
+  (다시 만들려면 `audio-player` div 를 지우고 push). 키가 없어도 Releases→레포 마이그레이션은 수행한다.
 - **메인 원고의 날씨**: 방송 뉴스처럼 **마지막(클로징 직전)** 에 "끝으로 오늘 서울 날씨입니다." 한 문단. 페이지 상단 날씨 한 줄과 같은 내용.
-- **MP3 는 레포에 넣지 않는다.** 하루 약 1.5MB라 1년이면 500MB 이상 — Releases 에 둬 레포를 가볍게 유지한다.
+- **MP3 는 레포 `audio/` 에 둔다 (2026-10-13 변경).** 처음엔 Releases 에 올렸지만, Releases 파일은
+  `application/octet-stream`·다운로드(attachment)로 내려와 **iPhone Safari 에서 재생되지 않았다.** 레포 파일은 GitHub Pages 가
+  `audio/mpeg` 로 서빙한다. Releases 주소가 남은 예전 재생기는 Actions 가 실행될 때 자동으로 `audio/` 로 옮기고 src 를 고친다.
+  하루 약 2~3MB(메인+서브) — 레포가 1GB 에 가까워지면 오래된 달의 `audio/YYYY-MM/` 을 정리한다.
+  브리프를 월별 폴더로 옮길 때는 상대경로 src 가 깨지므로 `audio/` 경로를 함께 확인할 것.
 - 목소리·속도는 워크플로 env `TTS_VOICE`·`TTS_RATE` 로 바꾼다.
 
 **CSS** (`<style>` 끝 — 어제 파일에서 그대로 복사. 서브 브리프는 같은 요일 이전 파일에 없으면 여기서 복사)
@@ -338,6 +342,7 @@ YYYY-MM-DD_music-brief.html      서브 브리프 (music/culture/sports/travel/.
   핫링크로 즉시 표시하고 push 시 GitHub Actions 가 `img/` 로 내려받아 영구 보존. 검증 체크리스트 13번 추가
 - **2026.10.11** — **오디오 도입**: 브리프마다 낭독 원고(`<details class="audio-script">`)를 쓰고,
   push 시 Actions 가 Google Cloud TTS(Chirp 3 HD)로 MP3 를 만들어 Releases 에 올린 뒤 재생기를 넣는다. 검증 체크리스트 14번 추가
+- **2026.10.13** — iPhone Safari 재생 불가로 **MP3 저장 위치를 Releases → 레포 `audio/`** 로 변경(48kbps), 기존 재생기 자동 마이그레이션
 - **2026.10.11** — 오디오를 **서브 브리프 전체**로 확대(여행·액티비티는 1분 소개), **메인 상단 서울 날씨 한 줄** 추가(원고에서는 마지막에 읽음). 체크리스트 15번 추가
 
 ---
