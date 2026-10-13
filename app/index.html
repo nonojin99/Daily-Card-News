@@ -6,8 +6,8 @@
 <title>Daily Brief</title>
 <meta name="description" content="매일 아침 카드뉴스 브리프 — 읽고, 듣고, 날씨까지">
 <meta name="theme-color" content="#faf9f6">
-<link rel="manifest" href="app.webmanifest">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="app.webmanifest?v=2">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=2">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Daily Brief">
@@ -326,7 +326,7 @@ const Player = {
       navigator.mediaSession.metadata = new MediaMetadata({
         title: d.title || typeOf(f.type).label + " 브리프",
         artist: `Daily Brief · ${typeOf(f.type).label}`, album: fmtDay(f.date),
-        artwork: [{src: new URL("icons/icon-512.png", location.href).href, sizes:"512x512", type:"image/png"}]
+        artwork: [{src: new URL("icons/icon-512.png?v=2", location.href).href, sizes:"512x512", type:"image/png"}]
       });
     }
   },
