@@ -1,7 +1,7 @@
 // Daily Brief 앱(app/)용 서비스 워커. 레포 루트에 있어야 브리프 HTML 까지 관리할 수 있다.
 // 원칙: 최신 브리프가 우선(네트워크 먼저), 오프라인일 때만 저장본을 보여 준다.
 //       오디오(mp3)·외부 도메인(폰트 등)은 건드리지 않는다 — Range 요청을 브라우저가 직접 처리하게.
-const VERSION = "db-v2";
+const VERSION = "db-v3";
 const SHELL = ["app/", "app/index.html", "app/app.webmanifest", "app/icons/icon-192.png", "app/icons/icon-512.png"];
 
 self.addEventListener("install", e => {

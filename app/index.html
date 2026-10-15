@@ -53,20 +53,32 @@
       border-top:3px solid var(--ac,var(--green))}
   .bc .badge{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
              padding:3px 10px;border-radius:20px;color:var(--ac);background:var(--acs)}
-  .bc h2{font-family:'Newsreader','Noto Serif KR',serif;font-weight:600;font-size:22px;line-height:1.3;margin:10px 0 6px;letter-spacing:-.01em}
-  .bc p{font-size:14px;color:var(--muted);line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .bc h2{font-family:'Newsreader','Noto Serif KR',serif;font-weight:600;font-size:24px;line-height:1.3;margin:10px 0 6px;letter-spacing:-.01em}
+  .bc p{font-size:14px;color:var(--muted);line-height:1.65;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .bc .pk{list-style:none;margin:12px 0 0;padding:10px 0 0;border-top:1px solid var(--line)}
+  .bc .pk li{display:flex;gap:8px;font-size:13px;line-height:1.5;color:var(--ink);padding:3px 0}
+  .bc .pk li b{flex:0 0 auto;color:var(--ac);font-weight:600;font-variant-numeric:tabular-nums}
+  .bc .pk li span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bc .pk .more{color:var(--faint);font-size:12px}
   .bc .acts{display:flex;gap:8px;margin-top:14px}
-  .bc .acts button{flex:1;padding:10px 0;border-radius:10px;font-size:14px;font-weight:600;border:1px solid var(--line)}
-  .bc .acts .listen{background:var(--acs);color:var(--ac);border-color:transparent}
+  .bc .acts button{flex:1;padding:12px 0;border-radius:10px;font-size:14px;font-weight:600;border:1px solid var(--line)}
+  .bc .acts .listen{flex:1.4;background:var(--ac);color:#fff;border-color:transparent}
   .bc .meta{font-size:12px;color:var(--faint);margin-top:8px}
+  .bc.sm{padding:14px 16px 12px}
+  .bc.sm h2{font-size:17px;margin:8px 0 0}
+  .bc.sm .acts{margin-top:10px}
+  .bc.sm .acts button{padding:9px 0;font-size:13px}
 
   /* ── 지난 브리프 행 ── */
-  .row{display:flex;align-items:center;gap:10px;width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;
-       background:var(--card);margin-bottom:8px;text-align:left}
-  .row .d{font-size:12px;color:var(--faint);width:56px;flex-shrink:0;font-variant-numeric:tabular-nums}
-  .row .b{font-size:10.5px;font-weight:600;letter-spacing:.06em;padding:3px 9px;border-radius:20px;flex-shrink:0;color:var(--ac);background:var(--acs)}
-  .row .n{font-size:14px;font-weight:500;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .row{display:flex;align-items:stretch;width:100%;border:1px solid var(--line);border-radius:12px;background:var(--card);margin-bottom:8px;overflow:hidden}
+  .row .rm{display:flex;align-items:center;gap:10px;flex:1;min-width:0;padding:12px 14px;text-align:left}
+  .row .d{font-size:12px;color:var(--faint);width:62px;white-space:nowrap;flex-shrink:0;font-variant-numeric:tabular-nums}
+  .row .b{font-size:10.5px;font-weight:600;letter-spacing:.06em;padding:3px 9px;border-radius:20px;flex-shrink:0;color:var(--ac);background:var(--acs);white-space:nowrap}
+  .row .n{font-size:14px;font-weight:500;flex:1;min-width:0;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .row .ar{color:var(--faint);font-size:13px}
+  .row .rp{width:52px;flex-shrink:0;border-left:1px solid var(--line);color:var(--ac);display:grid;place-items:center}
+  .dh{font-size:13px;font-weight:600;color:var(--muted);margin:20px 0 8px}
+  .morebtn{display:block;width:100%;margin:18px 0 0;padding:13px 0;border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:14px;font-weight:600;color:var(--muted)}
   .chips{display:flex;gap:7px;overflow-x:auto;margin:6px -16px 18px;padding:0 16px 4px;scrollbar-width:none}
   .chips::-webkit-scrollbar{display:none}
   .chip{flex-shrink:0;font-size:13px;font-weight:500;padding:7px 15px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:var(--muted)}
@@ -199,6 +211,7 @@ async function detail(f){
     const mins = (txt(".audio-player .label").match(/(\d+)\s*분/) || [])[1];
     return {
       title: txt("h1"), lede: txt(".lede"), count: txt(".count"),
+      picks: [...doc.querySelectorAll(".card h2")].map(h => h.textContent.replace(/\s+/g," ").trim()).filter(Boolean),
       ac: ac || typeOf(f.type).ac,
       audio: au && au.getAttribute("src") ? new URL(au.getAttribute("src"), url).href : null,
       mins: mins ? Number(mins) : null, weather
@@ -215,8 +228,15 @@ async function drawToday(){
   if(!FILES.length){ v.innerHTML = '<div class="state">아직 발행된 브리프가 없습니다.</div>'; return; }
   const latest = FILES[0].date;
   const todays = FILES.filter(f => f.date === latest);
-  const recent = FILES.filter(f => f.date !== latest).slice(0, 12);
-  const ds = await Promise.all(todays.map(f => detail(f).catch(() => null)));
+  const others = FILES.filter(f => f.date !== latest);
+  const dates = [...new Set(others.map(f => f.date))];
+  const prevDate = dates[0];
+  const prevFiles = prevDate ? others.filter(f => f.date === prevDate) : [];
+  const olderDates = dates.slice(1, 6);
+  const [ds, pds] = await Promise.all([
+    Promise.all(todays.map(f => detail(f).catch(() => null))),
+    Promise.all(prevFiles.map(f => detail(f).catch(() => null)))
+  ]);
   if(tab !== "today") return;
 
   const daily = todays.findIndex(f => f.type === "daily");
@@ -236,22 +256,22 @@ async function drawToday(){
       <div class="pa-s">${queue.length ? queue.map(q => typeOf(q.f.type).label).join(" → ") + (total ? ` · 약 ${total}분` : "") : "오디오 준비 중 — 발행 직후 몇 분 걸려요"}</div></span>
     </button>
     <div class="sec"><span>오늘의 브리프</span><i></i></div>`;
-  todays.forEach((f,i) => {
-    const d = ds[i], t = typeOf(f.type), ac = d ? d.ac : t.ac;
-    h += `<article class="bc" style="--ac:${ac};--acs:${soft(ac)}">
-      <span class="badge">${esc(t.label)}</span>
-      <h2>${esc(d ? d.title : t.label + " 브리프")}</h2>
-      ${d && d.lede ? `<p>${esc(d.lede)}</p>` : ""}
-      <div class="acts"><button data-read="${esc(f.path)}">읽기</button>
-      ${d && d.audio ? `<button class="listen" data-listen="${esc(f.path)}">▶ 듣기${d.mins ? ` · ${d.mins}분` : ""}</button>` : ""}</div>
-      ${d && d.count ? `<div class="meta">${esc(d.count)}</div>` : ""}
-    </article>`;
-  });
-  if(recent.length){
-    h += `<div class="sec"><span>지난 브리프</span><i></i></div>`;
-    h += recent.map(rowHtml).join("");
+  todays.forEach((f,i) => { h += bcHtml(f, ds[i], false); });
+  if(prevFiles.length){
+    const diff = Math.round((new Date(latest) - new Date(prevDate)) / 864e5);
+    h += `<div class="sec"><span>${diff === 1 ? "어제" : "직전 발행"} · ${esc(fmtDay(prevDate))}</span><i></i></div>`;
+    prevFiles.forEach((f,i) => { h += bcHtml(f, pds[i], true); });
   }
+  if(olderDates.length){
+    h += `<div class="sec"><span>지난 브리프</span><i></i></div>`;
+    olderDates.forEach(d => {
+      h += `<div class="dh">${esc(fmtDay(d))}</div>` + others.filter(f => f.date === d).map(f => rowHtml(f, false)).join("");
+    });
+  }
+  if(dates.length) h += `<button class="morebtn" id="moreArch">전체 아카이브 보기 →</button>`;
   v.innerHTML = h;
+  hydrate(v);
+  if($("moreArch")) $("moreArch").onclick = () => setTab("archive");
   $("playAll").onclick = () => queue.length && Player.load(queue, 0);
   const ua = navigator.userAgent, ios = /iPhone|iPad|iPod/.test(ua);
   const standalone = navigator.standalone || matchMedia("(display-mode: standalone)").matches;
@@ -259,11 +279,42 @@ async function drawToday(){
   $("installX").onclick = () => { store.set("installX","1"); $("install").classList.remove("show"); };
 }
 
-function rowHtml(f){
-  const t = typeOf(f.type);
-  return `<button class="row" data-read="${esc(f.path)}" style="--ac:${t.ac};--acs:${soft(t.ac)}">
-    <span class="b">${esc(t.label)}</span>
-    <span class="n">${esc(fmtDay(f.date))}</span><span class="ar">→</span></button>`;
+function bcHtml(f, d, small){
+  const t = typeOf(f.type), ac = d ? d.ac : t.ac;
+  const picks = !small && d && d.picks && d.picks.length ? d.picks : [];
+  return `<article class="bc${small ? " sm" : ""}" style="--ac:${ac};--acs:${soft(ac)}">
+      <span class="badge">${esc(t.label)}</span>
+      <h2>${esc(d ? d.title : t.label + " 브리프")}</h2>
+      ${!small && d && d.lede ? `<p>${esc(d.lede)}</p>` : ""}
+      ${picks.length ? `<ol class="pk">${picks.slice(0,3).map((p,k) => `<li><b>${k+1}</b><span>${esc(p)}</span></li>`).join("")}${picks.length > 3 ? `<li class="more">외 ${picks.length - 3}개 항목</li>` : ""}</ol>` : ""}
+      <div class="acts"><button data-read="${esc(f.path)}">읽기</button>
+      ${d && d.audio ? `<button class="listen" data-listen="${esc(f.path)}">▶ 듣기${d.mins ? ` · ${d.mins}분` : ""}</button>` : ""}</div>
+      ${!small && d && d.count ? `<div class="meta">${esc(d.count)}</div>` : ""}
+    </article>`;
+}
+
+// 행은 즉시 그리고, 제목·듣기 버튼은 화면에 들어올 때 채운다
+function rowHtml(f, showDate){
+  const t = typeOf(f.type), x = new Date(f.date + "T00:00:00");
+  return `<div class="row" data-p="${esc(f.path)}" style="--ac:${t.ac};--acs:${soft(t.ac)}">
+    <button class="rm" data-read="${esc(f.path)}">
+      ${showDate ? `<span class="d">${x.getMonth()+1}/${x.getDate()} ${WD[x.getDay()]}</span>` : ""}
+      <span class="b">${esc(t.label)}</span>
+      <span class="n">${esc(fmtDay(f.date))}</span><span class="ar">→</span></button></div>`;
+}
+const io = "IntersectionObserver" in window
+  ? new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ io.unobserve(e.target); fillRow(e.target); } }), {rootMargin:"300px"})
+  : null;
+function hydrate(root){ root.querySelectorAll(".row[data-p]").forEach(r => io ? io.observe(r) : fillRow(r)); }
+async function fillRow(r){
+  const f = FILES.find(x => x.path === r.dataset.p); if(!f) return;
+  try{
+    const d = await detail(f); if(!r.isConnected) return;
+    if(d.title) r.querySelector(".n").textContent = d.title;
+    if(d.audio && !r.querySelector(".rp")){
+      r.insertAdjacentHTML("beforeend", `<button class="rp" data-listen="${esc(f.path)}" aria-label="듣기">${ICON_PLAY}</button>`);
+    }
+  }catch(e){}
 }
 
 // ── 아카이브 탭 ──
@@ -276,9 +327,10 @@ function drawArchive(){
   let m = "";
   for(const f of list){
     if(f.month !== m){ m = f.month; h += `<div class="month">${f.year}년 ${Number(f.mon)}월</div>`; }
-    h += rowHtml(f);
+    h += rowHtml(f, true);
   }
   $("view").innerHTML = h || '<div class="state">브리프가 없습니다.</div>';
+  hydrate($("view"));
 }
 
 function setTab(t){
