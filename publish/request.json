@@ -2,7 +2,7 @@
   "kind": "reel",
   "media": "reels/2026-10/2026-10-17_weekend.mp4",
   "caption": "captions/2026-10-17_weekend_reel.txt",
-  "dry_run": "true",
+  "dry_run": "false",
   "is_ai": "true",
-  "note": "첫 릴스 시험 — dry run 2회차 (토큰 재설정 후)"
+  "note": "첫 릴스 게시 — 사용자 승인 2026-10-17"
 }
