@@ -327,7 +327,11 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
   | 그림 | `.cn svg.cn-v` | 카드의 `figure.chart` → **정보 그림**(`.cn-place`·`.cn-when`·`.cn-num`) → **AI 일러스트**(`.cn img.cn-gen`) → 분야 글자 타일 |
   | 출처·분야 | `a.source` 매체명(최대 2개) · `.topic` | — |
 
-- **메인 브리프는 카드마다 `.cn` 블록을 쓴다** (`</article>` 바로 앞). 서브 브리프는 선택 — 없으면 위 대체 규칙으로 자동 생성된다.
+- **메인·서브 모두 카드마다 `.cn` 블록을 쓴다** (`</article>` 바로 앞, 2026-10-17 확정). 없으면 위 대체 규칙으로 자동 생성되지만 그림이 약해진다.
+  - `cn-t` 짧은 제목 2줄(`<br>`) · `cn-s` 해요체 2~3문장 70~100자.
+  - 그림 필드를 카드 성격에 맞게 **하나 이상**: 숫자 `cn-num` · 변화 `cn-shift` · 관계 `cn-link` · 경기 `cn-score` · 장소·기간 `cn-place`·`cn-when` (아래 '정보 그림' 표). 카드에 도표가 있으면 생략 가능.
+  - **메인은 '맥락 읽기' 카드를 뺀 모든 카드에 핵심 숫자 `cn-num` 하나를 꼭 적는다** — 금요일 '이번 주 숫자' 재료. 사건·재난 카드는 숫자 대신 `cn-v` 시간 순서 그림.
+  - 모든 값은 같은 카드 본문·스펙 표에 있는 것만(체크리스트 16번).
   ```html
   <div class="cn" hidden>
     <p class="cn-t">코스피 하루 만에 반등,<br>5,668로 마감</p>
