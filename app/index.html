@@ -62,6 +62,7 @@
   .bc .pk .more{color:var(--faint);font-size:12px}
   .bc .acts{display:flex;gap:8px;margin-top:14px}
   .bc .acts button{flex:1;padding:12px 0;border-radius:10px;font-size:14px;font-weight:600;border:1px solid var(--line)}
+  .bc .acts [data-cards]{flex:.8}
   .bc .acts .listen{flex:1.4;background:var(--ac);color:#fff;border-color:transparent}
   .bc .meta{font-size:12px;color:var(--faint);margin-top:8px}
   .bc.sm{padding:14px 16px 12px}
@@ -287,7 +288,7 @@ function bcHtml(f, d, small){
       <h2>${esc(d ? d.title : t.label + " 브리프")}</h2>
       ${!small && d && d.lede ? `<p>${esc(d.lede)}</p>` : ""}
       ${picks.length ? `<ol class="pk">${picks.slice(0,3).map((p,k) => `<li><b>${k+1}</b><span>${esc(p)}</span></li>`).join("")}${picks.length > 3 ? `<li class="more">외 ${picks.length - 3}개 항목</li>` : ""}</ol>` : ""}
-      <div class="acts"><button data-read="${esc(f.path)}">읽기</button>
+      <div class="acts"><button data-read="${esc(f.path)}">읽기</button><button data-cards="${esc(f.path)}">카드</button>
       ${d && d.audio ? `<button class="listen" data-listen="${esc(f.path)}">▶ 듣기${d.mins ? ` · ${d.mins}분` : ""}</button>` : ""}</div>
       ${!small && d && d.count ? `<div class="meta">${esc(d.count)}</div>` : ""}
     </article>`;
@@ -344,13 +345,14 @@ function setTab(t){
 // ── 리더: 브리프를 앱 안에서 연다(홈 화면 앱에는 뒤로가기 버튼이 없어서) ──
 const Reader = {
   path: null,
-  async open(path, push = true){
+  // cards = true 이면 브리프 대신 카드 넘겨보기(cards.html)를 연다
+  async open(path, push = true, cards = false){
     const f = FILES.find(x => x.path === path);
     this.path = path;
-    $("rdTitle").textContent = f ? `${typeOf(f.type).label} · ${fmtDay(f.date)}` : "";
-    $("rdFrame").src = BASE + path;
+    $("rdTitle").textContent = f ? `${typeOf(f.type).label}${cards ? " · 카드" : ""} · ${fmtDay(f.date)}` : "";
+    $("rdFrame").src = cards ? "cards.html?f=" + encodeURIComponent(path) : BASE + path;
     $("reader").classList.add("show"); $("reader").setAttribute("aria-hidden","false");
-    if(push) history.pushState({reader:path}, "", "#" + encodeURIComponent(path));
+    if(push) history.pushState({reader:path, cards}, "", "#" + (cards ? "cards:" : "") + encodeURIComponent(path));
     $("rdListen").hidden = true;
     if(f){ try{ const d = await detail(f); if(this.path === path && d.audio){ $("rdListen").hidden = false;
       $("rdListen").onclick = () => Player.load([{f, d}], 0); } }catch(e){} }
@@ -358,7 +360,7 @@ const Reader = {
   close(){ $("reader").classList.remove("show"); $("reader").setAttribute("aria-hidden","true"); $("rdFrame").src = "about:blank"; this.path = null; }
 };
 $("rdBack").onclick = () => history.state && history.state.reader ? history.back() : Reader.close();
-addEventListener("popstate", e => { e.state && e.state.reader ? Reader.open(e.state.reader, false) : Reader.close(); });
+addEventListener("popstate", e => { e.state && e.state.reader ? Reader.open(e.state.reader, false, !!e.state.cards) : Reader.close(); });
 
 // ── 플레이어: 메인 → 서브 연속 재생, 잠금화면 제어 ──
 const ICON_PLAY = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg>';
@@ -410,6 +412,7 @@ if("mediaSession" in navigator){
 // ── 클릭 위임 ──
 document.addEventListener("click", async e => {
   const r = e.target.closest("[data-read]"); if(r){ Reader.open(r.dataset.read); return; }
+  const k = e.target.closest("[data-cards]"); if(k){ Reader.open(k.dataset.cards, true, true); return; }
   const l = e.target.closest("[data-listen]");
   if(l){ const f = FILES.find(x => x.path === l.dataset.listen); if(f){ const d = await detail(f); Player.load([{f, d}], 0); } return; }
   const c = e.target.closest("[data-chip]"); if(c){ chip = c.dataset.chip; drawArchive(); }
@@ -428,7 +431,10 @@ $("tabArchive").onclick = () => setTab("archive");
       .filter(f => !EXCLUDE.has(f.type) && TYPES[f.type])
       .sort((a,b) => b.date.localeCompare(a.date) || (a.type === "daily" ? -1 : b.type === "daily" ? 1 : 0));
     await drawToday();
-    if(location.hash.length > 1){ const p = decodeURIComponent(location.hash.slice(1)); if(FILES.some(f => f.path === p)) Reader.open(p, false); }
+    if(location.hash.length > 1){
+      const h = decodeURIComponent(location.hash.slice(1)), cards = h.startsWith("cards:"), p = cards ? h.slice(6) : h;
+      if(FILES.some(f => f.path === p)) Reader.open(p, false, cards);
+    }
   }catch(err){
     $("view").innerHTML = '<div class="state">목록을 불러오지 못했어요.<br>연결을 확인하고 다시 열어 주세요.</div>';
   }

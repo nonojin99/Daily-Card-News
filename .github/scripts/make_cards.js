@@ -1,0 +1,81 @@
+// 인스타용 카드 이미지(1080×1350 JPG)를 굽는다.
+// app/cards.html?f=<브리프>&png=1 을 로컬 서버로 열어 .slide 를 한 장씩 캡처 → cards/YYYY-MM/<브리프 이름>/01.jpg …
+// 대상: CARDS_TYPES(기본 daily) 브리프 중 최근 CARDS_DAYS(기본 3)일 안이고 아직 폴더가 없는 것.
+//       CARDS_FORCE=<파일명> 이면 그 파일만 다시 굽는다.
+// 실패해도 브리프·앱은 그대로 동작한다(카드 넘겨보기는 이미지 없이도 된다).
+const fs = require("fs");
+const path = require("path");
+const http = require("http");
+const { chromium } = require("playwright");
+
+const ROOT = process.cwd();
+const TYPES = (process.env.CARDS_TYPES || "daily").split(",").map(s => s.trim()).filter(Boolean);
+const DAYS = Number(process.env.CARDS_DAYS || 3);
+const FORCE = (process.env.CARDS_FORCE || "").trim();
+const OUT = process.env.CARDS_OUT || "";
+const P = /^(\d{4})-(\d{2})-(\d{2})_([a-z]+)-brief\.html$/;
+
+const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".json": "application/json",
+  ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".webmanifest": "application/manifest+json" };
+function serve(){
+  return new Promise(res => {
+    const srv = http.createServer((req, rsp) => {
+      const u = decodeURIComponent(new URL(req.url, "http://x").pathname);
+      let f = path.join(ROOT, u);
+      if(!f.startsWith(ROOT)){ rsp.writeHead(403); return rsp.end(); }
+      if(fs.existsSync(f) && fs.statSync(f).isDirectory()) f = path.join(f, "index.html");
+      if(!fs.existsSync(f)){ rsp.writeHead(404); return rsp.end(); }
+      rsp.writeHead(200, { "Content-Type": MIME[path.extname(f)] || "application/octet-stream" });
+      fs.createReadStream(f).pipe(rsp);
+    });
+    srv.listen(0, "127.0.0.1", () => res(srv));
+  });
+}
+
+(async () => {
+  const today = new Date(Date.now() + 9 * 3600e3);   // KST
+  const cutoff = new Date(today.getTime() - DAYS * 864e5).toISOString().slice(0, 10);
+  const targets = fs.readdirSync(ROOT).filter(n => {
+    const m = n.match(P);
+    if(!m) return false;
+    if(FORCE) return n === FORCE;
+    if(!TYPES.includes(m[4]) || `${m[1]}-${m[2]}-${m[3]}` < cutoff) return false;
+    return !fs.existsSync(path.join(ROOT, "cards", `${m[1]}-${m[2]}`, n.replace(/\.html$/, "")));
+  });
+  if(!targets.length){ console.log("cards: nothing to do"); return; }
+
+  const srv = await serve();
+  const base = `http://127.0.0.1:${srv.address().port}`;
+  const browser = await chromium.launch();
+  const made = [];
+  try{
+    for(const n of targets){
+      const m = n.match(P);
+      const dir = path.join("cards", `${m[1]}-${m[2]}`, n.replace(/\.html$/, ""));
+      try{
+        const page = await browser.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });
+        await page.goto(`${base}/app/cards.html?f=${encodeURIComponent(n)}&png=1`, { waitUntil: "networkidle", timeout: 60000 });
+        await page.waitForSelector("body[data-ready]", { timeout: 30000 });
+        const count = Number(await page.getAttribute("body", "data-ready"));
+        if(!count) throw new Error("cards.html could not build cards");
+        await page.waitForTimeout(500);
+        fs.rmSync(path.join(ROOT, dir), { recursive: true, force: true });
+        fs.mkdirSync(path.join(ROOT, dir), { recursive: true });
+        const slides = await page.$$(".slide");
+        for(let i = 0; i < slides.length; i++){
+          const file = path.join(dir, String(i + 1).padStart(2, "0") + ".jpg");
+          await slides[i].screenshot({ path: path.join(ROOT, file), type: "jpeg", quality: 88 });
+          made.push(file);
+        }
+        console.log(`cards: ${n} → ${slides.length} images`);
+        await page.close();
+      }catch(e){
+        console.log(`::warning::cards failed for ${n}: ${e.message}`);
+      }
+    }
+  }finally{
+    await browser.close();
+    srv.close();
+  }
+  if(OUT && made.length) fs.writeFileSync(OUT, made.join("\n") + "\n");
+})().catch(e => { console.log(`::warning::make_cards: ${e.message}`); });

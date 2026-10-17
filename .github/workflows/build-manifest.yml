@@ -6,6 +6,11 @@ on:
     paths:
       - '**.html'
   workflow_dispatch:
+    inputs:
+      cards_force:
+        description: '인스타용 카드 이미지를 다시 구울 브리프 파일명 (예: 2026-10-17_daily-brief.html)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -42,6 +47,20 @@ jobs:
         run: |
           command -v ffmpeg >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
           python3 .github/scripts/make_audio.py
+
+      # 메인 브리프를 인스타용 카드 이미지(1080×1350 JPG)로 굽는다 — app/cards.html 을 그대로 캡처.
+      # 실패해도 다음 스텝은 돈다. 이미지가 없어도 앱의 '카드' 보기는 동작한다.
+      - name: Make card images (Instagram)
+        continue-on-error: true
+        env:
+          CARDS_OUT: ${{ runner.temp }}/cards.txt
+          CARDS_TYPES: daily
+          CARDS_FORCE: ${{ github.event.inputs.cards_force }}
+        run: |
+          sudo apt-get install -y -qq fonts-noto-cjk >/dev/null 2>&1 || echo "::warning::fonts-noto-cjk install failed"
+          npm install --no-save --silent playwright@1.48.2
+          npx playwright install --with-deps chromium >/dev/null
+          node .github/scripts/make_cards.js
 
       - name: Generate manifest.json
         shell: python
@@ -113,5 +132,8 @@ jobs:
           if [ -s "$RUNNER_TEMP/audio.txt" ]; then
             xargs -a "$RUNNER_TEMP/audio.txt" -d '\n' git add --
           fi
-          git diff --staged --quiet || git commit -m "chore: update manifest.json, localize images, add audio [skip ci]"
+          if [ -s "$RUNNER_TEMP/cards.txt" ]; then
+            xargs -a "$RUNNER_TEMP/cards.txt" -d '\n' git add --
+          fi
+          git diff --staged --quiet || git commit -m "chore: update manifest.json, localize images, add audio, card images [skip ci]"
           git push

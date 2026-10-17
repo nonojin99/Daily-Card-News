@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>카드로 보기 — Daily Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;900&display=swap" rel="stylesheet">
+<style>
+  /* 카드 넘겨보기 — 브리프 HTML 한 편을 4:5 카드(인스타 비율)로 다시 그린다.
+     글자 크기는 카드 폭(cqw) 기준이라 ?png=1 로 1080px 폭에 그려도 비율이 같다(Actions 가 JPG 로 굽는다).
+     그림 우선순위: 카드의 .cn 안 <svg class="cn-v"> → 카드의 도표(figure.chart) → 한자 타일. 사진은 쓰지 않는다. */
+  :root{
+    --page:#faf9f6; --card:#ffffff; --ink:#1a1a18; --muted:#55554f; --faint:#9a9a94; --line:#e6e4dd;
+    --stage:#f3f1ea; --accent:#3d5a4c; --accent-soft:#eef2ee; --off:#cfcdc4;
+    --s1:#2f6d9e; --s2:#c06a24;
+    --sans:'Noto Sans KR','Apple SD Gothic Neo',sans-serif; --serif:'Noto Serif KR',Georgia,serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{background:var(--page)}
+  body{color:var(--ink);font-family:var(--sans);word-break:keep-all;overflow-wrap:anywhere}
+  .wrap{max-width:520px;margin:0 auto;padding:16px max(16px,env(safe-area-inset-right,0px)) calc(40px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  .state{padding:60px 0;text-align:center;color:var(--faint);font-size:14px;line-height:1.7}
+
+  .rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:18px}
+  .rail::-webkit-scrollbar{display:none}
+  .slide{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:4/5;container-type:inline-size;background:var(--card);
+    border-radius:18px;overflow:hidden;position:relative;display:flex;flex-direction:column;box-shadow:0 0 0 1px var(--line)}
+  .stage{flex:0 0 50%;background:var(--stage);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+  .stage > svg,.stage .vis svg{width:90%;height:auto;display:block;position:relative;overflow:visible}
+  .stage .vis{width:100%;display:flex;flex-direction:column;align-items:center;gap:1.6cqw;position:relative}
+  .vis-cap{font-size:2.9cqw;font-weight:700;color:var(--muted);letter-spacing:.02em;align-self:flex-start;margin-left:6cqw}
+  .bigchar{position:absolute;font-family:var(--serif);font-weight:900;color:var(--accent);opacity:.08;font-size:72cqw;line-height:1;right:-6cqw;bottom:-14cqw}
+  .stage .tile{font-family:var(--serif);font-weight:900;color:var(--accent);font-size:40cqw;line-height:1;opacity:.9}
+  .count{position:absolute;top:3.6cqw;right:3.6cqw;font-size:3cqw;font-weight:500;color:#fff;background:rgba(26,26,24,.62);padding:1.2cqw 2.8cqw;border-radius:99px;z-index:2}
+  .badge{position:absolute;left:6cqw;top:calc(50% - 7cqw);width:14cqw;height:14cqw;border-radius:50%;background:var(--card);
+    box-shadow:0 1.2cqw 3cqw rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:7cqw;color:var(--accent);z-index:2}
+  .body{flex:1;padding:3cqw 7cqw 0;display:flex;flex-direction:column;min-height:0}
+  .credit{align-self:flex-end;font-size:2.6cqw;color:var(--faint);margin-bottom:3cqw;max-width:70%;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .label{font-size:3cqw;color:var(--faint);font-weight:500;margin-bottom:1.6cqw;letter-spacing:.02em}
+  .label b{color:var(--accent);font-weight:700}
+  .slide h2{font-size:7.2cqw;font-weight:900;line-height:1.22;letter-spacing:-.03em;margin-bottom:2.6cqw;text-wrap:balance}
+  .slide h2.l{font-size:6.2cqw} .slide h2.xl{font-size:5.4cqw}
+  .slide p{font-size:3.55cqw;line-height:1.62;color:var(--muted);letter-spacing:-.01em;
+    display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  .foot{margin-top:auto;display:flex;justify-content:space-between;padding:2.4cqw 0 3.4cqw;font-size:2.5cqw;color:var(--faint);letter-spacing:.08em}
+
+  .cover{background:var(--accent);color:#f4f2ec}
+  .cover .in{flex:1;padding:9cqw 8cqw 6cqw;display:flex;flex-direction:column;position:relative;min-height:0}
+  .cover .k{font-size:3cqw;letter-spacing:.24em;font-weight:700;opacity:.8;text-transform:uppercase}
+  .cover .d{font-size:12cqw;font-weight:900;letter-spacing:-.03em;margin-top:3cqw;line-height:1}
+  .cover .d small{font-size:4.2cqw;font-weight:500;letter-spacing:.12em;opacity:.75;margin-left:2cqw}
+  .cover h2{font-size:6.6cqw;line-height:1.32;margin-top:7cqw;color:#fff}
+  .cover .wx{margin-top:3cqw;font-size:3cqw;background:rgba(255,255,255,.1);border-radius:2cqw;padding:2cqw 3cqw;line-height:1.5}
+  .cover ol{list-style:none;margin-top:auto;display:grid;gap:1.6cqw;font-size:3.3cqw}
+  .cover li{display:flex;gap:2.6cqw;align-items:baseline;border-top:1px solid rgba(244,242,236,.22);padding-top:1.6cqw;min-width:0}
+  .cover li b{font-size:3cqw;opacity:.7;min-width:3cqw}
+  .cover li span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .cover .bigchar{color:#fff;right:-4cqw;top:-8cqw;bottom:auto;font-size:62cqw;opacity:.07}
+
+  /* 브리프 도표(figure.chart)를 그대로 옮긴다 — 카드 폭이 좁아 글자 user unit 을 키운다 */
+  .cv-bar,.cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)} .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--stage);stroke-width:2}
+  .cv-grid,.cv-axis{stroke:#dcd9cf;stroke-width:1} .cv-zero,.cv-base{stroke:#b9b7ad;stroke-width:1}
+  .cv-t,.cv-ax{font-family:var(--sans);font-size:20px;fill:var(--faint)}
+  .cv-cat{font-family:var(--sans);font-size:21px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:var(--sans);font-size:22px;font-weight:700;fill:var(--ink)}
+  .cv-mid{text-anchor:middle}
+  .cv-stepdot{stroke:var(--stage);stroke-width:2} .cv-st-done,.cv-st-now{fill:var(--accent)} .cv-st-next{fill:var(--off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2} .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:var(--ink)} .cv-st-next-t{fill:var(--faint)}
+  .cv-legend{display:flex;gap:4cqw;align-self:flex-start;margin-left:6cqw}
+  .cv-legend span{display:inline-flex;align-items:center;gap:1.4cqw;font-size:2.7cqw;color:var(--muted)}
+  .cv-legend i{width:4cqw;height:1cqw;border-radius:1cqw;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  /* 카드 전용 그림(<svg class="cn-v" viewBox="0 0 400 220">) 어휘 — README '카드 넘겨보기' 절 */
+  .cn-on{fill:var(--accent)} .cn-off{fill:var(--off)}
+  .cn-line{stroke:var(--accent);stroke-width:3} .cn-line-off{stroke:var(--off);stroke-width:3}
+  .cn-ring{fill:none;stroke:var(--accent);stroke-width:2;opacity:.35}
+  .cn-big{font:700 16px var(--sans);fill:var(--ink)} .cn-small{font:500 13px var(--sans);fill:var(--muted)}
+  .cn-dim{fill:var(--faint)}
+  .cn-q{font-family:var(--serif);font-weight:900;fill:var(--ink)} .cn-qm{font-family:var(--serif);font-weight:900;fill:var(--accent);opacity:.25}
+  .cn-grid{stroke:#dcd9cf;stroke-width:1} .cn-ax{font:500 13px var(--sans);fill:var(--faint)}
+  .cn-val{font:700 17px var(--sans);fill:var(--ink)} .cn-cat{font:500 15px var(--sans);fill:var(--muted)}
+  .cn-b1{fill:var(--s1)} .cn-b2{fill:var(--s2)}
+  .cn-ln{fill:none;stroke:var(--s1);stroke-width:3.5;stroke-linejoin:round;stroke-linecap:round}
+  .cn-dot{fill:var(--s1);stroke:var(--stage);stroke-width:3}
+
+  .nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:14px}
+  .nav button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:20px;cursor:pointer}
+  .nav button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .dots{display:flex;gap:6px}
+  .dots i{width:6px;height:6px;border-radius:50%;background:var(--off)}
+  .dots i.on{background:var(--ink)}
+  .saves{margin-top:26px;border-top:1px solid var(--line);padding-top:16px}
+  .saves h3{font-size:14px;font-weight:700;margin-bottom:4px}
+  .saves p{font-size:12.5px;color:var(--faint);margin-bottom:10px;line-height:1.6}
+  .saves .g{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .saves img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;display:block;background:var(--stage)}
+
+  /* PNG 모드: Actions 가 1080px 폭으로 한 장씩 캡처한다 */
+  html.png body{background:#fff}
+  html.png .wrap{max-width:none;padding:0}
+  html.png .rail{display:block;overflow:visible;border-radius:0}
+  html.png .slide{width:1080px;border-radius:0;box-shadow:none}
+  html.png .nav,html.png .saves{display:none}
+  @media (prefers-reduced-motion:reduce){.rail{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap"><div class="state">카드를 만드는 중…</div></div>
+<script>
+"use strict";
+const qs = new URLSearchParams(location.search);
+const F = qs.get("f") || "";
+const PNG = qs.has("png");
+if(PNG) document.documentElement.classList.add("png");
+const WD = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const clean = s => String(s || "").replace(/\s+/g, " ").trim();
+const wrap = document.getElementById("wrap");
+
+// 카드용 제목: .cn-t(줄바꿈 <br> 허용) → 없으면 h2 의 " — " 앞부분
+function titleOf(a){
+  const t = a.querySelector(".cn .cn-t");
+  if(t) return t.innerHTML.split(/<br\s*\/?>/i).map(x => esc(clean(new DOMParser().parseFromString(x, "text/html").body.textContent))).join("<br>");
+  return esc(clean(a.querySelector("h2")?.textContent).split(/\s[—–]\s/)[0]);
+}
+// 카드용 요약: .cn-s → 없으면 요약 첫 문단에서 괄호(매체 표기)를 빼고 150자 안쪽 문장까지
+function summaryOf(a){
+  const s = a.querySelector(".cn .cn-s");
+  if(s) return clean(s.textContent);
+  const p = clean(a.querySelector(".summary p")?.textContent).replace(/\s*\([^)]*\)/g, "");
+  const sents = p.match(/[^.!?]+[.!?](\s|$)/g) || [p];
+  let out = "";
+  for(const x of sents){ if((out + x).length > 150 && out) break; out += x; }
+  return clean(out);
+}
+function creditOf(a){
+  const names = [...a.querySelectorAll("a.source")].map(x => clean(x.textContent).split(/\s[—–-]\s/)[0]).filter(Boolean);
+  return [...new Set(names)].slice(0, 2).join(" · ");
+}
+function visualOf(a){
+  const own = a.querySelector(".cn svg.cn-v");
+  if(own) return own.outerHTML;
+  const fig = a.querySelector("figure.chart");
+  if(fig){
+    const cap = clean(fig.querySelector("figcaption")?.textContent);
+    const leg = fig.querySelector(".cv-legend");
+    const svg = fig.querySelector("svg");
+    if(svg) return `<div class="vis">${cap ? `<div class="vis-cap">${esc(cap)}</div>` : ""}${leg ? leg.outerHTML : ""}${svg.outerHTML}</div>`;
+  }
+  return null;
+}
+
+(async () => {
+  try{
+    if(!/^\d{4}-\d{2}-\d{2}_[a-z]+-brief\.html$/.test(F)) throw new Error("bad file");
+    const res = await fetch("../" + F, {cache: "no-cache"});
+    if(!res.ok) throw new Error(res.status);
+    const doc = new DOMParser().parseFromString(await res.text(), "text/html");
+    const css = [...doc.querySelectorAll("style")].map(s => s.textContent).join("");
+    const ac = (css.match(/--accent:\s*(#[0-9a-f]{6})/i) || [])[1];
+    const acs = (css.match(/--accent-soft:\s*(#[0-9a-f]{6})/i) || [])[1];
+    if(ac) document.documentElement.style.setProperty("--accent", ac);
+    if(acs) document.documentElement.style.setProperty("--accent-soft", acs);
+
+    const cards = [...doc.querySelectorAll("article.card")].map(a => ({
+      title: titleOf(a), sum: summaryOf(a), credit: creditOf(a), vis: visualOf(a),
+      label: clean(a.querySelector(".topic")?.textContent), hanja: clean(a.querySelector(".hanja")?.textContent).slice(0, 1)
+    }));
+    if(!cards.length) throw new Error("no cards");
+    const [y, m, d] = F.slice(0, 10).split("-");
+    const wd = WD[new Date(`${y}-${m}-${d}T00:00:00`).getDay()];
+    const N = cards.length + 1;
+    const kicker = clean(doc.querySelector(".kicker")?.textContent).split("·")[0] || "Daily Brief";
+    const wx = doc.querySelector(".weather");
+    if(wx) wx.querySelector(".wx-note")?.remove();
+    const wxt = wx ? clean(wx.textContent).replace(/[—-]\s*$/, "") : "";
+    const plain = h => clean(new DOMParser().parseFromString(h.replace(/<br>/g, " "), "text/html").body.textContent);
+
+    let h = `<div class="rail" id="rail">
+      <section class="slide cover" aria-label="표지"><div class="in">
+        ${cards[0].hanja ? `<span class="bigchar" aria-hidden="true">${esc(cards[0].hanja)}</span>` : ""}
+        <div class="k">${esc(kicker)}</div>
+        <div class="d">${m}.${d}<small>${wd}</small></div>
+        <h2>${esc(clean(doc.querySelector("h1")?.textContent))}</h2>
+        ${wxt ? `<div class="wx">${esc(wxt)}</div>` : ""}
+        <ol>${cards.slice(0, 7).map((c, i) => `<li><b>${i + 1}</b><span>${esc(plain(c.title))}</span></li>`).join("")}</ol>
+      </div></section>`;
+    cards.forEach((c, i) => {
+      const len = plain(c.title).length;
+      const [lab, ...rest] = c.label.split("·").map(clean);
+      h += `<section class="slide" aria-label="${i + 1}번 카드">
+        <div class="stage"><span class="count">${i + 2}/${N}</span>
+          ${c.vis ? (c.hanja ? `<span class="bigchar" aria-hidden="true">${esc(c.hanja)}</span>` : "") + c.vis
+                  : `<span class="tile" aria-hidden="true">${esc(c.hanja || "·")}</span>`}
+        </div>
+        <div class="badge">${i + 1}</div>
+        <div class="body">
+          <span class="credit">${esc(c.credit)}</span>
+          <span class="label"><b>${esc(lab || "")}</b>${rest.length ? " · " + esc(rest.join(" · ")) : ""}</span>
+          <h2 class="${len > 34 ? "xl" : len > 24 ? "l" : ""}">${c.title}</h2>
+          <p>${esc(c.sum)}</p>
+          <div class="foot"><span>${esc(kicker.toUpperCase())}</span><span>${m}.${d}</span></div>
+        </div>
+      </section>`;
+    });
+    h += `</div>
+      <div class="nav"><button id="prev" aria-label="이전 카드">‹</button><div class="dots" id="dots"></div><button id="next" aria-label="다음 카드">›</button></div>
+      <div class="saves" id="saves" hidden></div>`;
+    wrap.innerHTML = h;
+
+    const rail = document.getElementById("rail"), slides = [...rail.children], dots = document.getElementById("dots");
+    slides.forEach(() => dots.appendChild(document.createElement("i")));
+    const step = () => slides[0].offsetWidth + 14;
+    const cur = () => Math.round(rail.scrollLeft / step());
+    const paint = () => { const c = cur(); [...dots.children].forEach((x, i) => x.classList.toggle("on", i === c)); };
+    rail.addEventListener("scroll", () => requestAnimationFrame(paint), {passive: true});
+    const go = k => rail.scrollTo({left: Math.max(0, Math.min(slides.length - 1, cur() + k)) * step(), behavior: "smooth"});
+    document.getElementById("prev").onclick = () => go(-1);
+    document.getElementById("next").onclick = () => go(1);
+    addEventListener("keydown", e => { if(e.key === "ArrowRight") go(1); if(e.key === "ArrowLeft") go(-1); });
+    paint();
+
+    // Actions 가 구운 인스타용 JPG 가 있으면 저장용 목록을 보여 준다
+    if(!PNG){
+      const dir = `../cards/${y}-${m}/${F.replace(/\.html$/, "")}/`;
+      const names = slides.map((_, i) => String(i + 1).padStart(2, "0") + ".jpg");
+      fetch(dir + names[0], {method: "HEAD", cache: "no-cache"}).then(r => {
+        if(!r.ok) return;
+        const s = document.getElementById("saves");
+        s.innerHTML = `<h3>인스타용 이미지 ${names.length}장</h3><p>이미지를 길게 눌러 사진에 저장하세요. 1080×1350 · 출처는 각 카드 오른쪽 위에 적혀 있어요.</p>
+          <div class="g">${names.map(n => `<a href="${dir + n}" target="_blank" rel="noopener"><img src="${dir + n}" loading="lazy" alt="카드 ${esc(n)}"></a>`).join("")}</div>`;
+        s.hidden = false;
+      }).catch(() => {});
+    }
+    await document.fonts.ready;
+    document.body.dataset.ready = String(slides.length);
+  }catch(err){
+    wrap.innerHTML = '<div class="state">카드를 만들지 못했어요.<br>브리프를 열어 읽어 주세요.</div>';
+    document.body.dataset.ready = "0";
+  }
+})();
+</script>
+</body>
+</html>
