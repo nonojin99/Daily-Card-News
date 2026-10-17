@@ -63,6 +63,7 @@
   .bc .acts{display:flex;gap:8px;margin-top:14px}
   .bc .acts button{flex:1;padding:12px 0;border-radius:10px;font-size:14px;font-weight:600;border:1px solid var(--line)}
   .bc .acts [data-cards]{flex:.8}
+  .bc .series{display:block;width:100%;margin-top:8px;padding:10px 0;border-radius:10px;font-size:13.5px;font-weight:600;color:var(--ac);background:var(--acs)}
   .bc .acts .listen{flex:1.4;background:var(--ac);color:#fff;border-color:transparent}
   .bc .meta{font-size:12px;color:var(--faint);margin-top:8px}
   .bc.sm{padding:14px 16px 12px}
@@ -280,6 +281,13 @@ async function drawToday(){
   $("installX").onclick = () => { store.set("installX","1"); $("install").classList.remove("show"); };
 }
 
+// 인스타 시리즈: 금요일 메인 → 이번 주 숫자 · 토요일 액티비티 → 주말 뭐하지 (app/cards.html?mix=…)
+function seriesOf(f){
+  const wd = new Date(f.date + "T00:00:00").getDay();
+  if(f.type === "daily" && wd === 5) return {mix: "week7", name: "이번 주 숫자"};
+  if(f.type === "activity" && wd === 6) return {mix: "weekend", name: "주말 뭐하지"};
+  return null;
+}
 function bcHtml(f, d, small){
   const t = typeOf(f.type), ac = d ? d.ac : t.ac;
   const picks = !small && d && d.picks && d.picks.length ? d.picks : [];
@@ -290,6 +298,7 @@ function bcHtml(f, d, small){
       ${picks.length ? `<ol class="pk">${picks.slice(0,3).map((p,k) => `<li><b>${k+1}</b><span>${esc(p)}</span></li>`).join("")}${picks.length > 3 ? `<li class="more">외 ${picks.length - 3}개 항목</li>` : ""}</ol>` : ""}
       <div class="acts"><button data-read="${esc(f.path)}">읽기</button><button data-cards="${esc(f.path)}">카드</button>
       ${d && d.audio ? `<button class="listen" data-listen="${esc(f.path)}">▶ 듣기${d.mins ? ` · ${d.mins}분` : ""}</button>` : ""}</div>
+      ${!small && seriesOf(f) ? `<button class="series" data-mix="${seriesOf(f).mix}" data-d="${esc(f.date)}">📸 인스타 시리즈 · ${seriesOf(f).name}</button>` : ""}
       ${!small && d && d.count ? `<div class="meta">${esc(d.count)}</div>` : ""}
     </article>`;
 }
@@ -345,6 +354,15 @@ function setTab(t){
 // ── 리더: 브리프를 앱 안에서 연다(홈 화면 앱에는 뒤로가기 버튼이 없어서) ──
 const Reader = {
   path: null,
+  // 인스타 시리즈 묶음(cards.html?mix=…)
+  openMix(mix, d, push = true){
+    this.path = null;
+    $("rdTitle").textContent = `인스타 · ${mix === "week7" ? "이번 주 숫자" : "주말 뭐하지"} · ${fmtDay(d)}`;
+    $("rdFrame").src = `cards.html?mix=${encodeURIComponent(mix)}&d=${encodeURIComponent(d)}`;
+    $("reader").classList.add("show"); $("reader").setAttribute("aria-hidden","false");
+    $("rdListen").hidden = true;
+    if(push) history.pushState({mix, d}, "", `#mix:${mix}:${d}`);
+  },
   // cards = true 이면 브리프 대신 카드 넘겨보기(cards.html)를 연다
   async open(path, push = true, cards = false){
     const f = FILES.find(x => x.path === path);
@@ -359,8 +377,8 @@ const Reader = {
   },
   close(){ $("reader").classList.remove("show"); $("reader").setAttribute("aria-hidden","true"); $("rdFrame").src = "about:blank"; this.path = null; }
 };
-$("rdBack").onclick = () => history.state && history.state.reader ? history.back() : Reader.close();
-addEventListener("popstate", e => { e.state && e.state.reader ? Reader.open(e.state.reader, false, !!e.state.cards) : Reader.close(); });
+$("rdBack").onclick = () => history.state && (history.state.reader || history.state.mix) ? history.back() : Reader.close();
+addEventListener("popstate", e => { e.state && e.state.mix ? Reader.openMix(e.state.mix, e.state.d, false) : e.state && e.state.reader ? Reader.open(e.state.reader, false, !!e.state.cards) : Reader.close(); });
 
 // ── 플레이어: 메인 → 서브 연속 재생, 잠금화면 제어 ──
 const ICON_PLAY = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg>';
@@ -413,6 +431,7 @@ if("mediaSession" in navigator){
 document.addEventListener("click", async e => {
   const r = e.target.closest("[data-read]"); if(r){ Reader.open(r.dataset.read); return; }
   const k = e.target.closest("[data-cards]"); if(k){ Reader.open(k.dataset.cards, true, true); return; }
+  const x = e.target.closest("[data-mix]"); if(x){ Reader.openMix(x.dataset.mix, x.dataset.d); return; }
   const l = e.target.closest("[data-listen]");
   if(l){ const f = FILES.find(x => x.path === l.dataset.listen); if(f){ const d = await detail(f); Player.load([{f, d}], 0); } return; }
   const c = e.target.closest("[data-chip]"); if(c){ chip = c.dataset.chip; drawArchive(); }
@@ -433,7 +452,9 @@ $("tabArchive").onclick = () => setTab("archive");
     await drawToday();
     if(location.hash.length > 1){
       const h = decodeURIComponent(location.hash.slice(1)), cards = h.startsWith("cards:"), p = cards ? h.slice(6) : h;
-      if(FILES.some(f => f.path === p)) Reader.open(p, false, cards);
+      const mx = h.match(/^mix:(week7|weekend):(\d{4}-\d{2}-\d{2})$/);
+      if(mx) Reader.openMix(mx[1], mx[2], false);
+      else if(FILES.some(f => f.path === p)) Reader.open(p, false, cards);
     }
   }catch(err){
     $("view").innerHTML = '<div class="state">목록을 불러오지 못했어요.<br>연결을 확인하고 다시 열어 주세요.</div>';

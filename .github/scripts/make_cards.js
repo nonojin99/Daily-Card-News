@@ -36,13 +36,25 @@ function serve(){
 (async () => {
   const today = new Date(Date.now() + 9 * 3600e3);   // KST
   const cutoff = new Date(today.getTime() - DAYS * 864e5).toISOString().slice(0, 10);
-  const targets = fs.readdirSync(ROOT).filter(n => {
-    const m = n.match(P);
-    if(!m) return false;
-    if(FORCE) return n === FORCE;
-    if(!TYPES.includes(m[4]) || `${m[1]}-${m[2]}-${m[3]}` < cutoff) return false;
-    return !fs.existsSync(path.join(ROOT, "cards", `${m[1]}-${m[2]}`, n.replace(/\.html$/, "")));
-  });
+  const names = fs.readdirSync(ROOT);
+  // 대상: {name, url, dir}. 브리프 한 편 또는 인스타 시리즈 묶음(금 week7 · 토 weekend)
+  const brief = n => { const m = n.match(P); return {name: n, url: `f=${encodeURIComponent(n)}`, dir: path.join("cards", `${m[1]}-${m[2]}`, n.replace(/\.html$/, ""))}; };
+  const mix = (kind, d) => ({name: `${d}_${kind}`, url: `mix=${kind}&d=${d}`, dir: path.join("cards", d.slice(0, 7), `${d}_${kind}`)});
+  let targets = [];
+  const FM = FORCE.match(/^(\d{4}-\d{2}-\d{2})_(week7|weekend)$/);
+  if(FM) targets = [mix(FM[2], FM[1])];
+  else if(FORCE) targets = names.filter(n => n === FORCE && P.test(n)).map(brief);
+  else{
+    names.forEach(n => {
+      const m = n.match(P); if(!m) return;
+      const d = `${m[1]}-${m[2]}-${m[3]}`; if(d < cutoff) return;
+      if(TYPES.includes(m[4])) targets.push(brief(n));
+      const wd = new Date(d + "T00:00:00Z").getUTCDay();
+      if(m[4] === "daily" && wd === 5) targets.push(mix("week7", d));      // 금요일 메인 → 이번 주 숫자 7
+      if(m[4] === "activity" && wd === 6) targets.push(mix("weekend", d)); // 토요일 액티비티 → 주말 뭐하지
+    });
+    targets = targets.filter(t => !fs.existsSync(path.join(ROOT, t.dir)));
+  }
   if(!targets.length){ console.log("cards: nothing to do"); return; }
 
   const srv = await serve();
@@ -50,12 +62,11 @@ function serve(){
   const browser = await chromium.launch();
   const made = [];
   try{
-    for(const n of targets){
-      const m = n.match(P);
-      const dir = path.join("cards", `${m[1]}-${m[2]}`, n.replace(/\.html$/, ""));
+    for(const t of targets){
+      const n = t.name, dir = t.dir;
       try{
         const page = await browser.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });
-        await page.goto(`${base}/app/cards.html?f=${encodeURIComponent(n)}&png=1${VIS ? "&vis=" + encodeURIComponent(VIS) : ""}`, { waitUntil: "networkidle", timeout: 60000 });
+        await page.goto(`${base}/app/cards.html?${t.url}&png=1${VIS ? "&vis=" + encodeURIComponent(VIS) : ""}`, { waitUntil: "networkidle", timeout: 60000 });
         await page.waitForSelector("body[data-ready]", { timeout: 30000 });
         const count = Number(await page.getAttribute("body", "data-ready"));
         if(!count) throw new Error("cards.html could not build cards");

@@ -85,6 +85,8 @@
   .cover li{display:flex;gap:2.6cqw;align-items:baseline;border-top:1px solid rgba(244,242,236,.22);padding-top:1.6cqw;min-width:0}
   .cover li b{font-size:3cqw;opacity:.7;min-width:3cqw}
   .cover li span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .cover.end{background:#1a1a18} .cover.end h2{margin-top:6cqw} .cover.end .wx{margin-top:auto;margin-bottom:0;order:9}
+  .cover.end ol{margin-top:7cqw}
 
   /* 브리프 도표(figure.chart)를 그대로 옮긴다 — 카드 폭이 좁아 글자 user unit 을 키운다 */
   .cv-bar,.cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)} .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
@@ -372,56 +374,113 @@ function visualOf(a, geo, year){
   return AI_FIRST ? (gen || info) : (info || gen);
 }
 
+// ── 인스타 시리즈(여러 브리프에서 카드를 골라 한 묶음으로) ──
+//   ?mix=week7&d=<금요일>   이번 주 숫자 — 월~금 메인에서 숫자·도표 카드(맥락 읽기 카드 제외)를 날마다 하나씩, 최대 7장(같은 분야 2장까지)
+//   ?mix=weekend&d=<토요일> 주말 뭐하지 — 토 액티비티 4 + 금 여행 2 + 수 문화 2 (이미 끝난 일정 제외)
+const MIX = qs.get("mix") || "", MD = qs.get("d") || "";
+const shiftD = (d, n) => { const x = new Date(d + "T00:00:00"); x.setDate(x.getDate() + n);
+  return `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, "0")}-${String(x.getDate()).padStart(2, "0")}`; };
+const SERIES = {
+  week7: {name: "이번 주 숫자", kicker: "WEEKLY NUMBERS", head: "이번 주를 숫자 {n}개로",
+    src: d => [-4, -3, -2, -1, 0].map(o => [shiftD(d, o), "daily", 9])},
+  weekend: {name: "주말 뭐하지", kicker: "WEEKEND PICKS", head: "이번 주말, 어디 갈까",
+    src: d => [[d, "activity", 4], [shiftD(d, -1), "travel", 2], [shiftD(d, -3), "culture", 2]]}
+};
+// 제목 속 첫 숫자(단위 포함) — 그림 재료가 없는 카드의 큰 숫자 타일에 쓴다. 값은 카드 제목에 있는 그대로.
+const NUM_RE = /(?:[−-]\s?)?\d[\d,.]*\s?(?:%p|%|도|명|억\s?달러|조\s?원|억\s?원|만\s?원|억|조|원|달러|배|건|곳|개|년|일|위|승|골|점|km|만|시간|분)(?![가-힣])|\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+\.\d+/;
+// 짧은 제목(.cn-t, 없으면 h2 의 " — " 앞)에서만 찾는다 — 부제의 "2년여 만" 같은 수식어를 집지 않게
+const titleNum = a => (clean(a.querySelector(".cn .cn-t")?.textContent || (a.querySelector("h2")?.textContent || "").split(/\s[—–]\s/)[0]).match(NUM_RE) || [])[0] || "";
+const sensitive = a => /Context|맥락/.test(a.querySelector(".insight .tag")?.textContent || "");
+const hasNumberVisual = a => !!titleNum(a) || !!a.querySelector("figure.chart, .cn svg.cn-v, .cn .cn-num, .cn .cn-score, .cn .cn-bars, .cn .cn-link, .cn .cn-shift");
+async function loadBrief(file){
+  const res = await fetch("../" + file, {cache: "no-cache"});
+  if(!res.ok) return null;
+  const doc = new DOMParser().parseFromString(await res.text(), "text/html");
+  const css = [...doc.querySelectorAll("style")].map(s => s.textContent).join("");
+  return {file, doc, date: file.slice(0, 10), arts: [...doc.querySelectorAll("article.card")],
+    ac: (css.match(/--accent:\s*(#[0-9a-f]{6})/i) || [])[1] || "#3d5a4c",
+    acs: (css.match(/--accent-soft:\s*(#[0-9a-f]{6})/i) || [])[1] || "#eef2ee"};
+}
+
 (async () => {
   try{
-    if(!/^\d{4}-\d{2}-\d{2}_[a-z]+-brief\.html$/.test(F)) throw new Error("bad file");
-    const res = await fetch("../" + F, {cache: "no-cache"});
-    if(!res.ok) throw new Error(res.status);
-    const doc = new DOMParser().parseFromString(await res.text(), "text/html");
-    const css = [...doc.querySelectorAll("style")].map(s => s.textContent).join("");
-    const ac = (css.match(/--accent:\s*(#[0-9a-f]{6})/i) || [])[1];
-    const acs = (css.match(/--accent-soft:\s*(#[0-9a-f]{6})/i) || [])[1];
-    if(ac) document.documentElement.style.setProperty("--accent", ac);
-    if(acs) document.documentElement.style.setProperty("--accent-soft", acs);
+    let briefs = [], picks = [], series = null;
+    if(MIX){
+      series = SERIES[MIX];
+      if(!series || !/^\d{4}-\d{2}-\d{2}$/.test(MD)) throw new Error("bad mix");
+      const srcs = series.src(MD);
+      briefs = (await Promise.all(srcs.map(([d, t]) => loadBrief(`${d}_${t}-brief.html`)))).filter(Boolean);
+      if(MIX === "week7"){
+        const rich = a => !!a.querySelector("figure.chart, .cn svg.cn-v, .cn .cn-num, .cn .cn-score, .cn .cn-bars, .cn .cn-link, .cn .cn-shift");
+        const cand = briefs.map(b => b.arts.filter(a => !sensitive(a) && hasNumberVisual(a)).sort((p, q) => rich(q) - rich(p)).map(a => ({a, b})));
+        // 날마다 하나씩, 그다음 남은 후보로 7장까지 — 같은 분야는 2장까지만(증시가 몰리는 주 방지)
+        const topicOf = x => clean(x.a.querySelector(".topic")?.textContent).split("·")[0].trim();
+        const cnt = {}, ok = x => (cnt[topicOf(x)] || 0) < 2, take = x => { cnt[topicOf(x)] = (cnt[topicOf(x)] || 0) + 1; picks.push(x); };
+        cand.forEach(c => { const x = c.find(ok); if(x) take(x); });
+        cand.flatMap(c => c).forEach(x => { if(picks.length < 7 && !picks.includes(x) && ok(x)) take(x); });
+        picks.sort((p, q) => p.b.date.localeCompare(q.b.date));
+        picks = picks.slice(0, 7);
+      }else{
+        const sat = new Date(MD + "T00:00:00");
+        briefs.forEach(b => {
+          const lim = (srcs.find(([d]) => d === b.date) || [])[2] || 2;
+          b.arts.filter(a => !sensitive(a)).filter(a => {
+            const w = parseWhen(clean(a.querySelector(".cn .cn-when")?.textContent), Number(b.date.slice(0, 4)));
+            return !(w && w.to && w.to < sat);   // 토요일 전에 끝난 일정은 빼기
+          }).slice(0, lim).forEach(a => picks.push({a, b}));
+        });
+      }
+    }else{
+      if(!/^\d{4}-\d{2}-\d{2}_[a-z]+-brief\.html$/.test(F)) throw new Error("bad file");
+      const b = await loadBrief(F); if(!b) throw new Error("not found");
+      briefs = [b]; picks = b.arts.map(a => ({a, b}));
+    }
+    if(!picks.length) throw new Error("no cards");
+    const main = briefs[0];
+    document.documentElement.style.setProperty("--accent", main.ac);
+    document.documentElement.style.setProperty("--accent-soft", main.acs);
 
-    const year = Number(F.slice(0, 4));
-    const arts = [...doc.querySelectorAll("article.card")];
     // 지도 데이터는 필요할 때만 — 국내 지명은 kr.json, 사전에 없는 이름(나라)이 있으면 world.json 도
     let geo = null;
-    const ptoks = arts.flatMap(a => clean(a.querySelector(".cn .cn-place")?.textContent).split(/\s*,\s*/).filter(Boolean).map(t => t.split("@").pop().trim()));
+    const ptoks = picks.flatMap(({a}) => clean(a.querySelector(".cn .cn-place")?.textContent).split(/\s*,\s*/).filter(Boolean).map(t => t.split("@").pop().trim()));
     if(ptoks.length){
       geo = {kr: await fetch("geo/kr.json").then(r => r.json()).catch(() => null), world: null};
       if(ptoks.some(t => !(geo.kr && geo.kr.places[t]))) geo.world = await fetch("geo/world.json").then(r => r.json()).catch(() => null);
     }
-    const cards = arts.map(a => ({
-      title: titleOf(a), sum: summaryOf(a), credit: creditOf(a), vis: visualOf(a, geo, year),
-      label: clean(a.querySelector(".topic")?.textContent)
+    const cards = picks.map(({a, b}) => ({
+      title: titleOf(a), sum: summaryOf(a), credit: creditOf(a), num: titleNum(a), vis: visualOf(a, geo, Number(b.date.slice(0, 4))),
+      label: clean(a.querySelector(".topic")?.textContent), ac: b.ac, acs: b.acs, date: b.date, ai: !!a.querySelector(".cn img.cn-gen")
     }));
     if(geo && geo.kr) document.body.insertAdjacentHTML("afterbegin", `<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="kr" class="ig-land" d="${geo.kr.outline}"/></defs></svg>`);
-    if(!cards.length) throw new Error("no cards");
-    const [y, m, d] = F.slice(0, 10).split("-");
+
+    const D = MIX ? MD : F.slice(0, 10);
+    const [y, m, d] = D.split("-");
     const wd = WD[new Date(`${y}-${m}-${d}T00:00:00`).getDay()];
-    const N = cards.length + 1;
-    const kicker = clean(doc.querySelector(".kicker")?.textContent).split("·")[0] || "Daily Brief";
-    const wx = doc.querySelector(".weather");
+    const N = cards.length + 2;   // 표지 + 카드 + 출처
+    const kicker = series ? series.kicker : clean(main.doc.querySelector(".kicker")?.textContent).split("·")[0] || "Daily Brief";
+    const wx = !series && main.doc.querySelector(".weather");
     if(wx) wx.querySelector(".wx-note")?.remove();
     const wxt = wx ? clean(wx.textContent).replace(/[—-]\s*$/, "") : "";
     const plain = h => clean(new DOMParser().parseFromString(h.replace(/<br>/g, " "), "text/html").body.textContent);
+    const md2 = s => `${Number(s.slice(5, 7))}.${Number(s.slice(8, 10))}`;
+    const dateLine = MIX === "week7" ? `${md2(shiftD(D, -4))}–${md2(D)}` : MIX === "weekend" ? `${md2(D)}–${md2(shiftD(D, 1))}` : `${m}.${d}`;
 
     let h = `<div class="rail" id="rail">
       <section class="slide cover" aria-label="표지"><div class="in">
-        <div class="k">${esc(kicker)}</div>
-        <div class="d">${m}.${d}<small>${wd}</small></div>
-        <h2>${esc(clean(doc.querySelector("h1")?.textContent))}</h2>
+        <div class="k">${esc(series ? series.name : kicker)}</div>
+        <div class="d">${dateLine}<small>${series ? "" : wd}</small></div>
+        <h2>${esc(series ? series.head.replace("{n}", cards.length) : clean(main.doc.querySelector("h1")?.textContent))}</h2>
         ${wxt ? `<div class="wx">${esc(wxt)}</div>` : ""}
-        <ol>${cards.slice(0, 7).map((c, i) => `<li><b>${i + 1}</b><span>${esc(plain(c.title))}</span></li>`).join("")}</ol>
+        <ol>${cards.slice(0, 8).map((c, i) => `<li><b>${i + 1}</b><span>${esc(plain(c.title))}</span></li>`).join("")}</ol>
       </div></section>`;
     cards.forEach((c, i) => {
       const len = plain(c.title).length;
       const [lab, ...rest] = c.label.split("·").map(clean);
-      h += `<section class="slide" aria-label="${i + 1}번 카드">
+      h += `<section class="slide" aria-label="${i + 1}번 카드" style="--accent:${c.ac};--accent-soft:${c.acs}">
         <div class="stage"><span class="count">${i + 2}/${N}</span>
-          ${c.vis || `<div class="tile" aria-hidden="true">${esc((c.label.split("·")[0] || "").trim() || "Brief")}<small>${m}.${d} ${esc(kicker)}</small></div>`}
+          ${c.vis || (c.num
+            ? `<svg viewBox="0 0 400 250" role="img" aria-label="${esc(c.num)}">${heroT(200, 150, c.num.replace(/\s+/g, ""), "middle")}<text x="200" y="192" text-anchor="middle" class="ig-k">${esc((c.label.split("·")[0] || "").trim())}</text></svg>`
+            : `<div class="tile" aria-hidden="true">${esc((c.label.split("·")[0] || "").trim() || "Brief")}<small>${md2(c.date)} ${esc(kicker)}</small></div>`)}
         </div>
         <div class="badge">${i + 1}</div>
         <div class="body">
@@ -429,10 +488,17 @@ function visualOf(a, geo, year){
           <span class="label"><b>${esc(lab || "")}</b>${rest.length ? " · " + esc(rest.join(" · ")) : ""}</span>
           <h2 class="${len > 34 ? "xl" : len > 24 ? "l" : ""}">${c.title}</h2>
           <p>${esc(c.sum)}</p>
-          <div class="foot"><span>${esc(kicker.toUpperCase())}</span><span>${m}.${d}</span></div>
+          <div class="foot"><span>${esc(kicker.toUpperCase())}</span><span>${md2(c.date)}</span></div>
         </div>
       </section>`;
     });
+    // 마지막 장: 출처 — 매체 이름과 앱 안내, AI 이미지가 있으면 표시
+    h += `<section class="slide cover end" aria-label="출처"><div class="in">
+        <div class="k">SOURCES · 출처</div>
+        <h2>원문과 전체 브리프는<br>Daily Brief 앱에서</h2>
+        <ol>${cards.slice(0, 8).map((c, i) => `<li><b>${i + 1}</b><span>${esc(c.credit || "—")}</span></li>`).join("")}</ol>
+        <div class="wx">각 카드는 기사 내용을 직접 요약하고 도표·지도를 새로 그렸습니다.${cards.some(c => c.ai) ? " 일부 그림은 AI로 생성했습니다." : ""} 수치는 바뀔 수 있어요.</div>
+      </div></section>`;
     h += `</div>
       <div class="nav"><button id="prev" aria-label="이전 카드">‹</button><div class="dots" id="dots"></div><button id="next" aria-label="다음 카드">›</button></div>
       <div class="saves" id="saves" hidden></div>`;
@@ -452,12 +518,12 @@ function visualOf(a, geo, year){
 
     // Actions 가 구운 인스타용 JPG 가 있으면 저장용 목록을 보여 준다
     if(!PNG){
-      const dir = `../cards/${y}-${m}/${F.replace(/\.html$/, "")}/`;
+      const dir = `../cards/${y}-${m}/${MIX ? `${D}_${MIX}` : F.replace(/\.html$/, "")}/`;
       const names = slides.map((_, i) => String(i + 1).padStart(2, "0") + ".jpg");
       fetch(dir + names[0], {method: "HEAD", cache: "no-cache"}).then(r => {
         if(!r.ok) return;
         const s = document.getElementById("saves");
-        s.innerHTML = `<h3>인스타용 이미지 ${names.length}장</h3><p>이미지를 길게 눌러 사진에 저장하세요. 1080×1350 · 출처는 각 카드 오른쪽 위에 적혀 있어요.</p>
+        s.innerHTML = `<h3>인스타용 이미지 ${names.length}장</h3><p>이미지를 길게 눌러 사진에 저장하세요. 1080×1350 · 출처는 각 카드 오른쪽 위와 마지막 장에 있어요.</p>
           <div class="g">${names.map(n => `<a href="${dir + n}" target="_blank" rel="noopener"><img src="${dir + n}" loading="lazy" alt="카드 ${esc(n)}"></a>`).join("")}</div>`;
         s.hidden = false;
       }).catch(() => {});
