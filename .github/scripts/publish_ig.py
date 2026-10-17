@@ -11,6 +11,11 @@
 """
 import json, os, sys, time, urllib.error, urllib.parse, urllib.request
 
+# push 실행이면 publish/request.json 의 값을 환경변수처럼 쓴다 {"kind","media","caption","dry_run","is_ai"}
+_REQ = os.environ.get("REQUEST", "").strip()
+if _REQ and os.path.exists(_REQ):
+    for k, v in json.load(open(_REQ, encoding="utf-8")).items():
+        os.environ[{"kind": "KIND", "media": "MEDIA", "caption": "CAPTION", "dry_run": "DRY_RUN", "is_ai": "IS_AI"}.get(k, k.upper())] = str(v)
 TOKEN = os.environ.get("IG_ACCESS_TOKEN", "").strip()
 UID = os.environ.get("IG_USER_ID", "").strip()
 EXPECT = os.environ.get("EXPECT_USERNAME", "hannun.brief").strip()

@@ -1,7 +1,11 @@
 name: Publish to Instagram
 
-# 사람이 보고 누르는 1탭 승인 게시. 자동 실행(cron·push)은 없다.
+# 사람이 보고 누르는 1탭 승인 게시. 정해진 시간 자동 실행(cron)은 없다.
+# 실행 방법 ① Actions 탭 → Run workflow  ② publish/request.json 을 바꿔 push (세션이 요청할 때)
 on:
+  push:
+    branches: [main]
+    paths: ['publish/request.json']
   workflow_dispatch:
     inputs:
       kind:
@@ -44,4 +48,5 @@ jobs:
           CAPTION: ${{ github.event.inputs.caption }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
           IS_AI: ${{ github.event.inputs.is_ai }}
+          REQUEST: ${{ github.event_name == 'push' && 'publish/request.json' || '' }}
         run: python3 .github/scripts/publish_ig.py
