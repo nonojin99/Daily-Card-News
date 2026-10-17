@@ -10,7 +10,8 @@
 <style>
   /* 카드 넘겨보기 — 브리프 HTML 한 편을 4:5 카드(인스타 비율)로 다시 그린다.
      글자 크기는 카드 폭(cqw) 기준이라 ?png=1 로 1080px 폭에 그려도 비율이 같다(Actions 가 JPG 로 굽는다).
-     그림 우선순위: 카드의 .cn 안 <svg class="cn-v"> → 카드의 도표(figure.chart) → 한자 타일. 사진은 쓰지 않는다. */
+     그림 우선순위: .cn 안 <svg class="cn-v"> → 카드의 도표(figure.chart) → 정보 그림(.cn-place/.cn-when/.cn-num: 지도·달력·큰 숫자)
+     → AI 생성 이미지(.cn img.cn-gen, Actions 가 만든다) → 분야 글자 타일. 보도사진은 쓰지 않는다. ?vis=ai 면 AI 이미지를 정보 그림보다 먼저. */
   :root{
     --page:#faf9f6; --card:#ffffff; --ink:#1a1a18; --muted:#55554f; --faint:#9a9a94; --line:#e6e4dd;
     --stage:#f3f1ea; --accent:#3d5a4c; --accent-soft:#eef2ee; --off:#cfcdc4;
@@ -31,8 +32,20 @@
   .stage > svg,.stage .vis svg{width:90%;height:auto;display:block;position:relative;overflow:visible}
   .stage .vis{width:100%;display:flex;flex-direction:column;align-items:center;gap:1.6cqw;position:relative}
   .vis-cap{font-size:2.9cqw;font-weight:700;color:var(--muted);letter-spacing:.02em;align-self:flex-start;margin-left:6cqw}
-  .bigchar{position:absolute;font-family:var(--serif);font-weight:900;color:var(--accent);opacity:.08;font-size:72cqw;line-height:1;right:-6cqw;bottom:-14cqw}
-  .stage .tile{font-family:var(--serif);font-weight:900;color:var(--accent);font-size:40cqw;line-height:1;opacity:.9}
+  .stage .tile{font-weight:900;color:var(--accent);font-size:13cqw;letter-spacing:-.04em;line-height:1.1;text-align:center;padding:0 8cqw}
+  .stage .tile small{display:block;font-size:3.4cqw;font-weight:500;color:var(--muted);letter-spacing:.02em;margin-top:2.4cqw}
+  .stage img.gen{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .stage .ai{position:absolute;left:3.6cqw;top:3.6cqw;font-size:2.5cqw;font-weight:500;color:#fff;background:rgba(26,26,24,.55);padding:1cqw 2.4cqw;border-radius:99px;z-index:2}
+  /* 정보 그림(지도·달력·큰 숫자) */
+  .ig-land{fill:#dcd6ca;stroke:var(--stage);stroke-width:.6}
+  .ig-pin{fill:var(--accent)} .ig-pinhole{fill:#fff} .ig-halo{fill:var(--accent);opacity:.15}
+  .ig-pinlab{font:700 16px var(--sans);fill:var(--ink)}
+  .ig-panel{fill:#fff} .ig-line{stroke:var(--line);stroke-width:1.5}
+  .ig-k{font:500 14px var(--sans);fill:var(--muted)} .ig-s{font:500 13px var(--sans);fill:var(--muted)}
+  .ig-big{font:900 34px var(--sans);fill:var(--ink);letter-spacing:-.02em}
+  .ig-hero{font:900 92px var(--sans);fill:var(--accent);letter-spacing:-.04em}
+  .ig-calh{font:500 11px var(--sans);fill:var(--faint)} .ig-on{fill:var(--accent)} .ig-off{fill:#fff}
+  .ig-ct{font:500 12px var(--sans);fill:var(--muted)} .ig-ct.on{fill:#fff;font-weight:700}
   .count{position:absolute;top:3.6cqw;right:3.6cqw;font-size:3cqw;font-weight:500;color:#fff;background:rgba(26,26,24,.62);padding:1.2cqw 2.8cqw;border-radius:99px;z-index:2}
   .badge{position:absolute;left:6cqw;top:calc(50% - 7cqw);width:14cqw;height:14cqw;border-radius:50%;background:var(--card);
     box-shadow:0 1.2cqw 3cqw rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:7cqw;color:var(--accent);z-index:2}
@@ -43,7 +56,7 @@
   .slide h2{font-size:7.2cqw;font-weight:900;line-height:1.22;letter-spacing:-.03em;margin-bottom:2.6cqw;text-wrap:balance}
   .slide h2.l{font-size:6.2cqw} .slide h2.xl{font-size:5.4cqw}
   .slide p{font-size:3.55cqw;line-height:1.62;color:var(--muted);letter-spacing:-.01em;
-    display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
   .foot{margin-top:auto;display:flex;justify-content:space-between;padding:2.4cqw 0 3.4cqw;font-size:2.5cqw;color:var(--faint);letter-spacing:.08em}
 
   .cover{background:var(--accent);color:#f4f2ec}
@@ -57,7 +70,6 @@
   .cover li{display:flex;gap:2.6cqw;align-items:baseline;border-top:1px solid rgba(244,242,236,.22);padding-top:1.6cqw;min-width:0}
   .cover li b{font-size:3cqw;opacity:.7;min-width:3cqw}
   .cover li span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-  .cover .bigchar{color:#fff;right:-4cqw;top:-8cqw;bottom:auto;font-size:62cqw;opacity:.07}
 
   /* 브리프 도표(figure.chart)를 그대로 옮긴다 — 카드 폭이 좁아 글자 user unit 을 키운다 */
   .cv-bar,.cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)} .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
@@ -129,21 +141,23 @@ function titleOf(a){
   if(t) return t.innerHTML.split(/<br\s*\/?>/i).map(x => esc(clean(new DOMParser().parseFromString(x, "text/html").body.textContent))).join("<br>");
   return esc(clean(a.querySelector("h2")?.textContent).split(/\s[—–]\s/)[0]);
 }
-// 카드용 요약: .cn-s → 없으면 요약 첫 문단에서 괄호(매체 표기)를 빼고 150자 안쪽 문장까지
+// 카드용 요약: .cn-s → 없으면 요약 첫 문단에서 괄호(매체 표기)를 빼고 100자 안쪽 문장까지(3줄)
 function summaryOf(a){
   const s = a.querySelector(".cn .cn-s");
   if(s) return clean(s.textContent);
   const p = clean(a.querySelector(".summary p")?.textContent).replace(/\s*\([^)]*\)/g, "");
-  const sents = p.match(/[^.!?]+[.!?](\s|$)/g) || [p];
+  const sents = p.split(/(?<=[.!?])\s+/).filter(Boolean);   // 소수점(3.7%)에서는 자르지 않는다
   let out = "";
-  for(const x of sents){ if((out + x).length > 150 && out) break; out += x; }
+  for(const x of sents){ if((out + " " + x).length > 100 && out) break; out += (out ? " " : "") + x; }
   return clean(out);
 }
 function creditOf(a){
   const names = [...a.querySelectorAll("a.source")].map(x => clean(x.textContent).split(/\s[—–-]\s/)[0]).filter(Boolean);
   return [...new Set(names)].slice(0, 2).join(" · ");
 }
-function visualOf(a){
+const AI_FIRST = qs.get("vis") === "ai";
+const KWD = ["일","월","화","수","목","금","토"];
+function chartOf(a){
   const own = a.querySelector(".cn svg.cn-v");
   if(own) return own.outerHTML;
   const fig = a.querySelector("figure.chart");
@@ -154,6 +168,94 @@ function visualOf(a){
     if(svg) return `<div class="vis">${cap ? `<div class="vis-cap">${esc(cap)}</div>` : ""}${leg ? leg.outerHTML : ""}${svg.outerHTML}</div>`;
   }
   return null;
+}
+function genOf(a){
+  const g = a.querySelector(".cn img.cn-gen");
+  if(!g || !g.getAttribute("src")) return null;
+  return `<img class="gen" src="../${esc(g.getAttribute("src"))}" alt="${esc(g.getAttribute("alt") || "")}"><span class="ai">AI 생성 이미지</span>`;
+}
+// "2026-10-17~2026-10-25" · "10/17~10/25" · "~10/18" · "10/17"
+function parseWhen(t, year){
+  const pick = x => { x = (x || "").trim(); let m = x.match(/(\d{4})-(\d{1,2})-(\d{1,2})/);
+    if(m) return new Date(+m[1], m[2] - 1, +m[3]); m = x.match(/(\d{1,2})[\/.](\d{1,2})/);
+    return m ? new Date(year, m[1] - 1, +m[2]) : null; };
+  if(!t) return null;
+  const [a, b] = t.includes("~") ? t.split("~") : [t, t];
+  const from = pick(a), to = pick(b);
+  if(!from && !to) return null;
+  const days = from && to ? Math.round((to - from) / 864e5) + 1 : null;
+  return {from, to, days: days > 0 ? days : null};
+}
+function mapG(geo, tx, ty, sc, pts){
+  const {lon0, lat0, k, cos} = geo.proj;
+  let o = `<use href="#kr" transform="translate(${tx} ${ty}) scale(${sc})"/>`;
+  pts.forEach(([name, lon, lat]) => {
+    const x = tx + (lon - lon0) * cos * k * sc, y = ty + (lat0 - lat) * k * sc;
+    const right = x < tx + 150 * sc;
+    o += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="13" class="ig-halo"/>
+      <path class="ig-pin" d="M${x.toFixed(1)} ${(y - 2).toFixed(1)} c-6 -9 -11 -13 -11 -19 a11 11 0 0 1 22 0 c0 6 -5 10 -11 19z"/>
+      <circle cx="${x.toFixed(1)}" cy="${(y - 23).toFixed(1)}" r="4" class="ig-pinhole"/>
+      <text x="${(right ? x + 16 : x - 16).toFixed(1)}" y="${(y - 14).toFixed(1)}" class="ig-pinlab" text-anchor="${right ? "start" : "end"}">${esc(name)}</text>`;
+  });
+  return o;
+}
+function calG(x, y, from, to){
+  const cell = 26, mDays = new Date(from.getFullYear(), from.getMonth() + 1, 0).getDate();
+  const first = from.getDate() - from.getDay(), last = to.getDate() + (6 - to.getDay());
+  let o = `<text x="${x}" y="${y - 24}" class="ig-k">${from.getMonth() + 1}월</text>`;
+  KWD.forEach((w, i) => { o += `<text x="${x + i * cell + cell / 2}" y="${y}" class="ig-calh" text-anchor="middle">${w}</text>`; });
+  for(let r = 0; first + r * 7 <= last; r++) for(let c = 0; c < 7; c++){
+    const dn = first + r * 7 + c; if(dn < 1 || dn > mDays) continue;
+    const on = dn >= from.getDate() && dn <= to.getDate(), cx = x + c * cell, cy = y + 8 + r * cell;
+    o += `<rect x="${cx + 1}" y="${cy}" width="${cell - 2}" height="${cell - 2}" rx="5" class="${on ? "ig-on" : "ig-off"}"/>
+      <text x="${cx + cell / 2}" y="${cy + cell / 2 + 3}" text-anchor="middle" class="ig-ct${on ? " on" : ""}">${dn}</text>`;
+  }
+  return o;
+}
+function chipG(x, y, label, big, sub, note){
+  return `<g transform="translate(${x} ${y})"><rect width="122" height="150" rx="12" class="ig-panel"/>
+    <text x="16" y="30" class="ig-k">${esc(label)}</text><text x="16" y="70" class="ig-big">${esc(big)}</text><text x="16" y="92" class="ig-k">${esc(sub)}</text>
+    ${note ? `<line x1="16" x2="106" y1="108" y2="108" class="ig-line"/>${note.slice(0, 2).map((n, i) => `<text x="16" y="${128 + i * 16}" class="ig-s">${esc(n)}</text>`).join("")}` : ""}</g>`;
+}
+const md = d => `${d.getMonth() + 1}.${d.getDate()}`;
+// 정보 그림: .cn-place(시·군·구, 쉼표로 최대 3곳) · .cn-when(기간, data-label 로 칩 제목) · .cn-num("120곳|동네 빵집", 최대 2개) · .cn-note
+function infoOf(a, geo, year){
+  const cn = a.querySelector(".cn"); if(!cn) return null;
+  const T = sel => clean(cn.querySelector(sel)?.textContent);
+  const nums = [...cn.querySelectorAll(".cn-num")].slice(0, 2).map(p => { const [v, l] = p.textContent.split("|"); return {v: clean(v), l: clean(l)}; });
+  const note = T(".cn-note"), wEl = cn.querySelector(".cn-when"), when = parseWhen(T(".cn-when"), year);
+  const places = geo ? T(".cn-place").split(/[,·]/).map(clean).filter(Boolean).slice(0, 3)
+    .map(n => geo.places[n] ? [n.replace(/^\S+\s/, ""), ...geo.places[n]] : null).filter(Boolean) : [];
+  const endChip = () => when && when.to ? chipG(262, 46, wEl.dataset.label || (when.days && when.days > 1 ? `${md(when.from)}~` : "날짜"),
+      `${when.to.getDate()}일`, `${KWD[when.to.getDay()]}요일`, note ? note.split(/\s*\/\s*/) : null) : "";
+  let g = "";
+  if(places.length && nums.length >= 2){
+    g = mapG(geo, 18, 24, .98, places) + `<g transform="translate(250 64)">` + nums.map((n, i) =>
+      `<text x="0" y="${34 + i * 70}" class="ig-big">${esc(n.v)}</text><text x="0" y="${54 + i * 70}" class="ig-s">${esc(n.l)}</text>`).join("")
+      + (note ? `<text x="0" y="150" class="ig-k">${esc(note)}</text>` : "") + `</g>`;
+  }else if(places.length && nums.length === 1){
+    const sub = when && when.from && when.to ? `${md(when.from)}${when.days > 1 ? "~" + md(when.to) : ""}${note ? " · " + note : ""}` : note;
+    g = `<text x="34" y="128" class="ig-hero">${esc(nums[0].v.replace(/[^\d.,%+−-]+$/, ""))}</text>
+      <text x="38" y="160" class="ig-k">${esc(nums[0].v.replace(/^[\d.,%+−-]+/, "") + " " + nums[0].l)}</text>
+      ${sub ? `<text x="38" y="196" class="ig-s">${esc(sub)}</text>` : ""}` + mapG(geo, 268, 100, .6, places);
+  }else if(places.length && when && when.to){
+    g = mapG(geo, 18, 24, .98, places) + endChip();
+  }else if(when && when.from && when.to && when.days >= 2 && when.days <= 31 && when.from.getMonth() === when.to.getMonth()){
+    g = calG(40, 58, when.from, when.to) + `<g transform="translate(250 54)"><text x="0" y="40" class="ig-big">${when.days}일</text>
+      <text x="0" y="62" class="ig-s">${md(when.from)} ~ ${md(when.to)}</text>` +
+      (nums[0] ? `<line x1="0" x2="120" y1="82" y2="82" class="ig-line"/><text x="0" y="122" class="ig-big">${esc(nums[0].v)}</text><text x="0" y="144" class="ig-s">${esc(nums[0].l)}</text>` : "") + `</g>`;
+  }else if(nums.length){
+    g = `${nums[0].l ? `<text x="34" y="74" class="ig-k">${esc(nums[0].l)}</text>` : ""}<text x="30" y="150" class="ig-hero">${esc(nums[0].v)}</text>`
+      + (when && when.to ? endChip() : note ? `<text x="34" y="196" class="ig-s">${esc(note)}</text>` : "");
+  }else if(places.length){
+    g = mapG(geo, 18, 24, .98, places) + `<text x="250" y="130" class="ig-big">${esc(places.map(p => p[0]).join(" · "))}</text>`;
+  }
+  return g ? `<svg viewBox="0 0 400 250" role="img" aria-label="${esc([T(".cn-place"), T(".cn-when"), ...nums.map(n => n.v + " " + n.l), note].filter(Boolean).join(", "))}">${g}</svg>` : null;
+}
+function visualOf(a, geo, year){
+  const chart = chartOf(a); if(chart) return chart;
+  const info = infoOf(a, geo, year), gen = genOf(a);
+  return AI_FIRST ? (gen || info) : (info || gen);
 }
 
 (async () => {
@@ -168,10 +270,14 @@ function visualOf(a){
     if(ac) document.documentElement.style.setProperty("--accent", ac);
     if(acs) document.documentElement.style.setProperty("--accent-soft", acs);
 
-    const cards = [...doc.querySelectorAll("article.card")].map(a => ({
-      title: titleOf(a), sum: summaryOf(a), credit: creditOf(a), vis: visualOf(a),
-      label: clean(a.querySelector(".topic")?.textContent), hanja: clean(a.querySelector(".hanja")?.textContent).slice(0, 1)
+    const year = Number(F.slice(0, 4));
+    const arts = [...doc.querySelectorAll("article.card")];
+    const geo = arts.some(a => a.querySelector(".cn .cn-place")) ? await fetch("geo/kr.json").then(r => r.json()).catch(() => null) : null;
+    const cards = arts.map(a => ({
+      title: titleOf(a), sum: summaryOf(a), credit: creditOf(a), vis: visualOf(a, geo, year),
+      label: clean(a.querySelector(".topic")?.textContent)
     }));
+    if(geo) document.body.insertAdjacentHTML("afterbegin", `<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="kr" class="ig-land" d="${geo.outline}"/></defs></svg>`);
     if(!cards.length) throw new Error("no cards");
     const [y, m, d] = F.slice(0, 10).split("-");
     const wd = WD[new Date(`${y}-${m}-${d}T00:00:00`).getDay()];
@@ -184,7 +290,6 @@ function visualOf(a){
 
     let h = `<div class="rail" id="rail">
       <section class="slide cover" aria-label="표지"><div class="in">
-        ${cards[0].hanja ? `<span class="bigchar" aria-hidden="true">${esc(cards[0].hanja)}</span>` : ""}
         <div class="k">${esc(kicker)}</div>
         <div class="d">${m}.${d}<small>${wd}</small></div>
         <h2>${esc(clean(doc.querySelector("h1")?.textContent))}</h2>
@@ -196,8 +301,7 @@ function visualOf(a){
       const [lab, ...rest] = c.label.split("·").map(clean);
       h += `<section class="slide" aria-label="${i + 1}번 카드">
         <div class="stage"><span class="count">${i + 2}/${N}</span>
-          ${c.vis ? (c.hanja ? `<span class="bigchar" aria-hidden="true">${esc(c.hanja)}</span>` : "") + c.vis
-                  : `<span class="tile" aria-hidden="true">${esc(c.hanja || "·")}</span>`}
+          ${c.vis || `<div class="tile" aria-hidden="true">${esc((c.label.split("·")[0] || "").trim() || "Brief")}<small>${m}.${d} ${esc(kicker)}</small></div>`}
         </div>
         <div class="badge">${i + 1}</div>
         <div class="body">

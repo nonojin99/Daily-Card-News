@@ -13,6 +13,7 @@ const TYPES = (process.env.CARDS_TYPES || "daily").split(",").map(s => s.trim())
 const DAYS = Number(process.env.CARDS_DAYS || 3);
 const FORCE = (process.env.CARDS_FORCE || "").trim();
 const OUT = process.env.CARDS_OUT || "";
+const VIS = (process.env.CARDS_VIS || "").trim();   // "ai" 면 AI 일러스트를 정보 그림보다 먼저(미리보기용)
 const P = /^(\d{4})-(\d{2})-(\d{2})_([a-z]+)-brief\.html$/;
 
 const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".json": "application/json",
@@ -54,7 +55,7 @@ function serve(){
       const dir = path.join("cards", `${m[1]}-${m[2]}`, n.replace(/\.html$/, ""));
       try{
         const page = await browser.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });
-        await page.goto(`${base}/app/cards.html?f=${encodeURIComponent(n)}&png=1`, { waitUntil: "networkidle", timeout: 60000 });
+        await page.goto(`${base}/app/cards.html?f=${encodeURIComponent(n)}&png=1${VIS ? "&vis=" + encodeURIComponent(VIS) : ""}`, { waitUntil: "networkidle", timeout: 60000 });
         await page.waitForSelector("body[data-ready]", { timeout: 30000 });
         const count = Number(await page.getAttribute("body", "data-ready"));
         if(!count) throw new Error("cards.html could not build cards");
