@@ -35,8 +35,17 @@
   .stage .tile{font-weight:900;color:var(--accent);font-size:13cqw;letter-spacing:-.04em;line-height:1.1;text-align:center;padding:0 8cqw}
   .stage .tile small{display:block;font-size:3.4cqw;font-weight:500;color:var(--muted);letter-spacing:.02em;margin-top:2.4cqw}
   .stage img.gen{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .stage img.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0d1020}
-  .stage .phc{position:absolute;left:0;right:0;bottom:0;padding:5cqw 3.6cqw 2.4cqw 22cqw;font-size:2.3cqw;line-height:1.35;color:#fff;background:linear-gradient(transparent,rgba(13,16,32,.88));z-index:2}
+  .stage .phw{position:absolute;inset:0;display:flex;flex-direction:column;background:#0d1020}
+  .stage .phw img{flex:1 1 auto;min-height:0;width:100%;object-fit:contain;display:block}
+  .stage .phb{flex:0 0 auto;padding:2.2cqw 3.6cqw 2.6cqw 22cqw;color:#fff;line-height:1.35}
+  .stage .phb b{display:block;font-size:3cqw;font-weight:700;margin-bottom:.8cqw}
+  .stage .phb small{display:block;font-size:2.2cqw;color:rgba(255,255,255,.72)}
+  /* 그림 재료가 없을 때: 글자 타일 대신 카드의 스펙 표를 정보 시트로 */
+  .stage .sheet{width:84%;display:flex;flex-direction:column;gap:2.4cqw}
+  .stage .sheet div{display:grid;grid-template-columns:20cqw 1fr;gap:3cqw;align-items:baseline;padding-bottom:2.4cqw;border-bottom:1px solid var(--line)}
+  .stage .sheet div:last-child{border-bottom:0}
+  .stage .sheet b{font-size:3.2cqw;font-weight:700;color:var(--accent);letter-spacing:.02em}
+  .stage .sheet span{font-size:3.6cqw;font-weight:500;color:var(--ink);line-height:1.4}
   .stage .ai{position:absolute;left:3.6cqw;top:3.6cqw;font-size:2.5cqw;font-weight:500;color:#fff;background:rgba(26,26,24,.55);padding:1cqw 2.4cqw;border-radius:99px;z-index:2}
   /* 정보 그림(지도·달력·큰 숫자) */
   .ig-land{fill:#dcd6ca;stroke:var(--stage);stroke-width:.6}
@@ -206,7 +215,16 @@ function photoOf(a){
   if(!PHOTO_OK.test(remote)) return null;
   const use = /^img\//.test(src) ? "../" + src : remote;
   const cr = clean(a.querySelector("figure.photo .credit")?.textContent);
-  return {html: `<img class="ph" src="${esc(use)}" alt="${esc(img.getAttribute("alt") || "")}"><span class="phc">${esc(cr)}</span>`, credit: cr};
+  const cap = clean(a.querySelector("figure.photo")?.getAttribute("data-card-cap"));   // 카드용 짧은 설명(무슨 그림인지) — 값은 카드 본문에 있는 것만
+  return {html: `<div class="phw"><img src="${esc(use)}" alt="${esc(img.getAttribute("alt") || "")}"><div class="phb">${cap ? `<b>${esc(cap)}</b>` : ""}<small>${esc(cr)}</small></div></div>`, credit: cr};
+}
+// 마지막 안전망 — 카드의 스펙 표(ul.spec / ul.timeline) 앞 3줄. 제목·요약에 없는 세부라 같은 말 반복이 아니다
+function sheetOf(a){
+  const rows = [...a.querySelectorAll("ul.spec li, ul.timeline li")].slice(0, 3).map(li => {
+    const k = li.querySelector(".k, .when"), v = clean(li.textContent.replace(k?.textContent || "", ""));
+    return k && v ? `<div><b>${esc(clean(k.textContent))}</b><span>${esc(v.length > 46 ? v.slice(0, 45) + "…" : v)}</span></div>` : "";
+  }).filter(Boolean);
+  return rows.length >= 2 ? `<div class="sheet">${rows.join("")}</div>` : null;
 }
 function genOf(a){
   const g = a.querySelector(".cn img.cn-gen");
@@ -398,7 +416,7 @@ function visualOf(a, geo, year){
   const chart = chartOf(a); if(chart) return chart;
   const ph = photoOf(a); if(ph) return ph.html;
   const info = infoOf(a, geo, year), gen = genOf(a);
-  return AI_FIRST ? (gen || info) : (info || gen);
+  return AI_FIRST ? (gen || info) : (info || gen) || (MIX ? null : sheetOf(a));
 }
 
 // ── 인스타 시리즈(여러 브리프에서 카드를 골라 한 묶음으로) ──
