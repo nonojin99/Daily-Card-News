@@ -1,0 +1,47 @@
+name: Publish to Instagram
+
+# 사람이 보고 누르는 1탭 승인 게시. 자동 실행(cron·push)은 없다.
+on:
+  workflow_dispatch:
+    inputs:
+      kind:
+        description: 'reel 또는 carousel'
+        required: true
+        default: 'carousel'
+      media:
+        description: '릴스 MP4 경로 또는 캐러셀 JPG 폴더 (예: cards/2026-10/2026-10-17_weekend)'
+        required: true
+      caption:
+        description: '캡션 파일 경로 (예: captions/2026-10-17_weekend.txt)'
+        required: true
+      dry_run:
+        description: 'true 면 게시하지 않고 확인만'
+        required: true
+        default: 'true'
+      is_ai:
+        description: 'AI 음성·그림 포함 표시(릴스)'
+        required: true
+        default: 'true'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-instagram
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          KIND: ${{ github.event.inputs.kind }}
+          MEDIA: ${{ github.event.inputs.media }}
+          CAPTION: ${{ github.event.inputs.caption }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+          IS_AI: ${{ github.event.inputs.is_ai }}
+        run: python3 .github/scripts/publish_ig.py
