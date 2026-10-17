@@ -414,8 +414,16 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
 - **게시 규칙**: 캐러셀 4:5 JPEG · 10장 이하(API 상한) · 커버 핵심은 가운데(그리드는 3:4로 잘림) · 2장도 그 자체로 읽히게(안 넘긴 사람에게 2장으로 다시 노출) ·
   캡션 첫 줄에 검색어와 핵심 숫자, 본문에 수치를 텍스트로 · 해시태그 3~5개(2025-12-18부터 최대 5개) · 장마다 alt text · 오류는 24시간 안에 정정 공지.
 - **릴스**: 팔로워 300명 전에는 하지 않는다. 그 뒤 주간 최고 캐러셀을 재가공해 주 1~2회.
-- **자동 게시를 붙일 때**(검토 중, 사람 승인 1탭): 컨테이너는 24시간 뒤 만료되므로 **승인하는 순간에** 만든다 · 일일 한도는 계정에서 `content_publishing_limit` 로 확인 ·
-  토큰 60일(30~45일마다 갱신) · 승인 화면에 실명·사법 단계 용어·2개 출처 대조 체크, 사건·사고 카드는 자동 보류 · 기사 문장과 연속 10어절 이상 겹치면 차단.
+- **API 게시 (2026.10.17~, 사람 승인 1탭)** — `publish/request.json` + `.github/workflows/publish-instagram.yml` + `.github/scripts/publish_ig.py`.
+  1. 게시하는 날(월 ai · 화 sports · 금 week7 · 토 weekend · 일 science) 데일리 작성 세션이 브리프와 함께
+     `captions/<날짜>_<코너>.txt`(캡션)와 `publish/request.json` 을 쓴다:
+     `{"kind":"carousel","media":"cards/2026-10/2026-10-18_science-brief","caption":"captions/2026-10-18_science.txt","dry_run":"true","is_ai":"false"}`
+  2. push 하면 확인 실행(dry run)이 돈다 — 카드 굽기·Pages 배포를 최대 25분 기다린 뒤 계정·한도·이미지·캡션을 검사하고 **게시하지 않는다**.
+  3. 사용자 승인: GitHub → Actions → **Publish to Instagram** → Run workflow → 입력칸은 비우고 `dry_run` 만 `false`. (또는 세션에 "게시해")
+  4. 게시가 끝나면 다음 요청 전까지 `kind` 를 `none` 으로 돌려 둔다. 같은 캡션이 최근 10개 게시물에 있으면 스크립트가 멈춘다(중복 게시 방지).
+  - 캡션: 첫 줄에 검색어와 핵심 숫자 · 본문 3~6줄에 카드별 한 줄(숫자는 텍스트로) · "출처는 마지막 장" · AI 그림·음성이 있으면 그 표시 · 해시태그 3~5개(#한눈브리프 포함) · 2,200자 이하.
+  - 캐러셀이 10장을 넘으면 앞 9장 + 마지막 출처 장. 사건·사고 카드가 섞인 날은 게시하지 않는다.
+  - 컨테이너는 24시간 뒤 만료되므로 게시 실행 때 새로 만든다 · 한도는 `content_publishing_limit`(24시간 100건) · 토큰 60일(30~45일마다 갱신).
 
 ### 앱 (PWA) — `app/` (2026.10.13~)
 
