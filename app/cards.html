@@ -85,8 +85,15 @@
   .cover li{display:flex;gap:2.6cqw;align-items:baseline;border-top:1px solid rgba(244,242,236,.22);padding-top:1.6cqw;min-width:0}
   .cover li b{font-size:3cqw;opacity:.7;min-width:3cqw}
   .cover li span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-  .cover.end{background:#1a1a18} .cover.end h2{margin-top:6cqw} .cover.end .wx{margin-top:auto;margin-bottom:0;order:9}
-  .cover.end ol{margin-top:7cqw}
+  .cover .handle{margin-top:3cqw;font-size:3cqw;font-weight:700;opacity:.85;letter-spacing:.02em}
+  .foot .h{font-weight:700;color:var(--accent);letter-spacing:.02em}
+  .cover.end .follow{font-size:5.4cqw;font-weight:900;color:#fff;order:8}
+  .cover.end .follow small{display:block;font-size:2.8cqw;font-weight:500;opacity:.7;margin-top:1.4cqw;letter-spacing:.02em}
+  .cover.end{background:#1a1a18} .cover.end h2{margin-top:5cqw;font-size:5.8cqw}
+  .cover.end ol{margin-top:5cqw;grid-template-columns:1fr 1fr;column-gap:4cqw;row-gap:0;font-size:2.9cqw}
+  .cover.end li{padding:1.4cqw 0}
+  .cover.end .follow{margin-top:auto}
+  .cover.end .wx{margin-top:3cqw;order:9}
 
   /* 브리프 도표(figure.chart)를 그대로 옮긴다 — 카드 폭이 좁아 글자 user unit 을 키운다 */
   .cv-bar,.cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)} .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
@@ -378,6 +385,7 @@ function visualOf(a, geo, year){
 //   ?mix=week7&d=<금요일>   이번 주 숫자 — 월~금 메인에서 숫자·도표 카드(맥락 읽기 카드 제외)를 날마다 하나씩, 최대 7장(같은 분야 2장까지)
 //   ?mix=weekend&d=<토요일> 주말 뭐하지 — 토 액티비티 4 + 금 여행 2 + 수 문화 2 (이미 끝난 일정 제외)
 const MIX = qs.get("mix") || "", MD = qs.get("d") || "";
+const HANDLE = "@hannun.brief";   // 인스타 계정 — 표지·카드 바닥글·출처 장에 들어간다
 const shiftD = (d, n) => { const x = new Date(d + "T00:00:00"); x.setDate(x.getDate() + n);
   return `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, "0")}-${String(x.getDate()).padStart(2, "0")}`; };
 const SERIES = {
@@ -472,6 +480,7 @@ async function loadBrief(file){
         <h2>${esc(series ? series.head.replace("{n}", cards.length) : clean(main.doc.querySelector("h1")?.textContent))}</h2>
         ${wxt ? `<div class="wx">${esc(wxt)}</div>` : ""}
         <ol>${cards.slice(0, 8).map((c, i) => `<li><b>${i + 1}</b><span>${esc(plain(c.title))}</span></li>`).join("")}</ol>
+        <div class="handle">${HANDLE}</div>
       </div></section>`;
     cards.forEach((c, i) => {
       const len = plain(c.title).length;
@@ -488,7 +497,7 @@ async function loadBrief(file){
           <span class="label"><b>${esc(lab || "")}</b>${rest.length ? " · " + esc(rest.join(" · ")) : ""}</span>
           <h2 class="${len > 34 ? "xl" : len > 24 ? "l" : ""}">${c.title}</h2>
           <p>${esc(c.sum)}</p>
-          <div class="foot"><span>${esc(kicker.toUpperCase())}</span><span>${md2(c.date)}</span></div>
+          <div class="foot"><span class="h">${HANDLE}</span><span>${esc(kicker.toUpperCase())} · ${md2(c.date)}</span></div>
         </div>
       </section>`;
     });
@@ -497,6 +506,7 @@ async function loadBrief(file){
         <div class="k">SOURCES · 출처</div>
         <h2>원문과 전체 브리프는<br>Daily Brief 앱에서</h2>
         <ol>${cards.slice(0, 8).map((c, i) => `<li><b>${i + 1}</b><span>${esc(c.credit || "—")}</span></li>`).join("")}</ol>
+        <div class="follow">${HANDLE}<small>월 AI · 화 스포츠 · 금 이번 주 숫자 · 토 주말 뭐하지 · 일 우주</small></div>
         <div class="wx">각 카드는 기사 내용을 직접 요약하고 도표·지도를 새로 그렸습니다.${cards.some(c => c.ai) ? " 일부 그림은 AI로 생성했습니다." : ""} 수치는 바뀔 수 있어요.</div>
       </div></section>`;
     h += `</div>
