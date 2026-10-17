@@ -39,7 +39,7 @@
   .stage .phw img{flex:1 1 auto;min-height:0;width:100%;object-fit:contain;display:block}
   .stage .phb{flex:0 0 auto;padding:2.2cqw 3.6cqw 2.6cqw 22cqw;color:#fff;line-height:1.35}
   .stage .phb b{display:block;font-size:3cqw;font-weight:700;margin-bottom:.8cqw}
-  .stage .phb small{display:block;font-size:2.2cqw;color:rgba(255,255,255,.72)}
+  .stage .phb small{display:block;font-size:2.45cqw;color:rgba(255,255,255,.72)}
   /* 그림 재료가 없을 때: 글자 타일 대신 카드의 스펙 표를 정보 시트로 */
   .stage .sheet{width:84%;display:flex;flex-direction:column;gap:2.4cqw}
   .stage .sheet div{display:grid;grid-template-columns:20cqw 1fr;gap:3cqw;align-items:baseline;padding-bottom:2.4cqw;border-bottom:1px solid var(--line)}
@@ -96,12 +96,19 @@
   .cover li{display:flex;gap:2.6cqw;align-items:baseline;border-top:1px solid rgba(244,242,236,.22);padding-top:1.6cqw;min-width:0}
   .cover li b{font-size:3cqw;opacity:.7;min-width:3cqw}
   .cover li span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  /* 표지 재료가 많은 날(긴 제목 + 날씨 + 목록 5개 이상) — 계정 줄이 밀려나지 않게 촘촘히 */
+  .cover.dense .d{font-size:10cqw;margin-top:2cqw} .cover.dense h2{font-size:5.6cqw;margin-top:4.5cqw}
+  .cover.dense .wx{margin-top:2.4cqw;padding:1.6cqw 3cqw} .cover.dense ol{gap:1.1cqw;font-size:3.1cqw} .cover.dense li{padding-top:1.1cqw}
   .cover .handle{margin-top:3cqw;font-size:3cqw;font-weight:700;opacity:.85;letter-spacing:.02em}
   .foot .h{font-weight:700;color:var(--accent);letter-spacing:.02em}
   .cover.end .follow{font-size:5.4cqw;font-weight:900;color:#fff;order:8}
   .cover.end .follow small{display:block;font-size:2.8cqw;font-weight:500;opacity:.7;margin-top:1.4cqw;letter-spacing:.02em}
   .cover.end{background:#1a1a18} .cover.end h2{margin-top:5cqw;font-size:5.8cqw}
   .cover.end ol{margin-top:5cqw;grid-template-columns:1fr 1fr;column-gap:4cqw;row-gap:0;font-size:2.9cqw}
+  .cover.end ol.one{grid-template-columns:1fr;margin-top:3cqw;font-size:2.7cqw}
+  .cover.end ol.one li{padding:.75cqw 0}
+  .cover.end:has(ol.one) h2{margin-top:2.4cqw}
+  .cover.end:has(ol.one) .wx{font-size:2.6cqw}
   .cover.end li{padding:1.4cqw 0}
   .cover.end .follow{margin-top:auto}
   .cover.end .wx{margin-top:3cqw;order:9}
@@ -128,7 +135,7 @@
   .cn-line{stroke:var(--accent);stroke-width:3} .cn-line-off{stroke:var(--off);stroke-width:3}
   .cn-ring{fill:none;stroke:var(--accent);stroke-width:2;opacity:.35}
   .cn-big{font:700 16px var(--sans);fill:var(--ink)} .cn-small{font:500 13px var(--sans);fill:var(--muted)}
-  .cn-dim{fill:var(--faint)}
+  .cn-dim{fill:#7a7a73}
   .cn-q{font-family:var(--serif);font-weight:900;fill:var(--ink)} .cn-qm{font-family:var(--serif);font-weight:900;fill:var(--accent);opacity:.25}
   .cn-grid{stroke:#dcd9cf;stroke-width:1} .cn-ax{font:500 13px var(--sans);fill:var(--faint)}
   .cn-val{font:700 17px var(--sans);fill:var(--ink)} .cn-cat{font:500 15px var(--sans);fill:var(--muted)}
@@ -172,6 +179,7 @@ const WD = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const clean = s => String(s || "").replace(/\s+/g, " ").trim();
 const wrap = document.getElementById("wrap");
+const nb = h => String(h).replace(/[A-Za-z0-9]+(?:-[A-Za-z0-9]+)+/g, m => `<span style="white-space:nowrap">${m}</span>`);   // 이미 esc 된 문자열에만
 
 // 카드용 제목: .cn-t(줄바꿈 <br> 허용) → 없으면 h2 의 " — " 앞부분
 function titleOf(a){
@@ -536,10 +544,11 @@ async function zipStore(files){
     const dateLine = MIX === "week7" ? `${md2(shiftD(D, -4))}–${md2(D)}` : MIX === "weekend" ? `${md2(D)}–${md2(shiftD(D, 1))}` : `${m}.${d}`;
 
     let h = `<div class="rail" id="rail">
-      <section class="slide cover" aria-label="표지"><div class="in">
+      <section class="slide cover${(() => { const hl = clean(series ? series.head : main.doc.querySelector("h1")?.textContent).length;
+        return (hl > 26 && (wxt || cards.length >= 5)) || cards.length >= 7 ? " dense" : ""; })()}" aria-label="표지"><div class="in">
         <div class="k">${esc(series ? series.name : kicker)}</div>
         <div class="d">${dateLine}<small>${series ? "" : wd}</small></div>
-        <h2>${esc(series ? series.head.replace("{n}", cards.length) : clean(main.doc.querySelector("h1")?.textContent))}</h2>
+        <h2>${nb(esc(series ? series.head.replace("{n}", cards.length) : clean(main.doc.querySelector("h1")?.textContent)))}</h2>
         ${wxt ? `<div class="wx">${esc(wxt)}</div>` : ""}
         <ol>${cards.slice(0, 8).map((c, i) => `<li><b>${i + 1}</b><span>${esc(plain(c.title))}</span></li>`).join("")}</ol>
         <div class="handle">${HANDLE}</div>
@@ -557,7 +566,7 @@ async function zipStore(files){
         <div class="body">
           <span class="credit">${esc(c.credit)}</span>
           <span class="label"><b>${esc(lab || "")}</b>${rest.length ? " · " + esc(rest.join(" · ")) : ""}</span>
-          <h2 class="${len > 34 ? "xl" : len > 24 ? "l" : ""}">${c.title}</h2>
+          <h2 class="${len > 34 ? "xl" : len > 24 ? "l" : ""}">${nb(c.title)}</h2>
           <p>${esc(c.sum)}</p>
           <div class="foot"><span class="h">${HANDLE}</span><span>${esc(kicker.toUpperCase())} · ${md2(c.date)}</span></div>
         </div>
@@ -567,9 +576,9 @@ async function zipStore(files){
     h += `<section class="slide cover end" aria-label="출처"><div class="in">
         <div class="k">SOURCES · 출처</div>
         <h2>원문과 전체 브리프는<br>Daily Brief 앱에서</h2>
-        <ol>${cards.slice(0, 8).map((c, i) => `<li><b>${i + 1}</b><span>${esc(c.credit || "—")}</span></li>`).join("")}</ol>
+        <ol${cards.some(c => (c.credit || "").length > 14) ? ' class="one"' : ""}>${cards.slice(0, 8).map((c, i) => `<li><b>${i + 1}</b><span>${esc(c.credit || "—")}</span></li>`).join("")}</ol>
         <div class="follow">${HANDLE}<small>월 AI · 화 스포츠 · 금 이번 주 숫자 · 토 주말 뭐하지 · 일 우주</small></div>
-        <div class="wx">각 카드는 기사 내용을 직접 요약하고 도표·지도를 새로 그렸습니다.${cards.some(c => c.ai) ? " 일부 그림은 AI로 생성했습니다." : ""} 수치는 바뀔 수 있어요.${[...new Set(cards.map(c => c.pc).filter(Boolean))].map(x => `<br>${esc(x)}`).join("")}</div>
+        <div class="wx">각 카드는 기사 내용을 직접 요약하고 도표·지도·개념도를 새로 그렸습니다.${cards.some(c => c.pc) ? " 이미지는 아래 크레디트의 공개 자료입니다." : ""}${cards.some(c => c.ai) ? " 일부 그림은 AI로 생성했습니다." : ""} 수치는 바뀔 수 있어요.${[...new Set(cards.map(c => c.pc).filter(Boolean))].map(x => `<br>${esc(x)}`).join("")}</div>
       </div></section>`;
     h += `</div>
       <div class="nav"><button id="prev" aria-label="이전 카드">‹</button><div class="dots" id="dots"></div><button id="next" aria-label="다음 카드">›</button></div>
