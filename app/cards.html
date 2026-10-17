@@ -327,8 +327,9 @@ function infoOf(a, geo, year){
       <path d="M178 71 H206" class="ig-arrow"/><path d="M216 71 l-12 -8 v16z" class="ig-ah"/>
       <rect x="224" y="40" width="150" height="62" rx="14" class="ig-node"/><text x="299" y="${sh[2] ? 70 : 79}" text-anchor="middle" class="ig-nodet w">${esc(sh[1])}</text>
       ${sh[2] ? `<text x="299" y="90" text-anchor="middle" class="ig-s w">${esc(sh[2])}</text>` : ""}` +
-      (nums.length ? nums.map((n, i) => `<g transform="translate(${nums.length === 1 ? 118 : 30 + i * 180} 132)"><rect width="164" height="84" rx="12" class="ig-panel"/>
-        <text x="18" y="46" class="ig-mid ac">${esc(n.v)}</text><text x="18" y="70" class="ig-k">${esc(n.l)}</text></g>`).join("") : lines(note, 200, 160, "ig-k"));
+      (nums.length ? nums.map((n, i) => { const tw = nums.length === 1 ? Math.min(340, Math.max(164, n.v.length * 32 + 40)) : 164;
+        return `<g transform="translate(${nums.length === 1 ? 200 - tw / 2 : 30 + i * 180} 132)"><rect width="${tw}" height="84" rx="12" class="ig-panel"/>
+        <text x="18" y="46" class="ig-mid ac">${esc(n.v)}</text><text x="18" y="70" class="ig-k">${esc(n.l)}</text></g>`; }).join("") : lines(note, 200, 160, "ig-k"));
   }else if(st && st.length >= 2){
     const now = Math.max(1, Math.min(st.length, Number(cn.querySelector(".cn-steps").dataset.now || 1))) - 1;
     if(kr.length || world.length){
