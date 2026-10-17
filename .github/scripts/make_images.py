@@ -86,6 +86,8 @@ def main():
         m = P.match(name)
         if not m or (FORCE and name != FORCE) or (not FORCE and f"{m[1]}-{m[2]}-{m[3]}" < cutoff):
             continue
+        if m[4] == "sports":   # 스포츠는 실존 선수·팀·경기 장면이 되므로 만들지 않는다
+            continue
         html = open(name, encoding="utf-8").read()
         accent = (re.search(r"--accent:\s*(#[0-9a-fA-F]{6})", html) or [None, "#3d5a4c"])[1]
         changed = False
