@@ -26,6 +26,7 @@ AI 멀티 에이전트 파이프라인("하네스" 구조)으로 제작되며, G
    사용자가 알아야 할 실패(발행 실패, 검토 3회 FAIL 등)는 알림으로 보낸다.
 
 **무인 실행 환경에서 알아 둘 것**
+- Build manifest 워크플로는 **한 번에 하나만** 돌고(concurrency), 커밋 push 가 밀리면 rebase 후 3번까지 다시 시도한다 — 발행 push 와 겹쳐도 카드·MP3 커밋이 사라지지 않는다.
 - **Actions 를 세션에서 실행할 수 없다**(workflow_dispatch → 403 "Resource not accessible by integration"). Run workflow 가 필요한 일을 만들지 말고, push 로 끝나게 한다.
 - 렌더 도구(`tools/render_cards.js`)는 **실행할 때마다 자기 로컬 서버를 띄웠다 닫는다** — 따로 `http.server` 를 띄우지 않는다(백그라운드 서버는 시간 제한으로 죽는다).
   Playwright 는 전역 설치(`npm root -g`)를 자동으로 찾고, 브라우저는 `/opt/pw-browsers/chromium` 을 쓴다. `playwright install` 금지.

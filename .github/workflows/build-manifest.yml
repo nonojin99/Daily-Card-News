@@ -16,6 +16,12 @@ on:
 permissions:
   contents: write
 
+# 실행을 한 줄로 세운다 — 무인 발행 push·Drive 수집·연속 실행이 겹치면 커밋 push 가 서로 밀려 실패했다(2026-10-18 #111).
+# 대기 중 실행은 최신 하나만 남지만, 이 워크플로는 저장소 전체를 다시 보므로(카드는 지문 비교) 빠지는 일이 없다.
+concurrency:
+  group: build-manifest
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -151,4 +157,11 @@ jobs:
             xargs -a "$RUNNER_TEMP/cards.txt" -d '\n' git add --
           fi
           git diff --staged --quiet || git commit -m "chore: update manifest.json, localize images, add audio, card images [skip ci]"
-          git push
+          # 그사이 다른 push(브리프 발행 등)가 들어왔으면 그 위로 다시 얹어 최대 3번 시도
+          for i in 1 2 3; do
+            git push && exit 0
+            echo "push rejected ($i) — rebase onto origin/main and retry"
+            git pull --rebase --autostash origin main || { git rebase --abort; exit 1; }
+            sleep $((i * 5))
+          done
+          exit 1
