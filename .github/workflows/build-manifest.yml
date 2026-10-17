@@ -6,6 +6,7 @@ on:
     paths:
       - '**.html'
       - '.github/scripts/make_cards.js'   # 카드 굽기 규칙이 바뀌면 최근 카드를 지문 비교로 다시 굽는다
+      - '.github/workflows/build-manifest.yml'   # 이 워크플로가 바뀌어도 한 번 다시 돈다
   workflow_dispatch:
     inputs:
       cards_force:
