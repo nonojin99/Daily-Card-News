@@ -53,7 +53,7 @@ def main(fname):
             if not 70 <= len(s) <= 100: F(f"cn-s {len(s)}자 (70~100)")
             sents = [x for x in re.split(r"(?<=[.!?])\s+", s) if x]
             if not 2 <= len(sents) <= 3: W(f"cn-s {len(sents)}문장 (2~3)")
-            if any(not x.rstrip(".!?").endswith("요") for x in sents): F("cn-s 가 해요체가 아님")
+            if any(not x.rstrip(".!?").endswith(("요", "죠")) for x in sents): F("cn-s 가 해요체가 아님")
         # 분야 태그
         if topic in BANNED_TOPICS: F(f"topic '{topic}' 은 분류어 — 카드만의 핵심어로")
         if sub and not 2 <= len(topic.replace(" ", "")) <= 8: W(f"topic '{topic}' 길이 (2~8자 권장)")
@@ -79,9 +79,10 @@ def main(fname):
             if v.strip().replace(" ", "") in tt: F(f"cn-num '{v.strip()}' 이 제목과 중복")
         # 숫자 출처: 카드용 문장·그림의 숫자가 같은 카드 본문·스펙 표에 있는가
         cn_t = text(cn)
-        body_nums = set(NUM.findall(body_t.replace(" ", "")))
+        norm = lambda x: x.replace(",", "").lstrip("0") or "0"   # 08 = 8, 1,331 = 1331
+        body_nums = {norm(b) for b in NUM.findall(body_t.replace(" ", ""))}
         for n in sorted(set(NUM.findall(cn_t))):
-            if n not in body_nums and n.replace(",", "") not in {b.replace(",", "") for b in body_nums}:
+            if norm(n) not in body_nums and norm(n) != "0":   # 0 은 도표 축 눈금
                 F(f"카드용 숫자 '{n}' 이 카드 본문·스펙 표에 없음")
         # 개념도 표기·구도
         if has_v:

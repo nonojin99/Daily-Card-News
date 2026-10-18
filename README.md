@@ -19,6 +19,9 @@ AI 멀티 에이전트 파이프라인("하네스" 구조)으로 제작되며, G
 5. **카드 검토 하네스 2단계** ('카드 검토 하네스' 절) — 메인·서브 둘 다:
    ① `python3 tools/check_cards.py <브리프>` + `node tools/render_cards.js <브리프> <폴더>` (규칙·넘침, 종료 코드 1 이면 FAIL)
    ② 독립 에이전트가 PNG 를 직접 보고 규칙·전문성·가독성·흐름 판정 → FAIL 이면 고치고 ①부터 다시(최대 3회).
+   ③ 통과하면 판정 요약을 `/tmp/card-review/<브리프 이름>.stage2.md` 에 쓴다.
+   **push 관문**: `.claude/settings.json` 훅이 `git push` 직전에 `tools/prepush_gate.py` 로 ①을 다시 돌리고 ③ 기록(브리프보다 나중에 쓴 것)을 확인 —
+   없거나 FAIL 이면 push 가 막힌다. 루틴 프롬프트와 별개로 저장소의 `CLAUDE.md` 가 세션 시작 때 자동으로 읽혀 이 절차를 알린다.
 6. **발행** — 오늘 브리프 HTML 2개만 `git add` → main 에 직접 push(07:00 전 목표). 막히면 Drive 발행함.
 7. **push 뒤는 Actions 가 자동** — manifest·이미지 보존·MP3·AI 일러스트·**인스타 카드 JPG**. 카드 JPG 는 브리프나 렌더러(`app/cards.html`)가 바뀌면
    **스스로 다시 굽는다**(`cards/…/source.sha1` 지문 비교). 그러니 **카드를 고쳐 다시 push 하는 것만으로 충분하다.**
@@ -314,7 +317,7 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
 **1단계 — 규칙 검사(기계)**
 ```bash
 python3 tools/check_cards.py YYYY-MM-DD_science-brief.html     # FAIL 있으면 종료 코드 1
-node tools/render_cards.js YYYY-MM-DD_science-brief.html <출력폴더>   # 1080×1350 PNG, Actions 와 같은 렌더러
+node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-MM-DD_science-brief   # 1080×1350 PNG, Actions 와 같은 렌더러
 ```
 - 검사 항목: `cn-t` 2줄·줄 길이 · `cn-s` 70~100자·해요체 · 분류어 `.topic` 금지 · 그림 재료 유무(서브는 개념도·도표·이미지) ·
   **큰 숫자-제목 중복** · **카드용 숫자가 같은 카드 본문·스펙 표에 있는지** · `figure.photo` 호스트·크레디트·`data-card-cap` · `cn-v` 형식 · 같은 구도 반복(WARN).
@@ -334,6 +337,10 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html <출력폴더>   # 1080
 
 - 2단계 에이전트에게도 **Firecrawl 금지**를 넘긴다. 사실 확인이 필요하면 브리프 카드 본문·출처 링크로 대조한다.
 - 작성 환경에서 ESA 이미지가 막히면 렌더러가 "이미지 자리" 안내 그림을 넣는다 — 이 경우 2단계는 이미지 자리 배치만 보고, 실제 이미지는 push 뒤 Actions 가 구운 `cards/…/` JPG 로 다음 세션이 확인한다.
+- 2단계를 통과하면 판정 요약(카드별 4축·고친 내용·반복 횟수)을 `/tmp/card-review/<브리프 이름>.stage2.md` 에 쓴다. **실제로 통과했을 때만** 쓴다.
+- **push 관문(자동 강제)** — `.claude/settings.json` 의 PreToolUse 훅이 `git push` 마다 `tools/prepush_gate.py` 를 부른다.
+  오늘·어제(KST) 브리프가 origin/main 과 다르면 1단계를 직접 다시 돌리고, 2단계 기록이 **있고 브리프보다 나중인지** 확인한다. 아니면 push 차단(이유가 메시지로 온다).
+  검토 뒤 브리프를 고쳤다면 다시 검토해야 통과한다. 우회 금지(훅 끄기·기록 위조). 3회째 FAIL 인 카드는 그림 재료를 빼고 기록·보고에 적은 뒤 발행.
 - 마무리 보고에 **1단계 FAIL/WARN 수, 2단계에서 고친 카드와 이유, 반복 횟수**를 적는다.
 
 ### 오디오 — 낭독 원고 + 자동 MP3 (2026.10.11~)
