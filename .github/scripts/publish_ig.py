@@ -6,7 +6,6 @@
   KIND=carousel MEDIA=cards/2026-10/2026-10-17_weekend        (폴더 안 01.jpg … 최대 10장)
   CAPTION=<캡션 파일 경로>   DRY_RUN=true 면 컨테이너만 만들고 게시하지 않는다.
   KIND=none(또는 빈칸) 이면 아무것도 하지 않는다 — 게시가 끝난 요청 파일은 none 으로 돌려 둔다.
-  KIND=delete MEDIA=<게시물 id>  — 그 게시물 하나를 지운다(잘못 올린 게시물 재등록용). 계정·게시물을 먼저 확인하고, DRY_RUN=true 면 확인만.
 
 안전장치: 토큰의 계정이 IG_USER_ID·EXPECT_USERNAME 과 다르면 중단. 게시 한도를 먼저 확인.
 컨테이너는 24시간 뒤 만료되므로 실행할 때 만든다. AI 음성·그림이 있으면 is_ai_generated=true(릴스·단일 게시물).
@@ -37,8 +36,8 @@ def call(method, path, **params):
     params["access_token"] = TOKEN
     data = urllib.parse.urlencode(params).encode()
     url = f"{API}/{path}"
-    q = method in ("GET", "DELETE")
-    req = urllib.request.Request(url + ("?" + data.decode() if q else ""), data=None if q else data, method=method)
+    req = urllib.request.Request(url + ("?" + data.decode() if method == "GET" else ""),
+                                 data=None if method == "GET" else data, method=method)
     try:
         with urllib.request.urlopen(req, timeout=60) as r:
             return json.load(r)
@@ -92,24 +91,6 @@ def main():
         sys.exit(f"::error::token account does not match IG_USER_ID / @{EXPECT} — stop")
     lim = call("GET", f"{UID}/content_publishing_limit", fields="quota_usage,config")
     print("publishing limit:", json.dumps(lim.get("data", lim), ensure_ascii=False))
-
-    if KIND == "delete":
-        if not MEDIA.isdigit():
-            sys.exit("::error::delete needs MEDIA=<numeric media id>")
-        info = call("GET", MEDIA, fields="id,username,permalink,timestamp,caption")
-        print("target:", json.dumps({k: info.get(k) for k in ("id", "username", "permalink", "timestamp")}, ensure_ascii=False))
-        print("caption head:", (info.get("caption") or "")[:60])
-        if info.get("username") != EXPECT:
-            sys.exit(f"::error::media is not @{EXPECT}'s — stop")
-        if DRY:
-            print("DRY RUN — not deleted")
-            return
-        print("DELETED:", json.dumps(call("DELETE", MEDIA), ensure_ascii=False))
-        out = os.environ.get("GITHUB_STEP_SUMMARY")
-        if out:
-            with open(out, "a", encoding="utf-8") as fp:
-                fp.write(f"### Deleted from Instagram\n\n{info.get('permalink')}\n")
-        return
 
     caption = open(CAPTION_FILE, encoding="utf-8").read().strip() if CAPTION_FILE else ""
     print(f"caption: {len(caption)} chars, {caption.count('#')} hashtags")
