@@ -1,8 +1,8 @@
 {
-  "kind": "reel",
+  "kind": "none",
   "media": "reels/2026-10/2026-10-18_science.mp4",
   "caption": "captions/2026-10-18_science_reel.txt",
-  "dry_run": "false",
+  "dry_run": "true",
   "is_ai": "true",
-  "note": "10/18 '3분 듣는 우주' 오디오 릴스 게시 (사용자 요청 '릴스 오디오 뉴스도 등록', 확인 실행 통과)"
+  "note": "릴스 게시 완료 2026-10-18 10:04 KST https://www.instagram.com/reel/DendXZoFGg3/ — 다음 요청 전까지 none"
 }
