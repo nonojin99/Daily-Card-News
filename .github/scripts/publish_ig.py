@@ -6,6 +6,8 @@
   KIND=carousel MEDIA=cards/2026-10/2026-10-17_weekend        (폴더 안 01.jpg … 최대 10장)
   CAPTION=<캡션 파일 경로>   DRY_RUN=true 면 컨테이너만 만들고 게시하지 않는다.
   KIND=none(또는 빈칸) 이면 아무것도 하지 않는다 — 게시가 끝난 요청 파일은 none 으로 돌려 둔다.
+  요청 파일에 "requests": [{…}, {…}] 가 있으면 차례로 처리한다(게시일의 캐러셀 + 오디오 릴스, 2026-10-18~).
+  한 건이 실패해도 다음 건은 시도하고, 하나라도 실패하면 마지막에 실패로 끝난다(메일 알림).
 
 안전장치: 토큰의 계정이 IG_USER_ID·EXPECT_USERNAME 과 다르면 중단. 게시 한도를 먼저 확인.
 컨테이너는 24시간 뒤 만료되므로 실행할 때 만든다. AI 음성·그림이 있으면 is_ai_generated=true(릴스·단일 게시물).
@@ -68,8 +70,8 @@ def head_ok(url):
         return False
 
 
-def wait_public(url, timeout=1500):
-    """브리프와 같은 push 로 요청이 오면 카드 굽기·Pages 배포가 끝날 때까지 기다린다(최대 25분)."""
+def wait_public(url, timeout=2400):
+    """브리프와 같은 push 로 요청이 오면 카드 굽기·릴스 만들기·Pages 배포가 끝날 때까지 기다린다(최대 40분)."""
     t0 = time.time()
     while not head_ok(url):
         if time.time() - t0 > timeout:
@@ -80,6 +82,30 @@ def wait_public(url, timeout=1500):
 
 
 def main():
+    global KIND, MEDIA, CAPTION_FILE, DRY, IS_AI
+    req = json.load(open(_REQ, encoding="utf-8")) if _REQ and os.path.exists(_REQ) else {}
+    items = req.get("requests") if isinstance(req.get("requests"), list) else None
+    if not items or MEDIA:   # Run workflow 입력칸(media)을 채웠으면 그 한 건만
+        return publish_one()
+    failed = []
+    for n, it in enumerate(items, 1):
+        KIND = str(it.get("kind", "")).strip()
+        MEDIA = str(it.get("media", "")).strip().strip("/")
+        CAPTION_FILE = str(it.get("caption", "")).strip()
+        DRY = str(it.get("dry_run", "true")).strip().lower() != "false"
+        IS_AI = str(it.get("is_ai", "true")).strip().lower() != "false"
+        print(f"── request {n}/{len(items)}: {KIND} {MEDIA}" + (" (dry run)" if DRY else ""))
+        try:
+            publish_one()
+        except SystemExit as e:
+            if e.code not in (None, 0):
+                print(f"::error::request {n} failed: {e.code}")
+                failed.append(n)
+    if failed:
+        sys.exit(f"::error::failed requests: {failed}")
+
+
+def publish_one():
     if KIND in ("", "none"):
         print("request: nothing to publish (kind=none)")
         return

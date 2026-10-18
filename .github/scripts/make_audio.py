@@ -6,6 +6,7 @@
   대상  <details class="audio-script"> 가 있고 아직 class="audio-player" 가 없는 브리프
   음성  Google Cloud Text-to-Speech (Chirp 3 HD) — 문단마다 합성한 뒤 이어 붙인다
   저장  audio/YYYY-MM/YYYY-MM-DD_<type>.mp3 (48kbps 모노)
+        + 같은 이름의 .json — 문단별 [시작초, 끝초](쉼 제외). 오디오 릴스(tools/make_reel.js)가 카드 넘김 구간으로 쓴다(2026-10-18~).
   교체  </header> 바로 뒤에 <div class="audio-player"><audio src="상대경로"></div> 삽입
 
 왜 Releases 가 아니라 레포인가 (2026-10-13)
@@ -93,10 +94,15 @@ def synth(text):
 def build_mp3(paras, mp3_path):
     pcm = bytearray()
     pause = b"\x00\x00" * int(SAMPLE_RATE * PAUSE_SEC)
+    spans = []                                   # 문단별 [시작초, 끝초] — 릴스 구간용
     for p in paras:
+        start = len(pcm) / 2 / SAMPLE_RATE
         for c in chunks(p):
             pcm += synth(c)
+        spans.append([round(start, 3), round(len(pcm) / 2 / SAMPLE_RATE, 3)])
         pcm += pause
+    with open(os.path.splitext(mp3_path)[0] + ".json", "w", encoding="utf-8") as f:
+        json.dump({"paras": spans, "chars": [len(p.replace(" ", "")) for p in paras]}, f)
     with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp:
         wav_path = tmp.name
     with wave.open(wav_path, "wb") as w:
@@ -166,7 +172,7 @@ def process(path, name_match, changed):
     doc = doc.replace("</header>", "</header>" + player(url, seconds), 1)
     with open(path, "w", encoding="utf-8") as f:
         f.write(doc)
-    changed.extend([mp3_path, path])
+    changed.extend([mp3_path, os.path.splitext(mp3_path)[0] + ".json", path])
     print("audio:", path, "→", url, "(%.0fs)" % seconds)
 
 

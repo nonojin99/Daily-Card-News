@@ -23,7 +23,8 @@ AI 멀티 에이전트 파이프라인("하네스" 구조)으로 제작되며, G
    **push 관문**: `.claude/settings.json` 훅이 `git push` 직전에 `tools/prepush_gate.py` 로 ①을 다시 돌리고 ③ 기록(브리프보다 나중에 쓴 것)을 확인 —
    없거나 FAIL 이면 push 가 막힌다. 루틴 프롬프트와 별개로 저장소의 `CLAUDE.md` 가 세션 시작 때 자동으로 읽혀 이 절차를 알린다.
 6. **발행** — 오늘 브리프 HTML 2개만 `git add` → main 에 직접 push(07:00 전 목표). 막히면 Drive 발행함.
-7. **push 뒤는 Actions 가 자동** — manifest·이미지 보존·MP3·AI 일러스트·**인스타 카드 JPG**. 카드 JPG 는 브리프나 렌더러(`app/cards.html`)가 바뀌면
+   **인스타 게시일(월·화·금·토·일)** 은 캡션 2개 + `publish/request.json`(캐러셀 + 오디오 릴스)도 같은 커밋에 넣는다 → push 뒤 자동 등록('인스타그램 운영 → API 게시').
+7. **push 뒤는 Actions 가 자동** — manifest·이미지 보존·MP3·AI 일러스트·**인스타 카드 JPG·오디오 릴스 MP4**, 게시일엔 인스타 등록까지. 카드 JPG 는 브리프나 렌더러(`app/cards.html`)가 바뀌면
    **스스로 다시 굽는다**(`cards/…/source.sha1` 지문 비교). 그러니 **카드를 고쳐 다시 push 하는 것만으로 충분하다.**
 8. **보고** — 다룬 항목·제외 이유·검토 FAIL 수정 내역·**카드 검토 1단계 FAIL/WARN 수와 2단계 반복 횟수**·날씨·원고 분량·발행 경로.
    사용자가 알아야 할 실패(발행 실패, 검토 3회 FAIL 등)는 알림으로 보낸다.
@@ -529,7 +530,9 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
   - **분야 구분(2026-10-18)** — API 로는 릴스를 폴더·재생목록에 넣을 수 없다. 그래서 자동으로 할 수 있는 것만 지킨다.
     ① 표지(첫 장면)에 분야 칩을 넣는다(카드 표지와 같은 `CAT` 이름). ② 캡션 첫 줄은 `[분야]` 로 시작한다. ③ 분야 해시태그를 고정한다(아래 표).
     ④ 릴스 제목에 분야별 고정 이름을 쓴다(예: "1분 우주", "1분 주말", "1분 AI") — 나중에 시리즈로 묶기 쉽게.
-  - **오디오 릴스 만들기(2026-10-18~)** — `node tools/make_reel.js reels/YYYY-MM/<날짜>_<종류>.reel.json` → 1080×1920 MP4.
+  - **오디오 릴스 만들기(2026-10-18~)** — **push 뒤 Actions 가 자동으로 만든다**(`node tools/make_reel.js --recent`: 최근 3일 ai·sports·science·activity, 토요일 daily).
+    문단 시간은 `make_audio.py` 가 MP3 옆에 남기는 `.json`, 문단이 카드보다 적으면 한 문단 동안 카드를 나눠 넘긴다. 수동: `--auto <브리프>` 또는 `<spec.json>`.
+    결과는 `reels/YYYY-MM/<날짜>_<종류>.mp4` + `.reel.json`(구간·뺀 문단·지문). 1080×1920 MP4.
     브리프 카드(쪽수 숨김) + 그날 낭독 MP3(`audio/…`)를 **문단 구간**에 맞춰 넘긴다. 구간은 원고 문단별 글자 수 비율로 추정한 뒤 가장 가까운 긴 쉼에 맞춘다(spec 의 `segments`).
     **180초 이하**(넘으면 도구가 멈춘다) — 길면 곁가지 문단을 통째로 빼고 캡션에 "전체 낭독은 앱에서". 문단 안을 자르지 않는다.
     게시는 캐러셀과 같다: `publish/request.json` 에 `"kind":"reel"`, `"is_ai":"true"`(AI 음성) → 확인 실행 → 승인. 첫 사례 `2026-10-18_science`(3분 48초 중 '앞선 두 연구' 문단 제외, 176.5초).
@@ -545,13 +548,30 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
   | 이번 주 숫자 · 오늘의 뉴스 | #이번주숫자 #경제뉴스 |
   | 문화 · 음악 | #전시추천 #음악추천 |
   캐러셀 캡션도 같은 표의 분야 해시태그를 쓴다. 그 뒤 주간 최고 캐러셀을 재가공해 주 1~2회.
-- **API 게시 (2026.10.17~, 사람 승인 1탭)** — `publish/request.json` + `.github/workflows/publish-instagram.yml` + `.github/scripts/publish_ig.py`.
-  1. 게시하는 날(월 ai · 화 sports · 금 weekend · 토 week7 · 일 science) 데일리 작성 세션이 브리프와 함께
-     `captions/<날짜>_<코너>.txt`(캡션)와 `publish/request.json` 을 쓴다:
-     `{"kind":"carousel","media":"cards/2026-10/2026-10-18_science-brief","caption":"captions/2026-10-18_science.txt","dry_run":"true","is_ai":"false"}`
-  2. push 하면 확인 실행(dry run)이 돈다 — 카드 굽기·Pages 배포를 최대 25분 기다린 뒤 계정·한도·이미지·캡션을 검사하고 **게시하지 않는다**.
-  3. 사용자 승인: GitHub → Actions → **Publish to Instagram** → Run workflow → 입력칸은 비우고 `dry_run` 만 `false`. (또는 세션에 "게시해")
-  4. 게시가 끝나면 다음 요청 전까지 `kind` 를 `none` 으로 돌려 둔다. 같은 캡션이 최근 10개 게시물에 있으면 스크립트가 멈춘다(중복 게시 방지).
+- **API 게시 — 게시일 자동 등록 (2026-10-19~, 사용자 승인: "매일 등록일 5일에 오디오 릴스까지 등록")** —
+  `publish/request.json` + `.github/workflows/publish-instagram.yml` + `.github/scripts/publish_ig.py`. (10/17~18 은 사람 승인 1탭 방식이었다.)
+  1. **게시일마다 새벽 루틴 세션이** 브리프와 함께 캡션 2개와 요청 파일을 써서 **같은 커밋으로 push** 한다(CLAUDE.md 에 예외로 명시).
+
+     | 요일 | 캐러셀 `media` | 오디오 릴스 `media` |
+     |---|---|---|
+     | 월 | `cards/YYYY-MM/<월>_ai-brief` | `reels/YYYY-MM/<월>_ai.mp4` |
+     | 화 | `cards/YYYY-MM/<화>_sports-brief` | `reels/YYYY-MM/<화>_sports.mp4` |
+     | 금 | `cards/YYYY-MM/<금>_weekend` | `reels/YYYY-MM/<목>_activity.mp4` (전날 목요일 액티비티 낭독 — "1분 듣는 주말") |
+     | 토 | `cards/YYYY-MM/<토>_week7` | `reels/YYYY-MM/<토>_daily.mp4` (그날 메인 낭독 — **맥락 읽기 카드가 있으면 릴스는 뺀다**) |
+     | 일 | `cards/YYYY-MM/<일>_science-brief` | `reels/YYYY-MM/<일>_science.mp4` |
+
+     ```json
+     {"requests": [
+       {"kind":"carousel","media":"cards/2026-10/2026-10-25_science-brief","caption":"captions/2026-10-25_science.txt","dry_run":"false","is_ai":"false"},
+       {"kind":"reel","media":"reels/2026-10/2026-10-25_science.mp4","caption":"captions/2026-10-25_science_reel.txt","dry_run":"false","is_ai":"true"}
+     ], "note": "10/25 일요일 자동 등록"}
+     ```
+  2. push 하면 Build manifest 가 카드 JPG·낭독 MP3·**릴스 MP4** 를 만들고, 동시에 Publish to Instagram 이 돈다 —
+     카드·릴스가 공개 주소에 뜰 때까지 **최대 40분** 기다린 뒤 계정·한도·캡션·중복을 검사하고 **차례로 게시**한다. 한 건이 실패해도 다음 건은 시도하고, 실패가 있으면 Actions 실패 메일이 간다.
+  3. 게시를 막아야 할 때: 요청의 `dry_run` 을 `"true"` 로 두면 확인만 한다. 사건·사고(맥락 읽기) 카드가 섞인 캐러셀·릴스는 요청에 넣지 않는다.
+  4. 같은 캡션이 최근 10개 게시물에 있으면 그 건은 멈춘다(중복 게시 방지). 수·목처럼 게시가 없는 날은 요청 파일을 건드리지 않는다.
+  - **릴스 캡션** `captions/<날짜>_<코너>_reel.txt`: 첫 줄 `[분야] 🎧 N분 듣는 ○○ — 핵심 한 줄`(N 은 낭독 길이를 반올림한 분, 3분 이하) · 본문 2~3줄 ·
+    "▶ 카드는 프로필 게시물에서, 전체 낭독과 출처는 앱에서" · "🎙 낭독: AI 음성(Google TTS)" · 이미지가 있으면 크레디트 원문 · 분야 해시태그(아래 표) 5개 이하.
   - 캡션: **첫 줄은 `[분야]` 로 시작**하고 검색어와 핵심 숫자 · 본문 3~6줄에 카드별 한 줄(숫자는 텍스트로) · "출처는 마지막 장" · AI 그림·음성이 있으면 그 표시 · 해시태그 3~5개(#한눈브리프 포함) · 2,200자 이하.
   - 캐러셀이 10장을 넘으면 앞 9장 + 마지막 출처 장. 사건·사고 카드가 섞인 날은 게시하지 않는다.
   - **API 로 게시물을 지울 수 없다**(2026-10-18 실제 시도: `DELETE /{media-id}` → HTTP 400 "Unsupported delete request", code 100/33). 잘못 올린 게시물은 **앱에서 삭제**한 뒤 다시 요청한다.
