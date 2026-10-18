@@ -1,8 +1,8 @@
 {
-  "kind": "carousel",
+  "kind": "none",
   "media": "cards/2026-10/2026-10-18_science-brief",
   "caption": "captions/2026-10-18_science.txt",
-  "dry_run": "false",
+  "dry_run": "true",
   "is_ai": "false",
-  "note": "10/18 우주·과학 캐러셀 게시 (사용자 승인 '게시해', 확인 실행 #5 통과)"
+  "note": "게시 완료 2026-10-18 09:11 KST https://www.instagram.com/p/DenXa_vIH8I/ — 다음 요청 전까지 none"
 }
