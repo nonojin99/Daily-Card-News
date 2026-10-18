@@ -23,6 +23,14 @@
 월 ai · 화 sports · 수 culture · **목 activity**(이번 주말 행사·핫플·핫딜) · 금 travel · **토 music** · 일 science.
 인스타: 금 = 주말 뭐하지(목 액티비티 + 금 여행 + 수 문화), 토 = 이번 주 숫자(월~금 메인). 자세한 건 README '발행 체계'·'인스타그램 운영'.
 
+## 예약 알림 (사용자 요청)
+- **스레드 연동 시작 알림 — 2026-11-01(일) 이후 첫 루틴 실행에서 한 번만.**
+  조건: `TZ=Asia/Seoul date +%F` 가 2026-11-01 이상이고 저장소에 `reminders/threads-2026-11-01.done` 이 **없을 때**.
+  할 일: 그날 브리프 발행 보고와 별도로 PushNotification 을 보낸다. 내용(요지):
+  "<routine_summary>스레드(Threads) 연동을 시작할 때입니다(10/18에 2주 뒤로 미뤄 둔 일). README '스레드 연동 준비' 체크리스트 1~4(메타 앱에 Threads 권한 추가 → 토큰 발급 → GitHub 시크릿 등록)를 해 주시면 게시 스크립트·워크플로를 만들겠습니다. 유튜브 쇼츠 API 심사 신청도 아직이면 같은 절의 5번을 참고하세요.</routine_summary>"
+  보낸 뒤 `reminders/threads-2026-11-01.done` 파일(보낸 날짜 한 줄)을 만들어 **그날 브리프와 같은 커밋에 넣는다**
+  (루틴 프롬프트의 "브리프 HTML 2개만 add" 규칙의 예외 — 이 파일 하나만 더). 다음 실행부터는 파일이 있으니 다시 보내지 않는다.
+
 ## push 관문 (자동 강제)
 - `.claude/settings.json` 의 훅이 `git push` 직전에 `tools/prepush_gate.py` 를 돌린다.
   오늘·어제 날짜 브리프가 origin/main 과 다르면 다음 세 가지를 확인한다.
