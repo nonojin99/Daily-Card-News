@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-18T20:55:57Z",
-  "count": 248,
+  "generated": "2026-10-18T21:34:14Z",
+  "count": 249,
   "files": [
     {
       "date": "2026-10-19",
@@ -10,6 +10,16 @@
       "day": "19",
       "type": "daily",
       "path": "2026-10-19_daily-brief.html"
+    },
+    {
+      "date": "2026-10-19",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "19",
+      "type": "foundry",
+      "issue": 19,
+      "path": "파운드리_주간_19_20261019.html"
     },
     {
       "date": "2026-10-19",
