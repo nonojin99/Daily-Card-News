@@ -1,8 +1,4 @@
-{
-  "kind": "none",
-  "media": "reels/2026-10/2026-10-18_science.mp4",
-  "caption": "captions/2026-10-18_science_reel.txt",
-  "dry_run": "true",
-  "is_ai": "true",
-  "note": "릴스 게시 완료 2026-10-18 10:04 KST https://www.instagram.com/reel/DendXZoFGg3/ — 다음 요청 전까지 none"
-}
+{"requests": [
+  {"kind":"carousel","media":"cards/2026-10/2026-10-19_ai-brief","caption":"captions/2026-10-19_ai.txt","dry_run":"false","is_ai":"false"},
+  {"kind":"reel","media":"reels/2026-10/2026-10-19_ai.mp4","caption":"captions/2026-10-19_ai_reel.txt","dry_run":"false","is_ai":"true"}
+], "note": "10/19 월요일 자동 등록"}
