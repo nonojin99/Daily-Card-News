@@ -430,8 +430,10 @@ function visualOf(a, geo, year){
 }
 
 // ── 인스타 시리즈(여러 브리프에서 카드를 골라 한 묶음으로) ──
-//   ?mix=week7&d=<금요일>   이번 주 숫자 — 월~금 메인에서 숫자·도표 카드(맥락 읽기 카드 제외)를 날마다 하나씩, 최대 7장(같은 분야 2장까지)
-//   ?mix=weekend&d=<토요일> 주말 뭐하지 — 토 액티비티 4 + 금 여행 2 + 수 문화 2 (이미 끝난 일정 제외)
+//   d = 게시하는 날. 2026-10-19~ 로테이션(목 액티비티·토 음악):
+//   ?mix=week7&d=<토요일>   이번 주 숫자 — 그 주 월~금 메인에서 숫자·도표 카드(맥락 읽기 카드 제외)를 날마다 하나씩, 최대 7장(같은 분야 2장까지)
+//   ?mix=weekend&d=<금요일> 주말 뭐하지 — 목 액티비티 4 + 금 여행 2 + 수 문화 2 (토요일 전에 끝난 일정 제외)
+//   그 전(d < 2026-10-19)은 옛 규칙: week7 = 금요일(월~금), weekend = 토요일(토 액티비티·금 여행·수 문화) — 이미 구운 묶음이 바뀌지 않게
 const MIX = qs.get("mix") || "", MD = qs.get("d") || "";
 const UA = navigator.userAgent;
 const IOS = /iPhone|iPad|iPod/.test(UA) || (/Macintosh/.test(UA) && navigator.maxTouchPoints > 1);
@@ -439,12 +441,17 @@ const ANDROID = /Android/.test(UA);
 const HANDLE = "@hannun.brief";   // 인스타 계정 — 표지·카드 바닥글·출처 장에 들어간다
 const shiftD = (d, n) => { const x = new Date(d + "T00:00:00"); x.setDate(x.getDate() + n);
   return `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, "0")}-${String(x.getDate()).padStart(2, "0")}`; };
+const NEWROT = d => d >= "2026-10-19";   // 로테이션 변경일(목 액티비티·토 음악, 금 주말 뭐하지·토 이번 주 숫자)
 const SERIES = {
   week7: {name: "이번 주 숫자", kicker: "WEEKLY NUMBERS", head: "이번 주를 숫자 {n}개로",
-    src: d => [-4, -3, -2, -1, 0].map(o => [shiftD(d, o), "daily", 9])},
+    src: d => (NEWROT(d) ? [-5, -4, -3, -2, -1] : [-4, -3, -2, -1, 0]).map(o => [shiftD(d, o), "daily", 9])},
   weekend: {name: "주말 뭐하지", kicker: "WEEKEND PICKS", head: "이번 주말, 어디 갈까",
-    src: d => [[d, "activity", 4], [shiftD(d, -1), "travel", 2], [shiftD(d, -3), "culture", 2]]}
+    src: d => NEWROT(d) ? [[shiftD(d, -1), "activity", 4], [d, "travel", 2], [shiftD(d, -2), "culture", 2]]
+                        : [[d, "activity", 4], [shiftD(d, -1), "travel", 2], [shiftD(d, -3), "culture", 2]]}
 };
+// 묶음이 다루는 기간: week7 = 그 주 월~금, weekend = 토~일
+const mixSpan = (mix, d) => mix === "week7" ? (NEWROT(d) ? [shiftD(d, -5), shiftD(d, -1)] : [shiftD(d, -4), d])
+                                            : (NEWROT(d) ? [shiftD(d, 1), shiftD(d, 2)] : [d, shiftD(d, 1)]);
 // 제목 속 첫 숫자(단위 포함) — 그림 재료가 없는 카드의 큰 숫자 타일에 쓴다. 값은 카드 제목에 있는 그대로.
 const NUM_RE = /(?:[−-]\s?)?\d[\d,.]*\s?(?:%p|%|도|명|억\s?달러|조\s?원|억\s?원|만\s?원|억|조|원|달러|배|건|곳|개|년|일|위|승|골|점|km|만|시간|분)(?![가-힣])|\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+\.\d+/;
 // 짧은 제목(.cn-t, 없으면 h2 의 " — " 앞)에서만 찾는다 — 부제의 "2년여 만" 같은 수식어를 집지 않게
@@ -501,7 +508,7 @@ async function zipStore(files){
         picks.sort((p, q) => p.b.date.localeCompare(q.b.date));
         picks = picks.slice(0, 7);
       }else{
-        const sat = new Date(MD + "T00:00:00");
+        const sat = new Date(mixSpan("weekend", MD)[0] + "T00:00:00");
         briefs.forEach(b => {
           const lim = (srcs.find(([d]) => d === b.date) || [])[2] || 2;
           b.arts.filter(a => !sensitive(a)).filter(a => {
@@ -546,7 +553,7 @@ async function zipStore(files){
     const wxt = wx ? clean(wx.textContent).replace(/[—-]\s*$/, "") : "";
     const plain = h => clean(new DOMParser().parseFromString(h.replace(/<br>/g, " "), "text/html").body.textContent);
     const md2 = s => `${Number(s.slice(5, 7))}.${Number(s.slice(8, 10))}`;
-    const dateLine = MIX === "week7" ? `${md2(shiftD(D, -4))}–${md2(D)}` : MIX === "weekend" ? `${md2(D)}–${md2(shiftD(D, 1))}` : `${m}.${d}`;
+    const dateLine = MIX ? mixSpan(MIX, D).map(md2).join("–") : `${m}.${d}`;
 
     let h = `<div class="rail" id="rail">
       <section class="slide cover${(() => { const hl = clean(series ? series.head : main.doc.querySelector("h1")?.textContent).length;

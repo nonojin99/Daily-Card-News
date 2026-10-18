@@ -281,11 +281,13 @@ async function drawToday(){
   $("installX").onclick = () => { store.set("installX","1"); $("install").classList.remove("show"); };
 }
 
-// 인스타 시리즈: 금요일 메인 → 이번 주 숫자 · 토요일 액티비티 → 주말 뭐하지 (app/cards.html?mix=…)
+// 인스타 시리즈 (app/cards.html?mix=…)
+//   2026-10-19~ : 금요일 여행 → 주말 뭐하지(주말 계획은 금요일까지) · 토요일 메인 → 이번 주 숫자
+//   그 전       : 금요일 메인 → 이번 주 숫자 · 토요일 액티비티 → 주말 뭐하지
 function seriesOf(f){
-  const wd = new Date(f.date + "T00:00:00").getDay();
-  if(f.type === "daily" && wd === 5) return {mix: "week7", name: "이번 주 숫자"};
-  if(f.type === "activity" && wd === 6) return {mix: "weekend", name: "주말 뭐하지"};
+  const wd = new Date(f.date + "T00:00:00").getDay(), nu = f.date >= "2026-10-19";
+  if(f.type === "daily" && wd === (nu ? 6 : 5)) return {mix: "week7", name: "이번 주 숫자"};
+  if(f.type === (nu ? "travel" : "activity") && wd === (nu ? 5 : 6)) return {mix: "weekend", name: "주말 뭐하지"};
   return null;
 }
 function bcHtml(f, d, small){

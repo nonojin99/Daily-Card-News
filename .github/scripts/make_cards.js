@@ -64,8 +64,10 @@ function serve(){
       const d = `${m[1]}-${m[2]}-${m[3]}`; if(d < cutoff) return;
       if(TYPES.includes(m[4])) targets.push(brief(n));
       const wd = new Date(d + "T00:00:00Z").getUTCDay();
-      if(m[4] === "daily" && wd === 5) targets.push(mix("week7", d));      // 금요일 메인 → 이번 주 숫자 7
-      if(m[4] === "activity" && wd === 6) targets.push(mix("weekend", d)); // 토요일 액티비티 → 주말 뭐하지
+      // 2026-10-19~ : 토요일 메인 → 이번 주 숫자 · 금요일 여행 → 주말 뭐하지 (그 전: 금 메인 · 토 액티비티)
+      const nu = d >= "2026-10-19";
+      if(m[4] === "daily" && wd === (nu ? 6 : 5)) targets.push(mix("week7", d));
+      if(m[4] === (nu ? "travel" : "activity") && wd === (nu ? 5 : 6)) targets.push(mix("weekend", d));
     });
     targets = targets.filter(t => !fs.existsSync(path.join(ROOT, t.dir)) || stale(t));
   }
