@@ -1,8 +1,8 @@
 {
-  "kind": "none",
-  "media": "cards/2026-10/2026-10-18_science-brief",
-  "caption": "captions/2026-10-18_science.txt",
-  "dry_run": "true",
+  "kind": "delete",
+  "media": "18025950929877348",
+  "caption": "",
+  "dry_run": "false",
   "is_ai": "false",
-  "note": "게시 완료 2026-10-18 09:11 KST https://www.instagram.com/p/DenXa_vIH8I/ — 다음 요청 전까지 none"
+  "note": "10/18 과학 캐러셀(https://www.instagram.com/p/DenXa_vIH8I/) 삭제 — 분야 칩 넣은 카드로 재등록하려고(사용자 요청)"
 }
