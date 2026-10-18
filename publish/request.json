@@ -1,8 +1,8 @@
 {
   "kind": "carousel",
-  "media": "cards/2026-10/2026-10-17_weekend",
-  "caption": "",
+  "media": "cards/2026-10/2026-10-18_science-brief",
+  "caption": "captions/2026-10-18_science.txt",
   "dry_run": "true",
   "is_ai": "false",
-  "note": "캐러셀 경로 점검(게시 안 함). 내일부터 데일리 세션이 이 파일을 씀"
+  "note": "10/18 일요일 우주·과학 캐러셀 확인 실행(게시 안 함). 승인: Actions → Publish to Instagram → Run workflow → dry_run=false"
 }
