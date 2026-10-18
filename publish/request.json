@@ -2,7 +2,7 @@
   "kind": "carousel",
   "media": "cards/2026-10/2026-10-18_science-brief",
   "caption": "captions/2026-10-18_science.txt",
-  "dry_run": "true",
+  "dry_run": "false",
   "is_ai": "false",
-  "note": "10/18 과학 캐러셀 재등록 확인 실행(분야 칩 표지·[우주·과학] 캡션). 옛 게시물 DenXa_vIH8I 를 앱에서 삭제한 뒤 게시"
+  "note": "10/18 과학 캐러셀 재등록 게시 (사용자: 옛 게시물 삭제 완료, 게시 승인)"
 }
