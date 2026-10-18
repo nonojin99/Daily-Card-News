@@ -2,7 +2,7 @@
   "kind": "reel",
   "media": "reels/2026-10/2026-10-18_science.mp4",
   "caption": "captions/2026-10-18_science_reel.txt",
-  "dry_run": "true",
+  "dry_run": "false",
   "is_ai": "true",
-  "note": "10/18 '3분 듣는 우주' 오디오 릴스 확인 실행(게시 안 함). AI 음성 → is_ai true"
+  "note": "10/18 '3분 듣는 우주' 오디오 릴스 게시 (사용자 요청 '릴스 오디오 뉴스도 등록', 확인 실행 통과)"
 }
