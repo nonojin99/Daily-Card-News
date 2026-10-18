@@ -87,6 +87,8 @@
 
   .cover{background:var(--accent);color:#f4f2ec}
   .cover .in{flex:1;padding:9cqw 8cqw 6cqw;display:flex;flex-direction:column;position:relative;min-height:0}
+  /* 분야 이름 — 첫 방문자가 표지만 보고 무슨 코너인지 알게(2026-10-18). 그리드 3:4 자르기에도 남는 위쪽에 둔다 */
+  .cover .cat{align-self:flex-start;font-size:4.4cqw;font-weight:900;letter-spacing:.02em;background:rgba(255,255,255,.16);color:#fff;padding:1.4cqw 3.4cqw;border-radius:99px;margin-bottom:3cqw}
   .cover .k{font-size:3cqw;letter-spacing:.24em;font-weight:700;opacity:.8;text-transform:uppercase}
   .cover .d{font-size:12cqw;font-weight:900;letter-spacing:-.03em;margin-top:3cqw;line-height:1}
   .cover .d small{font-size:4.2cqw;font-weight:500;letter-spacing:.12em;opacity:.75;margin-left:2cqw}
@@ -536,6 +538,9 @@ async function zipStore(files){
     const wd = WD[new Date(`${y}-${m}-${d}T00:00:00`).getDay()];
     const N = cards.length + 2;   // 표지 + 카드 + 출처
     const kicker = series ? series.kicker : clean(main.doc.querySelector(".kicker")?.textContent).split("·")[0] || "Daily Brief";
+    // 분야 이름 — 브리프 종류(파일명)로 정한다. 색만으로는 처음 온 사람이 코너를 구분하지 못한다
+    const CAT = {daily: "오늘의 뉴스", ai: "AI·테크", sports: "스포츠", culture: "문화", music: "음악", travel: "여행", activity: "주말 액티비티", science: "우주·과학"};
+    const cat = series ? series.name : (CAT[(F.match(/_([a-z]+)-brief\.html$/) || [])[1]] || "");
     const wx = !series && main.doc.querySelector(".weather");
     if(wx) wx.querySelector(".wx-note")?.remove();
     const wxt = wx ? clean(wx.textContent).replace(/[—-]\s*$/, "") : "";
@@ -546,7 +551,7 @@ async function zipStore(files){
     let h = `<div class="rail" id="rail">
       <section class="slide cover${(() => { const hl = clean(series ? series.head : main.doc.querySelector("h1")?.textContent).length;
         return (hl > 26 && (wxt || cards.length >= 5)) || cards.length >= 7 ? " dense" : ""; })()}" aria-label="표지"><div class="in">
-        <div class="k">${esc(series ? series.name : kicker)}</div>
+        ${cat ? `<div class="cat">${esc(cat)}</div>` : ""}<div class="k">${esc(series ? series.kicker : kicker)}</div>
         <div class="d">${dateLine}<small>${series ? "" : wd}</small></div>
         <h2>${nb(esc(series ? series.head.replace("{n}", cards.length) : clean(main.doc.querySelector("h1")?.textContent)))}</h2>
         ${wxt ? `<div class="wx">${esc(wxt)}</div>` : ""}
@@ -568,7 +573,7 @@ async function zipStore(files){
           <span class="label"><b>${esc(lab || "")}</b>${rest.length ? " · " + esc(rest.join(" · ")) : ""}</span>
           <h2 class="${len > 34 ? "xl" : len > 24 ? "l" : ""}">${nb(c.title)}</h2>
           <p>${esc(c.sum)}</p>
-          <div class="foot"><span class="h">${HANDLE}</span><span>${esc(kicker.toUpperCase())} · ${md2(c.date)}</span></div>
+          <div class="foot"><span class="h">${HANDLE}</span><span>${esc(cat || kicker.toUpperCase())} · ${md2(c.date)}</span></div>
         </div>
       </section>`;
     });
