@@ -96,6 +96,7 @@
   .cover .wx{margin-top:3cqw;font-size:3cqw;background:rgba(255,255,255,.1);border-radius:2cqw;padding:2cqw 3cqw;line-height:1.5}
   .cover ol{list-style:none;margin-top:auto;display:grid;gap:1.6cqw;font-size:3.3cqw}
   .cover li{display:flex;gap:2.6cqw;align-items:baseline;border-top:1px solid rgba(244,242,236,.22);padding-top:1.6cqw;min-width:0}
+  .cover li em{font-style:normal;flex:0 0 auto;font-size:2.5cqw;font-weight:700;background:rgba(255,255,255,.2);padding:.4cqw 1.6cqw;border-radius:99px}
   .cover li b{font-size:3cqw;opacity:.7;min-width:3cqw}
   .cover li span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
   /* 표지 재료가 많은 날(긴 제목 + 날씨 + 목록 5개 이상) — 계정 줄이 밀려나지 않게 촘촘히 */
@@ -433,6 +434,7 @@ function visualOf(a, geo, year){
 //   d = 게시하는 날. 2026-10-19~ 로테이션(목 액티비티·토 음악):
 //   ?mix=week7&d=<토요일>   이번 주 숫자 — 그 주 월~금 메인에서 숫자·도표 카드(맥락 읽기 카드 제외)를 날마다 하나씩, 최대 7장(같은 분야 2장까지)
 //   ?mix=weekend&d=<금요일> 주말 뭐하지 — 목 액티비티 4 + 금 여행 2 + 수 문화 2 (토요일 전에 끝난 일정 제외)
+//                          + 맨 뒤 '미리 예약'(article[data-plan="ahead"], 1~4주 뒤 예매·예약 오픈) 최대 2장 — 있으면 이번 주말 몫은 3·2·1 로 줄여 8장 안에
 //   그 전(d < 2026-10-19)은 옛 규칙: week7 = 금요일(월~금), weekend = 토요일(토 액티비티·금 여행·수 문화) — 이미 구운 묶음이 바뀌지 않게
 const MIX = qs.get("mix") || "", MD = qs.get("d") || "";
 const UA = navigator.userAgent;
@@ -509,13 +511,17 @@ async function zipStore(files){
         picks = picks.slice(0, 7);
       }else{
         const sat = new Date(mixSpan("weekend", MD)[0] + "T00:00:00");
+        const live = (a, b) => { const w = parseWhen(clean(a.querySelector(".cn .cn-when")?.textContent), Number(b.date.slice(0, 4)));
+          return !(w && w.to && w.to < sat); };   // 토요일 전에 끝난 일정은 빼기
+        const isAhead = a => a.dataset.plan === "ahead";
+        // 미리 예약(다음 1~4주) — 이번 주말엔 늦지만 지금 예약해야 하는 것. 최대 2장, 묶음 맨 뒤
+        const ahead = briefs.flatMap(b => b.arts.filter(a => isAhead(a) && !sensitive(a) && live(a, b)).map(a => ({a, b}))).slice(0, 2);
+        const quota = ahead.length ? {activity: 3, travel: 2, culture: 1} : null;
         briefs.forEach(b => {
-          const lim = (srcs.find(([d]) => d === b.date) || [])[2] || 2;
-          b.arts.filter(a => !sensitive(a)).filter(a => {
-            const w = parseWhen(clean(a.querySelector(".cn .cn-when")?.textContent), Number(b.date.slice(0, 4)));
-            return !(w && w.to && w.to < sat);   // 토요일 전에 끝난 일정은 빼기
-          }).slice(0, lim).forEach(a => picks.push({a, b}));
+          const src = srcs.find(([d]) => d === b.date) || [], lim = quota ? (quota[src[1]] ?? 1) : (src[2] || 2);
+          b.arts.filter(a => !sensitive(a) && !isAhead(a) && live(a, b)).slice(0, lim).forEach(a => picks.push({a, b}));
         });
+        picks.push(...ahead);
       }
     }else{
       if(!/^\d{4}-\d{2}-\d{2}_[a-z]+-brief\.html$/.test(F)) throw new Error("bad file");
@@ -535,7 +541,7 @@ async function zipStore(files){
       if(ptoks.some(t => !(geo.kr && geo.kr.places[t]))) geo.world = await fetch("geo/world.json").then(r => r.json()).catch(() => null);
     }
     const cards = picks.map(({a, b}) => ({
-      pc: photoOf(a)?.credit || "", title: titleOf(a), sum: summaryOf(a), credit: creditOf(a), num: titleNum(a), vis: visualOf(a, geo, Number(b.date.slice(0, 4))),
+      pc: photoOf(a)?.credit || "", ahead: a.dataset.plan === "ahead", title: titleOf(a), sum: summaryOf(a), credit: creditOf(a), num: titleNum(a), vis: visualOf(a, geo, Number(b.date.slice(0, 4))),
       label: clean(a.querySelector(".topic")?.textContent), ac: b.ac, acs: b.acs, date: b.date, ai: !!a.querySelector(".cn img.cn-gen")
     }));
     if(geo && geo.kr) document.body.insertAdjacentHTML("afterbegin", `<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="kr" class="ig-land" d="${geo.kr.outline}"/></defs></svg>`);
@@ -562,7 +568,7 @@ async function zipStore(files){
         <div class="d">${dateLine}<small>${series ? "" : wd}</small></div>
         <h2>${nb(esc(series ? series.head.replace("{n}", cards.length) : clean(main.doc.querySelector("h1")?.textContent)))}</h2>
         ${wxt ? `<div class="wx">${esc(wxt)}</div>` : ""}
-        <ol>${cards.slice(0, 8).map((c, i) => `<li><b>${i + 1}</b><span>${esc(plain(c.title))}</span></li>`).join("")}</ol>
+        <ol>${cards.slice(0, 8).map((c, i) => `<li><b>${i + 1}</b>${c.ahead ? "<em>미리 예약</em>" : ""}<span>${esc(plain(c.title))}</span></li>`).join("")}</ol>
         <div class="handle">${HANDLE}</div>
       </div></section>`;
     cards.forEach((c, i) => {

@@ -22,11 +22,11 @@ def grab(cls, h, tag="p"):
 def main(fname):
     src = Path(fname).read_text(encoding="utf-8")
     sub = not fname.endswith("_daily-brief.html")
-    cards = re.findall(r'<article class="card">(.*?)</article>', src, re.S)
+    cards = re.findall(r'<article class="card"([^>]*)>(.*?)</article>', src, re.S)   # [(속성, 본문)]
     fails = warns = 0
     layouts = {}
     print(f"# {fname} — 카드 {len(cards)}장 ({'서브·롱리드' if sub else '메인'})\n")
-    for i, a in enumerate(cards, 1):
+    for i, (attrs, a) in enumerate(cards, 1):
         out = []
         F = lambda m: out.append(("FAIL", m))
         W = lambda m: out.append(("WARN", m))
@@ -54,6 +54,11 @@ def main(fname):
             sents = [x for x in re.split(r"(?<=[.!?])\s+", s) if x]
             if not 2 <= len(sents) <= 3: W(f"cn-s {len(sents)}문장 (2~3)")
             if any(not x.rstrip(".!?").endswith(("요", "죠")) for x in sents): F("cn-s 가 해요체가 아님")
+        # 미리 예약 카드(README '인스타그램 운영' — 다음 1~4주 예매·예약 오픈)
+        if 'data-plan="ahead"' in attrs:
+            if not topic.startswith("미리 예약"): F("미리 예약 카드인데 topic 이 '미리 예약 · {분야}' 가 아님")
+            if not re.search(r'class="cn-when"[^>]*data-label=', cn): F("미리 예약 카드에 cn-when + data-label(예매 오픈·예약 마감) 없음")
+            if "변동" not in body_t: F("미리 예약 카드에 '⚠ 변동 가능' 표기 없음")
         # 분야 태그
         if topic in BANNED_TOPICS: F(f"topic '{topic}' 은 분류어 — 카드만의 핵심어로")
         if sub and not 2 <= len(topic.replace(" ", "")) <= 8: W(f"topic '{topic}' 길이 (2~8자 권장)")
