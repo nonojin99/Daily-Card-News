@@ -33,6 +33,18 @@ function scriptParas(html) {
   if (!m) return [];
   return [...m[1].matchAll(/<p>([\s\S]*?)<\/p>/g)].map(x => x[1].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim()).filter(Boolean);
 }
+// 첫 장면 '훅 카드' 재료 — 첫 카드의 짧은 제목(cn-t 2줄) + 큰 숫자(cn-num, 제목에 이미 있는 값이면 뺀다).
+// 2026-10-19 인사이트: 릴스 3편 모두 평균 시청 2초·건너뛰기 85~91% → 첫 화면을 작은 표지 대신 꽉 찬 큰 글씨로 바꾼다.
+function hookOf(html) {
+  const a = html.match(/<article class="card"[^>]*>([\s\S]*?)<\/article>/); if (!a) return null;
+  const strip = x => x.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+  const t = a[1].match(/<p class="cn-t">([\s\S]*?)<\/p>/); if (!t) return null;
+  const lines = t[1].split(/<br\s*\/?>/).map(strip).filter(Boolean);
+  const n = a[1].match(/<p class="cn-num">([\s\S]*?)<\/p>/);
+  let num = null, label = "";
+  if (n) { [num, label = ""] = strip(n[1]).split("|"); if (lines.join("").replace(/\s/g, "").includes(num.replace(/\s/g, ""))) num = null; }
+  return { lines, num, label: num ? label : "" };
+}
 // 문단 [시작, 끝]: make_audio 기록 → 없으면 글자 수 비율 추정 + 가장 가까운 긴 쉼
 function paraSpans(mp3, paras) {
   const side = mp3.replace(/\.mp3$/, ".json");
@@ -116,7 +128,29 @@ async function build(spec, b, base) {
   const d = spec.brief.slice(0, 10), wd = "일월화수목금토"[wdOf(d)];
   const fr = await b.newPage({ viewport: { width: 1080, height: 1920 } });
   const N = spec.segments.length;
+  const hook = hookOf(read(spec.brief).toString());
   for (let k = 0; k < N; k++) {
+    // 맨 앞 표지 구간(첫 문단)은 훅 카드로 — 날씨 문단 등 뒤쪽 표지 구간은 그대로
+    if (hook && spec.segments.slice(0, k + 1).every(g => g[2] === 1)) {
+      const longest = Math.max(...hook.lines.map(l => l.length));
+      const fs_ = Math.max(64, Math.min(132, Math.floor(860 / (Math.max(1, longest) * 0.82))));
+      await fr.setContent(`<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
+<style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:${meta.ac};font-family:'Noto Sans KR',sans-serif;color:#fff;position:relative}
+.top{position:absolute;left:90px;right:90px;top:200px;display:flex;align-items:center;gap:22px}
+.cat{background:#fff;color:${meta.ac};font-weight:900;font-size:38px;padding:10px 28px;border-radius:99px;white-space:nowrap}
+.t{font-weight:700;font-size:44px;white-space:nowrap;opacity:.92}.dt{margin-left:auto;font-size:34px;font-weight:500;white-space:nowrap;opacity:.85}
+.mid{position:absolute;left:90px;right:150px;top:470px}
+.num{font-weight:900;font-size:190px;line-height:1;letter-spacing:-.03em}.lab{font-size:44px;font-weight:700;margin:18px 0 70px;opacity:.9}
+.h{font-weight:900;font-size:${fs_}px;line-height:1.22;letter-spacing:-.03em;white-space:nowrap}
+.ft{position:absolute;left:90px;top:1500px;font-size:34px;opacity:.85}</style></head>
+<body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">🎧 ${esc(spec.title)}</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
+<div class="mid">${hook.num ? `<div class="num">${esc(hook.num)}</div><div class="lab">${esc(hook.label)}</div>` : `<div style="height:40px"></div>`}
+${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
+<div class="ft"><b>@hannun.brief</b> · AI 음성 낭독(Google TTS)</div></body></html>`, { waitUntil: "networkidle" });
+      await fr.screenshot({ path: path.join(tmp, `f${k}.png`) });
+      continue;
+    }
     const img = "data:image/png;base64," + fs.readFileSync(files[spec.segments[k][2] - 1]).toString("base64");
     await fr.setContent(`<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
