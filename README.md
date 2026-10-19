@@ -511,7 +511,7 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
 | 요일 | 인스타 코너 | 재료 | 이미지 |
 |---|---|---|---|
 | 월 | AI·테크 | 월 ai 브리프 | `cards/…/<날짜>_ai-brief/` (Run workflow 로 굽기) |
-| 화 | 스포츠 결산 (KBO 먼저) | 화 sports 브리프 | `cards/…/<날짜>_sports-brief/` (〃) |
+| 화 | 스포츠 결산 | 화 sports 브리프 (KBO 먼저) | `cards/…/<날짜>_sports-brief/` (〃) |
 | **금** | **주말 뭐하지** | 목 액티비티 4 + 금 여행 2 + 수 문화 2 (토요일 전에 끝난 일정 제외) — 금요일 아침, 주말 계획용. **'미리 예약' 카드가 있으면 3·2·1 + 미리 예약 최대 2** | `cards/…/<금요일>_weekend/` **자동** |
 | **토** | **이번 주 숫자** | 그 주 월~금 메인에서 숫자·도표 카드, 날마다 하나씩 최대 7장(같은 분야 2장까지, 맥락 읽기 카드 제외) | `cards/…/<토요일>_week7/` **자동** |
 | 일 | 우주·과학 (간판 후보) | 일 science 브리프 | `cards/…/<날짜>_science-brief/` (Run workflow) |
