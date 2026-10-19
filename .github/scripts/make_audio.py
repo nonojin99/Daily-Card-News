@@ -59,7 +59,48 @@ _PRON = [(re.compile((r"(?<![A-Za-z])" if k in UNITS else r"(?<![A-Za-z0-9])") +
          for k, v in PRONUNCIATION]
 
 
+_DIG = "영일이삼사오육칠팔구"
+_SMALL = [(1000, "천"), (100, "백"), (10, "십")]
+
+
+def _four(n):
+    """1~9999 → 한자어 수("이천사백"). 천·백·십 앞의 '일'은 읽지 않는다."""
+    out = ""
+    for v, w in _SMALL:
+        d, n = divmod(n, v)
+        if d:
+            out += ("" if d == 1 else _DIG[d]) + w
+    return out + (_DIG[n] if n else "")
+
+
+def sino(n):
+    """정수 → 한자어 수("5768" → "오천칠백육십팔")."""
+    if n == 0:
+        return "영"
+    parts = []
+    for unit, w in ((10 ** 12, "조"), (10 ** 8, "억"), (10 ** 4, "만")):
+        g, n = divmod(n, unit)
+        if g:
+            parts.append(("" if (w == "만" and g == 1) else _four(g)) + w)
+    if n:
+        parts.append(_four(n))
+    return " ".join(parts)
+
+
+# 쉼표·소수점이 있거나 네 자리 이상인 수. 합성기는 "5,768.01"·"5000.6" 같은 수를 숫자 하나씩 읽는다.
+_NUM = re.compile(r"(?<![0-9A-Za-z.,])(\d{1,3}(?:,\d{3})+|\d{4,})(?:\.(\d+))?(?![0-9])|(?<![0-9A-Za-z.,])(\d{1,3})\.(\d+)(?![0-9])")
+
+
+def _num(m):
+    whole, frac = (m.group(1), m.group(2)) if m.group(1) else (m.group(3), m.group(4))
+    out = sino(int(whole.replace(",", "")))
+    if frac:
+        out += " 점 " + "".join(_DIG[int(c)] for c in frac)
+    return out
+
+
 def pronounce(text):
+    text = _NUM.sub(_num, text).replace("%", " 퍼센트")
     for rx, v in _PRON:
         text = rx.sub(v, text)
     return text
