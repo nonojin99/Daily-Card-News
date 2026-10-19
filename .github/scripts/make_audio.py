@@ -41,6 +41,30 @@ PARA = re.compile(r"<p\b[^>]*>(.*?)</p>", re.I | re.S)
 TAG = re.compile(r"<[^>]+>")
 
 
+# 발음 사전 (2026-10-20) — 합성기가 영문 약어를 알파벳 한 자씩 읽는 것(KIA → 케이아이에이)을 막는다.
+# 합성 직전 텍스트에만 적용한다. 브리프에 보이는 원고와 문단 글자 수(.json)는 그대로다.
+# 앞뒤가 영문·숫자가 아닐 때만 바꾼다("SK하이닉스"의 SK는 바뀌고 "TSMC2"는 안 바뀐다). 긴 말을 앞에 둔다.
+PRONUNCIATION = [
+    ("KLPGA", "케이엘피지에이"), ("LPGA", "엘피지에이"), ("PGA", "피지에이"), ("KBO", "케이비오"),
+    ("KIA", "기아"), ("SSG", "에스에스지"), ("NLCS", "엔엘씨에스"), ("ALCS", "에이엘씨에스"),
+    ("MLB", "엠엘비"), ("NBA", "엔비에이"), ("KBL", "케이비엘"), ("BWF", "비더블유에프"),
+    ("TSMC", "티에스엠씨"), ("CCTV", "씨씨티브이"), ("SK", "에스케이"), ("LG", "엘지"),
+    ("KT", "케이티"), ("NC", "엔씨"), ("CJ", "씨제이"), ("FC", "에프씨"), ("YTN", "와이티엔"),
+    ("API", "에이피아이"), ("HJ", "에이치제이"), ("F1", "에프원"), ("AI", "에이아이"),
+    ("GPU", "지피유"), ("CPU", "씨피유"), ("HBM", "에이치비엠"), ("IT", "아이티"),
+    ("km", "킬로미터"), ("mm", "밀리미터"),
+]
+UNITS = {"km", "mm"}      # 숫자 바로 뒤("5mm")에서도 바꾼다
+_PRON = [(re.compile((r"(?<![A-Za-z])" if k in UNITS else r"(?<![A-Za-z0-9])") + k + r"(?![A-Za-z0-9])"), v)
+         for k, v in PRONUNCIATION]
+
+
+def pronounce(text):
+    for rx, v in _PRON:
+        text = rx.sub(v, text)
+    return text
+
+
 def paragraphs(doc):
     m = SCRIPT_BLOCK.search(doc)
     if not m:
@@ -74,7 +98,7 @@ def synth(text):
     if DRY_RUN:
         return b"\x00\x00" * int(SAMPLE_RATE * 0.05 * max(1, len(text) // 10))
     body = json.dumps({
-        "input": {"text": text},
+        "input": {"text": pronounce(text)},
         "voice": {"languageCode": "ko-KR", "name": VOICE},
         "audioConfig": {"audioEncoding": "LINEAR16", "sampleRateHertz": SAMPLE_RATE,
                         "speakingRate": RATE},
