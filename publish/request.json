@@ -1,4 +1,4 @@
 {"requests": [
-  {"kind":"carousel","media":"cards/2026-10/2026-10-19_ai-brief","caption":"captions/2026-10-19_ai.txt","dry_run":"false","is_ai":"false"},
-  {"kind":"reel","media":"reels/2026-10/2026-10-19_ai.mp4","caption":"captions/2026-10-19_ai_reel.txt","dry_run":"false","is_ai":"true"}
-], "note": "10/19 월요일 자동 등록"}
+  {"kind":"carousel","media":"cards/2026-10/2026-10-20_sports-brief","caption":"captions/2026-10-20_sports.txt","dry_run":"false","is_ai":"false"},
+  {"kind":"reel","media":"reels/2026-10/2026-10-20_sports.mp4","caption":"captions/2026-10-20_sports_reel.txt","dry_run":"false","is_ai":"true"}
+], "note": "10/20 화요일 자동 등록"}
