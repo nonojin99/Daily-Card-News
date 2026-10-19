@@ -1,7 +1,25 @@
 {
-  "generated": "2026-10-19T14:02:52Z",
-  "count": 249,
+  "generated": "2026-10-19T20:56:16Z",
+  "count": 251,
   "files": [
+    {
+      "date": "2026-10-20",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "20",
+      "type": "daily",
+      "path": "2026-10-20_daily-brief.html"
+    },
+    {
+      "date": "2026-10-20",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "20",
+      "type": "sports",
+      "path": "2026-10-20_sports-brief.html"
+    },
     {
       "date": "2026-10-19",
       "month": "2026-10",
