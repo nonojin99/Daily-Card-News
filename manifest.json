@@ -1,7 +1,25 @@
 {
-  "generated": "2026-10-19T23:03:49Z",
-  "count": 251,
+  "generated": "2026-10-20T20:48:45Z",
+  "count": 253,
   "files": [
+    {
+      "date": "2026-10-21",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "21",
+      "type": "daily",
+      "path": "2026-10-21_daily-brief.html"
+    },
+    {
+      "date": "2026-10-21",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "21",
+      "type": "culture",
+      "path": "2026-10-21_culture-brief.html"
+    },
     {
       "date": "2026-10-20",
       "month": "2026-10",
