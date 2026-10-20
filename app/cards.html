@@ -595,7 +595,7 @@ async function zipStore(files){
         <div class="k">SOURCES · 출처</div>
         <h2>원문과 전체 브리프는<br>Daily Brief 앱에서</h2>
         <ol${cards.some(c => (c.credit || "").length > 14) ? ' class="one"' : ""}>${cards.slice(0, 8).map((c, i) => `<li><b>${i + 1}</b><span>${esc(c.credit || "—")}</span></li>`).join("")}</ol>
-        <div class="follow">${HANDLE}<small>월 AI · 화 스포츠 · 금 이번 주 숫자 · 토 주말 뭐하지 · 일 우주</small></div>
+        <div class="follow">${HANDLE}<small>월 AI · 화 스포츠 · 금 주말 뭐하지 · 토 이번 주 숫자 · 일 우주</small></div>
         <div class="wx">각 카드는 기사 내용을 직접 요약하고 도표·지도·개념도를 새로 그렸습니다.${cards.some(c => c.pc) ? " 이미지는 아래 크레디트의 공개 자료입니다." : ""}${cards.some(c => c.ai) ? " 일부 그림은 AI로 생성했습니다." : ""} 수치는 바뀔 수 있어요.${[...new Set(cards.map(c => c.pc).filter(Boolean))].map(x => `<br>${esc(x)}`).join("")}</div>
       </div></section>`;
     h += `</div>
