@@ -679,7 +679,7 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
 한 시리즈 반응이 압도적이면 그때 그 시리즈만 계정을 뗀다). 계정이 열리기 전까지 기존 루틴은 바뀌지 않는다.
 
 **사용자가 할 일 (세션은 계정·시크릿을 만들 수 없다)**
-1. 인스타 새 계정 만들기 → 프로페셔널 계정으로 전환. 이름이 정해지면 `app/cards.html` 의 `SPORTS_HANDLE` 과 변수 `EXPECT_SPORTS_USERNAME` 을 맞춘다.
+1. 인스타 계정 **`@hannun.sports`**(2026-10-21 확정) → 프로페셔널 계정으로 전환. 카드 바닥글은 `app/cards.html` 의 `SPORTS_HANDLE` 에 반영됨. 변수 `EXPECT_SPORTS_USERNAME` = `hannun.sports`.
 2. 메타 개발자 앱(`@hannun.brief` 를 올리는 앱)에 새 계정 추가 → Instagram API with Instagram Login 장기 토큰 발급(60일마다 갱신).
 3. GitHub Secrets `IG_SPORTS_ACCESS_TOKEN`·`IG_SPORTS_USER_ID`, Variables `EXPECT_SPORTS_USERNAME`(@ 없이).
 4. claude.ai 예약 루틴 2개: **⚾ 매일 23:30** = `routines/baseball-night.md`, **⚽ 매일 08:30** = `routines/football-morning.md` (`---` 사이를 붙여 넣기).

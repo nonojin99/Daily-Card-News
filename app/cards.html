@@ -461,7 +461,7 @@ const UA = navigator.userAgent;
 const IOS = /iPhone|iPad|iPod/.test(UA) || (/Macintosh/.test(UA) && navigator.maxTouchPoints > 1);
 const ANDROID = /Android/.test(UA);
 // 인스타 계정 — 표지·카드 바닥글·출처 장에 들어간다. 스포츠 계정(야구 나이트·축구 모닝)은 이름이 정해지면 SPORTS_HANDLE 에 적는다(README '스포츠 계정')
-const SPORTS_HANDLE = "";
+const SPORTS_HANDLE = "@hannun.sports";
 const SPORTS = /_(baseball|football|event|esports)-brief\.html$/.test(F || "");
 const HANDLE = SPORTS && SPORTS_HANDLE ? SPORTS_HANDLE : "@hannun.brief";
 const shiftD = (d, n) => { const x = new Date(d + "T00:00:00"); x.setDate(x.getDate() + n);
