@@ -14,12 +14,14 @@
 허용 호스트는 라이선스를 이미지 페이지에서 직접 확인한 곳만 둔다.
   cdn.esawebb.org    ESA/Webb   CC BY 4.0 — 크레디트 문구 그대로 표기
   cdn.esahubble.org  ESA/Hubble CC BY 4.0 — 크레디트 문구 그대로 표기
+  upload.wikimedia.org  Wikimedia Commons — 파일 페이지에서 PD·CC0·CC BY·CC BY-SA 를 확인한 것만(작성 단계 책임),
+                        크레디트에 작가·라이선스 표기 (2026-10-21~)
 NASA 이미지 라이브러리(images.nasa.gov)는 페이지가 JS 로 그려져 무인 실행에서
 크레디트·제3자 표시를 확인할 수 없어 넣지 않았다.
 """
 import html, os, re, sys, urllib.parse, urllib.request
 
-ALLOWED_HOSTS = {"cdn.esawebb.org", "cdn.esahubble.org"}
+ALLOWED_HOSTS = {"cdn.esawebb.org", "cdn.esahubble.org", "upload.wikimedia.org"}
 # screen JPEG 는 약 400KB, publication 은 약 3MB. 같은 이미지의 large JPEG 는
 # 286MB 인 사례를 확인했다 — 실수로 그 URL 이 들어와도 저장소에 커밋되지 않게 막는다.
 MAX_BYTES = 8 * 1024 * 1024

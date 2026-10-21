@@ -8,7 +8,8 @@ from pathlib import Path
 
 BANNED_TOPICS = {"발견", "결과", "전망", "관측 기법", "대상 행성", "선행 연구", "배경", "기타", "분석", "의미", "연구", "개요", "요약"}
 INFO = ("cn-score", "cn-link", "cn-shift", "cn-steps", "cn-bars", "cn-place", "cn-when", "cn-num")
-PHOTO_OK = re.compile(r"^https://cdn\.(esawebb|esahubble)\.org/archives/images/screen/")
+PHOTO_OK = re.compile(r"^https://(cdn\.(esawebb|esahubble)\.org/archives/images/screen/|upload\.wikimedia\.org/wikipedia/commons/)")
+LICENSE = re.compile(r"CC0|CC BY|퍼블릭 도메인|Public domain|공공누리", re.I)
 NUM = re.compile(r"\d[\d,]*(?:\.\d+)?")
 
 def text(h):
@@ -69,10 +70,11 @@ def main(fname):
         has_info = any(f'class="{c}"' in cn for c in INFO)
         if ph:
             img = re.search(r'<img[^>]*src="([^"]+)"[^>]*data-remote="([^"]+)"', ph.group(2), re.S)
-            if not img or not PHOTO_OK.match(img.group(2)): F("figure.photo 의 data-remote 가 허용 호스트·/screen/ 이 아님")
+            if not img or not PHOTO_OK.match(img.group(2)): F("figure.photo 의 data-remote 가 허용 호스트(ESA /screen/ · Wikimedia Commons)가 아님")
             elif not (img.group(1) == img.group(2) or img.group(1).startswith("img/")): F("photo src 와 data-remote 불일치")
             if "data-card-cap" not in ph.group(1): F("figure.photo 에 data-card-cap(카드용 한 줄 설명) 없음")
             if 'class="credit"' not in ph.group(2): F("photo 크레디트 없음")
+            elif img and "wikimedia.org" in img.group(2) and not LICENSE.search(text(ph.group(2))): F("Commons 이미지 크레디트에 라이선스 표기(CC BY·CC0·퍼블릭 도메인 등) 없음")
         if not (has_v or has_chart or ph or has_info):
             F("카드 그림 재료 없음 → 글자 타일/정보 시트로 떨어짐" if sub else "카드 그림 재료 없음")
         elif sub and not (has_v or has_chart or ph):
