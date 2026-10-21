@@ -349,6 +349,7 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
    - `check_cards.py` 는 Commons 크레디트에 라이선스 표기(CC BY·CC0·퍼블릭 도메인)가 없으면 FAIL.
 2. **② AI 일러스트** (`.cn` 안 `<p class="cn-img">영문 장면</p>`) — 실제 이미지가 없는 **생활·문화·여행·액티비티·음악·과학(개념도)** 카드에 넣는다.
    - **반드시 ③ 대체 그림(`cn-v`·도표·정보 그림)도 함께 둔다.** 이미지는 push 뒤 Actions 가 만들고, 만들기 전·실패 시엔 대체 그림이 나온다(1단계 검사도 대체 그림으로 통과).
+   - **나라·건축 양식을 분명히 쓴다**(2026-10-21: "curved tiled roof" 만 쓴 한국 시골집이 일본식 주택으로 그려졌다 → "Korean hanok, giwa roof, not Japanese architecture"). 생성된 그림은 push 뒤 직접 열어 확인하고, 어긋나면 `cn-gen` img 를 지우고 장면 문장을 고쳐 다시 push 한다.
    - 장면만 쓴다: 장소·사물·계절감·분위기. **작품·포스터·앨범 재현, 실존 인물, 실제 사건 장면 금지.** 사건·정치·재난·스포츠는 만들지 않는다(스크립트가 한 번 더 거른다).
    - **시안**: 브리프를 고치지 않고 그림만 보고 싶으면 같은 이름의 사본을 `drafts/` 에 두고 `cn-img` 를 넣어 push → `img/gen/YYYY-MM/drafts-<브리프>/NN.jpg` (앱·manifest 에는 안 나온다).
    - 생성된 다음 날 세션은 `img/gen/…` 이미지를 열어 글자·인물·작품 재현이 없는지 확인한다. 문제가 있으면 `cn-gen` img 를 지우고 장면 문장을 고쳐 push(다시 만든다).
