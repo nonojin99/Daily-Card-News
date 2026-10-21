@@ -55,6 +55,8 @@
              padding:3px 10px;border-radius:20px;color:var(--ac);background:var(--acs)}
   .bc h2{font-family:'Newsreader','Noto Serif KR',serif;font-weight:600;font-size:24px;line-height:1.3;margin:10px 0 6px;letter-spacing:-.01em}
   .bc p{font-size:14px;color:var(--muted);line-height:1.65;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .bc .thumbs{display:flex;gap:6px;margin:12px 0 0;cursor:pointer}
+  .bc .thumbs img{flex:1 1 0;min-width:0;aspect-ratio:1/1;object-fit:cover;object-position:top;border-radius:8px;background:var(--line);border:1px solid var(--line)}
   .bc .pk{list-style:none;margin:12px 0 0;padding:10px 0 0;border-top:1px solid var(--line)}
   .bc .pk li{display:flex;gap:8px;font-size:13px;line-height:1.5;color:var(--ink);padding:3px 0}
   .bc .pk li b{flex:0 0 auto;color:var(--ac);font-weight:600;font-variant-numeric:tabular-nums}
@@ -309,12 +311,22 @@ function bcHtml(f, d, small, night){
       <span class="badge">${esc(t.label)}${night ? " · 어젯밤" : ""}</span>
       <h2>${esc(d ? d.title : t.label + " 브리프")}</h2>
       ${!small && d && d.lede ? `<p>${esc(d.lede)}</p>` : ""}
+      ${!small ? thumbsHtml(f, picks.length) : ""}
       ${picks.length ? `<ol class="pk">${picks.slice(0,3).map((p,k) => `<li><b>${k+1}</b><span>${esc(p)}</span></li>`).join("")}${picks.length > 3 ? `<li class="more">외 ${picks.length - 3}개 항목</li>` : ""}</ol>` : ""}
       <div class="acts"><button data-read="${esc(f.path)}">읽기</button><button data-cards="${esc(f.path)}">카드</button>
       ${d && d.audio ? `<button class="listen" data-listen="${esc(f.path)}">▶ 듣기${d.mins ? ` · ${d.mins}분` : ""}</button>` : ""}</div>
       ${!small && seriesOf(f) ? `<button class="series" data-mix="${seriesOf(f).mix}" data-d="${esc(f.date)}">📸 인스타 시리즈 · ${seriesOf(f).name}</button>` : ""}
       ${!small && d && d.count ? `<div class="meta">${esc(d.count)}</div>` : ""}
     </article>`;
+}
+
+// 카드 썸네일 — Actions 가 구운 인스타용 JPG(02~04 = 카드 1~3장)를 미리 보여 준다. 누르면 카드 보기(2026-10-22)
+// 이미지가 아직 없으면(발행 직후·굽기 실패) 줄을 통째로 숨긴다
+function thumbsHtml(f, n){
+  const stem = f.path.replace(/^.*\//, "").replace(/\.html$/, ""), dir = `${BASE}cards/${f.month || f.date.slice(0, 7)}/${stem}/`;
+  const k = Math.max(1, Math.min(3, n || 3));
+  return `<div class="thumbs" data-cards="${esc(f.path)}">${Array.from({length: k}, (_, i) =>
+    `<img src="${dir}${String(i + 2).padStart(2, "0")}.jpg" loading="lazy" alt="" onerror="${i ? "this.remove()" : "this.parentNode.remove()"}">`).join("")}</div>`;
 }
 
 // 행은 즉시 그리고, 제목·듣기 버튼은 화면에 들어올 때 채운다
