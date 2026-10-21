@@ -346,6 +346,7 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
 2. **② AI 일러스트** (`.cn` 안 `<p class="cn-img">영문 장면</p>`) — 실제 이미지가 없는 **생활·문화·여행·액티비티·음악·과학(개념도)** 카드에 넣는다.
    - **반드시 ③ 대체 그림(`cn-v`·도표·정보 그림)도 함께 둔다.** 이미지는 push 뒤 Actions 가 만들고, 만들기 전·실패 시엔 대체 그림이 나온다(1단계 검사도 대체 그림으로 통과).
    - 장면만 쓴다: 장소·사물·계절감·분위기. **작품·포스터·앨범 재현, 실존 인물, 실제 사건 장면 금지.** 사건·정치·재난·스포츠는 만들지 않는다(스크립트가 한 번 더 거른다).
+   - **시안**: 브리프를 고치지 않고 그림만 보고 싶으면 같은 이름의 사본을 `drafts/` 에 두고 `cn-img` 를 넣어 push → `img/gen/YYYY-MM/drafts-<브리프>/NN.jpg` (앱·manifest 에는 안 나온다).
    - 생성된 다음 날 세션은 `img/gen/…` 이미지를 열어 글자·인물·작품 재현이 없는지 확인한다. 문제가 있으면 `cn-gen` img 를 지우고 장면 문장을 고쳐 push(다시 만든다).
 3. **③ 개념도·도표·정보 그림** — 사건·정치·숫자 카드의 기본이자 ①②의 대체. 위 '카드 이미지·그림 개선 규칙'대로 그린다(점+글자 나열 금지, 값을 그림으로 — 예: 178점 중 15점은 점 178개 중 15개 강조).
 
@@ -382,8 +383,8 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
   "곡은 퍼블릭 도메인이지만 녹음은 저작권 있음"인 파일, CC BY-SA·NC 녹음, 라이선스 표기 없는 파일은 쓰지 않는다. 파일 페이지를 WebFetch 로 열어 연주자·라이선스를 확인한다.
 - 브리프에 한 줄(낭독 원고 `</details>` 바로 뒤): `<div class="reel-bgm" hidden data-src="https://upload.wikimedia.org/wikipedia/commons/…/파일.ogg" data-page="파일 페이지 URL" data-credit="베토벤 월광 1악장 · 연주자 · 퍼블릭 도메인"></div>`
   (`data-credit` 은 24자 안팎 — 릴스 화면 아래에 "배경음악 …"으로 나온다. 원본 파일 URL 은 파일 페이지의 "Original file" 링크.)
-- push 하면 Actions(`tools/make_reel.js`)가 내려받아 **낭독 아래에 작게(볼륨 0.12) 반복**해 깔고 앞뒤를 페이드한다. 배경음이 있는 음악 브리프는 요일과 상관없이 릴스를 만든다.
-- 음악 릴스는 **아직 인스타 게시 요일이 없다**(토요일은 '이번 주 숫자'). 게시하려면 사용자가 요일을 정한다. 캡션에 배경음 크레디트(곡·연주자·라이선스·파일 페이지)를 꼭 적는다.
+- push 하면 Actions(`tools/make_reel.js`)가 내려받아 **낭독 아래에 작게(볼륨 0.12) 반복**해 깔고 앞뒤를 페이드한다.
+- **음악 릴스는 토요일에 게시한다**(2026-10-21 사용자 결정 — 메인 릴스 자리를 음악으로. 캐러셀은 그대로 '이번 주 숫자'). 배경음이 없어도 낭독 릴스는 만든다. 배경음이 있으면 캡션에 크레디트(곡·연주자·라이선스·파일 페이지)를 꼭 적는다.
 - 음원 탐지 오탐으로 음소거될 수 있다 — 그러면 그 곡은 다음부터 쓰지 않는다.
 - 가사 인용도 하지 않는다(짧아도 저작물).
 
@@ -603,7 +604,7 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
   - **분야 구분(2026-10-18)** — API 로는 릴스를 폴더·재생목록에 넣을 수 없다. 그래서 자동으로 할 수 있는 것만 지킨다.
     ① 표지(첫 장면)에 분야 칩을 넣는다(카드 표지와 같은 `CAT` 이름). ② 캡션 첫 줄은 `[분야]` 로 시작한다. ③ 분야 해시태그를 고정한다(아래 표).
     ④ 릴스 제목에 분야별 고정 이름을 쓴다(예: "1분 우주", "1분 주말", "1분 AI") — 나중에 시리즈로 묶기 쉽게.
-  - **오디오 릴스 만들기(2026-10-18~)** — **push 뒤 Actions 가 자동으로 만든다**(`node tools/make_reel.js --recent`: 최근 3일 ai·sports·science·activity, 토요일 daily).
+  - **오디오 릴스 만들기(2026-10-18~)** — **push 뒤 Actions 가 자동으로 만든다**(`node tools/make_reel.js --recent`: 최근 3일 ai·sports·science·activity, 토요일 music).
     문단 시간은 `make_audio.py` 가 MP3 옆에 남기는 `.json`, 문단이 카드보다 적으면 한 문단 동안 카드를 나눠 넘긴다. 수동: `--auto <브리프>` 또는 `<spec.json>`.
     결과는 `reels/YYYY-MM/<날짜>_<종류>.mp4` + `.reel.json`(구간·뺀 문단·지문). 1080×1920 MP4.
     **첫 장면 = 훅 카드(2026-10-19~)**: 첫 문단 동안 작은 표지 대신 브리프 액센트 색 전면에 첫 카드의 `cn-t`(큰 글씨)와 `cn-num`(제목에 없는 값일 때 아주 크게)을 띄운다(`tools/make_reel.js` `hookOf`). 날씨 문단 등 뒤쪽 표지 구간은 그대로.
@@ -631,7 +632,7 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
      | 월 | `cards/YYYY-MM/<월>_ai-brief` | `reels/YYYY-MM/<월>_ai.mp4` |
      | 화 | `cards/YYYY-MM/<화>_sports-brief` | `reels/YYYY-MM/<화>_sports.mp4` |
      | 금 | `cards/YYYY-MM/<금>_weekend` | `reels/YYYY-MM/<목>_activity.mp4` (전날 목요일 액티비티 낭독 — "1분 듣는 주말") |
-     | 토 | `cards/YYYY-MM/<토>_week7` | `reels/YYYY-MM/<토>_daily.mp4` (그날 메인 낭독 — **맥락 읽기 카드가 있으면 릴스는 뺀다**) |
+     | 토 | `cards/YYYY-MM/<토>_week7` | `reels/YYYY-MM/<토>_music.mp4` (그날 음악 브리프 낭독 — "N분 듣는 음악", 2026-10-21~ 메인 릴스 대신. 클래식 배경음이 있으면 캡션에 곡·연주자·라이선스·파일 페이지) |
      | 일 | `cards/YYYY-MM/<일>_science-brief` | `reels/YYYY-MM/<일>_science.mp4` |
 
      ```json

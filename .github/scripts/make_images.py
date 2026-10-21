@@ -82,13 +82,16 @@ def main():
     today = datetime.datetime.utcnow() + datetime.timedelta(hours=9)
     cutoff = (today - datetime.timedelta(days=DAYS)).strftime("%Y-%m-%d")
     made, n = [], 0
-    for name in sorted(os.listdir(".")):
+    # drafts/ — 시안: 같은 형식의 HTML 을 drafts/ 에 두면 그림만 만든다(앱·manifest 에는 안 보인다, README '카드 그림 우선순위')
+    names = [(".", n) for n in sorted(os.listdir("."))] + [("drafts", n) for n in (sorted(os.listdir("drafts")) if os.path.isdir("drafts") else [])]
+    for folder, name in names:
         m = P.match(name)
         if not m or (FORCE and name != FORCE) or (not FORCE and f"{m[1]}-{m[2]}-{m[3]}" < cutoff):
             continue
+        fpath = name if folder == "." else f"{folder}/{name}"
         if m[4] == "sports":   # 스포츠는 실존 선수·팀·경기 장면이 되므로 만들지 않는다
             continue
-        html = open(name, encoding="utf-8").read()
+        html = open(fpath, encoding="utf-8").read()
         accent = (re.search(r"--accent:\s*(#[0-9a-fA-F]{6})", html) or [None, "#3d5a4c"])[1]
         changed = False
         arts = list(re.finditer(r'<article class="card">.*?</article>', html, re.S))
@@ -106,7 +109,7 @@ def main():
                 print("images: IMAGE_MAX reached")
                 break
             scene = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", pm.group(1))).strip()
-            rel = f"img/gen/{m[1]}-{m[2]}/{name[:-5]}/{idx:02d}.jpg"
+            rel = f"img/gen/{m[1]}-{m[2]}/{'' if folder == '.' else 'drafts-'}{name[:-5]}/{idx:02d}.jpg"
             try:
                 save(call(scene + ". " + STYLE.format(accent=accent)), rel)
             except Exception as e:  # noqa: BLE001
@@ -118,10 +121,10 @@ def main():
             new_block = block.replace(pm.group(0), pm.group(0) + tag, 1)
             html = html[:a.start()] + new_block + html[a.end():]
             changed = True
-            print(f"images: {name} #{idx} → {rel}")
+            print(f"images: {fpath} #{idx} → {rel}")
         if changed:
-            open(name, "w", encoding="utf-8").write(html)
-            made.append(name)
+            open(fpath, "w", encoding="utf-8").write(html)
+            made.append(fpath)
     if OUT and made:
         with open(OUT, "w", encoding="utf-8") as fp:
             fp.write("\n".join(made) + "\n")

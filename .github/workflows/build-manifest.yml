@@ -82,7 +82,7 @@ jobs:
           npx playwright install --with-deps chromium >/dev/null
           node .github/scripts/make_cards.js
 
-      # 오디오 릴스(1080×1920 MP4) — 인스타 게시일에 맞춘 브리프(ai·sports·science·activity, 토요일 daily)의
+      # 오디오 릴스(1080×1920 MP4) — 인스타 게시일에 맞춘 브리프(ai·sports·science·activity, 토요일 music)의
       # 카드 + 낭독 MP3 를 문단 구간에 맞춰 엮는다. 3분이 넘으면 곁가지 문단을 통째로 뺀다. 사건·사고 카드가 있으면 만들지 않는다.
       # 재료(브리프·MP3·도구·렌더러)가 바뀌면 다시 만든다(.reel.json 의 fp). 실패해도 다음 스텝은 돈다.
       - name: Make audio reels (Instagram)

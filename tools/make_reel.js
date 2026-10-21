@@ -17,8 +17,8 @@ const GAP = 0.6, MAX = 180, FIT = 178;
 const BRIEF = /^(\d{4})-(\d{2})-(\d{2})_([a-z]+)-brief\.html$/;
 const TITLE = { ai: "듣는 AI", sports: "듣는 스포츠", science: "듣는 우주", activity: "듣는 주말", travel: "듣는 여행",
   daily: "듣는 뉴스", culture: "듣는 문화", music: "듣는 음악" };
-// 릴스 대상: 인스타 게시일에 맞춘다 — 월 ai · 화 sports · 금(전날 목 activity) · 토 daily · 일 science (README '인스타그램 운영')
-const REEL_OF = (type, wd) => ["ai", "sports", "science", "activity"].includes(type) || (type === "daily" && wd === 6);
+// 릴스 대상: 인스타 게시일에 맞춘다 — 월 ai · 화 sports · 금(전날 목 activity) · 토 music(2026-10-21~, 메인 대신) · 일 science (README '인스타그램 운영')
+const REEL_OF = (type, wd) => ["ai", "sports", "science", "activity"].includes(type) || (type === "music" && wd === 6);
 const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".json": "application/json", ".css": "text/css",
   ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml" };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -247,7 +247,7 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
       const today = kstToday(), cutoff = new Date(Date.parse(today) - 3 * 864e5).toISOString().slice(0, 10), made = [];
       for (const n of fs.readdirSync(ROOT).sort()) {
         const m = n.match(BRIEF); if (!m) continue;
-        const d = `${m[1]}-${m[2]}-${m[3]}`; if (d < cutoff || !(REEL_OF(m[4], wdOf(d)) || (m[4] === "music" && bgmOf(read(n).toString())))) continue;
+        const d = `${m[1]}-${m[2]}-${m[3]}`; if (d < cutoff || !REEL_OF(m[4], wdOf(d))) continue;
         const mp3 = `audio/${m[1]}-${m[2]}/${d}_${m[4]}.mp3`, spec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}.reel.json`;
         if (!fs.existsSync(path.join(ROOT, mp3))) continue;
         if (fs.existsSync(path.join(ROOT, spec)) && JSON.parse(read(spec)).fp === fingerprint(n, mp3)) continue;
