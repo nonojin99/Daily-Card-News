@@ -74,7 +74,7 @@ jobs:
         continue-on-error: true
         env:
           CARDS_OUT: ${{ runner.temp }}/cards.txt
-          CARDS_TYPES: daily,ai,sports,science,baseball,football   # 인스타 코너: 메인 + 월 AI · 화 스포츠 · 일 과학 + 스포츠 계정(야구 나이트·축구 모닝) (금 숫자·토 주말은 묶음으로 자동)
+          CARDS_TYPES: daily,ai,sports,science,baseball,football,event,esports   # 인스타 코너: 메인 + 월 AI · 화 스포츠 · 일 과학 + 스포츠 계정(야구 나이트·축구 모닝) (금 숫자·토 주말은 묶음으로 자동)
           CARDS_FORCE: ${{ github.event.inputs.cards_force }}
         run: |
           sudo apt-get install -y -qq fonts-noto-cjk >/dev/null 2>&1 || echo "::warning::fonts-noto-cjk install failed"

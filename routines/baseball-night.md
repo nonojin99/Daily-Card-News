@@ -17,8 +17,7 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **야구 나이트** 브�
   - **KBO 결과 카드 1장**: 오늘 전 경기 스코어를 `<p class="cn-scores">팀|점수|점수|팀 / …</p>`(최대 6경기)로, 본문에 경기별 결승타·승리투수 한 줄씩.
   - 순위·매직넘버·시리즈 상황 카드(`cn-bars`·`cn-num`), 그날 가장 큰 경기 1~2장(`cn-score`).
   - **MLB**: 한국 선수 출전 경기·포스트시즌·큰 기록만 1~2장. 15경기 전부 쓰지 않는다.
-  - 롤 e스포츠(LCK·MSI·월즈)가 오늘 저녁 끝났으면 1장 얹을 수 있다.
-- 사진·AI 그림 금지. 인사이트 태그 `⚾ 알고 보면 달라지는 것`(롤은 `🎮`).
+- 사진·AI 그림 금지. 인사이트 태그 `⚾ 알고 보면 달라지는 것`.
 - 낭독 원고 700~1,300자: 훅 한 문장(첫 카드 핵심+숫자) → "M월 D일 X요일, 야구 나이트입니다." → 카드 순서대로 → 클로징.
 - 파일 끝 `<!-- tracker: … -->`: 순위·시리즈 현재 상태 / 오늘 다룬 경기 / 제외 이유.
 
@@ -28,7 +27,12 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **야구 나이트** 브�
 - WebFetch 403(시도 금지): yna.co.kr · mk.co.kr · donga.com · chosun.com · hani.co.kr · news.kbs.co.kr · imnews.imbc.com · naver.com · olympics.com
 - 스코어·순위·기록은 기사 본문에서 확인, 두 매체가 어긋나면 빼거나 "매체별 표기 불일치". 시각은 한국시간(원문이 현지시간이면 변환 근거).
 - 각 사실이 어느 URL 본문에 있는지 URL 단위로 기록, 같은 URL 3개 이상 카드 재사용 금지, 위키·블로그·언론사 홈 링크 금지.
-- 서브에이전트 A = KBO(경기 결과·순위·기록), B = MLB(한국 선수·포스트시즌)+롤. KBO 결과는 경기 종료 직후 기사(스포츠경향·스포티비뉴스·뉴스1·뉴시스)를 쓴다.
+- 서브에이전트 A = KBO(경기 결과·순위·기록), B = MLB(한국 선수·포스트시즌) + **오늘 저녁 끝난 롤 e스포츠 큰 경기**(아래 별도 브리프용). KBO 결과는 경기 종료 직후 기사(스포츠경향·스포티비뉴스·뉴스1·뉴시스)를 쓴다.
+
+## 🎮 e스포츠는 따로 (야구 브리프에 섞지 않는다)
+- 오늘 저녁 롤 **큰 경기**(LCK 플레이오프·결승, MSI, 월즈, 한국 팀 국제전)가 끝났으면 **별도 파일 `YYYY-MM-DD_esports-brief.html`**(카드 2~4장, 액센트 `#4a4fa0`/`#ecedf6`, 인사이트 태그 `🎮 알고 보면 달라지는 것`)을 만든다. 일반 정규 시즌 경기는 다루지 않는다.
+- 낭독 원고 400~800자("M월 D일 X요일, e스포츠 브리프입니다."), tracker 주석, 카드 검토 하네스·push 관문은 야구 브리프와 똑같이 따로 거친다.
+- 인스타는 별도 캐러셀: 캡션 `captions/YYYY-MM-DD_esports.txt`(첫 줄 `[🎮 e스포츠] …`), 요청 항목 `"media":"cards/YYYY-MM/YYYY-MM-DD_esports-brief"`, `"account":"sports"`.
 
 ## 인스타
 - 캡션 `captions/YYYY-MM-DD_baseball.txt`(첫 줄 `[⚾ 야구 나이트] …`), 요청 `{"kind":"carousel","media":"cards/YYYY-MM/YYYY-MM-DD_baseball-brief","caption":"captions/YYYY-MM-DD_baseball.txt","dry_run":"false","is_ai":"false","account":"sports"}`. 릴스는 만들지 않는다.
