@@ -107,6 +107,7 @@
   .foot .h{font-weight:700;color:var(--accent);letter-spacing:.02em}
   .cover.end .follow{font-size:5.4cqw;font-weight:900;color:#fff;order:8}
   .cover.end .follow small{display:block;font-size:2.8cqw;font-weight:500;opacity:.7;margin-top:1.4cqw;letter-spacing:.02em}
+  .cover.end .follow small.xlink{opacity:.95;font-weight:700;margin-top:1cqw}
   .cover.end{background:#1a1a18} .cover.end h2{margin-top:5cqw;font-size:5.8cqw}
   .cover.end ol{margin-top:5cqw;grid-template-columns:1fr 1fr;column-gap:4cqw;row-gap:0;font-size:2.9cqw}
   .cover.end ol.one{grid-template-columns:1fr;margin-top:3cqw;font-size:2.7cqw}
@@ -618,9 +619,9 @@ async function zipStore(files){
     // 마지막 장: 출처 — 매체 이름과 앱 안내, AI 이미지가 있으면 표시
     h += `<section class="slide cover end" aria-label="출처"><div class="in">
         <div class="k">SOURCES · 출처</div>
-        <h2>원문과 전체 브리프는<br>Daily Brief 앱에서</h2>
+        <h2>원문과 전체 브리프는<br>프로필 링크의 앱에서</h2>
         <ol${cards.some(c => (c.credit || "").length > 14) ? ' class="one"' : ""}>${cards.slice(0, 8).map((c, i) => `<li><b>${i + 1}</b><span>${esc(c.credit || "—")}</span></li>`).join("")}</ol>
-        <div class="follow">${HANDLE}<small>${SPORTS ? "⚾ 야구 나이트 매일 밤 · ⚽ 축구 모닝 경기 다음 날 · 🏆 큰 대회는 따로" : "월 AI · 화 머니 · 수 OTT·게임 · 목 푸드 · 금 주말 뭐하지 · 토&nbsp;숫자&nbsp;+&nbsp;음악 · 일&nbsp;우주"}</small></div>
+        <div class="follow">${HANDLE}<small>${SPORTS ? "⚾ 매일 밤 야구 · ⚽ 다음 날 아침 축구 · 🏆 빅이벤트" : "월 AI · 화 머니 · 수 OTT · 목 푸드 · 금 주말 · 토 음악 · 일 우주"}</small><small class="xlink">${SPORTS ? "📰 오늘의 뉴스·생활 코너는 @hannun.brief" : "⚾⚽ 야구·축구는 @hannun.sports"}</small></div>
         <div class="wx">각 카드는 기사 내용을 직접 요약하고 도표·지도·개념도를 새로 그렸습니다.${cards.some(c => c.pc) ? " 이미지는 아래 크레디트의 공개 자료입니다." : ""}${cards.some(c => c.ai) ? " 일부 그림은 AI로 생성했습니다." : ""} 수치는 바뀔 수 있어요.${[...new Set(cards.map(c => c.pc).filter(Boolean))].map(x => `<br>${esc(x)}`).join("")}</div>
       </div></section>`;
     h += `</div>
@@ -641,7 +642,11 @@ async function zipStore(files){
     paint();
 
     // Actions 가 구운 인스타용 JPG 가 있으면 저장용 목록을 보여 준다
-    if(!PNG){
+    // 일괄 저장 패널은 관리자 기기에만(2026-10-21): 앱 주소에 ?admin=1 로 한 번 열면 그 기기에 기억, ?admin=0 으로 끈다.
+    // 화면 정리용일 뿐 보안이 아니다 — 카드 JPG 는 공개 주소에 있다.
+    const ADMIN = (() => { try { const v = qs.get("admin"); if(v === "1") localStorage.setItem("dcn-admin", "1"); if(v === "0") localStorage.removeItem("dcn-admin");
+      return localStorage.getItem("dcn-admin") === "1"; } catch { return qs.get("admin") === "1"; } })();
+    if(!PNG && ADMIN){
       const dir = `../cards/${y}-${m}/${MIX ? `${D}_${MIX}` : F.replace(/\.html$/, "")}/`;
       const names = slides.map((_, i) => String(i + 1).padStart(2, "0") + ".jpg");
       fetch(dir + names[0], {method: "HEAD", cache: "no-cache"}).then(r => {
