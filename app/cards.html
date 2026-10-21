@@ -577,7 +577,7 @@ async function zipStore(files){
     const N = cards.length + 2;   // 표지 + 카드 + 출처
     const kicker = series ? series.kicker : clean(main.doc.querySelector(".kicker")?.textContent).split("·")[0] || "Daily Brief";
     // 분야 이름 — 브리프 종류(파일명)로 정한다. 색만으로는 처음 온 사람이 코너를 구분하지 못한다
-    const CAT = {daily: "오늘의 뉴스", ai: "AI·테크", sports: "스포츠", baseball: "⚾ 야구 나이트", football: "⚽ 축구 모닝", event: "🏆 이벤트 픽", esports: "🎮 e스포츠", culture: "문화", music: "음악", travel: "여행", activity: "주말 액티비티", science: "우주·과학"};
+    const CAT = {daily: "오늘의 뉴스", ai: "AI·테크", sports: "스포츠", baseball: "⚾ 야구 나이트", football: "⚽ 축구 모닝", event: "🏆 이벤트 픽", esports: "🎮 e스포츠", money: "💰 머니", health: "🩺 헬스", ott: "📺 OTT·게임", food: "🍜 푸드", culture: "문화", music: "음악", travel: "여행", activity: "주말 액티비티", science: "우주·과학"};
     const cat = series ? series.name : (CAT[(F.match(/_([a-z]+)-brief\.html$/) || [])[1]] || "");
     const wx = !series && main.doc.querySelector(".weather");
     if(wx) wx.querySelector(".wx-note")?.remove();
