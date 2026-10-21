@@ -365,10 +365,17 @@ function infoOf(a, geo, year){
       ${[[sc[0], 66], [sc[3], 334]].map(([t, x]) => `<text x="${x}" y="112" text-anchor="middle" class="ig-team" style="font-size:${t.length > 5 ? 14 : t.length > 3 ? 17 : 22}px">${esc(t)}</text>`).join("")}
       ${dots(39, Number(sc[1]) || 0)}${dots(295, Number(sc[2]) || 0)}<line x1="40" x2="360" y1="156" y2="156" class="ig-line"/>${lines(note, 200, 184, "ig-k")}`;
   }else if(lk && lk.length >= 3){
-    g = `<rect x="20" y="36" width="140" height="70" rx="16" class="ig-node"/><text x="90" y="79" text-anchor="middle" class="ig-nodet w">${esc(lk[0])}</text>
-      <rect x="240" y="36" width="140" height="70" rx="16" class="ig-node2"/><text x="310" y="79" text-anchor="middle" class="ig-nodet">${esc(lk[2])}</text>
+    // 상자 글자는 상자(폭 124)에 맞춘다 — 길면 가운데 띄어쓰기에서 두 줄로, 그래도 길면 글자를 줄인다(2026-10-21: 긴 인용이 상자 밖으로 넘쳤다)
+    const nodeT = (t, cx, cls) => { let ls = [t];
+      if(t.length > 7 && t.includes(" ")){ const sp = [...t.matchAll(/ /g)].map(m => m.index), mid = sp.reduce((p, q) => Math.abs(q - t.length / 2) < Math.abs(p - t.length / 2) ? q : p);
+        ls = [t.slice(0, mid), t.slice(mid + 1)]; }
+      const fs = Math.min(19, Math.floor(124 / Math.max(...ls.map(l => l.length)) / .95));
+      return ls.map((l, i) => `<text x="${cx}" y="${(ls.length === 1 ? 79 : 66 + i * (fs + 6)) + (ls.length === 1 ? 0 : fs / 3)}" text-anchor="middle" class="${cls}" style="font-size:${fs}px">${esc(l)}</text>`).join(""); };
+    const pw = Math.min(360, lk[1].length * 13 + 28);
+    g = `<rect x="20" y="36" width="140" height="70" rx="16" class="ig-node"/>${nodeT(lk[0], 90, "ig-nodet w")}
+      <rect x="240" y="36" width="140" height="70" rx="16" class="ig-node2"/>${nodeT(lk[2], 310, "ig-nodet")}
       <path d="M162 71 H226" class="ig-arrow"/><path d="M236 71 l-12 -8 v16z" class="ig-ah"/>
-      <rect x="${200 - (lk[1].length * 7 + 24) / 2}" y="112" width="${lk[1].length * 7 + 24}" height="28" rx="14" class="ig-pill"/><text x="200" y="131" text-anchor="middle" class="ig-pillt">${esc(lk[1])}</text>
+      <rect x="${200 - pw / 2}" y="112" width="${pw}" height="28" rx="14" class="ig-pill"/><text x="200" y="131" text-anchor="middle" class="ig-pillt">${esc(lk[1])}</text>
       ${nums[0] ? `<text x="200" y="196" text-anchor="middle" class="ig-mid">${esc(nums[0].v)}</text><text x="200" y="222" text-anchor="middle" class="ig-k">${esc(nums[0].l)}</text>` : lines(note, 200, 196, "ig-k")}`;
   }else if(sh && sh.length >= 2){
     g = `<rect x="30" y="40" width="140" height="62" rx="14" class="ig-ghost"/><text x="100" y="79" text-anchor="middle" class="ig-strike">${esc(sh[0])}</text>
@@ -428,7 +435,7 @@ function visualOf(a, geo, year){
   // 우선순위(2026-10-21 사용자 결정): ① 라이선스 확인된 실제 이미지 ② AI 일러스트 ③ 도표·개념도 ④ 정보 그림 ⑤ 정보 시트
   // AI 그림은 작성자가 cn-img 를 넣은 카드에만 생긴다(사건·정치·스포츠 등은 make_images 가 거른다). 생성 전·실패 시엔 ③④가 그대로 나온다.
   const ph = photoOf(a); if(ph) return ph.html;
-  const gen = INFO_FIRST ? null : genOf(a); if(gen) return gen;
+  const gen = INFO_FIRST || MIX === "week7" ? null : genOf(a); if(gen) return gen;   // 이번 주 숫자 묶음은 숫자 그림을 쓴다
   const chart = chartOf(a); if(chart) return chart;
   return infoOf(a, geo, year) || (MIX ? null : sheetOf(a));
 }
