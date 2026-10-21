@@ -23,7 +23,7 @@ const srv = http.createServer((q, r) => {
   const b = await pw.chromium.launch(exe ? { executablePath: exe } : {});
   const pg = await b.newPage({ viewport: { width: 1080, height: 1350 } });
   let blocked = 0;
-  await pg.route(/https:\/\/cdn\.(esawebb|esahubble)\.org\//, async rt => {
+  await pg.route(/https:\/\/(cdn\.(esawebb|esahubble)\.org|(upload|thumb)\.wikimedia\.org)\//, async rt => {
     try { await rt.fulfill({ response: await rt.fetch({ timeout: 8000 }) }); }
     catch { blocked++; await rt.fulfill({ contentType: "image/svg+xml", body: PH }); }
   });

@@ -4,7 +4,7 @@
 //   node tools/make_reel.js --auto <브리프.html>     구간 자동 계산 → reels/YYYY-MM/<날짜>_<종류>.mp4 + .reel.json
 //   node tools/make_reel.js --recent                 Actions 용: 최근 3일 릴스 대상 브리프 중 없거나 재료가 바뀐 것만 (REELS_OUT 에 만든 파일 목록)
 //
-//   spec = { "brief", "audio", "out", "title", "segments": [[시작초, 끝초, 슬라이드 번호(1=표지, 마지막=출처 장), (1이면 다음 구간과 쉼 없이 이어짐)], …] }
+//   spec = { "brief", "audio", "out", "title", ("bgm": {"src", "credit"}), "segments": [[시작초, 끝초, 슬라이드 번호(1=표지, 마지막=출처 장), (1이면 다음 구간과 쉼 없이 이어짐)], …] }
 //
 // 구간 규칙(README '릴스'): 문단 단위로만 자르고 문단 안은 자르지 않는다. 180초 이하 — 넘으면 가장 긴 본문 문단부터 통째로 뺀다
 // (첫 문단·끝인사·날씨 문단은 남긴다). 문단 시간은 make_audio.py 가 남긴 audio/…/<이름>.json, 없으면 원고 글자 수 비율 → 가까운 긴 쉼.
@@ -26,6 +26,24 @@ const read = p => fs.readFileSync(path.join(ROOT, p));
 const sha = (...xs) => { const h = crypto.createHash("sha1"); xs.forEach(x => h.update(x)); return h.digest("hex"); };
 const kstToday = () => new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
 const wdOf = d => new Date(d + "T00:00:00Z").getUTCDay();
+// 배경음(README '음악 브리프 — 음원'): <div class="reel-bgm" hidden data-src="…" data-credit="…"> — 퍼블릭 도메인·CC0·CC BY 녹음만.
+// data-src 는 Wikimedia Commons 원본(upload.wikimedia.org) 또는 저장소 안 audio/pd/ 경로. 낭독 아래에 작게 깐다.
+const BGM_OK = /^(https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\/|audio\/pd\/)/;
+const BGM_VOL = 0.12;
+function bgmOf(html) {
+  const t = (html.match(/<div class="reel-bgm"[^>]*>/) || [])[0]; if (!t) return null;
+  const at = k => ((t.match(new RegExp(`${k}="([^"]*)"`)) || [])[1] || "").replace(/&amp;/g, "&");
+  const src = at("data-src"), credit = at("data-credit");
+  return BGM_OK.test(src) && credit ? { src, credit } : null;
+}
+async function bgmFile(bgm, tmp) {
+  if (!/^https:/.test(bgm.src)) return path.join(ROOT, bgm.src);
+  const r = await fetch(bgm.src, { headers: { "User-Agent": "Daily-Card-News reel maker (https://github.com/nonojin99/Daily-Card-News)" } });
+  if (!r.ok) throw new Error(`배경음 내려받기 실패 ${r.status}`);
+  const f = path.join(tmp, "bgm" + (path.extname(new URL(bgm.src).pathname) || ".ogg"));
+  fs.writeFileSync(f, Buffer.from(await r.arrayBuffer()));
+  return f;
+}
 
 // 원고 문단(낭독 원고 <details class="audio-script"> 의 <p>)
 function scriptParas(html) {
@@ -80,7 +98,7 @@ async function browser() {
 // 카드 렌더(쪽수 칩 숨김) → PNG 경로들 + 분야 이름·색
 async function renderCards(b, base, brief, tmp) {
   const pg = await b.newPage({ viewport: { width: 1080, height: 1350 } });
-  await pg.route(/https:\/\/cdn\.(esawebb|esahubble)\.org\//, async rt => {
+  await pg.route(/https:\/\/(cdn\.(esawebb|esahubble)\.org|(upload|thumb)\.wikimedia\.org)\//, async rt => {
     try { await rt.fulfill({ response: await rt.fetch({ timeout: 8000 }) }); } catch { await rt.abort(); }
   });
   await pg.goto(`${base}/app/cards.html?f=${encodeURIComponent(brief)}&png=1`, { waitUntil: "networkidle" });
@@ -129,6 +147,7 @@ async function build(spec, b, base) {
   const fr = await b.newPage({ viewport: { width: 1080, height: 1920 } });
   const N = spec.segments.length;
   const hook = hookOf(read(spec.brief).toString());
+  const bgmNote = spec.bgm ? ` · 배경음악 ${esc(spec.bgm.credit)}` : "";
   for (let k = 0; k < N; k++) {
     // 맨 앞 표지 구간(첫 문단)은 훅 카드로 — 날씨 문단 등 뒤쪽 표지 구간은 그대로
     if (hook && spec.segments.slice(0, k + 1).every(g => g[2] === 1)) {
@@ -143,11 +162,11 @@ async function build(spec, b, base) {
 .mid{position:absolute;left:90px;right:150px;top:470px}
 .num{font-weight:900;font-size:190px;line-height:1;letter-spacing:-.03em}.lab{font-size:44px;font-weight:700;margin:18px 0 70px;opacity:.9}
 .h{font-weight:900;font-size:${fs_}px;line-height:1.22;letter-spacing:-.03em;white-space:nowrap}
-.ft{position:absolute;left:90px;top:1500px;font-size:34px;opacity:.85}</style></head>
+.ft{position:absolute;left:90px;right:90px;top:1500px;font-size:34px;opacity:.85}</style></head>
 <body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">🎧 ${esc(spec.title)}</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
 <div class="mid">${hook.num ? `<div class="num">${esc(hook.num)}</div><div class="lab">${esc(hook.label)}</div>` : `<div style="height:40px"></div>`}
 ${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
-<div class="ft"><b>@hannun.brief</b> · AI 음성 낭독(Google TTS)</div></body></html>`, { waitUntil: "networkidle" });
+<div class="ft"><b>@hannun.brief</b> · AI 음성 낭독(Google TTS)${bgmNote}</div></body></html>`, { waitUntil: "networkidle" });
       await fr.screenshot({ path: path.join(tmp, `f${k}.png`) });
       continue;
     }
@@ -162,10 +181,10 @@ ${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
 .card img{display:block;width:100%}
 .bar{position:absolute;left:97px;right:97px;top:1472px;height:8px;border-radius:9px;background:#e1ddd2}
 .bar i{display:block;height:100%;width:${((k + 1) / N * 100).toFixed(1)}%;border-radius:9px;background:${meta.ac}}
-.ft{position:absolute;left:97px;top:1508px;font-size:32px;color:#55554f}.ft b{color:#3d5a4c}</style></head>
+.ft{position:absolute;left:97px;right:97px;top:1508px;font-size:32px;color:#55554f}.ft b{color:#3d5a4c}</style></head>
 <body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">🎧 ${esc(spec.title)}</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
 <div class="card"><img src="${img}"></div><div class="bar"><i></i></div>
-<div class="ft"><b>@hannun.brief</b> · AI 음성 낭독(Google TTS)</div></body></html>`, { waitUntil: "networkidle" });
+<div class="ft"><b>@hannun.brief</b> · AI 음성 낭독(Google TTS)${bgmNote}</div></body></html>`, { waitUntil: "networkidle" });
     await fr.screenshot({ path: path.join(tmp, `f${k}.png`) });
   }
   await fr.close();
@@ -174,6 +193,13 @@ ${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
   const list = spec.segments.map(([s, e], k) => `file 'f${k}.png'\nduration ${(e - s + (gapAfter(k) ? GAP : 0)).toFixed(3)}`).join("\n") + `\nfile 'f${N - 1}.png'\n`;
   fs.writeFileSync(path.join(tmp, "list.txt"), list);
   execFileSync("ffmpeg", ["-v", "error", "-y", "-i", path.join(ROOT, spec.audio), "-filter_complex", filter, "-map", "[a]", "-ar", "44100", "-c:a", "aac", "-b:a", "128k", path.join(tmp, "a.m4a")]);
+  if (spec.bgm) {   // 낭독(첫 입력) 길이에 맞춰 배경음을 반복·자르고, 앞뒤를 부드럽게
+    const f = await bgmFile(spec.bgm, tmp), fo = Math.max(0, total - 2.5).toFixed(2);
+    execFileSync("ffmpeg", ["-v", "error", "-y", "-i", path.join(tmp, "a.m4a"), "-stream_loop", "-1", "-i", f, "-filter_complex",
+      `[1:a]atrim=0:${total.toFixed(2)},asetpts=PTS-STARTPTS,volume=${BGM_VOL},afade=t=in:d=1.5,afade=t=out:st=${fo}:d=2.5[b];[0:a][b]amix=inputs=2:duration=first:normalize=0[m]`,
+      "-map", "[m]", "-ar", "44100", "-c:a", "aac", "-b:a", "128k", path.join(tmp, "am.m4a")]);
+    fs.renameSync(path.join(tmp, "am.m4a"), path.join(tmp, "a.m4a"));
+  }
   const out = path.join(ROOT, spec.out); fs.mkdirSync(path.dirname(out), { recursive: true });
   execFileSync("ffmpeg", ["-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", path.join(tmp, "list.txt"), "-i", path.join(tmp, "a.m4a"),
     "-vf", "fps=30,format=yuv420p", "-c:v", "libx264", "-preset", "medium", "-crf", "23", "-c:a", "copy", "-shortest", "-movflags", "+faststart", out]);
@@ -196,6 +222,7 @@ async function autoOne(brief, b, base) {
   const a = autoSegments(paras, spans, cards.files.length);
   const base_ = `reels/${m[1]}-${m[2]}/${m[1]}-${m[2]}-${m[3]}_${m[4]}`;
   const spec = { brief, audio: mp3, out: base_ + ".mp4", title: `${Math.max(1, Math.round(a.total / 60))}분 ${TITLE[m[4]] || "듣는 브리프"}`,
+    ...(bgmOf(html) ? { bgm: bgmOf(html) } : {}),
     segments: a.segments, dropped_paragraphs: a.dropped.map(i => i + 1),
     note: a.dropped.length ? `3분을 넘어 원고 ${a.dropped.map(i => i + 1).join("·")}번째 문단을 뺐다 — 캡션에 "전체 낭독은 앱에서"` : "원고 전체" };
   spec._cards = cards;
@@ -220,7 +247,7 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
       const today = kstToday(), cutoff = new Date(Date.parse(today) - 3 * 864e5).toISOString().slice(0, 10), made = [];
       for (const n of fs.readdirSync(ROOT).sort()) {
         const m = n.match(BRIEF); if (!m) continue;
-        const d = `${m[1]}-${m[2]}-${m[3]}`; if (d < cutoff || !REEL_OF(m[4], wdOf(d))) continue;
+        const d = `${m[1]}-${m[2]}-${m[3]}`; if (d < cutoff || !(REEL_OF(m[4], wdOf(d)) || (m[4] === "music" && bgmOf(read(n).toString())))) continue;
         const mp3 = `audio/${m[1]}-${m[2]}/${d}_${m[4]}.mp3`, spec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}.reel.json`;
         if (!fs.existsSync(path.join(ROOT, mp3))) continue;
         if (fs.existsSync(path.join(ROOT, spec)) && JSON.parse(read(spec)).fp === fingerprint(n, mp3)) continue;

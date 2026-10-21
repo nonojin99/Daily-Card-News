@@ -334,6 +334,11 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
    - Commons 에서 쓰지 않는 것: **"미국에서만 퍼블릭 도메인"**(PD-US 등 한국 보호기간 미확인), 라이선스 틀이 없거나 "저작권 주장"·삭제 토론 중인 파일,
      **살아 있는 인물이 주인공인 사진**(초상·퍼블리시티권), 포스터·앨범 커버·로고(Commons 에 있어도 대부분 비자유 파일).
    - 쓸 만한 예: 작가 사후 70년이 지난 작품(김홍도·정선 등 옛 그림, 고전 회화), 클래식 작곡가 초상(옛 그림·사진), 공연장·미술관 건물 사진(CC BY/BY-SA), 천체 사진(ESA).
+   - **문화 브리프는 "작품 대신 실제 장소·현장"** (2026-10-21 첫 적용): 전시가 열리는 미술관 건물, 공연장, 시상이 열린 영화제 현장(그해 사진이면 더 좋다).
+     AI 그림은 실제 장소와 달라 괴리가 생기므로 **특정 장소·행사 카드에는 AI 를 쓰지 않는다** — 실제 사진이 없으면 ③ 그림으로 둔다.
+     사진이 현재 전시·행사가 아니면 캡션에 **촬영 연도와 "자료 사진"**을 적고, 다른 전시 현수막 등이 보이면 그 사실도 적는다.
+     어느 관(본관·분관)인지 기사에 없으면 건물 사진을 쓰지 않는다. 찾는 법: Commons 검색 API(`commons.wikimedia.org/w/api.php?action=query&list=search&srnamespace=6&srsearch=…`) →
+     `prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=1280` 으로 라이선스·작가·촬영일·1280px 썸네일(`thumb.wikimedia.org/…`) 확인. User-Agent 에 저장소 주소를 넣고, 429 가 나면 10초 넘게 쉬었다 다시.
      **근현대 작가(유영국 1916~2002, 서세옥 1929~2020 등)의 작품은 보호기간 중**이라 쓰지 않는다.
    - 표기: `<figure class="photo" data-card-cap="한 줄 설명"><img src="URL" data-remote="URL" alt="…"><figcaption class="credit"><a href="파일 페이지">작가 · 라이선스 · Wikimedia Commons</a></figcaption></figure>`.
      push 하면 Actions(`localize_images.py`)가 저장소로 내려받는다. Commons 원본이 크면 `…/thumb/…/1280px-…` 형식 썸네일 URL 을 쓴다.
@@ -348,10 +353,38 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
 
 - **K-POP·팝 음원 클립은 넣지 않는다.** 곡(작사·작곡)과 음반(제작사·실연자) 권리가 모두 살아 있고, 한국 저작권법에는 "몇 초 이하면 괜찮다"는 규정이 없다. 인스타 API 로 올리면 음원 탐지로 음소거·삭제될 수 있다.
 - **클래식도 '곡'만 자유롭다.** 작곡가 사후 70년이 지난 곡은 퍼블릭 도메인이지만, **연주 녹음에는 실연자·음반제작자 권리(저작인접권, 발매 후 70년)**가 따로 있다. 유튜브·음원 사이트의 연주를 잘라 쓰면 안 된다.
-- 쓸 수 있는 길 (아직 구현 안 함 — 사용자 결정 대기):
-  1. **앱에서 공식 영상 구간 재생** — 공식 채널 유튜브를 `youtube.com/embed/ID?start=초&end=초` 로 넣으면 "주요 구절"만 재생된다(권리자가 허용한 플레이어). 카드 이미지·릴스에는 못 넣는다.
-  2. **퍼블릭 도메인·CC0 녹음** — Musopen(CC0·PD 표기 확인), Wikimedia Commons 음원(PD·CC BY), 미국 군악대 등 미국 정부 녹음(PD). 클래식 릴스 배경음 후보. 그래도 음원 탐지 오탐 가능.
-  3. **악보에서 직접 합성** — 퍼블릭 도메인 곡의 주요 선율을 MIDI 로 적어 무료 사운드폰트로 합성. 권리 문제는 없지만 소리가 단순하다.
+- **결정(2026-10-21): 앱은 ① 공식 영상 구간 재생, 릴스는 ② 퍼블릭 도메인 녹음.** ③ 악보 합성은 쓰지 않는다.
+
+**① 앱 — '들어 보기' 구간 (`figure.listen`, 음악 브리프 본문)**
+- 공식 채널(아티스트·소속사·레이블·악단·공연장 공식) 유튜브만. 팬 채널·재업로드·가사 영상 금지.
+- 카드 한 장에 하나까지, 구간은 15~90초. iframe 은 `youtube-nocookie.com/embed/ID?start=초&end=초&rel=0`(권리자가 허용한 플레이어 그대로 — 영상을 내려받거나 자르지 않는다).
+- **구간 근거(`data-basis`)가 있어야 한다.** 영상 설명란 챕터(예: "2:31 3악장"), 기사 본문의 시간 언급, 공식 하이라이트 영상 등.
+  근거가 없으면 '주요 구절'이라 하지 않고 `start=0` 으로 처음 30~60초만 건다(캡션 "처음부터 들어 보기").
+- 카드 이미지·릴스에는 넣지 않는다(렌더러가 무시). 인스타에는 영상 링크를 캡션에 적지 않는다(오디오는 앱에서만).
+- 검사: `python3 tools/check_youtube.py <브리프>` — 형식·구간 길이·퍼가기 허용(oEmbed 200)·캡션의 채널 이름·원본 링크·근거. 출력된 채널 이름이 공식인지 눈으로 확인.
+```html
+<figure class="listen" data-basis="공식 영상 설명란 챕터 '1:02 Chorus'">
+  <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/VIDEOID?start=62&amp;end=92&amp;rel=0" title="곡명 공식 뮤직비디오 1:02~1:32"
+    loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+  <figcaption>▶ 1:02~1:32 들어 보기 — 후렴 · 공식 채널 <b>채널 이름</b> · <a href="https://www.youtube.com/watch?v=VIDEOID&amp;t=62s">유튜브에서 열기</a></figcaption>
+</figure>
+```
+```css
+.listen{margin:4px 0 18px}
+.listen .yt{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#111}
+.listen iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.listen figcaption{padding:9px 2px 0;font-size:12.5px;color:var(--muted);line-height:1.55}
+.listen figcaption a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+```
+
+**② 릴스 — 클래식 배경음 (`div.reel-bgm`, 음악 브리프)**
+- **곡도 녹음도 자유로운 것만**: Wikimedia Commons 음원 중 파일 페이지 라이선스가 **퍼블릭 도메인·CC0·CC BY** 인 녹음(Musopen 기증 녹음, 미국 군악대 등 미국 정부 녹음 등).
+  "곡은 퍼블릭 도메인이지만 녹음은 저작권 있음"인 파일, CC BY-SA·NC 녹음, 라이선스 표기 없는 파일은 쓰지 않는다. 파일 페이지를 WebFetch 로 열어 연주자·라이선스를 확인한다.
+- 브리프에 한 줄(낭독 원고 `</details>` 바로 뒤): `<div class="reel-bgm" hidden data-src="https://upload.wikimedia.org/wikipedia/commons/…/파일.ogg" data-page="파일 페이지 URL" data-credit="베토벤 월광 1악장 · 연주자 · 퍼블릭 도메인"></div>`
+  (`data-credit` 은 24자 안팎 — 릴스 화면 아래에 "배경음악 …"으로 나온다. 원본 파일 URL 은 파일 페이지의 "Original file" 링크.)
+- push 하면 Actions(`tools/make_reel.js`)가 내려받아 **낭독 아래에 작게(볼륨 0.12) 반복**해 깔고 앞뒤를 페이드한다. 배경음이 있는 음악 브리프는 요일과 상관없이 릴스를 만든다.
+- 음악 릴스는 **아직 인스타 게시 요일이 없다**(토요일은 '이번 주 숫자'). 게시하려면 사용자가 요일을 정한다. 캡션에 배경음 크레디트(곡·연주자·라이선스·파일 페이지)를 꼭 적는다.
+- 음원 탐지 오탐으로 음소거될 수 있다 — 그러면 그 곡은 다음부터 쓰지 않는다.
 - 가사 인용도 하지 않는다(짧아도 저작물).
 
 #### 카드 검토 하네스 — 2단계 최종 확인 (2026-10-18~, 건너뛰지 말 것)
