@@ -197,6 +197,7 @@ const store = { get(k){ try{ return localStorage.getItem(k); }catch(e){ return n
                 set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} } };
 
 let FILES = [], tab = "today", chip = "all";
+const NIGHT = new Set(["baseball", "esports"]);   // 밤에 발행돼 다음 날 아침 '오늘'에도 뜨는 브리프
 const detailCache = new Map();
 
 // ── 브리프 HTML 에서 제목·리드·날씨·오디오 뽑기 ──
@@ -237,8 +238,11 @@ async function drawToday(){
   const v = $("view");
   if(!FILES.length){ v.innerHTML = '<div class="state">아직 발행된 브리프가 없습니다.</div>'; return; }
   const latest = FILES[0].date;
-  const todays = FILES.filter(f => f.date === latest);
-  const others = FILES.filter(f => f.date !== latest);
+  // 밤 브리프(야구 나이트 23:30·e스포츠)는 다음 날 아침에 읽힌다 — 전날 밤 것도 '오늘'에 묶는다(2026-10-22 사용자 요청)
+  const eve = new Date(new Date(latest + "T00:00:00") - 864e5), eveD = `${eve.getFullYear()}-${String(eve.getMonth()+1).padStart(2,"0")}-${String(eve.getDate()).padStart(2,"0")}`;
+  const lastNight = f => NIGHT.has(f.type) && f.date === eveD;
+  const todays = [...FILES.filter(f => f.date === latest), ...FILES.filter(lastNight)];
+  const others = FILES.filter(f => f.date !== latest && !lastNight(f));
   const dates = [...new Set(others.map(f => f.date))];
   const prevDate = dates[0];
   const prevFiles = prevDate ? others.filter(f => f.date === prevDate) : [];
@@ -266,7 +270,7 @@ async function drawToday(){
       <div class="pa-s">${queue.length ? queue.map(q => typeOf(q.f.type).label).join(" → ") + (total ? ` · 약 ${total}분` : "") : "오디오 준비 중 — 발행 직후 몇 분 걸려요"}</div></span>
     </button>
     <div class="sec"><span>오늘의 브리프</span><i></i></div>`;
-  todays.forEach((f,i) => { h += bcHtml(f, ds[i], false); });
+  todays.forEach((f,i) => { h += bcHtml(f, ds[i], false, f.date !== latest); });
   if(prevFiles.length){
     const diff = Math.round((new Date(latest) - new Date(prevDate)) / 864e5);
     h += `<div class="sec"><span>${diff === 1 ? "어제" : "직전 발행"} · ${esc(fmtDay(prevDate))}</span><i></i></div>`;
@@ -298,11 +302,11 @@ function seriesOf(f){
   if(f.type === (nu ? "travel" : "activity") && wd === (nu ? 5 : 6)) return {mix: "weekend", name: "주말 뭐하지"};
   return null;
 }
-function bcHtml(f, d, small){
+function bcHtml(f, d, small, night){
   const t = typeOf(f.type), ac = d ? d.ac : t.ac;
   const picks = !small && d && d.picks && d.picks.length ? d.picks : [];
   return `<article class="bc${small ? " sm" : ""}" style="--ac:${ac};--acs:${soft(ac)}">
-      <span class="badge">${esc(t.label)}</span>
+      <span class="badge">${esc(t.label)}${night ? " · 어젯밤" : ""}</span>
       <h2>${esc(d ? d.title : t.label + " 브리프")}</h2>
       ${!small && d && d.lede ? `<p>${esc(d.lede)}</p>` : ""}
       ${picks.length ? `<ol class="pk">${picks.slice(0,3).map((p,k) => `<li><b>${k+1}</b><span>${esc(p)}</span></li>`).join("")}${picks.length > 3 ? `<li class="more">외 ${picks.length - 3}개 항목</li>` : ""}</ol>` : ""}
