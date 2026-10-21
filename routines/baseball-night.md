@@ -40,6 +40,7 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **야구 나이트** 브�
 
 ## 인스타
 - 캡션 `captions/YYYY-MM-DD_baseball.txt`(첫 줄 `[⚾ 야구 나이트] …`), 요청 `{"kind":"carousel","media":"cards/YYYY-MM/YYYY-MM-DD_baseball-brief","caption":"captions/YYYY-MM-DD_baseball.txt","dry_run":"false","is_ai":"false","account":"sports"}`. 릴스는 만들지 않는다.
+- **캡션 해시태그는 최대 5개**(넘으면 게시 스크립트가 거부 — 10/21 첫 회가 9개·8개로 실패). e스포츠 캡션도 같다.
 
 ## 검토 (건너뛰지 말 것)
 1. 브리프 검토 하네스: 검증 전용 서브에이전트가 README 체크리스트 전 항목 PASS/FAIL(특히 숫자 정합성·라운드 표기·날짜 최신성·추측 금지). FAIL 은 고치고 애매하면 뺀다.

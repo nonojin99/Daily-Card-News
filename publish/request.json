@@ -1,4 +1,4 @@
 {"requests": [
   {"kind":"carousel","media":"cards/2026-10/2026-10-21_baseball-brief","caption":"captions/2026-10-21_baseball.txt","dry_run":"false","is_ai":"false","account":"sports"},
   {"kind":"carousel","media":"cards/2026-10/2026-10-21_esports-brief","caption":"captions/2026-10-21_esports.txt","dry_run":"false","is_ai":"false","account":"sports"}
-], "note": "10/21 야구 나이트 첫 회(경기 없는 날 프리뷰) + 롤드컵 프리뷰 e스포츠 캐러셀 — @hannun.sports (10/22 아침 늦은 발행, 사용자 요청)"}
+], "note": "10/21 야구 나이트 첫 회(경기 없는 날 프리뷰) + 롤드컵 프리뷰 e스포츠 캐러셀 — @hannun.sports (10/22 아침 늦은 발행, 사용자 요청 · 해시태그 5개 한도로 재요청)"}
