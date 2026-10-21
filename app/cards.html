@@ -59,6 +59,7 @@
   .ig-ct{font:500 12px var(--sans);fill:var(--muted)} .ig-ct.on{fill:#fff;font-weight:700}
   .ig-sea{fill:#e9eef0} .ig-land2{fill:#dcd6ca;stroke:var(--stage);stroke-width:.5} .ig-hl{fill:var(--accent);opacity:.6;stroke:var(--stage);stroke-width:.5}
   .ig-pinlab{paint-order:stroke;stroke:var(--stage);stroke-width:3px}
+  .ig-msc{font:900 24px var(--sans);fill:var(--ink)} .ig-mteam{font:700 18px var(--sans);fill:var(--ink)} .ig-mteam.lo{fill:var(--faint);font-weight:500}
   .ig-score{font:900 84px var(--sans);fill:var(--ink);letter-spacing:-.03em} .ig-score .d{fill:var(--faint);font-weight:500}
   .ig-team{font:700 22px var(--sans);fill:var(--ink)}
   .ig-son{fill:var(--accent)} .ig-soff{fill:var(--off)}
@@ -356,9 +357,18 @@ function infoOf(a, geo, year){
   const mapL = () => kr.length ? mapG(geo.kr, 18, 24, .98, kr) : world.length ? worldG(geo.world, 14, 30, 236, 190, world) : "";
   const endChip = () => when && when.to ? chipG(262, 46, wEl.dataset.label || (when.days && when.days > 1 ? `${md(when.from)}~` : "날짜"),
       `${when.to.getDate()}일`, `${KWD[when.to.getDay()]}요일`, note ? note.split(/\s+\/\s+/) : null) : "";
+  // 여러 경기 스코어 묶음(2026-10-21~, 야구 나이트 KBO 5경기 등): <p class="cn-scores">KIA|5|3|LG / 두산|2|1|SSG / …</p> 최대 6경기
+  const ms = T(".cn-scores") ? T(".cn-scores").split(/\s+\/\s+/).map(g => g.split("|").map(clean)).filter(g => g.length >= 4).slice(0, 6) : null;
   const sc = parts(".cn-score"), lk = parts(".cn-link"), sh = parts(".cn-shift"), st = parts(".cn-steps"), br = parts(".cn-bars");
   let g = "";
-  if(sc && sc.length >= 4){
+  if(ms && ms.length >= 2){
+    const rh = Math.min(40, (note ? 165 : 200) / ms.length), y0 = (note ? 105 : 125) - rh * (ms.length - 1) / 2;
+    g = ms.map(([a, x, y, b], i) => { const yy = y0 + i * rh, na = Number(x), nb = Number(y), wa = na > nb, wb = nb > na;
+      return `${i ? `<line x1="60" x2="340" y1="${(yy - rh / 2).toFixed(1)}" y2="${(yy - rh / 2).toFixed(1)}" class="ig-line"/>` : ""}
+        <text x="150" y="${(yy + 7).toFixed(1)}" text-anchor="end" class="ig-mteam${wb ? " lo" : ""}">${esc(a)}</text>
+        <text x="200" y="${(yy + 8).toFixed(1)}" text-anchor="middle" class="ig-msc">${esc(x)} : ${esc(y)}</text>
+        <text x="250" y="${(yy + 7).toFixed(1)}" class="ig-mteam${wa ? " lo" : ""}">${esc(b)}</text>`; }).join("") + (note ? lines(note, 200, 206, "ig-s") : "");
+  }else if(sc && sc.length >= 4){
     const best = Number(cn.querySelector(".cn-score").dataset.best || 0);
     const dots = (x, n) => best ? Array.from({length: best}, (_, i) => `<circle cx="${x + i * 22}" cy="138" r="7" class="${i < n ? "ig-son" : "ig-soff"}"/>`).join("") : "";
     g = `<text x="200" y="118" text-anchor="middle" class="ig-score">${esc(sc[1])}<tspan class="d"> : </tspan>${esc(sc[2])}</text>
@@ -450,7 +460,10 @@ const MIX = qs.get("mix") || "", MD = qs.get("d") || "";
 const UA = navigator.userAgent;
 const IOS = /iPhone|iPad|iPod/.test(UA) || (/Macintosh/.test(UA) && navigator.maxTouchPoints > 1);
 const ANDROID = /Android/.test(UA);
-const HANDLE = "@hannun.brief";   // 인스타 계정 — 표지·카드 바닥글·출처 장에 들어간다
+// 인스타 계정 — 표지·카드 바닥글·출처 장에 들어간다. 스포츠 계정(야구 나이트·축구 모닝)은 이름이 정해지면 SPORTS_HANDLE 에 적는다(README '스포츠 계정')
+const SPORTS_HANDLE = "";
+const SPORTS = /_(baseball|football)-brief\.html$/.test(F || "");
+const HANDLE = SPORTS && SPORTS_HANDLE ? SPORTS_HANDLE : "@hannun.brief";
 const shiftD = (d, n) => { const x = new Date(d + "T00:00:00"); x.setDate(x.getDate() + n);
   return `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, "0")}-${String(x.getDate()).padStart(2, "0")}`; };
 const NEWROT = d => d >= "2026-10-19";   // 로테이션 변경일(목 액티비티·토 음악, 금 주말 뭐하지·토 이번 주 숫자)
@@ -564,7 +577,7 @@ async function zipStore(files){
     const N = cards.length + 2;   // 표지 + 카드 + 출처
     const kicker = series ? series.kicker : clean(main.doc.querySelector(".kicker")?.textContent).split("·")[0] || "Daily Brief";
     // 분야 이름 — 브리프 종류(파일명)로 정한다. 색만으로는 처음 온 사람이 코너를 구분하지 못한다
-    const CAT = {daily: "오늘의 뉴스", ai: "AI·테크", sports: "스포츠", culture: "문화", music: "음악", travel: "여행", activity: "주말 액티비티", science: "우주·과학"};
+    const CAT = {daily: "오늘의 뉴스", ai: "AI·테크", sports: "스포츠", baseball: "⚾ 야구 나이트", football: "⚽ 축구 모닝", culture: "문화", music: "음악", travel: "여행", activity: "주말 액티비티", science: "우주·과학"};
     const cat = series ? series.name : (CAT[(F.match(/_([a-z]+)-brief\.html$/) || [])[1]] || "");
     const wx = !series && main.doc.querySelector(".weather");
     if(wx) wx.querySelector(".wx-note")?.remove();
@@ -607,7 +620,7 @@ async function zipStore(files){
         <div class="k">SOURCES · 출처</div>
         <h2>원문과 전체 브리프는<br>Daily Brief 앱에서</h2>
         <ol${cards.some(c => (c.credit || "").length > 14) ? ' class="one"' : ""}>${cards.slice(0, 8).map((c, i) => `<li><b>${i + 1}</b><span>${esc(c.credit || "—")}</span></li>`).join("")}</ol>
-        <div class="follow">${HANDLE}<small>월 AI · 화 스포츠 · 금 주말 뭐하지 · 토 이번 주 숫자 · 일 우주</small></div>
+        <div class="follow">${HANDLE}<small>${SPORTS ? "⚾ 야구 나이트 매일 밤 · ⚽ 축구 모닝 경기 다음 날 아침" : "월 AI · 화 스포츠 · 금 주말 뭐하지 · 토 이번 주 숫자 · 일 우주"}</small></div>
         <div class="wx">각 카드는 기사 내용을 직접 요약하고 도표·지도·개념도를 새로 그렸습니다.${cards.some(c => c.pc) ? " 이미지는 아래 크레디트의 공개 자료입니다." : ""}${cards.some(c => c.ai) ? " 일부 그림은 AI로 생성했습니다." : ""} 수치는 바뀔 수 있어요.${[...new Set(cards.map(c => c.pc).filter(Boolean))].map(x => `<br>${esc(x)}`).join("")}</div>
       </div></section>`;
     h += `</div>

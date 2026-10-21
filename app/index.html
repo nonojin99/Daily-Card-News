@@ -167,6 +167,8 @@ const TYPES = {
   daily:   {label:"메인",      ac:"#3d5a4c"},
   ai:      {label:"AI·테크",   ac:"#2a6b7c"}, tech:{label:"AI·테크", ac:"#2a6b7c"},
   sports:  {label:"스포츠",    ac:"#1f5f8b"},
+  baseball:{label:"야구",      ac:"#1f5f8b"},
+  football:{label:"축구",      ac:"#2f6b45"},
   culture: {label:"문화",      ac:"#8a4f3d"},
   music:   {label:"음악",      ac:"#6b3f8a"},
   travel:  {label:"여행",      ac:"#8a6d3b"},
@@ -175,7 +177,7 @@ const TYPES = {
 };
 const GROUPS = [
   {k:"all", label:"전체", t:null}, {k:"daily", label:"메인", t:["daily"]},
-  {k:"ai", label:"AI·테크", t:["ai","tech"]}, {k:"sports", label:"스포츠", t:["sports"]},
+  {k:"ai", label:"AI·테크", t:["ai","tech"]}, {k:"sports", label:"스포츠", t:["sports","baseball","football"]},
   {k:"culture", label:"문화·음악", t:["culture","music"]}, {k:"travel", label:"여행·액티비티", t:["travel","activity"]},
   {k:"science", label:"과학", t:["science","space"]}
 ];
