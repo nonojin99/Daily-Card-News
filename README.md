@@ -582,7 +582,7 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
     만들어 `img/gen/YYYY-MM/<브리프>/NN.jpg` 에 저장하고 `.cn` 에 `<img class="cn-gen">` 를 넣는다. 최근 3일 · 한 번에 8장까지. 장당 약 $0.034(2026-10 기준).
   - 카드에는 왼쪽 위에 **"AI 생성 이미지"**(과학 브리프는 **"AI 개념도"**) 표시가 붙는다(생성 이미지에는 SynthID 워터마크도 들어 있다).
   - 2026-10-21~ AI 일러스트가 도표·개념도·정보 그림보다 **먼저** 나온다(위 '카드 그림 우선순위'). 대체 그림 미리보기: `app/cards.html?f=<브리프>&vis=info`.
-- **인스타용 이미지**: push 하면 Actions(`make_cards.js`)가 **메인 브리프**를 `cards.html?png=1` 로 열어 1080×1350 JPG 로 굽는다 →
+- **인스타용 이미지**: push 하면 Actions(`make_cards.js`)가 **모든 브리프**(2026-10-22~, 워크플로 `CARDS_TYPES` — 카드만 따로 받으려면 `app/cards.html?f=<브리프>.html&admin=1`)를 `cards.html?png=1` 로 열어 1080×1350 JPG 로 굽는다 →
   `cards/YYYY-MM/<브리프 이름>/01.jpg …` (표지 + 카드 수). 앱의 카드 화면 아래에 **길게 눌러 저장** 목록이 뜬다.
   - 최근 3일 안이고 **폴더가 없거나 재료가 바뀐** 브리프를 굽는다(재료 = 브리프 HTML + `app/cards.html`, 지문은 `cards/…/source.sha1`, 2026-10-18~).
     카드를 고쳐 push 하면 자동으로 다시 구워지고, 장수가 줄면 남은 옛 JPG 도 지워 커밋한다. 수동 다시 굽기(사람만 가능): Actions → Build manifest → Run workflow → `cards_force` 에 파일명.
