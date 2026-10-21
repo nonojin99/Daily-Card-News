@@ -1,3 +1,3 @@
 {"requests": [
-  {"kind":"reel","media":"reels/2026-10/2026-10-20_sports.mp4","caption":"captions/2026-10-20_sports_reel.txt","dry_run":"false","is_ai":"true"}
-], "note": "10/20 화요일 릴스 2차 재등록 (MP3·릴스 삭제 후 재생성, 캐러셀은 이미 게시됨)"}
+  {"kind":"carousel","media":"cards/2026-10/2026-10-20_sports-brief","caption":"captions/test_sports_dryrun.txt","dry_run":"true","is_ai":"false","account":"sports"}
+], "note": "10/21 @hannun.sports 연동 확인 — dry run(게시 안 함)"}
