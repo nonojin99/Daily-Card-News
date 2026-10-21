@@ -44,6 +44,9 @@ jobs:
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_SPORTS_ACCESS_TOKEN: ${{ secrets.IG_SPORTS_ACCESS_TOKEN }}   # 스포츠 계정(요청 항목 "account":"sports")
+          IG_SPORTS_USER_ID: ${{ secrets.IG_SPORTS_USER_ID }}
+          EXPECT_SPORTS_USERNAME: ${{ vars.EXPECT_SPORTS_USERNAME }}
           KIND: ${{ github.event.inputs.kind }}
           MEDIA: ${{ github.event.inputs.media }}
           CAPTION: ${{ github.event.inputs.caption }}

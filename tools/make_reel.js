@@ -18,7 +18,8 @@ const BRIEF = /^(\d{4})-(\d{2})-(\d{2})_([a-z]+)-brief\.html$/;
 const TITLE = { ai: "듣는 AI", sports: "듣는 스포츠", science: "듣는 우주", activity: "듣는 주말", travel: "듣는 여행",
   daily: "듣는 뉴스", culture: "듣는 문화", music: "듣는 음악" };
 // 릴스 대상: 인스타 게시일에 맞춘다 — 월 ai · 화 sports · 금(전날 목 activity) · 토 music(2026-10-21~, 메인 대신) · 일 science (README '인스타그램 운영')
-const REEL_OF = (type, wd) => ["ai", "sports", "science", "activity"].includes(type) || (type === "music" && wd === 6);
+// 스포츠는 매일 발행으로 바뀌어도(스포츠 계정) 릴스는 화(지금 주간)·월(주말 결산)만 — README '스포츠 계정'
+const REEL_OF = (type, wd) => ["ai", "science", "activity"].includes(type) || (type === "sports" && (wd === 1 || wd === 2)) || (type === "music" && wd === 6);
 const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".json": "application/json", ".css": "text/css",
   ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml" };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));

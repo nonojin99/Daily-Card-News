@@ -10,6 +10,7 @@
   한 건이 실패해도 다음 건은 시도하고, 하나라도 실패하면 마지막에 실패로 끝난다(메일 알림).
 
 안전장치: 토큰의 계정이 IG_USER_ID·EXPECT_USERNAME 과 다르면 중단. 게시 한도를 먼저 확인.
+계정: 요청 항목에 "account":"sports" 가 있으면 IG_SPORTS_ACCESS_TOKEN·IG_SPORTS_USER_ID·EXPECT_SPORTS_USERNAME 으로 올린다(2026-10-21~, README '스포츠 계정').
 컨테이너는 24시간 뒤 만료되므로 실행할 때 만든다. AI 음성·그림이 있으면 is_ai_generated=true(릴스·단일 게시물).
 """
 import json, os, sys, time, urllib.error, urllib.parse, urllib.request
@@ -25,6 +26,9 @@ if _REQ and os.path.exists(_REQ):
 TOKEN = os.environ.get("IG_ACCESS_TOKEN", "").strip()
 UID = os.environ.get("IG_USER_ID", "").strip()
 EXPECT = os.environ.get("EXPECT_USERNAME", "hannun.brief").strip()
+ACCOUNTS = {"main": (TOKEN, UID, EXPECT),
+            "sports": (os.environ.get("IG_SPORTS_ACCESS_TOKEN", "").strip(), os.environ.get("IG_SPORTS_USER_ID", "").strip(),
+                       os.environ.get("EXPECT_SPORTS_USERNAME", "").strip())}
 KIND = os.environ.get("KIND", "").strip()
 MEDIA = os.environ.get("MEDIA", "").strip().strip("/")
 CAPTION_FILE = os.environ.get("CAPTION", "").strip()
@@ -82,7 +86,7 @@ def wait_public(url, timeout=2400):
 
 
 def main():
-    global KIND, MEDIA, CAPTION_FILE, DRY, IS_AI
+    global KIND, MEDIA, CAPTION_FILE, DRY, IS_AI, TOKEN, UID, EXPECT
     req = json.load(open(_REQ, encoding="utf-8")) if _REQ and os.path.exists(_REQ) else {}
     items = req.get("requests") if isinstance(req.get("requests"), list) else None
     if not items or MEDIA:   # Run workflow 입력칸(media)을 채웠으면 그 한 건만
@@ -94,7 +98,13 @@ def main():
         CAPTION_FILE = str(it.get("caption", "")).strip()
         DRY = str(it.get("dry_run", "true")).strip().lower() != "false"
         IS_AI = str(it.get("is_ai", "true")).strip().lower() != "false"
-        print(f"── request {n}/{len(items)}: {KIND} {MEDIA}" + (" (dry run)" if DRY else ""))
+        acct = str(it.get("account", "main")).strip() or "main"
+        if acct not in ACCOUNTS or not all(ACCOUNTS[acct]):
+            print(f"::error::request {n}: account '{acct}' 의 토큰·ID·계정 이름이 없음 — 건너뜀")
+            failed.append(n)
+            continue
+        TOKEN, UID, EXPECT = ACCOUNTS[acct]
+        print(f"── request {n}/{len(items)}: [{acct}] {KIND} {MEDIA}" + (" (dry run)" if DRY else ""))
         try:
             publish_one()
         except SystemExit as e:
