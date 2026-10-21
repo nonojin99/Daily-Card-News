@@ -522,7 +522,9 @@ async function zipStore(files){
         const quota = ahead.length ? {activity: 3, travel: 2, culture: 1} : null;
         briefs.forEach(b => {
           const src = srcs.find(([d]) => d === b.date) || [], lim = quota ? (quota[src[1]] ?? 1) : (src[2] || 2);
-          b.arts.filter(a => !sensitive(a) && !isAhead(a) && live(a, b)).slice(0, lim).forEach(a => picks.push({a, b}));
+          // data-weekend="pick" 카드(작성자가 '이번 주말에 가장 쓸모 있는 카드'로 고른 것)를 먼저, 나머지는 브리프 순서대로
+          b.arts.filter(a => !sensitive(a) && !isAhead(a) && live(a, b)).sort((p, q) => (q.dataset.weekend === "pick") - (p.dataset.weekend === "pick"))
+            .slice(0, lim).forEach(a => picks.push({a, b}));
         });
         picks.push(...ahead);
       }

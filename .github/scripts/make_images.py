@@ -94,7 +94,7 @@ def main():
         html = open(fpath, encoding="utf-8").read()
         accent = (re.search(r"--accent:\s*(#[0-9a-fA-F]{6})", html) or [None, "#3d5a4c"])[1]
         changed = False
-        arts = list(re.finditer(r'<article class="card">.*?</article>', html, re.S))
+        arts = list(re.finditer(r'<article class="card"[^>]*>.*?</article>', html, re.S))
         for idx, a in reversed(list(enumerate(arts, 1))):
             block = a.group(0)
             cn = re.search(r'<div class="cn" hidden>.*?</div>', block, re.S)
