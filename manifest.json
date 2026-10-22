@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-22T00:19:09Z",
-  "count": 259,
+  "generated": "2026-10-22T00:47:32Z",
+  "count": 260,
   "files": [
     {
       "date": "2026-10-22",
@@ -28,6 +28,15 @@
       "day": "22",
       "type": "activity",
       "path": "2026-10-22_activity-brief.html"
+    },
+    {
+      "date": "2026-10-22",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "22",
+      "type": "event",
+      "path": "2026-10-22_event-brief.html"
     },
     {
       "date": "2026-10-21",
