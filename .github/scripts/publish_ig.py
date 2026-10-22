@@ -85,6 +85,25 @@ def wait_public(url, timeout=2400):
     return True
 
 
+BLOCK_RECHECK_MIN = int(os.environ.get("BLOCK_RECHECK_MIN", "15"))
+
+
+def find_published(caption):
+    """media_publish 가 막힌 뒤 1분마다 최근 게시물 10개에서 같은 캡션을 찾는다. 조회 자체가 막히면 다음 회차에 다시."""
+    for i in range(BLOCK_RECHECK_MIN):
+        time.sleep(60)
+        try:
+            recent = call("GET", f"{UID}/media", fields="caption,permalink,timestamp", limit="10").get("data", [])
+        except SystemExit as e:
+            print(f"  recheck {i + 1}: media 조회 실패 — {str(e.code)[:200]}")
+            continue
+        hit = next((r for r in recent if (r.get("caption") or "").strip() == caption), None)
+        print(f"  recheck {i + 1}/{BLOCK_RECHECK_MIN}: {'found' if hit else 'not yet'}")
+        if hit:
+            return hit
+    return None
+
+
 def main():
     global KIND, MEDIA, CAPTION_FILE, DRY, IS_AI, TOKEN, UID, EXPECT
     req = json.load(open(_REQ, encoding="utf-8")) if _REQ and os.path.exists(_REQ) else {}
@@ -168,7 +187,24 @@ def publish_one():
     if DRY:
         print(f"DRY RUN — container {cid} is ready; not published (it expires in 24h).")
         return
-    pub = call("POST", f"{UID}/media_publish", creation_id=cid)
+    try:
+        pub = call("POST", f"{UID}/media_publish", creation_id=cid)
+    except SystemExit as e:
+        # 403 code 4 / subcode 2207051 "action is blocked" 인데 실제로는 몇 분 뒤 게시된 일이 두 번 있었다(2026-10-22 푸드).
+        # 최근 게시물에서 같은 캡션을 찾으면 성공으로 치고, 끝내 없으면 '게시 여부 불확실'로 실패한다(README 'API 게시').
+        if "2207051" not in str(e.code) or not caption:
+            raise
+        print(f"::warning::media_publish blocked (2207051) — 실제 게시 여부를 최대 {BLOCK_RECHECK_MIN}분 동안 확인")
+        info = find_published(caption)
+        if not info:
+            sys.exit(f"::error::media_publish 403(2207051) 후 {BLOCK_RECHECK_MIN}분 동안 같은 캡션의 게시물이 안 보임 — "
+                     "게시 여부 불확실: 다시 요청하기 전에 계정 그리드를 사람이 확인할 것(중복 게시 위험)")
+        print("PUBLISHED (403 뒤 늦게 반영):", json.dumps({k: info.get(k) for k in ("permalink", "timestamp")}, ensure_ascii=False))
+        out = os.environ.get("GITHUB_STEP_SUMMARY")
+        if out:
+            with open(out, "a", encoding="utf-8") as fp:
+                fp.write(f"### Published to Instagram (403 2207051 뒤 확인)\n\n{info.get('permalink')}\n")
+        return
     info = call("GET", pub["id"], fields="permalink,media_type,media_product_type,timestamp")
     print("PUBLISHED:", json.dumps(info, ensure_ascii=False))
     out = os.environ.get("GITHUB_STEP_SUMMARY")
