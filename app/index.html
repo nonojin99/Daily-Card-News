@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Daily Brief</title>
 <meta name="description" content="매일 아침 카드뉴스 브리프 — 읽고, 듣고, 날씨까지">
-<meta name="theme-color" content="#faf9f6">
+<meta name="theme-color" content="#111113">
 <link rel="manifest" href="app.webmanifest?v=2">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=2">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,9 +16,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
-    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
-    --green:#3d5a4c; --green-soft:#eef2ee;
+    /* 다크 테마(2026-10-22 사용자 요청) — 브리프 본문(리더 안)은 원래의 밝은 화면 그대로 */
+    color-scheme:dark;
+    --ink:#ecebe6; --muted:#b3b2ab; --faint:#85847e;
+    --line:#2e2e33; --edge:#4a4a52; --bg:#111113; --card:#1c1c20;
+    --green:#8fbfa4; --green-soft:#1d2a23;
     --safe-b:env(safe-area-inset-bottom,0px);
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -34,13 +36,13 @@
   .kicker{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:600}
   .today{font-family:'Newsreader','Noto Serif KR',serif;font-weight:500;font-size:34px;line-height:1.15;letter-spacing:-.01em;margin-top:8px}
   .weather{margin-top:14px;padding:11px 14px;border-radius:12px;background:var(--green-soft);font-size:14px;line-height:1.55}
-  .weather.rain{background:#e8f0f5}
+  .weather.rain{background:#1a2631}
   .weather small{display:block;font-size:11.5px;color:var(--faint);margin-top:2px}
 
   /* ── 전체 듣기 ── */
   .playall{display:flex;align-items:center;gap:14px;width:100%;margin:18px 0 8px;padding:16px 18px;
-           border-radius:16px;background:var(--ink);color:#fff;text-align:left}
-  .playall .pa-ic{width:44px;height:44px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;flex-shrink:0}
+           border-radius:16px;background:var(--ink);color:var(--bg);text-align:left}
+  .playall .pa-ic{width:44px;height:44px;border-radius:50%;background:var(--bg);color:var(--ink);display:grid;place-items:center;flex-shrink:0}
   .playall .pa-t{font-weight:600;font-size:15.5px}
   .playall .pa-s{font-size:12.5px;opacity:.7;margin-top:1px}
   .playall[disabled]{opacity:.4}
@@ -48,24 +50,27 @@
   /* ── 브리프 카드 ── */
   .sec{display:flex;align-items:center;gap:12px;margin:30px 0 14px}
   .sec span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
-  .sec i{flex:1;height:1px;background:var(--line)}
-  .bc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 14px;margin-bottom:12px;
-      border-top:3px solid var(--ac,var(--green))}
+  .sec i{flex:1;height:1px;background:var(--edge)}
+  /* 액센트는 밝은 배경용 진한 색이라 다크에선 글자·선에 밝힌 색(--act)·배지 배경(--acd)을 쓴다 */
+  .bc,.row{--act:color-mix(in srgb,var(--ac,#3d5a4c) 45%,#ffffff);--acd:color-mix(in srgb,var(--ac,#3d5a4c) 32%,transparent)}
+  .bc{background:var(--card);border:1.5px solid var(--edge);border-radius:16px;padding:18px 18px 14px;margin-bottom:16px;
+      border-top:4px solid var(--act);box-shadow:0 2px 0 rgba(0,0,0,.35)}
   .bc .badge{display:inline-block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
-             padding:3px 10px;border-radius:20px;color:var(--ac);background:var(--acs)}
+             padding:3px 10px;border-radius:20px;color:var(--act);background:var(--acd)}
   .bc h2{font-family:'Newsreader','Noto Serif KR',serif;font-weight:600;font-size:24px;line-height:1.3;margin:10px 0 6px;letter-spacing:-.01em}
   .bc p{font-size:14px;color:var(--muted);line-height:1.65;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .bc .thumbs{display:flex;gap:6px;margin:12px 0 0;cursor:pointer}
-  .bc .thumbs img{flex:1 1 0;min-width:0;aspect-ratio:1/1;object-fit:cover;object-position:top;border-radius:8px;background:var(--line);border:1px solid var(--line)}
-  .bc .pk{list-style:none;margin:12px 0 0;padding:10px 0 0;border-top:1px solid var(--line)}
+  /* 카드 썸네일 띠 — 카드 한 장 전체(4:5)를 크게, 가로로 넘겨 본다(2026-10-22) */
+  .bc .thumbs{display:flex;gap:10px;margin:14px -18px 0;padding:0 18px 6px;overflow-x:auto;scroll-snap-type:x mandatory;cursor:pointer;scrollbar-width:thin}
+  .bc .thumbs img{flex:0 0 72%;min-width:0;aspect-ratio:4/5;object-fit:cover;scroll-snap-align:start;border-radius:12px;background:var(--line);border:1.5px solid var(--edge)}
+  .bc .pk{list-style:none;margin:12px 0 0;padding:10px 0 0;border-top:1px solid var(--edge)}
   .bc .pk li{display:flex;gap:8px;font-size:13px;line-height:1.5;color:var(--ink);padding:3px 0}
-  .bc .pk li b{flex:0 0 auto;color:var(--ac);font-weight:600;font-variant-numeric:tabular-nums}
+  .bc .pk li b{flex:0 0 auto;color:var(--act);font-weight:600;font-variant-numeric:tabular-nums}
   .bc .pk li span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .bc .pk .more{color:var(--faint);font-size:12px}
   .bc .acts{display:flex;gap:8px;margin-top:14px}
-  .bc .acts button{flex:1;padding:12px 0;border-radius:10px;font-size:14px;font-weight:600;border:1px solid var(--line)}
+  .bc .acts button{flex:1;padding:12px 0;border-radius:10px;font-size:14px;font-weight:600;border:1.5px solid var(--edge)}
   .bc .acts [data-cards]{flex:.8}
-  .bc .series{display:block;width:100%;margin-top:8px;padding:10px 0;border-radius:10px;font-size:13.5px;font-weight:600;color:var(--ac);background:var(--acs)}
+  .bc .series{display:block;width:100%;margin-top:8px;padding:10px 0;border-radius:10px;font-size:13.5px;font-weight:600;color:var(--act);background:var(--acd)}
   .bc .acts .listen{flex:1.4;background:var(--ac);color:#fff;border-color:transparent}
   .bc .meta{font-size:12px;color:var(--faint);margin-top:8px}
   .bc.sm{padding:14px 16px 12px}
@@ -74,31 +79,31 @@
   .bc.sm .acts button{padding:9px 0;font-size:13px}
 
   /* ── 지난 브리프 행 ── */
-  .row{display:flex;align-items:stretch;width:100%;border:1px solid var(--line);border-radius:12px;background:var(--card);margin-bottom:8px;overflow:hidden}
+  .row{display:flex;align-items:stretch;width:100%;border:1.5px solid var(--edge);border-radius:12px;background:var(--card);margin-bottom:8px;overflow:hidden}
   .row .rm{display:flex;align-items:center;gap:10px;flex:1;min-width:0;padding:12px 14px;text-align:left}
   .row .d{font-size:12px;color:var(--faint);width:62px;white-space:nowrap;flex-shrink:0;font-variant-numeric:tabular-nums}
-  .row .b{font-size:10.5px;font-weight:600;letter-spacing:.06em;padding:3px 9px;border-radius:20px;flex-shrink:0;color:var(--ac);background:var(--acs);white-space:nowrap}
+  .row .b{font-size:10.5px;font-weight:600;letter-spacing:.06em;padding:3px 9px;border-radius:20px;flex-shrink:0;color:var(--act);background:var(--acd);white-space:nowrap}
   .row .n{font-size:14px;font-weight:500;flex:1;min-width:0;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .row .ar{color:var(--faint);font-size:13px}
-  .row .rp{width:52px;flex-shrink:0;border-left:1px solid var(--line);color:var(--ac);display:grid;place-items:center}
+  .row .rp{width:52px;flex-shrink:0;border-left:1.5px solid var(--edge);color:var(--act);display:grid;place-items:center}
   .dh{font-size:13px;font-weight:600;color:var(--muted);margin:20px 0 8px}
-  .morebtn{display:block;width:100%;margin:18px 0 0;padding:13px 0;border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:14px;font-weight:600;color:var(--muted)}
+  .morebtn{display:block;width:100%;margin:18px 0 0;padding:13px 0;border-radius:12px;border:1.5px solid var(--edge);background:var(--card);font-size:14px;font-weight:600;color:var(--muted)}
   .chips{display:flex;gap:7px;overflow-x:auto;margin:6px -16px 18px;padding:0 16px 4px;scrollbar-width:none}
   .chips::-webkit-scrollbar{display:none}
-  .chip{flex-shrink:0;font-size:13px;font-weight:500;padding:7px 15px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:var(--muted)}
-  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip{flex-shrink:0;font-size:13px;font-weight:500;padding:7px 15px;border-radius:20px;border:1.5px solid var(--edge);background:var(--card);color:var(--muted)}
+  .chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
   .month{font-family:'Newsreader',serif;font-size:18px;font-weight:600;margin:26px 0 12px}
   .state{text-align:center;color:var(--faint);padding:48px 0;font-size:14px}
 
   /* ── 설치 안내 ── */
-  .install{display:none;margin-top:16px;padding:12px 14px;border-radius:12px;border:1px dashed #cfcdc4;font-size:13px;color:var(--muted);line-height:1.6}
+  .install{display:none;margin-top:16px;padding:12px 14px;border-radius:12px;border:1px dashed var(--edge);font-size:13px;color:var(--muted);line-height:1.6}
   .install.show{display:flex;gap:10px;align-items:flex-start}
   .install b{color:var(--ink)}
   .install button{margin-left:auto;font-size:18px;line-height:1;color:var(--faint);padding:0 2px}
 
   /* ── 미니 플레이어 + 탭바 ── */
-  .dock{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(250,249,246,.94);
-        -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding-bottom:var(--safe-b)}
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(17,17,19,.94);
+        -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1.5px solid var(--edge);padding-bottom:var(--safe-b)}
   .player{display:none;max-width:640px;margin:0 auto;padding:10px 16px 8px;border-bottom:1px solid var(--line)}
   .player.show{display:block}
   .pl-row{display:flex;align-items:center;gap:12px}
@@ -106,7 +111,7 @@
   .pl-t{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .pl-s{font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums}
   .pl-btn{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
-  .pl-btn.main{background:var(--ink);color:#fff}
+  .pl-btn.main{background:var(--ink);color:var(--bg)}
   .pl-bar{height:4px;border-radius:2px;background:var(--line);margin-top:9px;position:relative;overflow:hidden;cursor:pointer}
   .pl-bar i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--ink);border-radius:2px}
   .tabs{display:flex;max-width:640px;margin:0 auto}
@@ -130,15 +135,18 @@
   @media (min-width:900px){
     body{padding-left:32px;padding-right:32px}
     .wrap,.player,.tabs{max-width:1080px}
-    #view{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px;align-items:start}
+    #view{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px;align-items:start}
+    .bc .thumbs img{flex-basis:46%}
     #view > :not(.bc):not(.row){grid-column:1/-1}
     .top{padding-top:40px}
     .today{font-size:40px}
     .playall{max-width:560px}
   }
+  /* 3열은 썸네일이 너무 작아져 2열까지만(2026-10-22) — 아주 넓은 화면은 폭만 넓힌다 */
   @media (min-width:1400px){
-    .wrap,.player,.tabs{max-width:1360px}
-    #view{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .wrap,.player,.tabs{max-width:1320px}
+    #view{column-gap:24px}
+    .bc .thumbs img{flex-basis:38%}
   }
 </style>
 </head>
@@ -344,7 +352,7 @@ function bcHtml(f, d, small, night){
 // 이미지가 아직 없으면(발행 직후·굽기 실패) 줄을 통째로 숨긴다
 function thumbsHtml(f, n){
   const stem = f.path.replace(/^.*\//, "").replace(/\.html$/, ""), dir = `${BASE}cards/${f.month || f.date.slice(0, 7)}/${stem}/`;
-  const k = Math.max(1, Math.min(3, n || 3));
+  const k = Math.max(1, Math.min(8, n || 3));
   return `<div class="thumbs" data-cards="${esc(f.path)}">${Array.from({length: k}, (_, i) =>
     `<img src="${dir}${String(i + 2).padStart(2, "0")}.jpg" loading="lazy" alt="" onerror="${i ? "this.remove()" : "this.parentNode.remove()"}">`).join("")}</div>`;
 }
