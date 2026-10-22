@@ -125,6 +125,21 @@
   .reader.with-player iframe{margin-bottom:calc(64px + var(--safe-b))}
   .reader.show ~ .dock .tabs{display:none}
   .reader.show:not(.with-player) ~ .dock{display:none}
+
+  /* ── PC·태블릿 넓은 화면(2026-10-22): 브리프 칸·목록을 2열(아주 넓으면 3열)로, 나머지는 한 줄 전체 ── */
+  @media (min-width:900px){
+    body{padding-left:32px;padding-right:32px}
+    .wrap,.player,.tabs{max-width:1080px}
+    #view{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px;align-items:start}
+    #view > :not(.bc):not(.row){grid-column:1/-1}
+    .top{padding-top:40px}
+    .today{font-size:40px}
+    .playall{max-width:560px}
+  }
+  @media (min-width:1400px){
+    .wrap,.player,.tabs{max-width:1360px}
+    #view{grid-template-columns:repeat(3,minmax(0,1fr))}
+  }
 </style>
 </head>
 <body>
