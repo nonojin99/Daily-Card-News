@@ -2,11 +2,18 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-10/2026-10-22_food-brief",
-   "caption": "captions/2026-10-22_food.txt",
+   "media": "cards/2026-10/2026-10-23_weekend",
+   "caption": "captions/2026-10-23_weekend.txt",
+   "dry_run": "false",
+   "is_ai": "true"
+  },
+  {
+   "kind": "reel",
+   "media": "reels/2026-10/2026-10-22_activity.mp4",
+   "caption": "captions/2026-10-23_weekend_reel.txt",
    "dry_run": "false",
    "is_ai": "true"
   }
  ],
- "note": "10/22 푸드 개편판 캐러셀(9장) 재요청 — 13:49 1차는 media_publish 403(활동 제한, subcode 2207051)로 게시 안 됨. 새 AI 그림·카드 확인, 공개 주소 JPG 9장 = 레포 sha1 일치, 사용자 확인 후 요청 (@hannun.brief)"
+ "note": "10/23 금요일 자동 등록 — 주말 뭐하지 캐러셀(목 액티비티 3 + 금 여행 2 + 수 문화 1 + 미리 예약 2) + 목 액티비티 낭독 오디오 릴스"
 }

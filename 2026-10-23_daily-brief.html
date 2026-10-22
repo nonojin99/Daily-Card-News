@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.10.23">
+<meta property="og:description" content="한은 기준금리 3.00% 동결 · 코스피 3.52% 하락 · 솔리다임 중복상장 논란 · 쿠팡 산업안전 위반 206건 · PHP 보안 취약점 경보 · 부산지하철 파업 철회">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.10.23</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+  /* ── 서울 날씨 한 줄 (2026-10-11 도입) ── */
+  .weather{margin:14px 0 0;padding:9px 14px;border-radius:10px;background:var(--accent-soft);font-size:14px;color:var(--ink);line-height:1.6}
+  .weather .wx-note{display:inline-block;margin-left:6px;font-size:11.5px;color:var(--faint)}
+  .weather .wx-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>한은 기준금리 3.00% 동결 — 코스피는 하루 만에 3.52% 내렸다</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 10월 23일 금요일</span>
+      <span class="count">6 Picks · 분야별</span>
+    </div>
+    <p class="weather">☀ 서울 · 최저 7° 최고 21° · 비 소식 없음, 일교차 큼
+      <span class="wx-note">⚠ 변동 가능 · <a href="https://www.newsis.com/view/NISX20261022_0003837659">뉴시스 10/23 00:00 (00:10 수정)</a></span></p>
+    <p class="lede">한국은행이 22일 기준금리를 연 3.00%로 만장일치 동결했고, 시장은 11월 인상을 점칩니다. 같은 날 코스피는 3.52% 내려 5,533.77로 마감했습니다. 솔리다임 나스닥 상장 추진은 중복상장 규제 대상으로 거론되고, 노동부는 쿠팡 감독에서 산업안전 위반 206건을 확인했습니다. PHP 원격 코드 실행 취약점에는 즉시 업데이트가 권고됐고, 부산지하철은 파업을 철회했습니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>한국은행이 기준금리를 연 3.00%로 동결했습니다. 10월 23일 금요일, 데일리 브리프입니다. 오늘은 여섯 가지 소식을 전해 드립니다.</p>
+    <p>첫 소식은 금리입니다. 한국은행 금융통화위원회는 22일 기준금리를 연 3.00%로 만장일치 동결했습니다. 7월과 8월 연속 인상한 뒤 숨을 고르는 결정입니다. 다음 결정은 3분기 GDP와 10월 물가를 본 뒤 내립니다. 뉴스1에 따르면 시장은 11월 인상을 폭넓게 예상하고, 사전 설문에 응한 전문가 10명은 11월부터 두 차례 올려 3.5%에 이를 것으로 봤습니다. 한국경제는 한은의 올해와 내년 성장률 전망이 8월 전망을 큰 폭 웃돌 것으로 전했습니다.</p>
+    <p>두 번째는 증시입니다. 뉴시스에 따르면 22일 코스피는 5,533.77로 마감하며 3.52% 내렸습니다. 삼성전자는 4%, SK하이닉스는 5.6% 내렸고, 기관이 4,620억 원을 순매도했고, 외국인은 591억 원, 개인은 3,802억 원을 순매수했습니다. 대신증권은 수급 완충력이 약해진 상황이라고 설명했습니다. 전날 오름폭을 하루 만에 돌려준 셈입니다.</p>
+    <p>세 번째는 솔리다임입니다. YTN에 따르면 금융당국은 SK하이닉스 자회사 솔리다임의 나스닥 상장 추진을 중복상장 가이드라인 적용 대상으로 봅니다. 다만 제재는 위약금 최대 10억 원 수준으로 약하다는 평가입니다. 상장은 아직 공식 발표 전입니다. 모회사 주총 특별결의를 의무화하는 법안은 추진 중이지만 통과 시점은 불투명합니다.</p>
+    <p>네 번째는 쿠팡 감독 결과입니다. YTN에 따르면 노동부는 쿠팡 본사와 배송 계열사, 캠프를 감독해 산업안전 위반 206건을 확인했습니다. 61건은 송치하고, 145건에는 과태료 합계 19억 6천만 원을 매겼습니다. 산재 신청 철회 압박 2건도 확인했고, PIP와 블랙리스트, 불법파견은 위반으로 인정되지 않았습니다. 쿠팡 측 입장은 기사에 담기지 않았습니다.</p>
+    <p>다섯 번째는 보안 소식입니다. 뉴스1에 따르면 웹사이트의 약 75%가 쓰는 PHP에서 인증 없이 원격 코드 실행이 가능한 취약점이 나왔습니다. 영향 버전은 8.2부터 8.5까지이고, 한국인터넷진흥원은 즉시 업데이트를 권고했습니다. 22일 오후 전국 법원 전산망에 장애가 있었지만, 법원행정처는 PHP 해킹과 무관하다고 밝혔고 원인은 조사 중입니다.</p>
+    <p>마지막은 부산지하철입니다. 뉴스1에 따르면 노사가 밤샘 협상 끝에 잠정 합의해 파업이 철회됐고, 23일 첫차부터 정상 운행합니다. 임금은 3.5% 오르기로 했고, 안전인력 공동 조직진단을 추진합니다.</p>
+    <p>끝으로 오늘 서울 날씨입니다. 아침 최저 7도, 낮 최고 21도로 예보됐고, 서울은 비 소식이 없습니다. 일교차가 큽니다. 날씨는 바뀔 수 있습니다.</p>
+    <p>이상 데일리 브리프였습니다. 좋은 하루 보내세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">Rates — 금리</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">凍</span>
+    <div class="card-top"><span class="topic">금리 · 한국은행</span></div>
+    <h2>한은 기준금리 3.00% 만장일치 동결 — 시장은 11월 인상을 점친다</h2>
+    <div class="summary">
+      <p>한국은행 금융통화위원회는 22일 기준금리를 연 <strong>3.00%</strong>로 만장일치 동결했다. 7월과 8월 연속 인상한 뒤 숨을 고르는 결정이다. 뉴스1은 한은이 성장·물가 전망을 높이며 추가 긴축 기조를 이어 간다고 전했다(뉴스1·한국경제).</p>
+      <p>다음 결정은 3분기 GDP와 10월 물가를 본 뒤 내린다. 뉴스1에 따르면 시장은 11월 인상을 폭넓게 예상하고, 사전 전문가 설문 10명은 10월 동결 뒤 11월부터 2회 인상해 <strong>3.5%</strong>에 이를 것으로 봤다. 최종금리를 3.75%로 올리는 신호는 이번에 없었다. 한국경제는 한은의 올해·내년 성장률 전망이 8월 전망(3.3%, 2.9%)을 큰 폭 웃돌 것으로 전했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">기준금리</span><span>연 3.00% 동결 · 금통위 만장일치 (10/22)</span></li>
+      <li><span class="k">앞선 결정</span><span>7월·8월 연속 인상</span></li>
+      <li><span class="k">시장 전망</span><span>11월 인상 폭넓게 예상 · 사전 설문 10명: 11월부터 2회 인상해 3.5%</span></li>
+      <li><span class="k">다음 확인</span><span>3분기 GDP · 10월 물가 (한은 발표 후 결정)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>동결이라는 결과보다 "다음은 인상일 가능성이 높다"는 시장의 읽기가 더 큰 뉴스다. 다만 3.5%는 설문 10명의 전망이지 한은의 약속이 아니며, 한은이 최종금리를 3.75%로 올리는 신호는 없었다고 뉴스1은 적었다.</p>
+    </div>
+    <a class="source" href="https://news1.kr/economy/trend/6329102">뉴스1 — 동결·11월 인상 전망</a>  <a class="source" href="https://www.hankyung.com/article/2026102294751">한국경제 — 동결·성장률 전망</a>
+    <span class="ref-note">뉴스1(10/22 19:08)·한국경제(10/22 18:07) · 동결·만장일치·11월 인상 기대는 두 매체 일치 · 설문 10명·3.5%·3.75% 신호 없음은 뉴스1 단일, 성장률 전망은 한국경제 단일 · 한은 보도자료 원문 미확인 (확인 2026-10-23)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">한은 기준금리 동결,<br>시장은 11월 인상 점쳐</p>
+      <p class="cn-s">한국은행이 22일 기준금리를 연 3.00%로 만장일치 동결했어요. 7월과 8월 연속 인상 뒤 숨 고르기예요. 시장은 11월 인상을 폭넓게 예상해요.</p>
+      <p class="cn-num">3.00%|연 기준금리 · 만장일치 동결</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Markets — 증시</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">落</span>
+    <div class="card-top"><span class="topic">증시 · 코스피</span></div>
+    <h2>코스피 3.52% 하락, 5,533.77 마감 — 하루 만에 전날 오름폭을 반납했다</h2>
+    <div class="summary">
+      <p>22일 코스피는 5,533.77로 마감해 전일보다 <strong>3.52%</strong> 내렸다. 시가는 5,670.11이었고 장중 4% 넘게 하락하기도 했다. 삼성전자는 4.03% 내린 21만 4,500원, SK하이닉스는 5.64% 내린 122만 1,000원에 마감했다. 전날 상승분을 반납한 셈이다(뉴시스).</p>
+      <p>수급은 외국인 591억 원 순매수, 기관 4,620억 원 순매도, 개인 3,802억 원 순매수였다. 대신증권 이경민 연구원은 "수급 완충력이 약화된 상황에서" 낙폭이 커졌다는 취지로 설명했다. 전날 미국 필라델피아 반도체지수는 1.97% 올랐다. 삼성전자(약 15조 원)와 SK하이닉스(약 40조 원)의 자사주 매입 완료 기사도 이날 나왔다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">코스피</span><span>5,533.77 (−3.52%) · 시가 5,670.11</span></li>
+      <li><span class="k">삼성전자</span><span>214,500원 (−4.03%)</span></li>
+      <li><span class="k">SK하이닉스</span><span>1,221,000원 (−5.64%)</span></li>
+      <li><span class="k">수급</span><span>외국인 +591억 · 기관 −4,620억 · 개인 +3,802억</span></li>
+      <li><span class="k">자사주</span><span>삼성전자 약 15조 원 · SK하이닉스 약 40조 원</span></li>
+    </ul>
+<figure class="chart" role="group" aria-label="22일 코스피 3.52%, 삼성전자 4.03%, SK하이닉스 5.64% 하락">
+      <figcaption>22일 하락률 (%)</figcaption>
+      <svg class="cv" viewBox="0 0 400 154" role="img" aria-label="22일 코스피 3.52%, 삼성전자 4.03%, SK하이닉스 5.64% 하락">
+        <line class="cv-base" x1="110" y1="10" x2="110" y2="144"/>
+        <text class="cv-cat" x="102" y="29" text-anchor="end">코스피</text>
+        <rect class="cv-bar cv-s1" x="110" y="10" width="127.2" height="26" rx="3"/>
+        <text class="cv-val" x="245.2" y="29">−3.52%</text>
+        <text class="cv-cat" x="102" y="73" text-anchor="end">삼성전자</text>
+        <rect class="cv-bar cv-s1" x="110" y="54" width="145.6" height="26" rx="3"/>
+        <text class="cv-val" x="263.6" y="73">−4.03%</text>
+        <text class="cv-cat" x="102" y="117" text-anchor="end">SK하이닉스</text>
+        <rect class="cv-bar cv-s1" x="110" y="98" width="203.8" height="26" rx="3"/>
+        <text class="cv-val" x="321.8" y="117">−5.64%</text>
+      </svg>
+      <p class="cv-note">막대 길이는 하락률 크기에 비례(0에서 시작, 3.52 : 4.03 : 5.64). 출처: 뉴시스</p>
+    </figure>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>앞 이틀 지수는 −3.73%, +3.29%, −3.52%로 오르내렸다. 코스피 전체로는 외국인이 591억 원 순매수, 기관이 4,620억 원 순매도였다. 같은 날 기사는 반도체 업종에서 외국인·기관 매도와 전날 반등 뒤 차익실현 매물을 하락 요인으로 꼽았다.</p>
+    </div>
+    <a class="source" href="https://www.newsis.com/view/NISX20261022_0003837199">뉴시스 — 코스피 마감·수급</a>  <a class="source" href="https://www.newsis.com/view/NISX20261022_0003837256">뉴시스 — 반도체 급락·외국인</a>  <a class="source" href="https://www.newsis.com/view/NISX20261022_0003837428">뉴시스 — 삼성·SK 자사주 매입 완료</a>
+    <span class="ref-note">뉴시스(10/22 16:04·16:19·18:15) <strong>단일 매체</strong> · 수급은 16:04 기사, 종목 종가·이경민 인용·반도체지수는 16:19 기사, 자사주 규모(삼성전자 약 15조, SK하이닉스 약 40조)는 18:15 기사 · SK하이닉스 하락률은 16:04 기사 본문이 5.49%, 16:19 기사가 5.64%로 엇갈려 5.64% 채택 · 10/23 장 흐름은 확인하지 못함 (확인 2026-10-23)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">코스피 하루 만에 반납,<br>5,533.77로 마감</p>
+      <p class="cn-s">22일 코스피가 3.52% 내렸어요. 삼성전자는 4.03%, SK하이닉스는 5.64% 떨어졌어요. 기관이 4,620억 원을 순매도했어요.</p>
+      <p class="cn-num">4,620억|기관 순매도</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Industry — 상장</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">重</span>
+    <div class="card-top"><span class="topic">산업 · 중복상장</span></div>
+    <h2>솔리다임 나스닥 상장 추진 — 금융당국 "중복상장 가이드라인 적용 대상"</h2>
+    <div class="summary">
+      <p>SK하이닉스 자회사 솔리다임의 나스닥 상장 추진을 두고 금융당국이 이를 <strong>중복상장</strong> 규제 대상으로 본다. 이억원 금융위원장이 중복상장 가이드라인 적용 대상이라고 밝혔다. 상장은 아직 공식 발표 전이다(YTN).</p>
+      <p>기사는 규제의 실효성을 짚었다. 주주 보호 의무를 어겨도 제재는 위약금 최대 <strong>10억 원</strong>, 거래정지 약 1일 수준으로 약하다고 평가했고, 해외 상장은 거래소 특별심사의 사각지대다. 모회사 주총 특별결의를 의무화하는 법안은 추진 중이지만 통과 시점은 불투명하다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">대상</span><span>SK하이닉스 자회사 솔리다임 · 나스닥 상장 추진 (공식 발표 전)</span></li>
+      <li><span class="k">당국 입장</span><span>금융위원장: 중복상장 가이드라인 적용 대상</span></li>
+      <li><span class="k">제재 수준</span><span>위약금 최대 10억 원 · 거래정지 약 1일 (기사 평가: 약함)</span></li>
+      <li><span class="k">법안</span><span>모회사 주총 특별결의 의무화 추진 · 통과 시점 불투명</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>상장 추진 자체는 아직 공식 발표 전이라 일정이나 규모를 말하기 이르다. 기사가 짚은 쟁점은 규제가 있어도 제재가 약해 모회사 주주를 지킬 수단이 부족하다는 점이다.</p>
+    </div>
+    <a class="source" href="https://www.ytn.co.kr/_ln/0102_202610230335312459">YTN — 솔리다임 중복상장 논란</a>
+    <span class="ref-note">YTN(10/23 03:35) <strong>단일 출처</strong> · 상장 일정·규모는 기사에 없음 · 금융위 원문 미확인 (확인 2026-10-23)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">솔리다임 나스닥 상장,<br>중복상장 규제 대상</p>
+      <p class="cn-s">금융당국이 SK하이닉스 자회사 솔리다임의 나스닥 상장 추진을 중복상장 가이드라인 적용 대상으로 봐요. 다만 제재는 위약금 최대 10억 원 수준이에요.</p>
+      <p class="cn-num">10억 원|위약금 최대</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="솔리다임 나스닥 상장 추진은 공식 발표 전, 금융당국은 중복상장 가이드라인 적용 대상으로 봄, 제재는 위약금 최대 10억 원과 거래정지 약 1일"><rect class="cn-ring" x="30" y="34" width="340" height="44" rx="10"/><text class="cn-big" x="200" y="62" text-anchor="middle">나스닥 상장 추진 (공식 발표 전)</text><line class="cn-line" x1="200" y1="78" x2="200" y2="92"/><polygon class="cn-on" points="192,90 208,90 200,100"/><rect class="cn-ring" x="30" y="98" width="340" height="44" rx="10"/><text class="cn-big" x="200" y="126" text-anchor="middle">중복상장 가이드라인 적용 대상</text><line class="cn-line" x1="200" y1="142" x2="200" y2="156"/><polygon class="cn-on" points="192,154 208,154 200,164"/><rect class="cn-ring" x="30" y="162" width="340" height="44" rx="10"/><text class="cn-big" x="200" y="190" text-anchor="middle">위약금 최대 10억 원 · 거래정지 약 1일</text></svg>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Labor — 노동</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">監</span>
+    <div class="card-top"><span class="topic">노동 · 쿠팡 감독</span></div>
+    <h2>쿠팡 감독 결과 산업안전 위반 206건 — 61건 송치, 145건 과태료 19억 6천만 원</h2>
+    <div class="summary">
+      <p>노동부가 올해 1월부터 쿠팡 본사·배송 계열사·캠프를 감독한 결과 산업안전 위반 <strong>206건</strong>을 확인했다. 61건은 송치, 145건은 과태료 합계 19억 6천만 원이다. 산재 신청 철회 압박 2건과 산재 미신고도 확인됐다(YTN).</p>
+      <p>노동부는 2020년 대구 물류센터 노동자 산재 사망 사고 당시 쿠팡 대표이사(김범석)가 부적절한 지시를 한 사실을 확인했으나, 공소시효 5년이 지나 불기소 의견으로 송치할 방침이라고 한다. PIP, 블랙리스트, 불법파견은 위반으로 인정되지 않았다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">위반 건수</span><span>산업안전 위반 206건 = 송치 61건 + 과태료 145건</span></li>
+      <li><span class="k">과태료</span><span>합계 19억 6천만 원</span></li>
+      <li><span class="k">산재 관련</span><span>산재 신청 철회 압박 2건 · 산재 미신고 확인</span></li>
+      <li><span class="k">2020년 건</span><span>대구 물류센터 노동자 산재 사망 사고 당시 대표이사의 부적절 지시 확인 · 공소시효 5년 경과 → 불기소 의견 송치 방침</span></li>
+      <li><span class="k">불인정</span><span>PIP · 블랙리스트 · 불법파견</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>감독 결과는 노동부의 판단이며 쿠팡 측 입장은 이 기사에 없다. 위반이 인정된 부분(206건)과 인정되지 않은 부분(PIP·블랙리스트·불법파견)이 함께 있으니 한쪽만 옮기지 않는다.</p>
+    </div>
+    <a class="source" href="https://www.ytn.co.kr/_ln/0103_202610222206145416">YTN — 쿠팡 감독 결과</a>
+    <span class="ref-note">YTN(10/22 22:06) <strong>단일 출처</strong> · 쿠팡 측 입장 기사에 없음 · 노동부 보도자료 원문 미확인 (확인 2026-10-23)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">쿠팡 산업안전 감독,<br>위반 206건 확인</p>
+      <p class="cn-s">노동부가 쿠팡 본사와 배송 계열사, 캠프를 감독했어요. 61건은 송치, 145건은 과태료예요. PIP와 블랙리스트는 위반으로 보지 않았어요.</p>
+      <p class="cn-bars">위반 합계:206|과태료 건수:145|송치 건수:61</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Security — 보안</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">警</span>
+    <div class="card-top"><span class="topic">보안 · PHP 취약점</span></div>
+    <h2>PHP 원격 코드 실행 취약점 경보 — KISA "즉시 업데이트"</h2>
+    <div class="summary">
+      <p>웹사이트의 약 <strong>75%</strong>가 쓰는 PHP에서 인증 없이 원격 코드 실행이 가능한 취약점이 나왔다. 영향 버전은 PHP 8.2~8.5이고, 한국인터넷진흥원(KISA)은 즉시 업데이트를 권고했다. 뉴스1은 유럽 정부기관 사이트가 운영을 멈췄고 AI로 취약점을 찾았다고 전했다.</p>
+      <p>한편 22일 오후 3시 50분쯤부터 6시쯤까지 전국 법원 전산망에 장애가 있었다. 법원행정처는 "PHP 해킹과 무관"하다고 밝혔고 원인은 조사 중이다(한국경제). 장애가 영장 처리나 재판에 영향을 줬는지는 기사에서 확인되지 않는다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">취약점</span><span>PHP 인증 없는 원격 코드 실행 · 영향 8.2~8.5</span></li>
+      <li><span class="k">사용 비중</span><span>웹사이트 약 75%가 PHP 사용 (뉴스1)</span></li>
+      <li><span class="k">권고</span><span>KISA: 즉시 업데이트</span></li>
+      <li><span class="k">법원 장애</span><span>10/22 약 15:50~18:00 · 법원행정처 "PHP 해킹과 무관" · 원인 조사 중</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>서버 관리자가 아니면 직접 할 일은 많지 않다. 다만 쓰는 서비스가 PHP 기반이면 운영사의 업데이트 공지를 확인하자. 법원 장애와 PHP 취약점은 기사에서 서로 무관하다고 밝혀졌으니 엮어 읽지 않는다.</p>
+    </div>
+    <a class="source" href="https://news1.kr/it-science/security-hacking/6328135">뉴스1 — PHP 취약점·KISA 권고</a>  <a class="source" href="https://www.hankyung.com/article/2026102296917">한국경제 — 법원 전산망 장애</a>
+    <span class="ref-note">뉴스1(10/22 09:38 업데이트)·한국경제(10/22 19:38) · 각각 <strong>단일 출처</strong>, CVE 번호는 기사에 없음 · 정부 위기경보 상향 보도는 본문을 열지 못해 뺌 (확인 2026-10-23)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">PHP 원격 실행 취약점,<br>즉시 업데이트 권고</p>
+      <p class="cn-s">웹사이트 약 75%가 쓰는 PHP에서 원격 코드 실행 취약점이 나왔어요. 영향은 8.2~8.5 버전이고, KISA는 즉시 업데이트를 권고했어요.</p>
+      <p class="cn-num">8.2~8.5|영향 받는 PHP 버전</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Life — 부산지하철</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">罷</span>
+    <div class="card-top"><span class="topic">생활 · 부산지하철</span></div>
+    <h2>부산지하철 파업 철회 — 밤샘 협상 끝 잠정 합의, 첫차부터 정상 운행</h2>
+    <div class="summary">
+      <p>부산지하철 노사가 23일 0시 48분쯤 금정구 노포차량사업소에서 밤샘 협상 끝에 <strong>잠정 합의</strong>했다. 파업은 철회됐고 첫차부터 정상 운행한다. (뉴스1).</p>
+      <p>합의 내용은 임금 3.5% 인상이다. 노조는 내년 인력 29명 증원을 요청했고, 안전인력 공동 조직진단을 추진하기로 했다. </p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">합의</span><span>23일 0시 48분쯤 · 노포차량사업소(금정구) · 잠정 합의</span></li>
+      <li><span class="k">운행</span><span>23일 첫차부터 정상</span></li>
+      <li><span class="k">임금</span><span>3.5% 인상</span></li>
+      <li><span class="k">인력·안전</span><span>내년 인력 29명 증원 요청 · 안전인력 공동 조직진단 추진</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>파업이 철회돼 23일 출근길은 평소대로다. 다만 잠정 합의라 조합원 찬반이 남아 있는지는 기사에서 확인하지 못했다. 인력 29명은 증원 요청 수치이며 확정된 증원이 아니다.</p>
+    </div>
+    <a class="source" href="https://news1.kr/local/busan-gyeongnam/6329293">뉴스1 — 잠정 합의·철회</a>
+    <span class="ref-note">뉴스1(10/23 01:32) 수치 <strong>단일 출처</strong> · 철회 사실은 한국경제 제목(10/23)으로만 교차, 본문 미열람 · “7년 만의 총파업”은 본문에서 확인하지 못해 뺌 · 조합원 찬반 여부 미확인 (확인 2026-10-23)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">부산지하철 파업 철회,<br>첫차부터 정상 운행</p>
+      <p class="cn-s">부산지하철 노사가 밤샘 협상 끝에 잠정 합의했어요. 파업은 철회됐고 23일 첫차부터 정상 운행해요. 임금은 3.5% 오르기로 했어요.</p>
+      <p class="cn-num">3.5%|임금 인상</p>
+      <p class="cn-img">A quiet subway platform at dawn with a train arriving, warm station lights and a few commuters waiting in silhouette</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">Daily Card News</span> · 2026년 10월 23일 금요일 · 6 Picks<br>
+    각 카드의 대표 출처 기사 본문을 직접 열어 수치·고유명사·발행일시를 확인했습니다. 한국은행 금통위 카드만 두 매체가 일치하고 나머지는 단일 매체 보도라 해당 카드 ref-note 에 표시했으며, 통계·보도자료 원문은 확인하지 못했습니다. 기사에 없는 값은 적지 않았습니다.<br>
+    📊 도표: 코스피 카드에 하락률 막대 도표를 넣었습니다. 금리·쿠팡 카드는 수치 비교 계열이 한 묶음이거나 건수 구성(61+145=206)뿐이라 카드 이미지의 미니 막대로 갈음했고, 솔리다임·PHP·부산지하철 카드는 비교할 수치 흐름이 없어 도표를 생략했습니다.<br>
+    ⚠ 날씨·잠정 합의·일정은 바뀔 수 있습니다. 23일 오후 2시 오세훈 서울시장 항소심 선고 결과는 이 브리프에 담기지 않았습니다.
+    <!-- tracker: 2026-10-23
+         [추적 중인 스토리 현재 상태]
+         금통위: 10/22 기준금리 3.00% 동결(만장일치), 7·8월 연속 인상 뒤. 시장은 11월 인상 예상, 설문 10명 3.5%(뉴스1·한경). → 3분기 GDP·10월 물가, 11월 금통위.
+         코스피: 10/20 −3.73% → 10/21 5,735.66(+3.29%) → 10/22 5,533.77(−3.52%), 삼성전자 −4.03%, SK하이닉스 −5.64%, 기관 −4,620억(뉴시스 단일). → 10/23 장.
+         솔리다임: 나스닥 상장 추진, 금융위원장 "중복상장 가이드라인 적용 대상"(YTN 단일). → 공식 상장 발표·법안.
+         쿠팡: 노동부 감독 산업안전 위반 206건, 61건 송치·145건 과태료 19.6억(YTN 단일). → 송치 후 수사·쿠팡 입장.
+         PHP 취약점: KISA 즉시 업데이트 권고, 법원 전산망 장애는 무관 발표(뉴스1·한경 각 단일). → 원인 조사 결과.
+         부산지하철: 10/23 잠정 합의·파업 철회(뉴스1 단일, 한경 제목). → 조합원 찬반.
+         [기존 추적 유지 — 새 전개 미확인] 오세훈 항소심 선고 10/23 14:00(결과 미확인) · 김건희 구속 만료 10/31, 법원 심문 10/27(제목만) · 프랑스 시위 금지·증원 10/24(YTN 10/23 04:33, 이번엔 제외) · 대통령 중수청 지휘 발언(한경 단일, 정치 양측 병기 어려워 제외) · 아리셀 유족 재판소원 · 강남(역삼동) 연쇄 방화 피의자 구속(뉴스1 10/22, 사건 카드 회피) · 조희대 탄핵 · 중앙일보 인수 · 한전 정보 노출 · 박성재 항소심.
+         [오늘 다룬 항목] ①금통위 동결 ②코스피 하락 ③솔리다임 중복상장 ④쿠팡 감독 결과 ⑤PHP 취약점 ⑥부산지하철 파업 철회
+         [제외] 오세훈 선고(결과 미확인) · 역삼동 방화 구속(사건·부상 19명, 후속 단일) · 대통령 중수청 발언(단일·정치 공방) · 프랑스 시위(10/20 다룸, 폭력 사태) · 나스닥 −2.6%(기사 미완) · 김건희 심문 일정(제목만)
+         [리서치 도구] mcp__Firecrawl__* 호출 0회. WebSearch 발견 → WebFetch 검증.
+    -->
+  </footer>
+
+</div></body>
+</html>
