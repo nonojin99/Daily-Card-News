@@ -73,6 +73,13 @@
   .bc .series{display:block;width:100%;margin-top:8px;padding:10px 0;border-radius:10px;font-size:13.5px;font-weight:600;color:var(--act);background:var(--acd)}
   .bc .acts .listen{flex:1.4;background:var(--ac);color:#fff;border-color:transparent}
   .bc .meta{font-size:12px;color:var(--faint);margin-top:8px}
+  /* 피드형(오늘 브리프 칸, 2026-10-22): 상자 없이 굵은 구분선, 카드 띠가 주인공 */
+  .bc:not(.sm){background:transparent;border:0;border-radius:0;box-shadow:none;border-bottom:2px solid var(--edge);padding:8px 0 24px;margin-bottom:20px}
+  .bc:not(.sm) .badge{background:none;padding:0 0 0 9px;border-left:4px solid var(--act);border-radius:0;font-size:12px}
+  .bc:not(.sm) h2{font-size:22px;margin:10px 0 0}
+  .bc:not(.sm) .thumbs{margin:14px -16px 0;padding:0 16px 4px}
+  .bc:not(.sm) .thumbs img{flex-basis:84%;border-radius:14px}
+  .bc:not(.sm) .acts button{border-radius:24px}
   .bc.sm{padding:14px 16px 12px}
   .bc.sm h2{font-size:17px;margin:8px 0 0}
   .bc.sm .acts{margin-top:10px}
@@ -136,7 +143,8 @@
     body{padding-left:32px;padding-right:32px}
     .wrap,.player,.tabs{max-width:1080px}
     #view{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px;align-items:start}
-    .bc .thumbs img{flex-basis:46%}
+    .bc:not(.sm) .thumbs{margin:14px 0 0;padding:0 0 4px}
+    .bc:not(.sm) .thumbs img{flex-basis:46%}
     #view > :not(.bc):not(.row){grid-column:1/-1}
     .top{padding-top:40px}
     .today{font-size:40px}
@@ -146,7 +154,7 @@
   @media (min-width:1400px){
     .wrap,.player,.tabs{max-width:1320px}
     #view{column-gap:24px}
-    .bc .thumbs img{flex-basis:38%}
+    .bc:not(.sm) .thumbs img{flex-basis:40%}
   }
 </style>
 </head>
@@ -332,19 +340,18 @@ function seriesOf(f){
   if(f.type === (nu ? "travel" : "activity") && wd === (nu ? 5 : 6)) return {mix: "weekend", name: "주말 뭐하지"};
   return null;
 }
+// 오늘 브리프 칸(2026-10-22 사용자 결정 — 피드형): 분야 배지 → 헤드라인 → 카드뉴스 띠 → 읽기·카드·듣기
+// 리드·핵심 3줄·N Picks 는 카드와 겹쳐 뺐다
 function bcHtml(f, d, small, night){
   const t = typeOf(f.type), ac = d ? d.ac : t.ac;
   const picks = !small && d && d.picks && d.picks.length ? d.picks : [];
   return `<article class="bc${small ? " sm" : ""}" style="--ac:${ac};--acs:${soft(ac)}">
       <span class="badge">${esc(t.label)}${night ? " · 어젯밤" : ""}</span>
       <h2>${esc(d ? d.title : t.label + " 브리프")}</h2>
-      ${!small && d && d.lede ? `<p>${esc(d.lede)}</p>` : ""}
       ${!small ? thumbsHtml(f, picks.length) : ""}
-      ${picks.length ? `<ol class="pk">${picks.slice(0,3).map((p,k) => `<li><b>${k+1}</b><span>${esc(p)}</span></li>`).join("")}${picks.length > 3 ? `<li class="more">외 ${picks.length - 3}개 항목</li>` : ""}</ol>` : ""}
       <div class="acts"><button data-read="${esc(f.path)}">읽기</button><button data-cards="${esc(f.path)}">카드</button>
       ${d && d.audio ? `<button class="listen" data-listen="${esc(f.path)}">▶ 듣기${d.mins ? ` · ${d.mins}분` : ""}</button>` : ""}</div>
       ${!small && seriesOf(f) ? `<button class="series" data-mix="${seriesOf(f).mix}" data-d="${esc(f.date)}">📸 인스타 시리즈 · ${seriesOf(f).name}</button>` : ""}
-      ${!small && d && d.count ? `<div class="meta">${esc(d.count)}</div>` : ""}
     </article>`;
 }
 
