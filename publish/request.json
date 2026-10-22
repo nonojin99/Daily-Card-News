@@ -2,12 +2,12 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-10/2026-10-22_event-brief",
-   "caption": "captions/2026-10-22_event.txt",
+   "media": "cards/2026-10/2026-10-22_football-brief",
+   "caption": "captions/2026-10-22_football.txt",
    "dry_run": "false",
    "is_ai": "false",
    "account": "sports"
   }
  ],
- "note": "10/22 이벤트 픽 첫 회(안세영 프랑스오픈·LPGA BMW 레이디스) — @hannun.sports. 축구 모닝 캐러셀은 08:43 이미 게시돼 개정본은 재요청하지 않음(중복 방지)"
+ "note": "10/22 축구 모닝 개정본(6장) 재게시 — 사용자가 08:43 원본 게시물을 앱에서 삭제한 뒤 요청 (@hannun.sports)"
 }
