@@ -2,12 +2,11 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-10/2026-10-22_football-brief",
-   "caption": "captions/2026-10-22_football.txt",
+   "media": "cards/2026-10/2026-10-22_food-brief",
+   "caption": "captions/2026-10-22_food.txt",
    "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports"
+   "is_ai": "true"
   }
  ],
- "note": "10/22 축구 모닝 개정본(6장) 재게시 2차 — 1차(09:49)는 Pages 배포 전이라 03 옛 카드가 올라가 사용자가 삭제. 공개 주소 8장 = 레포 JPG 확인, 사용자 확인 후 요청 (@hannun.sports)"
+ "note": "10/22 푸드 시범판 캐러셀(9장) — 생성 그림·카드 사용자 확인 후 요청, 공개 주소 JPG 9장 = 레포 sha1 일치 확인 (@hannun.brief)"
 }
