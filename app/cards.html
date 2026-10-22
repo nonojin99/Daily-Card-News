@@ -642,7 +642,7 @@ async function zipStore(files){
     paint();
 
     // Actions 가 구운 인스타용 JPG 가 있으면 저장용 목록을 보여 준다
-    // 일괄 저장 패널은 관리자 기기에만(2026-10-21): 앱 주소에 ?admin=1 로 한 번 열면 그 기기에 기억, ?admin=0 으로 끈다.
+    // 일괄 저장 패널은 관리자 기기에만(2026-10-21): 앱(app/ · 루트 주소 · 이 화면) 주소에 ?admin=1 로 한 번 열면 그 기기에 기억, ?admin=0 으로 끈다.
     // 화면 정리용일 뿐 보안이 아니다 — 카드 JPG 는 공개 주소에 있다.
     const ADMIN = (() => { try { const v = qs.get("admin"); if(v === "1") localStorage.setItem("dcn-admin", "1"); if(v === "0") localStorage.removeItem("dcn-admin");
       return localStorage.getItem("dcn-admin") === "1"; } catch { return qs.get("admin") === "1"; } })();

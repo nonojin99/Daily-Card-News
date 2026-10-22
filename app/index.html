@@ -198,6 +198,11 @@ const fmtDay = d => { const x = new Date(d + "T00:00:00"); return `${x.getMonth(
 const store = { get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } },
                 set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} } };
 
+// 관리자 기기 표시(카드 일괄 저장 패널) — 앱 주소에 ?admin=1 로 한 번 열면 이 기기에 기억, ?admin=0 으로 끈다.
+// cards.html 과 같은 저장 키(dcn-admin)를 쓴다. 화면 정리용일 뿐 보안이 아니다(2026-10-22)
+(() => { const v = new URLSearchParams(location.search).get("admin");
+  if(v === "1") store.set("dcn-admin", "1"); if(v === "0") try{ localStorage.removeItem("dcn-admin"); }catch(e){} })();
+
 let FILES = [], tab = "today", chip = "all";
 const NIGHT = new Set(["baseball", "esports"]);   // 밤에 발행돼 다음 날 아침 '오늘'에도 뜨는 브리프
 const detailCache = new Map();
