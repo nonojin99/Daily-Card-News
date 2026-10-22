@@ -80,6 +80,9 @@
   .bc:not(.sm) .thumbs{margin:14px -16px 0;padding:0 16px 4px}
   .bc:not(.sm) .thumbs img{flex-basis:84%;border-radius:14px}
   .bc:not(.sm) .acts button{border-radius:24px}
+  .bc:not(.sm):has(.thumbs) .cbtn{display:none}
+  .bc .hl{cursor:pointer}
+  .bc .hl .go{color:var(--faint);font-family:'Inter',sans-serif;font-weight:400;margin-left:6px}
   .bc.sm{padding:14px 16px 12px}
   .bc.sm h2{font-size:17px;margin:8px 0 0}
   .bc.sm .acts{margin-top:10px}
@@ -340,16 +343,17 @@ function seriesOf(f){
   if(f.type === (nu ? "travel" : "activity") && wd === (nu ? 5 : 6)) return {mix: "weekend", name: "주말 뭐하지"};
   return null;
 }
-// 오늘 브리프 칸(2026-10-22 사용자 결정 — 피드형): 분야 배지 → 헤드라인 → 카드뉴스 띠 → 읽기·카드·듣기
-// 리드·핵심 3줄·N Picks 는 카드와 겹쳐 뺐다
+// 오늘 브리프 칸(2026-10-22 사용자 결정 — 피드형): 분야 배지 → 헤드라인 → 카드뉴스 띠 → 읽기·듣기
+// 리드·핵심 3줄·N Picks 는 카드와 겹쳐 뺐다. 헤드라인을 눌러도 읽기, 카드 띠의 한 장을 누르면 그 장부터 카드 보기.
+// '카드' 버튼은 카드 띠가 없을 때(이미지 굽기 전·어제 칸)만 보인다
 function bcHtml(f, d, small, night){
   const t = typeOf(f.type), ac = d ? d.ac : t.ac;
   const picks = !small && d && d.picks && d.picks.length ? d.picks : [];
   return `<article class="bc${small ? " sm" : ""}" style="--ac:${ac};--acs:${soft(ac)}">
       <span class="badge">${esc(t.label)}${night ? " · 어젯밤" : ""}</span>
-      <h2>${esc(d ? d.title : t.label + " 브리프")}</h2>
+      <h2${small ? "" : ` class="hl" data-read="${esc(f.path)}"`}>${esc(d ? d.title : t.label + " 브리프")}${small ? "" : '<span class="go" aria-hidden="true">›</span>'}</h2>
       ${!small ? thumbsHtml(f, picks.length) : ""}
-      <div class="acts"><button data-read="${esc(f.path)}">읽기</button><button data-cards="${esc(f.path)}">카드</button>
+      <div class="acts"><button data-read="${esc(f.path)}">읽기</button><button class="cbtn" data-cards="${esc(f.path)}">카드</button>
       ${d && d.audio ? `<button class="listen" data-listen="${esc(f.path)}">▶ 듣기${d.mins ? ` · ${d.mins}분` : ""}</button>` : ""}</div>
       ${!small && seriesOf(f) ? `<button class="series" data-mix="${seriesOf(f).mix}" data-d="${esc(f.date)}">📸 인스타 시리즈 · ${seriesOf(f).name}</button>` : ""}
     </article>`;
@@ -361,7 +365,7 @@ function thumbsHtml(f, n){
   const stem = f.path.replace(/^.*\//, "").replace(/\.html$/, ""), dir = `${BASE}cards/${f.month || f.date.slice(0, 7)}/${stem}/`;
   const k = Math.max(1, Math.min(8, n || 3));
   return `<div class="thumbs" data-cards="${esc(f.path)}">${Array.from({length: k}, (_, i) =>
-    `<img src="${dir}${String(i + 2).padStart(2, "0")}.jpg" loading="lazy" alt="" onerror="${i ? "this.remove()" : "this.parentNode.remove()"}">`).join("")}</div>`;
+    `<img src="${dir}${String(i + 2).padStart(2, "0")}.jpg" data-s="${i + 1}" loading="lazy" alt="" onerror="${i ? "this.remove()" : "this.parentNode.remove()"}">`).join("")}</div>`;
 }
 
 // 행은 즉시 그리고, 제목·듣기 버튼은 화면에 들어올 때 채운다
@@ -425,11 +429,11 @@ const Reader = {
     if(push) history.pushState({mix, d}, "", `#mix:${mix}:${d}`);
   },
   // cards = true 이면 브리프 대신 카드 넘겨보기(cards.html)를 연다
-  async open(path, push = true, cards = false){
+  async open(path, push = true, cards = false, start = 0){
     const f = FILES.find(x => x.path === path);
     this.path = path;
     $("rdTitle").textContent = f ? `${typeOf(f.type).label}${cards ? " · 카드" : ""} · ${fmtDay(f.date)}` : "";
-    $("rdFrame").src = cards ? "cards.html?f=" + encodeURIComponent(path) : BASE + path;
+    $("rdFrame").src = cards ? "cards.html?f=" + encodeURIComponent(path) + (start ? "&s=" + start : "") : BASE + path;
     $("reader").classList.add("show"); $("reader").setAttribute("aria-hidden","false");
     if(push) history.pushState({reader:path, cards}, "", "#" + (cards ? "cards:" : "") + encodeURIComponent(path));
     $("rdListen").hidden = true;
@@ -491,7 +495,7 @@ if("mediaSession" in navigator){
 // ── 클릭 위임 ──
 document.addEventListener("click", async e => {
   const r = e.target.closest("[data-read]"); if(r){ Reader.open(r.dataset.read); return; }
-  const k = e.target.closest("[data-cards]"); if(k){ Reader.open(k.dataset.cards, true, true); return; }
+  const k = e.target.closest("[data-cards]"); if(k){ Reader.open(k.dataset.cards, true, true, Number(e.target.dataset.s) || 0); return; }
   const x = e.target.closest("[data-mix]"); if(x){ Reader.openMix(x.dataset.mix, x.dataset.d); return; }
   const l = e.target.closest("[data-listen]");
   if(l){ const f = FILES.find(x => x.path === l.dataset.listen); if(f){ const d = await detail(f); Player.load([{f, d}], 0); } return; }

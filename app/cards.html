@@ -640,6 +640,9 @@ async function zipStore(files){
     document.getElementById("next").onclick = () => go(1);
     addEventListener("keydown", e => { if(e.key === "ArrowRight") go(1); if(e.key === "ArrowLeft") go(-1); });
     paint();
+    // 앱 카드 띠에서 누른 장부터 연다(?s=N, 0 = 표지 · 2026-10-22)
+    const S0 = Math.max(0, Math.min(slides.length - 1, Number(qs.get("s")) || 0));
+    if(S0) requestAnimationFrame(() => { rail.scrollLeft = S0 * step(); paint(); });
 
     // Actions 가 구운 인스타용 JPG 가 있으면 저장용 목록을 보여 준다
     // 일괄 저장 패널은 관리자 기기에만(2026-10-21): 앱(app/ · 루트 주소 · 이 화면) 주소에 ?admin=1 로 한 번 열면 그 기기에 기억, ?admin=0 으로 끈다.
