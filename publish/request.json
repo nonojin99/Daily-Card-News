@@ -13,7 +13,15 @@
    "caption": "captions/2026-10-23_weekend_reel.txt",
    "dry_run": "false",
    "is_ai": "true"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-10/2026-10-23_football-brief",
+   "caption": "captions/2026-10-23_football.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports"
   }
  ],
- "note": "10/23 금요일 자동 등록 — 주말 뭐하지 캐러셀(목 액티비티 3 + 금 여행 2 + 수 문화 1 + 미리 예약 2) + 목 액티비티 낭독 오디오 릴스"
+ "note": "10/23 금요일 자동 등록 — 주말 뭐하지 캐러셀(목 액티비티 3 + 금 여행 2 + 수 문화 1 + 미리 예약 2) + 목 액티비티 낭독 오디오 릴스 + ⚽ 축구 모닝 캐러셀(@hannun.sports)"
 }
