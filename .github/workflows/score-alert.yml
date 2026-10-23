@@ -1,8 +1,9 @@
 name: Score alert
 
 # 경기 결과 알림 → @hannun.sports 스토리(2026-10-23~): 경기가 끝나면 AI 없이 공식 기록(⚾ KBO · 🎮 LoL)으로 그날 결과판을 만들어 올린다.
-# 2026-10-24: 15분 예약 실행이 한 번도 돌지 않아(GitHub 짧은 주기 예약은 자주 밀리거나 건너뛴다) → 6시간마다 띄워
-# 355분 동안 5분마다 지켜본다(하루를 거의 다 덮는다: 05:40·11:40·17:40·23:40 KST 시작). 예약이 밀려도 다음 회차가 이어받는다.
+# 2026-10-24: 이 저장소의 예약 실행은 15분 주기여도 하루 1~2번, 몇 시간 늦게만 돈다(Pull briefs from Drive 기록으로 확인).
+# 그래서 **이어 달리기**: 한 회차가 355분 동안 5분마다 지켜본 뒤 마지막 단계에서 자기 자신을 workflow_dispatch 로 다시 띄운다
+# (GITHUB_TOKEN 으로도 workflow_dispatch 는 새 실행을 만든다). 아래 6시간 예약은 사슬이 끊겼을 때 다시 잇는 예비용.
 # 종목은 sports/alerts/sources.json (KBO·LoL·MLB·축구 4대 리그·챔스·유로파, NBA·NFL 은 꺼 둠)
 # 끄기: 저장소 변수 SCORE_ALERT=off, 게시 없이 카드만: dry · 지금 바로 3시간 지켜보기: sports/alerts/request.txt 를 바꿔 push
 on:
@@ -15,9 +16,16 @@ on:
     branches: [main]
     paths: ['sports/alerts/request.txt']
   workflow_dispatch:
+    inputs:
+      relay:
+        description: '이어 달리기로 띄운 회차(사람이 누를 땐 비워 둔다)'
+        required: false
+        default: ''
+
 
 permissions:
   contents: write
+  actions: write   # 다음 회차를 스스로 띄우기(이어 달리기)
 
 concurrency:
   group: score-alert
@@ -41,8 +49,13 @@ jobs:
           IG_SPORTS_ACCESS_TOKEN: ${{ secrets.IG_SPORTS_ACCESS_TOKEN }}
           IG_SPORTS_USER_ID: ${{ secrets.IG_SPORTS_USER_ID }}
           EXPECT_SPORTS_USERNAME: ${{ vars.EXPECT_SPORTS_USERNAME || 'hannun.sports' }}
-          WATCH_MIN: ${{ github.event_name == 'schedule' && '355' || '180' }}
+          WATCH_MIN: ${{ github.event_name == 'push' && '180' || '355' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           python3 .github/scripts/score_alert.py --watch "$WATCH_MIN"
+      - name: Relay — 다음 회차 띄우기
+        if: always() && env.SCORE_ALERT != 'off'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run score-alert.yml --ref main -f relay=1 || echo "::warning::relay dispatch failed — 예비 예약 실행이 이어받는다"
