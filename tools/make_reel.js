@@ -127,9 +127,10 @@ function autoSegments(paras, spans, nSlides) {
   const closing = body.length ? n - 1 : -1;
   if (!body.length) body = [n - 1];
   const slideOf = i => i === weather ? 1 : i === closing ? nSlides : 2 + Math.min(K - 1, Math.floor(body.indexOf(i) * K / body.length));
-  let keep = [...Array(n).keys()].filter(i => i > 0);
-  const len = ks => (ks.reduce((t, i) => t + spans[i][1] - spans[i][0], 0) + GAP * (ks.length - 1) + (closing < 0 ? OUTRO : 0)) / SPEED;
-  const dropped = [0];
+  // 2026-10-23 사용자 결정: 날씨·끝인사 문단도 릴스에서 뺀다(날씨는 캡션에) → 본문만 + 출처 장 OUTRO 초
+  let keep = body.slice();
+  const len = ks => (ks.reduce((t, i) => t + spans[i][1] - spans[i][0], 0) + GAP * (ks.length - 1) + OUTRO) / SPEED;
+  const dropped = [...Array(n).keys()].filter(i => !body.includes(i));
   while (len(keep) > FIT) {
     const cand = keep.filter(i => body.includes(i) && body.length > 1);
     if (!cand.length) break;
@@ -142,7 +143,7 @@ function autoSegments(paras, spans, nSlides) {
     return [...Array(z - a).keys()].map(x => 2 + a + x); };
   const segments = keep.flatMap(i => { const r = range(i), [s0, e0] = spans[i], d = (e0 - s0) / r.length;
     return r.map((sl, x) => [+(s0 + d * x).toFixed(3), +(s0 + d * (x + 1)).toFixed(3), sl, x < r.length - 1 ? 1 : 0]); });
-  return { segments, dropped: dropped.sort((a, b) => a - b), total: len(keep), outro: closing < 0 ? nSlides : 0 };
+  return { segments, dropped: dropped.sort((a, b) => a - b), total: len(keep), outro: nSlides };
 }
 
 async function build(spec, b, base) {
@@ -236,7 +237,7 @@ async function autoOne(brief, b, base) {
   const spec = { brief, audio: mp3, out: base_ + ".mp4", title: `${a.total < 55 ? `${Math.max(10, Math.round(a.total / 5) * 5)}초` : `${Math.max(1, Math.round(a.total / 60))}분`} ${TITLE[m[4]] || "듣는 브리프"}`,
     ...(bgmOf(html) ? { bgm: bgmOf(html) } : {}),
     speed: SPEED, segments: a.segments, ...(a.outro ? { outro: a.outro } : {}), dropped_paragraphs: a.dropped.map(i => i + 1),
-    note: a.dropped.length > 1 ? `첫 문단(날짜·인사)은 릴스에서 뺌. 3분을 넘어 원고 ${a.dropped.slice(1).map(i => i + 1).join("·")}번째 문단도 뺐다 — 캡션에 "전체 낭독은 앱에서"` : "첫 문단(날짜·인사)만 빼고 원고 전체" };
+    note: `날짜·인사·날씨·끝인사 문단은 릴스에서 뺌(본문만, 출처 장 ${OUTRO}초)` + (a.dropped.length > paras.length - a.segments.length ? " — 3분을 넘어 본문 문단도 뺐다, 캡션에 '전체 낭독은 앱에서'" : "") };
   spec._cards = cards;
   await build(spec, b, base);
   delete spec._cards;

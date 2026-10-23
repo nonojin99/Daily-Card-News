@@ -2,7 +2,7 @@
   "brief": "2026-10-22_activity-brief.html",
   "audio": "audio/2026-10/2026-10-22_activity.mp3",
   "out": "reels/2026-10/2026-10-22_activity.mp4",
-  "title": "40초 듣는 주말",
+  "title": "35초 듣는 주말",
   "speed": 1.2,
   "segments": [
     [
@@ -46,17 +46,13 @@
       48.3,
       8,
       0
-    ],
-    [
-      49,
-      57.96,
-      9,
-      0
     ]
   ],
+  "outro": 9,
   "dropped_paragraphs": [
-    1
+    1,
+    9
   ],
-  "note": "첫 문단(날짜·인사)만 빼고 원고 전체",
-  "fp": "64b462d2105d62802bcb537cfc985d80138550b5"
+  "note": "날짜·인사·날씨·끝인사 문단은 릴스에서 뺌(본문만, 출처 장 2초)",
+  "fp": "48279a0d1b4ffefeae07dc9a633b04248f472703"
 }
