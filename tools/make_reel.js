@@ -143,7 +143,7 @@ function autoSegments(paras, spans, nSlides) {
     const a = Math.floor(j * K / body.length), z = Math.max(a + 1, Math.floor((j + 1) * K / body.length));
     return [...Array(z - a).keys()].map(x => 2 + a + x); };
   const segments = keep.flatMap(i => { const r = range(i), [s0, e0] = spans[i], d = (e0 - s0) / r.length;
-    return r.map((sl, x) => [+(s0 + d * x).toFixed(3), +(s0 + d * (x + 1)).toFixed(3), sl, x < r.length - 1 ? 1 : 0]); });
+    return r.map((sl, x) => [+(s0 + d * x).toFixed(3), +(s0 + d * (x + 1)).toFixed(3), sl, x < r.length - 1 ? 1 : 0, i]); });
   return { segments, dropped: dropped.sort((a, b) => a - b), total: len(keep), outro: nSlides };
 }
 
@@ -160,11 +160,21 @@ async function build(spec, b, base) {
   const N = spec.segments.length;
   const hook = hookOf(read(spec.brief).toString());
   const bgmNote = spec.bgm ? ` · 배경음악 ${esc(spec.bgm.credit)}` : "";
+  // 카드 둥근 모서리(28px) 마스크 — 모서리 바깥만 배경색, 나머지 투명
+  await fr.setViewportSize({ width: 886, height: 1108 });
+  await fr.setContent(`<!doctype html><html><body style="margin:0;background:transparent"><svg width="886" height="1108" xmlns="http://www.w3.org/2000/svg"><path fill="#f1efe8" fill-rule="evenodd" d="M0 0H886V1108H0Z M28 0H858A28 28 0 0 1 886 28V1080A28 28 0 0 1 858 1108H28A28 28 0 0 1 0 1080V28A28 28 0 0 1 28 0Z"/></svg></body></html>`);
+  await fr.screenshot({ path: path.join(tmp, "mask.png"), omitBackground: true, clip: { x: 0, y: 0, width: 886, height: 1108 } });
+  await fr.setViewportSize({ width: 1080, height: 1920 });
+  // 2026-10-23~ 움직이는 릴스: 프레임마다 ① 배경(머리말·진행 막대) ② 카드(천천히 확대 + 아래에서 밀려 올라오며 나타남) ③ 자막(낭독 문장)
+  // 카드 자리: x 97, y 330, 886×1108(1080×1350 카드 축소). 자막: 카드 아래 y 1452~1612. 진행 막대·계정 줄은 그 아래로.
+  const CX = 97, CY = 330, CW = 886, CH = 1108, FPS = 30, ZOOM = 0.045, IN = 0.28;
+  const durs = spec.segments.map(([s, e], k) => (e - s + (gapAfter(k) ? GAP : 0)) / sp);
+  const clips = [], frameK = k => k < N ? spec.segments[k][2] : spec.outro;
   for (let k = 0; k < N + (outro ? 1 : 0); k++) {   // k === N: 출처 장 무음 꼬리
-    // 맨 앞 표지 구간(첫 문단)은 훅 카드로 — 날씨 문단 등 뒤쪽 표지 구간은 그대로
-    if (k < N && hook && spec.segments.slice(0, k + 1).every(g => g[2] === 1)) {
-      const longest = Math.max(...hook.lines.map(l => l.length));
-      const fs_ = Math.max(64, Math.min(132, Math.floor(860 / (Math.max(1, longest) * 0.82))));
+    const dur = k < N ? durs[k] : outro / sp;
+    // 맨 앞 표지 구간(첫 문단)은 훅 카드로 — 날씨 문단 등 뒤쪽 표지 구간은 그대로 (자동 구간은 2026-10-23~ 첫 문단을 빼서 쓰이지 않음)
+    const isHook = k < N && hook && spec.segments.slice(0, k + 1).every(g => g[2] === 1);
+    if (isHook) {
       await fr.setContent(`<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
 <style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:${meta.ac};font-family:'Noto Sans KR',sans-serif;color:#fff;position:relative}
@@ -179,33 +189,68 @@ async function build(spec, b, base) {
 <div class="mid">${hook.num ? `<div class="num">${esc(hook.num)}</div><div class="lab">${esc(hook.label)}</div>` : `<div style="height:40px"></div>`}
 ${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
 <div class="ft"><b>@hannun.brief</b> · AI 음성 낭독(Google TTS)${bgmNote}</div></body></html>`, { waitUntil: "networkidle" });
-      await fr.screenshot({ path: path.join(tmp, `f${k}.png`) });
-      continue;
-    }
-    const img = "data:image/png;base64," + fs.readFileSync(files[(k < N ? spec.segments[k][2] : spec.outro) - 1]).toString("base64");
-    await fr.setContent(`<!doctype html><html><head><meta charset="utf-8">
+      await fr.screenshot({ path: path.join(tmp, `bg${k}.png`) });
+    } else {
+      await fr.setContent(`<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
 <style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:#f1efe8;font-family:'Noto Sans KR',sans-serif;color:#1a1a18;position:relative}
 .top{position:absolute;left:97px;right:97px;top:190px;display:flex;align-items:center;gap:22px}
 .cat{background:${meta.ac};color:#fff;font-weight:900;font-size:38px;padding:10px 28px;border-radius:99px;white-space:nowrap}
 .t{font-weight:900;font-size:50px;letter-spacing:-.02em;white-space:nowrap}.dt{margin-left:auto;font-size:32px;color:#55554f;font-weight:500;white-space:nowrap}
-.card{position:absolute;left:97px;top:330px;width:886px;border-radius:28px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.08)}
-.card img{display:block;width:100%}
-.bar{position:absolute;left:97px;right:97px;top:1472px;height:8px;border-radius:9px;background:#e1ddd2}
+.bar{position:absolute;left:97px;right:97px;top:1636px;height:8px;border-radius:9px;background:#e1ddd2}
 .bar i{display:block;height:100%;width:${(Math.min(1, (k + 1) / N) * 100).toFixed(1)}%;border-radius:9px;background:${meta.ac}}
-.ft{position:absolute;left:97px;right:97px;top:1508px;font-size:32px;color:#55554f}.ft b{color:#3d5a4c}</style></head>
+.ft{position:absolute;left:97px;right:97px;top:1664px;font-size:30px;color:#55554f}.ft b{color:#3d5a4c}</style></head>
 <body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">🎧 ${esc(spec.title)}</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
-<div class="card"><img src="${img}"></div><div class="bar"><i></i></div>
+<div class="bar"><i></i></div>
 <div class="ft"><b>@hannun.brief</b> · AI 음성 낭독(Google TTS)${bgmNote}</div></body></html>`, { waitUntil: "networkidle" });
-    await fr.screenshot({ path: path.join(tmp, k < N ? `f${k}.png` : "fo.png") });
+      await fr.screenshot({ path: path.join(tmp, `bg${k}.png`) });
+    }
+    const out_ = path.join(tmp, `c${k}.mp4`), F = Math.max(1, Math.round(dur * FPS));
+    if (isHook) {
+      execFileSync("ffmpeg", ["-v", "error", "-y", "-loop", "1", "-t", dur.toFixed(3), "-i", path.join(tmp, `bg${k}.png`),
+        "-vf", `fps=${FPS},format=yuv420p`, "-frames:v", String(F), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out_]);
+    } else {
+      // 카드: 2배로 키운 뒤 zoompan(정수 반올림 떨림 방지) → 둥근 모서리 마스크 → 투명도 페이드 + 36px 아래에서 올라오기. 출처 장은 확대하지 않는다.
+      const z = k < N ? ZOOM : 0;
+      const fin = k > 0 ? `,fade=t=in:st=0:d=${IN}:alpha=1` : "", rise = k > 0 ? `+max(0,36*(1-t/${IN}))` : "";   // 첫 장면은 첫 프레임부터 또렷하게
+      execFileSync("ffmpeg", ["-v", "error", "-y", "-loop", "1", "-t", dur.toFixed(3), "-i", path.join(tmp, `bg${k}.png`),
+        "-i", files[frameK(k) - 1], "-i", path.join(tmp, "mask.png"), "-filter_complex",
+        `[1:v]scale=${CW * 2}:${CH * 2},zoompan=z='1+${z}*on/${F}':x='iw/2-(iw/zoom/2)':y='ih/3-(ih/zoom/3)':d=${F}:s=${CW}x${CH}:fps=${FPS},format=rgba[zc];` +
+        `[zc][2:v]overlay=0:0:format=auto${fin}[card];` +
+        `[0:v]fps=${FPS}[bg];[bg][card]overlay=x=${CX}:y='${CY}${rise}':eof_action=repeat,format=yuv420p`,
+        "-frames:v", String(F), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out_]);
+    }
+    clips.push(out_);
   }
   await fr.close();
+  // 자막: 문단 → 문장(글자 수 비율로 시간 배분). 구간 5번째 값 = 원고 문단 번호(자동 구간만). 수동 spec 에 없으면 자막 없이 만든다.
+  const paras = scriptParas(read(spec.brief).toString()), subs = [];
+  let off = 0;
+  const offs = durs.map(x => { const o = off; off += x; return o; });
+  const seen = new Set();
+  spec.segments.forEach(([s], k) => {
+    const pi = spec.segments[k][4]; if (pi == null || seen.has(pi) || !paras[pi]) return; seen.add(pi);
+    const ks = spec.segments.map((g, j) => g[4] === pi ? j : -1).filter(j => j >= 0);
+    const s0 = spec.segments[ks[0]][0], e0 = spec.segments[ks[ks.length - 1]][1];
+    const sents = paras[pi].split(/(?<=[.?!])\s+/).filter(Boolean), w = sents.map(x => x.replace(/\s/g, "").length), W = w.reduce((a, c) => a + c, 0);
+    let c = 0;
+    sents.forEach((t, j) => { const a = s0 + (e0 - s0) * c / W; c += w[j]; const z_ = s0 + (e0 - s0) * c / W;
+      subs.push({ t, a: offs[ks[0]] + (a - s0) / sp, z: offs[ks[0]] + (z_ - s0) / sp }); });
+  });
+  const sp_ = await b.newPage({ viewport: { width: 1080, height: 170 } });
+  for (let i = 0; i < subs.length; i++) {
+    await sp_.setContent(`<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700;900&display=swap" rel="stylesheet">
+<style>*{margin:0;box-sizing:border-box}html,body{background:transparent}body{width:1080px;height:170px;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans KR',sans-serif}
+.s{max-width:930px;background:rgba(26,26,24,.86);color:#fff;font-weight:700;font-size:44px;line-height:1.38;letter-spacing:-.02em;padding:14px 30px;border-radius:18px;text-align:center;word-break:keep-all}</style></head>
+<body><div class="s">${esc(subs[i].t)}</div></body></html>`, { waitUntil: "networkidle" });
+    await sp_.screenshot({ path: path.join(tmp, `s${i}.png`), omitBackground: true });
+  }
+  await sp_.close();
+  fs.writeFileSync(path.join(tmp, "clips.txt"), clips.map(c => `file '${c}'`).join("\n") + "\n");
+  execFileSync("ffmpeg", ["-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", path.join(tmp, "clips.txt"), "-c", "copy", path.join(tmp, "v.mp4")]);
   const parts = spec.segments.map(([s, e], k) => `[0:a]atrim=${s}:${e},asetpts=PTS-STARTPTS${gapAfter(k) ? `,apad=pad_dur=${GAP}` : k === N - 1 && outro ? `,apad=pad_dur=${outro}` : ""}[a${k}]`);
   const filter = parts.join(";") + ";" + spec.segments.map((_, k) => `[a${k}]`).join("") + `concat=n=${N}:v=0:a=1${sp !== 1 ? `,atempo=${sp}` : ""}[a]`;
-  const last = outro ? `fo.png` : `f${N - 1}.png`;
-  const list = spec.segments.map(([s, e], k) => `file 'f${k}.png'\nduration ${((e - s + (gapAfter(k) ? GAP : 0)) / sp).toFixed(3)}`).join("\n")
-    + (outro ? `\nfile 'fo.png'\nduration ${(outro / sp).toFixed(3)}` : "") + `\nfile '${last}'\n`;
-  fs.writeFileSync(path.join(tmp, "list.txt"), list);
   execFileSync("ffmpeg", ["-v", "error", "-y", "-i", path.join(ROOT, spec.audio), "-filter_complex", filter, "-map", "[a]", "-ar", "44100", "-c:a", "aac", "-b:a", "128k", path.join(tmp, "a.m4a")]);
   if (spec.bgm) {   // 낭독(첫 입력) 길이에 맞춰 배경음을 반복·자르고, 앞뒤를 부드럽게
     const f = await bgmFile(spec.bgm, tmp), fo = Math.max(0, total - 2.5).toFixed(2);
@@ -215,10 +260,13 @@ ${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
     fs.renameSync(path.join(tmp, "am.m4a"), path.join(tmp, "a.m4a"));
   }
   const out = path.join(ROOT, spec.out); fs.mkdirSync(path.dirname(out), { recursive: true });
-  execFileSync("ffmpeg", ["-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", path.join(tmp, "list.txt"), "-i", path.join(tmp, "a.m4a"),
-    "-vf", "fps=30,format=yuv420p", "-c:v", "libx264", "-preset", "medium", "-crf", "23", "-c:a", "copy", "-shortest", "-movflags", "+faststart", out]);
+  const subIn = subs.flatMap((_, i) => ["-i", path.join(tmp, `s${i}.png`)]);
+  const subF = subs.map((x, i) => `${i ? `[v${i}]` : "[0:v]"}[${i + 2}:v]overlay=0:1452:enable='between(t,${x.a.toFixed(2)},${(x.z - 0.05).toFixed(2)})'[v${i + 1}]`).join(";");
+  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", path.join(tmp, "v.mp4"), "-i", path.join(tmp, "a.m4a"), ...subIn,
+    ...(subs.length ? ["-filter_complex", subF + `;[v${subs.length}]format=yuv420p[vo]`, "-map", "[vo]"] : ["-map", "0:v"]), "-map", "1:a",
+    "-c:v", "libx264", "-preset", "medium", "-crf", "23", "-c:a", "copy", "-shortest", "-movflags", "+faststart", out]);
   const dur = +execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", out]).toString();
-  console.log(`reel: ${spec.out} — ${dur.toFixed(1)}초, 프레임 ${N}장`);
+  console.log(`reel: ${spec.out} — ${dur.toFixed(1)}초, 장면 ${clips.length}개, 자막 ${subs.length}줄`);
   return dur;
 }
 
