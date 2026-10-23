@@ -15,7 +15,9 @@ const http = require("http"), fs = require("fs"), path = require("path"), os = r
 const { execFileSync, execSync, spawnSync } = require("child_process");
 let pw; try { pw = require("playwright"); } catch { pw = require(path.join(execSync("npm root -g").toString().trim(), "playwright")); }
 const ROOT = path.resolve(__dirname, "..");
-const GAP = 0.6, MAX = 180, FIT = 178, OUTRO = 2;
+const GAP = 0.35, MAX = 180, FIT = 178, OUTRO = 2;   // 문단 사이 쉼 0.6 → 0.35초(2026-10-23, 빨리 넘기기)
+// 재생 속도(2026-10-23 사용자 요청: 1.2배로 빨리 읽고 빨리 넘기기). atempo 라 음높이는 그대로. 원고 시간 × 1/SPEED = 영상 시간.
+const SPEED = +(process.env.REEL_SPEED || 1.2);
 const BRIEF = /^(\d{4})-(\d{2})-(\d{2})_([a-z]+)-brief\.html$/;
 const TITLE = { ai: "듣는 AI", sports: "듣는 스포츠", football: "주말 축구 결산", baseball: "듣는 야구", science: "듣는 우주", activity: "듣는 주말", travel: "듣는 여행",
   daily: "듣는 뉴스", culture: "듣는 문화", music: "듣는 음악" };
@@ -126,7 +128,7 @@ function autoSegments(paras, spans, nSlides) {
   if (!body.length) body = [n - 1];
   const slideOf = i => i === weather ? 1 : i === closing ? nSlides : 2 + Math.min(K - 1, Math.floor(body.indexOf(i) * K / body.length));
   let keep = [...Array(n).keys()].filter(i => i > 0);
-  const len = ks => ks.reduce((t, i) => t + spans[i][1] - spans[i][0], 0) + GAP * (ks.length - 1) + (closing < 0 ? OUTRO : 0);
+  const len = ks => (ks.reduce((t, i) => t + spans[i][1] - spans[i][0], 0) + GAP * (ks.length - 1) + (closing < 0 ? OUTRO : 0)) / SPEED;
   const dropped = [0];
   while (len(keep) > FIT) {
     const cand = keep.filter(i => body.includes(i) && body.length > 1);
@@ -146,7 +148,8 @@ function autoSegments(paras, spans, nSlides) {
 async function build(spec, b, base) {
   const gapAfter = k => k < spec.segments.length - 1 && !spec.segments[k][3];   // 문단 사이에만 쉼
   const outro = spec.outro ? OUTRO : 0;   // 출처 장 무음 꼬리(본문이 끝인사까지 한 문단인 원고)
-  const total = spec.segments.reduce((n, [s, e], k) => n + (e - s) + (gapAfter(k) ? GAP : 0), 0) + outro;
+  const sp = spec.speed || SPEED;
+  const total = (spec.segments.reduce((n, [s, e], k) => n + (e - s) + (gapAfter(k) ? GAP : 0), 0) + outro) / sp;
   if (total > MAX) throw new Error(`길이 ${total.toFixed(1)}초 > ${MAX}초 — 문단을 더 빼세요`);
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "reel-"));
   const { files, meta } = spec._cards || await renderCards(b, base, spec.brief, tmp);
@@ -196,10 +199,10 @@ ${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
   }
   await fr.close();
   const parts = spec.segments.map(([s, e], k) => `[0:a]atrim=${s}:${e},asetpts=PTS-STARTPTS${gapAfter(k) ? `,apad=pad_dur=${GAP}` : k === N - 1 && outro ? `,apad=pad_dur=${outro}` : ""}[a${k}]`);
-  const filter = parts.join(";") + ";" + spec.segments.map((_, k) => `[a${k}]`).join("") + `concat=n=${N}:v=0:a=1[a]`;
+  const filter = parts.join(";") + ";" + spec.segments.map((_, k) => `[a${k}]`).join("") + `concat=n=${N}:v=0:a=1${sp !== 1 ? `,atempo=${sp}` : ""}[a]`;
   const last = outro ? `fo.png` : `f${N - 1}.png`;
-  const list = spec.segments.map(([s, e], k) => `file 'f${k}.png'\nduration ${(e - s + (gapAfter(k) ? GAP : 0)).toFixed(3)}`).join("\n")
-    + (outro ? `\nfile 'fo.png'\nduration ${outro.toFixed(3)}` : "") + `\nfile '${last}'\n`;
+  const list = spec.segments.map(([s, e], k) => `file 'f${k}.png'\nduration ${((e - s + (gapAfter(k) ? GAP : 0)) / sp).toFixed(3)}`).join("\n")
+    + (outro ? `\nfile 'fo.png'\nduration ${(outro / sp).toFixed(3)}` : "") + `\nfile '${last}'\n`;
   fs.writeFileSync(path.join(tmp, "list.txt"), list);
   execFileSync("ffmpeg", ["-v", "error", "-y", "-i", path.join(ROOT, spec.audio), "-filter_complex", filter, "-map", "[a]", "-ar", "44100", "-c:a", "aac", "-b:a", "128k", path.join(tmp, "a.m4a")]);
   if (spec.bgm) {   // 낭독(첫 입력) 길이에 맞춰 배경음을 반복·자르고, 앞뒤를 부드럽게
@@ -230,9 +233,9 @@ async function autoOne(brief, b, base) {
   const cards = await renderCards(b, base, brief, tmp);
   const a = autoSegments(paras, spans, cards.files.length);
   const base_ = `reels/${m[1]}-${m[2]}/${m[1]}-${m[2]}-${m[3]}_${m[4]}`;
-  const spec = { brief, audio: mp3, out: base_ + ".mp4", title: `${Math.max(1, Math.round(a.total / 60))}분 ${TITLE[m[4]] || "듣는 브리프"}`,
+  const spec = { brief, audio: mp3, out: base_ + ".mp4", title: `${a.total < 55 ? `${Math.max(10, Math.round(a.total / 5) * 5)}초` : `${Math.max(1, Math.round(a.total / 60))}분`} ${TITLE[m[4]] || "듣는 브리프"}`,
     ...(bgmOf(html) ? { bgm: bgmOf(html) } : {}),
-    segments: a.segments, ...(a.outro ? { outro: a.outro } : {}), dropped_paragraphs: a.dropped.map(i => i + 1),
+    speed: SPEED, segments: a.segments, ...(a.outro ? { outro: a.outro } : {}), dropped_paragraphs: a.dropped.map(i => i + 1),
     note: a.dropped.length > 1 ? `첫 문단(날짜·인사)은 릴스에서 뺌. 3분을 넘어 원고 ${a.dropped.slice(1).map(i => i + 1).join("·")}번째 문단도 뺐다 — 캡션에 "전체 낭독은 앱에서"` : "첫 문단(날짜·인사)만 빼고 원고 전체" };
   spec._cards = cards;
   await build(spec, b, base);
