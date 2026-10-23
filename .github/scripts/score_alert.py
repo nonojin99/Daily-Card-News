@@ -28,6 +28,7 @@ LOL_KEY = "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"   # lolesports.com 이 브�
 LOL_LEAGUES = {"98767975604431411": "롤드컵", "98767991325878492": "MSI", "113464388705111224": "퍼스트 스탠드", "98767991310872058": "LCK"}
 LCK_KO = {"GEN": "젠지", "HLE": "한화생명", "DK": "디플러스 기아", "KT": "KT", "T1": "T1", "NS": "농심", "BFX": "BNK 피어엑스",
           "DRX": "DRX", "BRO": "OK저축은행 브리온", "DNF": "DN 프릭스", "KDF": "광동"}
+FRESH_H = 6   # 시작한 지 6시간이 지난 경기는 새로 올리지 않는다(2026-10-24 사용자: '너무 예전 것' — 이어 달리기로 5분마다 보니 짧아도 놓치지 않는다)
 SOURCES = json.load(open(os.path.join(ROOT, "sports/alerts/sources.json"), encoding="utf-8"))
 NAMES = json.load(open(os.path.join(ROOT, "sports/alerts/names_ko.json"), encoding="utf-8"))
 ESPN = {"eng.1": "soccer", "esp.1": "soccer", "ita.1": "soccer", "ger.1": "soccer", "uefa.champions": "soccer", "uefa.europa": "soccer",
@@ -100,7 +101,7 @@ def lol(posted):
         for e in ev:
             m = e.get("match") or {}
             st = ks(e) - datetime.timedelta(hours=9)
-            if e.get("state") == "completed" and m.get("id") and ("lol:" + m["id"]) not in posted and now - datetime.timedelta(hours=18) <= st <= now:
+            if e.get("state") == "completed" and m.get("id") and ("lol:" + m["id"]) not in posted and now - datetime.timedelta(hours=FRESH_H) <= st <= now:
                 days.add(ks(e).date())
         for d in sorted(days):
             todays = [e for e in ev if ks(e).date() == d and (e.get("match") or {}).get("teams")]
@@ -165,10 +166,11 @@ def mlb(posted):
             rows.append({"away": ko(a["team"]["name"]), "home": ko(h["team"]["name"]), "pending": not done,
                          "as": str(a.get("score", "-")) if done else "-", "hs": str(h.get("score", "-")) if done else "-",
                          "note": " · ".join(x for x in (series if g.get("gameType") not in ("R", "S", "E") else "", g.get("venue", {}).get("name", ""), state) if x)})
-            if done and f"mlb:{g['gamePk']}" not in posted and ks(g) >= now - datetime.timedelta(hours=18):
+            if done and f"mlb:{g['gamePk']}" not in posted and ks(g) >= now - datetime.timedelta(hours=FRESH_H):
                 new.append(f"mlb:{g['gamePk']}")
         if new:
-            boards.append({"sport": "mlb", "date": d, "title": board_title("MLB", rows, series), "rows": rows, "new": new})
+            k0 = min(ks(g) for g in todays)
+            boards.append({"sport": "mlb", "date": d, "title": board_title("MLB", rows, series), "rows": rows, "new": new, "kst_date": k0.date(), "dawn": k0.hour < 6})
     return boards
 
 
@@ -195,10 +197,11 @@ def espn(key, posted):
             state = "" if done else ("연기" if "POSTPONED" in name else "취소" if "CANCELED" in name else "진행 중" if st.get("state") == "in" else f"{ks(e):%H:%M} 시작")
             rows.append({"away": ko(a["team"].get("shortDisplayName") or a["team"].get("displayName")), "home": ko(h["team"].get("shortDisplayName") or h["team"].get("displayName")),
                          "pending": not done, "as": str(a.get("score", "-")) if done else "-", "hs": str(h.get("score", "-")) if done else "-", "note": state})
-            if done and f"{key}:{e['id']}" not in posted and ks(e) >= now - datetime.timedelta(hours=18):
+            if done and f"{key}:{e['id']}" not in posted and ks(e) >= now - datetime.timedelta(hours=FRESH_H):
                 new.append(f"{key}:{e['id']}")
         if new:
-            boards.append({"sport": key, "date": d, "title": board_title(label, rows), "rows": rows, "new": new})
+            k0 = min(ks(e) for e in evs if gd(e) == d)   # 판의 첫 경기 KST — 카드에는 묶음 날짜가 아니라 이 날짜(오전이면 '새벽')
+            boards.append({"sport": key, "date": d, "title": board_title(label, rows), "rows": rows, "new": new, "kst_date": k0.date(), "dawn": k0.hour < 12})
     return boards
 
 
@@ -234,7 +237,7 @@ def ufc(posted):
             rows.append({"away": ko(t[0]["athlete"]["displayName"]), "home": ko(t[1]["athlete"]["displayName"]), "pending": not done,
                          "as": ("승" if w == 0 else "패" if w == 1 else "무") if done else "-", "hs": ("승" if w == 1 else "패" if w == 0 else "무") if done else "-",
                          "win": ("a" if w == 0 else "h" if w == 1 else "") if done else "", "note": " · ".join(x for x in (wk, state) if x)})
-            if done and f"ufc:{c['id']}" not in posted and ks_ >= now - datetime.timedelta(hours=18):
+            if done and f"ufc:{c['id']}" not in posted and ks_ >= now - datetime.timedelta(hours=FRESH_H):
                 new.append(f"ufc:{c['id']}")
         if new:
             fin = sum(not r["pending"] for r in rows)
@@ -368,7 +371,7 @@ def run_once():
         rel = f"sports/alerts/{gdate:%Y-%m}/{gdate}_{sport.replace('.', '-')}_{kst():%H%M}.jpg"
         os.makedirs(os.path.dirname(os.path.join(ROOT, rel)), exist_ok=True)
         spec = os.path.join(ROOT, "sports/alerts/.games.json")
-        json.dump({**SPORT[sport], "story": True, "date": str(gdate), "title": bd["title"], "games": bd["rows"][:10]},
+        json.dump({**SPORT[sport], "story": True, "date": str(bd.get("kst_date") or gdate), "dawn": bool(bd.get("dawn")), "title": bd["title"], "games": bd["rows"][:10]},
                   open(spec, "w", encoding="utf-8"), ensure_ascii=False)
         subprocess.run(["node", os.path.join(ROOT, "tools/score_card.js"), spec, os.path.join(ROOT, rel)], check=True)
         os.remove(spec)
