@@ -1,12 +1,13 @@
 {
  "requests": [
   {
-   "kind": "reel",
-   "media": "reels/2026-10/2026-10-22_activity.mp4",
-   "caption": "captions/2026-10-23_weekend_reel2.txt",
+   "kind": "carousel",
+   "media": "cards/2026-10/2026-10-23_baseball-brief",
+   "caption": "captions/2026-10-23_baseball.txt",
    "dry_run": "false",
-   "is_ai": "true"
+   "is_ai": "false",
+   "account": "sports"
   }
  ],
- "note": "10/23 주말 릴스 재게시 — 개편판(카드 1번부터 시작, 1.2배속, 본문만, 34.1초). 옛 릴스는 사용자가 앱에서 삭제함. 공개 주소 MP4 sha1 = 레포(e4516ec3) 확인, 사용자 확인 후 요청 (@hannun.brief)"
+ "note": "10/23 야구 나이트 프리뷰 캐러셀 (@hannun.sports)"
 }
