@@ -3,6 +3,7 @@
 피드(그리드)는 야구 나이트·축구 모닝 같은 시리즈만 두고, 실시간 결과는 24시간 뒤 사라지는 스토리로(사용자 결정 2026-10-24).
 
   python3 score_alert.py --check   새로 끝난 경기가 있으면 GITHUB_OUTPUT 에 has_new=1 (브라우저 설치를 아끼려고 먼저 확인만)
+  python3 score_alert.py --watch 355   355분 동안 5분마다 확인·게시(2026-10-24~ — GitHub 15분 예약 실행이 자주 건너뛰어져, 경기 시간대에 한 번 띄워 길게 지켜본다)
   python3 score_alert.py           종목마다 카드 1장(최대 5경기 묶음, tools/score_card.js) → 커밋·push → 공개 주소 확인 → 스토리 게시 → 기록
 
 데이터
@@ -179,14 +180,37 @@ def publish_story(rel):
 def main():
     if MODE == "off":
         print("score alert: off"); return
+    if "--watch" in sys.argv:
+        end = time.time() + 60 * float(sys.argv[sys.argv.index("--watch") + 1])
+        bad = 0
+        while True:
+            try:
+                bad += run_once()
+            except SystemExit as e:   # push 실패 등 — 다음 회차에 다시
+                print(f"::warning::{e}"); bad += 1
+            except Exception as e:  # noqa: BLE001
+                print(f"::warning::score alert round failed: {e}"); bad += 1
+            if time.time() + 300 > end:
+                break
+            time.sleep(300)
+            subprocess.run(["git", "pull", "-q", "--rebase", "--autostash", "origin", "main"], cwd=ROOT)
+        if bad:
+            sys.exit(1)
+        return
+    if run_once():
+        sys.exit(1)
+
+
+def run_once():
+    """한 번 확인하고 새로 끝난 경기가 있으면 결과판을 게시. 실패한 종목 수를 돌려준다."""
     boards = finished_new()
     if "--check" in sys.argv:
         print("score alert: " + (", ".join(f"{b['sport']} {b['date']} 새 종료 {len(b['new'])}" for b in boards) or "nothing new"))
         with open(os.environ.get("GITHUB_OUTPUT", os.devnull), "a") as f:
             f.write(f"has_new={1 if boards else 0}\n")
-        return
+        return 0
     if not boards:
-        print("score alert: nothing new"); return
+        print(f"{kst():%H:%M} score alert: nothing new"); return 0
     failed = []
     for bd in boards:
         sport, gdate = bd["sport"], bd["date"]
@@ -217,8 +241,7 @@ def main():
             db["posted"][gid].update(status=status, result=pid)
         json.dump(db, open(POSTED, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         push(f"결과 알림 {sport} {status} [skip ci]", [POSTED])
-    if failed:
-        sys.exit(1)
+    return len(failed)
 
 
 if __name__ == "__main__":
