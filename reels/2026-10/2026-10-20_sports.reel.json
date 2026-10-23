@@ -3,6 +3,7 @@
   "audio": "audio/2026-10/2026-10-20_sports.mp3",
   "out": "reels/2026-10/2026-10-20_sports.mp4",
   "title": "2분 듣는 스포츠",
+  "speed": 1.2,
   "segments": [
     [
       15.86,
@@ -51,5 +52,5 @@
     1
   ],
   "note": "첫 문단(날짜·인사)만 빼고 원고 전체",
-  "fp": "885825d7bdaf2976a87f8ff51cb76e16e929f4fe"
+  "fp": "89d9f3261e94729f55e97e652e72dac4ad0cceef"
 }
