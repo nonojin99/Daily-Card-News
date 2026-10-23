@@ -131,9 +131,9 @@ def board_title(label, rows, single_note=""):
     if len(rows) == 1 and fin == 1:
         x = rows[0]
         if x["as"] == x["hs"]:
-            return f"{x['away']}·{x['home']} 무승부"
+            return f"{label} · {x['away']}·{x['home']} 무승부"
         w = x["away"] if float(x["as"]) > float(x["hs"]) else x["home"]
-        return f"{w}, {single_note} 승리" if single_note else f"{w} 승리 — {label}"
+        return f"{w}, {single_note} 승리" if single_note else f"{label} · {w} 승리"
     return f"{label} — {fin}/{len(rows)} 종료" if fin < len(rows) else f"{label} 결과"
 
 
