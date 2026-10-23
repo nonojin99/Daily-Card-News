@@ -35,13 +35,18 @@
   },
   "esp.1:401882836": {
    "image": "sports/alerts/2026-10/2026-10-23_esp-1_0703.jpg",
-   "status": "pending",
-   "at_kst": "2026-10-24 07:03"
+   "status": "published",
+   "at_kst": "2026-10-24 07:03",
+   "result": "18042848555837457"
   }
  },
  "boards": {
   "eng.1:2026-10-23": {
    "last": 1792793022.3950055,
+   "final": true
+  },
+  "esp.1:2026-10-23": {
+   "last": 1792793137.6933644,
    "final": true
   }
  }
