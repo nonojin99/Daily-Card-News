@@ -38,7 +38,8 @@ def get_json(url, data=None, headers=None):
 
 
 def kbo(posted):
-    now, out = kst(), []
+    """새로 끝난 경기가 있는 날마다 그날 전 경기 결과판 하나: {"sport","date","title","rows","new"}"""
+    now, boards = kst(), []
     for d in [now.date()] + ([now.date() - datetime.timedelta(days=1)] if now.hour < 3 else []):
         try:
             games = get_json("https://www.koreabaseball.com/ws/Main.asmx/GetKboGameList",
@@ -47,48 +48,65 @@ def kbo(posted):
                               "Referer": "https://www.koreabaseball.com/Schedule/ScoreBoard.aspx"}).get("game") or []
         except Exception as e:  # noqa: BLE001 — 사이트가 막히거나 바뀌면 이번 회차는 건너뛴다
             print(f"::warning::KBO scoreboard {d}: {e}"); continue
+        rows, new, stage = [], [], ""
         for g in games:
             gid = "kbo:" + g["G_ID"]
-            if str(g.get("GAME_STATE_SC")) != "3" or str(g.get("CANCEL_SC_ID")) != "0" or gid in posted or g["G_ID"] in posted:
-                continue
             m = re.match(r"(준PO|PO|KS|WC)(\d+)", g.get("GAME_SC_NM") or "")
-            sa, sh = str(g["T_SCORE_CN"]), str(g["B_SCORE_CN"])
-            pit = " · ".join(x for x in (f"승 {g['W_PIT_P_NM'].strip()}" if (g.get("W_PIT_P_NM") or "").strip() else "",
-                                         f"패 {g['L_PIT_P_NM'].strip()}" if (g.get("L_PIT_P_NM") or "").strip() else "",
-                                         f"세 {g['SV_PIT_P_NM'].strip()}" if (g.get("SV_PIT_P_NM") or "").strip() else "") if x)
-            stage = f"{STAGE[m[1]]} {m[2]}차전" if m else ""
-            note = " · ".join(x for x in (stage or (f"{g.get('GAME_INN_NO')}회 무승부" if sa == sh else ""), g.get("S_NM", ""), pit) if x)
-            out.append({"id": gid, "date": datetime.datetime.strptime(g["G_DT"], "%Y%m%d").date(), "away": g["AWAY_NM"].strip(),
-                        "home": g["HOME_NM"].strip(), "as": sa, "hs": sh, "note": note, "stage": stage})
-    return out
+            stage = f"{STAGE[m[1]]} {m[2]}차전" if m else stage
+            done = str(g.get("GAME_STATE_SC")) == "3" and str(g.get("CANCEL_SC_ID")) == "0"
+            cancel = str(g.get("CANCEL_SC_ID")) not in ("0", "None")
+            sa, sh = (str(g["T_SCORE_CN"]), str(g["B_SCORE_CN"])) if done else ("-", "-")
+            pit = " · ".join(f"{k} {(g.get(f) or '').strip()}" for k, f in (("승", "W_PIT_P_NM"), ("패", "L_PIT_P_NM"), ("세", "SV_PIT_P_NM")) if (g.get(f) or "").strip())
+            state = (f"{g.get('GAME_INN_NO')}회 무승부" if done and sa == sh else pit) if done else (g.get("CANCEL_SC_NM") or "취소") if cancel else \
+                    ("진행 중" if str(g.get("GAME_STATE_SC")) == "2" else f"{g.get('G_TM', '')} 시작")
+            rows.append({"away": g["AWAY_NM"].strip(), "home": g["HOME_NM"].strip(), "as": sa, "hs": sh, "pending": not done,
+                         "note": " · ".join(x for x in (g.get("S_NM", ""), state) if x)})
+            if done and gid not in posted and g["G_ID"] not in posted:
+                new.append(gid)
+        if new:
+            fin = sum(not r["pending"] for r in rows)
+            title = (f"{stage}" if len(rows) == 1 and stage else f"오늘 KBO {len(rows)}경기") + (f" — {fin}/{len(rows)} 종료" if fin < len(rows) else " 결과")
+            boards.append({"sport": "kbo", "date": d, "title": title, "rows": rows, "new": new})
+    return boards
 
 
 def lol(posted):
-    now, out = datetime.datetime.utcnow(), []
+    """리그마다, 새로 끝난 경기가 있는 날(KST)의 그날 전 경기 결과판. 남은 경기는 '- : -'와 시작 시각(KST)."""
+    now, boards = datetime.datetime.utcnow(), []
     for lid, lname in LOL_LEAGUES.items():
         try:
             ev = get_json(f"https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=ko-KR&leagueId={lid}",
                           headers={"x-api-key": LOL_KEY})["data"]["schedule"]["events"]
         except Exception as e:  # noqa: BLE001
             print(f"::warning::lolesports {lname}: {e}"); continue
+        ks = lambda e: datetime.datetime.strptime(e["startTime"][:19], "%Y-%m-%dT%H:%M:%S") + datetime.timedelta(hours=9)
+        days = set()
         for e in ev:
             m = e.get("match") or {}
-            if e.get("state") != "completed" or not m.get("id") or ("lol:" + m["id"]) in posted:
-                continue
-            st = datetime.datetime.strptime(e["startTime"][:19], "%Y-%m-%dT%H:%M:%S")
-            if not (now - datetime.timedelta(hours=18) <= st <= now):
-                continue
-            t = m.get("teams") or []
-            if len(t) != 2 or not all(x.get("result") for x in t):
-                continue
-            nm = lambda x: LCK_KO.get(x.get("code"), x.get("code") or x.get("name"))
-            bo = (m.get("strategy") or {}).get("count")
-            out.append({"id": "lol:" + m["id"], "date": (st + datetime.timedelta(hours=9)).date(), "away": nm(t[0]), "home": nm(t[1]),
-                        "as": str(t[0]["result"].get("gameWins", 0)), "hs": str(t[1]["result"].get("gameWins", 0)),
-                        "note": " · ".join(x for x in (f"{lname} {e.get('blockName') or ''}".strip(), f"Bo{bo}" if bo else "") if x),
-                        "stage": f"{lname} {e.get('blockName') or ''}".strip()})
-    out.sort(key=lambda x: x["id"])
-    return out
+            st = ks(e) - datetime.timedelta(hours=9)
+            if e.get("state") == "completed" and m.get("id") and ("lol:" + m["id"]) not in posted and now - datetime.timedelta(hours=18) <= st <= now:
+                days.add(ks(e).date())
+        for d in sorted(days):
+            todays = [e for e in ev if ks(e).date() == d and (e.get("match") or {}).get("teams")]
+            block = todays[0].get("blockName") or ""
+            same = sorted({ks(e).date() for e in ev if (e.get("blockName") or "") == block and ks(e).year == d.year})
+            nth = same.index(d) + 1 if d in same else 0
+            nm = lambda x: LCK_KO.get(x.get("code"), x.get("code") or x.get("name") or "TBD")
+            rows, new = [], []
+            for e in sorted(todays, key=lambda e: e["startTime"]):
+                m, t = e["match"], e["match"]["teams"]
+                done = e.get("state") == "completed" and all(x.get("result") for x in t)
+                bo = (m.get("strategy") or {}).get("count")
+                state = "" if done else ("진행 중" if e.get("state") == "inProgress" else f"{ks(e):%H:%M} 시작")
+                rows.append({"away": nm(t[0]), "home": nm(t[1]), "pending": not done,
+                             "as": str(t[0]["result"].get("gameWins", 0)) if done else "-", "hs": str(t[1]["result"].get("gameWins", 0)) if done else "-",
+                             "note": " · ".join(x for x in (f"Bo{bo}" if bo else "", state) if x)})
+                if done and ("lol:" + m["id"]) not in posted:
+                    new.append("lol:" + m["id"])
+            fin = sum(not r["pending"] for r in rows)
+            title = f"{lname} {block}{f' {nth}일차' if nth else ''} — " + (f"{fin}/{len(rows)} 종료" if fin < len(rows) else "결과")
+            boards.append({"sport": "lol", "date": d, "title": title, "rows": rows, "new": new})
+    return boards
 
 
 def load_posted():
@@ -97,7 +115,7 @@ def load_posted():
 
 def finished_new():
     posted = load_posted()["posted"]
-    return {"kbo": kbo(posted), "lol": lol(posted)}
+    return kbo(posted) + lol(posted)
 
 
 def git(*a):
@@ -125,16 +143,6 @@ def ig(method, path, token, **params):
             return json.load(r)
     except urllib.error.HTTPError as e:
         raise RuntimeError(f"{method} {path} → HTTP {e.code}: {e.read().decode(errors='replace')[:400]}")
-
-
-def title_of(sport, games):
-    if len(games) > 1:
-        return f"{games[0]['stage'] or ('KBO' if sport == 'kbo' else 'LoL')} {len(games)}경기 결과" if sport == "lol" else f"오늘 KBO {len(games)}경기 결과"
-    x = games[0]
-    if x["as"] == x["hs"]:
-        return f"{x['away']}·{x['home']} 무승부"
-    w = x["away"] if int(x["as"]) > int(x["hs"]) else x["home"]
-    return f"{w}, {x['stage']} 승리" if x["stage"] else f"{w} 승리"
 
 
 def publish_story(rel):
@@ -171,35 +179,30 @@ def publish_story(rel):
 def main():
     if MODE == "off":
         print("score alert: off"); return
-    new = finished_new()
-    n = sum(len(v) for v in new.values())
+    boards = finished_new()
     if "--check" in sys.argv:
-        print(f"score alert: " + ", ".join(f"{k} {len(v)}" for k, v in new.items()))
+        print("score alert: " + (", ".join(f"{b['sport']} {b['date']} 새 종료 {len(b['new'])}" for b in boards) or "nothing new"))
         with open(os.environ.get("GITHUB_OUTPUT", os.devnull), "a") as f:
-            f.write(f"has_new={1 if n else 0}\n")
+            f.write(f"has_new={1 if boards else 0}\n")
         return
-    if not n:
+    if not boards:
         print("score alert: nothing new"); return
     failed = []
-    for sport, games in new.items():
-        if not games:
-            continue
-        games = games[:5]
-        gdate = max(g["date"] for g in games)
+    for bd in boards:
+        sport, gdate = bd["sport"], bd["date"]
         rel = f"sports/alerts/{gdate:%Y-%m}/{gdate}_{sport}_{kst():%H%M}.jpg"
         os.makedirs(os.path.dirname(os.path.join(ROOT, rel)), exist_ok=True)
         spec = os.path.join(ROOT, "sports/alerts/.games.json")
-        json.dump({**SPORT[sport], "story": True, "date": str(gdate), "title": title_of(sport, games),
-                   "games": [{k: g[k] for k in ("away", "home", "as", "hs", "note")} for g in games]}, open(spec, "w", encoding="utf-8"), ensure_ascii=False)
+        json.dump({**SPORT[sport], "story": True, "date": str(gdate), "title": bd["title"], "games": bd["rows"][:10]},
+                  open(spec, "w", encoding="utf-8"), ensure_ascii=False)
         subprocess.run(["node", os.path.join(ROOT, "tools/score_card.js"), spec, os.path.join(ROOT, rel)], check=True)
         os.remove(spec)
         db = load_posted()
-        for g in games:
-            db["posted"][g["id"]] = {"image": rel, "status": "dry" if MODE == "dry" else "pending", "at_kst": kst().strftime("%Y-%m-%d %H:%M"),
-                                     "score": f"{g['away']} {g['as']}:{g['hs']} {g['home']}"}
+        for gid in bd["new"]:
+            db["posted"][gid] = {"image": rel, "status": "dry" if MODE == "dry" else "pending", "at_kst": kst().strftime("%Y-%m-%d %H:%M")}
         json.dump(db, open(POSTED, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-        push(f"결과 알림 카드 {sport} {gdate} ({len(games)}경기) [skip ci]", [rel, POSTED])
-        print(f"{sport}: {title_of(sport, games)} → {rel}")
+        push(f"결과 알림 카드 {sport} {gdate} (새 종료 {len(bd['new'])}) [skip ci]", [rel, POSTED])
+        print(f"{sport}: {bd['title']} → {rel}")
         if MODE == "dry":
             continue
         try:
@@ -210,8 +213,8 @@ def main():
             pid, status = str(e)[:300], "failed"
             failed.append(sport)
         db = load_posted()
-        for g in games:
-            db["posted"][g["id"]].update(status=status, result=pid)
+        for gid in bd["new"]:
+            db["posted"][gid].update(status=status, result=pid)
         json.dump(db, open(POSTED, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         push(f"결과 알림 {sport} {status} [skip ci]", [POSTED])
     if failed:

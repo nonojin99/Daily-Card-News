@@ -10,10 +10,10 @@ const [inp, out] = process.argv.slice(2);
 const g = JSON.parse(fs.readFileSync(inp, "utf8"));
 const H = g.story ? 1920 : 1350, TOP = g.story ? 270 : 84, BOT = g.story ? 360 : 80, AC = g.accent || "#1f5f8b";
 const WD = "일월화수목금토", d = new Date(g.date + "T00:00:00Z"), md = `${d.getUTCMonth() + 1}월 ${d.getUTCDate()}일(${WD[d.getUTCDay()]})`;
-const one = g.games.length === 1;
+const one = g.games.length === 1, N = g.games.length, tight = N > 5;   // 6경기 넘으면 촘촘하게(스토리 하루 일정 8경기까지)
 const row = x => {
-  const aw = +x.as > +x.hs, hw = +x.hs > +x.as;
-  return `<div class="g${one ? " one" : ""}">
+  const aw = !x.pending && +x.as > +x.hs, hw = !x.pending && +x.hs > +x.as;   // 남은 경기는 '- : -' 로 흐리게
+  return `<div class="g${one ? " one" : ""}${x.pending ? " p" : ""}">
   <div class="t ${aw ? "w" : hw ? "l" : ""}"><span class="n">${esc(x.away)}</span><span class="s">${esc(x.as)}</span></div>
   <div class="vs">:</div>
   <div class="t r ${hw ? "w" : aw ? "l" : ""}"><span class="s">${esc(x.hs)}</span><span class="n">${esc(x.home)}</span></div>
@@ -25,12 +25,13 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
 .k{position:absolute;left:84px;top:${TOP}px;font-size:38px;font-weight:900;background:#fff;color:${AC};padding:10px 30px;border-radius:99px}
 .dt{position:absolute;right:84px;top:${TOP + 14}px;font-size:34px;font-weight:500;opacity:.85}
 .h{position:absolute;left:84px;right:84px;top:${TOP + 110}px;font-size:${one ? 66 : 56}px;font-weight:900;letter-spacing:-.02em;line-height:1.2}
-.list{position:absolute;left:84px;right:84px;top:${TOP + (one ? 330 : 270)}px;display:flex;flex-direction:column;gap:${one ? 0 : 18}px}
-.g{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;background:rgba(255,255,255,.1);border-radius:26px;padding:${one ? "64px 44px 48px" : "18px 34px 14px"}}
+.list{position:absolute;left:84px;right:84px;top:${TOP + (one ? 330 : 250)}px;display:flex;flex-direction:column;gap:${one ? 0 : tight ? 12 : 18}px}
+.g{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;background:rgba(255,255,255,.1);border-radius:26px;padding:${one ? "64px 44px 48px" : tight ? "6px 28px 6px" : "18px 34px 14px"}}
+.g.p{background:rgba(255,255,255,.05)}.g.p .s,.g.p .vs{opacity:.4}
 .t{display:flex;align-items:center;gap:20px;min-width:0}.t.r{justify-content:flex-end}
-.n{font-size:${one ? 56 : 38}px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.s{font-size:${one ? 180 : 62}px;font-weight:900;line-height:1;letter-spacing:-.03em}
-.t.l{opacity:.45}.vs{font-size:${one ? 90 : 44}px;opacity:.6;padding:0 18px;font-weight:700}
-.m{grid-column:1/-1;margin-top:${one ? 40 : 6}px;font-size:${one ? 34 : 25}px;opacity:.85;text-align:center}
+.n{font-size:${one ? 56 : tight ? 32 : 38}px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.s{font-size:${one ? 180 : tight ? 46 : 62}px;font-weight:900;line-height:1;letter-spacing:-.03em}
+.t.l{opacity:.45}.vs{font-size:${one ? 90 : tight ? 34 : 44}px;opacity:.6;padding:0 18px;font-weight:700}
+.m{grid-column:1/-1;line-height:1.3;margin-top:${one ? 40 : tight ? 2 : 6}px;font-size:${one ? 34 : tight ? 21 : 25}px;opacity:.85;text-align:center}
 .src{position:absolute;left:84px;right:84px;bottom:${BOT + 56}px;font-size:26px;opacity:.65}
 .ft{position:absolute;left:84px;right:84px;bottom:${BOT}px;display:flex;justify-content:space-between;font-size:30px;opacity:.9}.ft b{font-weight:900}</style></head><body>
 <div class="k">${esc(g.kicker || "⚾ 경기 종료")}</div><div class="dt">${esc(md)}</div>
