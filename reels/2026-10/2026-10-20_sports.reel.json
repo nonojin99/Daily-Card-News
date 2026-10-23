@@ -5,12 +5,6 @@
   "title": "2분 듣는 스포츠",
   "segments": [
     [
-      0,
-      15.16,
-      1,
-      0
-    ],
-    [
       15.86,
       52.34,
       2,
@@ -53,7 +47,9 @@
       0
     ]
   ],
-  "dropped_paragraphs": [],
-  "note": "원고 전체",
-  "fp": "6ee5b9645e2874e61fc4702797ccd663a60f063e"
+  "dropped_paragraphs": [
+    1
+  ],
+  "note": "첫 문단(날짜·인사)만 빼고 원고 전체",
+  "fp": "885825d7bdaf2976a87f8ff51cb76e16e929f4fe"
 }
