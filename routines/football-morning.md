@@ -18,7 +18,7 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **축구 모닝** 브리�
   - 리그별 결과 묶음은 `cn-scores`(최대 6경기), 큰 경기는 `cn-score`, 순위·승점은 `cn-bars`, 한국 선수 기록은 `cn-num`.
   - 한국 선수(손흥민·이강인·김민재·황희찬 등 그 시즌 소속 확인) 경기를 우선.
 - 사진·AI 그림 금지. 인사이트 태그 `⚽ 알고 보면 달라지는 것`.
-- 낭독 원고 700~1,300자(월요일 1,000~1,600자): 훅 한 문장 → "M월 D일 X요일, 축구 모닝입니다." → 카드 순서대로 → 클로징.
+- 낭독 원고 700~1,300자(월요일 1,000~1,600자). **카드 하나 = 문단 하나**: 첫 문단은 "M월 D일 X요일, 축구 모닝입니다." 한 줄만, 둘째 문단(카드 1)의 첫 문장이 훅(그날 가장 센 사실을 숫자·질문으로, 날짜·인사·"소개합니다"로 시작 금지) → 카드 순서대로 한 문단씩 → 클로징. (2026-10-23~ 릴스 개편 — 릴스는 첫 문단·끝인사를 빼고 카드 1번부터 1.2배속으로 시작한다. README '오디오'·'릴스')
 - 파일 끝 `<!-- tracker: … -->`.
 
 ## 리서치
@@ -38,14 +38,15 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **축구 모닝** 브리�
 
 ## 인스타
 - 캡션 `captions/YYYY-MM-DD_football.txt`(첫 줄 `[⚽ 축구 모닝] …`). 요청에 캐러셀 `{"kind":"carousel","media":"cards/YYYY-MM/YYYY-MM-DD_football-brief","caption":"captions/YYYY-MM-DD_football.txt","dry_run":"false","is_ai":"false","account":"sports"}`.
-- **월요일만** 오디오 릴스도: `{"kind":"reel","media":"reels/YYYY-MM/YYYY-MM-DD_football.mp4","caption":"captions/YYYY-MM-DD_football_reel.txt","dry_run":"false","is_ai":"true","account":"sports"}`.
+- **월요일만** 오디오 릴스도 — **`publish/request.json` 이 아니라 `publish/evening/YYYY-MM-DD_football.json`** 에 쓴다(2026-10-23~ 릴스는 저녁 21시대 게시, `publish/evening/README.md`): `{"requests":[{"kind":"reel","media":"reels/YYYY-MM/YYYY-MM-DD_football.mp4","caption":"captions/YYYY-MM-DD_football_reel.txt","dry_run":"false","is_ai":"true","account":"sports","ab":"auto"}]}`.
+  릴스 캡션 첫 줄은 구체적인 경기·숫자부터(예: `[⚽ 축구 모닝] 오현규 선발 · 베식타시 2-2 팰리스`), '🎧 N초 듣는 ○○'은 둘째 줄. `ab:auto` 면 15초 짧은판과 주마다 번갈아 올라가고 캡션도 자동으로 맞춰진다.
 
 ## 검토 (건너뛰지 말 것)
 1. 브리프 검토 하네스: 검증 전용 서브에이전트가 README 체크리스트 전 항목 PASS/FAIL(특히 숫자 정합성·라운드 표기·날짜 최신성·추측 금지). FAIL 은 고치고 애매하면 뺀다.
 2. 카드 검토 하네스 2단계(CLAUDE.md): `python3 tools/check_cards.py` + `node tools/render_cards.js` → 독립 시각 검토 → 통과하면 `/tmp/card-review/<브리프 이름>.stage2.md`.
 
 ## 발행
-1. 브리프 HTML, 캡션, `publish/request.json` 만 add. 요청 항목마다 `"account":"sports"` (없으면 @hannun.brief 로 올라가니 반드시 넣는다). 맥락 읽기(부상·사고·폭력) 카드가 섞이면 게시 요청에서 뺀다.
+1. 브리프 HTML, 캡션, `publish/request.json`(월요일은 `publish/evening/YYYY-MM-DD_football.json` 도) 만 add. 요청 항목마다 `"account":"sports"` (없으면 @hannun.brief 로 올라가니 반드시 넣는다). 맥락 읽기(부상·사고·폭력) 카드가 섞이면 게시 요청에서 뺀다.
 2. `git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit` → `git pull --rebase origin main` → `git push origin HEAD:main`(실패하면 rebase 후 한 번만 재시도). push 관문 훅이 막으면 메시지대로 고친다.
 3. 실패(발행 못 함, 검토 3회 FAIL)일 때만 PushNotification. 정상 발행·발행 없음은 알리지 않는다.
 
