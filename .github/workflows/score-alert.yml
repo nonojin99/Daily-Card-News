@@ -1,10 +1,14 @@
 name: Score alert
 
-# ⚾ 경기 결과 알림(2026-10-23~): 경기가 끝나면 AI 없이 KBO 공식 기록으로 점수 카드를 만들어 @hannun.sports 에 올린다.
-# 15분마다 16:00~01:59 KST 확인(GitHub 예약 실행은 몇 분~수십 분 밀릴 수 있다). 끄기: 저장소 변수 SCORE_ALERT=off, 게시 없이 카드만: dry
+# 경기 결과 알림 → @hannun.sports 스토리(2026-10-23~): 경기가 끝나면 AI 없이 공식 기록(⚾ KBO · 🎮 LoL)으로 결과 카드를 만들어 올린다.
+# 15분마다 확인(롤드컵은 KST 새벽이라 하루 종일). 확인만은 몇 초라 비용이 거의 없다. GitHub 예약 실행은 몇 분~수십 분 밀릴 수 있다.
+# 끄기: 저장소 변수 SCORE_ALERT=off, 게시 없이 카드만: dry · 바로 한 번 돌리기: sports/alerts/request.txt 를 바꿔 push
 on:
   schedule:
-    - cron: '*/15 7-16 * * *'
+    - cron: '*/15 * * * *'
+  push:
+    branches: [main]
+    paths: ['sports/alerts/request.txt']
   workflow_dispatch:
 
 permissions:

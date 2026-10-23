@@ -748,9 +748,10 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
 | 🏆 이벤트 픽 | `YYYY-MM-DD_event-brief.html` | 축구 모닝 루틴이 조사(08:30) | 어젯밤~새벽 끝난 **큰 대회**: 테니스 그랜드슬램·골프 메이저/한국 선수 우승권·UFC 넘버 대회·NFL 플레이오프 | 대회 다음 날만 |
 | 🎮 e스포츠 | `YYYY-MM-DD_esports-brief.html` | 야구 나이트 루틴이 조사(23:30) | 오늘 저녁 끝난 롤 **큰 경기**: LCK 플레이오프·결승, MSI, 월즈, 한국 팀 국제전 | 큰 경기 날만 |
 
-- **⚾ 결과 알림 (2026-10-23~, AI·토큰 0)**: 워크플로 `Score alert` 가 15분마다(16:00~01:59 KST) KBO 공식 스코어보드 JSON(`koreabaseball.com` GetKboGameList)을 보고,
-  경기가 끝나면(`GAME_STATE_SC` 3 + 정상경기) `tools/score_card.js` 로 점수 카드 1장(동시에 끝난 경기는 최대 5경기 묶음)을 만들어 `sports/alerts/YYYY-MM/` 에 커밋 → Pages 반영 확인 → @hannun.sports 에 **단일 이미지 게시**.
-  캡션은 기록 값(점수·구장·승패세 투수·시리즈 차전)만. 올린 경기는 `sports/alerts/posted.json`(G_ID)에 남아 중복 게시를 막는다. 해설은 밤 야구 나이트 루틴 몫 — 그 루틴은 점수만 되풀이하는 카드를 만들지 않는다.
+- **결과 알림 → 스토리 (2026-10-23~, AI·토큰 0, 사용자 결정 2026-10-24 '피드는 시리즈만, 실시간 결과는 스토리')**: 워크플로 `Score alert` 가 15분마다 공식 기록을 본다 —
+  ⚾ KBO 스코어보드 JSON(`koreabaseball.com` GetKboGameList, `GAME_STATE_SC` 3 + 정상경기) · 🎮 LoL 일정 API(`lolesports.com` getSchedule, 롤드컵·MSI·퍼스트 스탠드·LCK, completed).
+  끝난 경기가 있으면 종목마다 세로 카드 1장(1080×1920, 최대 5경기 묶음, `tools/score_card.js`)을 `sports/alerts/YYYY-MM/` 에 커밋 → Pages 반영 확인 → @hannun.sports **스토리**로 게시(24시간 뒤 사라짐, 그리드를 어지럽히지 않는다).
+  프로필 하이라이트 '⚾ 결과'·'🎮 결과' 묶기는 앱에서 사람이 한다. 올린 경기는 `sports/alerts/posted.json` 에 남아 중복 게시를 막는다. 해설은 밤 야구 나이트·e스포츠 루틴 몫 — 그 루틴은 점수만 되풀이하는 카드를 만들지 않는다.
   끄기: 저장소 변수 `SCORE_ALERT=off`, 카드만 만들고 게시 안 함: `dry`. 해외 축구·MLB 알림은 공개 점수 데이터(ESPN·MLB Stats API) 확인 뒤 같은 방식으로 붙일 수 있다.
 - **시즌·비시즌**: KBO·MLB 3~10월(포스트시즌 ~11월 초). **야구 비시즌(11~2월)엔 야구 나이트를 '스토브리그' 주 2회(화·금)** — FA·트레이드·국가대표·해외 진출. 유럽 축구 비시즌(6~7월)엔 축구 모닝을 K리그·이적 시장 주 3회로.
 - **시즌 중 경기 없는 날 = 프리뷰** (2026-10-22 사용자 결정): 야구 나이트는 휴식일에도 다음 시리즈 대진·직전 시리즈 결산·순위·MLB 포스트시즌으로 발행한다(어제와 같으면 새 변화가 있을 때만). 🎮 e스포츠도 큰 대회 기간이면 경기 없는 날 대진·일정 프리뷰 2~3장(대진이 새로 확정됐거나 다음 경기가 3일 안일 때). 계기: 10/21 루틴이 "오늘 끝난 경기 없음"만 보고 발행을 건너뛰었다.
