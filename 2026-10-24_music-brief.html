@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="음악 브리프 — 2026.10.24">
+<meta property="og:description" content="이번 주 플레이리스트: 다시 찾아 듣는 노래 · AI 곡 멜론 3위 · 리센느×카라 · 도미닉 파이크 핫100 10위 · 존 앤더슨 · 조성진 베토벤 4번">
+<meta property="og:type" content="article">
+<title>Music Brief — 2026.10.24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#6b3f8a; --accent-soft:#f0eaf5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+  /* ── 서울 날씨 한 줄 (2026-10-11 도입) ── */
+  .weather{margin:14px 0 0;padding:9px 14px;border-radius:10px;background:var(--accent-soft);font-size:14px;color:var(--ink);line-height:1.6}
+  .weather .wx-note{display:inline-block;margin-left:6px;font-size:11.5px;color:var(--faint)}
+  .weather .wx-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+</style>
+<body><div class="wrap">
+  <header>
+    <div class="kicker">Music Brief · 음악 브리프</div>
+    <h1>이번 주 플레이리스트 — 다시 찾아 듣는 노래 여섯 곡</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 10월 24일 토요일</span>
+      <span class="count">6 Picks · AI 보컬 · 역주행 · 올드팝 · 컨트리 · 클래식</span>
+    </div>
+    <p class="lede">가사는 사람이 쓰고 AI가 부른 곡이 멜론 3위에 올랐고, 2년 전 노래 리센느의 「LOVE ATTACK」은 1위, 18년 전 카라의 원곡 「Pretty Girl」은 2위를 찾았습니다. 2018년 곡이 빌보드 핫100 첫 톱10에 들었고, 21일 별세한 존 앤더슨의 1983년 곡과 내일 서울에서 연주될 베토벤 4번을 이어 듣는 한 주입니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>10월 24일 토요일, 음악 브리프입니다. 이번 주 주제는 다시 찾아 듣는 노래입니다. 여섯 곡을 소개합니다.</p>
+    <p>AI가 부른 노래가 멜론 3위까지 올랐습니다. 가상 가수 머무르의 「꿈꾸던 어른이 되었나요?」는 9월 14일 96위로 들어와 10월 13일 3위까지 올랐습니다. 가사는 사람이 쓰고 작곡과 가창은 AI 서비스 수노가 맡았습니다. 어른이 된 뒤에도 이어지는 불안과 피로를 담은 가사가 공감을 얻었다는 분석이 있습니다. 음저협은 AI 활용 음악의 신탁 등록을 보류하고 있습니다.</p>
+    <p>두 번째는 두 해 전 노래의 1위입니다. 리센느의 「LOVE ATTACK」은 2024년 9월 멜론 일간 904위로 처음 들어왔고, 22개월 뒤인 올해 7월 8일 톱100 1위에 올랐습니다. 새 미니 4집은 11월 3일에 나옵니다.</p>
+    <p>이어서 들을 곡은 원곡입니다. 카라의 「Pretty Girl」은 2008년 곡으로, 당시 음악방송 1위를 하지 못했습니다. 리센느가 7월에 리메이크해 활동 중 최고 4위를 했고, 9월 13일에는 멜론 2위였습니다. 「LOVE ATTACK」과 이어 들으면 구도가 보입니다.</p>
+    <p>미국에서는 도미닉 파이크의 「Babydoll」이 빌보드 핫100 10위에 올랐습니다. 2018년 곡이 올해 다시 바이럴되며 8년 만에 처음 톱10에 들었습니다.</p>
+    <p>컨트리 가수 존 앤더슨의 부고가 21일 가족을 통해 전해졌습니다. 향년 71세입니다. 대표곡 「Swingin'」은 1983년 CMA 올해의 싱글을 받았고, 그는 2024년 컨트리 음악 명예의 전당에 올랐습니다. 1983년 올해의 싱글을 받은 이 곡으로 그를 기억해 보세요.</p>
+    <p>마지막은 클래식입니다. 25일 서울 예술의전당에서 빈 필하모닉 내한 공연이 열리고, 조성진이 베토벤 피아노협주곡 4번을 협연합니다. 지휘자 소키에프는 4번이 친밀하고 서정적이라고 말했습니다. 지휘자는 3번과 5번과 비교하며 이렇게 설명했습니다. 공연 정보는 바뀔 수 있으니 공식 안내를 확인하세요.</p>
+    <p>지금까지 10월 24일 음악 브리프였습니다. 곡마다 자세한 내용과 출처는 카드에서 확인하세요. 즐거운 감상 되세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">Playlist 1 — AI 보컬곡</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">歌</span>
+    <div class="card-top"><span class="topic">AI 보컬</span></div>
+    <h2>가사는 사람이, 노래는 AI가 — 「꿈꾸던 어른이 되었나요?」 멜론 3위까지 올랐다</h2>
+    <div class="summary">
+      <p>가상 가수 <strong>머무르</strong>의 「꿈꾸던 어른이 되었나요?」는 6월 23일 발매됐다. 멜론 톱100에는 9월 14일 <strong>96위</strong>로 처음 들어왔고 10월 2일 18위, 10월 13일 <strong>3위</strong>까지 올랐다. 코리아헤럴드는 이 3위가 AI가 부른 곡의 멜론 톱100 최고 순위라고 보도했다(이슈인사이트 인용, 독립 검증은 아님).</p>
+      <p>가사는 사람이 쓰고 기본 작곡과 가창은 생성형 AI 플랫폼 수노(Suno)가 맡았다. 제작진은 명령어를 여러 차례 고치고 소스를 더해 완성도를 높였다. 머니투데이에 따르면 21일 확인한 멜론·지니 누적 재생은 약 1,424만 회이고, 한국음악저작권협회는 AI 활용 음악의 신탁 등록을 보류하고 있다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">발매</span><span>2026.6.23 · 가상 가수 머무르 · 가사 사람 / 작곡·가창 수노(Suno)</span></li>
+      <li><span class="k">멜론 톱100</span><span>9/14 96위(첫 진입) → 10/2 18위 → 10/13 3위</span></li>
+      <li><span class="k">재생</span><span>멜론·지니 누적 약 1,424만 회 (21일 확인)</span></li>
+      <li><span class="k">저작권</span><span>음저협 AI 활용 음악 신탁 등록 보류 중</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🎧 알고 들으면 달라지는 것</span>
+      <p>한 보도는 <strong>어른이 된 뒤에도 이어지는 불안과 피로를 담은 가사</strong>가 청취자 공감을 얻었다고 분석했다. 노래는 AI가 불렀지만 가사는 사람이 썼다. 그래서 이 곡은 목소리보다 가사가 누구의 이야기인지에 귀를 두고 들을 만하다. 편곡·악기는 기사에 없어 적지 않았다.</p>
+    </div>
+    <a class="source" href="https://www.issueinsight.co.kr/news/articleViewAmp.html?idxno=3064">이슈인사이트 — 멜론 순위·제작 방식</a>  <a class="source" href="https://mt.co.kr/society/2026/10/23/2026102117401082516">머니투데이 — 누적 재생·신탁 보류</a>
+    <span class="ref-note">이슈인사이트(10/20)·머니투데이(10/23 08:06) · 순위 흐름·제작 방식은 이슈인사이트, 누적 재생·음저협은 머니투데이 · 최고 순위 보도는 코리아헤럴드를 인용한 이슈인사이트 기사 기준 · 곡 장르·편곡은 기사에 없음 (확인 2026-10-24)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">어른의 피로를 노래한<br>AI 곡, 멜론 3위</p>
+      <p class="cn-s">가사는 사람이 썼어요. 멜론 톱100에 9월 14일 96위로 들어와 10월 13일 3위까지 올라갔어요. 노래는 AI가 불렀어요.</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="멜론 톱100 순위: 9/14 96위, 10/2 18위, 10/13 3위">
+      <polyline class="cn-ln" fill="none" points="60.0,174.3 233.8,64.0 340.0,42.8"/>
+      <circle class="cn-dot" cx="60.0" cy="174.3" r="7"/>
+      <text class="cn-val" x="60.0" y="160.3" text-anchor="middle">96위</text>
+      <text class="cn-cat" x="60.0" y="206" text-anchor="middle">9/14</text>
+      <circle class="cn-dot" cx="233.8" cy="64.0" r="7"/>
+      <text class="cn-val" x="233.8" y="50.0" text-anchor="middle">18위</text>
+      <text class="cn-cat" x="233.8" y="206" text-anchor="middle">10/2</text>
+      <circle class="cn-dot" cx="340.0" cy="42.8" r="7"/>
+      <text class="cn-val" x="340.0" y="28.8" text-anchor="middle">3위</text>
+      <text class="cn-cat" x="340.0" y="206" text-anchor="middle">10/13</text>
+      </svg>
+      <p class="cn-img">A tired office worker's desk by a window at dusk, a small old music player glowing beside a coffee cup, city lights outside, warm calm mood, no text</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Playlist 2 — 역주행</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">逆</span>
+    <div class="card-top"><span class="topic">역주행</span></div>
+    <h2>2년 전 노래가 1위로 — 리센느 「LOVE ATTACK」, 멜론 일간 904위에서 22개월 만에</h2>
+    <div class="summary">
+      <p>리센느의 「LOVE ATTACK」은 2024년 9월 멜론 일간차트 <strong>904위</strong>로 첫 진입했다. 2026년 5월 28일 98위로 다시 들어왔고, 6월 30일 톱100에서 5위, 7월 8일 <strong>1위</strong>에 올랐다. 기사는 첫 진입부터 1위까지 약 22개월이 걸렸다고 설명했다(이슈인사이트).</p>
+      <p>기사는 역주행의 계기로 멤버 원이의 개인 채널 영상이 숏폼으로 퍼진 것을 짚었다. 소속사 더뮤즈엔터테인먼트는 새 미니 4집 《PULSE》를 11월 3일 낸다고 발표했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">곡</span><span>리센느 「LOVE ATTACK」 · 2024년 발매</span></li>
+      <li><span class="k">멜론 기록</span><span>2024.9 일간 904위 → 2026.5.28 98위 → 6/30 5위 → 7/8 1위</span></li>
+      <li><span class="k">걸린 시간</span><span>첫 진입부터 1위까지 약 22개월</span></li>
+      <li><span class="k">다음</span><span>미니 4집 《PULSE》 11/3 발매 (소속사 발표)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🎧 알고 들으면 달라지는 것</span>
+      <p>이 곡은 <strong>첫 진입이 904위였다가 22개월 뒤 1위가 된</strong> 노래라는 점이 듣는 포인트다. 신곡이 아니라 두 해 전 곡을 지금 다시 찾아 들은 사람들이 만든 순위다. 작곡·편곡 크레딧은 기사에 없어 적지 않았다.</p>
+    </div>
+    <a class="source" href="https://www.issueinsight.co.kr/news/articleView.html?idxno=3055">이슈인사이트 — 리센느 역주행 경과</a>
+    <span class="ref-note"><strong>이슈인사이트 단일 출처</strong>(입력 10/11, 수정 10/21 08:50) · 멜론 순위 기록은 기사 기준, 멜론 차트 원문은 미확인 · 논란 부분은 공식 확인 없음 (확인 2026-10-24)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">2년 전 노래가 1위로,<br>리센느 LOVE ATTACK</p>
+      <p class="cn-s">2024년 9월 멜론 일간 904위로 첫 진입한 곡이에요. 22개월 뒤인 7월 8일 톱100 1위에 올랐어요. 11월 3일 새 미니 4집이 나와요.</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="멜론 순위: 2024년 9월 일간 904위, 5월 28일 98위, 6월 30일 5위, 7월 8일 1위">
+      <rect class="cn-off" x="24" y="135" width="82" height="40" rx="6"/>
+      <text class="cn-big" x="65" y="109" text-anchor="middle">904위</text>
+      <text class="cn-small" x="65" y="127" text-anchor="middle">2024.9</text>
+      <rect class="cn-off" x="114" y="107" width="82" height="68" rx="6"/>
+      <text class="cn-big" x="155" y="81" text-anchor="middle">98위</text>
+      <text class="cn-small" x="155" y="99" text-anchor="middle">5/28</text>
+      <rect class="cn-off" x="204" y="78" width="82" height="97" rx="6"/>
+      <text class="cn-big" x="245" y="52" text-anchor="middle">5위</text>
+      <text class="cn-small" x="245" y="70" text-anchor="middle">6/30</text>
+      <rect class="cn-on" x="294" y="50" width="82" height="125" rx="6"/>
+      <text class="cn-big" x="335" y="24" text-anchor="middle">1위</text>
+      <text class="cn-small" x="335" y="42" text-anchor="middle">7/8</text>
+    </svg>
+      <p class="cn-img">A rooftop at night in a city, a girl group-style silhouette-free scene with glowing stage lights and a vintage cassette player on a ledge, retro pop mood, no people, no text</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Playlist 3 — 원곡</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">原</span>
+    <div class="card-top"><span class="topic">원곡</span></div>
+    <h2>원곡은 음악방송 1위를 못 했다 — 카라 「Pretty Girl」, 18년 뒤 리센느 리메이크로 멜론 2위</h2>
+    <div class="summary">
+      <p>카라의 「Pretty Girl」은 2008년 두 번째 미니앨범 타이틀곡이다. 기사에 따르면 당시 음악방송 1위는 하지 못했다. 리센느가 이 곡을 리메이크해 2026년 7월 8일 오후 6시 싱글로 냈다(이슈인사이트).</p>
+      <p>리메이크는 발매 당일 멜론 톱100에서 22위, 12위, 10위로 올랐고 7월 활동 기간 최고 순위는 <strong>4위</strong>였다. 9월 13일 오후 11시 기준 멜론에서 「LOVE ATTACK」이 <strong>1위</strong>, 「Pretty Girl」이 <strong>2위</strong>였다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">원곡</span><span>카라 「Pretty Girl」 · 2008 두 번째 미니앨범 타이틀 · 당시 음악방송 1위 못 함</span></li>
+      <li><span class="k">리메이크</span><span>리센느 · 2026.7.8 18:00 싱글 · 당일 멜론 22위→12위→10위</span></li>
+      <li><span class="k">최고 순위</span><span>7월 활동 중 4위</span></li>
+      <li><span class="k">9/13 23시 기준</span><span>멜론 「LOVE ATTACK」 1위 · 「Pretty Girl」 2위</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🎧 알고 들으면 달라지는 것</span>
+      <p>앞 카드의 「LOVE ATTACK」과 이 곡을 <strong>이어서 들으면</strong> 한 그룹의 두 곡이 멜론 1·2위를 나눠 가진 구도를 귀로 확인할 수 있다. 원곡은 18년 전 곡이고 리메이크가 새 순위를 만들었다는 점이 포인트다. 두 버전의 편곡 차이는 기사에 없어 적지 않았다.</p>
+    </div>
+    <a class="source" href="https://www.issueinsight.co.kr/news/articleView.html?idxno=3055">이슈인사이트 — 리메이크·순위</a>
+    <span class="ref-note"><strong>이슈인사이트 단일 출처</strong>(입력 10/11, 수정 10/21) · 7월 최고 4위는 기사가 CBC 뉴스를 인용한 수치 · 앞 카드와 같은 기사를 쓴 두 번째 카드 · 원곡 크레딧은 비공식 자료뿐이라 적지 않음 (확인 2026-10-24)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">18년 전 카라의 곡,<br>리센느 손에 멜론 2위</p>
+      <p class="cn-s">카라의 Pretty Girl은 2008년 곡으로 당시 음악방송 1위를 못 했어요. 리센느 리메이크는 7월 활동 중 최고 4위였고, 9월 13일 2위였어요.</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="카라 원곡 2008년에서 리센느 리메이크 2026년 7월 8일, 9월 13일 멜론 2위">
+      <rect class="cn-ring" x="20" y="50" width="163" height="120" rx="12"/>
+      <text class="cn-big" x="102" y="82" text-anchor="middle">카라 원곡</text>
+      <text class="cn-small" x="102" y="104" text-anchor="middle">2008</text>
+      <text class="cn-small" x="102" y="126" text-anchor="middle">음악방송</text>
+      <text class="cn-small" x="102" y="148" text-anchor="middle">1위 못 함</text>
+      <path class="cn-on" d="M193 102 L207 110 L193 118 Z"/>
+      <rect class="cn-ring" x="217" y="50" width="163" height="120" rx="12"/>
+      <rect class="cn-line" fill="none" x="217" y="50" width="163" height="120" rx="12"/>
+      <text class="cn-big" x="298" y="82" text-anchor="middle">리센느 리메이크</text>
+      <text class="cn-small" x="298" y="104" text-anchor="middle">2026.7.8</text>
+      <text class="cn-small" x="298" y="126" text-anchor="middle">7월 최고 4위</text>
+      <text class="cn-small" x="298" y="148" text-anchor="middle">9/13 멜론 2위</text>
+    </svg>
+      <p class="cn-img">A teen-pop styled bedroom with a retro CD player, plain pastel walls, a pink cassette tape and sunlight, nostalgic mood, no people, no text</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Playlist 4 — 첫 톱10</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">十</span>
+    <div class="card-top"><span class="topic">핫100 진입</span></div>
+    <h2>2018년 곡이 8년 만에 빌보드 핫100 10위 — 도미닉 파이크 「Babydoll」, 첫 톱10</h2>
+    <div class="summary">
+      <p>10월 24일자 빌보드 핫100에서 도미닉 파이크의 「Babydoll」이 <strong>10위</strong>로 올라 그의 <strong>첫 톱10</strong>이 됐다. 이 곡은 2018년 발매곡으로, 올해 다시 바이럴됐다고 기사는 전했다. 라디오 송 차트에서도 상위 5위 안에 들었다(빌보드 기사의 Yahoo 게재본).</p>
+      <p>순위 집계 기간은 10월 9~15일이다. 기사에는 이전 주 순위와 바이럴 경로(어느 플랫폼에서 퍼졌는지)가 나오지 않는다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">곡</span><span>도미닉 파이크 「Babydoll」 · 2018년 발매</span></li>
+      <li><span class="k">핫100</span><span>10/24일자 10위 · 첫 톱10</span></li>
+      <li><span class="k">라디오 송 차트</span><span>상위 5위 안 진입 (정확한 순위는 기사에 없음)</span></li>
+      <li><span class="k">집계</span><span>10/9~10/15 (Luminate 집계)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🎧 알고 들으면 달라지는 것</span>
+      <p>8년 전 곡이 처음으로 톱10에 든 사례라 <strong>발매 연도와 차트 연도가 다른 곡</strong>을 찾는 재미가 있다. 기사에 장르·편곡 설명은 없어 적지 않았다.</p>
+    </div>
+    <a class="source" href="https://www.yahoo.com/entertainment/music/articles/dominic-fike-ashe-bruno-mars-171945541.html">Yahoo(빌보드 기사) — 핫100 10위</a>
+    <span class="ref-note"><strong>단일 출처</strong>(빌보드 하이라이트 기사의 Yahoo 게재본, 10/20 17:19 UTC) · 이전 주 순위·스트리밍 수치는 본문에 없어 뺌 · 빌보드 원문은 접속이 막혀 미열람 (확인 2026-10-24)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">8년 전 곡의 반전,<br>핫100 첫 톱10</p>
+      <p class="cn-s">도미닉 파이크의 Babydoll이 빌보드 핫100 10위로 올랐어요. 2018년 곡이 8년 만에 처음 톱10에 들었어요. 라디오 차트도 상위 5위예요.</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="2018년 발매곡이 8년 만에 10월 24일자 빌보드 핫100 10위">
+      <line class="cn-line" x1="50" y1="115" x2="350" y2="115"/>
+      <circle class="cn-on" cx="50" cy="115" r="10"/>
+      <circle class="cn-on" cx="350" cy="115" r="10"/>
+      <text class="cn-big" x="200" y="78" text-anchor="middle">8년</text>
+      <text class="cn-big" x="50" y="78" text-anchor="middle">2018</text>
+      <text class="cn-small" x="50" y="152" text-anchor="middle">발매</text>
+      <text class="cn-big" x="350" y="78" text-anchor="middle">10/24일자</text>
+      <text class="cn-small" x="350" y="152" text-anchor="middle">핫100 10위</text>
+    </svg>
+      <p class="cn-img">A late-night highway diner window with a jukebox glowing and a vinyl record on the counter, neon reflections on rainy glass, indie pop mood, no people, no text</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Playlist 5 — 명곡</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">悼</span>
+    <div class="card-top"><span class="topic">컨트리 명곡</span></div>
+    <h2>「Swingin'」으로 1983년 올해의 싱글 — 컨트리 명예의 전당 존 앤더슨, 71세로 별세</h2>
+    <div class="summary">
+      <p>컨트리 가수 <strong>존 앤더슨</strong>의 부고가 21일 가족의 공식 SNS를 통해 전해졌다. 향년 71세다(WSMV). 그의 대표곡 「Swingin'」은 1위 히트곡이 됐고 <strong>1983년</strong> CMA 올해의 싱글을 받았다(CBS News).</p>
+      <p>그는 2024년 컨트리 음악 명예의 전당에 헌액됐고 2014년에는 내슈빌 작곡가 명예의 전당에도 올랐다. 대표곡으로는 「Straight Tequila Night」「Seminole Wind」도 꼽힌다. 별세 며칠 전 일요일에는 명예의 전당 행사에 참석했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">별세</span><span>2026.10.21 가족 SNS 부고 · 향년 71세</span></li>
+      <li><span class="k">대표곡</span><span>「Swingin'」 · 「Straight Tequila Night」 · 「Seminole Wind」</span></li>
+      <li><span class="k">수상</span><span>1983 CMA 올해의 싱글 「Swingin'」 · CMA 호라이즌상(수상 연도는 기사에 없음)</span></li>
+      <li><span class="k">헌액</span><span>2014 내슈빌 작곡가 명예의 전당 · 2024 컨트리 음악 명예의 전당</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🎧 알고 들으면 달라지는 것</span>
+      <p>오늘 이 곡을 찾는 이유는 <strong>한 시대의 목소리를 다시 듣기 위해서</strong>다. 1983년 올해의 싱글을 받은 곡이라는 점을 떠올리며 들어 볼 수 있다. 기사에 곡의 작곡가·편곡·악기 설명은 없어 적지 않았다.</p>
+    </div>
+    <a class="source" href="https://www.cbsnews.com/news/john-anderson-dies-age-71-country-music-hall-of-famer/">CBS News — 별세·수상 이력</a>  <a class="source" href="https://www.wsmv.com/2026/10/22/country-music-hall-famer-john-anderson-dies-71/">WSMV — 부고·헌액</a>
+    <span class="ref-note">CBS News(10/22 8:22 EDT 업데이트)·WSMV(10/21 20:36 CDT) · 별세·71세·명예의 전당은 두 매체 일치 · 1983 올해의 싱글은 CBS 기준(WSMV는 연도 없음) · 정확한 사망일은 기사에 없음, 가족 발표일 기준 (확인 2026-10-24)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">컨트리 명곡의 주인공<br>존 앤더슨 별세</p>
+      <p class="cn-s">컨트리 가수 존 앤더슨이 71세로 세상을 떠났어요. Swingin'은 1983년 CMA 올해의 싱글이에요. 2024년 명예의 전당에 올랐어요.</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="1983년 Swingin 올해의 싱글, 2024년 명예의 전당 헌액, 2026년 71세로 별세">
+      <line class="cn-line" x1="70" y1="45" x2="70" y2="175"/>
+      <circle class="cn-on" cx="70" cy="45" r="9"/>
+      <text class="cn-big" x="50" y="50" text-anchor="end">1983</text>
+      <text class="cn-big" x="95" y="50">Swingin' 올해의 싱글</text>
+      <circle class="cn-on" cx="70" cy="110" r="9"/>
+      <text class="cn-big" x="50" y="115" text-anchor="end">2024</text>
+      <text class="cn-big" x="95" y="115">명예의 전당 헌액</text>
+      <circle class="cn-on" cx="70" cy="175" r="9"/>
+      <text class="cn-big" x="50" y="180" text-anchor="end">2026</text>
+      <text class="cn-big" x="95" y="180">71세로 별세</text>
+    </svg>
+      <p class="cn-img">A quiet Nashville-style honky-tonk stage at dusk with an empty stool, an acoustic guitar leaning on an amplifier, warm amber lights, wistful country mood, no people, no text</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Playlist 6 — 클래식</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">協</span>
+    <div class="card-top"><span class="topic">클래식 협주곡</span></div>
+    <h2>25일 서울에서 조성진이 치는 베토벤 피아노협주곡 4번 — 소키에프 "친밀하고 서정적인 곡"</h2>
+    <div class="summary">
+      <p>빈 필하모닉 내한 공연이 <strong>10월 25일</strong> 서울 예술의전당, 26일 부산콘서트홀에서 열린다. 러시아 출신 지휘자 투간 소키에프가 지휘하고 피아니스트 조성진이 <strong>베토벤 피아노협주곡 4번</strong>을 협연한다. 브람스 교향곡 2번도 연주한다(한국경제).</p>
+      <p>소키에프는 4번이 "친밀하고 서정적인 느낌을 준다"고 말했다. 3번에는 초기 모습이 남아 있고 5번은 웅장하다고 비교하며, 4번의 이런 성격을 중요하게 여겨 늘 기쁜 마음으로 지휘한다고 했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">공연</span><span>10/25 서울 예술의전당 · 10/26 부산콘서트홀 ⚠ 변동 가능, 공식 예매처 확인</span></li>
+      <li><span class="k">출연</span><span>빈 필하모닉 · 지휘 투간 소키에프 · 피아노 조성진</span></li>
+      <li><span class="k">연주곡</span><span>베토벤 피아노협주곡 4번 · 브람스 교향곡 2번</span></li>
+      <li><span class="k">지휘자 설명</span><span>3번 초기 모습 · 4번 친밀하고 서정적 · 5번 웅장</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🎧 알고 들으면 달라지는 것</span>
+      <p>지휘자는 <strong>3번(초기 모습)·5번(웅장함)과 비교하며 4번을 친밀하고 서정적</strong>이라고 설명했다. 그 비교를 따라 세 곡을 들어 보면 4번의 성격을 가늠할 수 있다. 이 카드의 일정은 10월 15일 기사 기준이라 바뀌었을 수 있으니 공식 안내를 확인하자.</p>
+    </div>
+    <a class="source" href="https://www.hankyung.com/article/2026101546321">한국경제 — 빈 필 내한·소키에프 인터뷰</a>
+    <span class="ref-note"><strong>한국경제 단일 출처</strong>(입력 10/15 17:37, 수정 10/16 10:55) · 공연 시각·가격·좌석은 기사에 없어 적지 않음, 공식 안내 확인 권장 (확인 2026-10-24)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">조성진의 베토벤 4번,<br>25일 서울 무대</p>
+      <p class="cn-s">빈 필 내한 공연이 25일 예술의전당에서 열려요. 조성진이 베토벤 피아노협주곡 4번을 협연해요. 지휘자는 4번을 친밀하고 서정적이라 했어요.</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="소키에프의 설명: 3번 초기 모습, 4번 친밀하고 서정적(25일 서울 조성진 협연), 5번 웅장">
+      <rect class="cn-ring" x="20" y="50" width="97" height="120" rx="12"/>
+      <text class="cn-big" x="69" y="93" text-anchor="middle">3번</text>
+      <text class="cn-small" x="69" y="115" text-anchor="middle">초기 모습</text>
+      <text class="cn-small" x="69" y="137" text-anchor="middle">남아 있음</text>
+      <path class="cn-on" d="M127 102 L141 110 L127 118 Z"/>
+      <rect class="cn-ring" x="151" y="50" width="97" height="120" rx="12"/>
+      <rect class="cn-line" fill="none" x="151" y="50" width="97" height="120" rx="12"/>
+      <text class="cn-big" x="200" y="82" text-anchor="middle">4번</text>
+      <text class="cn-small" x="200" y="104" text-anchor="middle">친밀하고 서정</text>
+      <text class="cn-small" x="200" y="126" text-anchor="middle">25일 서울</text>
+      <text class="cn-small" x="200" y="148" text-anchor="middle">조성진 협연</text>
+      <path class="cn-on" d="M259 102 L273 110 L259 118 Z"/>
+      <rect class="cn-ring" x="283" y="50" width="97" height="120" rx="12"/>
+      <text class="cn-big" x="331" y="104" text-anchor="middle">5번</text>
+      <text class="cn-small" x="331" y="126" text-anchor="middle">웅장함</text>
+    </svg>
+      <p class="cn-img">A grand concert hall interior before a performance, an empty grand piano on stage under warm spotlights, rows of red seats, autumn evening feel, no people, no text</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">Daily Card News</span> · 2026년 10월 24일 토요일 · 음악 브리프 · 6 Picks<br>
+    각 카드의 대표 출처 기사 본문을 직접 열어 순위·날짜·수치와 발행일시를 확인했고, 기사에 없는 값은 적지 않았습니다. 가사는 인용하지 않았고, 앨범 커버·아티스트 사진은 쓰지 않았습니다. 감상 포인트는 기사에서 확인한 배경에만 근거하며 기사에 없는 편곡은 추측하지 않았습니다.<br>
+    ⚠ 공연 일정은 바뀔 수 있습니다. 리센느·카라·도미닉 파이크·베토벤 카드는 <strong>단일 매체</strong> 보도 기준이며 차트 원문은 열람하지 못했습니다. 공식 유튜브 영상 채널을 확인하지 못해 이번 주는 앱 '들어 보기'와 클래식 배경음을 넣지 않았습니다.
+    <!-- tracker: 2026-10-24 (music)
+         [오늘 다룬 항목] ①머무르 「꿈꾸던 어른이 되었나요?」 AI 보컬 멜론 3위 ②리센느 LOVE ATTACK 역주행 ③카라 Pretty Girl 원곡 ④도미닉 파이크 Babydoll 핫100 10위 ⑤존 앤더슨 별세·Swingin' ⑥빈 필 내한 조성진 베토벤 4번(10/25)
+         [주제] 이번 주 플레이리스트 — 다시 찾아 듣는 노래 (AI·역주행·원곡·첫 톱10·명곡·클래식)
+         [지난주 대비 중복 배제] 10/15·10/8·10/1 항목 재등장 없음(빈 필은 10/15 제외 목록의 공연을 곡 단위로 새로 다룸).
+         [추적 중] 리센느 미니 4집 11/3 · 머무르 AI 표기·신탁 논란 · 빈 필 10/25 공연 후기 · 소연 「퇴사할게여」 멜론 1위(근거 약해 제외)
+         [제외] 소연 「퇴사할게여」(신선 기사 1건) · 최유리 「생각을 멈추다 보면」(본문 미열람) · 한로로 · 엠씨더맥스 「행복하지 말아요」(근거 커뮤니티) · 제니 「Dracula」(10/17 이전) · 테일러 스위프트 「Patient Zero」(중복 우려)
+         [리서치 도구] mcp__Firecrawl__* 호출 0회. WebSearch 발견 → WebFetch 검증.
+    -->
+  </footer>
+
+</div></body>
+</html>

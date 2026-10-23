@@ -2,12 +2,11 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-10/2026-10-23_baseball-brief",
-   "caption": "captions/2026-10-23_baseball.txt",
+   "media": "cards/2026-10/2026-10-24_week7",
+   "caption": "captions/2026-10-24_week7.txt",
    "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports"
+   "is_ai": "false"
   }
  ],
- "note": "10/23 야구 나이트 프리뷰 캐러셀 (@hannun.sports)"
+ "note": "10/24 토요일 이번 주 숫자 캐러셀 (릴스는 저녁 publish/evening)"
 }
