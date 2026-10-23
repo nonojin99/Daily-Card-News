@@ -7,13 +7,15 @@
 //   spec = { "brief", "audio", "out", "title", ("bgm": {"src", "credit"}), "segments": [[시작초, 끝초, 슬라이드 번호(1=표지, 마지막=출처 장), (1이면 다음 구간과 쉼 없이 이어짐)], …] }
 //
 // 구간 규칙(README '릴스'): 문단 단위로만 자르고 문단 안은 자르지 않는다. 180초 이하 — 넘으면 가장 긴 본문 문단부터 통째로 뺀다
-// (첫 문단·끝인사·날씨 문단은 남긴다). 문단 시간은 make_audio.py 가 남긴 audio/…/<이름>.json, 없으면 원고 글자 수 비율 → 가까운 긴 쉼.
+// (끝인사·날씨 문단은 남긴다).
+// 2026-10-23~ 첫 문단("M월 D일 X요일, ○○ 브리프입니다")은 릴스에서 뺀다 — 영상은 첫 프레임부터 카드 1번(그림 포함)과 그 카드의 낭독으로 시작한다.
+// 이유: 주말 릴스 평균 시청 1초 — 날짜·인사 구간에서 다 넘겼다. 본문 문단이 하나뿐인 원고(여행·액티비티)는 그 문단을 카드 수만큼 나눠 넘기고, 출처 장은 끝에 2초 무음으로 붙인다. 문단 시간은 make_audio.py 가 남긴 audio/…/<이름>.json, 없으면 원고 글자 수 비율 → 가까운 긴 쉼.
 // '맥락 읽기'(사건·사고·재난) 카드가 있는 브리프는 만들지 않는다. 카드는 쪽수 칩을 숨기고 다시 렌더한다(문단을 빼도 번호가 안 건너뛰게).
 const http = require("http"), fs = require("fs"), path = require("path"), os = require("os"), crypto = require("crypto");
 const { execFileSync, execSync, spawnSync } = require("child_process");
 let pw; try { pw = require("playwright"); } catch { pw = require(path.join(execSync("npm root -g").toString().trim(), "playwright")); }
 const ROOT = path.resolve(__dirname, "..");
-const GAP = 0.6, MAX = 180, FIT = 178;
+const GAP = 0.6, MAX = 180, FIT = 178, OUTRO = 2;
 const BRIEF = /^(\d{4})-(\d{2})-(\d{2})_([a-z]+)-brief\.html$/;
 const TITLE = { ai: "듣는 AI", sports: "듣는 스포츠", football: "주말 축구 결산", baseball: "듣는 야구", science: "듣는 우주", activity: "듣는 주말", travel: "듣는 여행",
   daily: "듣는 뉴스", culture: "듣는 문화", music: "듣는 음악" };
@@ -114,17 +116,20 @@ async function renderCards(b, base, brief, tmp) {
   return { files, meta };
 }
 
-// 자동 구간: 첫 문단→표지, 본문 문단→카드(개수가 같으면 1:1, 다르면 비율), 날씨 문단→표지(메인은 표지에 날씨), 끝인사→출처 장
+// 자동 구간(2026-10-23~): 첫 문단(날짜·인사)은 뺀다 → 본문 문단→카드(개수가 같으면 1:1, 다르면 비율), 날씨 문단→표지, 끝인사→출처 장.
+// 본문 문단이 없으면(원고가 '오프닝 + 한 문단'뿐인 여행·액티비티) 마지막 문단을 본문으로 보고 카드에 나눠 싣고, 출처 장은 끝에 OUTRO 초 무음으로 붙인다.
 function autoSegments(paras, spans, nSlides) {
   const n = paras.length, K = nSlides - 2;
   const weather = paras.findIndex(p => /^끝으로 오늘 서울 날씨/.test(p));
-  const body = [...Array(n).keys()].filter(i => i > 0 && i < n - 1 && i !== weather);
-  const slideOf = i => i === 0 || i === weather ? 1 : i === n - 1 ? nSlides : 2 + Math.min(K - 1, Math.floor(body.indexOf(i) * K / body.length));
-  let keep = [...Array(n).keys()];
-  const len = ks => ks.reduce((t, i) => t + spans[i][1] - spans[i][0], 0) + GAP * (ks.length - 1);
-  const dropped = [];
+  let body = [...Array(n).keys()].filter(i => i > 0 && i < n - 1 && i !== weather);
+  const closing = body.length ? n - 1 : -1;
+  if (!body.length) body = [n - 1];
+  const slideOf = i => i === weather ? 1 : i === closing ? nSlides : 2 + Math.min(K - 1, Math.floor(body.indexOf(i) * K / body.length));
+  let keep = [...Array(n).keys()].filter(i => i > 0);
+  const len = ks => ks.reduce((t, i) => t + spans[i][1] - spans[i][0], 0) + GAP * (ks.length - 1) + (closing < 0 ? OUTRO : 0);
+  const dropped = [0];
   while (len(keep) > FIT) {
-    const cand = keep.filter(i => body.includes(i));
+    const cand = keep.filter(i => body.includes(i) && body.length > 1);
     if (!cand.length) break;
     const longest = cand.reduce((a, i) => spans[i][1] - spans[i][0] > spans[a][1] - spans[a][0] ? i : a, cand[0]);
     keep = keep.filter(i => i !== longest); dropped.push(longest);
@@ -135,12 +140,13 @@ function autoSegments(paras, spans, nSlides) {
     return [...Array(z - a).keys()].map(x => 2 + a + x); };
   const segments = keep.flatMap(i => { const r = range(i), [s0, e0] = spans[i], d = (e0 - s0) / r.length;
     return r.map((sl, x) => [+(s0 + d * x).toFixed(3), +(s0 + d * (x + 1)).toFixed(3), sl, x < r.length - 1 ? 1 : 0]); });
-  return { segments, dropped: dropped.sort((a, b) => a - b), total: len(keep) };
+  return { segments, dropped: dropped.sort((a, b) => a - b), total: len(keep), outro: closing < 0 ? nSlides : 0 };
 }
 
 async function build(spec, b, base) {
   const gapAfter = k => k < spec.segments.length - 1 && !spec.segments[k][3];   // 문단 사이에만 쉼
-  const total = spec.segments.reduce((n, [s, e], k) => n + (e - s) + (gapAfter(k) ? GAP : 0), 0);
+  const outro = spec.outro ? OUTRO : 0;   // 출처 장 무음 꼬리(본문이 끝인사까지 한 문단인 원고)
+  const total = spec.segments.reduce((n, [s, e], k) => n + (e - s) + (gapAfter(k) ? GAP : 0), 0) + outro;
   if (total > MAX) throw new Error(`길이 ${total.toFixed(1)}초 > ${MAX}초 — 문단을 더 빼세요`);
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "reel-"));
   const { files, meta } = spec._cards || await renderCards(b, base, spec.brief, tmp);
@@ -149,9 +155,9 @@ async function build(spec, b, base) {
   const N = spec.segments.length;
   const hook = hookOf(read(spec.brief).toString());
   const bgmNote = spec.bgm ? ` · 배경음악 ${esc(spec.bgm.credit)}` : "";
-  for (let k = 0; k < N; k++) {
+  for (let k = 0; k < N + (outro ? 1 : 0); k++) {   // k === N: 출처 장 무음 꼬리
     // 맨 앞 표지 구간(첫 문단)은 훅 카드로 — 날씨 문단 등 뒤쪽 표지 구간은 그대로
-    if (hook && spec.segments.slice(0, k + 1).every(g => g[2] === 1)) {
+    if (k < N && hook && spec.segments.slice(0, k + 1).every(g => g[2] === 1)) {
       const longest = Math.max(...hook.lines.map(l => l.length));
       const fs_ = Math.max(64, Math.min(132, Math.floor(860 / (Math.max(1, longest) * 0.82))));
       await fr.setContent(`<!doctype html><html><head><meta charset="utf-8">
@@ -171,7 +177,7 @@ ${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
       await fr.screenshot({ path: path.join(tmp, `f${k}.png`) });
       continue;
     }
-    const img = "data:image/png;base64," + fs.readFileSync(files[spec.segments[k][2] - 1]).toString("base64");
+    const img = "data:image/png;base64," + fs.readFileSync(files[(k < N ? spec.segments[k][2] : spec.outro) - 1]).toString("base64");
     await fr.setContent(`<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
 <style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:#f1efe8;font-family:'Noto Sans KR',sans-serif;color:#1a1a18;position:relative}
@@ -181,17 +187,19 @@ ${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
 .card{position:absolute;left:97px;top:330px;width:886px;border-radius:28px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.08)}
 .card img{display:block;width:100%}
 .bar{position:absolute;left:97px;right:97px;top:1472px;height:8px;border-radius:9px;background:#e1ddd2}
-.bar i{display:block;height:100%;width:${((k + 1) / N * 100).toFixed(1)}%;border-radius:9px;background:${meta.ac}}
+.bar i{display:block;height:100%;width:${(Math.min(1, (k + 1) / N) * 100).toFixed(1)}%;border-radius:9px;background:${meta.ac}}
 .ft{position:absolute;left:97px;right:97px;top:1508px;font-size:32px;color:#55554f}.ft b{color:#3d5a4c}</style></head>
 <body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">🎧 ${esc(spec.title)}</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
 <div class="card"><img src="${img}"></div><div class="bar"><i></i></div>
 <div class="ft"><b>@hannun.brief</b> · AI 음성 낭독(Google TTS)${bgmNote}</div></body></html>`, { waitUntil: "networkidle" });
-    await fr.screenshot({ path: path.join(tmp, `f${k}.png`) });
+    await fr.screenshot({ path: path.join(tmp, k < N ? `f${k}.png` : "fo.png") });
   }
   await fr.close();
-  const parts = spec.segments.map(([s, e], k) => `[0:a]atrim=${s}:${e},asetpts=PTS-STARTPTS${gapAfter(k) ? `,apad=pad_dur=${GAP}` : ""}[a${k}]`);
+  const parts = spec.segments.map(([s, e], k) => `[0:a]atrim=${s}:${e},asetpts=PTS-STARTPTS${gapAfter(k) ? `,apad=pad_dur=${GAP}` : k === N - 1 && outro ? `,apad=pad_dur=${outro}` : ""}[a${k}]`);
   const filter = parts.join(";") + ";" + spec.segments.map((_, k) => `[a${k}]`).join("") + `concat=n=${N}:v=0:a=1[a]`;
-  const list = spec.segments.map(([s, e], k) => `file 'f${k}.png'\nduration ${(e - s + (gapAfter(k) ? GAP : 0)).toFixed(3)}`).join("\n") + `\nfile 'f${N - 1}.png'\n`;
+  const last = outro ? `fo.png` : `f${N - 1}.png`;
+  const list = spec.segments.map(([s, e], k) => `file 'f${k}.png'\nduration ${(e - s + (gapAfter(k) ? GAP : 0)).toFixed(3)}`).join("\n")
+    + (outro ? `\nfile 'fo.png'\nduration ${outro.toFixed(3)}` : "") + `\nfile '${last}'\n`;
   fs.writeFileSync(path.join(tmp, "list.txt"), list);
   execFileSync("ffmpeg", ["-v", "error", "-y", "-i", path.join(ROOT, spec.audio), "-filter_complex", filter, "-map", "[a]", "-ar", "44100", "-c:a", "aac", "-b:a", "128k", path.join(tmp, "a.m4a")]);
   if (spec.bgm) {   // 낭독(첫 입력) 길이에 맞춰 배경음을 반복·자르고, 앞뒤를 부드럽게
@@ -224,8 +232,8 @@ async function autoOne(brief, b, base) {
   const base_ = `reels/${m[1]}-${m[2]}/${m[1]}-${m[2]}-${m[3]}_${m[4]}`;
   const spec = { brief, audio: mp3, out: base_ + ".mp4", title: `${Math.max(1, Math.round(a.total / 60))}분 ${TITLE[m[4]] || "듣는 브리프"}`,
     ...(bgmOf(html) ? { bgm: bgmOf(html) } : {}),
-    segments: a.segments, dropped_paragraphs: a.dropped.map(i => i + 1),
-    note: a.dropped.length ? `3분을 넘어 원고 ${a.dropped.map(i => i + 1).join("·")}번째 문단을 뺐다 — 캡션에 "전체 낭독은 앱에서"` : "원고 전체" };
+    segments: a.segments, ...(a.outro ? { outro: a.outro } : {}), dropped_paragraphs: a.dropped.map(i => i + 1),
+    note: a.dropped.length > 1 ? `첫 문단(날짜·인사)은 릴스에서 뺌. 3분을 넘어 원고 ${a.dropped.slice(1).map(i => i + 1).join("·")}번째 문단도 뺐다 — 캡션에 "전체 낭독은 앱에서"` : "첫 문단(날짜·인사)만 빼고 원고 전체" };
   spec._cards = cards;
   await build(spec, b, base);
   delete spec._cards;
@@ -243,7 +251,7 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
     if (mode === "--auto") {
       const r = await autoOne(arg, b, base);
       if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
-      else console.log(`reel: ${r.title}${r.dropped.length ? ` (뺀 문단 ${r.dropped.join("·")})` : ""}`);
+      else console.log(`reel: ${r.title} (뺀 문단 ${r.dropped.join("·")})`);
     } else if (mode === "--recent") {
       const today = kstToday(), cutoff = new Date(Date.parse(today) - 3 * 864e5).toISOString().slice(0, 10), made = [];
       for (const n of fs.readdirSync(ROOT).sort()) {
