@@ -13,7 +13,7 @@
 계정: 요청 항목에 "account":"sports" 가 있으면 IG_SPORTS_ACCESS_TOKEN·IG_SPORTS_USER_ID·EXPECT_SPORTS_USERNAME 으로 올린다(2026-10-21~, README '스포츠 계정').
 컨테이너는 24시간 뒤 만료되므로 실행할 때 만든다. AI 음성·그림이 있으면 is_ai_generated=true(릴스·단일 게시물).
 """
-import json, os, sys, time, urllib.error, urllib.parse, urllib.request
+import datetime, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 
 # publish/request.json 의 값을 기본값으로 쓴다 {"kind","media","caption","dry_run","is_ai"}.
 # Run workflow 입력칸에 값이 있으면 그쪽이 이긴다 — 빈칸으로 두고 dry_run=false 만 고르면 요청 파일 그대로 게시.
@@ -104,8 +104,46 @@ def find_published(caption):
     return None
 
 
+VARIANT = ""   # 릴스 A/B(2026-10-23~): "" = 요청 그대로, "short" = 짧은판(…_short.mp4, 배경음악) 으로 바꿔 올림
+
+
+def pick_variant(it, media):
+    """요청 항목 "ab": "auto" 면 브리프 날짜의 ISO 주 + 코너 순번으로 번갈아 고른다. "short" 는 고정.
+    짧은판 MP4 는 make_reel.js --recent 가 낭독판과 함께 만든다(reels/…/<날짜>_<종류>_short.mp4)."""
+    ab = str(it.get("ab", "")).strip().lower()
+    if KIND != "reel" or ab not in ("auto", "short"):
+        return ""
+    if ab == "short":
+        return "short"
+    m = re.search(r"(\d{4})-(\d{2})-(\d{2})_([a-z]+)", media)
+    if not m:
+        return ""
+    # 같은 코너는 주마다 번갈아(이번 주 짧은판 ↔ 다음 주 낭독판), 한 주 안에서는 코너끼리 엇갈리게 — 같은 코너끼리 주 단위로 비교
+    slot = {"ai": 0, "activity": 1, "science": 2, "sports": 1, "football": 1}.get(m[4], 0)
+    week = datetime.date(int(m[1]), int(m[2]), int(m[3])).isocalendar()[1]
+    return "short" if (week + slot) % 2 == 0 else ""
+
+
+def short_caption(caption, media):
+    """낭독판 캡션 → 짧은판 캡션: '🎧 …' 줄을 '⚡ 핵심 N장 요약'으로, 낭독 표기 줄을 배경음악 크레디트로."""
+    spec = media[:-4] + ".reel.json"
+    info = json.load(open(spec, encoding="utf-8")) if os.path.exists(spec) else {}
+    n, sec, credit = info.get("cards", 3), round(info.get("seconds", 13)), info.get("credit", "")
+    out, has_music = [], False
+    for ln in caption.split("\n"):
+        if ln.startswith("🎧"):
+            ln = f"⚡ 핵심 {n}장, {sec}초 요약"
+        elif "🎙" in ln:
+            ln = f"🎵 음악: {credit}" + (" · 그림 일부 AI 생성" if "AI 생성" in ln else ""); has_music = True
+        out.append(ln)
+    if not has_music and credit:
+        tags = next((i for i in range(len(out) - 1, -1, -1) if out[i].startswith("#")), len(out))
+        out.insert(tags, f"🎵 음악: {credit}")
+    return "\n".join(out)
+
+
 def main():
-    global KIND, MEDIA, CAPTION_FILE, DRY, IS_AI, TOKEN, UID, EXPECT
+    global KIND, MEDIA, CAPTION_FILE, DRY, IS_AI, TOKEN, UID, EXPECT, VARIANT
     req = json.load(open(_REQ, encoding="utf-8")) if _REQ and os.path.exists(_REQ) else {}
     items = req.get("requests") if isinstance(req.get("requests"), list) else None
     if not items or MEDIA:   # Run workflow 입력칸(media)을 채웠으면 그 한 건만
@@ -123,7 +161,10 @@ def main():
             failed.append(n)
             continue
         TOKEN, UID, EXPECT = ACCOUNTS[acct]
-        print(f"── request {n}/{len(items)}: [{acct}] {KIND} {MEDIA}" + (" (dry run)" if DRY else ""))
+        VARIANT = pick_variant(it, MEDIA)
+        if VARIANT == "short":
+            MEDIA = MEDIA[:-4] + "_short.mp4"
+        print(f"── request {n}/{len(items)}: [{acct}] {KIND} {MEDIA}" + (f" (A/B: {VARIANT or 'narrated'})" if it.get("ab") else "") + (" (dry run)" if DRY else ""))
         try:
             publish_one()
         except SystemExit as e:
@@ -148,6 +189,8 @@ def publish_one():
     print("publishing limit:", json.dumps(lim.get("data", lim), ensure_ascii=False))
 
     caption = open(CAPTION_FILE, encoding="utf-8").read().strip() if CAPTION_FILE else ""
+    if VARIANT == "short":
+        caption = short_caption(caption, MEDIA)
     print(f"caption: {len(caption)} chars, {caption.count('#')} hashtags")
     if len(caption) > 2200 or caption.count("#") > 5:
         sys.exit("::error::caption too long or more than 5 hashtags")

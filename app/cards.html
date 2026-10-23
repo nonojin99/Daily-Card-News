@@ -115,7 +115,9 @@
   .cover.end:has(ol.one) h2{margin-top:2.4cqw}
   .cover.end:has(ol.one) .wx{font-size:2.6cqw}
   .cover.end li{padding:1.4cqw 0}
-  .cover.end .follow{margin-top:auto}
+  .cover.end .follow{margin-top:3.4cqw}
+  /* 공유 유도(2026-10-23~) — DM 공유가 추천에 크게 반영된다는 진단. 출처 목록과 계정 사이, 브리프 액센트색 알약 */
+  .cover.end .share{order:7;margin-top:auto;align-self:flex-start;background:var(--accent);color:#fff;font-weight:900;font-size:3.6cqw;padding:1.8cqw 3.8cqw;border-radius:99px;letter-spacing:-.01em}
   .cover.end .wx{margin-top:3cqw;order:9}
 
   /* 브리프 도표(figure.chart)를 그대로 옮긴다 — 카드 폭이 좁아 글자 user unit 을 키운다 */
@@ -621,6 +623,7 @@ async function zipStore(files){
         <div class="k">SOURCES · 출처</div>
         <h2>원문과 전체 브리프는<br>프로필 링크의 앱에서</h2>
         <ol${cards.some(c => (c.credit || "").length > 14) ? ' class="one"' : ""}>${cards.slice(0, 8).map((c, i) => `<li><b>${i + 1}</b><span>${esc(c.credit || "—")}</span></li>`).join("")}</ol>
+        <div class="share">📤 도움이 됐다면 친구에게 공유해 주세요</div>
         <div class="follow">${HANDLE}<small>${SPORTS ? "⚾ 매일 밤 야구 · ⚽ 다음 날 아침 축구 · 🏆 빅이벤트" : "월 AI · 화 머니 · 수 OTT · 목 푸드 · 금 주말 · 토 음악 · 일 우주"}</small><small class="xlink">${SPORTS ? "📰 오늘의 뉴스·생활 코너는 @hannun.brief" : "⚾⚽ 야구·축구는 @hannun.sports"}</small></div>
         <div class="wx">각 카드는 기사 내용을 직접 요약하고 도표·지도·개념도를 새로 그렸습니다.${cards.some(c => c.pc) ? " 이미지는 아래 크레디트의 공개 자료입니다." : ""}${cards.some(c => c.ai) ? " 일부 그림은 AI로 생성했습니다." : ""} 수치는 바뀔 수 있어요.${[...new Set(cards.map(c => c.pc).filter(Boolean))].map(x => `<br>${esc(x)}`).join("")}</div>
       </div></section>`;

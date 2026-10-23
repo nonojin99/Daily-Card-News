@@ -2,6 +2,7 @@
 //
 //   node tools/make_reel.js <spec.json>            구간을 직접 지정 (spec 형식은 아래)
 //   node tools/make_reel.js --auto <브리프.html>     구간 자동 계산 → reels/YYYY-MM/<날짜>_<종류>.mp4 + .reel.json
+//   node tools/make_reel.js --short <브리프.html>    15초 '핵심 3장' 릴스(낭독 없음, 배경음악) → reels/YYYY-MM/<날짜>_<종류>_short.mp4 (2026-10-23~ A/B)
 //   node tools/make_reel.js --recent                 Actions 용: 최근 3일 릴스 대상 브리프 중 없거나 재료가 바뀐 것만 (REELS_OUT 에 만든 파일 목록)
 //
 //   spec = { "brief", "audio", "out", "title", ("bgm": {"src", "credit"}), "segments": [[시작초, 끝초, 슬라이드 번호(1=표지, 마지막=출처 장), (1이면 다음 구간과 쉼 없이 이어짐)], …] }
@@ -245,6 +246,57 @@ async function autoOne(brief, b, base) {
   fs.writeFileSync(path.join(ROOT, base_ + ".reel.json"), JSON.stringify(spec, null, 2) + "\n");
   return { files: [spec.out, base_ + ".reel.json"], dropped: spec.dropped_paragraphs, title: spec.title };
 }
+// ── 짧은 릴스(2026-10-23~ A/B 시험): 카드 앞 3장 × 4초 + 출처·공유 장 2.2초, 장면은 겹쳐 넘어감(머리말은 그대로 보이게), 낭독 대신 배경음악 ──
+// 배경음악: Kevin MacLeod "Upbeat Forever" (incompetech.com) — Wikimedia Commons 파일 페이지 기준 CC BY 3.0. 저장소에는 앞 30초만 잘라 둔다(끝 2초 페이드).
+// 어느 쪽(낭독판/짧은판)을 올릴지는 게시 스크립트가 날짜로 번갈아 고른다(.github/scripts/publish_ig.py `ab`).
+const SHORT = { cards: 3, sec: 4, outro: 2.2, xf: 0.35, bgm: "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3",
+  credit: "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0" };
+const shortFp = brief => sha(read(brief), read(SHORT.bgm), read("tools/make_reel.js"), read("app/cards.html"));
+async function shortOne(brief, b, base) {
+  const m = brief.match(BRIEF); if (!m) return { skip: "파일명 형식 아님" };
+  const html = read(brief).toString();
+  if (/class="tag">\s*Context/.test(html)) return { skip: "맥락 읽기(사건·사고) 카드가 있어 릴스로 만들지 않음" };
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "reel-s-"));
+  const { files, meta } = await renderCards(b, base, brief, tmp);
+  const n = Math.min(SHORT.cards, files.length - 2); if (n < 1) return { skip: "카드 없음" };
+  const slides = [...Array(n).keys()].map(i => i + 2).concat(files.length);
+  const d = `${m[1]}-${m[2]}-${m[3]}`, wd = "일월화수목금토"[wdOf(d)];
+  const fr = await b.newPage({ viewport: { width: 1080, height: 1920 } });
+  for (let k = 0; k < slides.length; k++) {
+    const img = "data:image/png;base64," + fs.readFileSync(files[slides[k] - 1]).toString("base64");
+    await fr.setContent(`<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
+<style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:#f1efe8;font-family:'Noto Sans KR',sans-serif;color:#1a1a18;position:relative}
+.top{position:absolute;left:97px;right:97px;top:190px;display:flex;align-items:center;gap:22px}
+.cat{background:${meta.ac};color:#fff;font-weight:900;font-size:38px;padding:10px 28px;border-radius:99px;white-space:nowrap}
+.t{font-weight:900;font-size:50px;letter-spacing:-.02em;white-space:nowrap}.dt{margin-left:auto;font-size:32px;color:#55554f;font-weight:500;white-space:nowrap}
+.card{position:absolute;left:97px;top:330px;width:886px;border-radius:28px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.08)}
+.card img{display:block;width:100%}
+.bar{position:absolute;left:97px;right:97px;top:1472px;height:8px;border-radius:9px;background:#e1ddd2}
+.bar i{display:block;height:100%;width:${((k + 1) / slides.length * 100).toFixed(1)}%;border-radius:9px;background:${meta.ac}}
+.ft{position:absolute;left:97px;right:97px;top:1508px;font-size:30px;color:#55554f;line-height:1.5}.ft b{color:#3d5a4c}</style></head>
+<body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">⚡ 핵심 ${n}장</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
+<div class="card"><img src="${img}"></div><div class="bar"><i></i></div>
+<div class="ft"><b>@hannun.brief</b><br>♪ ${esc(SHORT.credit)}</div></body></html>`, { waitUntil: "networkidle" });
+    await fr.screenshot({ path: path.join(tmp, `s${k}.png`) });
+  }
+  await fr.close();
+  const durs = slides.map((_, k) => k < n ? SHORT.sec : SHORT.outro);
+  const total = durs.reduce((a, c) => a + c, 0) - SHORT.xf * (slides.length - 1);
+  const ins = slides.flatMap((_, k) => ["-loop", "1", "-t", String(durs[k]), "-i", path.join(tmp, `s${k}.png`)]);
+  let f = slides.map((_, k) => `[${k}:v]fps=30,format=yuv420p,setsar=1[i${k}]`), cur = "[i0]", off = 0;
+  for (let k = 1; k < slides.length; k++) { off += durs[k - 1] - SHORT.xf; f.push(`${cur}[i${k}]xfade=transition=fade:duration=${SHORT.xf}:offset=${off.toFixed(3)}[x${k}]`); cur = `[x${k}]`; }
+  const A = slides.length;
+  f.push(`[${A}:a]atrim=0:${total.toFixed(3)},asetpts=PTS-STARTPTS,afade=t=out:st=${(total - 1.2).toFixed(3)}:d=1.2,volume=0.9[a]`);
+  const out_ = `reels/${m[1]}-${m[2]}/${d}_${m[4]}_short`;
+  fs.mkdirSync(path.join(ROOT, path.dirname(out_)), { recursive: true });
+  execFileSync("ffmpeg", ["-v", "error", "-y", ...ins, "-i", path.join(ROOT, SHORT.bgm), "-filter_complex", f.join(";"), "-map", cur, "-map", "[a]",
+    "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-c:a", "aac", "-b:a", "128k", "-t", total.toFixed(3), "-movflags", "+faststart", path.join(ROOT, out_ + ".mp4")]);
+  const spec = { brief, variant: "short", out: out_ + ".mp4", cards: n, seconds: +total.toFixed(2), bgm: SHORT.bgm, credit: SHORT.credit, fp: shortFp(brief) };
+  fs.writeFileSync(path.join(ROOT, out_ + ".reel.json"), JSON.stringify(spec, null, 2) + "\n");
+  console.log(`reel: ${out_}.mp4 — ${total.toFixed(1)}초, 카드 ${n}장 + 출처`);
+  return { files: [out_ + ".mp4", out_ + ".reel.json"] };
+}
 const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make_reel.js"), read("app/cards.html"));
 
 (async () => {
@@ -256,12 +308,21 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
       const r = await autoOne(arg, b, base);
       if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
       else console.log(`reel: ${r.title} (뺀 문단 ${r.dropped.join("·")})`);
+    } else if (mode === "--short") {
+      const r = await shortOne(arg, b, base);
+      if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
     } else if (mode === "--recent") {
       const today = kstToday(), cutoff = new Date(Date.parse(today) - 3 * 864e5).toISOString().slice(0, 10), made = [];
       for (const n of fs.readdirSync(ROOT).sort()) {
         const m = n.match(BRIEF); if (!m) continue;
         const d = `${m[1]}-${m[2]}-${m[3]}`; if (d < cutoff || !REEL_OF(m[4], wdOf(d))) continue;
         const mp3 = `audio/${m[1]}-${m[2]}/${d}_${m[4]}.mp3`, spec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}.reel.json`;
+        // 짧은판(A/B) — 음악 브리프는 자기 배경음이 있어 낭독판만
+        const sspec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}_short.reel.json`;
+        if (m[4] !== "music" && !(fs.existsSync(path.join(ROOT, sspec)) && JSON.parse(read(sspec)).fp === shortFp(n))) {
+          try { const r = await shortOne(n, b, base); if (!r.skip) made.push(...r.files); }
+          catch (e) { console.log(`::warning::short reel failed for ${n}: ${e.message}`); }
+        }
         if (!fs.existsSync(path.join(ROOT, mp3))) continue;
         if (fs.existsSync(path.join(ROOT, spec)) && JSON.parse(read(spec)).fp === fingerprint(n, mp3)) continue;
         try { const r = await autoOne(n, b, base); if (r.skip) console.log(`reel: ${n} 건너뜀 — ${r.skip}`); else made.push(...r.files); }

@@ -632,6 +632,11 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
     문단 시간은 `make_audio.py` 가 MP3 옆에 남기는 `.json`, 문단이 카드보다 적으면 한 문단 동안 카드를 나눠 넘긴다. 수동: `--auto <브리프>` 또는 `<spec.json>`.
     결과는 `reels/YYYY-MM/<날짜>_<종류>.mp4` + `.reel.json`(구간·뺀 문단·지문). 1080×1920 MP4.
     **첫 장면 = 훅 카드(2026-10-19~)**: 첫 문단 동안 작은 표지 대신 브리프 액센트 색 전면에 첫 카드의 `cn-t`(큰 글씨)와 `cn-num`(제목에 없는 값일 때 아주 크게)을 띄운다(`tools/make_reel.js` `hookOf`). 날씨 문단 등 뒤쪽 표지 구간은 그대로.
+    **짧은판 A/B (2026-10-23~)**: `make_reel.js --recent` 가 낭독판과 함께 **짧은판** `reels/…/<날짜>_<종류>_short.mp4` 도 만든다 — 카드 앞 3장 × 4초 + 출처·공유 장, 낭독 없이 배경음악
+    (Kevin MacLeod "Upbeat Forever", incompetech.com · CC BY 3.0 — Commons 파일 페이지 기준, 저장소에 앞 30초 `audio/cc/`). 음악 브리프는 낭독판만.
+    릴스 요청 항목에 **`"ab":"auto"`** 를 넣으면 게시 스크립트가 고른다: 같은 코너는 주마다 번갈아(예: 10/26 AI 짧은판 → 11/2 AI 낭독판), 한 주 안에서는 코너끼리 엇갈림.
+    짧은판일 때 캡션의 '🎧 …' 줄은 '⚡ 핵심 N장, N초 요약'으로, '🎙 낭독' 줄은 음악 크레디트로 자동으로 바뀐다(캡션 파일은 낭독판 하나만 쓰면 된다).
+    결과 비교는 `insights/summary.md` 의 '형식' 열(⚡짧은판·🎧낭독)과 평균 시청.
     **첫 장면 = 카드 1번 (2026-10-23~, 훅 카드 대체)**: 10/22 주말 릴스가 평균 시청 1초였고, 원고가 '오프닝 + 한 문단'이라 카드가 한 장도 안 나오고 출처 장만 44초 나오는 버그도 있었다.
     그래서 자동 구간은 **첫 문단(날짜·인사)과 날씨·끝인사 문단을 빼고 본문 문단만** 쓴다 — 카드 1번(그림 포함)으로 시작해 출처 장 2초 무음으로 끝난다(`make_reel.js` `autoSegments`·`OUTRO`). 날씨 안내가 필요하면 릴스 캡션에 쓴다.
     본문 문단이 하나뿐이면 카드 수만큼 나눠 넘긴다. **1.2배속**(`SPEED`, 1.3배 이상은 알아듣기 어렵다는 사용자 판단 2026-10-23). 10/22 주말 릴스: 원고 58초 → 34.1초.
@@ -669,7 +674,7 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
      ```json
      {"requests": [
        {"kind":"carousel","media":"cards/2026-10/2026-10-25_science-brief","caption":"captions/2026-10-25_science.txt","dry_run":"false","is_ai":"false"},
-       {"kind":"reel","media":"reels/2026-10/2026-10-25_science.mp4","caption":"captions/2026-10-25_science_reel.txt","dry_run":"false","is_ai":"true"}
+       {"kind":"reel","media":"reels/2026-10/2026-10-25_science.mp4","caption":"captions/2026-10-25_science_reel.txt","dry_run":"false","is_ai":"true","ab":"auto"}
      ], "note": "10/25 일요일 자동 등록"}
      ```
   2. push 하면 Build manifest 가 카드 JPG·낭독 MP3·**릴스 MP4** 를 만들고, 동시에 Publish to Instagram 이 돈다 —

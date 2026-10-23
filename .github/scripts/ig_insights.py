@@ -53,10 +53,11 @@ def insights(token, mid, metrics):
 
 def account(label, token, uid):
     rec = {"account": label, "checked_at": datetime.datetime.utcnow().isoformat() + "Z", "media": [], "errors": []}
-    me, err = call(token, "me", fields="user_id,username,account_type,media_count")
+    me, err = call(token, "me", fields="user_id,username,account_type,media_count,followers_count,follows_count")
     if err:
         rec["errors"].append({"step": "me", **err}); return rec
     rec["username"] = me.get("username"); rec["account_type"] = me.get("account_type")
+    rec["followers"] = me.get("followers_count"); rec["posts"] = me.get("media_count")
     lst, err = call(token, f"{uid}/media", fields="id,caption,media_type,media_product_type,timestamp,permalink", limit=LIMIT)
     if err:
         rec["errors"].append({"step": "media", **err}); return rec
@@ -65,6 +66,7 @@ def account(label, token, uid):
         vals, bad = insights(token, m["id"], COMMON + (REEL_EXTRA if reel else []))
         rec["media"].append({"id": m["id"], "type": m.get("media_product_type") or m.get("media_type"), "timestamp": m.get("timestamp"),
                              "permalink": m.get("permalink"), "first_line": (m.get("caption") or "").split("\n")[0][:80],
+                             **({"variant": "short" if "⚡ 핵심" in (m.get("caption") or "") else "narrated"} if reel else {}),
                              "metrics": vals, **({"metric_errors": bad} if bad else {})})
     return rec
 
@@ -89,15 +91,15 @@ def main():
     json.dump(data, open(f"insights/history/{kst:%Y-%m-%d}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     L = [f"# 인스타 성과 — {data['collected_kst']} KST 수집", "", "자동 생성(`.github/scripts/ig_insights.py`). 평균 시청 = 릴스 1회 재생당 평균 시청 시간.", ""]
     for a in accs:
-        L.append(f"## {a['account']} @{a.get('username', '?')} ({a.get('account_type', '?')})")
+        L.append(f"## {a['account']} @{a.get('username', '?')} — 팔로워 {fmt(a.get('followers'))} · 게시물 {fmt(a.get('posts'))}")
         for e in a["errors"]:
             L.append(f"- ⚠ {e.get('step')}: {e.get('code', '')} {e.get('message', '')}")
         reels = [m for m in a["media"] if m["type"] == "REELS"]
         if reels:
-            L += ["", "| 게시(UTC) | 릴스 첫 줄 | 조회 | 도달 | 평균 시청 | 총 시청 | 공유 | 저장 |", "|---|---|---|---|---|---|---|---|"]
+            L += ["", "| 게시(UTC) | 형식 | 릴스 첫 줄 | 조회 | 도달 | 평균 시청 | 총 시청 | 공유 | 저장 |", "|---|---|---|---|---|---|---|---|---|"]
             for m in reels:
                 x = m["metrics"]
-                L.append(f"| {m['timestamp'][:16]} | {m['first_line'].replace('|', '/')} | {fmt(x.get('views'))} | {fmt(x.get('reach'))} | "
+                L.append(f"| {m['timestamp'][:16]} | {'⚡짧은판' if m.get('variant') == 'short' else '🎧낭독'} | {m['first_line'].replace('|', '/')} | {fmt(x.get('views'))} | {fmt(x.get('reach'))} | "
                          f"{fmt(x.get('ig_reels_avg_watch_time'), True)} | {fmt(x.get('ig_reels_video_view_total_time'), True)} | {fmt(x.get('shares'))} | {fmt(x.get('saved'))} |")
         feed = [m for m in a["media"] if m["type"] != "REELS"]
         if feed:
