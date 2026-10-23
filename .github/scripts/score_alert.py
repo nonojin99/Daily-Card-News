@@ -35,6 +35,7 @@ ESPN = {"eng.1": "soccer", "esp.1": "soccer", "ita.1": "soccer", "ger.1": "socce
 KICK = {"soccer": ("⚽ 경기 종료", "#2f6b45", "⚽ 축구 모닝"), "basketball": ("🏀 경기 종료", "#9a5b14", "다음 날 브리프"), "football": ("🏈 경기 종료", "#9a5b14", "다음 날 브리프")}
 SPORT = {"kbo": {"kicker": "⚾ 경기 종료", "accent": "#1f5f8b", "src": "기록: KBO 공식 기록 · 해설은 오늘 밤 ⚾ 야구 나이트", "foot": "야구 결과"},
          "lol": {"kicker": "🎮 경기 종료", "accent": "#4a4fa0", "src": "기록: LoL Esports 공식 일정 · 해설은 🎮 e스포츠 브리프", "foot": "e스포츠 결과"},
+         "ufc": {"kicker": "🥊 경기 종료", "accent": "#8a2b2b", "src": "기록: ESPN 스코어보드 · 큰 대회 해설은 🏆 이벤트 픽", "foot": "UFC 결과"},
          "mlb": {"kicker": "⚾ 경기 종료", "accent": "#1f5f8b", "src": "기록: MLB 공식 Stats API · 해설은 ⚾ 야구 나이트", "foot": "MLB 결과"}}
 for k, kind in ESPN.items():
     kk, ac, br = KICK[kind]
@@ -201,6 +202,51 @@ def espn(key, posted):
     return boards
 
 
+WEIGHT = {"Strawweight": "스트로급", "Flyweight": "플라이급", "Bantamweight": "밴텀급", "Featherweight": "페더급", "Lightweight": "라이트급",
+          "Welterweight": "웰터급", "Middleweight": "미들급", "Light Heavyweight": "라이트헤비급", "Heavyweight": "헤비급", "Catchweight": "계약 체중"}
+
+
+def ufc(posted):
+    """UFC(ESPN mma/ufc) — 대회 하나 = 결과판 하나, 메인 카드 쪽 마지막 8경기(스토리 한 장에 들어가는 만큼). 결과는 '승'·'패', 끝난 라운드·시간 또는 판정.
+    끝낸 방법(KO·서브미션)은 데이터에 없어 쓰지 않는다."""
+    now, boards, evs = kst(), [], []
+    for d in {(now - datetime.timedelta(days=1)).date(), now.date()}:
+        try:
+            evs += get_json(f"https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates={d:%Y%m%d}").get("events", [])
+        except Exception as e:  # noqa: BLE001
+            print(f"::warning::ESPN ufc {d}: {e}")
+    for e in {e["id"]: e for e in evs}.values():
+        bouts = e.get("competitions") or []
+        rows, new = [], []
+        for c in bouts[-8:]:
+            t = sorted(c.get("competitors") or [], key=lambda x: x.get("order", 0))
+            if len(t) != 2:
+                continue
+            st = (c.get("status") or {}).get("type", {})
+            done = bool(st.get("completed"))
+            wc = ((c.get("type") or {}).get("abbreviation") or "")
+            wk = ("여성 " if wc.startswith("W ") else "") + WEIGHT.get(wc[2:] if wc.startswith("W ") else wc, wc)
+            w = 0 if t[0].get("winner") else 1 if t[1].get("winner") else None
+            per, clk = (c.get("status") or {}).get("period"), (c.get("status") or {}).get("displayClock")
+            how = ("판정" if any(x.get("linescores") for x in t) else f"{per}R {clk}") if done and per else ""
+            ks_ = datetime.datetime.strptime((c.get("date") or e["date"])[:16], "%Y-%m-%dT%H:%M") + datetime.timedelta(hours=9)
+            state = how if done else ("진행 중" if st.get("state") == "in" else f"{ks_:%H:%M} 예정")
+            rows.append({"away": ko(t[0]["athlete"]["displayName"]), "home": ko(t[1]["athlete"]["displayName"]), "pending": not done,
+                         "as": ("승" if w == 0 else "패" if w == 1 else "무") if done else "-", "hs": ("승" if w == 1 else "패" if w == 0 else "무") if done else "-",
+                         "win": ("a" if w == 0 else "h" if w == 1 else "") if done else "", "note": " · ".join(x for x in (wk, state) if x)})
+            if done and f"ufc:{c['id']}" not in posted and ks_ >= now - datetime.timedelta(hours=18):
+                new.append(f"ufc:{c['id']}")
+        if new:
+            fin = sum(not r["pending"] for r in rows)
+            name = e.get("shortName") or e.get("name", "UFC")
+            d0 = (datetime.datetime.strptime(e["date"][:16], "%Y-%m-%dT%H:%M") + datetime.timedelta(hours=9)).date()
+            nm = e.get("name", "UFC")   # 'UFC 333: Volkanovski vs. Evloev' — 메인 이벤트 성(姓)은 names_ko 에 있으면 한국어로
+            main = " vs ".join(ko(x.strip().rstrip(".")) for x in nm.split(":", 1)[1].split("vs.")) if ":" in nm and "vs." in nm else ""
+            boards.append({"sport": "ufc", "date": d0, "title": f"{nm.split(':')[0]}{': ' + main if main else ''} — " + (f"{fin}/{len(rows)} 종료" if fin < len(rows) else "결과"),
+                           "rows": rows, "new": new})
+    return boards
+
+
 def load_posted():
     return json.load(open(POSTED, encoding="utf-8")) if os.path.exists(POSTED) else {"posted": {}}
 
@@ -209,7 +255,7 @@ def finished_new():
     db = load_posted()
     posted, seen = db["posted"], db.get("boards", {})
     on = lambda k: SOURCES.get(k, {}).get("on")
-    boards = (kbo(posted) if on("kbo") else []) + (lol(posted) if on("lol") else []) + (mlb(posted) if on("mlb") else [])
+    boards = (kbo(posted) if on("kbo") else []) + (lol(posted) if on("lol") else []) + (mlb(posted) if on("mlb") else []) + (ufc(posted) if on("ufc") else [])
     for k in ESPN:
         if on(k):
             boards += espn(k, posted)

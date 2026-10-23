@@ -10,9 +10,9 @@ const [inp, out] = process.argv.slice(2);
 const g = JSON.parse(fs.readFileSync(inp, "utf8"));
 const H = g.story ? 1920 : 1350, TOP = g.story ? 270 : 84, BOT = g.story ? 360 : 80, AC = g.accent || "#1f5f8b";
 const WD = "일월화수목금토", d = new Date(g.date + "T00:00:00Z"), md = `${d.getUTCMonth() + 1}월 ${d.getUTCDate()}일(${WD[d.getUTCDay()]})`;
-const one = g.games.length === 1, N = g.games.length, tight = N > 5;   // 6경기 넘으면 촘촘하게(스토리 하루 일정 8경기까지)
+const one = g.games.length === 1, N = g.games.length, tight = N > 5, longT = (g.title || "").length > 20;   // 긴 제목은 두 줄 — 글자를 줄이고 목록을 내린다   // 6경기 넘으면 촘촘하게(스토리 하루 일정 8경기까지)
 const row = x => {
-  const aw = !x.pending && +x.as > +x.hs, hw = !x.pending && +x.hs > +x.as;   // 남은 경기는 '- : -' 로 흐리게
+  const aw = !x.pending && (x.win ? x.win === "a" : +x.as > +x.hs), hw = !x.pending && (x.win ? x.win === "h" : +x.hs > +x.as);   // UFC 처럼 점수 대신 '승·패'면 win 값으로   // 남은 경기는 '- : -' 로 흐리게
   return `<div class="g${one ? " one" : ""}${x.pending ? " p" : ""}">
   <div class="t ${aw ? "w" : hw ? "l" : ""}"><span class="n">${esc(x.away)}</span><span class="s">${esc(x.as)}</span></div>
   <div class="vs">:</div>
@@ -24,8 +24,8 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
 <style>*{margin:0;box-sizing:border-box}body{width:1080px;height:${H}px;background:${AC};color:#fff;font-family:'Noto Sans KR',sans-serif;position:relative;overflow:hidden}
 .k{position:absolute;left:84px;top:${TOP}px;font-size:38px;font-weight:900;background:#fff;color:${AC};padding:10px 30px;border-radius:99px}
 .dt{position:absolute;right:84px;top:${TOP + 14}px;font-size:34px;font-weight:500;opacity:.85}
-.h{position:absolute;left:84px;right:84px;top:${TOP + 110}px;font-size:${one ? 66 : 56}px;font-weight:900;letter-spacing:-.02em;line-height:1.2}
-.list{position:absolute;left:84px;right:84px;top:${TOP + (one ? 330 : 250)}px;display:flex;flex-direction:column;gap:${one ? 0 : tight ? 12 : 18}px}
+.h{position:absolute;left:84px;right:84px;top:${TOP + 110}px;font-size:${longT ? 46 : one ? 66 : 56}px;font-weight:900;letter-spacing:-.02em;line-height:1.2}
+.list{position:absolute;left:84px;right:84px;top:${TOP + (one ? 330 : 250) + (longT ? 40 : 0)}px;display:flex;flex-direction:column;gap:${one ? 0 : tight ? 12 : 18}px}
 .g{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;background:rgba(255,255,255,.1);border-radius:26px;padding:${one ? "64px 44px 48px" : tight ? "6px 28px 6px" : "18px 34px 14px"}}
 .g.p{background:rgba(255,255,255,.05)}.g.p .s,.g.p .vs{opacity:.4}
 .t{display:flex;align-items:center;gap:20px;min-width:0}.t.r{justify-content:flex-end}
