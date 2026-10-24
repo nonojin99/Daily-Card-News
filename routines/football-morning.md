@@ -28,7 +28,7 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **축구 모닝** 브리�
 - 승부 예측·배당·"유력" 단정 금지. 예상 선발은 구단·감독 발표나 기사 본문에 있을 때만 "○○ 보도". 킥오프 시각은 두 곳에서 맞춰 보고 어긋나면 날짜만.
 - **화요일 = 챔피언스리그 프리뷰**(UCL 경기 주간만) 4~5장: 이번 라운드 빅매치 2장 → 한국 선수 소속 팀 경기 일정(`cn-fixtures`) → 리그 페이즈 순위 경계(`cn-bars`) → (있으면) 월요일 밤 결과 1장.
 - **모든 시각은 한국시간**: `토 23:00(한국시간)`, 자정 넘으면 `일 새벽 1:30` — 요일 함께, 현지 시각 쓰지 않기(변환 근거는 tracker).
-- **릴스 = 짧은판만**(14초 이내, 표지 빼고 본문 카드 1~3번부터): `publish/evening/YYYY-MM-DD_football.json` 에 `{"requests":[{"kind":"reel","media":"reels/YYYY-MM/YYYY-MM-DD_football.mp4","caption":"captions/YYYY-MM-DD_football_reel.txt","dry_run":"false","is_ai":"false","account":"sports","ab":"short"}]}` — `_short.mp4` 로 바뀌어 올라간다. 카드 1~3번에 핵심(큰 경기·한국 선수 일정·시각)을 몰아 둔다.
+- **릴스 = 짧은판만**(14초 이내, 표지 빼고 본문 카드 1~3번부터): `publish/evening/YYYY-MM-DD_football.json` 에 `{"requests":[{"kind":"reel","media":"reels/YYYY-MM/YYYY-MM-DD_football.mp4","caption":"captions/YYYY-MM-DD_football_reel.txt","dry_run":"false","is_ai":"false","account":"sports","ab":"short"}]}` — `_short.mp4` 로 바뀌어 올라간다. kicker 는 `Football Morning · 축구 모닝 · 주말 프리뷰`(화 `· 챔스 프리뷰`, A매치 `· A매치 프리뷰`) — 릴스 머리말이 이 이름(⚡ 주말 프리뷰)으로 나온다. 카드 1~3번에 핵심(큰 경기·한국 선수 일정·시각)을 몰아 둔다.
 - 원고 700~1,100자, 훅은 "이번 주말 ○○" 식으로 그 주말 가장 큰 사실·숫자부터. tracker `[다음 체크]` 에 다룬 경기를 적어 일·월 결산이 먼저 받는다.
 
 ## 리서치

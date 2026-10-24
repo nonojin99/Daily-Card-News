@@ -264,10 +264,13 @@ const shortFp = brief => sha(read(brief), read(SHORT.bgm), read("tools/make_reel
 async function shortOne(brief, b, base, O = SHORT) {
   const m = brief.match(BRIEF); if (!m) return { skip: "파일명 형식 아님" };
   const html = read(brief).toString();
+  // 프리뷰 브리프(2026-10-24~ 사용자 요청): 머리말 '⚡ 핵심 N장' 대신 kicker 끝의 '… 프리뷰'(예: '⚡ 주말 프리뷰')
+  const pv = html.match(/class="kicker">[^<]*·\s*([^<·]*프리뷰)\s*</);
   if (/class="tag">\s*Context/.test(html)) return { skip: "맥락 읽기(사건·사고) 카드가 있어 릴스로 만들지 않음" };
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "reel-s-"));
   const { files, meta } = await renderCards(b, base, brief, tmp);
   const n = Math.min(O.cards, files.length - 2); if (n < 1) return { skip: "카드 없음" };
+  const label = O.label || (pv ? `⚡ ${pv[1].trim()}` : `⚡ 핵심 ${n}장`);
   const slides = [...Array(n).keys()].map(i => i + 2).concat(files.length);
   const d = `${m[1]}-${m[2]}-${m[3]}`, wd = "일월화수목금토"[wdOf(d)];
   const fr = await b.newPage({ viewport: { width: 1080, height: 1920 } });
@@ -284,7 +287,7 @@ async function shortOne(brief, b, base, O = SHORT) {
 .bar{position:absolute;left:97px;right:97px;top:1472px;height:8px;border-radius:9px;background:#e1ddd2}
 .bar i{display:block;height:100%;width:${((k + 1) / slides.length * 100).toFixed(1)}%;border-radius:9px;background:${meta.ac}}
 .ft{position:absolute;left:97px;right:97px;top:1508px;font-size:30px;color:#55554f;line-height:1.5}.ft b{color:#3d5a4c}</style></head>
-<body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">${O.label || `⚡ 핵심 ${n}장`}</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
+<body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">${esc(label)}</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
 <div class="card"><img src="${img}"></div><div class="bar"><i></i></div>
 <div class="ft"><b>${HANDLE_OF(m[4])}</b>${O.credit ? `<br>♪ ${esc(O.credit)}` : ""}</div></body></html>`, { waitUntil: "networkidle" });
     await fr.screenshot({ path: path.join(tmp, `s${k}.png`) });
