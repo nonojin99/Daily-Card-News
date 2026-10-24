@@ -364,7 +364,11 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
   명곡·올드팝은 "왜 지금"을 이번 주의 곡·사건과 이어 쓴다(그냥 좋은 노래 목록 금지).
 - **카드 하나 = 곡 하나**: 곡명·아티스트·발매 연도 · 왜 지금 · 🎧 들어 보면 달라지는 것(편곡·악기·가사 주제 — 가사 인용 금지) · 앱 '들어 보기'(아래 ①, 공식 영상 구간) · 출처.
 - **그림**: 앨범 커버·아티스트 사진 금지. 공연장·도시·시대 분위기 AI 일러스트(악기·LP·거리 풍경 등, 실존 인물·앨범 재현 금지) 또는 차트 순위 변화 도표. 클래식 작곡가는 Commons 퍼블릭 도메인 초상 가능.
-- **인스타(토)**: 릴스 = 음악 브리프 낭독("N분 듣는 음악"), 캡션에 "▶ 노래는 앱 '들어 보기'에서" 안내. 캐러셀은 그대로 '이번 주 숫자'.
+- **인스타(토)**: 캐러셀은 그대로 '이번 주 숫자'(자동). **음악 릴스는 사람이 인스타 앱에서 음악 라이브러리 곡을 붙여 올린다(2026-10-24~ 사용자 결정 — "음악으로 환기").**
+  - 자동 게시 API 로는 라이브러리 음악을 넣을 수 없고, K-POP·팝 원곡을 영상에 직접 넣을 수도 없다(아래 '음원'). 인스타 라이브러리 곡은 인스타가 라이선스를 갖고 있어 앱에서 붙이면 쓸 수 있다.
+  - Actions(`make_reel.js --recent`)가 토요일 음악 브리프로 **소리 없는 라이브러리판** `reels/YYYY-MM/<토>_music_lib.mp4`(카드 전부 × 4초 + 출처 장, 약 25초)를 만든다. 공개 주소: `https://nonojin99.github.io/Daily-Card-News/reels/YYYY-MM/<토>_music_lib.mp4`.
+  - 06:00 루틴은 음악 릴스 요청을 `publish/evening/` 에 **쓰지 않는다.** 대신 `captions/<토>_music_lib.txt` 에 ① 붙여 넣을 캡션 ② 라이브러리에서 찾을 곡 후보(그 주 플레이리스트 곡, 카드 순서)를 쓰고, 마무리 보고에 영상 주소를 적는다.
+  - 사람이 할 일: 영상을 받아 인스타 앱 → 릴스 → 음악 추가에서 후보 곡(없으면 비슷한 분위기 곡)을 고르고 캡션을 붙여 게시. 저녁 9~10시 권장.
 - 낭독 원고는 곡마다 "왜 지금 + 들어 볼 포인트" 한 문단(700~1,300자). 노래 자체는 원고·릴스에 넣지 않는다.
 
 #### 음악 브리프 — 음원·주요 구절 (2026-10-21 검토)
@@ -668,7 +672,7 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
      | 월 | `cards/YYYY-MM/<월>_ai-brief` | `reels/YYYY-MM/<월>_ai.mp4` |
      | 화 | `cards/YYYY-MM/<화>_sports-brief` | `reels/YYYY-MM/<화>_sports.mp4` |
      | 금 | `cards/YYYY-MM/<금>_weekend` | `reels/YYYY-MM/<목>_activity.mp4` (전날 목요일 액티비티 낭독 — "1분 듣는 주말") |
-     | 토 | `cards/YYYY-MM/<토>_week7` | `reels/YYYY-MM/<토>_music.mp4` (그날 음악 브리프 낭독 — "N분 듣는 음악", 2026-10-21~ 메인 릴스 대신. 클래식 배경음이 있으면 캡션에 곡·연주자·라이선스·파일 페이지) |
+     | 토 | `cards/YYYY-MM/<토>_week7` | **자동 게시 없음**(2026-10-24~) — 소리 없는 `reels/YYYY-MM/<토>_music_lib.mp4` 를 사람이 앱에서 라이브러리 음악과 함께 게시 |
      | 일 | `cards/YYYY-MM/<일>_science-brief` | `reels/YYYY-MM/<일>_science.mp4` |
 
      ```json
