@@ -1,0 +1,42 @@
+name: Office art
+
+# 사무실 화면 그림 시안 — office/art/requests.json 이 바뀌면 새 id 만 만들어 커밋한다.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'office/art/requests.json'
+      - '.github/scripts/office_art.py'
+      - '.github/workflows/office-art.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: office-art
+  cancel-in-progress: false
+
+jobs:
+  art:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow
+      - name: Generate
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          IMAGE_MODEL: ${{ vars.IMAGE_MODEL || 'gemini-3.1-flash-lite-image' }}
+          OFFICE_IMAGE_MODEL: ${{ vars.OFFICE_IMAGE_MODEL || '' }}
+        run: python3 .github/scripts/office_art.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add office/art/out || true
+          git diff --cached --quiet && { echo "nothing new"; exit 0; }
+          git commit -m "office art [skip ci]"
+          for i in 1 2 3; do git pull --rebase -q origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
+          exit 1
