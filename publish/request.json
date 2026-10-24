@@ -6,7 +6,15 @@
    "caption": "captions/2026-10-25_science.txt",
    "dry_run": "false",
    "is_ai": "false"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-10/2026-10-25_football-brief",
+   "caption": "captions/2026-10-25_football.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports"
   }
  ],
- "note": "10/25 일요일 우주·과학 캐러셀 재등록(카드 개정판 7장 — 사진·AI 개념도 추가, 기존 9장 게시물은 앱에서 삭제 후) (릴스는 저녁 publish/evening/2026-10-25_science.json)"
+ "note": "10/25 일요일 우주·과학 캐러셀 재등록(카드 개정판 7장 — 사진·AI 개념도 추가, 기존 9장 게시물은 앱에서 삭제 후) (릴스는 저녁 publish/evening/2026-10-25_science.json) + 10/25 ⚽ 축구 모닝 캐러셀(sports 계정)"
 }
