@@ -4,11 +4,27 @@
 이미 있는 id 는 건너뛴다(다시 만들려면 id 를 바꾼다, 예: hero-hq-a2). 실패한 항목은 로그만 남기고 다음으로 간다.
 API 호출은 카드 일러스트와 같은 함수(make_images.call)를 쓴다. 비용은 장당 약 0.04달러.
 """
-import io, json, os, sys
+import base64, io, json, os, sys, urllib.request
 sys.path.insert(0, os.path.dirname(__file__))
 import make_images as mi  # noqa: E402
 
 REQ, OUT = "office/art/requests.json", "office/art/out"
+
+
+def call_ref(prompt, ref):
+    """참고 그림(같은 캐릭터 유지용)과 함께 generateContent 를 부른다."""
+    body = {"contents": [{"parts": [{"inlineData": {"mimeType": "image/jpeg", "data": base64.b64encode(open(ref, "rb").read()).decode()}}, {"text": prompt}]}],
+            "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": {"aspectRatio": "16:9"}}}
+    req = urllib.request.Request(f"https://generativelanguage.googleapis.com/v1beta/models/{mi.MODEL}:generateContent", data=json.dumps(body).encode(),
+                                 headers={"x-goog-api-key": mi.KEY, "Content-Type": "application/json"}, method="POST")
+    with urllib.request.urlopen(req, timeout=180) as r:
+        data = json.load(r)
+    for c in data.get("candidates", []):
+        for part in c.get("content", {}).get("parts", []):
+            inline = part.get("inlineData") or part.get("inline_data")
+            if inline and inline.get("data"):
+                return base64.b64decode(inline["data"])
+    raise RuntimeError("no image in response: " + json.dumps(data)[:300])
 
 
 def main():
@@ -24,7 +40,7 @@ def main():
         if os.path.exists(path): continue
         prompt = it["prompt"].strip() + " " + common
         try:
-            raw = mi.call(prompt)
+            raw = call_ref(prompt, it["ref"]) if it.get("ref") else mi.call(prompt)
         except Exception as e:  # noqa: BLE001
             print(f"::warning::office art {it['id']} failed: {e}"); continue
         from PIL import Image
