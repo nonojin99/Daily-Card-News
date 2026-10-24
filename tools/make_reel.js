@@ -2,6 +2,7 @@
 //
 //   node tools/make_reel.js <spec.json>            구간을 직접 지정 (spec 형식은 아래)
 //   node tools/make_reel.js --auto <브리프.html>     구간 자동 계산 → reels/YYYY-MM/<날짜>_<종류>.mp4 + .reel.json
+//   node tools/make_reel.js --lib <음악 브리프.html>   음악 라이브러리판(소리 없음, 카드 전부) → reels/YYYY-MM/<날짜>_music_lib.mp4 (2026-10-24~, 사람이 앱에서 음악을 붙여 게시)
 //   node tools/make_reel.js --short <브리프.html>    15초 '핵심 3장' 릴스(낭독 없음, 배경음악) → reels/YYYY-MM/<날짜>_<종류>_short.mp4 (2026-10-23~ A/B)
 //   node tools/make_reel.js --recent                 Actions 용: 최근 3일 릴스 대상 브리프 중 없거나 재료가 바뀐 것만 (REELS_OUT 에 만든 파일 목록)
 //
@@ -250,15 +251,18 @@ async function autoOne(brief, b, base) {
 // 배경음악: Kevin MacLeod "Upbeat Forever" (incompetech.com) — Wikimedia Commons 파일 페이지 기준 CC BY 3.0. 저장소에는 앞 30초만 잘라 둔다(끝 2초 페이드).
 // 어느 쪽(낭독판/짧은판)을 올릴지는 게시 스크립트가 날짜로 번갈아 고른다(.github/scripts/publish_ig.py `ab`).
 const SHORT = { cards: 3, sec: 4, outro: 2.2, xf: 0.35, bgm: "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3",
-  credit: "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0" };
+  credit: "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0", suffix: "_short", variant: "short" };
+// 음악 라이브러리판(2026-10-24~ 사용자 결정): 토요일 음악 릴스는 자동 게시하지 않고, 사람이 인스타 앱에서 음악 라이브러리 곡을 붙여 올린다.
+// 그래서 소리 없는 영상으로 카드 전부 × 4초 + 출처 장. 곡은 그 주 플레이리스트에서 라이브러리에 있는 것을 고른다(캡션 파일에 후보).
+const LIB = { cards: 7, sec: 4, outro: 2.2, xf: 0.35, bgm: null, credit: "", suffix: "_lib", variant: "lib", label: "🎵 이번 주 플레이리스트" };
 const shortFp = brief => sha(read(brief), read(SHORT.bgm), read("tools/make_reel.js"), read("app/cards.html"));
-async function shortOne(brief, b, base) {
+async function shortOne(brief, b, base, O = SHORT) {
   const m = brief.match(BRIEF); if (!m) return { skip: "파일명 형식 아님" };
   const html = read(brief).toString();
   if (/class="tag">\s*Context/.test(html)) return { skip: "맥락 읽기(사건·사고) 카드가 있어 릴스로 만들지 않음" };
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "reel-s-"));
   const { files, meta } = await renderCards(b, base, brief, tmp);
-  const n = Math.min(SHORT.cards, files.length - 2); if (n < 1) return { skip: "카드 없음" };
+  const n = Math.min(O.cards, files.length - 2); if (n < 1) return { skip: "카드 없음" };
   const slides = [...Array(n).keys()].map(i => i + 2).concat(files.length);
   const d = `${m[1]}-${m[2]}-${m[3]}`, wd = "일월화수목금토"[wdOf(d)];
   const fr = await b.newPage({ viewport: { width: 1080, height: 1920 } });
@@ -275,24 +279,26 @@ async function shortOne(brief, b, base) {
 .bar{position:absolute;left:97px;right:97px;top:1472px;height:8px;border-radius:9px;background:#e1ddd2}
 .bar i{display:block;height:100%;width:${((k + 1) / slides.length * 100).toFixed(1)}%;border-radius:9px;background:${meta.ac}}
 .ft{position:absolute;left:97px;right:97px;top:1508px;font-size:30px;color:#55554f;line-height:1.5}.ft b{color:#3d5a4c}</style></head>
-<body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">⚡ 핵심 ${n}장</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
+<body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">${O.label || `⚡ 핵심 ${n}장`}</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
 <div class="card"><img src="${img}"></div><div class="bar"><i></i></div>
-<div class="ft"><b>@hannun.brief</b><br>♪ ${esc(SHORT.credit)}</div></body></html>`, { waitUntil: "networkidle" });
+<div class="ft"><b>@hannun.brief</b>${O.credit ? `<br>♪ ${esc(O.credit)}` : ""}</div></body></html>`, { waitUntil: "networkidle" });
     await fr.screenshot({ path: path.join(tmp, `s${k}.png`) });
   }
   await fr.close();
-  const durs = slides.map((_, k) => k < n ? SHORT.sec : SHORT.outro);
-  const total = durs.reduce((a, c) => a + c, 0) - SHORT.xf * (slides.length - 1);
+  const durs = slides.map((_, k) => k < n ? O.sec : O.outro);
+  const total = durs.reduce((a, c) => a + c, 0) - O.xf * (slides.length - 1);
   const ins = slides.flatMap((_, k) => ["-loop", "1", "-t", String(durs[k]), "-i", path.join(tmp, `s${k}.png`)]);
   let f = slides.map((_, k) => `[${k}:v]fps=30,format=yuv420p,setsar=1[i${k}]`), cur = "[i0]", off = 0;
-  for (let k = 1; k < slides.length; k++) { off += durs[k - 1] - SHORT.xf; f.push(`${cur}[i${k}]xfade=transition=fade:duration=${SHORT.xf}:offset=${off.toFixed(3)}[x${k}]`); cur = `[x${k}]`; }
+  for (let k = 1; k < slides.length; k++) { off += durs[k - 1] - O.xf; f.push(`${cur}[i${k}]xfade=transition=fade:duration=${O.xf}:offset=${off.toFixed(3)}[x${k}]`); cur = `[x${k}]`; }
   const A = slides.length;
   f.push(`[${A}:a]atrim=0:${total.toFixed(3)},asetpts=PTS-STARTPTS,afade=t=out:st=${(total - 1.2).toFixed(3)}:d=1.2,volume=0.9[a]`);
-  const out_ = `reels/${m[1]}-${m[2]}/${d}_${m[4]}_short`;
+  const out_ = `reels/${m[1]}-${m[2]}/${d}_${m[4]}${O.suffix}`;
   fs.mkdirSync(path.join(ROOT, path.dirname(out_)), { recursive: true });
-  execFileSync("ffmpeg", ["-v", "error", "-y", ...ins, "-i", path.join(ROOT, SHORT.bgm), "-filter_complex", f.join(";"), "-map", cur, "-map", "[a]",
-    "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-c:a", "aac", "-b:a", "128k", "-t", total.toFixed(3), "-movflags", "+faststart", path.join(ROOT, out_ + ".mp4")]);
-  const spec = { brief, variant: "short", out: out_ + ".mp4", cards: n, seconds: +total.toFixed(2), bgm: SHORT.bgm, credit: SHORT.credit, fp: shortFp(brief) };
+  const aud = O.bgm ? ["-i", path.join(ROOT, O.bgm)] : [], amap = O.bgm ? ["-map", "[a]", "-c:a", "aac", "-b:a", "128k"] : ["-an"];
+  if (!O.bgm) f.pop();   // 라이브러리판은 소리 없음 — 음악은 인스타 앱에서 붙인다
+  execFileSync("ffmpeg", ["-v", "error", "-y", ...ins, ...aud, "-filter_complex", f.join(";"), "-map", cur, ...amap,
+    "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-t", total.toFixed(3), "-movflags", "+faststart", path.join(ROOT, out_ + ".mp4")]);
+  const spec = { brief, variant: O.variant, out: out_ + ".mp4", cards: n, seconds: +total.toFixed(2), bgm: O.bgm, credit: O.credit, fp: shortFp(brief) };
   fs.writeFileSync(path.join(ROOT, out_ + ".reel.json"), JSON.stringify(spec, null, 2) + "\n");
   console.log(`reel: ${out_}.mp4 — ${total.toFixed(1)}초, 카드 ${n}장 + 출처`);
   return { files: [out_ + ".mp4", out_ + ".reel.json"] };
@@ -308,6 +314,9 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
       const r = await autoOne(arg, b, base);
       if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
       else console.log(`reel: ${r.title} (뺀 문단 ${r.dropped.join("·")})`);
+    } else if (mode === "--lib") {
+      const r = await shortOne(arg, b, base, LIB);
+      if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
     } else if (mode === "--short") {
       const r = await shortOne(arg, b, base);
       if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
@@ -317,10 +326,10 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
         const m = n.match(BRIEF); if (!m) continue;
         const d = `${m[1]}-${m[2]}-${m[3]}`; if (d < cutoff || !REEL_OF(m[4], wdOf(d))) continue;
         const mp3 = `audio/${m[1]}-${m[2]}/${d}_${m[4]}.mp3`, spec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}.reel.json`;
-        // 짧은판(A/B) — 음악 브리프도 만든다(2026-10-24 사용자 결정, 배경음은 짧은판 공통 곡)
-        const sspec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}_short.reel.json`;
+        // 짧은판(A/B). 음악 브리프는 짧은판 대신 라이브러리판(소리 없음 — 사람이 인스타 앱에서 음악을 붙여 게시, 2026-10-24~)
+        const lib = m[4] === "music", sspec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}${lib ? LIB.suffix : SHORT.suffix}.reel.json`;
         if (!(fs.existsSync(path.join(ROOT, sspec)) && JSON.parse(read(sspec)).fp === shortFp(n))) {
-          try { const r = await shortOne(n, b, base); if (!r.skip) made.push(...r.files); }
+          try { const r = await shortOne(n, b, base, lib ? LIB : SHORT); if (!r.skip) made.push(...r.files); }
           catch (e) { console.log(`::warning::short reel failed for ${n}: ${e.message}`); }
         }
         if (!fs.existsSync(path.join(ROOT, mp3))) continue;
