@@ -50,7 +50,7 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **야구 나이트** 브�
 ## 발행
 1. 브리프 HTML, 캡션, `publish/request.json` 만 add. 요청 항목마다 `"account":"sports"` (없으면 @hannun.brief 로 올라가니 반드시 넣는다). 맥락 읽기(부상·사고·폭력) 카드가 섞이면 게시 요청에서 뺀다.
 2. `git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit` → `git pull --rebase origin main` → `git push origin HEAD:main`(실패하면 rebase 후 한 번만 재시도). push 관문 훅이 막으면 메시지대로 고친다.
-3. 실패(발행 못 함, 검토 3회 FAIL)일 때만 PushNotification. 정상 발행·발행 없음은 알리지 않는다.
+3. **끝날 때마다 PushNotification 한 번**(2026-10-24~, 사용자 요청 — Slack 으로 매일 요약): 정상 발행·발행 없음·실패 모두. 형식은 CLAUDE.md '매일 Slack 요약'. 실패면 첫 줄에 ⚠ 와 실패 이유.
 
 ## 보고
 다룬 경기·제외 이유·검토 FAIL 수정 내역·카드 검토 1단계 FAIL/WARN 수와 2단계 반복 횟수·원고 분량·발행 결과(push 시각, 게시 요청 항목).

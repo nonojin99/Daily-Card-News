@@ -41,7 +41,7 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **서브 플러스** 브�
    - 캡션 `captions/YYYY-MM-DD_<종류>.txt`: 첫 줄 `[💰 머니]`·`[📺 OTT·게임]`·`[🍜 푸드]` + 핵심 숫자, 본문 카드별 한 줄, "▶ 전체 브리프와 출처는 프로필 링크의 앱에서 (nonojin99.github.io/Daily-Card-News/app/)", AI 그림이 있으면 표시, 해시태그 3~5개(README 표).
    - 요청: `{"requests":[{"kind":"carousel","media":"cards/YYYY-MM/YYYY-MM-DD_<종류>-brief","caption":"captions/YYYY-MM-DD_<종류>.txt","dry_run":"false","is_ai":"<AI 그림 있으면 true>"}], "note":"…"}` — `account` 는 넣지 않습니다(본계정).
 2. `git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit -m "YYYY-MM-DD <종류> brief"` → `git pull --rebase origin main` → `git push origin HEAD:main`(실패하면 rebase 후 한 번만 재시도). push 관문 훅이 막으면 메시지대로 고칩니다.
-3. 실패(발행 못 함, 검토 3회 FAIL)일 때만 PushNotification. 정상 발행·발행 없음은 알리지 않습니다.
+3. **끝날 때마다 PushNotification 한 번**(2026-10-24~, 사용자 요청 — Slack 으로 매일 요약): 정상 발행·발행 없음·실패 모두. 형식은 CLAUDE.md '매일 Slack 요약'. 실패면 첫 줄에 ⚠ 와 실패 이유.
 
 ## 5. 보고
 다룬 항목·제외 이유·검토 FAIL 수정 내역·카드 검토 1단계 FAIL/WARN 수와 2단계 반복 횟수·원고 분량·발행 결과(push 시각, 게시 요청 항목).
