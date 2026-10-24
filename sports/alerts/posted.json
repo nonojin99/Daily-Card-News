@@ -68,6 +68,12 @@
    "status": "published",
    "at_kst": "2026-10-24 09:03",
    "result": "17881058178548253"
+  },
+  "lol:115660540726095017": {
+   "image": "sports/alerts/2026-10/2026-10-24_lol_0950.jpg",
+   "status": "published",
+   "at_kst": "2026-10-24 09:50",
+   "result": "18133493410786247"
   }
  },
  "boards": {
@@ -88,8 +94,8 @@
    "final": true
   },
   "lol:2026-10-24": {
-   "last": 1792800255.7465825,
-   "final": false
+   "last": 1792803079.3093214,
+   "final": true
   }
  }
 }
