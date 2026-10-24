@@ -46,6 +46,8 @@ ko = lambda name: NAMES.get(name, name)
 
 LIVE_STYLE = {"kicker": "⚾ 중간 스코어", "src": "진행 중인 경기 · 공식 기록 기준 · 최종 결과는 경기 종료 후 다시 올려요", "foot": "포스트시즌 중간 스코어"}
 
+PRE_STYLE = {"kicker": "⚾ 경기 전 · 선발", "src": "선발은 MLB 공식 Stats API·KBO 공식 기록의 예고 기준 · 경기 직전 바뀔 수 있어요", "foot": "포스트시즌 선발 안내"}
+
 
 def kst():
     return datetime.datetime.utcnow() + datetime.timedelta(hours=9)
@@ -316,6 +318,60 @@ def live_big(posted):
     return boards
 
 
+PRE_MIN = 120   # 시작 2시간 전부터(선발이 둘 다 나와 있으면) 한 번만
+
+
+def pre_big(posted):
+    """포스트시즌급 야구 경기 전 선발 안내(사용자 요청 2026-10-24) — live_big 과 같은 경기만, 시작 PRE_MIN 분 안에 선발 투수가 둘 다 발표돼 있으면 한 장.
+    posted 에 pre:<경기> 로 남긴다. 시작했거나 선발이 아직이면 건너뛴다(시작 전 회차에서 다시 본다)."""
+    boards, now = [], kst()
+
+    def add(sport, gid, start, row, title, gdate):
+        if f"pre:{gid}" in posted or not (now <= start <= now + datetime.timedelta(minutes=PRE_MIN)) or not (row["as"] and row["hs"]):
+            return
+        boards.append({"sport": sport, "pre": True, "date": gdate, "kst_date": start.date(), "title": title,
+                       "rows": [{**row, "pending": True, "pre": True}], "new": [f"pre:{gid}"], "final": False})
+
+    if SOURCES.get("kbo", {}).get("on"):
+        d = now.date()
+        try:
+            games = get_json("https://www.koreabaseball.com/ws/Main.asmx/GetKboGameList",
+                             urllib.parse.urlencode({"leId": "1", "srId": "0,1,3,4,5,6,7,8,9", "date": d.strftime("%Y%m%d")}).encode(),
+                             {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8", "X-Requested-With": "XMLHttpRequest",
+                              "Referer": "https://www.koreabaseball.com/Schedule/ScoreBoard.aspx"}).get("game") or []
+        except Exception as e:  # noqa: BLE001
+            print(f"::warning::KBO pre {d}: {e}"); games = []
+        for g in games:
+            m = re.match(r"(준PO|PO|KS|WC)(\d+)", g.get("GAME_SC_NM") or "")
+            tm = re.match(r"(\d{1,2}):(\d{2})", g.get("G_TM") or "")
+            if not m or not tm or str(g.get("GAME_STATE_SC")) not in ("1", "None", "") or str(g.get("CANCEL_SC_ID")) not in ("0", "None"):
+                continue
+            start = datetime.datetime.combine(d, datetime.time(int(tm[1]), int(tm[2])))
+            add("kbo", "kbo:" + g["G_ID"], start,
+                {"away": g["AWAY_NM"].strip(), "home": g["HOME_NM"].strip(), "as": (g.get("T_PIT_P_NM") or "").strip(), "hs": (g.get("B_PIT_P_NM") or "").strip(),
+                 "note": f"{start:%H:%M} 시작" + (f" · {g['S_NM']}" if g.get("S_NM") else "")},
+                f"{STAGE[m[1]]} {m[2]}차전 — 오늘의 선발", d)
+    if SOURCES.get("mlb", {}).get("on"):
+        try:
+            d0, d1 = now.date(), (now + datetime.timedelta(days=1)).date()
+            dates = get_json(f"https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate={d0 - datetime.timedelta(days=1)}&endDate={d1}&hydrate=probablePitcher")["dates"]
+        except Exception as e:  # noqa: BLE001
+            print(f"::warning::MLB pre: {e}"); dates = []
+        for g in (g for dt in dates for g in dt["games"]):
+            if g.get("gameType") not in ("F", "D", "L", "W") or g["status"]["abstractGameState"] != "Preview":
+                continue
+            a, h = g["teams"]["away"], g["teams"]["home"]
+            ser = {"World Series": "월드시리즈", "League Championship Series": "챔피언십시리즈", "Division Series": "디비전시리즈",
+                   "Wild Card": "와일드카드"}.get(g.get("seriesDescription") or "", g.get("seriesDescription") or "MLB 포스트시즌")
+            start = datetime.datetime.strptime(g["gameDate"][:19], "%Y-%m-%dT%H:%M:%S") + datetime.timedelta(hours=9)
+            pit = lambda x: ko((x.get("probablePitcher") or {}).get("fullName", ""))
+            add("mlb", f"mlb:{g['gamePk']}", start,
+                {"away": ko(a["team"]["name"]), "home": ko(h["team"]["name"]), "as": pit(a), "hs": pit(h),
+                 "note": f"한국시간 {start:%H:%M} 시작 · {g.get('venue', {}).get('name', '')}".rstrip(" ·")},
+                f"{ser} {g.get('seriesGameNumber', '')}차전 — 오늘의 선발".replace("  ", " "), (start - datetime.timedelta(hours=12)).date())
+    return boards
+
+
 def load_posted():
     return json.load(open(POSTED, encoding="utf-8")) if os.path.exists(POSTED) else {"posted": {}}
 
@@ -328,7 +384,7 @@ def finished_new():
     for k in ESPN:
         if on(k):
             boards += espn(k, posted)
-    out = live_big(posted) if on("live") else []   # 경기 중 중간 스코어(포스트시즌급 야구만) — 간격 규칙과 무관
+    out = (live_big(posted) + pre_big(posted)) if on("live") else []   # 경기 전 선발·경기 중 중간 스코어(포스트시즌급 야구만) — 간격 규칙과 무관
     for b in boards:   # 같은 날 판은 every 분 간격으로만, 최종 판(모두 종료)은 꼭
         key, fin = f"{b['sport']}:{b['date']}", all(not r["pending"] for r in b["rows"])
         last = seen.get(key, {}).get("last", 0)
@@ -437,7 +493,7 @@ def run_once():
         rel = f"sports/alerts/{gdate:%Y-%m}/{gdate}_{sport.replace('.', '-')}_{kst():%H%M}.jpg"
         os.makedirs(os.path.dirname(os.path.join(ROOT, rel)), exist_ok=True)
         spec = os.path.join(ROOT, "sports/alerts/.games.json")
-        json.dump({**SPORT[sport], **(LIVE_STYLE if bd.get("live") else {}), "story": True, "date": str(bd.get("kst_date") or gdate), "dawn": bool(bd.get("dawn")), "title": bd["title"], "games": bd["rows"][:10]},
+        json.dump({**SPORT[sport], **(LIVE_STYLE if bd.get("live") else PRE_STYLE if bd.get("pre") else {}), "story": True, "date": str(bd.get("kst_date") or gdate), "dawn": bool(bd.get("dawn")), "title": bd["title"], "games": bd["rows"][:10]},
                   open(spec, "w", encoding="utf-8"), ensure_ascii=False)
         subprocess.run(["node", os.path.join(ROOT, "tools/score_card.js"), spec, os.path.join(ROOT, rel)], check=True)
         os.remove(spec)
@@ -459,7 +515,7 @@ def run_once():
         db = load_posted()
         for gid in bd["new"]:
             db["posted"][gid].update(status=status, result=pid)
-        if status == "published" and not bd.get("live"):
+        if status == "published" and not (bd.get("live") or bd.get("pre")):
             db.setdefault("boards", {})[f"{sport}:{gdate}"] = {"last": time.time(), "final": bd.get("final", False)}
         json.dump(db, open(POSTED, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         push(f"결과 알림 {sport} {status} [skip ci]", [POSTED])
