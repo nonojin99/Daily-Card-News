@@ -29,8 +29,18 @@ main{max-width:1500px;margin:0 auto;padding:0 16px 24px;display:grid;grid-templa
 .scroller{overflow-x:auto;border-radius:18px;border:1px solid var(--line);background:#cdc8c1;-webkit-overflow-scrolling:touch}
 .stage{position:relative;width:100%;min-width:760px;aspect-ratio:16/9}
 .stage>img.bg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.who{position:absolute;transition:opacity .6s ease}
+.who{position:absolute;transition:opacity .45s ease;will-change:opacity,transform}
 .who img{display:block;width:100%;height:100%}
+/* 가만히 있어도 살아 있게: 숨쉬기(휴식) · 타닥타닥(일함) · 폴짝(완료) — 사원마다 박자를 다르게 */
+.who.rest{animation:breathe 3.6s ease-in-out infinite}
+.who.work{animation:type 0.9s ease-in-out infinite}
+.who.done{animation:hop .8s ease-in-out infinite}
+.who.fail{animation:sigh 4s ease-in-out infinite}
+@keyframes breathe{50%{transform:translateY(-1.2%)}}
+@keyframes type{50%{transform:translateY(-0.8%)}}
+@keyframes hop{50%{transform:translateY(-5%)}}
+@keyframes sigh{50%{transform:translateY(1%)}}
+.nexthint{font-size:12.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px 12px}
 .tag{position:absolute;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;pointer-events:auto;cursor:pointer;transition:left .6s,top .6s;z-index:500}
 .tag .c{background:rgba(255,255,255,.95);border-radius:9px;padding:2px 8px 3px;box-shadow:0 2px 6px rgba(0,0,0,.12);text-align:center;line-height:1.25;border-top:3px solid var(--c);white-space:nowrap}
 .tag .n{font-weight:900;font-size:clamp(10px,.85vw,14px)}.tag .n i{font-style:normal;font-weight:700;font-size:.78em;color:var(--c);margin-left:4px}
@@ -57,6 +67,7 @@ main{max-width:1500px;margin:0 auto;padding:0 16px 24px;display:grid;grid-templa
 <header>
   <h1>한눈 브리프 사무실<span class="live" id="live"><i></i>LIVE</span></h1>
   <div class="stats" id="stats"></div>
+  <span class="nexthint" id="nexthint"></span>
   <div class="clock" id="clock"></div>
 </header>
 <div class="replaybar">
@@ -201,7 +212,7 @@ function staffAt(t){
 }
 
 // ── 그리기 ──
-let LAYOUT = {}, LV = {};
+let LAYOUT = {}, LV = {}, LASTLOG = -1, REPLAYING = false;
 const stage = document.getElementById("stage"), els = {};
 function draw(t){
   const st = staffAt(t);
@@ -217,16 +228,17 @@ function draw(t){
       e.img.onclick = () => { e.tag.classList.add("peek"); clearTimeout(e.pt); e.pt = setTimeout(() => e.tag.classList.remove("peek"), 4000) };   // 쉬는 사원은 눌러야 이름표가 보인다
       stage.appendChild(e.img); stage.appendChild(e.tag); els[nm] = e;
     }
-    if(e.cur !== S.s){
-      e.cur = S.s; const im = e.img.querySelector("img");
-      e.img.style.opacity = 0;
-      setTimeout(() => { im.src = "v2/layers/" + ly.file; Object.assign(e.img.style, {left:ly.x/19.2 + "%", top:ly.y/10.8 + "%", width:ly.w/19.2 + "%", height:ly.h/10.8 + "%", zIndex:ly.y + ly.h}); e.img.style.opacity = 1 }, e.ready ? 300 : 0);
-      e.ready = true;
+    if(e.cur !== S.s){   // 미리 받아 둔 그림으로 바로 바꾼다(비었다가 채워지는 깜빡임 없음)
+      const im = e.img.querySelector("img"), place = () => { im.src = "v2/layers/" + ly.file; Object.assign(e.img.style, {left:ly.x/19.2 + "%", top:ly.y/10.8 + "%", width:ly.w/19.2 + "%", height:ly.h/10.8 + "%", zIndex:ly.y + ly.h, animationDelay:(-(L.i * 0.37) % 3) + "s"}); e.img.className = "who " + S.s; e.img.style.opacity = 1 };
+      if(e.cur === undefined || REPLAYING) place();
+      else { e.img.style.opacity = 0; clearTimeout(e.ft); e.ft = setTimeout(place, 450) }
+      e.cur = S.s;
     }
     e.url = S.url;
     e.tag.className = "tag " + S.s + (e.tag.classList.contains("peek") ? " peek" : ""); e.tag.style.left = ly.label[0] + "%"; e.tag.style.top = (ly.label[1] - 0.6) + "%";
     const status = S.s === "rest" ? (REST_TEXT[ly.pose] || "휴식") : S.text;
-    e.tag.innerHTML = `<div class="c"><div class="n">${nm}<i>${D.name}</i></div><div class="s">Lv.${LV[S.d] || 1} · ${status}</div></div>`;
+    const html = `<div class="c"><div class="n">${nm}<i>${D.name}</i></div><div class="s">Lv.${LV[S.d] || 1} · ${status}</div></div>`;
+    if(e.html !== html){ e.tag.innerHTML = html; e.html = html }   // 바뀔 때만 다시 그린다
   }
   const n = s => Object.values(st).filter(x => x.s === s).length;
   const area = {coffee:0, lounge:0, game:0};
@@ -240,8 +252,12 @@ function draw(t){
     else done = (window.COMMITS || []).some(c => !/\[bot\]/.test(c.commit.author.name) && rule.test(c.commit.message.split("\n")[0]) && kstDay(Date.parse(c.commit.author.date)) === kstDay(t) && Date.parse(c.commit.author.date) <= t);
     return `<li class="${done ? "done" : t > due + 3*3600e3 ? "off" : ""}"><b>${tm}</b>${name}</li>`;
   }).join("");
-  document.getElementById("log").innerHTML = LOGS.filter(x => x.t <= t).slice(0, 60).map(x =>
-    `<li><time>${hhmm(x.t)}</time><a href="${x.url || "#"}" target="_blank" rel="noopener">${x.d ? `<span class="d" style="color:${DEPTS[x.d].color}">${DEPTS[x.d].name}</span> ` : ""}${x.text}${x.est ? ' <span class="est">추정</span>' : ""}</a></li>`).join("") || "<li>기록 없음</li>";
+  const shown = LOGS.filter(x => x.t <= t); if(shown.length !== LASTLOG){ LASTLOG = shown.length;
+  document.getElementById("log").innerHTML = shown.slice(0, 60).map(x =>
+    `<li><time>${hhmm(x.t)}</time><a href="${x.url || "#"}" target="_blank" rel="noopener">${x.d ? `<span class="d" style="color:${DEPTS[x.d].color}">${DEPTS[x.d].name}</span> ` : ""}${x.text}${x.est ? ' <span class="est">추정</span>' : ""}</a></li>`).join("") || "<li>기록 없음</li>"; }
+  const nx = SCHED.map(([tm, name]) => [Date.parse(kstDay(t) + "T" + tm + ":00+09:00"), name]).find(([d]) => d > t);
+  const hint = document.getElementById("nexthint");
+  if(hint) hint.textContent = n("work") ? `지금 ${n("work")}명이 일하는 중` : nx ? `모두 쉬는 중 · 다음 일정 ${hhmm(nx[0])} ${nx[1]} (${Math.floor((nx[0] - t) / 3600e3)}시간 ${Math.floor((nx[0] - t) % 3600e3 / M)}분 뒤)` : "오늘 일정 끝 · 모두 쉬는 중";
   document.getElementById("clock").textContent = (T === null ? "지금 " : "다시보기 ") + kstDay(t) + " " + hhmm(t) + " KST";
 }
 
@@ -262,13 +278,18 @@ function setLive(){ T = null; clearInterval(timer); timer = null; slider.value =
 slider.oninput = () => { T = dayStart(Date.now()) + slider.value * M; live.className = "live replay"; live.lastChild.textContent = "다시보기"; draw(Math.min(T, Date.now())) };
 document.getElementById("now").onclick = setLive;
 document.getElementById("play").onclick = e => {
-  if(timer){ clearInterval(timer); timer = null; e.target.textContent = "▶ 이어 보기"; return }
+  if(timer){ clearInterval(timer); timer = null; REPLAYING = false; e.target.textContent = "▶ 이어 보기"; return }
   if(T === null || slider.value >= nowMin()) slider.value = 300;
   e.target.textContent = "⏸ 멈춤";
-  timer = setInterval(() => { slider.value = +slider.value + 3; if(+slider.value >= nowMin()){ setLive(); return } slider.oninput() }, 160);
+  REPLAYING = true;
+  timer = setInterval(() => { slider.value = +slider.value + 2; if(+slider.value >= nowMin()){ REPLAYING = false; setLive(); return } slider.oninput() }, 100);
 };
 (async function start(){
   LAYOUT = await (await fetch("v2/layers/layout.json")).json();
+  for(const nm in LAYOUT) for(const k of ["work", "done", "fail", "rest"]) if(LAYOUT[nm][k]){ const im = new Image(); im.src = "v2/layers/" + LAYOUT[nm][k].file }
+  let rot = 0;   // 쉬는 사원 이름표를 6초마다 한 명씩 보여 준다(사무실이 살아 있게)
+  setInterval(() => { const rs = Object.keys(els).filter(nm => els[nm].cur === "rest"); if(!rs.length || REPLAYING) return;
+    const e = els[rs[rot++ % rs.length]]; e.tag.classList.add("peek"); clearTimeout(e.pt); e.pt = setTimeout(() => e.tag.classList.remove("peek"), 5000) }, 6000);
   await levels();
   (async function tick(){
     let err = null;
