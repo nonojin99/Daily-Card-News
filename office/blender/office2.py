@@ -318,7 +318,18 @@ def doll(x, y, rot, pose="sit", body="#e8dccb", hat="beanie", hatc="#4f86c9", sc
 # 인형 생김새 무작위 변수(부서 색은 모자에, 몸통·소품은 사람마다)
 BODIES = ["#e8dccb", "#f2c14e", "#7aa7dd", "#ee8b6e", "#6cc39d", "#a888e0", "#f39ac0", "#8a6a52", "#46566a", "#f4f1ea"]
 HATS = ["beanie", "pom", "beret", "cap", "ears", "hair"]
+LABELS = []
+NAMES = {"research": ["서치", "팩트", "링크"], "edit": ["레이", "픽셀", "카드", "아웃"], "review": ["체크", "도장"], "voice": ["보이스"],
+         "art": ["붓"], "print": ["프린"], "reel": ["컷"], "pr": ["피드"], "sports": ["홈런", "골"]}
+REST = ["모카", "라떼", "쿠션", "말랑", "조이", "패드", "점프"]
 def person(x, y, rot, team, pose="sit", **kw):
+    key = team if team in NAMES else "rest"
+    pool = NAMES.get(key) if key != "rest" else REST
+    name = pool.pop(0) if pool else ["새싹", "솜", "뭉치", "토리", "단추"][len(LABELS) % 5]
+    size = kw.get("size", 1.0)
+    sz = 1.35 * size; seat = kw.get("seat", 0.5)
+    top = seat + 0.8 * sz if pose in ("sit", "sofa", "bean", "stool") else (0.42 + 0.8) * sz   # 모자 꼭대기 근처
+    LABELS.append({"name": name, "team": key, "pose": pose, "at": (x, y, top)})
     v = dict(body=RND.choice(BODIES), hat=RND.choice(HATS), hatc=C[team] if team in C else team,
              scarf=RND.choice([None, None, "#f7d84a", "#ffffff", "#df6f52", "#2b2f35"]), glasses=RND.random() < 0.3,
              stripes=RND.choice([None, None, "#ffffff", "#2b2f35"]), size=RND.uniform(0.92, 1.08))
@@ -421,5 +432,12 @@ sc.cycles.max_bounces = 6; sc.cycles.transmission_bounces = 6
 sc.render.resolution_x = 1920; sc.render.resolution_y = 1080; sc.render.resolution_percentage = PCT
 sc.view_settings.view_transform = "AgX"; sc.view_settings.look = "AgX - Medium High Contrast"
 sc.render.filepath = OUT
-bpy.ops.render.render(write_still=True)
+from bpy_extras.object_utils import world_to_camera_view
+bpy.context.view_layer.update()
+out = []
+for L_ in LABELS:
+    v = world_to_camera_view(sc, cam, mathutils.Vector(L_["at"]))
+    out.append({**L_, "x": round(v.x * 100, 2), "y": round((1 - v.y) * 100, 2)})
+import json; json.dump(out, open(OUT.rsplit(".", 1)[0] + ".labels.json", "w"), ensure_ascii=False, indent=1)
+if SAMPLES > 0: bpy.ops.render.render(write_still=True)
 print("RENDERED", OUT)
