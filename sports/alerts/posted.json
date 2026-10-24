@@ -206,6 +206,16 @@
    "status": "published",
    "at_kst": "2026-10-25 03:57",
    "result": "18133168702760096"
+  },
+  "ufc:401929495": {
+   "image": "sports/alerts/2026-10/2026-10-24_ufc_0408.jpg",
+   "status": "pending",
+   "at_kst": "2026-10-25 04:09"
+  },
+  "ufc:401911635": {
+   "image": "sports/alerts/2026-10/2026-10-24_ufc_0408.jpg",
+   "status": "pending",
+   "at_kst": "2026-10-25 04:09"
   }
  },
  "boards": {
