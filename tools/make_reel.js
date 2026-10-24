@@ -25,7 +25,11 @@ const TITLE = { ai: "듣는 AI", sports: "듣는 스포츠", football: "주말 �
   daily: "듣는 뉴스", culture: "듣는 문화", music: "듣는 음악" };
 // 릴스 대상: 인스타 게시일에 맞춘다 — 월 ai · 화 sports · 금(전날 목 activity) · 토 music(2026-10-21~, 메인 대신) · 일 science (README '인스타그램 운영')
 // 스포츠는 매일 발행으로 바뀌어도(스포츠 계정) 릴스는 화(지금 주간)·월(주말 결산)만 — README '스포츠 계정'
-const REEL_OF = (type, wd) => ["ai", "science", "activity"].includes(type) || (type === "sports" && (wd === 1 || wd === 2)) || (type === "football" && wd === 1);   // 음악(토)은 2026-10-24 브리프 폐지로 뺐다
+// 축구 프리뷰(2026-10-24~): 토 주말 프리뷰·화 챔피언스리그 프리뷰는 짧은판만(14초 이내, 표지 빼고 본문 카드부터) — 낭독판은 만들지 않는다
+const SHORT_ONLY = (type, wd) => type === "football" && (wd === 6 || wd === 2);
+const REEL_OF = (type, wd) => ["ai", "science", "activity"].includes(type) || (type === "sports" && (wd === 1 || wd === 2)) || (type === "football" && wd === 1) || SHORT_ONLY(type, wd);   // 음악(토)은 2026-10-24 브리프 폐지로 뺐다
+// 스포츠 시리즈는 @hannun.sports 로 올라간다(app/cards.html SPORTS_HANDLE 과 같게)
+const HANDLE_OF = type => ["sports", "baseball", "football", "event", "esports"].includes(type) ? "@hannun.sports" : "@hannun.brief";
 const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".json": "application/json", ".css": "text/css",
   ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml" };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -179,7 +183,7 @@ async function build(spec, b, base) {
 <body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">🎧 ${esc(spec.title)}</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
 <div class="mid">${hook.num ? `<div class="num">${esc(hook.num)}</div><div class="lab">${esc(hook.label)}</div>` : `<div style="height:40px"></div>`}
 ${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
-<div class="ft"><b>@hannun.brief</b> · AI 음성 낭독(Google TTS)${bgmNote}</div></body></html>`, { waitUntil: "networkidle" });
+<div class="ft"><b>${HANDLE_OF((spec.brief.match(BRIEF) || [])[4])}</b> · AI 음성 낭독(Google TTS)${bgmNote}</div></body></html>`, { waitUntil: "networkidle" });
       await fr.screenshot({ path: path.join(tmp, `f${k}.png`) });
       continue;
     }
@@ -197,7 +201,7 @@ ${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
 .ft{position:absolute;left:97px;right:97px;top:1508px;font-size:32px;color:#55554f}.ft b{color:#3d5a4c}</style></head>
 <body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">🎧 ${esc(spec.title)}</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
 <div class="card"><img src="${img}"></div><div class="bar"><i></i></div>
-<div class="ft"><b>@hannun.brief</b> · AI 음성 낭독(Google TTS)${bgmNote}</div></body></html>`, { waitUntil: "networkidle" });
+<div class="ft"><b>${HANDLE_OF((spec.brief.match(BRIEF) || [])[4])}</b> · AI 음성 낭독(Google TTS)${bgmNote}</div></body></html>`, { waitUntil: "networkidle" });
     await fr.screenshot({ path: path.join(tmp, k < N ? `f${k}.png` : "fo.png") });
   }
   await fr.close();
@@ -250,7 +254,8 @@ async function autoOne(brief, b, base) {
 // ── 짧은 릴스(2026-10-23~ A/B 시험): 카드 앞 3장 × 4초 + 출처·공유 장 2.2초, 장면은 겹쳐 넘어감(머리말은 그대로 보이게), 낭독 대신 배경음악 ──
 // 배경음악: Kevin MacLeod "Upbeat Forever" (incompetech.com) — Wikimedia Commons 파일 페이지 기준 CC BY 3.0. 저장소에는 앞 30초만 잘라 둔다(끝 2초 페이드).
 // 어느 쪽(낭독판/짧은판)을 올릴지는 게시 스크립트가 날짜로 번갈아 고른다(.github/scripts/publish_ig.py `ab`).
-const SHORT = { cards: 3, sec: 4, outro: 2.2, xf: 0.35, bgm: "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3",
+// 짧은판 길이 = 3 × 4 + 2.2 − 0.35 × 3 = 13.15초 — 14초 이내(2026-10-24 사용자 요청). 값을 바꾸면 shortOne 의 max 검사가 막는다.
+const SHORT = { cards: 3, sec: 4, outro: 2.2, xf: 0.35, max: 14, bgm: "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3",
   credit: "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0", suffix: "_short", variant: "short" };
 // 음악 라이브러리판(2026-10-24~ 사용자 결정): 토요일 음악 릴스는 자동 게시하지 않고, 사람이 인스타 앱에서 음악 라이브러리 곡을 붙여 올린다.
 // 그래서 소리 없는 영상으로 카드 전부 × 4초 + 출처 장. 곡은 그 주 플레이리스트에서 라이브러리에 있는 것을 고른다(캡션 파일에 후보).
@@ -281,12 +286,13 @@ async function shortOne(brief, b, base, O = SHORT) {
 .ft{position:absolute;left:97px;right:97px;top:1508px;font-size:30px;color:#55554f;line-height:1.5}.ft b{color:#3d5a4c}</style></head>
 <body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">${O.label || `⚡ 핵심 ${n}장`}</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
 <div class="card"><img src="${img}"></div><div class="bar"><i></i></div>
-<div class="ft"><b>@hannun.brief</b>${O.credit ? `<br>♪ ${esc(O.credit)}` : ""}</div></body></html>`, { waitUntil: "networkidle" });
+<div class="ft"><b>${HANDLE_OF(m[4])}</b>${O.credit ? `<br>♪ ${esc(O.credit)}` : ""}</div></body></html>`, { waitUntil: "networkidle" });
     await fr.screenshot({ path: path.join(tmp, `s${k}.png`) });
   }
   await fr.close();
   const durs = slides.map((_, k) => k < n ? O.sec : O.outro);
   const total = durs.reduce((a, c) => a + c, 0) - O.xf * (slides.length - 1);
+  if (O.max && total > O.max) throw new Error(`${O.variant} ${total.toFixed(1)}초 — ${O.max}초 넘음`);
   const ins = slides.flatMap((_, k) => ["-loop", "1", "-t", String(durs[k]), "-i", path.join(tmp, `s${k}.png`)]);
   let f = slides.map((_, k) => `[${k}:v]fps=30,format=yuv420p,setsar=1[i${k}]`), cur = "[i0]", off = 0;
   for (let k = 1; k < slides.length; k++) { off += durs[k - 1] - O.xf; f.push(`${cur}[i${k}]xfade=transition=fade:duration=${O.xf}:offset=${off.toFixed(3)}[x${k}]`); cur = `[x${k}]`; }
@@ -332,7 +338,7 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
           try { const r = await shortOne(n, b, base, lib ? LIB : SHORT); if (!r.skip) made.push(...r.files); }
           catch (e) { console.log(`::warning::short reel failed for ${n}: ${e.message}`); }
         }
-        if (!fs.existsSync(path.join(ROOT, mp3))) continue;
+        if (SHORT_ONLY(m[4], wdOf(d)) || !fs.existsSync(path.join(ROOT, mp3))) continue;
         if (fs.existsSync(path.join(ROOT, spec)) && JSON.parse(read(spec)).fp === fingerprint(n, mp3)) continue;
         try { const r = await autoOne(n, b, base); if (r.skip) console.log(`reel: ${n} 건너뜀 — ${r.skip}`); else made.push(...r.files); }
         catch (e) { console.log(`::warning::reel failed for ${n}: ${e.message}`); }

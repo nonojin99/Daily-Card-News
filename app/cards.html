@@ -362,6 +362,8 @@ function infoOf(a, geo, year){
       `${when.to.getDate()}일`, `${KWD[when.to.getDay()]}요일`, note ? note.split(/\s+\/\s+/) : null) : "";
   // 여러 경기 스코어 묶음(2026-10-21~, 야구 나이트 KBO 5경기 등): <p class="cn-scores">KIA|5|3|LG / 두산|2|1|SSG / …</p> 최대 6경기
   const ms = T(".cn-scores") ? T(".cn-scores").split(/\s+\/\s+/).map(g => g.split("|").map(clean)).filter(g => g.length >= 4).slice(0, 6) : null;
+  // 경기 일정판(2026-10-24~, 축구 프리뷰): <p class="cn-fixtures">PSG|토 23:00|낭트 / 맨시티|일 새벽 1:30|아스널</p> 최대 6경기 — 시각은 한국시간만(맨 위 '킥오프 · 한국시간' 고정)
+  const fx = T(".cn-fixtures") ? T(".cn-fixtures").split(/\s+\/\s+/).map(g => g.split("|").map(clean)).filter(g => g.length >= 3).slice(0, 6) : null;
   const sc = parts(".cn-score"), lk = parts(".cn-link"), sh = parts(".cn-shift"), st = parts(".cn-steps"), br = parts(".cn-bars");
   let g = "";
   if(ms && ms.length >= 2){
@@ -371,6 +373,15 @@ function infoOf(a, geo, year){
         <text x="150" y="${(yy + 7).toFixed(1)}" text-anchor="end" class="ig-mteam${wb ? " lo" : ""}">${esc(a)}</text>
         <text x="200" y="${(yy + 8).toFixed(1)}" text-anchor="middle" class="ig-msc">${esc(x)} : ${esc(y)}</text>
         <text x="250" y="${(yy + 7).toFixed(1)}" class="ig-mteam${wa ? " lo" : ""}">${esc(b)}</text>`; }).join("") + (note ? lines(note, 200, 206, "ig-s") : "");
+  }else if(fx && fx.length){
+    const rh = Math.min(40, (note ? 150 : 180) / fx.length), y0 = (note ? 112 : 130) - rh * (fx.length - 1) / 2;
+    g = `<text x="200" y="${(y0 - rh / 2 - 10).toFixed(1)}" text-anchor="middle" class="ig-k">킥오프 · 한국시간</text>` +
+      fx.map(([a, t, b], i) => { const yy = y0 + i * rh, fs = t.length > 9 ? 13 : t.length > 7 ? 15 : 17;
+      return `${i ? `<line x1="40" x2="360" y1="${(yy - rh / 2).toFixed(1)}" y2="${(yy - rh / 2).toFixed(1)}" class="ig-line"/>` : ""}
+        <text x="136" y="${(yy + 6).toFixed(1)}" text-anchor="end" class="ig-mteam" style="font-size:${a.length > 6 ? 14 : 17}px">${esc(a)}</text>
+        <rect x="142" y="${(yy - 12).toFixed(1)}" width="116" height="26" rx="13" class="ig-pill"/>
+        <text x="200" y="${(yy + 6).toFixed(1)}" text-anchor="middle" class="ig-pillt" style="font-size:${fs}px">${esc(t)}</text>
+        <text x="264" y="${(yy + 6).toFixed(1)}" class="ig-mteam" style="font-size:${b.length > 6 ? 14 : 17}px">${esc(b)}</text>`; }).join("") + (note ? lines(note, 200, 214, "ig-s") : "");
   }else if(sc && sc.length >= 4){
     const best = Number(cn.querySelector(".cn-score").dataset.best || 0);
     const dots = (x, n) => best ? Array.from({length: best}, (_, i) => `<circle cx="${x + i * 22}" cy="138" r="7" class="${i < n ? "ig-son" : "ig-soff"}"/>`).join("") : "";
@@ -442,7 +453,7 @@ function infoOf(a, geo, year){
   }else if(kr.length || world.length){
     g = mapL() + lines(note, 330, 120, "ig-k");
   }
-  return g ? `<svg viewBox="0 0 400 250" role="img" aria-label="${esc([T(".cn-score"), T(".cn-link"), T(".cn-shift"), T(".cn-steps"), T(".cn-bars"), T(".cn-place"), T(".cn-when"), ...nums.map(n => n.v + " " + n.l), note].filter(Boolean).join(", "))}">${g}</svg>` : null;
+  return g ? `<svg viewBox="0 0 400 250" role="img" aria-label="${esc([T(".cn-fixtures"), T(".cn-score"), T(".cn-link"), T(".cn-shift"), T(".cn-steps"), T(".cn-bars"), T(".cn-place"), T(".cn-when"), ...nums.map(n => n.v + " " + n.l), note].filter(Boolean).join(", "))}">${g}</svg>` : null;
 }
 function visualOf(a, geo, year){
   // 우선순위(2026-10-21 사용자 결정): ① 라이선스 확인된 실제 이미지 ② AI 일러스트 ③ 도표·개념도 ④ 정보 그림 ⑤ 정보 시트
