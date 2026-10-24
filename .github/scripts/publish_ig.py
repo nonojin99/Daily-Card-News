@@ -168,7 +168,10 @@ def main():
         try:
             publish_one()
         except SystemExit as e:
-            if e.code not in (None, 0):
+            # 같은 날 요청 파일에 이미 올라간 항목이 남아 있으면(예: 아침 캐러셀 + 나중에 덧붙인 축구 캐러셀) 중복 차단은 실패가 아니다 — 2026-10-24 실패 메일 오경보
+            if "already published with this caption" in str(e.code):
+                print(f"::notice::request {n} skipped — {str(e.code).replace('::error::', '')}")
+            elif e.code not in (None, 0):
                 print(f"::error::request {n} failed: {e.code}")
                 failed.append(n)
     if failed:
