@@ -319,9 +319,9 @@ def doll(x, y, rot, pose="sit", body="#e8dccb", hat="beanie", hatc="#4f86c9", sc
 BODIES = ["#e8dccb", "#f2c14e", "#7aa7dd", "#ee8b6e", "#6cc39d", "#a888e0", "#f39ac0", "#8a6a52", "#46566a", "#f4f1ea"]
 HATS = ["beanie", "pom", "beret", "cap", "ears", "hair"]
 LABELS = []
-NAMES = {"research": ["서치", "팩트", "링크"], "edit": ["레이", "픽셀", "카드", "아웃"], "review": ["체크", "도장"], "voice": ["보이스"],
-         "art": ["붓"], "print": ["프린"], "reel": ["컷"], "pr": ["피드"], "sports": ["홈런", "골"]}
-REST = ["모카", "라떼", "쿠션", "말랑", "조이", "패드", "점프"]
+NAMES = {"research": ["마카롱", "스콘", "크루아상", "쿠키"], "edit": ["티라미수", "에클레어", "마들렌", "휘낭시에"], "review": ["까눌레", "판나코타"],
+         "voice": ["푸딩"], "art": ["크레페"], "print": ["바움쿠헨"], "reel": ["롤케이크"], "pr": ["젤라또"], "sports": ["츄러스", "도넛"]}
+REST = ["와플", "머핀", "슈크림", "타르트", "브라우니", "약과", "빙수"]
 def person(x, y, rot, team, pose="sit", **kw):
     key = team if team in NAMES else "rest"
     pool = NAMES.get(key) if key != "rest" else REST
