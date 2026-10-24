@@ -44,6 +44,9 @@ for k, kind in ESPN.items():
 ko = lambda name: NAMES.get(name, name)
 
 
+LIVE_STYLE = {"kicker": "⚾ 중간 스코어", "src": "진행 중인 경기 · 공식 기록 기준 · 최종 결과는 경기 종료 후 다시 올려요", "foot": "포스트시즌 중간 스코어"}
+
+
 def kst():
     return datetime.datetime.utcnow() + datetime.timedelta(hours=9)
 
@@ -250,6 +253,69 @@ def ufc(posted):
     return boards
 
 
+LIVE_STEPS = ((7, "6회"), (4, "3회"))   # (이 회 이상이면 그 단계). 가장 높은 단계 하나만 올린다 — 경기당 중간 스토리 최대 2장(3회 마침·6회 마침)
+
+
+def live_big(posted):
+    """포스트시즌급 야구(KBO 와일드카드·준PO·PO·KS, MLB 와일드카드·디비전·챔피언십·월드시리즈)만, 경기가 길어서 3회·6회를 마칠 때 중간 스코어 한 장.
+    정규시즌 경기는 다루지 않는다(사용자 결정 2026-10-24). 올린 단계는 posted 에 live:<경기>:<회> 로 남겨 중복을 막는다."""
+    boards, now = [], kst()
+
+    def step(inn):
+        for need, label in LIVE_STEPS:
+            if inn >= need:
+                return need, label
+        return 0, ""
+
+    def add(sport, gid, inn, row, title, gdate, kdate):
+        need, label = step(inn)
+        if not need or any(k.startswith(f"live:{gid}:") and int(k.rsplit(":", 1)[1]) >= need for k in posted):
+            return
+        row = {**row, "pending": True, "live": True}
+        boards.append({"sport": sport, "live": True, "date": gdate, "kst_date": kdate, "title": title, "rows": [row], "new": [f"live:{gid}:{need}"], "final": False})
+
+    if SOURCES.get("kbo", {}).get("on"):
+        d = now.date()
+        try:
+            games = get_json("https://www.koreabaseball.com/ws/Main.asmx/GetKboGameList",
+                             urllib.parse.urlencode({"leId": "1", "srId": "0,1,3,4,5,6,7,8,9", "date": d.strftime("%Y%m%d")}).encode(),
+                             {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8", "X-Requested-With": "XMLHttpRequest",
+                              "Referer": "https://www.koreabaseball.com/Schedule/ScoreBoard.aspx"}).get("game") or []
+        except Exception as e:  # noqa: BLE001
+            print(f"::warning::KBO live {d}: {e}"); games = []
+        for g in games:
+            m = re.match(r"(준PO|PO|KS|WC)(\d+)", g.get("GAME_SC_NM") or "")
+            if not m or str(g.get("GAME_STATE_SC")) != "2":
+                continue
+            try:
+                inn = int(g.get("GAME_INN_NO") or 0)
+            except ValueError:
+                continue
+            tb = (g.get("GAME_TB_SC_NM") or "").strip()
+            stage = f"{STAGE[m[1]]} {m[2]}차전"
+            add("kbo", "kbo:" + g["G_ID"], inn, {"away": g["AWAY_NM"].strip(), "home": g["HOME_NM"].strip(), "as": str(g["T_SCORE_CN"]), "hs": str(g["B_SCORE_CN"]),
+                                                 "note": f"{inn}회{tb} 진행 중" + (f" · {g['S_NM']}" if g.get("S_NM") else "")},
+                f"{stage} — 중간 스코어", d, d)
+    if SOURCES.get("mlb", {}).get("on"):
+        try:
+            d0, d1 = (now - datetime.timedelta(days=1)).date(), now.date()
+            dates = get_json(f"https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate={d0}&endDate={d1}&hydrate=linescore")["dates"]
+        except Exception as e:  # noqa: BLE001
+            print(f"::warning::MLB live: {e}"); dates = []
+        for g in (g for dt in dates for g in dt["games"]):
+            if g.get("gameType") not in ("F", "D", "L", "W") or g["status"]["abstractGameState"] != "Live":
+                continue
+            ls, a, h = g.get("linescore") or {}, g["teams"]["away"], g["teams"]["home"]
+            ser = {"World Series": "월드시리즈", "League Championship Series": "챔피언십시리즈", "Division Series": "디비전시리즈",
+                   "Wild Card": "와일드카드"}.get(g.get("seriesDescription") or "", g.get("seriesDescription") or "MLB 포스트시즌")
+            k0 = datetime.datetime.strptime(g["gameDate"][:19], "%Y-%m-%dT%H:%M:%S") + datetime.timedelta(hours=9)
+            add("mlb", f"mlb:{g['gamePk']}", int(ls.get("currentInning") or 0),
+                {"away": ko(a["team"]["name"]), "home": ko(h["team"]["name"]), "as": str(a.get("score", 0)), "hs": str(h.get("score", 0)),
+                 "note": f"{ls.get('currentInning')}회{'초' if ls.get('isTopInning') else '말'} 진행 중 · {g.get('venue', {}).get('name', '')}".rstrip(" ·")},
+                f"{ser} {g.get('seriesGameNumber', '')}차전 — 중간 스코어".replace("  ", " "), (k0 - datetime.timedelta(hours=12)).date(), k0.date())
+    return boards
+
+
 def load_posted():
     return json.load(open(POSTED, encoding="utf-8")) if os.path.exists(POSTED) else {"posted": {}}
 
@@ -262,7 +328,7 @@ def finished_new():
     for k in ESPN:
         if on(k):
             boards += espn(k, posted)
-    out = []
+    out = live_big(posted) if on("live") else []   # 경기 중 중간 스코어(포스트시즌급 야구만) — 간격 규칙과 무관
     for b in boards:   # 같은 날 판은 every 분 간격으로만, 최종 판(모두 종료)은 꼭
         key, fin = f"{b['sport']}:{b['date']}", all(not r["pending"] for r in b["rows"])
         last = seen.get(key, {}).get("last", 0)
@@ -371,7 +437,7 @@ def run_once():
         rel = f"sports/alerts/{gdate:%Y-%m}/{gdate}_{sport.replace('.', '-')}_{kst():%H%M}.jpg"
         os.makedirs(os.path.dirname(os.path.join(ROOT, rel)), exist_ok=True)
         spec = os.path.join(ROOT, "sports/alerts/.games.json")
-        json.dump({**SPORT[sport], "story": True, "date": str(bd.get("kst_date") or gdate), "dawn": bool(bd.get("dawn")), "title": bd["title"], "games": bd["rows"][:10]},
+        json.dump({**SPORT[sport], **(LIVE_STYLE if bd.get("live") else {}), "story": True, "date": str(bd.get("kst_date") or gdate), "dawn": bool(bd.get("dawn")), "title": bd["title"], "games": bd["rows"][:10]},
                   open(spec, "w", encoding="utf-8"), ensure_ascii=False)
         subprocess.run(["node", os.path.join(ROOT, "tools/score_card.js"), spec, os.path.join(ROOT, rel)], check=True)
         os.remove(spec)
@@ -393,7 +459,7 @@ def run_once():
         db = load_posted()
         for gid in bd["new"]:
             db["posted"][gid].update(status=status, result=pid)
-        if status == "published":
+        if status == "published" and not bd.get("live"):
             db.setdefault("boards", {})[f"{sport}:{gdate}"] = {"last": time.time(), "final": bd.get("final", False)}
         json.dump(db, open(POSTED, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         push(f"결과 알림 {sport} {status} [skip ci]", [POSTED])

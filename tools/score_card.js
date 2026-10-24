@@ -13,7 +13,7 @@ const WD = "일월화수목금토", d = new Date(g.date + "T00:00:00Z"), md = `$
 const one = g.games.length === 1, N = g.games.length, tight = N > 5, longT = (g.title || "").length > 20;   // 긴 제목은 두 줄 — 글자를 줄이고 목록을 내린다   // 6경기 넘으면 촘촘하게(스토리 하루 일정 8경기까지)
 const row = x => {
   const aw = !x.pending && (x.win ? x.win === "a" : +x.as > +x.hs), hw = !x.pending && (x.win ? x.win === "h" : +x.hs > +x.as);   // UFC 처럼 점수 대신 '승·패'면 win 값으로   // 남은 경기는 '- : -' 로 흐리게
-  return `<div class="g${one ? " one" : ""}${x.pending ? " p" : ""}">
+  return `<div class="g${one ? " one" : ""}${x.pending && !x.live ? " p" : ""}">
   <div class="t ${aw ? "w" : hw ? "l" : ""}"><span class="n">${esc(x.away)}</span><span class="s">${esc(x.as)}</span></div>
   <div class="vs">:</div>
   <div class="t r ${hw ? "w" : aw ? "l" : ""}"><span class="s">${esc(x.hs)}</span><span class="n">${esc(x.home)}</span></div>
