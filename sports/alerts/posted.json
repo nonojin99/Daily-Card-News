@@ -137,13 +137,15 @@
   },
   "eng.1:401878768": {
    "image": "sports/alerts/2026-10/2026-10-24_eng-1_0058.jpg",
-   "status": "pending",
-   "at_kst": "2026-10-25 00:58"
+   "status": "published",
+   "at_kst": "2026-10-25 00:58",
+   "result": "18043621367828032"
   },
   "eng.1:401879255": {
    "image": "sports/alerts/2026-10/2026-10-24_eng-1_0058.jpg",
-   "status": "pending",
-   "at_kst": "2026-10-25 00:58"
+   "status": "published",
+   "at_kst": "2026-10-25 00:58",
+   "result": "18043621367828032"
   }
  },
  "boards": {
@@ -172,7 +174,7 @@
    "final": true
   },
   "eng.1:2026-10-24": {
-   "last": 1792848335.2441518,
+   "last": 1792857611.8807507,
    "final": false
   },
   "esp.1:2026-10-24": {
