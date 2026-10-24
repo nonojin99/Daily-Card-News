@@ -1,0 +1,14 @@
+{
+ "requests": [
+  {
+   "kind": "reel",
+   "media": "reels/2026-10/2026-10-24_football.mp4",
+   "caption": "captions/2026-10-24_football_reel.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "ab": "short"
+  }
+ ],
+ "note": "10/24 토 ⚽ 주말 프리뷰 짧은판 릴스(13초, 표지 빼고 카드 1~3번) — 저녁 게시"
+}
