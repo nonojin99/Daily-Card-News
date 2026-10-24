@@ -26,13 +26,13 @@ main{max-width:1400px;margin:0 auto;padding:0 16px 24px;display:grid;grid-templa
 .stage{position:relative;width:100%;aspect-ratio:1376/768;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line)}
 .stage>img.bg{position:absolute;inset:0;width:100%;height:100%;display:block}
 .who{position:absolute;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;cursor:pointer;transition:left .9s ease,top .9s ease;z-index:2}
-.who img{height:calc(var(--sw)*0.085);display:block;filter:drop-shadow(0 2px 2px rgba(0,0,0,.12))}
-.who.rest img{height:calc(var(--sw)*0.07)}
+.who img{height:calc(var(--sw)*0.07);display:block}
+.who.seated img{height:calc(var(--sw)*0.056)}
 .who.work img{animation:bob 1.2s ease-in-out infinite}
 .who.cheer img{animation:hop .7s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-2px)}}
 @keyframes hop{50%{transform:translateY(-6px)}}
-.tag{font-size:calc(var(--sw)*0.0085 + 3px);font-weight:900;color:#fff;border-radius:99px;padding:1px 8px;white-space:nowrap;margin-top:-4px;box-shadow:0 1px 0 rgba(0,0,0,.15)}
+.tag{font-size:calc(var(--sw)*0.0075 + 3px);font-weight:900;color:#fff;border-radius:99px;padding:0 7px;white-space:nowrap;margin-bottom:1px;box-shadow:0 1px 0 rgba(0,0,0,.15);opacity:.92}
 .bubble{position:absolute;bottom:calc(100% + 2px);left:50%;transform:translateX(-30%);background:#fff;border:2px solid var(--ink);border-radius:12px;
   padding:3px 9px;font-size:calc(var(--sw)*0.0085 + 3px);font-weight:700;white-space:nowrap;max-width:none}
 .bubble:after{content:"";position:absolute;left:24%;bottom:-8px;border:6px solid transparent;border-top-color:var(--ink)}
@@ -78,19 +78,23 @@ main{max-width:1400px;margin:0 auto;padding:0 16px 24px;display:grid;grid-templa
 <script>
 const REPO = "nonojin99/Daily-Card-News";
 // 부서: 자리(그림 위 %, 사무원 발 위치) · 색 · 이름
+// 자리: 그림(1376×768) 위 발 위치 px · 일할 때 자세(sprites/<자세>.png). 앉은 자세는 그림 속 의자 위치에 맞췄다.
 const DEPTS = {
-  research:{name:"취재팀",   color:"#2f6d9e", at:[16.5,55]},
-  edit:    {name:"편집팀",   color:"#3d5a4c", at:[32,62]},
-  plus:    {name:"서브플러스",color:"#8a6d1f", at:[29,39]},
-  review:  {name:"검수팀",   color:"#b5523b", at:[43,52]},
-  voice:   {name:"녹음실",   color:"#6b3f8a", at:[41.5,33]},
-  art:     {name:"화실",     color:"#c06a24", at:[52.5,29]},
-  print:   {name:"인쇄실",   color:"#5f6b73", at:[63.5,33]},
-  reel:    {name:"릴스 편집", color:"#2a8a83", at:[69,46]},
-  pr:      {name:"홍보팀",   color:"#c2457a", at:[58.5,60]},
-  sports:  {name:"스포츠국", color:"#1f5f8b", at:[86,52]}
+  research:{name:"취재팀",    color:"#2f6d9e", at:[118,452], pose:"read"},
+  edit:    {name:"편집팀",    color:"#3d5a4c", at:[300,512], pose:"type_back"},
+  plus:    {name:"서브플러스", color:"#8a6d1f", at:[462,352], pose:"type_back"},
+  review:  {name:"검수팀",    color:"#b5523b", at:[680,432], pose:"read"},
+  voice:   {name:"녹음실",    color:"#6b3f8a", at:[548,258], pose:"type_front"},
+  art:     {name:"화실",      color:"#c06a24", at:[700,262], pose:"laptop"},
+  print:   {name:"인쇄실",    color:"#5f6b73", at:[842,300], pose:"carry"},
+  reel:    {name:"릴스 편집",  color:"#2a8a83", at:[952,378], pose:"type_back"},
+  pr:      {name:"홍보팀",    color:"#c2457a", at:[790,488], pose:"phone"},
+  sports:  {name:"스포츠국",  color:"#1f5f8b", at:[1150,462], pose:"phone"}
 };
-const LOUNGE = [[52,79],[60,88],[45,87],[66,80],[73,71],[58,71],[38,83],[69,90],[52,93],[78,64]];
+const SEATED = new Set(["type_back","type_front","sit_coffee","sit_read","sit_sad"]);
+// 쉬는 자리: 소파(앉아서 커피) 먼저, 모자라면 커피 바 근처에 서서
+const SOFA = [[739,597],[791,584],[826,668],[884,650]];
+const STAND = [[961,507],[1005,489],[680,487],[727,510],[1052,532]];
 const RUN_MAP = {"Publish to Instagram":"pr","Publish evening reels":"pr","Instagram insights":"pr","Score alert":"sports","Office art":"art","Pull briefs from Drive":"edit"};
 const STEP_MAP = [[/Make audio \(Google/,"voice","낭독 녹음"],[/card illustrations/,"art","AI 일러스트"],[/card images/,"print","카드 굽기"],[/audio reels/,"reel","릴스 편집"]];
 const RUN_TEXT = {"Publish to Instagram":"인스타 게시","Publish evening reels":"저녁 릴스 게시","Instagram insights":"성과 수집","Score alert":"경기 결과 알림","Office art":"사무실 그림","Pull briefs from Drive":"Drive 발행함 가져오기"};
@@ -175,8 +179,10 @@ async function load(){
 }
 
 // ── 어느 시각의 부서 상태 ──
+const DEBUG = new URLSearchParams(location.search).get("debug");
 function stateAt(t){
   const out = {};
+  if(DEBUG){ for(const d in DEPTS) out[d] = {s:DEBUG, text:DEBUG}; return out }
   for(const d in DEPTS){
     const mine = ACTS.filter(x => x.d === d && x.a <= t);
     const cur = mine.filter(x => (x.b === null || x.b > t)).sort((p, q) => q.a - p.a)[0];
@@ -195,12 +201,15 @@ function draw(t){
   for(const d in DEPTS){
     const D = DEPTS[d], S = st[d];
     let el = people[d];
-    if(!el){ el = document.createElement("div"); el.className = "who"; el.innerHTML = `<div class="bubble"></div><img alt=""><span class="tag" style="background:${D.color}">${D.name}</span>`;
+    if(!el){ el = document.createElement("div"); el.className = "who"; el.innerHTML = `<div class="bubble"></div><span class="tag" style="background:${D.color}">${D.name}</span><img alt="">`;
       el.onclick = () => el.dataset.url && open(el.dataset.url, "_blank"); stage.appendChild(el); people[d] = el; }
-    const at = S.s === "rest" ? LOUNGE[lounge++ % LOUNGE.length] : D.at;
-    el.style.left = at[0] + "%"; el.style.top = at[1] + "%"; el.style.zIndex = Math.round(at[1]);
-    el.className = "who " + S.s;
-    const img = el.querySelector("img"), src = `sprites/${S.s}.png`; if(!img.src.endsWith(src)) img.src = src;
+    let at = D.at, pose = D.pose;
+    if(S.s === "rest"){ const k = lounge++; [at, pose] = k < SOFA.length ? [SOFA[k], "sit_coffee"] : [STAND[(k - SOFA.length) % STAND.length], "coffee"] }
+    else if(S.s === "cheer") pose = "cheer";
+    else if(S.s === "fail") pose = SEATED.has(D.pose) ? "sit_sad" : "fail";
+    el.style.left = (at[0] / 13.76) + "%"; el.style.top = (at[1] / 7.68) + "%"; el.style.zIndex = at[1];
+    el.className = "who " + S.s + (SEATED.has(pose) ? " seated" : "");
+    const img = el.querySelector("img"), src = `sprites/${pose}.png`; if(!img.src.endsWith(src)) img.src = src;
     img.alt = D.name + " " + S.text;
     const b = el.querySelector(".bubble"); b.textContent = S.text; b.className = "bubble" + (S.s === "fail" ? " fail" : "");
     el.dataset.url = S.url || "";
