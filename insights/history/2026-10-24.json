@@ -1,0 +1,347 @@
+{
+ "collected_kst": "2026-10-24 15:05",
+ "api": "https://graph.instagram.com/v23.0",
+ "accounts": [
+  {
+   "account": "main",
+   "checked_at": "2026-10-24T06:05:04.744799Z",
+   "media": [
+    {
+     "id": "18118672805091370",
+     "type": "FEED",
+     "timestamp": "2026-10-23T20:56:44+0000",
+     "permalink": "https://www.instagram.com/p/De2d4y5G6X4/",
+     "first_line": "[이번 주 숫자] 10/19~10/23, 한 주를 숫자 7개로 — 삼성전자 −17.75%, 한은 20명 중 19명 동결, 수출 616억 달러",
+     "metrics": {
+      "views": 13,
+      "reach": 4,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18091245437239093",
+     "type": "REELS",
+     "timestamp": "2026-10-23T01:09:05+0000",
+     "permalink": "https://www.instagram.com/reel/De0V41gCJCG/",
+     "first_line": "[주말 뭐하지] 떡볶이 37곳이 대구로 · 7년 만의 서울마켓페어 · 노들섬 무료 공연",
+     "variant": "narrated",
+     "metrics": {
+      "views": 112,
+      "reach": 105,
+      "likes": 2,
+      "comments": 1,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 2537,
+      "ig_reels_video_view_total_time": 281706
+     }
+    },
+    {
+     "id": "18430655506144337",
+     "type": "FEED",
+     "timestamp": "2026-10-22T20:59:43+0000",
+     "permalink": "https://www.instagram.com/p/Dez5aiIm1JL/",
+     "first_line": "[주말 뭐하지] 이번 주말 갈 만한 곳 — 태풍 참피 25일 최근접 전망, 남부·제주는 출발 전 공지부터 ☔",
+     "metrics": {
+      "views": 13,
+      "reach": 5,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1
+     }
+    },
+    {
+     "id": "18107232784976512",
+     "type": "FEED",
+     "timestamp": "2026-10-22T06:39:32+0000",
+     "permalink": "https://www.instagram.com/p/DeyW-d8FYQf/",
+     "first_line": "[🍜 푸드] 새벽 4시 찹쌀떡 오픈런 · 하루 150개 한정 — 10월 22일 푸드 브리프 7장",
+     "metrics": {
+      "views": 8,
+      "reach": 3,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1
+     }
+    },
+    {
+     "id": "18336531562276090",
+     "type": "FEED",
+     "timestamp": "2026-10-21T09:03:41+0000",
+     "permalink": "https://www.instagram.com/p/DewCq9sFb1t/",
+     "first_line": "[📺 OTT·게임] 〈닥터X〉 시청수 710만, 넷플릭스 비영어 쇼 2주 연속 1위 · 〈모던 워페어 4〉 23일 0시 출시 — 10월 21일 ",
+     "metrics": {
+      "views": 21,
+      "reach": 10,
+      "likes": 3,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 5
+     }
+    },
+    {
+     "id": "18027659936698377",
+     "type": "REELS",
+     "timestamp": "2026-10-19T23:02:32+0000",
+     "permalink": "https://www.instagram.com/reel/DesY-wtjHB_/",
+     "first_line": "[스포츠] 🎧 2분 듣는 스포츠 — KIA 준PO 2연승, 서울 우승 연기, 안세영 47승",
+     "variant": "narrated",
+     "metrics": {
+      "views": 120,
+      "reach": 112,
+      "likes": 3,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 4,
+      "ig_reels_avg_watch_time": 2792,
+      "ig_reels_video_view_total_time": 323957
+     }
+    },
+    {
+     "id": "18021858053931304",
+     "type": "FEED",
+     "timestamp": "2026-10-19T20:58:21+0000",
+     "permalink": "https://www.instagram.com/p/DesK3yKjz0f/",
+     "first_line": "[스포츠] KIA 준PO 2연승, 1회말 안타 6개·5점 · 서울 김천과 2-2 매직넘버 3 · 안세영 통산 47승 최다 — 10월 20일 스포",
+     "metrics": {
+      "views": 13,
+      "reach": 4,
+      "likes": 3,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 3
+     }
+    },
+    {
+     "id": "17952012954319880",
+     "type": "REELS",
+     "timestamp": "2026-10-18T20:58:29+0000",
+     "permalink": "https://www.instagram.com/reel/DepmBmwgWUF/",
+     "first_line": "[AI·테크] 🎧 2분 듣는 AI — 구글 아르곤 출시, 앤트로픽 법안 초안, 중국 수출 제한",
+     "variant": "narrated",
+     "metrics": {
+      "views": 44,
+      "reach": 36,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2710,
+      "ig_reels_video_view_total_time": 135549
+     }
+    },
+    {
+     "id": "18249061108312497",
+     "type": "FEED",
+     "timestamp": "2026-10-18T20:57:31+0000",
+     "permalink": "https://www.instagram.com/p/Depl--EFimY/",
+     "first_line": "[AI·테크] 구글 제미나이 4 아르곤 출시 · 앤트로픽 AI 안전 법안 초안 · 중국 AI 핵심 기술 수출 제한 초안 — 10월 19일 AI ",
+     "metrics": {
+      "views": 11,
+      "reach": 4,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 2
+     }
+    },
+    {
+     "id": "18220969792355115",
+     "type": "REELS",
+     "timestamp": "2026-10-18T01:04:31+0000",
+     "permalink": "https://www.instagram.com/reel/DendXZoFGg3/",
+     "first_line": "[우주·과학] 🎧 3분 듣는 우주 — 외계행성 대기는 동그란 원이 아니었다",
+     "variant": "narrated",
+     "metrics": {
+      "views": 114,
+      "reach": 105,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 2259,
+      "ig_reels_video_view_total_time": 255313
+     }
+    },
+    {
+     "id": "18144714883516769",
+     "type": "FEED",
+     "timestamp": "2026-10-18T00:31:56+0000",
+     "permalink": "https://www.instagram.com/p/DenZulfGjMm/",
+     "first_line": "[우주·과학] 외계행성 대기는 동그란 원이 아니었다 🔭 웹 망원경이 그린 WASP-17b의 '대기 가장자리 지도'",
+     "metrics": {
+      "views": 27,
+      "reach": 6,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 2
+     }
+    },
+    {
+     "id": "18108259193625361",
+     "type": "REELS",
+     "timestamp": "2026-10-17T12:17:38+0000",
+     "permalink": "https://www.instagram.com/reel/DemFnvsDHBo/",
+     "first_line": "🎧 1분 듣는 주말 — 이번 주말 갈 만한 곳 6곳을 귀로 들어 보세요",
+     "variant": "narrated",
+     "metrics": {
+      "views": 121,
+      "reach": 111,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 2261,
+      "ig_reels_video_view_total_time": 266872
+     }
+    },
+    {
+     "id": "17931700833165532",
+     "type": "FEED",
+     "timestamp": "2026-10-17T10:23:29+0000",
+     "permalink": "https://www.instagram.com/p/Del4p_uD2yK/",
+     "first_line": "이번 주말 갈 만한 곳 8곳, 지도·날짜로 한눈에 🗺️",
+     "metrics": {
+      "views": 13,
+      "reach": 5,
+      "likes": 3,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 3
+     }
+    }
+   ],
+   "errors": [],
+   "username": "hannun.brief",
+   "account_type": "MEDIA_CREATOR",
+   "followers": 6,
+   "posts": 13
+  },
+  {
+   "account": "sports",
+   "checked_at": "2026-10-24T06:05:09.343886Z",
+   "media": [
+    {
+     "id": "18097674956377647",
+     "type": "FEED",
+     "timestamp": "2026-10-24T03:33:46+0000",
+     "permalink": "https://www.instagram.com/p/De3LToZjuGV/",
+     "first_line": "[⚽ 축구 모닝] 오늘 밤 10시 30분 코리안리거 3경기 동시 킥오프 · 엘 클라시코 월 새벽 5시 · 서울 오늘 이기면 K리그1 우승 — 주",
+     "metrics": {
+      "views": 3,
+      "reach": 2,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18414301618086819",
+     "type": "FEED",
+     "timestamp": "2026-10-22T23:42:43+0000",
+     "permalink": "https://www.instagram.com/p/De0MEjVD8y_/",
+     "first_line": "[⚽ 축구 모닝] 오현규 선발, 베식타시는 팰리스와 2-2 · 본머스 3-0 밀란 — 10월 23일 유로파리그 3차전 3장",
+     "metrics": {
+      "views": 9,
+      "reach": 4,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1
+     }
+    },
+    {
+     "id": "17991680468860662",
+     "type": "FEED",
+     "timestamp": "2026-10-22T01:33:26+0000",
+     "permalink": "https://www.instagram.com/p/Dexz9yzlVap/",
+     "first_line": "[⚽ 축구 모닝] 김민재 전반 45분, 뮌헨 2-2 아스널 · 케인 챔스 10경기 연속골 · 음바페 73호골 — 10월 22일 챔피언스리그 3차",
+     "metrics": {
+      "views": 18,
+      "reach": 9,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1
+     }
+    },
+    {
+     "id": "18095624270453944",
+     "type": "FEED",
+     "timestamp": "2026-10-22T00:49:32+0000",
+     "permalink": "https://www.instagram.com/p/Dexu640DTSY/",
+     "first_line": "[🏆 이벤트 픽] 안세영 프랑스오픈 32강 25분 만에 2-0(21-6, 21-4) · LPGA BMW 레이디스 오늘 해남 개막 — 10월 22",
+     "metrics": {
+      "views": 10,
+      "reach": 5,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18027914489700523",
+     "type": "FEED",
+     "timestamp": "2026-10-21T21:49:58+0000",
+     "permalink": "https://www.instagram.com/p/DexaVmVAUaY/",
+     "first_line": "[🎮 e스포츠] 롤드컵 스위스 24일 새벽 2시 개막 · LCK 4팀 첫 상대 확정 · T1 단일 팀 최초 4연패 도전 — 10월 21일 롤드컵",
+     "metrics": {
+      "views": 13,
+      "reach": 5,
+      "likes": 3,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 3
+     }
+    },
+    {
+     "id": "18103386920635588",
+     "type": "FEED",
+     "timestamp": "2026-10-21T21:48:54+0000",
+     "permalink": "https://www.instagram.com/p/DexaP2bASWm/",
+     "first_line": "[⚾ 야구 나이트] KIA 구단 첫 준PO 통과, 25일 대구서 삼성과 플레이오프 · 김도영 MVP · 월드시리즈는 첫 우승 다툼 — 10월 2",
+     "metrics": {
+      "views": 8,
+      "reach": 4,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1
+     }
+    }
+   ],
+   "errors": [],
+   "username": "hannun.sports",
+   "account_type": "MEDIA_CREATOR",
+   "followers": 5,
+   "posts": 6
+  }
+ ]
+}
