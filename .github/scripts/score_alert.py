@@ -321,6 +321,22 @@ def live_big(posted):
 PRE_MIN = 120   # 시작 2시간 전부터(선발이 둘 다 나와 있으면) 한 번만
 
 
+def mlb_pitch(pid, season):
+    """선발 투수 시즌 기록 두 줄: ['정규 16승 5패 · ERA 2.67', '포스트시즌 2승 0패 · ERA 1.29'] (MLB 공식 Stats API). 못 받으면 빈 목록."""
+    if not pid:
+        return []
+    out = []
+    for gt, label in (("R", "정규"), ("P", "포스트시즌")):
+        try:
+            sp = get_json(f"https://statsapi.mlb.com/api/v1/people/{pid}/stats?stats=season&group=pitching&season={season}&gameType={gt}")["stats"][0]["splits"]
+        except Exception:  # noqa: BLE001 — 기록이 없거나(첫 등판) 주소가 바뀌면 그 줄만 뺀다
+            continue
+        if sp:
+            s = sp[0]["stat"]
+            out.append(f"{label} {s['wins']}승 {s['losses']}패 · ERA {s['era']}")
+    return out
+
+
 def pre_big(posted):
     """포스트시즌급 야구 경기 전 선발 안내(사용자 요청 2026-10-24) — live_big 과 같은 경기만, 시작 PRE_MIN 분 안에 선발 투수가 둘 다 발표돼 있으면 한 장.
     posted 에 pre:<경기> 로 남긴다. 시작했거나 선발이 아직이면 건너뛴다(시작 전 회차에서 다시 본다)."""
@@ -365,8 +381,9 @@ def pre_big(posted):
                    "Wild Card": "와일드카드"}.get(g.get("seriesDescription") or "", g.get("seriesDescription") or "MLB 포스트시즌")
             start = datetime.datetime.strptime(g["gameDate"][:19], "%Y-%m-%dT%H:%M:%S") + datetime.timedelta(hours=9)
             pit = lambda x: ko((x.get("probablePitcher") or {}).get("fullName", ""))
+            stat = lambda x: mlb_pitch((x.get("probablePitcher") or {}).get("id"), g.get("season") or now.year)
             add("mlb", f"mlb:{g['gamePk']}", start,
-                {"away": ko(a["team"]["name"]), "home": ko(h["team"]["name"]), "as": pit(a), "hs": pit(h),
+                {"away": ko(a["team"]["name"]), "home": ko(h["team"]["name"]), "as": pit(a), "hs": pit(h), "ast": stat(a), "hst": stat(h),
                  "note": f"한국시간 {start:%H:%M} 시작 · {g.get('venue', {}).get('name', '')}".rstrip(" ·")},
                 f"{ser} {g.get('seriesGameNumber', '')}차전 — 오늘의 선발".replace("  ", " "), (start - datetime.timedelta(hours=12)).date())
     return boards
