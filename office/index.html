@@ -120,6 +120,7 @@ async function load(){
   const since = Date.now() - 30*3600e3;
   const [runs, commits] = await Promise.all([gh("/actions/runs?per_page=50"), gh("/commits?per_page=60")]);
   const acts = [], logs = [];
+  let jobBudget = 6;   // 단계 기록(jobs)은 한 번에 최근 6개 실행만 새로 읽는다 — 비로그인 요청 한도(시간당 60회) 보호. 한 번 읽은 건 브라우저에 저장
   for(const run of (runs.workflow_runs || [])){
     const a = Date.parse(run.run_started_at || run.created_at); if(a < since) continue;
     const b = run.status === "completed" ? Date.parse(run.updated_at) : null;
@@ -127,7 +128,7 @@ async function load(){
     if(ok === "skip") continue;
     if(run.name === "Build manifest"){
       let steps = [];
-      try{ steps = await stepsOf(run) }catch(e){ /* 한도 초과 등 — 묶음 하나로 */ }
+      if(jobCache[run.id] || jobBudget-- > 0){ try{ steps = await stepsOf(run) }catch(e){ jobBudget = 0 /* 한도 초과 등 — 묶음 하나로 */ } }
       let any = false;
       for(const s of steps){
         const m = STEP_MAP.find(([re]) => re.test(s.n)); if(!m || s.c === "skipped" || !s.a) continue;
@@ -270,8 +271,10 @@ document.getElementById("play").onclick = e => {
   LAYOUT = await (await fetch("v2/layers/layout.json")).json();
   await levels();
   (async function tick(){
-    try{ await load() }catch(e){ document.getElementById("log").innerHTML = `<li>GitHub 기록을 읽지 못했어요 (${e.message}) — 잠시 뒤 다시 시도합니다</li>` }
+    let err = null;
+    try{ await load() }catch(e){ err = e }
     if(T === null){ slider.value = nowMin(); draw(Date.now()) } else draw(T);
+    if(err && !LOGS.length) document.getElementById("log").innerHTML = `<li>GitHub 기록을 읽지 못했어요 (${err.message}) — 2분 뒤 다시 시도합니다</li>`;
     setTimeout(tick, 120e3);
   })();
 })();
