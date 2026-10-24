@@ -119,7 +119,7 @@ def pick_variant(it, media):
     if not m:
         return ""
     # 같은 코너는 주마다 번갈아(이번 주 짧은판 ↔ 다음 주 낭독판), 한 주 안에서는 코너끼리 엇갈리게 — 같은 코너끼리 주 단위로 비교
-    slot = {"ai": 0, "activity": 1, "science": 2, "sports": 1, "football": 1}.get(m[4], 0)
+    slot = {"ai": 0, "activity": 1, "science": 2, "sports": 1, "football": 1, "music": 1}.get(m[4], 0)
     week = datetime.date(int(m[1]), int(m[2]), int(m[3])).isocalendar()[1]
     return "short" if (week + slot) % 2 == 0 else ""
 
