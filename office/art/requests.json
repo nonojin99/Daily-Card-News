@@ -35,6 +35,50 @@
       "id": "worker-sheet-seated-back",
       "ref": "office/art/out/office-mascot-sheet.jpg",
       "prompt": "Using the exact same cute chibi office worker character from the reference image (same face, brown bob hair, pink cardigan, white blouse, navy skirt, same line style and colors), draw six figures in a neat 3 by 2 grid on a plain pure white background, each SITTING on an invisible chair with NO furniture drawn at all (no desk, no chair, no laptop stand): 1) seated, seen from behind at a three-quarter angle, typing with hands raised forward as if at a keyboard, 2) the same seen from the front-left three-quarter angle, 3) seated sipping coffee from a mug, relaxed, front three-quarter view, 4) seated with legs crossed reading a paper, 5) seated slumped and sad, 6) seated cheering with one fist up. Same size for all figures."
+    },
+    {
+      "id": "shell-room",
+      "ref": "office/art/out/pastel-office-a.jpg",
+      "prompt": "Same pastel isometric illustration style, same camera angle and line style as the first reference image. Draw the SAME office room as the reference but completely EMPTY: keep the light wood floor, the white walls, the large windows with city view on the back-left wall and the mint accent wall on the right, but remove ALL furniture, partitions, glass rooms, plants, props and people. Just an empty room shell."
+    },
+    {
+      "id": "st-desk-empty",
+      "ref": "office/art/out/pastel-office-a.jpg",
+      "prompt": "Same pastel isometric illustration style, same camera angle and line style as the first reference image. A single workstation: a light wood desk with one monitor and keyboard, and a mint office chair tucked at the near side of the desk, the desk facing toward the upper-left like in the reference. Show ONLY this one item, centered, isolated on a plain pure white background, nothing else, no floor tile, no shadow shapes beyond a faint soft contact shadow."
+    },
+    {
+      "id": "st-desk-busy",
+      "ref": [
+        "office/art/out/st-desk-empty.jpg",
+        "office/art/out/worker-sheet-standing.jpg"
+      ],
+      "prompt": "Edit the first image: keep the desk, monitor, keyboard and chair EXACTLY the same (same position, size, colors), and add the cute office worker from the second image sitting on the chair, seen from behind at a three-quarter angle, typing at the keyboard facing the monitor. Plain pure white background, nothing else added."
+    },
+    {
+      "id": "st-sofa-empty",
+      "ref": "office/art/out/pastel-office-a.jpg",
+      "prompt": "Same pastel isometric illustration style, same camera angle and line style as the first reference image. A single mint two-seat sofa with two cushions, oriented like the sofas in the reference. Show ONLY this one item, centered, isolated on a plain pure white background, nothing else, no floor tile, no shadow shapes beyond a faint soft contact shadow."
+    },
+    {
+      "id": "st-sofa-busy",
+      "ref": [
+        "office/art/out/st-sofa-empty.jpg",
+        "office/art/out/worker-sheet-standing.jpg"
+      ],
+      "prompt": "Edit the first image: keep the sofa EXACTLY the same, and add the cute office worker from the second image sitting ON the sofa seat, relaxed, holding a coffee mug, body properly resting on the cushion with her back against the sofa back. Plain pure white background, nothing else added."
+    },
+    {
+      "id": "st-booth-empty",
+      "ref": "office/art/out/pastel-office-a.jpg",
+      "prompt": "Same pastel isometric illustration style, same camera angle and line style as the first reference image. A single small glass recording booth with a white frame, a studio microphone on a stand and a mint chair inside, like the booth in the reference. Show ONLY this one item, centered, isolated on a plain pure white background, nothing else, no floor tile, no shadow shapes beyond a faint soft contact shadow."
+    },
+    {
+      "id": "st-booth-busy",
+      "ref": [
+        "office/art/out/st-booth-empty.jpg",
+        "office/art/out/worker-sheet-standing.jpg"
+      ],
+      "prompt": "Edit the first image: keep the glass booth, microphone and chair EXACTLY the same, and add the cute office worker from the second image INSIDE the booth sitting on the chair and speaking into the microphone, seen through the glass (the glass front panel is in front of her). Plain pure white background, nothing else added."
     }
   ]
 }

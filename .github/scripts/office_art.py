@@ -12,8 +12,10 @@ REQ, OUT = "office/art/requests.json", "office/art/out"
 
 
 def call_ref(prompt, ref):
-    """참고 그림(같은 캐릭터 유지용)과 함께 generateContent 를 부른다."""
-    body = {"contents": [{"parts": [{"inlineData": {"mimeType": "image/jpeg", "data": base64.b64encode(open(ref, "rb").read()).decode()}}, {"text": prompt}]}],
+    """참고 그림(같은 캐릭터·같은 가구 유지용, 하나 또는 여럿)과 함께 generateContent 를 부른다."""
+    refs = ref if isinstance(ref, list) else [ref]
+    parts = [{"inlineData": {"mimeType": "image/jpeg", "data": base64.b64encode(open(r, "rb").read()).decode()}} for r in refs]
+    body = {"contents": [{"parts": parts + [{"text": prompt}]}],
             "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": {"aspectRatio": "16:9"}}}
     req = urllib.request.Request(f"https://generativelanguage.googleapis.com/v1beta/models/{mi.MODEL}:generateContent", data=json.dumps(body).encode(),
                                  headers={"x-goog-api-key": mi.KEY, "Content-Type": "application/json"}, method="POST")
