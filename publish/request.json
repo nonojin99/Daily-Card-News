@@ -6,7 +6,15 @@
    "caption": "captions/2026-10-24_week7.txt",
    "dry_run": "false",
    "is_ai": "false"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-10/2026-10-24_football-brief",
+   "caption": "captions/2026-10-24_football.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports"
   }
  ],
- "note": "10/24 토요일 이번 주 숫자 캐러셀 (릴스는 저녁 publish/evening)"
+ "note": "10/24 토요일 이번 주 숫자 캐러셀 + ⚽ 축구 모닝 주말 프리뷰 캐러셀(@hannun.sports) (릴스는 저녁 publish/evening)"
 }

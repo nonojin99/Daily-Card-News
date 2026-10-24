@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>한눈 브리프 사무실</title>
-<meta property="og:title" content="한눈 브리프 사무실 — AI 사무원들이 카드뉴스를 만드는 중">
+<meta property="og:title" content="한눈 브리프 사무실 — 니트 인형 사원들이 카드뉴스를 만드는 중">
 <meta property="og:description" content="취재·편집·검수·녹음·인쇄·홍보까지, 매일 카드뉴스와 인스타 게시가 진행되는 모습을 실시간으로.">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#2b2b28;--muted:#6b675e;--line:#e7e0d4;--bg:#fbf7f1;--card:#fff}
+:root{--ink:#25272b;--muted:#6b675e;--line:#e5ddd1;--bg:#f4efe8;--card:#fff}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',sans-serif}
-header{max-width:1400px;margin:0 auto;padding:18px 16px 8px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 18px}
+header{max-width:1500px;margin:0 auto;padding:18px 16px 8px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 16px}
 h1{margin:0;font-size:24px;font-weight:900;letter-spacing:-.02em}
 .live{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#c0392b;margin-left:8px;vertical-align:middle}
 .live i{width:8px;height:8px;border-radius:50%;background:#e74c3c;animation:blink 1.4s infinite}
@@ -21,38 +21,35 @@ h1{margin:0;font-size:24px;font-weight:900;letter-spacing:-.02em}
 .stats span{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px 12px}
 .stats b{font-weight:900}
 .clock{margin-left:auto;font-size:13px;color:var(--muted)}
-main{max-width:1400px;margin:0 auto;padding:0 16px 24px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px}
-@media (max-width:980px){main{grid-template-columns:1fr}}
-.stage{position:relative;width:100%;aspect-ratio:1376/768;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.replaybar{max-width:1500px;margin:0 auto;padding:0 16px 10px;display:flex;align-items:center;gap:10px;font-size:13px}
+.replaybar input{flex:1}
+.replaybar button{font:700 13px 'Noto Sans KR';border:1px solid var(--line);background:var(--card);border-radius:99px;padding:5px 14px;cursor:pointer}
+main{max-width:1500px;margin:0 auto;padding:0 16px 24px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px}
+@media (max-width:1000px){main{grid-template-columns:1fr}}
+.scroller{overflow-x:auto;border-radius:18px;border:1px solid var(--line);background:#cdc8c1;-webkit-overflow-scrolling:touch}
+.stage{position:relative;width:100%;min-width:760px;aspect-ratio:16/9}
 .stage>img.bg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.who{position:absolute;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;cursor:pointer;transition:left .9s ease,top .9s ease;z-index:2}
-.who img{height:calc(var(--sw)*0.07);display:block}
-.who.seated img{height:calc(var(--sw)*0.056)}
-.who.work img{animation:bob 1.2s ease-in-out infinite}
-.who.cheer img{animation:hop .7s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(-2px)}}
-@keyframes hop{50%{transform:translateY(-6px)}}
-.tag{font-size:calc(var(--sw)*0.0075 + 3px);font-weight:900;color:#fff;border-radius:99px;padding:0 7px;white-space:nowrap;margin-bottom:1px;box-shadow:0 1px 0 rgba(0,0,0,.15);opacity:.92}
-.bubble{position:absolute;bottom:calc(100% + 2px);left:50%;transform:translateX(-30%);background:#fff;border:2px solid var(--ink);border-radius:12px;
-  padding:3px 9px;font-size:calc(var(--sw)*0.0085 + 3px);font-weight:700;white-space:nowrap;max-width:none}
-.bubble:after{content:"";position:absolute;left:24%;bottom:-8px;border:6px solid transparent;border-top-color:var(--ink)}
-.bubble.fail{border-color:#c0392b;color:#c0392b}.bubble.fail:after{border-top-color:#c0392b}
-.who.rest .bubble{display:none}
+.who{position:absolute;transition:opacity .6s ease}
+.who img{display:block;width:100%;height:100%}
+.tag{position:absolute;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;pointer-events:auto;cursor:pointer;transition:left .6s,top .6s;z-index:500}
+.tag .c{background:rgba(255,255,255,.95);border-radius:9px;padding:2px 8px 3px;box-shadow:0 2px 6px rgba(0,0,0,.12);text-align:center;line-height:1.25;border-top:3px solid var(--c);white-space:nowrap}
+.tag .n{font-weight:900;font-size:clamp(10px,.85vw,14px)}.tag .n i{font-style:normal;font-weight:700;font-size:.78em;color:var(--c);margin-left:4px}
+.tag .s{font-weight:500;font-size:clamp(9px,.68vw,11px);color:var(--muted)}
+.tag.fail .c{border-top-color:#c0392b}.tag.fail .s{color:#c0392b;font-weight:700}
+.tag.work .s{color:var(--ink)}
+.tag.rest{display:none}.tag.rest.peek{display:flex}
+.who{cursor:pointer}
 .side{display:flex;flex-direction:column;gap:12px;min-width:0}
 .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
 .box h2{margin:0 0 8px;font-size:14px;font-weight:900}
+.sched ul,.log{margin:0;padding:0}
 .sched li{list-style:none;display:flex;gap:8px;font-size:13px;padding:3px 0;color:var(--muted)}
-.sched ul{margin:0;padding:0}.sched li.done{color:var(--ink)}.sched li.done b:after{content:" ✓";color:#2e9e5b}
-.sched li.off{opacity:.45}
-.log{max-height:430px;overflow:auto;margin:0;padding:0}
+.sched li.done{color:var(--ink)}.sched li.done b:after{content:" ✓";color:#2e9e5b}.sched li.off{opacity:.45}
+.log{max-height:420px;overflow:auto}
 .log li{list-style:none;font-size:12.5px;line-height:1.5;padding:5px 0;border-bottom:1px dashed var(--line);display:grid;grid-template-columns:42px 1fr;gap:6px}
 .log li time{color:var(--muted);font-variant-numeric:tabular-nums}
 .log li a{color:inherit;text-decoration:none}.log li a:hover{text-decoration:underline}
-.log .d{font-weight:900}
-.log .est{color:var(--muted);font-size:11px}
-.replaybar{max-width:1400px;margin:0 auto;padding:0 16px 10px;display:flex;align-items:center;gap:10px;font-size:13px}
-.replaybar input{flex:1}
-.replaybar button{font:700 13px 'Noto Sans KR';border:1px solid var(--line);background:var(--card);border-radius:99px;padding:5px 14px;cursor:pointer}
+.log .d{font-weight:900}.log .est{color:var(--muted);font-size:11px}
 .note{font-size:11.5px;color:var(--muted);line-height:1.6}
 </style>
 </head>
@@ -68,33 +65,29 @@ main{max-width:1400px;margin:0 auto;padding:0 16px 24px;display:grid;grid-templa
   <button id="now">지금</button>
 </div>
 <main>
-  <div class="stage" id="stage"><img class="bg" src="art/out/pastel-office-a.jpg" alt="파스텔 톤 사무실 그림 (AI 생성)"></div>
+  <div class="scroller"><div class="stage" id="stage"><img class="bg" src="v2/bg.jpg" alt="니트 인형 사무실 (블렌더 렌더)"></div></div>
   <aside class="side">
     <div class="box sched"><h2>오늘 일정</h2><ul id="sched"></ul></div>
     <div class="box"><h2>활동 로그</h2><ul class="log" id="log"></ul></div>
-    <p class="note">GitHub 저장소의 커밋과 Actions 기록으로 움직입니다. 루틴 세션(취재·편집·검수)은 발행 커밋 시각에서 거꾸로 잡은 <b>추정 구간</b>입니다. 사무실 그림·사무원은 AI 생성 이미지.<br><a href="../app/">앱으로 가기</a></p>
+    <p class="note">GitHub 저장소의 커밋과 Actions 기록으로 움직입니다. 루틴 세션(취재·편집·검수)은 발행 커밋 시각에서 거꾸로 잡은 <b>추정 구간</b>입니다. 사무실·사원은 블렌더로 만든 3D 렌더.<br><a href="../app/">앱으로 가기</a></p>
   </aside>
 </main>
 <script>
 const REPO = "nonojin99/Daily-Card-News";
-// 부서: 자리(그림 위 %, 사무원 발 위치) · 색 · 이름
-// 자리: 그림(1376×768) 위 발 위치 px · 일할 때 자세(sprites/<자세>.png). 앉은 자세는 그림 속 의자 위치에 맞췄다.
 const DEPTS = {
-  research:{name:"취재팀",    color:"#2f6d9e", at:[118,452], pose:"read"},
-  edit:    {name:"편집팀",    color:"#3d5a4c", at:[300,512], pose:"type_back"},
-  plus:    {name:"서브플러스", color:"#8a6d1f", at:[462,352], pose:"type_back"},
-  review:  {name:"검수팀",    color:"#b5523b", at:[680,432], pose:"read"},
-  voice:   {name:"녹음실",    color:"#6b3f8a", at:[548,258], pose:"type_front"},
-  art:     {name:"화실",      color:"#c06a24", at:[700,262], pose:"laptop"},
-  print:   {name:"인쇄실",    color:"#5f6b73", at:[842,300], pose:"carry"},
-  reel:    {name:"릴스 편집",  color:"#2a8a83", at:[952,378], pose:"type_back"},
-  pr:      {name:"홍보팀",    color:"#c2457a", at:[790,488], pose:"phone"},
-  sports:  {name:"스포츠국",  color:"#1f5f8b", at:[1150,462], pose:"phone"}
+  research:{name:"취재팀", color:"#4f86c9", staff:["마카롱","스콘","크루아상","쿠키"], busy:2},
+  edit:    {name:"편집팀", color:"#3fa37d", staff:["티라미수","에클레어"]},
+  plus:    {name:"편집팀", color:"#3fa37d", staff:["마들렌","휘낭시에"]},
+  review:  {name:"검수팀", color:"#df6f52", staff:["까눌레","판나코타"]},
+  voice:   {name:"녹음실", color:"#7d5fd0", staff:["푸딩"]},
+  art:     {name:"화실",   color:"#eea733", staff:["크레페"]},
+  print:   {name:"인쇄실", color:"#7f8c99", staff:["바움쿠헨"]},
+  reel:    {name:"릴스",   color:"#21958f", staff:["롤케이크"]},
+  pr:      {name:"홍보팀", color:"#e05c95", staff:["젤라또"]},
+  sports:  {name:"스포츠국", color:"#28589a", staff:["츄러스","도넛"]}
 };
-const SEATED = new Set(["type_back","type_front","sit_coffee","sit_read","sit_sad"]);
-// 쉬는 자리: 소파(앉아서 커피) 먼저, 모자라면 커피 바 근처에 서서
-const SOFA = [[739,597],[791,584],[826,668],[884,650]];
-const STAND = [[961,507],[1005,489],[680,487],[727,510],[1052,532]];
+const LV_TYPES = {research:["daily"], edit:["daily"], plus:["money","health","ott","food","culture","activity","travel","ai","science"], review:null, voice:null, art:null, print:null, reel:null, pr:null,
+  sports:["sports","baseball","football","esports","event"]};
 const RUN_MAP = {"Publish to Instagram":"pr","Publish evening reels":"pr","Instagram insights":"pr","Score alert":"sports","Office art":"art","Pull briefs from Drive":"edit"};
 const STEP_MAP = [[/Make audio \(Google/,"voice","낭독 녹음"],[/card illustrations/,"art","AI 일러스트"],[/card images/,"print","카드 굽기"],[/audio reels/,"reel","릴스 편집"]];
 const RUN_TEXT = {"Publish to Instagram":"인스타 게시","Publish evening reels":"저녁 릴스 게시","Instagram insights":"성과 수집","Score alert":"경기 결과 알림","Office art":"사무실 그림","Pull briefs from Drive":"Drive 발행함 가져오기"};
@@ -178,55 +171,86 @@ async function load(){
   window.RUNS = runs.workflow_runs || []; window.COMMITS = commits;
 }
 
+
 // ── 어느 시각의 부서 상태 ──
 const DEBUG = new URLSearchParams(location.search).get("debug");
-function stateAt(t){
+function deptAt(t){
   const out = {};
-  if(DEBUG){ for(const d in DEPTS) out[d] = {s:DEBUG, text:DEBUG}; return out }
   for(const d in DEPTS){
+    if(DEBUG){ out[d] = {s:DEBUG, text:DEBUG}; continue }
     const mine = ACTS.filter(x => x.d === d && x.a <= t);
-    const cur = mine.filter(x => (x.b === null || x.b > t)).sort((p, q) => q.a - p.a)[0];
+    const cur = mine.filter(x => x.b === null || x.b > t).sort((p, q) => q.a - p.a)[0];
     const last = mine.filter(x => x.b !== null && x.b <= t).sort((p, q) => q.b - p.b)[0];
-    if(cur && (x => x.ok === "running" || x.b > t)(cur)) out[d] = {s:"work", text:cur.text + (cur.est ? "" : "…"), url:cur.url};
+    if(cur) out[d] = {s:"work", text:cur.text + "…", url:cur.url};
     else if(last && last.ok === "failure" && t - last.b < 6*3600e3) out[d] = {s:"fail", text:last.text + " 실패", url:last.url};
-    else if(last && t - last.b < 20*M) out[d] = {s:"cheer", text:last.text + " 완료", url:last.url};
-    else out[d] = {s:"rest", text:"휴식", url:last && last.url};
+    else if(last && t - last.b < 20*M) out[d] = {s:"done", text:last.text + " 완료!", url:last.url};
+    else out[d] = {s:"rest", text:"", url:last && last.url};
   }
   return out;
 }
-const stage = document.getElementById("stage"), people = {};
-function draw(t){
-  const st = stateAt(t); let lounge = 0;
-  stage.style.setProperty("--sw", stage.clientWidth + "px");
+// 부서 상태 → 사원 상태 (취재팀은 일할 때 앞의 두 명만 자리, 나머지는 휴식)
+const REST_TEXT = {stool:"커피 타임", stand:"수다 중", sofa:"소파에서 휴식", bean:"게임 중", cheer:"게임 이겼다!"};
+function staffAt(t){
+  const dep = deptAt(t), out = {};
   for(const d in DEPTS){
-    const D = DEPTS[d], S = st[d];
-    let el = people[d];
-    if(!el){ el = document.createElement("div"); el.className = "who"; el.innerHTML = `<div class="bubble"></div><span class="tag" style="background:${D.color}">${D.name}</span><img alt="">`;
-      el.onclick = () => el.dataset.url && open(el.dataset.url, "_blank"); stage.appendChild(el); people[d] = el; }
-    let at = D.at, pose = D.pose;
-    if(S.s === "rest"){ const k = lounge++; [at, pose] = k < SOFA.length ? [SOFA[k], "sit_coffee"] : [STAND[(k - SOFA.length) % STAND.length], "coffee"] }
-    else if(S.s === "cheer") pose = "cheer";
-    else if(S.s === "fail") pose = SEATED.has(D.pose) ? "sit_sad" : "fail";
-    el.style.left = (at[0] / 13.76) + "%"; el.style.top = (at[1] / 7.68) + "%"; el.style.zIndex = at[1];
-    el.className = "who " + S.s + (SEATED.has(pose) ? " seated" : "");
-    const img = el.querySelector("img"), src = `sprites/${pose}.png`; if(!img.src.endsWith(src)) img.src = src;
-    img.alt = D.name + " " + S.text;
-    const b = el.querySelector(".bubble"); b.textContent = S.text; b.className = "bubble" + (S.s === "fail" ? " fail" : "");
-    el.dataset.url = S.url || "";
+    const S = dep[d], n = DEPTS[d].busy || DEPTS[d].staff.length;
+    DEPTS[d].staff.forEach((nm, k) => out[nm] = {d, s: S.s === "rest" || k >= n ? "rest" : S.s, text:S.text, url:S.url});
+  }
+  return out;
+}
+
+// ── 그리기 ──
+let LAYOUT = {}, LV = {};
+const stage = document.getElementById("stage"), els = {};
+function draw(t){
+  const st = staffAt(t);
+  for(const nm in st){
+    const L = LAYOUT[nm]; if(!L) continue;
+    const S = st[nm], D = DEPTS[S.d], ly = L[S.s] || L.rest;
+    let e = els[nm];
+    if(!e){
+      e = {img:document.createElement("div"), tag:document.createElement("div")};
+      e.img.className = "who"; e.img.innerHTML = "<img alt=''>";
+      e.tag.className = "tag"; e.tag.style.setProperty("--c", D.color);
+      e.tag.onclick = () => e.url && open(e.url, "_blank");
+      e.img.onclick = () => { e.tag.classList.add("peek"); clearTimeout(e.pt); e.pt = setTimeout(() => e.tag.classList.remove("peek"), 4000) };   // 쉬는 사원은 눌러야 이름표가 보인다
+      stage.appendChild(e.img); stage.appendChild(e.tag); els[nm] = e;
+    }
+    if(e.cur !== S.s){
+      e.cur = S.s; const im = e.img.querySelector("img");
+      e.img.style.opacity = 0;
+      setTimeout(() => { im.src = "v2/layers/" + ly.file; Object.assign(e.img.style, {left:ly.x/19.2 + "%", top:ly.y/10.8 + "%", width:ly.w/19.2 + "%", height:ly.h/10.8 + "%", zIndex:ly.y + ly.h}); e.img.style.opacity = 1 }, e.ready ? 300 : 0);
+      e.ready = true;
+    }
+    e.url = S.url;
+    e.tag.className = "tag " + S.s + (e.tag.classList.contains("peek") ? " peek" : ""); e.tag.style.left = ly.label[0] + "%"; e.tag.style.top = (ly.label[1] - 0.6) + "%";
+    const status = S.s === "rest" ? (REST_TEXT[ly.pose] || "휴식") : S.text;
+    e.tag.innerHTML = `<div class="c"><div class="n">${nm}<i>${D.name}</i></div><div class="s">Lv.${LV[S.d] || 1} · ${status}</div></div>`;
   }
   const n = s => Object.values(st).filter(x => x.s === s).length;
-  document.getElementById("stats").innerHTML = `<span>일하는 중 <b>${n("work")}</b></span><span>방금 끝냄 <b>${n("cheer")}</b></span><span>실패 <b style="color:#c0392b">${n("fail")}</b></span><span>쉬는 중 <b>${n("rest")}</b></span>`;
+  const area = {coffee:0, lounge:0, game:0};
+  for(const nm in st) if(st[nm].s === "rest" && LAYOUT[nm]){ const i = LAYOUT[nm].i; area[i < 6 ? "coffee" : i < 11 ? "lounge" : "game"]++ }
+  document.getElementById("stats").innerHTML = `<span>일하는 중 <b>${n("work")}</b></span><span>방금 끝냄 <b>${n("done")}</b></span><span>실패 <b style="color:#c0392b">${n("fail")}</b></span><span>쉬는 중 <b>${n("rest")}</b> <small>☕${area.coffee} 🛋${area.lounge} 🎮${area.game}</small></span>`;
   const today = dayStart(t);
   document.getElementById("sched").innerHTML = SCHED.map(([tm, name, rule]) => {
     const due = Date.parse(kstDay(t) + "T" + tm + ":00+09:00");
     let done = false;
     if(typeof rule === "string"){ const nm = rule.slice(4); done = (window.RUNS || []).some(r => r.name === nm && r.conclusion === "success" && Date.parse(r.created_at) >= today && Date.parse(r.updated_at) <= t) }
-    else done = (window.COMMITS || []).some(c => !/\[bot\]/.test(c.commit.author.name) && rule.test(c.commit.message.split("\n")[0]) && Date.parse(c.commit.author.date) >= today - 3*3600e3 && Date.parse(c.commit.author.date) <= t && kstDay(Date.parse(c.commit.author.date)) === kstDay(t));
+    else done = (window.COMMITS || []).some(c => !/\[bot\]/.test(c.commit.author.name) && rule.test(c.commit.message.split("\n")[0]) && kstDay(Date.parse(c.commit.author.date)) === kstDay(t) && Date.parse(c.commit.author.date) <= t);
     return `<li class="${done ? "done" : t > due + 3*3600e3 ? "off" : ""}"><b>${tm}</b>${name}</li>`;
   }).join("");
   document.getElementById("log").innerHTML = LOGS.filter(x => x.t <= t).slice(0, 60).map(x =>
     `<li><time>${hhmm(x.t)}</time><a href="${x.url || "#"}" target="_blank" rel="noopener">${x.d ? `<span class="d" style="color:${DEPTS[x.d].color}">${DEPTS[x.d].name}</span> ` : ""}${x.text}${x.est ? ' <span class="est">추정</span>' : ""}</a></li>`).join("") || "<li>기록 없음</li>";
   document.getElementById("clock").textContent = (T === null ? "지금 " : "다시보기 ") + kstDay(t) + " " + hhmm(t) + " KST";
+}
+
+// ── Lv: 지금까지 발행한 브리프 수(manifest)로 ──
+async function levels(){
+  try{
+    const m = await (await fetch("../manifest.json", {cache:"no-cache"})).json();
+    const cnt = ty => m.files.filter(f => !ty || ty.includes(f.type)).length;
+    for(const d in LV_TYPES) LV[d] = Math.max(1, Math.floor(cnt(LV_TYPES[d]) / 5));
+  }catch(e){}
 }
 
 // ── 지금 / 다시보기 ──
@@ -240,13 +264,16 @@ document.getElementById("play").onclick = e => {
   if(timer){ clearInterval(timer); timer = null; e.target.textContent = "▶ 이어 보기"; return }
   if(T === null || slider.value >= nowMin()) slider.value = 300;
   e.target.textContent = "⏸ 멈춤";
-  timer = setInterval(() => { slider.value = +slider.value + 3; if(+slider.value >= nowMin()){ setLive(); return } slider.oninput() }, 120);
+  timer = setInterval(() => { slider.value = +slider.value + 3; if(+slider.value >= nowMin()){ setLive(); return } slider.oninput() }, 160);
 };
-addEventListener("resize", () => draw(T === null ? Date.now() : T));
-(async function tick(){
-  try{ await load() }catch(e){ document.getElementById("log").innerHTML = `<li>GitHub 기록을 읽지 못했어요 (${e.message}) — 잠시 뒤 다시 시도합니다</li>` }
-  if(T === null){ slider.max = 1440; slider.value = nowMin(); draw(Date.now()) } else draw(T);
-  setTimeout(tick, 120e3);
+(async function start(){
+  LAYOUT = await (await fetch("v2/layers/layout.json")).json();
+  await levels();
+  (async function tick(){
+    try{ await load() }catch(e){ document.getElementById("log").innerHTML = `<li>GitHub 기록을 읽지 못했어요 (${e.message}) — 잠시 뒤 다시 시도합니다</li>` }
+    if(T === null){ slider.value = nowMin(); draw(Date.now()) } else draw(T);
+    setTimeout(tick, 120e3);
+  })();
 })();
 </script>
 </body>
