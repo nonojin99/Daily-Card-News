@@ -317,9 +317,9 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
         const m = n.match(BRIEF); if (!m) continue;
         const d = `${m[1]}-${m[2]}-${m[3]}`; if (d < cutoff || !REEL_OF(m[4], wdOf(d))) continue;
         const mp3 = `audio/${m[1]}-${m[2]}/${d}_${m[4]}.mp3`, spec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}.reel.json`;
-        // 짧은판(A/B) — 음악 브리프는 자기 배경음이 있어 낭독판만
+        // 짧은판(A/B) — 음악 브리프도 만든다(2026-10-24 사용자 결정, 배경음은 짧은판 공통 곡)
         const sspec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}_short.reel.json`;
-        if (m[4] !== "music" && !(fs.existsSync(path.join(ROOT, sspec)) && JSON.parse(read(sspec)).fp === shortFp(n))) {
+        if (!(fs.existsSync(path.join(ROOT, sspec)) && JSON.parse(read(sspec)).fp === shortFp(n))) {
           try { const r = await shortOne(n, b, base); if (!r.skip) made.push(...r.files); }
           catch (e) { console.log(`::warning::short reel failed for ${n}: ${e.message}`); }
         }

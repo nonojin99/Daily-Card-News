@@ -633,7 +633,7 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
     결과는 `reels/YYYY-MM/<날짜>_<종류>.mp4` + `.reel.json`(구간·뺀 문단·지문). 1080×1920 MP4.
     **첫 장면 = 훅 카드(2026-10-19~)**: 첫 문단 동안 작은 표지 대신 브리프 액센트 색 전면에 첫 카드의 `cn-t`(큰 글씨)와 `cn-num`(제목에 없는 값일 때 아주 크게)을 띄운다(`tools/make_reel.js` `hookOf`). 날씨 문단 등 뒤쪽 표지 구간은 그대로.
     **짧은판 A/B (2026-10-23~)**: `make_reel.js --recent` 가 낭독판과 함께 **짧은판** `reels/…/<날짜>_<종류>_short.mp4` 도 만든다 — 카드 앞 3장 × 4초 + 출처·공유 장, 낭독 없이 배경음악
-    (Kevin MacLeod "Upbeat Forever", incompetech.com · CC BY 3.0 — Commons 파일 페이지 기준, 저장소에 앞 30초 `audio/cc/`). 음악 브리프는 낭독판만.
+    (Kevin MacLeod "Upbeat Forever", incompetech.com · CC BY 3.0 — Commons 파일 페이지 기준, 저장소에 앞 30초 `audio/cc/`). 음악 브리프도 짧은판을 만든다(2026-10-24~ 사용자 결정 — 10/24 짧은판 고정, 그 뒤 `ab:auto` 로 주마다 번갈아).
     릴스 요청 항목에 **`"ab":"auto"`** 를 넣으면 게시 스크립트가 고른다: 같은 코너는 주마다 번갈아(예: 10/26 AI 짧은판 → 11/2 AI 낭독판), 한 주 안에서는 코너끼리 엇갈림.
     짧은판일 때 캡션의 '🎧 …' 줄은 '⚡ 핵심 N장, N초 요약'으로, '🎙 낭독' 줄은 음악 크레디트로 자동으로 바뀐다(캡션 파일은 낭독판 하나만 쓰면 된다).
     결과 비교는 `insights/summary.md` 의 '형식' 열(⚡짧은판·🎧낭독)과 평균 시청.
