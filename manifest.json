@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-24T04:52:56Z",
-  "count": 268,
+  "generated": "2026-10-24T14:43:24Z",
+  "count": 269,
   "files": [
     {
       "date": "2026-10-24",
@@ -10,6 +10,15 @@
       "day": "24",
       "type": "daily",
       "path": "2026-10-24_daily-brief.html"
+    },
+    {
+      "date": "2026-10-24",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "24",
+      "type": "baseball",
+      "path": "2026-10-24_baseball-brief.html"
     },
     {
       "date": "2026-10-24",
