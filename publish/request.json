@@ -2,12 +2,11 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-10/2026-10-24_baseball-brief",
-   "caption": "captions/2026-10-24_baseball.txt",
+   "media": "cards/2026-10/2026-10-25_science-brief",
+   "caption": "captions/2026-10-25_science.txt",
    "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports"
+   "is_ai": "false"
   }
  ],
- "note": "10/24 야구 나이트(월드시리즈 1차전 결과 + PO 엔트리 프리뷰) 캐러셀 (@hannun.sports)"
+ "note": "10/25 일요일 우주·과학 캐러셀 자동 등록 (릴스는 저녁 publish/evening/2026-10-25_science.json)"
 }

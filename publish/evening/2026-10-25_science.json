@@ -1,0 +1,13 @@
+{
+ "requests": [
+  {
+   "kind": "reel",
+   "media": "reels/2026-10/2026-10-25_science.mp4",
+   "caption": "captions/2026-10-25_science_reel.txt",
+   "dry_run": "false",
+   "is_ai": "true",
+   "ab": "auto"
+  }
+ ],
+ "note": "10/25 일요일 우주·과학 오디오 릴스 — 저녁 게시"
+}
