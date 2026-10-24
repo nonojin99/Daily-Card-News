@@ -20,6 +20,76 @@
    "at_kst": "2026-10-24 05:10",
    "score": "MKOI 1:0 BLG",
    "result": "18351190345269502"
+  },
+  "lol:115660540726095009": {
+   "image": "sports/alerts/2026-10/2026-10-24_lol_0637.jpg",
+   "status": "published",
+   "at_kst": "2026-10-24 06:37",
+   "result": "18105091421343113"
+  },
+  "eng.1:401879253": {
+   "image": "sports/alerts/2026-10/2026-10-23_eng-1_0701.jpg",
+   "status": "published",
+   "at_kst": "2026-10-24 07:01",
+   "result": "18117301867816375"
+  },
+  "esp.1:401882836": {
+   "image": "sports/alerts/2026-10/2026-10-23_esp-1_0703.jpg",
+   "status": "published",
+   "at_kst": "2026-10-24 07:03",
+   "result": "18042848555837457"
+  },
+  "ita.1:401874957": {
+   "image": "sports/alerts/2026-10/2026-10-23_ita-1_0705.jpg",
+   "status": "published",
+   "at_kst": "2026-10-24 07:05",
+   "result": "17912453676519125"
+  },
+  "ger.1:401884761": {
+   "image": "sports/alerts/2026-10/2026-10-23_ger-1_0706.jpg",
+   "status": "published",
+   "at_kst": "2026-10-24 07:06",
+   "result": "18122073808941627"
+  },
+  "lol:115660540726095011": {
+   "image": "sports/alerts/2026-10/2026-10-24_lol_0713.jpg",
+   "status": "published",
+   "at_kst": "2026-10-24 07:13",
+   "result": "18134871925706051"
+  },
+  "lol:115660540726095007": {
+   "image": "sports/alerts/2026-10/2026-10-24_lol_0811.jpg",
+   "status": "published",
+   "at_kst": "2026-10-24 08:11",
+   "result": "18358121692217698"
+  },
+  "lol:115660540726095015": {
+   "image": "sports/alerts/2026-10/2026-10-24_lol_0903.jpg",
+   "status": "published",
+   "at_kst": "2026-10-24 09:03",
+   "result": "17881058178548253"
+  }
+ },
+ "boards": {
+  "eng.1:2026-10-23": {
+   "last": 1792793022.3950055,
+   "final": true
+  },
+  "esp.1:2026-10-23": {
+   "last": 1792793137.6933644,
+   "final": true
+  },
+  "ita.1:2026-10-23": {
+   "last": 1792793214.1240458,
+   "final": true
+  },
+  "ger.1:2026-10-23": {
+   "last": 1792793309.510017,
+   "final": true
+  },
+  "lol:2026-10-24": {
+   "last": 1792800255.7465825,
+   "final": false
   }
  }
 }

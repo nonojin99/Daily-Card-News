@@ -1,0 +1,63 @@
+{
+ "_설명": "결과 알림 스토리로 지켜볼 종목. on=true 만 확인한다. every=같은 날 결과판을 다시 올리는 최소 간격(분, 0이면 경기가 끝날 때마다). 그날 경기가 모두 끝난 '최종 판'은 간격과 상관없이 올린다. 2026-10-24 사용자 요청.",
+ "kbo": {
+  "on": true,
+  "every": 0,
+  "label": "KBO"
+ },
+ "lol": {
+  "on": true,
+  "every": 0,
+  "label": "LoL"
+ },
+ "mlb": {
+  "on": true,
+  "every": 0,
+  "label": "MLB"
+ },
+ "eng.1": {
+  "on": true,
+  "every": 60,
+  "label": "EPL"
+ },
+ "esp.1": {
+  "on": true,
+  "every": 60,
+  "label": "라리가"
+ },
+ "ita.1": {
+  "on": true,
+  "every": 60,
+  "label": "세리에 A"
+ },
+ "ger.1": {
+  "on": true,
+  "every": 60,
+  "label": "분데스리가"
+ },
+ "uefa.champions": {
+  "on": true,
+  "every": 60,
+  "label": "챔피언스리그"
+ },
+ "uefa.europa": {
+  "on": true,
+  "every": 60,
+  "label": "유로파리그"
+ },
+ "nba": {
+  "on": false,
+  "every": 60,
+  "label": "NBA"
+ },
+ "nfl": {
+  "on": false,
+  "every": 60,
+  "label": "NFL"
+ },
+ "ufc": {
+  "on": true,
+  "every": 60,
+  "label": "UFC"
+ }
+}

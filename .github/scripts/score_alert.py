@@ -3,11 +3,16 @@
 피드(그리드)는 야구 나이트·축구 모닝 같은 시리즈만 두고, 실시간 결과는 24시간 뒤 사라지는 스토리로(사용자 결정 2026-10-24).
 
   python3 score_alert.py --check   새로 끝난 경기가 있으면 GITHUB_OUTPUT 에 has_new=1 (브라우저 설치를 아끼려고 먼저 확인만)
+  python3 score_alert.py --watch 355   355분 동안 5분마다 확인·게시(2026-10-24~ — GitHub 15분 예약 실행이 자주 건너뛰어져, 경기 시간대에 한 번 띄워 길게 지켜본다)
   python3 score_alert.py           종목마다 카드 1장(최대 5경기 묶음, tools/score_card.js) → 커밋·push → 공개 주소 확인 → 스토리 게시 → 기록
 
-데이터
+데이터(어떤 종목을 볼지는 sports/alerts/sources.json, 한국어 팀 이름은 sports/alerts/names_ko.json)
 - ⚾ KBO: koreabaseball.com 스코어보드 JSON(GetKboGameList). GAME_STATE_SC "3" + 정상경기 = 종료. 오늘(KST), 새벽 3시 전이면 어제도.
 - 🎮 LoL: lolesports.com 일정 API(getSchedule — 사이트가 쓰는 공개 키). 롤드컵·MSI·퍼스트 스탠드·LCK, state "completed" 이고 시작 18시간 안.
+- ⚾ MLB: MLB 공식 Stats API(statsapi.mlb.com/api/v1/schedule). abstractGameState "Final".
+- ⚽🏀🏈 그 밖: ESPN 공개 스코어보드(site.api.espn.com) — EPL·라리가·세리에 A·분데스리가·챔피언스리그·유로파리그, NBA·NFL(기본 꺼짐).
+  공식 문서가 없는 공개 주소라 바뀌면 그 종목만 경고를 남기고 건너뛴다.
+- 같은 날 결과판은 sources.json 의 every(분) 간격으로만 다시 올리고, 그날 경기가 모두 끝난 최종 판은 꼭 올린다(스토리가 쏟아지지 않게).
 - 올린 경기는 sports/alerts/posted.json 에 남겨 중복 게시를 막는다. 해설은 밤 야구 나이트·e스포츠 루틴 몫.
 - 끄기: 저장소 변수 SCORE_ALERT=off · 카드만 만들고 게시 안 함: dry
 """
@@ -23,8 +28,20 @@ LOL_KEY = "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"   # lolesports.com 이 브�
 LOL_LEAGUES = {"98767975604431411": "롤드컵", "98767991325878492": "MSI", "113464388705111224": "퍼스트 스탠드", "98767991310872058": "LCK"}
 LCK_KO = {"GEN": "젠지", "HLE": "한화생명", "DK": "디플러스 기아", "KT": "KT", "T1": "T1", "NS": "농심", "BFX": "BNK 피어엑스",
           "DRX": "DRX", "BRO": "OK저축은행 브리온", "DNF": "DN 프릭스", "KDF": "광동"}
+FRESH_H = 6   # 시작한 지 6시간이 지난 경기는 새로 올리지 않는다(2026-10-24 사용자: '너무 예전 것' — 이어 달리기로 5분마다 보니 짧아도 놓치지 않는다)
+SOURCES = json.load(open(os.path.join(ROOT, "sports/alerts/sources.json"), encoding="utf-8"))
+NAMES = json.load(open(os.path.join(ROOT, "sports/alerts/names_ko.json"), encoding="utf-8"))
+ESPN = {"eng.1": "soccer", "esp.1": "soccer", "ita.1": "soccer", "ger.1": "soccer", "uefa.champions": "soccer", "uefa.europa": "soccer",
+        "nba": "basketball", "nfl": "football"}
+KICK = {"soccer": ("⚽ 경기 종료", "#2f6b45", "⚽ 축구 모닝"), "basketball": ("🏀 경기 종료", "#9a5b14", "다음 날 브리프"), "football": ("🏈 경기 종료", "#9a5b14", "다음 날 브리프")}
 SPORT = {"kbo": {"kicker": "⚾ 경기 종료", "accent": "#1f5f8b", "src": "기록: KBO 공식 기록 · 해설은 오늘 밤 ⚾ 야구 나이트", "foot": "야구 결과"},
-         "lol": {"kicker": "🎮 경기 종료", "accent": "#4a4fa0", "src": "기록: LoL Esports 공식 일정 · 해설은 🎮 e스포츠 브리프", "foot": "e스포츠 결과"}}
+         "lol": {"kicker": "🎮 경기 종료", "accent": "#4a4fa0", "src": "기록: LoL Esports 공식 일정 · 해설은 🎮 e스포츠 브리프", "foot": "e스포츠 결과"},
+         "ufc": {"kicker": "🥊 경기 종료", "accent": "#8a2b2b", "src": "기록: ESPN 스코어보드 · 큰 대회 해설은 🏆 이벤트 픽", "foot": "UFC 결과"},
+         "mlb": {"kicker": "⚾ 경기 종료", "accent": "#1f5f8b", "src": "기록: MLB 공식 Stats API · 해설은 ⚾ 야구 나이트", "foot": "MLB 결과"}}
+for k, kind in ESPN.items():
+    kk, ac, br = KICK[kind]
+    SPORT[k] = {"kicker": kk, "accent": ac, "src": f"기록: ESPN 스코어보드 · 해설은 {br}", "foot": f"{SOURCES.get(k, {}).get('label', k)} 결과"}
+ko = lambda name: NAMES.get(name, name)
 
 
 def kst():
@@ -84,7 +101,7 @@ def lol(posted):
         for e in ev:
             m = e.get("match") or {}
             st = ks(e) - datetime.timedelta(hours=9)
-            if e.get("state") == "completed" and m.get("id") and ("lol:" + m["id"]) not in posted and now - datetime.timedelta(hours=18) <= st <= now:
+            if e.get("state") == "completed" and m.get("id") and ("lol:" + m["id"]) not in posted and now - datetime.timedelta(hours=FRESH_H) <= st <= now:
                 days.add(ks(e).date())
         for d in sorted(days):
             todays = [e for e in ev if ks(e).date() == d and (e.get("match") or {}).get("teams")]
@@ -109,13 +126,151 @@ def lol(posted):
     return boards
 
 
+def board_title(label, rows, single_note=""):
+    """'EPL — 3/7 종료' · 다 끝나면 'EPL 결과'. 한 경기면 '밀워키, 월드시리즈 1차전 승리'."""
+    fin = sum(not r["pending"] for r in rows)
+    if len(rows) == 1 and fin == 1:
+        x = rows[0]
+        if x["as"] == x["hs"]:
+            return f"{label} · {x['away']}·{x['home']} 무승부"
+        w = x["away"] if float(x["as"]) > float(x["hs"]) else x["home"]
+        return f"{w}, {single_note} 승리" if single_note else f"{label} · {w} 승리"
+    return f"{label} — {fin}/{len(rows)} 종료" if fin < len(rows) else f"{label} 결과"
+
+
+def mlb(posted):
+    """MLB 공식 Stats API — KST 날짜별 그날 전 경기 결과판."""
+    now, boards = kst(), []
+    try:
+        d0, d1 = (now - datetime.timedelta(days=1)).date(), now.date()
+        dates = get_json(f"https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate={d0}&endDate={d1}")["dates"]
+    except Exception as e:  # noqa: BLE001
+        print(f"::warning::MLB schedule: {e}"); return []
+    games = [g for dt in dates for g in dt["games"]]
+    ks = lambda g: datetime.datetime.strptime(g["gameDate"][:19], "%Y-%m-%dT%H:%M:%S") + datetime.timedelta(hours=9)
+    # 묶음 날짜 = KST 시각에서 12시간 뺀 날(정오~다음 날 정오가 한 '밤') — 미국·유럽 경기가 현지 경기일 기준으로 한 판에 모인다
+    gd = lambda g: (ks(g) - datetime.timedelta(hours=12)).date()
+    for d in sorted({gd(g) for g in games}):
+        todays = sorted([g for g in games if gd(g) == d], key=lambda g: g["gameDate"])
+        rows, new, series = [], [], ""
+        for g in todays:
+            st = g["status"]["abstractGameState"]
+            done = st == "Final" and g["status"].get("detailedState") not in ("Postponed", "Cancelled")
+            a, h = g["teams"]["away"], g["teams"]["home"]
+            ser = g.get("seriesDescription") or ""
+            if g.get("gameType") not in ("R", "S", "E") and ser:
+                ko_ser = {"World Series": "월드시리즈", "League Championship Series": "챔피언십시리즈", "Division Series": "디비전시리즈",
+                          "Wild Card": "와일드카드"}.get(ser, ser)
+                series = f"{ko_ser} {g.get('seriesGameNumber', '')}차전".strip()
+            state = "" if done else ("진행 중" if st == "Live" else g["status"].get("detailedState") if g["status"].get("detailedState") in ("Postponed", "Cancelled", "Suspended") else f"{ks(g):%H:%M} 시작")
+            rows.append({"away": ko(a["team"]["name"]), "home": ko(h["team"]["name"]), "pending": not done,
+                         "as": str(a.get("score", "-")) if done else "-", "hs": str(h.get("score", "-")) if done else "-",
+                         "note": " · ".join(x for x in (series if g.get("gameType") not in ("R", "S", "E") else "", g.get("venue", {}).get("name", ""), state) if x)})
+            if done and f"mlb:{g['gamePk']}" not in posted and ks(g) >= now - datetime.timedelta(hours=FRESH_H):
+                new.append(f"mlb:{g['gamePk']}")
+        if new:
+            k0 = min(ks(g) for g in todays)
+            boards.append({"sport": "mlb", "date": d, "title": board_title("MLB", rows, series), "rows": rows, "new": new, "kst_date": k0.date(), "dawn": k0.hour < 6})
+    return boards
+
+
+def espn(key, posted):
+    """ESPN 공개 스코어보드 — 리그 하나, KST 날짜별 그날 전 경기 결과판."""
+    kind, label, now, boards = ESPN[key], SOURCES[key]["label"], kst(), []
+    evs = []
+    for d in {(now - datetime.timedelta(days=1)).date(), now.date()}:
+        try:
+            evs += get_json(f"https://site.api.espn.com/apis/site/v2/sports/{kind}/{key}/scoreboard?dates={d:%Y%m%d}").get("events", [])
+        except Exception as e:  # noqa: BLE001
+            print(f"::warning::ESPN {key} {d}: {e}")
+    evs = list({e["id"]: e for e in evs}.values())
+    ks = lambda e: datetime.datetime.strptime(e["date"][:16], "%Y-%m-%dT%H:%M") + datetime.timedelta(hours=9)
+    gd = lambda e: (ks(e) - datetime.timedelta(hours=12)).date()   # 정오~다음 날 정오 = 한 밤(현지 경기일)
+    for d in sorted({gd(e) for e in evs}):
+        rows, new = [], []
+        for e in sorted([e for e in evs if gd(e) == d], key=lambda e: e["date"]):
+            t = e["competitions"][0]["competitors"]
+            a = next((x for x in t if x.get("homeAway") == "away"), t[0]); h = next((x for x in t if x.get("homeAway") == "home"), t[-1])
+            st = e["status"]["type"]
+            done = bool(st.get("completed"))
+            name = st.get("name", "")
+            state = "" if done else ("연기" if "POSTPONED" in name else "취소" if "CANCELED" in name else "진행 중" if st.get("state") == "in" else f"{ks(e):%H:%M} 시작")
+            rows.append({"away": ko(a["team"].get("shortDisplayName") or a["team"].get("displayName")), "home": ko(h["team"].get("shortDisplayName") or h["team"].get("displayName")),
+                         "pending": not done, "as": str(a.get("score", "-")) if done else "-", "hs": str(h.get("score", "-")) if done else "-", "note": state})
+            if done and f"{key}:{e['id']}" not in posted and ks(e) >= now - datetime.timedelta(hours=FRESH_H):
+                new.append(f"{key}:{e['id']}")
+        if new:
+            k0 = min(ks(e) for e in evs if gd(e) == d)   # 판의 첫 경기 KST — 카드에는 묶음 날짜가 아니라 이 날짜(오전이면 '새벽')
+            boards.append({"sport": key, "date": d, "title": board_title(label, rows), "rows": rows, "new": new, "kst_date": k0.date(), "dawn": k0.hour < 12})
+    return boards
+
+
+WEIGHT = {"Strawweight": "스트로급", "Flyweight": "플라이급", "Bantamweight": "밴텀급", "Featherweight": "페더급", "Lightweight": "라이트급",
+          "Welterweight": "웰터급", "Middleweight": "미들급", "Light Heavyweight": "라이트헤비급", "Heavyweight": "헤비급", "Catchweight": "계약 체중"}
+
+
+def ufc(posted):
+    """UFC(ESPN mma/ufc) — 대회 하나 = 결과판 하나, 메인 카드 쪽 마지막 8경기(스토리 한 장에 들어가는 만큼). 결과는 '승'·'패', 끝난 라운드·시간 또는 판정.
+    끝낸 방법(KO·서브미션)은 데이터에 없어 쓰지 않는다."""
+    now, boards, evs = kst(), [], []
+    for d in {(now - datetime.timedelta(days=1)).date(), now.date()}:
+        try:
+            evs += get_json(f"https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates={d:%Y%m%d}").get("events", [])
+        except Exception as e:  # noqa: BLE001
+            print(f"::warning::ESPN ufc {d}: {e}")
+    for e in {e["id"]: e for e in evs}.values():
+        bouts = e.get("competitions") or []
+        rows, new = [], []
+        for c in bouts[-8:]:
+            t = sorted(c.get("competitors") or [], key=lambda x: x.get("order", 0))
+            if len(t) != 2:
+                continue
+            st = (c.get("status") or {}).get("type", {})
+            done = bool(st.get("completed"))
+            wc = ((c.get("type") or {}).get("abbreviation") or "")
+            wk = ("여성 " if wc.startswith("W ") else "") + WEIGHT.get(wc[2:] if wc.startswith("W ") else wc, wc)
+            w = 0 if t[0].get("winner") else 1 if t[1].get("winner") else None
+            per, clk = (c.get("status") or {}).get("period"), (c.get("status") or {}).get("displayClock")
+            how = ("판정" if any(x.get("linescores") for x in t) else f"{per}R {clk}") if done and per else ""
+            ks_ = datetime.datetime.strptime((c.get("date") or e["date"])[:16], "%Y-%m-%dT%H:%M") + datetime.timedelta(hours=9)
+            state = how if done else ("진행 중" if st.get("state") == "in" else f"{ks_:%H:%M} 예정")
+            rows.append({"away": ko(t[0]["athlete"]["displayName"]), "home": ko(t[1]["athlete"]["displayName"]), "pending": not done,
+                         "as": ("승" if w == 0 else "패" if w == 1 else "무") if done else "-", "hs": ("승" if w == 1 else "패" if w == 0 else "무") if done else "-",
+                         "win": ("a" if w == 0 else "h" if w == 1 else "") if done else "", "note": " · ".join(x for x in (wk, state) if x)})
+            if done and f"ufc:{c['id']}" not in posted and ks_ >= now - datetime.timedelta(hours=FRESH_H):
+                new.append(f"ufc:{c['id']}")
+        if new:
+            fin = sum(not r["pending"] for r in rows)
+            name = e.get("shortName") or e.get("name", "UFC")
+            d0 = (datetime.datetime.strptime(e["date"][:16], "%Y-%m-%dT%H:%M") + datetime.timedelta(hours=9)).date()
+            nm = e.get("name", "UFC")   # 'UFC 333: Volkanovski vs. Evloev' — 메인 이벤트 성(姓)은 names_ko 에 있으면 한국어로
+            main = " vs ".join(ko(x.strip().rstrip(".")) for x in nm.split(":", 1)[1].split("vs.")) if ":" in nm and "vs." in nm else ""
+            boards.append({"sport": "ufc", "date": d0, "title": f"{nm.split(':')[0]}{': ' + main if main else ''} — " + (f"{fin}/{len(rows)} 종료" if fin < len(rows) else "결과"),
+                           "rows": rows, "new": new})
+    return boards
+
+
 def load_posted():
     return json.load(open(POSTED, encoding="utf-8")) if os.path.exists(POSTED) else {"posted": {}}
 
 
 def finished_new():
-    posted = load_posted()["posted"]
-    return kbo(posted) + lol(posted)
+    db = load_posted()
+    posted, seen = db["posted"], db.get("boards", {})
+    on = lambda k: SOURCES.get(k, {}).get("on")
+    boards = (kbo(posted) if on("kbo") else []) + (lol(posted) if on("lol") else []) + (mlb(posted) if on("mlb") else []) + (ufc(posted) if on("ufc") else [])
+    for k in ESPN:
+        if on(k):
+            boards += espn(k, posted)
+    out = []
+    for b in boards:   # 같은 날 판은 every 분 간격으로만, 최종 판(모두 종료)은 꼭
+        key, fin = f"{b['sport']}:{b['date']}", all(not r["pending"] for r in b["rows"])
+        last = seen.get(key, {}).get("last", 0)
+        if not fin and time.time() - last < 60 * SOURCES.get(b["sport"], {}).get("every", 0):
+            print(f"{b['sport']} {b['date']}: 간격 안이라 다음 회차에 ({len(b['new'])}경기 대기)"); continue
+        b["final"] = fin
+        out.append(b)
+    return out
 
 
 def git(*a):
@@ -179,21 +334,44 @@ def publish_story(rel):
 def main():
     if MODE == "off":
         print("score alert: off"); return
+    if "--watch" in sys.argv:
+        end = time.time() + 60 * float(sys.argv[sys.argv.index("--watch") + 1])
+        bad = 0
+        while True:
+            try:
+                bad += run_once()
+            except SystemExit as e:   # push 실패 등 — 다음 회차에 다시
+                print(f"::warning::{e}"); bad += 1
+            except Exception as e:  # noqa: BLE001
+                print(f"::warning::score alert round failed: {e}"); bad += 1
+            if time.time() + 300 > end:
+                break
+            time.sleep(300)
+            subprocess.run(["git", "pull", "-q", "--rebase", "--autostash", "origin", "main"], cwd=ROOT)
+        if bad:
+            sys.exit(1)
+        return
+    if run_once():
+        sys.exit(1)
+
+
+def run_once():
+    """한 번 확인하고 새로 끝난 경기가 있으면 결과판을 게시. 실패한 종목 수를 돌려준다."""
     boards = finished_new()
     if "--check" in sys.argv:
         print("score alert: " + (", ".join(f"{b['sport']} {b['date']} 새 종료 {len(b['new'])}" for b in boards) or "nothing new"))
         with open(os.environ.get("GITHUB_OUTPUT", os.devnull), "a") as f:
             f.write(f"has_new={1 if boards else 0}\n")
-        return
+        return 0
     if not boards:
-        print("score alert: nothing new"); return
+        print(f"{kst():%H:%M} score alert: nothing new"); return 0
     failed = []
     for bd in boards:
         sport, gdate = bd["sport"], bd["date"]
-        rel = f"sports/alerts/{gdate:%Y-%m}/{gdate}_{sport}_{kst():%H%M}.jpg"
+        rel = f"sports/alerts/{gdate:%Y-%m}/{gdate}_{sport.replace('.', '-')}_{kst():%H%M}.jpg"
         os.makedirs(os.path.dirname(os.path.join(ROOT, rel)), exist_ok=True)
         spec = os.path.join(ROOT, "sports/alerts/.games.json")
-        json.dump({**SPORT[sport], "story": True, "date": str(gdate), "title": bd["title"], "games": bd["rows"][:10]},
+        json.dump({**SPORT[sport], "story": True, "date": str(bd.get("kst_date") or gdate), "dawn": bool(bd.get("dawn")), "title": bd["title"], "games": bd["rows"][:10]},
                   open(spec, "w", encoding="utf-8"), ensure_ascii=False)
         subprocess.run(["node", os.path.join(ROOT, "tools/score_card.js"), spec, os.path.join(ROOT, rel)], check=True)
         os.remove(spec)
@@ -215,10 +393,11 @@ def main():
         db = load_posted()
         for gid in bd["new"]:
             db["posted"][gid].update(status=status, result=pid)
+        if status == "published":
+            db.setdefault("boards", {})[f"{sport}:{gdate}"] = {"last": time.time(), "final": bd.get("final", False)}
         json.dump(db, open(POSTED, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         push(f"결과 알림 {sport} {status} [skip ci]", [POSTED])
-    if failed:
-        sys.exit(1)
+    return len(failed)
 
 
 if __name__ == "__main__":

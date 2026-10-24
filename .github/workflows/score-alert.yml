@@ -1,18 +1,31 @@
 name: Score alert
 
-# 경기 결과 알림 → @hannun.sports 스토리(2026-10-23~): 경기가 끝나면 AI 없이 공식 기록(⚾ KBO · 🎮 LoL)으로 결과 카드를 만들어 올린다.
-# 15분마다 확인(롤드컵은 KST 새벽이라 하루 종일). 확인만은 몇 초라 비용이 거의 없다. GitHub 예약 실행은 몇 분~수십 분 밀릴 수 있다.
-# 끄기: 저장소 변수 SCORE_ALERT=off, 게시 없이 카드만: dry · 바로 한 번 돌리기: sports/alerts/request.txt 를 바꿔 push
+# 경기 결과 알림 → @hannun.sports 스토리(2026-10-23~): 경기가 끝나면 AI 없이 공식 기록(⚾ KBO · 🎮 LoL)으로 그날 결과판을 만들어 올린다.
+# 2026-10-24: 이 저장소의 예약 실행은 15분 주기여도 하루 1~2번, 몇 시간 늦게만 돈다(Pull briefs from Drive 기록으로 확인).
+# 그래서 **이어 달리기**: 한 회차가 355분 동안 5분마다 지켜본 뒤 마지막 단계에서 자기 자신을 workflow_dispatch 로 다시 띄운다
+# (GITHUB_TOKEN 으로도 workflow_dispatch 는 새 실행을 만든다). 아래 6시간 예약은 사슬이 끊겼을 때 다시 잇는 예비용.
+# 종목은 sports/alerts/sources.json (KBO·LoL·MLB·축구 4대 리그·챔스·유로파, NBA·NFL 은 꺼 둠)
+# 끄기: 저장소 변수 SCORE_ALERT=off, 게시 없이 카드만: dry · 지금 바로 3시간 지켜보기: sports/alerts/request.txt 를 바꿔 push
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '40 2 * * *'
+    - cron: '40 8 * * *'
+    - cron: '40 14 * * *'
+    - cron: '40 20 * * *'
   push:
     branches: [main]
     paths: ['sports/alerts/request.txt']
   workflow_dispatch:
+    inputs:
+      relay:
+        description: '이어 달리기로 띄운 회차(사람이 누를 땐 비워 둔다)'
+        required: false
+        default: ''
+
 
 permissions:
   contents: write
+  actions: write   # 다음 회차를 스스로 띄우기(이어 달리기)
 
 concurrency:
   group: score-alert
@@ -21,26 +34,28 @@ concurrency:
 jobs:
   alert:
     runs-on: ubuntu-latest
+    timeout-minutes: 370
     env:
       SCORE_ALERT: ${{ vars.SCORE_ALERT || 'on' }}
     steps:
       - uses: actions/checkout@v4
-      - name: Check finished games
-        id: chk
-        run: python3 .github/scripts/score_alert.py --check
       - name: Install renderer
-        if: steps.chk.outputs.has_new == '1'
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk fonts-noto-color-emoji >/dev/null 2>&1 || echo "::warning::font install failed"
           npm install --no-save --silent playwright@1.48.2
           npx playwright install --with-deps chromium >/dev/null
-      - name: Card and publish
-        if: steps.chk.outputs.has_new == '1'
+      - name: Watch and publish
         env:
           IG_SPORTS_ACCESS_TOKEN: ${{ secrets.IG_SPORTS_ACCESS_TOKEN }}
           IG_SPORTS_USER_ID: ${{ secrets.IG_SPORTS_USER_ID }}
           EXPECT_SPORTS_USERNAME: ${{ vars.EXPECT_SPORTS_USERNAME || 'hannun.sports' }}
+          WATCH_MIN: ${{ github.event_name == 'push' && '180' || '355' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          python3 .github/scripts/score_alert.py
+          python3 .github/scripts/score_alert.py --watch "$WATCH_MIN"
+      - name: Relay — 다음 회차 띄우기
+        if: always() && env.SCORE_ALERT != 'off'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run score-alert.yml --ref main -f relay=1 || echo "::warning::relay dispatch failed — 예비 예약 실행이 이어받는다"
