@@ -1,9 +1,14 @@
-name: Publish evening reels
+name: Publish scheduled reels
 
-# 릴스 저녁 예약 게시(2026-10-23~): publish/evening/<오늘 KST>_*.json 을 차례로 게시한다. README '인스타그램 운영' · publish/evening/README.md
+# 시간대 게시(2026-10-26~): 07:30 · 12:10 · 18:40 · 21:07 KST 에 publish/slots/<오늘>_<HHMM>_*.json 을 올린다
+# (21:07 은 예전 publish/evening/<오늘>_*.json 도). 놓친 앞 시간대 항목은 한 번에 1건씩 따라잡는다. .github/scripts/publish_slots.py · publish/slots/README.md
+# GitHub 예약 실행은 수십 분 밀린다 — 정시 게시가 아니라 '그 시간대 안' 게시가 목표.
 on:
   schedule:
-    - cron: '7 12 * * *'   # 21:07 KST (예약 실행 지연이 있어 대개 21~22시)
+    - cron: '30 22 * * *'   # 07:30 KST
+    - cron: '10 3 * * *'    # 12:10 KST
+    - cron: '40 9 * * *'    # 18:40 KST
+    - cron: '7 12 * * *'    # 21:07 KST
   workflow_dispatch:
 
 permissions:
@@ -18,22 +23,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Publish today's evening requests
+      - name: Publish this slot's requests
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_SPORTS_ACCESS_TOKEN: ${{ secrets.IG_SPORTS_ACCESS_TOKEN }}
           IG_SPORTS_USER_ID: ${{ secrets.IG_SPORTS_USER_ID }}
           EXPECT_SPORTS_USERNAME: ${{ vars.EXPECT_SPORTS_USERNAME || 'hannun.sports' }}
-        run: |
-          # 예약 실행이 자정을 넘겨 도는 일이 잦다(2026-10-24 실행: 10/25 00:51 KST) → 새벽 4시 전이면 전날 요청으로 본다(2026-10-25 수정)
-          d=$(TZ=Asia/Seoul date -d '-4 hours' +%F)
-          shopt -s nullglob
-          files=(publish/evening/${d}_*.json)
-          [ ${#files[@]} -eq 0 ] && { echo "no evening requests for $d"; exit 0; }
-          fail=0
-          for f in "${files[@]}"; do
-            echo "== $f"
-            REQUEST="$f" python3 .github/scripts/publish_ig.py || fail=1
-          done
-          exit $fail
+          SLOT: ${{ github.event.schedule == '30 22 * * *' && '0730' || github.event.schedule == '10 3 * * *' && '1210' || github.event.schedule == '40 9 * * *' && '1840' || github.event.schedule == '7 12 * * *' && '2107' || '' }}
+        run: python3 .github/scripts/publish_slots.py

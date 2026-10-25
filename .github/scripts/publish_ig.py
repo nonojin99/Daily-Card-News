@@ -231,6 +231,12 @@ def publish_one():
     print(f"caption: {len(caption)} chars, {caption.count('#')} hashtags")
     if len(caption) > 2200 or caption.count("#") > 5:
         sys.exit("::error::caption too long or more than 5 hashtags")
+    if caption and not DRY:   # 시간대 게시(2026-10-26~)는 놓친 항목을 다음 시간대가 다시 보므로, 컨테이너를 만들기 전에 이미 올라간 캡션인지 먼저 본다
+        recent = call("GET", f"{UID}/media", fields="caption,permalink", limit="15").get("data", [])
+        dup = next((r for r in recent if (r.get("caption") or "").strip() == caption), None)
+        if dup:
+            print(f"::notice::already published with this caption: {dup.get('permalink')} — 건너뜀")
+            return
 
     if KIND == "reel":
         url = f"{PUBLIC}/{MEDIA}"

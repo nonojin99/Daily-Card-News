@@ -27,7 +27,7 @@ def review_state(kind, media, need):
 
 reqs = [("publish/request.json", json.load(open("publish/request.json", encoding="utf-8")))] if os.path.exists("publish/request.json") else []
 for d in days:
-    for f in sorted(glob.glob(f"publish/evening/{d}_*.json")):
+    for f in sorted(glob.glob(f"publish/evening/{d}_*.json")) + sorted(glob.glob(f"publish/slots/{d}_*.json")):
         reqs.append((f, json.load(open(f, encoding="utf-8"))))
 for f, j in reqs:
     for it in j.get("requests", []):
@@ -48,6 +48,20 @@ for d in days:
         if 'class="audio-script"' in h and 'class="audio-player"' not in h: out.append(("중간", f"{b} — 낭독 MP3 없음"))
         m = re.match(r"(\d{4})-(\d{2})-\d{2}_", b)
         if not os.path.exists(f"cards/{m[1]}-{m[2]}/{b[:-5]}/source.sha1"): out.append(("중간", f"{b} — 카드 JPG 미생성"))
+# 깊게 파는 릴스 원고가 있는데 MP3·MP4 가 없는 것(오늘·어제)
+for d in days:
+    for b in sorted(glob.glob(f"{d}_*-brief.html")):
+        for c in re.findall(r'<details class="reel-script"[^>]*data-card="(\d+)"', open(b, encoding="utf-8").read()):
+            ym, typ = d[:7], b[11:-11]
+            if not os.path.exists(f"audio/{ym}/{d}_{typ}_c{c}.mp3"): out.append(("중간", f"{b} 카드 {c} — 깊게 파는 릴스 MP3 없음"))
+            elif not os.path.exists(f"reels/{ym}/{d}_{typ}_c{c}.mp4"): out.append(("중간", f"{b} 카드 {c} — 깊게 파는 릴스 MP4 없음"))
+# 스포츠 데이터 릴스 대기열: 사용자 승인 대기·게시 실패
+if os.path.exists("sports/reels/queue.json"):
+    for it in json.load(open("sports/reels/queue.json", encoding="utf-8")).get("items", []):
+        if it.get("made_kst", "")[:10] not in days: continue
+        if it.get("status") == "failed": out.append(("높음", f"스포츠 데이터 릴스 게시 실패 · {it['mp4']} — {it.get('result', '')[:80]}"))
+        elif it.get("status") == "queued" and review_state("reel", it["mp4"], "human") != "OK" and json.load(open("publish/probation.json", encoding="utf-8")).get("sports-data-reel", 0) > 0:
+            out.append(("중간", f"스포츠 데이터 릴스 사용자 승인 대기 · https://nonojin99.github.io/Daily-Card-News/{it['mp4']} — '{os.path.basename(it['mp4'])} 승인'"))
 ins = json.load(open("insights/latest.json", encoding="utf-8")) if os.path.exists("insights/latest.json") else {}
 for a in ins.get("accounts", []):
     for e in a.get("errors", []):

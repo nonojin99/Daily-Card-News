@@ -41,6 +41,9 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **서브 플러스** 브�
    - 캡션 `captions/YYYY-MM-DD_<종류>.txt`: 첫 줄 `[💰 머니]`·`[📺 OTT·게임]`·`[🍜 푸드]` + 핵심 숫자, 본문 카드별 한 줄, "▶ 전체 브리프와 출처는 프로필 링크의 앱에서 (nonojin99.github.io/Daily-Card-News/app/)", AI 그림이 있으면 표시, 해시태그 3~5개(README 표).
    - 요청: `{"requests":[{"kind":"carousel","media":"cards/YYYY-MM/YYYY-MM-DD_<종류>-brief","caption":"captions/YYYY-MM-DD_<종류>.txt","dry_run":"false","is_ai":"<AI 그림 있으면 true>"}], "note":"…"}` — `account` 는 넣지 않습니다(본계정).
 2. `git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit -m "YYYY-MM-DD <종류> brief"` → `git pull --rebase origin main` → `git push origin HEAD:main`(실패하면 rebase 후 한 번만 재시도). push 관문 훅이 막으면 메시지대로 고칩니다.
+2-1. **깊게 파는 릴스(2026-10-26~, 선택)**: 오늘 본계정 릴스 계획(`publish/slots/<오늘>_*.json` + `publish/evening/<오늘>_*.json`)이 3편보다 적으면,
+   `item-scorer` 점수 80 이상인 오늘 카드에 README '깊게 파는 릴스' 대로 `reel-script` 원고를 넣고 같은 push 에 싣는다 → Actions 가 MP3·MP4 를 만들면
+   `tools/check_reel.py` + `reel-reviewer` 검수 → 남은 시간대 파일(`publish/slots/<오늘>_<HHMM>_<종류>_c<N>.json`, 수습 중이면 `"review":"human"`)을 push. 머니·헬스는 수습 중(사용자 승인).
 3. **끝날 때마다 PushNotification 한 번**(2026-10-24~, 사용자 요청 — Slack 으로 매일 요약): 정상 발행·발행 없음·실패 모두. 형식은 CLAUDE.md '매일 Slack 요약'. 실패면 첫 줄에 ⚠ 와 실패 이유.
 
 ## 5. 보고

@@ -213,6 +213,39 @@ def migrate(path, doc, changed):
     return doc
 
 
+REEL_BLOCK = re.compile(r'<details\b[^>]*class="reel-script"([^>]*)>(.*?)</details>', re.I | re.S)
+DEEP_DAYS = 3   # 깊게 파는 릴스 원고는 최근 3일 브리프만(지난 브리프를 고쳐도 다시 합성하지 않게)
+
+
+def deep_blocks(path, name_match, changed):
+    """깊게 파는 릴스(2026-10-26~): <details class="reel-script" data-card="N"> 원고마다 MP3 를 따로 만든다.
+    audio/YYYY-MM/<날짜>_<종류>_cN.mp3 + .json(문단 구간, 원고 지문 sha). 원고가 바뀌면(지문이 다르면) 다시 만든다. 재생기는 넣지 않는다(릴스 전용)."""
+    import datetime, hashlib
+    y, mo, d, kind = name_match.groups()
+    today = (datetime.datetime.utcnow() + datetime.timedelta(hours=9)).date()
+    if datetime.date(int(y), int(mo), int(d)) < today - datetime.timedelta(days=DEEP_DAYS):
+        return
+    with open(path, encoding="utf-8") as f:
+        doc = f.read()
+    for m in REEL_BLOCK.finditer(doc):
+        card = re.search(r'data-card="(\d+)"', m.group(1))
+        if not card:
+            continue
+        paras = [t for t in (re.sub(r"\s+", " ", html.unescape(TAG.sub("", p))).strip() for p in PARA.findall(m.group(2))) if t]
+        if not paras:
+            continue
+        mp3_path = audio_path(y, mo, "%s-%s-%s_%s_c%s.mp3" % (y, mo, d, kind.lower(), card.group(1)))
+        side = os.path.splitext(mp3_path)[0] + ".json"
+        fp = hashlib.sha1("\n".join(paras).encode("utf-8")).hexdigest()
+        if os.path.exists(mp3_path) and os.path.exists(side) and json.load(open(side, encoding="utf-8")).get("sha") == fp:
+            continue
+        seconds = build_mp3(paras, mp3_path)
+        j = json.load(open(side, encoding="utf-8")); j["sha"] = fp
+        json.dump(j, open(side, "w", encoding="utf-8"))
+        changed.extend([mp3_path, side])
+        print("deep reel audio:", path, "card", card.group(1), "→", mp3_path, "(%.0fs)" % seconds)
+
+
 def player(url, seconds):
     mins = max(1, round(seconds / 60))
     return ('\n  <div class="audio-player">'
@@ -258,6 +291,7 @@ def main():
             try:
                 if API_KEY or DRY_RUN:
                     process(path, m, changed)
+                    deep_blocks(path, m, changed)
                 else:
                     with open(path, encoding="utf-8") as f:
                         migrate(path, f.read(), changed)

@@ -8,7 +8,7 @@ tools: Read, Grep, Glob, Bash
 
 ## 점검 목록 (기준 시각 = 지금 KST, 대상 = 지난 24시간)
 1. **Actions 실패**: 받은 실행 목록에서 `failure`·`cancelled`(그날 다른 실행이 같은 일을 대신했으면 제외). 워크플로 이름·시각·커밋.
-2. **예약 실행 누락**: `Publish evening reels`(21:07 KST 예약, 실제로는 밀림)가 지난 24시간 안에 한 번도 돌지 않았나. `score-alert` 감시 작업이 하루 4번(02:40·08:40·14:40·20:40 UTC) 중 빠진 것.
+2. **예약 실행 누락**: `Publish scheduled reels`(07:30·12:10·18:40·21:07 KST 예약, 실제로는 밀림)가 지난 24시간 안에 시간대 수만큼 돌았나(그날 `publish/slots/` 파일이 있는 시간대만 중요). `score-alert` 감시 작업이 하루 4번(02:40·08:40·14:40·20:40 UTC) 중 빠진 것.
 3. **게시 대기·누락**:
    - `publish/request.json` 과 오늘·어제 `publish/evening/*.json` 의 항목 중 `"review"` 가 있는데 승인 기록이 없거나 지문이 다른 것
      (`python3 tools/ops_check.py` 가 계산해 준다 — 먼저 실행할 것).

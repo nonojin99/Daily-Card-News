@@ -41,7 +41,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install renderer
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk fonts-noto-color-emoji >/dev/null 2>&1 || echo "::warning::font install failed"
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-cjk fonts-noto-color-emoji ffmpeg >/dev/null 2>&1 || echo "::warning::font install failed"
           npm install --no-save --silent playwright@1.48.2
           npx playwright install --with-deps chromium >/dev/null
       - name: Watch and publish

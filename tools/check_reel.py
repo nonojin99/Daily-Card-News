@@ -11,7 +11,7 @@
 import argparse, datetime, hashlib, json, os, re, subprocess, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-NARR_MAX, SHORT_MAX = 180.0, 14.5
+NARR_MAX, SHORT_MAX, DEEP_MAX = 180.0, 14.5, 90.0
 
 
 def sha1(p):
@@ -39,12 +39,15 @@ def check(mp4, caption):
     spec = json.load(open(spec_p, encoding="utf-8")) if os.path.exists(spec_p) else {}
     if not spec: W("reel.json 없음 — 구간·오프닝을 확인할 수 없음")
     d = dur(mp4)
-    lim = SHORT_MAX if short else NARR_MAX
+    deep = spec.get("kind") == "deep"   # 깊게 파는 릴스(…_cN.mp4, 2026-10-26~) — 90초 이내, 사건·사고 검사는 그 카드만
+    lim = SHORT_MAX if short else DEEP_MAX if deep else NARR_MAX
     if d > lim: F(f"길이 {d:.1f}초 > {lim}초")
     if d < 6: F(f"길이 {d:.1f}초 — 너무 짧음(만들다 실패?)")
     brief = spec.get("brief", "")
     html = open(os.path.join(ROOT, brief), encoding="utf-8").read() if brief and os.path.exists(os.path.join(ROOT, brief)) else ""
-    if html and re.search(r'class="tag">\s*Context', html): F("맥락 읽기(사건·사고) 카드가 있는 브리프 — 릴스 금지")
+    arts = re.findall(r'<article class="card"[^>]*>(.*?)</article>', html, re.S) if html else []
+    scope = [arts[spec["card"] - 1]] if deep and len(arts) >= spec.get("card", 0) > 0 else [html]
+    if html and any(re.search(r'class="tag">\s*(Context|맥락)', x) for x in scope): F("맥락 읽기(사건·사고) 카드" + (" — 이 카드는" if deep else "가 있는 브리프 —") + " 릴스 금지")
     # 접촉 시트: 첫 2초(0·0.7·1.4·2.1초) + 구간 가운데 + 끝 1초
     D = os.path.join("/tmp/reel-review", name); os.makedirs(D, exist_ok=True)
     for f in os.listdir(D):

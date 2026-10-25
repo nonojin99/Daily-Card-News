@@ -81,7 +81,7 @@ def kbo(posted):
             pit = " · ".join(f"{k} {(g.get(f) or '').strip()}" for k, f in (("승", "W_PIT_P_NM"), ("패", "L_PIT_P_NM"), ("세", "SV_PIT_P_NM")) if (g.get(f) or "").strip())
             state = (f"{g.get('GAME_INN_NO')}회 무승부" if done and sa == sh else pit) if done else (g.get("CANCEL_SC_NM") or "취소") if cancel else \
                     ("진행 중" if str(g.get("GAME_STATE_SC")) == "2" else f"{g.get('G_TM', '')} 시작")
-            rows.append({"away": g["AWAY_NM"].strip(), "home": g["HOME_NM"].strip(), "as": sa, "hs": sh, "pending": not done,
+            rows.append({"gid": gid, "away": g["AWAY_NM"].strip(), "home": g["HOME_NM"].strip(), "as": sa, "hs": sh, "pending": not done,
                          "note": " · ".join(x for x in (g.get("S_NM", ""), state) if x)})
             if done and gid not in posted and g["G_ID"] not in posted:
                 new.append(gid)
@@ -120,7 +120,7 @@ def lol(posted):
                 done = e.get("state") == "completed" and all(x.get("result") for x in t)
                 bo = (m.get("strategy") or {}).get("count")
                 state = "" if done else ("진행 중" if e.get("state") == "inProgress" else f"{ks(e):%H:%M} 시작")
-                rows.append({"away": nm(t[0]), "home": nm(t[1]), "pending": not done,
+                rows.append({"gid": "lol:" + m["id"], "away": nm(t[0]), "home": nm(t[1]), "pending": not done,
                              "as": str(t[0]["result"].get("gameWins", 0)) if done else "-", "hs": str(t[1]["result"].get("gameWins", 0)) if done else "-",
                              "note": " · ".join(x for x in (f"Bo{bo}" if bo else "", state) if x)})
                 if done and ("lol:" + m["id"]) not in posted:
@@ -168,7 +168,7 @@ def mlb(posted):
                           "Wild Card": "와일드카드"}.get(ser, ser)
                 series = f"{ko_ser} {g.get('seriesGameNumber', '')}차전".strip()
             state = "" if done else ("진행 중" if st == "Live" else g["status"].get("detailedState") if g["status"].get("detailedState") in ("Postponed", "Cancelled", "Suspended") else f"{ks(g):%H:%M} 시작")
-            rows.append({"away": ko(a["team"]["name"]), "home": ko(h["team"]["name"]), "pending": not done,
+            rows.append({"gid": f"mlb:{g['gamePk']}", "away": ko(a["team"]["name"]), "home": ko(h["team"]["name"]), "pending": not done,
                          "as": str(a.get("score", "-")) if done else "-", "hs": str(h.get("score", "-")) if done else "-",
                          "note": " · ".join(x for x in (series if g.get("gameType") not in ("R", "S", "E") else "", g.get("venue", {}).get("name", ""), state) if x)})
             if done and f"mlb:{g['gamePk']}" not in posted and ks(g) >= now - datetime.timedelta(hours=FRESH_H):
@@ -200,7 +200,7 @@ def espn(key, posted):
             done = bool(st.get("completed"))
             name = st.get("name", "")
             state = "" if done else ("연기" if "POSTPONED" in name else "취소" if "CANCELED" in name else "진행 중" if st.get("state") == "in" else f"{ks(e):%H:%M} 시작")
-            rows.append({"away": ko(a["team"].get("shortDisplayName") or a["team"].get("displayName")), "home": ko(h["team"].get("shortDisplayName") or h["team"].get("displayName")),
+            rows.append({"gid": f"{key}:{e['id']}", "away": ko(a["team"].get("shortDisplayName") or a["team"].get("displayName")), "home": ko(h["team"].get("shortDisplayName") or h["team"].get("displayName")),
                          "pending": not done, "as": str(a.get("score", "-")) if done else "-", "hs": str(h.get("score", "-")) if done else "-", "note": state})
             if done and f"{key}:{e['id']}" not in posted and ks(e) >= now - datetime.timedelta(hours=FRESH_H):
                 new.append(f"{key}:{e['id']}")
@@ -239,7 +239,7 @@ def ufc(posted):
             how = ("판정" if any(x.get("linescores") for x in t) else f"{per}R {clk}") if done and per else ""
             ks_ = datetime.datetime.strptime((c.get("date") or e["date"])[:16], "%Y-%m-%dT%H:%M") + datetime.timedelta(hours=9)
             state = how if done else ("진행 중" if st.get("state") == "in" else f"{ks_:%H:%M} 예정")
-            rows.append({"away": ko(t[0]["athlete"]["displayName"]), "home": ko(t[1]["athlete"]["displayName"]), "pending": not done,
+            rows.append({"gid": f"ufc:{c['id']}", "away": ko(t[0]["athlete"]["displayName"]), "home": ko(t[1]["athlete"]["displayName"]), "pending": not done,
                          "as": ("승" if w == 0 else "패" if w == 1 else "무") if done else "-", "hs": ("승" if w == 1 else "패" if w == 0 else "무") if done else "-",
                          "win": ("a" if w == 0 else "h" if w == 1 else "") if done else "", "note": " · ".join(x for x in (wk, state) if x)})
             if done and f"ufc:{c['id']}" not in posted and ks_ >= now - datetime.timedelta(hours=FRESH_H):
@@ -470,6 +470,63 @@ def publish_story(rel):
     return pid
 
 
+def publish_reel(rel, caption):
+    """스포츠 데이터 릴스 게시(2026-10-26~) — 스토리와 같은 계정·확인 절차, 영상은 처리 시간이 길어 최대 10분 기다린다."""
+    token, uid = os.environ.get("IG_SPORTS_ACCESS_TOKEN", "").strip(), os.environ.get("IG_SPORTS_USER_ID", "").strip()
+    expect = os.environ.get("EXPECT_SPORTS_USERNAME", "hannun.sports").strip().lstrip("@")
+    if not token or not uid:
+        raise RuntimeError("IG_SPORTS_ACCESS_TOKEN / IG_SPORTS_USER_ID 없음")
+    me = ig("GET", "me", token, fields="user_id,username")
+    if str(me.get("user_id")) != uid or (expect and me.get("username") != expect):
+        raise RuntimeError(f"토큰 계정이 @{expect} 가 아님 — 중단")
+    recent = ig("GET", f"{uid}/media", token, fields="caption,permalink", limit="15").get("data", [])
+    if any((r.get("caption") or "").strip() == caption.strip() for r in recent):
+        return "already"
+    url, t0 = PAGES + rel, time.time()
+    while True:
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, method="HEAD"), timeout=30) as r:
+                if r.status == 200:
+                    break
+        except Exception:  # noqa: BLE001
+            pass
+        if time.time() - t0 > 900:
+            raise RuntimeError(f"공개 주소에 영상이 안 뜸: {url}")
+        time.sleep(20)
+    cid = ig("POST", f"{uid}/media", token, media_type="REELS", video_url=url, caption=caption.strip(), share_to_feed="true", is_ai_generated="false")["id"]
+    for _ in range(60):
+        st = ig("GET", cid, token, fields="status_code").get("status_code")
+        if st == "FINISHED":
+            break
+        if st in ("ERROR", "EXPIRED"):
+            raise RuntimeError(f"container {st}")
+        time.sleep(10)
+    return ig("POST", f"{uid}/media_publish", token, creation_id=cid)["id"]
+
+
+def reels_tick():
+    """데이터 릴스: 결과판 묶음 시각이면 만들고, 대기열에서 올릴 차례인 것 하나를 올린다. 실패해도 스토리 감시는 계속."""
+    import sports_reels as SR
+    try:
+        made = SR.maybe_bundle(load_posted()["posted"], MODE == "dry")
+        if made:
+            push("결과판 묶음 릴스 [skip ci]", made)
+        it = SR.next_item()
+        if not it or MODE == "dry":
+            return
+        cap = open(os.path.join(ROOT, it["caption"]), encoding="utf-8").read()
+        print(f"데이터 릴스 게시: {it['mp4']} (점수 {it['score']})")
+        try:
+            pid = publish_reel(it["mp4"], cap)
+            SR.mark(it["id"], "published", pid)
+        except Exception as e:  # noqa: BLE001
+            print(f"::error::sports reel publish failed: {e}")
+            SR.mark(it["id"], "failed", e)
+        push(f"데이터 릴스 {it['id']} [skip ci]", [os.path.relpath(SR.QUEUE, ROOT)])
+    except Exception as e:  # noqa: BLE001
+        print(f"::warning::sports reels tick failed: {e}")
+
+
 def main():
     if MODE == "off":
         print("score alert: off"); return
@@ -502,8 +559,9 @@ def run_once():
         with open(os.environ.get("GITHUB_OUTPUT", os.devnull), "a") as f:
             f.write(f"has_new={1 if boards else 0}\n")
         return 0
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     if not boards:
-        print(f"{kst():%H:%M} score alert: nothing new"); return 0
+        print(f"{kst():%H:%M} score alert: nothing new"); reels_tick(); return 0
     failed = []
     sys.path.insert(0, os.path.join(ROOT, "tools"))
     from check_sports_data import validate   # 스포츠 데이터 검사(2026-10-25~) — 옮겨 적은 값이 이상하면 그 판은 올리지 않는다
@@ -543,6 +601,15 @@ def run_once():
             db.setdefault("boards", {})[f"{sport}:{gdate}"] = {"last": time.time(), "final": bd.get("final", False)}
         json.dump(db, open(POSTED, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         push(f"결과 알림 {sport} {status} [skip ci]", [POSTED])
+        if status in ("published",) or MODE == "dry":   # 데이터 릴스(2026-10-26~): 점수 기준을 넘은 경기는 한 경기 릴스로
+            try:
+                import sports_reels as SR
+                made = SR.on_board(bd, rel, {k: v for k, v in SPORT[sport].items()}, SOURCES.get(sport, {}).get("label", sport.upper()), board_title, MODE == "dry")
+                if made:
+                    push(f"데이터 릴스 재료 {sport} {gdate} [skip ci]", made)
+            except Exception as e:  # noqa: BLE001
+                print(f"::warning::sports reel make failed: {e}")
+    reels_tick()
     return len(failed)
 
 
