@@ -13,6 +13,16 @@
    "seconds": 9.2,
    "made_kst": "2026-10-26 07:06",
    "status": "queued"
+  },
+  {
+   "id": "bundle:2026-10-26_07:40",
+   "kind": "bundle",
+   "mp4": "reels/sports/2026-10/2026-10-26_0740_bundle.mp4",
+   "caption": "reels/sports/2026-10/2026-10-26_0740_bundle.txt",
+   "score": 55,
+   "seconds": 15.0,
+   "made_kst": "2026-10-26 07:40",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -71,5 +81,9 @@
   }
  },
  "last_post": 0,
- "bundles": {}
+ "bundles": {
+  "2026-10-26_07:40": {
+   "made_kst": "2026-10-26 07:40"
+  }
+ }
 }
