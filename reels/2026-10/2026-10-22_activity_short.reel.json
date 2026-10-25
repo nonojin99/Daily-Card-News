@@ -1,10 +1,11 @@
 {
   "brief": "2026-10-22_activity-brief.html",
   "variant": "short",
+  "opening": "static",
   "out": "reels/2026-10/2026-10-22_activity_short.mp4",
   "cards": 3,
   "seconds": 13.15,
   "bgm": "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3",
   "credit": "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0",
-  "fp": "f0582cc20edc7a0e97e6068cf5c97972ad7ca25d"
+  "fp": "ef7a0d7f2dde53f1babf093f1f39f9536ae00baf"
 }

@@ -4,6 +4,7 @@
   "out": "reels/2026-10/2026-10-22_activity.mp4",
   "title": "35초 듣는 주말",
   "speed": 1.2,
+  "opening": "static",
   "segments": [
     [
       7.26,
@@ -54,5 +55,5 @@
     9
   ],
   "note": "날짜·인사·날씨·끝인사 문단은 릴스에서 뺌(본문만, 출처 장 2초)",
-  "fp": "e774eaf41cbb1daf4de5101bd858b31c094f1407"
+  "fp": "0ede2bc584801f6ad3525f30c2637456a8ed7c2b"
 }

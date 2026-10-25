@@ -4,6 +4,7 @@
   "out": "reels/2026-10/2026-10-25_science.mp4",
   "title": "2분 듣는 우주",
   "speed": 1.2,
+  "opening": "static",
   "segments": [
     [
       12.86,
@@ -37,5 +38,5 @@
     7
   ],
   "note": "날짜·인사·날씨·끝인사 문단은 릴스에서 뺌(본문만, 출처 장 2초)",
-  "fp": "6b00952f2ee0ba6605dad2ec288719997d904c57"
+  "fp": "9071179cc6e2de4b14be37a025226df7aad1a0ba"
 }
