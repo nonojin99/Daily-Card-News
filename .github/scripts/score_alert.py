@@ -505,20 +505,27 @@ def run_once():
     if not boards:
         print(f"{kst():%H:%M} score alert: nothing new"); return 0
     failed = []
+    sys.path.insert(0, os.path.join(ROOT, "tools"))
+    from check_sports_data import validate   # 스포츠 데이터 검사(2026-10-25~) — 옮겨 적은 값이 이상하면 그 판은 올리지 않는다
     for bd in boards:
         sport, gdate = bd["sport"], bd["date"]
+        bad, warn = validate(bd)
+        for w in warn: print(f"::notice::{sport} {gdate}: {w}")
+        if bad:
+            print(f"::warning::{sport} {gdate} 결과판 게시 보류 — 데이터 검사 FAIL: " + " / ".join(bad))
+            continue
         rel = f"sports/alerts/{gdate:%Y-%m}/{gdate}_{sport.replace('.', '-')}_{kst():%H%M}.jpg"
         os.makedirs(os.path.dirname(os.path.join(ROOT, rel)), exist_ok=True)
         spec = os.path.join(ROOT, "sports/alerts/.games.json")
         json.dump({**SPORT[sport], **(LIVE_STYLE if bd.get("live") else PRE_STYLE if bd.get("pre") else {}), "story": True, "date": str(bd.get("kst_date") or gdate), "dawn": bool(bd.get("dawn")), "title": bd["title"], "games": bd["rows"][:10]},
                   open(spec, "w", encoding="utf-8"), ensure_ascii=False)
         subprocess.run(["node", os.path.join(ROOT, "tools/score_card.js"), spec, os.path.join(ROOT, rel)], check=True)
-        os.remove(spec)
+        os.replace(spec, os.path.join(ROOT, rel[:-4] + ".json"))   # 원자료를 jpg 옆에 남긴다(감사·데이터 릴스 재료)
         db = load_posted()
         for gid in bd["new"]:
             db["posted"][gid] = {"image": rel, "status": "dry" if MODE == "dry" else "pending", "at_kst": kst().strftime("%Y-%m-%d %H:%M")}
         json.dump(db, open(POSTED, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-        push(f"결과 알림 카드 {sport} {gdate} (새 종료 {len(bd['new'])}) [skip ci]", [rel, POSTED])
+        push(f"결과 알림 카드 {sport} {gdate} (새 종료 {len(bd['new'])}) [skip ci]", [rel, rel[:-4] + ".json", POSTED])
         print(f"{sport}: {bd['title']} → {rel}")
         if MODE == "dry":
             continue

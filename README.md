@@ -158,6 +158,10 @@ AI 멀티 에이전트 파이프라인("하네스" 구조)으로 제작되며, G
   루틴은 Slack 요약에 미리보기 주소(`nonojin99.github.io/Daily-Card-News/cards/…/01.jpg`·`…/reels/….mp4`)와 '승인 요청'을 적는다. 사용자가 아무 Claude 세션에 "○○ 승인"이라고 하면 그 세션이
   `--by user` 로 기록을 써서 push 한다. 남은 수습 편수는 `publish/probation.json` 이 센다(게시될 때마다 1씩 줄인다).
 - 검수 에이전트를 부를 수 없는 환경(서브에이전트 실패 등)에서는 **게시하지 않는다** — 브리프는 앱에 나가고, 인스타는 다음 기회.
+- **사후 감시 3종(2026-10-25 도입)**:
+  - 🛰 **운영 감시** `ops-monitor`(루틴 `routines/ops-monitor.md`, 매일 22:40 KST): Actions 실패·예약 누락·검수 대기로 멈춘 요청·토큰 오류·MP3/카드/MP4 누락. 기계 계산은 `tools/ops_check.py`. 문제가 있을 때만 알림.
+  - 📈 **주간 분석** `insights-analyst`(루틴 `routines/insights-weekly.md`, 월 16:00 KST): 오프닝·낭독/짧은판·유형·점수·시간대를 미리 정한 규칙으로만 판정, 표본이 모자라면 '판정 보류'. 보고서 `insights/weekly/`. 규칙 변경은 사용자 승인 뒤.
+  - 🏟 **스포츠 데이터 검사** `tools/check_sports_data.py`(AI 없음): `score_alert.py` 가 결과판마다 부른다 — 빈 이름·양쪽 같은 팀·중복 경기·끝난 경기인데 점수 없음·제목의 'n/m 종료'와 실제 불일치면 **그 판을 올리지 않는다**(경고만). 번역 안 된 이름·긴 이름은 WARN. 결과판 원자료는 jpg 옆 `.json` 으로 남는다(감사·데이터 릴스 재료).
 
 ## 연속성 트래커
 
