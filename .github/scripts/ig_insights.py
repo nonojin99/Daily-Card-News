@@ -14,7 +14,30 @@ import datetime, json, os, urllib.error, urllib.parse, urllib.request
 API = "https://graph.instagram.com/" + os.environ.get("IG_API_VERSION", "v23.0")
 LIMIT = int(os.environ.get("INSIGHTS_LIMIT", "30"))
 COMMON = ["views", "reach", "likes", "comments", "shares", "saved", "total_interactions"]
-REEL_EXTRA = ["ig_reels_avg_watch_time", "ig_reels_video_view_total_time"]
+REEL_EXTRA = ["ig_reels_avg_watch_time", "ig_reels_video_view_total_time", "reels_skip_rate"]   # skip rate = 첫 3초 안에 넘긴 비율(2026-10-25 추가, 조회가 적으면 비어 있을 수 있음)
+
+
+def opening_map():
+    """릴스 캡션 첫 줄 → 오프닝 종류(static|motion). publish/evening/*.json 의 캡션 파일·MP4 → reels/…/*.reel.json 의 "opening"(없으면 static).
+    2026-10-25~ 첫 2초 '정지 vs 움직임' A/B 를 숫자로 비교하려고 남긴다(tools/make_reel.js openingOf)."""
+    import glob
+    out = {}
+    for f in sorted(glob.glob("publish/evening/*.json")):
+        try:
+            for it in json.load(open(f, encoding="utf-8")).get("requests", []):
+                cap, media = it.get("caption", ""), it.get("media", "")
+                if not (cap and media and os.path.exists(cap)):
+                    continue
+                first = open(cap, encoding="utf-8").read().split("\n")[0][:80]
+                op = {}
+                for suf, var in (("", "narrated"), ("_short", "short")):
+                    spec = media[:-4] + suf + ".reel.json"
+                    if os.path.exists(spec):
+                        op[var] = json.load(open(spec, encoding="utf-8")).get("opening", "static")
+                out[first] = op
+        except Exception:
+            continue
+    return out
 
 
 def call(token, path, **params):
@@ -61,12 +84,14 @@ def account(label, token, uid):
     lst, err = call(token, f"{uid}/media", fields="id,caption,media_type,media_product_type,timestamp,permalink", limit=LIMIT)
     if err:
         rec["errors"].append({"step": "media", **err}); return rec
+    ops = opening_map()
     for m in lst.get("data", []):
         reel = m.get("media_product_type") == "REELS"
         vals, bad = insights(token, m["id"], COMMON + (REEL_EXTRA if reel else []))
         rec["media"].append({"id": m["id"], "type": m.get("media_product_type") or m.get("media_type"), "timestamp": m.get("timestamp"),
                              "permalink": m.get("permalink"), "first_line": (m.get("caption") or "").split("\n")[0][:80],
-                             **({"variant": "short" if "⚡ 핵심" in (m.get("caption") or "") else "narrated"} if reel else {}),
+                             **({"variant": (v := "short" if "⚡ 핵심" in (m.get("caption") or "") else "narrated"),
+                                 "opening": ops.get((m.get("caption") or "").split("\n")[0][:80], {}).get(v, "static")} if reel else {}),
                              "metrics": vals, **({"metric_errors": bad} if bad else {})})
     return rec
 
@@ -96,11 +121,12 @@ def main():
             L.append(f"- ⚠ {e.get('step')}: {e.get('code', '')} {e.get('message', '')}")
         reels = [m for m in a["media"] if m["type"] == "REELS"]
         if reels:
-            L += ["", "| 게시(UTC) | 형식 | 릴스 첫 줄 | 조회 | 도달 | 평균 시청 | 총 시청 | 공유 | 저장 |", "|---|---|---|---|---|---|---|---|---|"]
+            L += ["", "| 게시(UTC) | 형식 | 오프닝 | 릴스 첫 줄 | 조회 | 도달 | 평균 시청 | 3초 이탈 | 총 시청 | 공유 | 저장 |", "|---|---|---|---|---|---|---|---|---|---|---|"]
             for m in reels:
                 x = m["metrics"]
-                L.append(f"| {m['timestamp'][:16]} | {'⚡짧은판' if m.get('variant') == 'short' else '🎧낭독'} | {m['first_line'].replace('|', '/')} | {fmt(x.get('views'))} | {fmt(x.get('reach'))} | "
-                         f"{fmt(x.get('ig_reels_avg_watch_time'), True)} | {fmt(x.get('ig_reels_video_view_total_time'), True)} | {fmt(x.get('shares'))} | {fmt(x.get('saved'))} |")
+                sk = x.get("reels_skip_rate")
+                L.append(f"| {m['timestamp'][:16]} | {'⚡짧은판' if m.get('variant') == 'short' else '🎧낭독'} | {'🎬움직임' if m.get('opening') == 'motion' else '▫정지'} | {m['first_line'].replace('|', '/')} | {fmt(x.get('views'))} | {fmt(x.get('reach'))} | "
+                         f"{fmt(x.get('ig_reels_avg_watch_time'), True)} | {'–' if sk is None else f'{float(sk) * (100 if float(sk) <= 1 else 1):.0f}%'} | {fmt(x.get('ig_reels_video_view_total_time'), True)} | {fmt(x.get('shares'))} | {fmt(x.get('saved'))} |")
         feed = [m for m in a["media"] if m["type"] != "REELS"]
         if feed:
             L += ["", "| 게시(UTC) | 게시물 첫 줄 | 조회 | 도달 | 좋아요 | 공유 | 저장 |", "|---|---|---|---|---|---|---|"]
