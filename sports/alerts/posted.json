@@ -293,8 +293,9 @@
   },
   "live:mlb:849802:4": {
    "image": "sports/alerts/2026-10/2026-10-24_mlb_1026.jpg",
-   "status": "pending",
-   "at_kst": "2026-10-25 10:26"
+   "status": "published",
+   "at_kst": "2026-10-25 10:26",
+   "result": "18096054434680167"
   }
  },
  "boards": {
