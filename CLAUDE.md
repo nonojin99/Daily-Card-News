@@ -71,6 +71,13 @@
 - 3회 반복해도 FAIL 인 카드는 그 카드의 그림 재료를 빼고(정보 시트로 표시됨) 2단계 기록과 보고에 그 사실을 적은 뒤 발행한다.
 - Drive 발행함 경로(예비)는 push 가 아니라 훅이 걸리지 않는다. 그 경로로 갈 때도 위 2단계를 먼저 마친다.
 
+## 🔎 게시 전 검수 관문 (2026-10-26~, 사용자 요청 — 루틴 프롬프트보다 우선)
+- 인스타 요청 항목(캐러셀·릴스)에는 **`"review":"required"`** 를 넣는다. 수습 중인 카테고리·형식(`publish/probation.json` 값이 1 이상)은 **`"review":"human"`**.
+- 흐름: 브리프 push(요청 파일 없이) → Actions 결과(카드 JPG·AI 그림·릴스) 기다림 → **`card-visual-reviewer`(구운 JPG) · `reel-reviewer`(MP4, `tools/check_reel.py`)** 로 실물 검수
+  → 통과한 것만 `tools/approve_cards.py` / `tools/check_reel.py --approve --by agent` 기록 + 캡션 + 요청 파일을 한 커밋으로 push. 자세한 건 README '검수 체계'.
+- 사실 검증은 `brief-fact-checker`, 릴스 항목 고르기는 `item-scorer` 에이전트로 부른다(`.claude/agents/`). 검수 에이전트를 못 부르면 그날 인스타는 올리지 않는다.
+- `"human"` 항목은 Slack 요약에 미리보기 주소와 **'승인 요청'** 을 적는다. 사용자가 "○○ 승인"이라고 하면 그 세션이 `--by user` 기록을 push 하고 `publish/probation.json` 을 1 줄인다.
+
 ## ⭐ 그림 우선순위 — 사용자가 "가장 중요한 항목"으로 지정 (2026-10-25, 모든 브리프·특히 일요일 우주·과학)
 **1순위 실제 사진 받아오기 → 2순위 생성형(AI) 이미지 → 3순위 도표.** 1~2순위를 시도하지 않고 도표로 때우는 것은 금지다.
 - **우주·과학(일)**: 먼저 ESA/Webb·Hubble 공개 이미지(`cdn.esawebb.org`·`cdn.esahubble.org` `/archives/images/screen/`)를 찾는다 — 이미지 **페이지**를 WebFetch 로 열어 제목·공개일·Credit 원문·CC BY 확인.

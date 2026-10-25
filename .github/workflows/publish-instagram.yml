@@ -6,7 +6,7 @@ name: Publish to Instagram
 on:
   push:
     branches: [main]
-    paths: ['publish/request.json']
+    paths: ['publish/request.json', 'reels/**/*.review.json', 'cards/**/review.json']   # 검수 승인 기록이 들어오면 대기 중이던 요청을 다시 본다(2026-10-25~, 이미 올린 건은 중복 캡션 검사가 건너뛴다)
   workflow_dispatch:
     inputs:
       kind:

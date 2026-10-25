@@ -137,6 +137,28 @@ AI 멀티 에이전트 파이프라인("하네스" 구조)으로 제작되며, G
 
 ---
 
+### 검수 체계 — 게시 전 2단계 + 관문 (2026-10-25 사용자 요청, 2026-10-26~ 적용)
+
+릴스가 하루 여러 편이 되면서 **"사람도 에이전트도 보지 않은 영상·카드가 게시되는 일"** 을 막는다. 사용자는 지금까지 게시 전후 피드백이 많았고, **처음 시작한 카테고리에서 특히 많았다.**
+
+| 대상 | 1단계(기계) | 2단계(독립 에이전트, `.claude/agents/`) | 관문 |
+|---|---|---|---|
+| 브리프 사실·캡션 | 체크리스트 1~16 | `brief-fact-checker` | push 전 (지금처럼) |
+| 카드(로컬 렌더) | `tools/check_cards.py` · `tools/render_cards.js` | `card-visual-reviewer` | push 관문(`prepush_gate.py`, 지금처럼) |
+| **카드(Actions 가 구운 실물 JPG — AI 그림 포함)** | JPG 장수·지문 | `card-visual-reviewer` 가 `cards/…/*.jpg` 를 직접 봄 | `tools/approve_cards.py` → `cards/…/review.json` |
+| **릴스(Actions 가 만든 MP4)** | `tools/check_reel.py`(길이·사건 카드·캡션 규칙·접촉 시트) | `reel-reviewer` 가 접촉 시트·싱크·캡션을 봄 | `tools/check_reel.py --approve` → `reels/…/<이름>.review.json` |
+| 릴스 고르기 | — | `item-scorer`(쓴 사람이 자기 글을 채점하지 않게) | 점수·근거를 tracker 에 기록 |
+
+- **게시 관문**: 요청 항목에 `"review":"required"`(또는 수습 항목 `"human"`)를 넣으면 `publish_ig.py` 가 검수 기록의 sha1 이 **지금 파일과 같을 때만** 올린다.
+  기록이 없거나 파일이 다시 구워져 지문이 바뀌었으면 그 항목을 건너뛴다(실패 아님, 경고만). 승인 기록 push 가 `Publish to Instagram` 을 다시 돌린다(이미 올린 건은 중복 캡션 검사가 건너뜀).
+- **루틴 흐름(06:00·09:30 공통)**: ① 브리프 push(요청 파일 없이) → ② Actions 가 카드 JPG·AI 그림·MP3·릴스를 만들 때까지 기다림(`git fetch` 로 `cards/…/source.sha1`·`reels/…mp4` 확인, 최대 40분)
+  → ③ 실물 검수: `card-visual-reviewer`(구운 JPG) · `reel-reviewer`(MP4) → FAIL 이면 브리프를 고쳐 push 하고 ②부터(최대 3회)
+  → ④ 통과한 것만 승인 기록 + 캡션 + 요청 파일(`"review":"required"`)을 한 커밋으로 push. 3회 FAIL 인 항목은 게시하지 않고 Slack 요약에 적는다.
+- **수습 기간(처음 시작한 카테고리·형식)**: 새 카테고리·새 형식은 **처음 3편을 `"review":"human"`** 으로 둔다 — 에이전트 통과 뒤에도 사용자가 승인해야 올라간다.
+  루틴은 Slack 요약에 미리보기 주소(`nonojin99.github.io/Daily-Card-News/cards/…/01.jpg`·`…/reels/….mp4`)와 '승인 요청'을 적는다. 사용자가 아무 Claude 세션에 "○○ 승인"이라고 하면 그 세션이
+  `--by user` 로 기록을 써서 push 한다. 남은 수습 편수는 `publish/probation.json` 이 센다(게시될 때마다 1씩 줄인다).
+- 검수 에이전트를 부를 수 없는 환경(서브에이전트 실패 등)에서는 **게시하지 않는다** — 브리프는 앱에 나가고, 인스타는 다음 기회.
+
 ## 연속성 트래커
 
 매일 **메인 브리프 HTML 하단에 `<!-- tracker: ... -->` 주석**으로 두 가지를 기록한다:

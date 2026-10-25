@@ -164,6 +164,15 @@ def main():
         VARIANT = pick_variant(it, MEDIA)
         if VARIANT == "short":
             MEDIA = MEDIA[:-4] + "_short.mp4"
+        # 검수 관문(2026-10-25~): 항목에 "review" 가 있으면 검수 기록이 있어야 올린다 — 사람·에이전트가 보지 않은 영상이 나가지 않게.
+        #   "review":"required" → reels/…/<이름>.review.json(verdict PASS, sha1 = 지금 MP4) / "review":"human" → 그 기록의 by 가 "user"
+        #   카드 묶음(캐러셀)은 cards/…/review.json 의 sha1 = cards/…/source.sha1 내용. 없거나 다르면 이번엔 건너뛰고(실패 아님) 다음 실행이 다시 본다.
+        need = str(it.get("review", "")).strip().lower()
+        if need in ("required", "human") and not DRY:
+            ok, why = review_ok(KIND, MEDIA, need)
+            if not ok:
+                print(f"::warning::request {n} 검수 대기 — {why} (tools/check_reel.py --approve 로 기록 뒤 다시 실행)")
+                continue
         print(f"── request {n}/{len(items)}: [{acct}] {KIND} {MEDIA}" + (f" (A/B: {VARIANT or 'narrated'})" if it.get("ab") else "") + (" (dry run)" if DRY else ""))
         try:
             publish_one()
@@ -176,6 +185,31 @@ def main():
                 failed.append(n)
     if failed:
         sys.exit(f"::error::failed requests: {failed}")
+
+
+def review_ok(kind, media, need):
+    """검수 기록 확인 — (통과 여부, 이유)."""
+    import hashlib
+    if kind == "reel":
+        rec_p, target = media[:-4] + ".review.json", media
+        if not os.path.exists(target):
+            return False, f"MP4 없음: {target}"
+        h = hashlib.sha1(open(target, "rb").read()).hexdigest()
+    else:
+        rec_p, src = os.path.join(media, "review.json"), os.path.join(media, "source.sha1")
+        if not os.path.exists(src):
+            return False, f"카드 지문 없음: {src}"
+        h = open(src, encoding="utf-8").read().strip()
+    if not os.path.exists(rec_p):
+        return False, f"검수 기록 없음: {rec_p}"
+    rec = json.load(open(rec_p, encoding="utf-8"))
+    if rec.get("verdict") != "PASS":
+        return False, f"검수 판정 {rec.get('verdict')}"
+    if rec.get("sha1") != h:
+        return False, "검수 뒤 파일이 바뀜(다시 구워짐) — 다시 검수 필요"
+    if need == "human" and rec.get("by") != "user":
+        return False, "수습 기간 항목 — 사용자 승인(by user) 필요"
+    return True, ""
 
 
 def publish_one():
