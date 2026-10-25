@@ -35,6 +35,12 @@
   .stage .tile{font-weight:900;color:var(--accent);font-size:13cqw;letter-spacing:-.04em;line-height:1.1;text-align:center;padding:0 8cqw}
   .stage .tile small{display:block;font-size:3.4cqw;font-weight:500;color:var(--muted);letter-spacing:.02em;margin-top:2.4cqw}
   .stage img.gen{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .stage .ovb{position:absolute;left:0;right:0;bottom:0;padding:10cqw 6cqw 12cqw 6cqw;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.72) 45%);color:#fff;text-shadow:0 .3cqw 1.2cqw rgba(0,0,0,.45);z-index:1}
+  .stage .ovb b{display:block;font-weight:900;font-size:10cqw;line-height:1.05;letter-spacing:-.03em}
+  .stage .ovb small{display:block;font-size:3.3cqw;font-weight:700;margin-top:1cqw;opacity:.95}
+  .stage .ovp{position:absolute;left:5.5cqw;bottom:12cqw;display:flex;gap:4.5cqw;align-items:flex-end;background:rgba(14,40,30,.86);color:#fff;padding:2.6cqw 4cqw 3cqw;border-radius:2.6cqw;box-shadow:0 .8cqw 3cqw rgba(0,0,0,.35);z-index:1}
+  .stage .ovp small{display:block;font-size:2.9cqw;font-weight:500;opacity:.9}
+  .stage .ovp b{display:block;font-weight:900;font-size:11cqw;line-height:1;letter-spacing:-.03em}.stage .ovp b.ac{color:#7ee0b5}
   .stage .phw{position:absolute;inset:0;display:flex;flex-direction:column;background:#0d1020}
   .stage .phw img{flex:1 1 auto;min-height:0;width:100%;object-fit:contain;display:block}
   .stage .phb{flex:0 0 auto;padding:2.2cqw 3.6cqw 2.6cqw 22cqw;color:#fff;line-height:1.35}
@@ -246,7 +252,13 @@ function genOf(a){
   const g = a.querySelector(".cn img.cn-gen");
   if(!g || !g.getAttribute("src")) return null;
   const label = /_science-brief/.test(F) ? "AI 개념도" : "AI 생성 이미지";
-  return `<img class="gen" src="../${esc(g.getAttribute("src"))}" alt="${esc(g.getAttribute("alt") || "")}"><span class="ai">${label}</span>`;
+  // AI 그림 + 숫자(2026-10-25 H1·H3): <p class="cn-over">851억 원|20대 이하가 안 받은 돈</p> 또는 4칸 "기한 후 신청 마감|11.30|받는 금액|95%"
+  //   AI 는 숫자를 정확히 못 그린다 → 숫자는 코드로 얹는다. 값은 카드 본문에 있는 것만.
+  const ov = clean(a.querySelector(".cn .cn-over")?.textContent); const o = ov ? ov.split("|").map(clean) : null;
+  const over = !o ? "" : o.length >= 4
+    ? `<div class="ovp"><div><small>${esc(o[0])}</small><b>${esc(o[1])}</b></div><div><small>${esc(o[2])}</small><b class="ac">${esc(o[3])}</b></div></div>`
+    : `<div class="ovb"><b>${esc(o[0])}</b>${o[1] ? `<small>${esc(o[1])}</small>` : ""}</div>`;
+  return `<img class="gen" src="../${esc(g.getAttribute("src"))}" alt="${esc(g.getAttribute("alt") || "")}"><span class="ai">${label}${o ? " · 숫자는 기사 기준" : ""}</span>${over}`;
 }
 // "2026-10-17~2026-10-25" · "10/17~10/25" · "~10/18" · "10/17"
 function parseWhen(t, year){
@@ -365,8 +377,39 @@ function infoOf(a, geo, year){
   // 경기 일정판(2026-10-24~, 축구 프리뷰): <p class="cn-fixtures">PSG|토 23:00|낭트 / 맨시티|일 새벽 1:30|아스널</p> 최대 6경기 — 시각은 한국시간만(맨 위 '킥오프 · 한국시간' 고정)
   const fx = T(".cn-fixtures") ? T(".cn-fixtures").split(/\s+\/\s+/).map(g => g.split("|").map(clean)).filter(g => g.length >= 3).slice(0, 6) : null;
   const sc = parts(".cn-score"), lk = parts(".cn-link"), sh = parts(".cn-shift"), st = parts(".cn-steps"), br = parts(".cn-bars");
+  // 새 템플릿(2026-10-25 사용자 승인 — '너무 자주 본 막대 도표' 대신):
+  //   cn-ring   "38.3|851억 원|20대 이하가 안 받은 돈|예상 지급액의 38.3%"  큰 숫자 + 비율 고리(T2)
+  //   cn-waffle "44.9|미신청자 중 20대 이하|2020년엔 28.0%"                 100칸 와플(T3, 칸 하나 ≈ 1%p)
+  //   cn-ticket "기한 후 신청 마감|11.30|받는 금액|95%"                      티켓(T4, 두 값)
+  //   값은 모두 카드 본문·스펙 표에 있는 것만(check_cards 숫자 검사)
+  const rg = parts(".cn-ring"), wf = parts(".cn-waffle"), tk = parts(".cn-ticket");
   let g = "";
-  if(ms && ms.length >= 2){
+  const fsz = (v, base, min) => Math.max(min, Math.min(base, Math.floor(base * 6 / Math.max(6, v.length))));
+  if(rg && rg.length >= 2 && isFinite(parseFloat(rg[0]))){
+    const p = Math.max(0, Math.min(100, parseFloat(rg[0]))) / 100, r = 66, cx = 104, cy = 128, C = 2 * Math.PI * r;
+    g = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="var(--off)" stroke-width="24"/>
+      <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="var(--accent)" stroke-width="24" stroke-dasharray="${(C * p).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 ${cx} ${cy})"/>
+      <text x="${cx}" y="${cy + 9}" text-anchor="middle" style="font:900 26px var(--sans);fill:var(--accent)">${esc(rg[0])}%</text>
+      <text x="198" y="122" style="font:900 ${fsz(rg[1], 50, 30)}px var(--sans);fill:var(--ink);letter-spacing:-.03em">${esc(rg[1])}</text>
+      ${rg[2] ? `<text x="200" y="154" class="ig-k" style="font-weight:700;fill:var(--ink)">${esc(rg[2])}</text>` : ""}
+      ${rg[3] ? `<text x="200" y="178" class="ig-s">${esc(rg[3])}</text>` : ""}`;
+  }else if(wf && isFinite(parseFloat(wf[0]))){
+    const v = parseFloat(wf[0]), n = Math.round(Math.max(0, Math.min(100, v))), s = 15, gp = 3;
+    g = [...Array(100).keys()].map(i => { const r = Math.floor(i / 10), c = i % 10;
+      return `<rect x="${22 + c * (s + gp)}" y="${30 + r * (s + gp)}" width="${s}" height="${s}" rx="3" fill="${i < n ? "var(--accent)" : "var(--off)"}"/>`; }).join("") +
+      `<text x="222" y="110" style="font:900 ${fsz(wf[0] + "%", 54, 34)}px var(--sans);fill:var(--accent);letter-spacing:-.03em">${esc(wf[0])}%</text>
+      ${wf[1] ? `<text x="224" y="140" class="ig-k" style="font-weight:700;fill:var(--ink)">${esc(wf[1])}</text>` : ""}
+      ${wf[2] ? `<text x="224" y="164" class="ig-s">${esc(wf[2])}</text>` : ""}
+      <text x="22" y="226" class="ig-s">칸 하나 ≈ 1%p (${n}칸, 반올림)</text>`;
+  }else if(tk && tk.length >= 4){
+    g = `<rect x="28" y="52" width="344" height="156" rx="18" fill="#fff" stroke="var(--accent)" stroke-width="3" stroke-dasharray="9 6"/>
+      <circle cx="28" cy="130" r="16" fill="var(--stage)"/><circle cx="372" cy="130" r="16" fill="var(--stage)"/>
+      <line x1="210" y1="76" x2="210" y2="186" stroke="var(--off)" stroke-width="2" stroke-dasharray="4 5"/>
+      <text x="56" y="98" class="ig-k" style="font-weight:700">${esc(tk[0])}</text>
+      <text x="54" y="168" style="font:900 ${fsz(tk[1], 58, 32)}px var(--sans);fill:var(--ink);letter-spacing:-.03em">${esc(tk[1])}</text>
+      <text x="232" y="98" class="ig-k" style="font-weight:700">${esc(tk[2])}</text>
+      <text x="230" y="168" style="font:900 ${fsz(tk[3], 58, 32)}px var(--sans);fill:var(--accent);letter-spacing:-.03em">${esc(tk[3])}</text>`;
+  }else if(ms && ms.length >= 2){
     const rh = Math.min(40, (note ? 165 : 200) / ms.length), y0 = (note ? 105 : 125) - rh * (ms.length - 1) / 2;
     g = ms.map(([a, x, y, b], i) => { const yy = y0 + i * rh, na = Number(x), nb = Number(y), wa = na > nb, wb = nb > na;
       return `${i ? `<line x1="60" x2="340" y1="${(yy - rh / 2).toFixed(1)}" y2="${(yy - rh / 2).toFixed(1)}" class="ig-line"/>` : ""}
@@ -453,13 +496,15 @@ function infoOf(a, geo, year){
   }else if(kr.length || world.length){
     g = mapL() + lines(note, 330, 120, "ig-k");
   }
-  return g ? `<svg viewBox="0 0 400 250" role="img" aria-label="${esc([T(".cn-fixtures"), T(".cn-score"), T(".cn-link"), T(".cn-shift"), T(".cn-steps"), T(".cn-bars"), T(".cn-place"), T(".cn-when"), ...nums.map(n => n.v + " " + n.l), note].filter(Boolean).join(", "))}">${g}</svg>` : null;
+  return g ? `<svg viewBox="0 0 400 250" role="img" aria-label="${esc([T(".cn-ring"), T(".cn-waffle"), T(".cn-ticket"), T(".cn-fixtures"), T(".cn-score"), T(".cn-link"), T(".cn-shift"), T(".cn-steps"), T(".cn-bars"), T(".cn-place"), T(".cn-when"), ...nums.map(n => n.v + " " + n.l), note].filter(Boolean).join(", "))}">${g}</svg>` : null;
 }
 function visualOf(a, geo, year){
   // 우선순위(2026-10-21 사용자 결정): ① 라이선스 확인된 실제 이미지 ② AI 일러스트 ③ 도표·개념도 ④ 정보 그림 ⑤ 정보 시트
   // AI 그림은 작성자가 cn-img 를 넣은 카드에만 생긴다(사건·정치·스포츠 등은 make_images 가 거른다). 생성 전·실패 시엔 ③④가 그대로 나온다.
   const ph = photoOf(a); if(ph) return ph.html;
   const gen = INFO_FIRST || MIX === "week7" ? null : genOf(a); if(gen) return gen;   // 이번 주 숫자 묶음은 숫자 그림을 쓴다
+  // 새 템플릿(cn-ring·cn-waffle·cn-ticket)을 적은 카드는 그것이 도표·개념도보다 먼저(작성자가 고른 표현)
+  if(a.querySelector(".cn .cn-ring, .cn .cn-waffle, .cn .cn-ticket")){ const t = infoOf(a, geo, year); if(t) return t; }
   const chart = chartOf(a); if(chart) return chart;
   return infoOf(a, geo, year) || (MIX ? null : sheetOf(a));
 }
