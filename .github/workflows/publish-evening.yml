@@ -26,7 +26,8 @@ jobs:
           IG_SPORTS_USER_ID: ${{ secrets.IG_SPORTS_USER_ID }}
           EXPECT_SPORTS_USERNAME: ${{ vars.EXPECT_SPORTS_USERNAME || 'hannun.sports' }}
         run: |
-          d=$(TZ=Asia/Seoul date +%F)
+          # 예약 실행이 자정을 넘겨 도는 일이 잦다(2026-10-24 실행: 10/25 00:51 KST) → 새벽 4시 전이면 전날 요청으로 본다(2026-10-25 수정)
+          d=$(TZ=Asia/Seoul date -d '-4 hours' +%F)
           shopt -s nullglob
           files=(publish/evening/${d}_*.json)
           [ ${#files[@]} -eq 0 ] && { echo "no evening requests for $d"; exit 0; }
