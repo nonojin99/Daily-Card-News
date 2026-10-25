@@ -527,6 +527,19 @@ def reels_tick():
         print(f"::warning::sports reels tick failed: {e}")
 
 
+def slots_tick():
+    """시간대 게시(07:30·12:10·18:40·21:07, 2026-10-26~ 사용자 요청): 예약 실행이 몇 시간씩 늦어 이 루프에서 올린다. 실패해도 스토리 감시는 계속."""
+    if MODE == "dry":
+        return
+    try:
+        import publish_slots as PS
+        changed = PS.tick()
+        if changed:
+            push("시간대 게시 처리 [skip ci]", changed)
+    except Exception as e:  # noqa: BLE001
+        print(f"::warning::slot publish tick failed: {e}")
+
+
 def main():
     if MODE == "off":
         print("score alert: off"); return
@@ -561,7 +574,7 @@ def run_once():
         return 0
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     if not boards:
-        print(f"{kst():%H:%M} score alert: nothing new"); reels_tick(); return 0
+        print(f"{kst():%H:%M} score alert: nothing new"); reels_tick(); slots_tick(); return 0
     failed = []
     sys.path.insert(0, os.path.join(ROOT, "tools"))
     from check_sports_data import validate   # 스포츠 데이터 검사(2026-10-25~) — 옮겨 적은 값이 이상하면 그 판은 올리지 않는다
@@ -610,6 +623,7 @@ def run_once():
             except Exception as e:  # noqa: BLE001
                 print(f"::warning::sports reel make failed: {e}")
     reels_tick()
+    slots_tick()
     return len(failed)
 
 

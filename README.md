@@ -187,7 +187,7 @@ AI 멀티 에이전트 파이프라인("하네스" 구조)으로 제작되며, G
 - 검수: `python3 tools/check_reel.py <mp4> --caption <캡션>` + `reel-reviewer` → 승인 기록 → 시간대 파일. **수습 3편(`deep-reel`)은 `"review":"human"`**.
 
 **② 시간대 게시** — `publish/slots/README.md`
-- 07:30 · 12:10 · 18:40 · 21:07 KST(워크플로 `Publish scheduled reels`). 파일 `publish/slots/<게시 날짜>_<HHMM>_<이름>.json`(형식은 `publish/request.json` 과 같다).
+- 07:30 · 12:10 · 18:40 · 21:07 KST. **올리는 건 결과 알림 이어 달리기(`Score alert`, 5분마다 `publish_slots.tick`) — 시간대가 되면 5분 안에 게시**(2026-10-26 사용자 요청 "올리는 시점·흐름이 중요": 예약 실행이 21:07 → 00:51 처럼 몇 시간씩 늦었다). 처리한 시간대는 `publish/slots/.done.json`, 워크플로 `Publish scheduled reels` 예약은 예비(처리된 시간대는 건너뜀). 파일 `publish/slots/<게시 날짜>_<HHMM>_<이름>.json`(형식은 `publish/request.json` 과 같다).
 - 배정: 그날 고른 릴스를 점수 순으로, 시간대 `1210 → 1840 → 2107` 을 **(그해의 몇째 날 % 3) 칸 왼쪽으로 돌린 순서**에 넣는다(점수와 시간대 효과가 섞이지 않게). 코너 릴스가 있는 날은 21:07 을 코너 릴스에 두고 나머지에.
   `TZ=Asia/Seoul date +%j` 로 그해의 몇째 날을 구한다. 07:30 은 전날 밤 루틴 몫·따라잡기.
 - 같은 계정은 시간대마다 1편. 놓친 항목은 그날 다음 시간대가 1건씩 따라잡는다. 검수 기록이 없으면 그 항목은 건너뛴다(경고만).

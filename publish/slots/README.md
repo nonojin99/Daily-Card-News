@@ -1,6 +1,7 @@
 # 시간대 게시 (2026-10-26~)
 
-릴스를 하루 여러 시간대에 나눠 올린다 — 워크플로 `Publish scheduled reels`(`.github/workflows/publish-evening.yml`), 스크립트 `.github/scripts/publish_slots.py`.
+릴스를 하루 여러 시간대에 나눠 올린다 — 스크립트 `.github/scripts/publish_slots.py`.
+**2026-10-26~ 주 경로는 결과 알림 이어 달리기(`Score alert`, 5분마다 `tick()`)** — 예약 실행이 몇 시간씩 늦어(21:07 → 00:51) 시간대가 무너졌다. 처리한 시간대는 `.done.json` 에 남고, 워크플로 `Publish scheduled reels`(`.github/workflows/publish-evening.yml`) 예약은 예비로만 돈다(이미 처리된 시간대는 건너뜀, 다시 돌리려면 `FORCE=1`).
 
 | 시간대 | KST | 쓰임 |
 |---|---|---|

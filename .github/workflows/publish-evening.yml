@@ -2,7 +2,8 @@ name: Publish scheduled reels
 
 # 시간대 게시(2026-10-26~): 07:30 · 12:10 · 18:40 · 21:07 KST 에 publish/slots/<오늘>_<HHMM>_*.json 을 올린다
 # (21:07 은 예전 publish/evening/<오늘>_*.json 도). 놓친 앞 시간대 항목은 한 번에 1건씩 따라잡는다. .github/scripts/publish_slots.py · publish/slots/README.md
-# GitHub 예약 실행은 수십 분 밀린다 — 정시 게시가 아니라 '그 시간대 안' 게시가 목표.
+# GitHub 예약 실행은 몇 시간씩 밀린다(2026-10-24 21:07 예약이 00:51 실행) — 2026-10-26~ 주 경로는 Score alert 이어 달리기(5분마다 publish_slots.tick).
+# 이 예약은 예비: publish/slots/.done.json 에 이미 처리된 시간대는 건너뛰고, 처리했으면 .done.json 을 push 한다.
 on:
   schedule:
     - cron: '30 22 * * *'   # 07:30 KST
@@ -12,7 +13,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: publish-instagram
@@ -32,3 +33,12 @@ jobs:
           EXPECT_SPORTS_USERNAME: ${{ vars.EXPECT_SPORTS_USERNAME || 'hannun.sports' }}
           SLOT: ${{ github.event.schedule == '30 22 * * *' && '0730' || github.event.schedule == '10 3 * * *' && '1210' || github.event.schedule == '40 9 * * *' && '1840' || github.event.schedule == '7 12 * * *' && '2107' || '' }}
         run: python3 .github/scripts/publish_slots.py
+      - name: Record processed slot
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add publish/slots/.done.json 2>/dev/null || exit 0
+          git diff --staged --quiet && exit 0
+          git commit -q -m "시간대 게시 처리(예비 예약) [skip ci]"
+          for i in 1 2 3; do git push -q && exit 0; git pull -q --rebase origin main; done
