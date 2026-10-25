@@ -342,6 +342,8 @@ curl -s https://raw.githubusercontent.com/nonojin99/Daily-Card-News/main/YYYY-MM
      | `cdn.esawebb.org` · `cdn.esahubble.org` (`/screen/`) | CC BY 4.0 | 페이지의 Credit 원문 그대로 |
      | `upload.wikimedia.org/wikipedia/commons/` | 파일 페이지(`commons.wikimedia.org/wiki/File:…`)의 **퍼블릭 도메인·CC0·CC BY·CC BY-SA** | `작가 · 라이선스(예: CC BY-SA 4.0) · Wikimedia Commons` + 파일 페이지 링크 |
 
+   - **정책브리핑(korea.kr) 사진은 쓰지 않는다 (2026-10-25 확인).** 저작권 정책(`korea.kr/guide/copyRight.do`) 원문: 사진은 "정부기관 및 연합뉴스 등에 저작권이 있으며, 이미지의 경우, 통로이미지(주)에 저작권",
+     "공공누리가 부착되지 않은 자료 및 부착 되었더라도 사진 및 이미지를 사용하고자 할 경우에는 … 각 메뉴 담당자와 사전에 협의한 이후 이용" — 공공누리 1유형은 **텍스트에만** 적용된다. 무인 루틴은 사전 협의를 할 수 없으므로 제외(사람이 협의해 허락을 받으면 그 사진만 예외).
    - Commons 에서 쓰지 않는 것: **"미국에서만 퍼블릭 도메인"**(PD-US 등 한국 보호기간 미확인), 라이선스 틀이 없거나 "저작권 주장"·삭제 토론 중인 파일,
      **살아 있는 인물이 주인공인 사진**(초상·퍼블리시티권), 포스터·앨범 커버·로고(Commons 에 있어도 대부분 비자유 파일).
    - 쓸 만한 예: 작가 사후 70년이 지난 작품(김홍도·정선 등 옛 그림, 고전 회화), 클래식 작곡가 초상(옛 그림·사진), 공연장·미술관 건물 사진(CC BY/BY-SA), 천체 사진(ESA).
