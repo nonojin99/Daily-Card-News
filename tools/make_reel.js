@@ -148,6 +148,18 @@ function paraSpans(mp3, paras) {
   if (fs.existsSync(path.join(ROOT, side))) {
     const j = JSON.parse(read(side));
     if (j.paras && j.paras.length === paras.length) return j.paras;
+    // 원고 문단을 합치거나 나눈 뒤 MP3 를 다시 만들지 않았으면(재생기가 있으면 make_audio 가 건너뜀) 문단 수가 다르다 — 2026-10-25 과학 릴스에서
+    // 글자 수 추정으로 떨어져 '빠진 카드의 낭독 끝이 다음 카드 화면에 깔린' 사고. 사이드카 문단을 글자 수로 이어 붙여 원고 문단에 맞춘다(문단 안은 그대로).
+    if (j.paras && j.chars && j.chars.length === j.paras.length) {
+      const want = paras.map(p => p.replace(/\s/g, "").length), out = []; let k = 0;
+      for (const w of want) {
+        let acc = 0, a = k;
+        while (k < j.chars.length && acc + j.chars[k] <= w + 3) { acc += j.chars[k]; k++; }
+        if (k === a || Math.abs(acc - w) > 3) { out.length = 0; break; }
+        out.push([j.paras[a][0], j.paras[k - 1][1]]);
+      }
+      if (out.length === paras.length && k === j.chars.length) return out;
+    }
   }
   const T = +execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path.join(ROOT, mp3)]).toString();
   const err = spawnSync("ffmpeg", ["-v", "info", "-i", path.join(ROOT, mp3), "-af", "silencedetect=noise=-40dB:d=0.35", "-f", "null", "-"]).stderr.toString();
