@@ -203,7 +203,7 @@ def maybe_bundle(posted, dry):
     sports = sorted({re.search(r"_([a-z0-9-]+)_\d{4}\.jpg$", im)[1] for im in imgs})
     cap = "\n".join([f"[🏟 {label}] 결과판 {len(imgs)}장 한 번에", *[f"· {x}" for x in titles if x], "",
                      "📊 기록: 각 리그 공식 기록·ESPN 스코어보드", f"🎵 음악: {CREDIT}", "▶ 해설은 ⚾ 야구 나이트·⚽ 축구 모닝 (프로필 링크의 앱)", "",
-                     " ".join((TAGS.get(s.replace("-", "."), "").split() or ["#스포츠"])[0] for s in sports)[:80] + " #경기결과"])
+                     " ".join((TAGS.get(s.replace("-", "."), "").split() or ["#스포츠"])[0] for s in sports[:4]) + " #경기결과"])   # 해시태그 5개 이하(README 캡션 규칙)
     open(os.path.join(ROOT, base + ".txt"), "w", encoding="utf-8").write(cap + "\n")
     q["items"].append({"id": f"bundle:{key}", "kind": "bundle", "mp4": base + ".mp4", "caption": base + ".txt", "score": RULES["bundle_score"],
                        "seconds": round(total, 1), "made_kst": now.strftime("%Y-%m-%d %H:%M"), "status": "dry" if dry else "queued"})

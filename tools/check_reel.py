@@ -12,6 +12,7 @@ import argparse, datetime, hashlib, json, os, re, subprocess, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 NARR_MAX, SHORT_MAX, DEEP_MAX = 180.0, 14.5, 90.0
+DATA_MAX = 30.0   # 스포츠 데이터 릴스(reels/sports/, 2026-10-26~) — 낭독 없음·배경음악, 결과판 묶음은 최대 8판
 
 
 def sha1(p):
@@ -35,12 +36,13 @@ def check(mp4, caption):
     F = lambda m: out.append(("FAIL", m)); W = lambda m: out.append(("WARN", m))
     name = os.path.basename(mp4)[:-4]
     short = name.endswith("_short") or name.endswith("_lib")
+    data = "/reels/sports/" in mp4.replace(os.sep, "/")   # 스포츠 데이터 릴스 — 낭독 없음(AI 음성 표시 불필요), reel.json 대신 sports/reels/queue.json
     spec_p = mp4[:-4] + ".reel.json"
     spec = json.load(open(spec_p, encoding="utf-8")) if os.path.exists(spec_p) else {}
-    if not spec: W("reel.json 없음 — 구간·오프닝을 확인할 수 없음")
+    if not spec and not data: W("reel.json 없음 — 구간·오프닝을 확인할 수 없음")
     d = dur(mp4)
     deep = spec.get("kind") == "deep"   # 깊게 파는 릴스(…_cN.mp4, 2026-10-26~) — 90초 이내, 사건·사고 검사는 그 카드만
-    lim = SHORT_MAX if short else DEEP_MAX if deep else NARR_MAX
+    lim = DATA_MAX if data else SHORT_MAX if short else DEEP_MAX if deep else NARR_MAX
     if d > lim: F(f"길이 {d:.1f}초 > {lim}초")
     if d < 6: F(f"길이 {d:.1f}초 — 너무 짧음(만들다 실패?)")
     brief = spec.get("brief", "")
@@ -89,7 +91,7 @@ def check(mp4, caption):
             if first.startswith("🎧"): F("캡션 첫 줄이 '🎧 N분 듣는…' — 첫 줄은 구체적인 장소·숫자부터(CLAUDE.md)")
             if not re.match(r"^\[", first): W("캡션 첫 줄이 [분야] 로 시작하지 않음")
             if "▶" not in c: W("'▶ … 앱에서' 줄 없음")
-            if not short and "AI 음성" not in c: F("낭독판인데 캡션에 'AI 음성' 표시 없음")
+            if not short and not data and "AI 음성" not in c: F("낭독판인데 캡션에 'AI 음성' 표시 없음")
             if html and 'class="cn-gen"' in html and not re.search(r"AI (생성|개념도|그림)", c): F("AI 그림이 있는데 캡션에 AI 그림 표시 없음")
             m = re.search(r'<figure class="photo"[\s\S]*?class="credit">([\s\S]*?)</span>', html or "")
             if m:
