@@ -79,7 +79,7 @@ function hookOf(html) {
 // motion = 카드 1번 그림이 화면 위쪽을 꽉 채우고 천천히 확대 + 큰 숫자·제목이 아래에서 올라오는 2초 → 카드로 바로 넘어감(장면 변화).
 // 고르기: 같은 코너는 2주마다 번갈아(낭독판/짧은판 A/B 는 1주마다 — publish_ig.py pick_variant) → 코너마다 4주에 2×2 가 고르게 돈다.
 // REEL_OPENING=motion|static 으로 강제. OPENING_FROM 이전 날짜 브리프는 모두 static(실험 전 기준선).
-const OPENING_FROM = process.env.REEL_OPENING_FROM || "9999-12-31", INTRO = 2.0, IFPS = 30;
+const OPENING_FROM = process.env.REEL_OPENING_FROM || "2026-10-26", INTRO = 2.0, IFPS = 30;
 const OPEN_SLOT = { ai: 0, activity: 1, science: 2, sports: 1, football: 1, music: 1 };
 function isoWeek(d) { const t = new Date(d + "T00:00:00Z"), w = (t.getUTCDay() + 6) % 7; t.setUTCDate(t.getUTCDate() - w + 3);
   const y = new Date(Date.UTC(t.getUTCFullYear(), 0, 4)); return 1 + Math.round(((t - y) / 864e5 - 3 + ((y.getUTCDay() + 6) % 7)) / 7); }
