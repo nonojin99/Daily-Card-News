@@ -6,8 +6,9 @@
    "caption": "captions/2026-10-25_science_reel.txt",
    "dry_run": "false",
    "is_ai": "true",
-   "ab": "auto"
+   "ab": "auto",
+   "review": "required"
   }
  ],
- "note": "10/25 일요일 우주·과학 오디오 릴스 — 저녁 게시"
+ "note": "10/25 일요일 우주·과학 오디오 릴스 — 저녁 게시 · 검수 관문(2026-10-25 밤): 검수 에이전트 FAIL 4건 수정 뒤 승인 기록이 있어야 게시"
 }
