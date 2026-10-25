@@ -290,6 +290,11 @@
    "status": "published",
    "at_kst": "2026-10-25 10:10",
    "result": "18120159217975823"
+  },
+  "live:mlb:849802:4": {
+   "image": "sports/alerts/2026-10/2026-10-24_mlb_1026.jpg",
+   "status": "pending",
+   "at_kst": "2026-10-25 10:26"
   }
  },
  "boards": {
