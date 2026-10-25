@@ -72,7 +72,8 @@ function hookOf(html) {
   const n = a[1].match(/<p class="cn-num">([\s\S]*?)<\/p>/);
   let num = null, label = "";
   if (n) { [num, label = ""] = strip(n[1]).split("|"); if (lines.join("").replace(/\s/g, "").includes(num.replace(/\s/g, ""))) num = null; }
-  return { lines, num, label: num ? label : "" };
+  const tp = html.match(/class="kicker"[^>]*data-topic="([^"]+)"/);
+  return { lines, num, label: num ? label : "", topic: tp ? strip(tp[1]) : "" };
 }
 // ── 오프닝 A/B (2026-10-25 사용자 결정): 첫 2초 '정지(static)' vs '움직임(motion)' ──
 // 근거: 릴스 5편 평균 시청 2.3~2.8초 — 길이(34~176초)·첫 장면 종류(표지·큰 글씨·카드 1번)와 무관. 세 가지 모두 첫 3초가 완전히 정지 화면이었다.
@@ -103,24 +104,27 @@ async function introFrames(b, card1, hook, meta, label, d, wd, handle, tmp, note
   const img = "data:image/png;base64," + fs.readFileSync(card1).toString("base64");
   const longest = Math.max(1, ...hook.lines.map(l => l.length));
   const fs_ = Math.max(64, Math.min(112, Math.floor(880 / (longest * 0.9))));
+  // 사진·AI 그림이 없는 카드(도표·개념도)는 그림을 확대하면 잘리므로 → 액센트 바탕 큰 글씨(주제어·숫자·제목)만
+  const pic = !!note;
   const pg = await b.newPage({ viewport: { width: 1080, height: 1920 } });
   await pg.setContent(`<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
-<style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:#111;font-family:'Noto Sans KR',sans-serif;color:#fff;position:relative;overflow:hidden}
+<style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:${pic ? '#111' : meta.ac};font-family:'Noto Sans KR',sans-serif;color:#fff;position:relative;overflow:hidden}
 .pic{position:absolute;left:0;top:0;width:1080px;height:1100px;overflow:hidden}
 .pic div{position:absolute;inset:0;background:url(${img}) top center/auto 2200px no-repeat;transform-origin:50% 40%}
 .fade{position:absolute;left:0;right:0;top:700px;height:420px;background:linear-gradient(180deg,rgba(17,17,17,0),#111)}
 .top{position:absolute;left:80px;right:80px;top:150px;display:flex;align-items:center;gap:22px}
-.cat{background:${meta.ac};color:#fff;font-weight:900;font-size:40px;padding:10px 30px;border-radius:99px;white-space:nowrap}
+.cat{background:${pic ? meta.ac : '#fff'};color:${pic ? '#fff' : meta.ac};font-weight:900;font-size:40px;padding:10px 30px;border-radius:99px;white-space:nowrap}
 .dt{margin-left:auto;font-size:36px;font-weight:700;white-space:nowrap;text-shadow:0 2px 12px rgba(0,0,0,.6)}
-.txt{position:absolute;left:80px;right:80px;top:1060px}
+.txt{position:absolute;left:80px;right:80px;top:${pic ? (hook.topic ? 860 : 1060) : 520}px}
+.tp{display:inline-block;background:${pic ? meta.ac : '#fff'};color:${pic ? '#fff' : meta.ac};font-weight:900;font-size:${Math.min(150, Math.floor(900 / Math.max(2, (hook.topic || '').length)))}px;line-height:1.1;padding:14px 36px 22px;border-radius:28px;margin-bottom:34px;letter-spacing:-.03em}
 .num{font-weight:900;font-size:170px;line-height:1;letter-spacing:-.03em;color:#fff}.lab{font-size:44px;font-weight:700;margin:14px 0 40px;opacity:.85}
 .h{font-weight:900;font-size:${fs_}px;line-height:1.2;letter-spacing:-.03em;white-space:nowrap}
 .ft{position:absolute;left:80px;right:80px;top:1640px;font-size:32px;opacity:.75}
 .note{position:absolute;left:80px;top:250px;max-width:920px;background:rgba(0,0,0,.55);color:#fff;font-size:28px;font-weight:500;padding:6px 16px;border-radius:10px}</style></head>
-<body><div class="pic"><div id="z"></div></div><div class="fade"></div>${note ? `<div class="note">${esc(note)}</div>` : ""}
+<body>${pic ? '<div class="pic"><div id="z"></div></div><div class="fade"></div>' : '<div id="z"></div>'}${note ? `<div class="note">${esc(note)}</div>` : ""}
 <div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="dt">${esc(label)} · ${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
-<div class="txt">${hook.num ? `<div class="num" id="n">${esc(hook.num)}</div><div class="lab">${esc(hook.label)}</div>` : ""}
+<div class="txt">${hook.topic ? `<div class="tp" id="tp">${esc(hook.topic)}</div>` : ""}${hook.num ? `<div class="num" id="n">${esc(hook.num)}</div><div class="lab">${esc(hook.label)}</div>` : ""}
 ${hook.lines.map((l, i) => `<div class="h" id="h${i}">${esc(l)}</div>`).join("")}</div>
 <div class="ft"><b>${handle}</b></div></body></html>`, { waitUntil: "networkidle" });
   const files = [], N = Math.round(INTRO * IFPS);
@@ -129,6 +133,7 @@ ${hook.lines.map((l, i) => `<div class="h" id="h${i}">${esc(l)}</div>`).join("")
     await pg.evaluate(t => {
       const e = x => 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3);   // ease-out
       document.getElementById("z").style.transform = `scale(${1 + 0.10 * t / 2})`;
+      const tp = document.getElementById("tp"); if (tp) { const k = e(t / 0.35); tp.style.transform = `scale(${1.12 - 0.12 * k})`; tp.style.transformOrigin = "0 50%"; }
       const n = document.getElementById("n"); if (n) { const k = e(t / 0.45); n.style.transform = `translateY(${(1 - k) * 24}px) scale(${0.94 + 0.06 * k})`; }
       document.querySelectorAll(".h").forEach((h, j) => { const k = e((t - 0.15 - 0.18 * j) / 0.4); h.style.transform = `translateX(${(1 - k) * 60}px)`; h.style.opacity = 0.6 + 0.4 * k; });
     }, t);
