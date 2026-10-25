@@ -74,6 +74,69 @@ function hookOf(html) {
   if (n) { [num, label = ""] = strip(n[1]).split("|"); if (lines.join("").replace(/\s/g, "").includes(num.replace(/\s/g, ""))) num = null; }
   return { lines, num, label: num ? label : "" };
 }
+// ── 오프닝 A/B (2026-10-25 사용자 결정): 첫 2초 '정지(static)' vs '움직임(motion)' ──
+// 근거: 릴스 5편 평균 시청 2.3~2.8초 — 길이(34~176초)·첫 장면 종류(표지·큰 글씨·카드 1번)와 무관. 세 가지 모두 첫 3초가 완전히 정지 화면이었다.
+// motion = 카드 1번 그림이 화면 위쪽을 꽉 채우고 천천히 확대 + 큰 숫자·제목이 아래에서 올라오는 2초 → 카드로 바로 넘어감(장면 변화).
+// 고르기: 같은 코너는 2주마다 번갈아(낭독판/짧은판 A/B 는 1주마다 — publish_ig.py pick_variant) → 코너마다 4주에 2×2 가 고르게 돈다.
+// REEL_OPENING=motion|static 으로 강제. OPENING_FROM 이전 날짜 브리프는 모두 static(실험 전 기준선).
+const OPENING_FROM = process.env.REEL_OPENING_FROM || "9999-12-31", INTRO = 2.0, IFPS = 30;
+const OPEN_SLOT = { ai: 0, activity: 1, science: 2, sports: 1, football: 1, music: 1 };
+function isoWeek(d) { const t = new Date(d + "T00:00:00Z"), w = (t.getUTCDay() + 6) % 7; t.setUTCDate(t.getUTCDate() - w + 3);
+  const y = new Date(Date.UTC(t.getUTCFullYear(), 0, 4)); return 1 + Math.round(((t - y) / 864e5 - 3 + ((y.getUTCDay() + 6) % 7)) / 7); }
+function openingOf(brief) {
+  if (process.env.REEL_OPENING) return process.env.REEL_OPENING;
+  const m = brief.match(BRIEF); if (!m) return "static";
+  const d = `${m[1]}-${m[2]}-${m[3]}`; if (d < OPENING_FROM) return "static";
+  return (Math.floor(isoWeek(d) / 2) + (OPEN_SLOT[m[4]] ?? 0)) % 2 === 0 ? "motion" : "static";
+}
+// 움직이는 오프닝 프레임(INTRO 초 × IFPS) — 카드 1번 PNG 위쪽(그림 영역)과 훅 문구. 첫 프레임부터 문구가 보인다(썸네일·자동재생 첫 장면).
+// 카드 1번 그림의 표시(지우면 안 됨): 실제 사진이면 크레디트(CC BY — 그림에서 떼지 않는다), AI 그림이면 'AI 생성 이미지'(과학은 'AI 개념도')
+function picNoteOf(html, type) {
+  const a = html.match(/<article class="card"[^>]*>([\s\S]*?)<\/article>/); if (!a) return "";
+  const strip = x => x.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+  const ph = a[1].match(/<figure class="photo"[\s\S]*?class="credit">([\s\S]*?)<\/span>/);
+  if (ph) return strip(ph[1]).replace(/^이미지:\s*/, "이미지: ");
+  if (/class="cn-gen"/.test(a[1])) return type === "science" ? "AI 개념도" : "AI 생성 이미지";
+  return "";
+}
+async function introFrames(b, card1, hook, meta, label, d, wd, handle, tmp, note = "") {
+  const img = "data:image/png;base64," + fs.readFileSync(card1).toString("base64");
+  const longest = Math.max(1, ...hook.lines.map(l => l.length));
+  const fs_ = Math.max(64, Math.min(112, Math.floor(880 / (longest * 0.9))));
+  const pg = await b.newPage({ viewport: { width: 1080, height: 1920 } });
+  await pg.setContent(`<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
+<style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:#111;font-family:'Noto Sans KR',sans-serif;color:#fff;position:relative;overflow:hidden}
+.pic{position:absolute;left:0;top:0;width:1080px;height:1100px;overflow:hidden}
+.pic div{position:absolute;inset:0;background:url(${img}) top center/auto 2200px no-repeat;transform-origin:50% 40%}
+.fade{position:absolute;left:0;right:0;top:700px;height:420px;background:linear-gradient(180deg,rgba(17,17,17,0),#111)}
+.top{position:absolute;left:80px;right:80px;top:150px;display:flex;align-items:center;gap:22px}
+.cat{background:${meta.ac};color:#fff;font-weight:900;font-size:40px;padding:10px 30px;border-radius:99px;white-space:nowrap}
+.dt{margin-left:auto;font-size:36px;font-weight:700;white-space:nowrap;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.txt{position:absolute;left:80px;right:80px;top:1060px}
+.num{font-weight:900;font-size:170px;line-height:1;letter-spacing:-.03em;color:#fff}.lab{font-size:44px;font-weight:700;margin:14px 0 40px;opacity:.85}
+.h{font-weight:900;font-size:${fs_}px;line-height:1.2;letter-spacing:-.03em;white-space:nowrap}
+.ft{position:absolute;left:80px;right:80px;top:1640px;font-size:32px;opacity:.75}
+.note{position:absolute;left:80px;top:250px;max-width:920px;background:rgba(0,0,0,.55);color:#fff;font-size:28px;font-weight:500;padding:6px 16px;border-radius:10px}</style></head>
+<body><div class="pic"><div id="z"></div></div><div class="fade"></div>${note ? `<div class="note">${esc(note)}</div>` : ""}
+<div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="dt">${esc(label)} · ${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
+<div class="txt">${hook.num ? `<div class="num" id="n">${esc(hook.num)}</div><div class="lab">${esc(hook.label)}</div>` : ""}
+${hook.lines.map((l, i) => `<div class="h" id="h${i}">${esc(l)}</div>`).join("")}</div>
+<div class="ft"><b>${handle}</b></div></body></html>`, { waitUntil: "networkidle" });
+  const files = [], N = Math.round(INTRO * IFPS);
+  for (let i = 0; i < N; i++) {
+    const t = i / IFPS;
+    await pg.evaluate(t => {
+      const e = x => 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3);   // ease-out
+      document.getElementById("z").style.transform = `scale(${1 + 0.10 * t / 2})`;
+      const n = document.getElementById("n"); if (n) { const k = e(t / 0.45); n.style.transform = `translateY(${(1 - k) * 24}px) scale(${0.94 + 0.06 * k})`; }
+      document.querySelectorAll(".h").forEach((h, j) => { const k = e((t - 0.15 - 0.18 * j) / 0.4); h.style.transform = `translateX(${(1 - k) * 60}px)`; h.style.opacity = 0.6 + 0.4 * k; });
+    }, t);
+    const f = path.join(tmp, `in${String(i).padStart(3, "0")}.png`); await pg.screenshot({ path: f }); files.push(f);
+  }
+  await pg.close();
+  return files;
+}
 // 문단 [시작, 끝]: make_audio 기록 → 없으면 글자 수 비율 추정 + 가장 가까운 긴 쉼
 function paraSpans(mp3, paras) {
   const side = mp3.replace(/\.mp3$/, ".json");
@@ -205,10 +268,16 @@ ${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
     await fr.screenshot({ path: path.join(tmp, k < N ? `f${k}.png` : "fo.png") });
   }
   await fr.close();
+  // 오프닝 motion: 첫 구간(카드 1번) 앞 INTRO 초를 움직이는 프레임으로 바꾼다(전체 길이·소리는 그대로)
+  const d0 = (spec.segments[0][1] - spec.segments[0][0] + (gapAfter(0) ? GAP : 0)) / sp;
+  let intro = [];
+  if (spec.opening === "motion" && hook && d0 > INTRO + 0.5 && spec.segments[0][2] === 2)
+    intro = await introFrames(b, files[1], hook, meta, spec.title, d, wd, HANDLE_OF((spec.brief.match(BRIEF) || [])[4]), tmp, picNoteOf(read(spec.brief).toString(), (spec.brief.match(BRIEF) || [])[4]));
   const parts = spec.segments.map(([s, e], k) => `[0:a]atrim=${s}:${e},asetpts=PTS-STARTPTS${gapAfter(k) ? `,apad=pad_dur=${GAP}` : k === N - 1 && outro ? `,apad=pad_dur=${outro}` : ""}[a${k}]`);
   const filter = parts.join(";") + ";" + spec.segments.map((_, k) => `[a${k}]`).join("") + `concat=n=${N}:v=0:a=1${sp !== 1 ? `,atempo=${sp}` : ""}[a]`;
   const last = outro ? `fo.png` : `f${N - 1}.png`;
-  const list = spec.segments.map(([s, e], k) => `file 'f${k}.png'\nduration ${((e - s + (gapAfter(k) ? GAP : 0)) / sp).toFixed(3)}`).join("\n")
+  const list = intro.map(f => `file '${path.basename(f)}'\nduration ${(1 / IFPS).toFixed(5)}`).concat(
+    spec.segments.map(([s, e], k) => `file 'f${k}.png'\nduration ${(((e - s + (gapAfter(k) ? GAP : 0)) / sp) - (k === 0 && intro.length ? INTRO : 0)).toFixed(3)}`)).join("\n")
     + (outro ? `\nfile 'fo.png'\nduration ${(outro / sp).toFixed(3)}` : "") + `\nfile '${last}'\n`;
   fs.writeFileSync(path.join(tmp, "list.txt"), list);
   execFileSync("ffmpeg", ["-v", "error", "-y", "-i", path.join(ROOT, spec.audio), "-filter_complex", filter, "-map", "[a]", "-ar", "44100", "-c:a", "aac", "-b:a", "128k", path.join(tmp, "a.m4a")]);
@@ -242,7 +311,7 @@ async function autoOne(brief, b, base) {
   const base_ = `reels/${m[1]}-${m[2]}/${m[1]}-${m[2]}-${m[3]}_${m[4]}`;
   const spec = { brief, audio: mp3, out: base_ + ".mp4", title: `${a.total < 55 ? `${Math.max(10, Math.round(a.total / 5) * 5)}초` : `${Math.max(1, Math.round(a.total / 60))}분`} ${TITLE[m[4]] || "듣는 브리프"}`,
     ...(bgmOf(html) ? { bgm: bgmOf(html) } : {}),
-    speed: SPEED, segments: a.segments, ...(a.outro ? { outro: a.outro } : {}), dropped_paragraphs: a.dropped.map(i => i + 1),
+    speed: SPEED, opening: openingOf(brief), segments: a.segments, ...(a.outro ? { outro: a.outro } : {}), dropped_paragraphs: a.dropped.map(i => i + 1),
     note: `날짜·인사·날씨·끝인사 문단은 릴스에서 뺌(본문만, 출처 장 ${OUTRO}초)` + (a.dropped.length > paras.length - a.segments.length ? " — 3분을 넘어 본문 문단도 뺐다, 캡션에 '전체 낭독은 앱에서'" : "") };
   spec._cards = cards;
   await build(spec, b, base);
@@ -293,11 +362,18 @@ async function shortOne(brief, b, base, O = SHORT) {
     await fr.screenshot({ path: path.join(tmp, `s${k}.png`) });
   }
   await fr.close();
+  const opening = O.variant === "lib" ? "static" : openingOf(brief), hk = hookOf(html);
+  const intro = opening === "motion" && hk ? await introFrames(b, files[1], hk, meta, label, d, wd, HANDLE_OF(m[4]), tmp, picNoteOf(html, m[4])) : [];
   const durs = slides.map((_, k) => k < n ? O.sec : O.outro);
   const total = durs.reduce((a, c) => a + c, 0) - O.xf * (slides.length - 1);
   if (O.max && total > O.max) throw new Error(`${O.variant} ${total.toFixed(1)}초 — ${O.max}초 넘음`);
   const ins = slides.flatMap((_, k) => ["-loop", "1", "-t", String(durs[k]), "-i", path.join(tmp, `s${k}.png`)]);
+  const extra = intro.length ? ["-framerate", String(IFPS), "-i", path.join(tmp, "in%03d.png")] : [];
   let f = slides.map((_, k) => `[${k}:v]fps=30,format=yuv420p,setsar=1[i${k}]`), cur = "[i0]", off = 0;
+  if (intro.length) {   // 첫 장면: 움직이는 INTRO 초 → 카드 1번 정지(남은 시간)
+    const I = slides.length + (O.bgm ? 1 : 0);
+    f[0] = `[0:v]fps=30,format=yuv420p,setsar=1,trim=0:${(durs[0] - INTRO).toFixed(3)},setpts=PTS-STARTPTS[s0];[${I}:v]fps=30,format=yuv420p,setsar=1[iv];[iv][s0]concat=n=2:v=1:a=0,fps=30,setsar=1[i0]`;
+  }
   for (let k = 1; k < slides.length; k++) { off += durs[k - 1] - O.xf; f.push(`${cur}[i${k}]xfade=transition=fade:duration=${O.xf}:offset=${off.toFixed(3)}[x${k}]`); cur = `[x${k}]`; }
   const A = slides.length;
   f.push(`[${A}:a]atrim=0:${total.toFixed(3)},asetpts=PTS-STARTPTS,afade=t=out:st=${(total - 1.2).toFixed(3)}:d=1.2,volume=0.9[a]`);
@@ -305,9 +381,9 @@ async function shortOne(brief, b, base, O = SHORT) {
   fs.mkdirSync(path.join(ROOT, path.dirname(out_)), { recursive: true });
   const aud = O.bgm ? ["-i", path.join(ROOT, O.bgm)] : [], amap = O.bgm ? ["-map", "[a]", "-c:a", "aac", "-b:a", "128k"] : ["-an"];
   if (!O.bgm) f.pop();   // 라이브러리판은 소리 없음 — 음악은 인스타 앱에서 붙인다
-  execFileSync("ffmpeg", ["-v", "error", "-y", ...ins, ...aud, "-filter_complex", f.join(";"), "-map", cur, ...amap,
+  execFileSync("ffmpeg", ["-v", "error", "-y", ...ins, ...aud, ...extra, "-filter_complex", f.join(";"), "-map", cur, ...amap,
     "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-t", total.toFixed(3), "-movflags", "+faststart", path.join(ROOT, out_ + ".mp4")]);
-  const spec = { brief, variant: O.variant, out: out_ + ".mp4", cards: n, seconds: +total.toFixed(2), bgm: O.bgm, credit: O.credit, fp: shortFp(brief) };
+  const spec = { brief, variant: O.variant, opening, out: out_ + ".mp4", cards: n, seconds: +total.toFixed(2), bgm: O.bgm, credit: O.credit, fp: shortFp(brief) };
   fs.writeFileSync(path.join(ROOT, out_ + ".reel.json"), JSON.stringify(spec, null, 2) + "\n");
   console.log(`reel: ${out_}.mp4 — ${total.toFixed(1)}초, 카드 ${n}장 + 출처`);
   return { files: [out_ + ".mp4", out_ + ".reel.json"] };
