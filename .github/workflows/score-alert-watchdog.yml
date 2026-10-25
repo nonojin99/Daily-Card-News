@@ -1,0 +1,59 @@
+name: Score alert watchdog
+
+# 결과 알림 이어 달리기가 끊기면 다시 띄운다(2026-10-26, 사용자 요청 — '같은 문제가 생기면 1시간 안에 재시작').
+# 2026-10-26 새벽 회차(#18)가 'Watch and publish' 도중 러너가 끊겨(로그도 남지 않음) Relay 단계가 돌지 못했고,
+# 다음 회차가 뜨지 않아 롤드컵 결과 스토리가 멈췄다. Relay 의 if: always() 는 러너가 죽으면 소용이 없다.
+# ① Score alert 실행이 끝날 때마다(성공·실패·취소, workflow_run) 곧바로 확인 — 돌고 있거나 대기 중인 회차가 없으면 새로 띄운다.
+# ② 매시 예약도 같은 확인(예비 — 이 저장소의 예약 실행은 늦게 돌 수 있다).
+# 무한 재시작 방지: 최근 끝난 3회차가 모두 실패이고 각각 20분 안에 끝났으면 코드 문제로 보고 띄우지 않는다(경고만).
+# 끄기: 저장소 변수 SCORE_ALERT=off (Score alert 와 같은 스위치).
+on:
+  workflow_run:
+    workflows: ["Score alert"]
+    types: [completed]
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: score-alert-watchdog
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: ${{ vars.SCORE_ALERT != 'off' }}
+    steps:
+      - name: Restart Score alert if the relay broke
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          # 정상 종료라면 Relay 가 방금 다음 회차를 띄웠다 — 등록될 시간을 준다.
+          [ "${{ github.event_name }}" = "workflow_run" ] && sleep 90
+          active=0
+          for st in in_progress queued waiting pending requested; do
+            n=$(gh api "repos/$REPO/actions/workflows/score-alert.yml/runs?status=$st&per_page=1" --jq '.total_count')
+            active=$((active + n))
+          done
+          if [ "$active" -gt 0 ]; then
+            echo "Score alert 회차가 이미 돌고 있거나 대기 중($active) — 할 일 없음"
+            exit 0
+          fi
+          # 최근 끝난 3회차가 모두 20분 안에 실패로(취소는 동시 실행 제한으로 대기 회차가 밀린 것이라 세지 않는다) 끝났으면 재시작하지 않는다.
+          fast_fail=$(gh api "repos/$REPO/actions/workflows/score-alert.yml/runs?status=completed&per_page=3" --jq '
+            [.workflow_runs[]
+             | select(.conclusion == "failure")
+             | select(((.updated_at | fromdateiso8601) - (.run_started_at | fromdateiso8601)) < 1200)
+            ] | length')
+          if [ "$fast_fail" -ge 3 ]; then
+            echo "::warning::Score alert 최근 3회차가 모두 20분 안에 실패 — 코드 문제로 보고 재시작하지 않음. 고친 뒤 sports/alerts/request.txt 를 바꿔 push 하세요."
+            exit 0
+          fi
+          echo "돌고 있는 Score alert 회차가 없음 — 다시 띄운다"
+          gh workflow run score-alert.yml --repo "$REPO" --ref main -f relay=watchdog
