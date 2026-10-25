@@ -9,6 +9,7 @@ tools: Read, Grep, Glob, Bash
 - `insights/history/*.json`(날마다 수집한 게시물별 views·reach·likes·shares·saved·ig_reels_avg_watch_time·reels_skip_rate, 릴스는 variant·opening)
 - `reels/**/*.reel.json`(opening·segments·title), `reels/**/*.review.json`(검수), `publish/evening/*.json`·`publish/request.json` 기록(git log 로 지난 요청 확인 가능)
 - 브리프 tracker 주석의 항목 점수·유형(손해형/흥미형)·게시 시간대(1단계 도입 뒤)
+- `insights/manual/reel-sources.md`(사람이 앱에서 옮겨 적은 릴스 유입 경로 — 릴스 탭·탐색·피드·프로필 비율, 시청 곡선 모양. API 로는 못 받는 값)
 - 같은 게시물은 **게시 후 같은 나이**(예: 48시간 스냅샷)끼리 비교한다 — history 파일 날짜로 고른다.
 
 ## 판정 규칙(README 에 미리 정해 둔 것만 쓴다)
