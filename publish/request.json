@@ -3,7 +3,7 @@
   {
    "kind": "reel",
    "media": "reels/2026-10/2026-10-26_football.mp4",
-   "caption": "captions/2026-10-26_football_reel.txt",
+   "caption": "captions/2026-10-26_football_recap_reel.txt",
    "dry_run": "false",
    "is_ai": "false",
    "account": "sports",
@@ -11,5 +11,5 @@
    "review": "required"
   }
  ],
- "note": "10/26 월 ⚽ 주말 결산 짧은판 릴스(배경음+카드 넘김) — 사용자 요청으로 저녁 대신 즉시 게시"
+ "note": "10/26 월 ⚽ 주말 결산판 릴스 6장(사용자 요청 — 10초판 2장 게시물은 사용자가 삭제)"
 }
