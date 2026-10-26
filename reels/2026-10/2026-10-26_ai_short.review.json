@@ -1,0 +1,7 @@
+{
+ "verdict": "PASS",
+ "sha1": "f50cedf5727437efe8f8ba27786ba43ffd202e7e",
+ "by": "agent",
+ "at": "2026-10-26T01:40:02Z",
+ "note": "reel-reviewer: 화면 내용 PASS(직전 지적 해결), 형식 yuv420p·High 재인코딩본 check_reel PASS"
+}
