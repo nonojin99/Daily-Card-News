@@ -1,33 +1,13 @@
 {
  "requests": [
   {
-   "kind": "reel",
-   "media": "reels/2026-10/2026-10-26_football.mp4",
-   "caption": "captions/2026-10-26_football_recap_reel.txt",
+   "kind": "story",
+   "media": "sports/alerts/2026-10/2026-10-26_kbo_live_2000.jpg",
+   "caption": "",
    "dry_run": "false",
    "is_ai": "false",
-   "account": "sports",
-   "ab": "short",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-10/2026-10-26_ai-brief",
-   "caption": "captions/2026-10-26_ai.txt",
-   "dry_run": "false",
-   "is_ai": "true",
-   "review": "required"
-  },
-  {
-   "kind": "reel",
-   "media": "reels/2026-10/2026-10-25_baseball.mp4",
-   "caption": "captions/2026-10-25_baseball_reel.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "ab": "short",
-   "review": "human"
+   "account": "sports"
   }
  ],
- "note": "10/26 월 ⚽ 주말 결산판 릴스 6장(사용자 요청 — 10초판 2장 게시물은 사용자가 삭제) + 10/26 월 AI·테크 캐러셀 8장(검수 승인) + 10/25 ⚾ 야구 캐러셀판 릴스(카드 4장 × 1.8초, 사용자 승인 — 10/26 18:30 PO 1차전 전 게시)"
+ "note": "10/26 PO 1차전 중간 스코어 스토리(KIA 5:0 삼성, 5회초) — 결과 알림 회차가 예전 코드로 돌고 있어 세션이 직접 올림(사용자 요청). 앞선 요청(축구 결산 릴스·AI 캐러셀·야구 릴스)은 모두 게시 완료"
 }

@@ -261,8 +261,13 @@ def publish_one():
         for k in kids:
             wait_ready(k, 180)
         cid = call("POST", f"{UID}/media", media_type="CAROUSEL", children=",".join(kids), caption=caption)["id"]
+    elif KIND == "story":   # 2026-10-26 사용자 요청: 결과 알림 회차가 멈춰 있을 때 세션이 스코어 스토리를 바로 올리는 길(이미지 한 장, 캡션 없음)
+        url = f"{PUBLIC}/{MEDIA}"
+        if not wait_public(url):
+            sys.exit(f"::error::image not public yet: {url}")
+        cid = call("POST", f"{UID}/media", media_type="STORIES", image_url=url)["id"]
     else:
-        sys.exit("::error::KIND must be reel or carousel")
+        sys.exit("::error::KIND must be reel, carousel or story")
 
     wait_ready(cid)
     if caption:   # 같은 요청으로 두 번 누르면 중복 게시 — 최근 게시물에 같은 캡션이 있으면 멈춘다
