@@ -255,7 +255,7 @@ def ufc(posted):
     return boards
 
 
-LIVE_STEPS = ((7, "6회"), (4, "3회"))   # (이 회 이상이면 그 단계). 가장 높은 단계 하나만 올린다 — 경기당 중간 스토리 최대 2장(3회 마침·6회 마침)
+LIVE_STEPS = ((7, "6회"), (4, "3회"))   # (이 회 이상이면 그 단계). 가장 높은 단계 하나만 올린다 — 3회 마침·6회 마침, 그 뒤(7회~)는 점수가 날 때마다(add 참고)
 
 
 def live_big(posted):
@@ -270,11 +270,32 @@ def live_big(posted):
         return 0, ""
 
     def add(sport, gid, inn, row, title, gdate, kdate):
-        need, label = step(inn)
-        if not need or any(k.startswith(f"live:{gid}:") and int(k.rsplit(":", 1)[1]) >= need for k in posted):
+        # 2026-10-26 사용자 결정: 스토리 = 3회·6회를 마칠 때 + 7회부터 점수가 날 때마다, 점수 차 5 이상이면 올리지 않는다(좁혀지면 다시).
+        # 릴스 = 경기당 한 편, 7회 이후 동점·역전·1점 차일 때만(bd["reel"]) — 스토리는 팔로워용, 릴스는 새 사람 유입용이라 골라서.
+        # posted 키: live:<경기>:<단계>[:<원정>-<홈>] (단계 = 4·7 이닝 단계 또는 late)
+        try:
+            a, h = int(row["as"]), int(row["hs"])
+        except (TypeError, ValueError):
             return
+        if abs(a - h) >= 5:
+            return
+        done = [k[len(f"live:{gid}:"):].split(":") for k in posted if k.startswith(f"live:{gid}:")]
+        steps = max([int(p[0]) for p in done if p[0].isdigit()] or [0])
+        prev = next((p[1] for p in reversed(done) if len(p) > 1), None)
+        need, _ = step(inn)
+        sc = f"{a}-{h}"
+        if need and steps < need:
+            key = f"live:{gid}:{need}:{sc}"
+        elif inn >= 7 and sc != prev:
+            key = f"live:{gid}:late:{sc}"
+        else:
+            return
+        sign = lambda x: (x > 0) - (x < 0)
+        flip = prev is not None and sign(a - h) * sign(int(prev.split("-")[0]) - int(prev.split("-")[1])) == -1   # 역전 = 앞선 팀이 바뀜(동점에서 앞서는 건 아님)
+        reel = inn >= 7 and (abs(a - h) <= 1 or flip)
         row = {**row, "pending": True, "live": True}
-        boards.append({"sport": sport, "live": True, "date": gdate, "kst_date": kdate, "title": title, "rows": [row], "new": [f"live:{gid}:{need}"], "final": False})
+        boards.append({"sport": sport, "live": True, "date": gdate, "kst_date": kdate, "title": title, "rows": [row], "new": [key], "final": False,
+                       "gid": gid, "reel": reel})
 
     if SOURCES.get("kbo", {}).get("on"):
         d = now.date()

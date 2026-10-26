@@ -188,6 +188,9 @@ def live_reel(bd, rel, label, dry):
     iid = bd["new"][0]
     if any(i["id"] == iid for i in q["items"]):
         return []
+    # 경기 중 릴스는 경기당 한 편, 7회 이후 동점·역전·1점 차일 때만(2026-10-26 사용자 결정 — 경기당 릴스 = 선발·막판 접전·결과 3편)
+    if bd.get("live") and (not bd.get("reel") or any(i.get("kind") == "live" and i["id"].startswith(f"live:{bd.get('gid')}:") for i in q["items"])):
+        return []
     s, why = score(sport, r, bd["title"])
     if s < RULES["threshold"]:
         return []
