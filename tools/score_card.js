@@ -2,6 +2,7 @@
 //   node tools/score_card.js <games.json> <out.jpg>
 // games.json = {"date","kicker","title","src","accent","story":true,"games":[{"away","home","as","hs","note"}]}
 // story=true 면 스토리 비율 1080×1920(위 250px·아래 340px 는 인스타 UI 자리라 비운다), 아니면 1080×1350.
+// 한 경기 카드에 x.line({inn:[[원정],[홈]], rhe:[[R,H,E],[R,H,E]]})·x.facts(["홈런 …", …])가 있으면 리뷰판: 큰 점수 아래 이닝별 스코어보드(안 한 회는 빈칸) + 주요 기록(2026-10-26 사용자 요청).
 // AI 없이 공식 기록 값만 그린다. 사진·엠블럼 없음(README '스포츠 계정' — 팀 마크 금지).
 const fs = require("fs"), path = require("path"), { execSync } = require("child_process");
 let pw; try { pw = require("playwright"); } catch { pw = require(path.join(execSync("npm root -g").toString().trim(), "playwright")); }
@@ -10,6 +11,14 @@ const [inp, out] = process.argv.slice(2);
 const g = JSON.parse(fs.readFileSync(inp, "utf8"));
 const H = g.story ? 1920 : 1350, TOP = g.story ? 270 : 84, BOT = g.story ? 360 : 80, AC = g.accent || "#1f5f8b";
 const WD = "일월화수목금토", d = new Date(g.date + "T00:00:00Z"), md = `${d.getUTCMonth() + 1}월 ${d.getUTCDate()}일(${WD[d.getUTCDay()]})${g.dawn ? " 새벽" : ""}`;   // 유럽·미국 경기는 KST 첫 경기 날짜 + 새벽
+const rv = g.games.length === 1 && !!(g.games[0].line || g.games[0].facts);   // 리뷰판 — 점수를 줄이고 아래에 스코어보드·기록
+const lineT = x => {
+  if (!x.line) return "";
+  const n = x.line.inn[0].length, nm = [x.away, x.home];
+  return `<table class="ln"><tr><th></th>${[...Array(n).keys()].map(i => `<th>${i + 1}</th>`).join("")}<th class="tot">R</th><th>H</th><th>E</th></tr>
+  ${[0, 1].map(k => `<tr><td class="tn">${esc(nm[k])}</td>${x.line.inn[k].map(v => `<td>${esc(v)}</td>`).join("")}${(x.line.rhe[k] || []).map((v, j) => `<td class="${j ? "" : "tot"}">${esc(v)}</td>`).join("")}</tr>`).join("")}</table>`;
+};
+const factsT = x => x.facts && x.facts.length ? `<div class="fx">${x.facts.map(f => { const [k, ...r] = String(f).split(" "); return `<div><b>${esc(k)}</b> ${esc(r.join(" "))}</div>`; }).join("")}</div>` : "";
 const one = g.games.length === 1, N = g.games.length, tight = N > 5, longT = (g.title || "").length > 20;   // 긴 제목은 두 줄 — 글자를 줄이고 목록을 내린다   // 6경기 넘으면 촘촘하게(스토리 하루 일정 8경기까지)
 const pre = x => `<div class="g${one ? " one" : ""} pre">${["a", "h"].map(k => `<div class="pc">
   <span class="tm">${esc(k === "a" ? x.away : x.home)}</span>
@@ -23,7 +32,7 @@ const row = x => {
   <div class="t ${aw ? "w" : hw ? "l" : ""}"><span class="n">${esc(x.away)}</span><span class="s">${esc(x.as)}</span></div>
   <div class="vs">${x.pre ? "vs" : ":"}</div>
   <div class="t r ${hw ? "w" : aw ? "l" : ""}"><span class="s">${esc(x.hs)}</span><span class="n">${esc(x.home)}</span></div>
-  ${x.note ? `<div class="m">${esc(x.note)}</div>` : ""}</div>`;
+  ${x.note ? `<div class="m">${esc(x.note)}</div>` : ""}${rv ? lineT(x) + factsT(x) : ""}</div>`;
 };
 const html = `<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
@@ -31,7 +40,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
 .k{position:absolute;left:84px;top:${TOP}px;font-size:38px;font-weight:900;background:#fff;color:${AC};padding:10px 30px;border-radius:99px}
 .dt{position:absolute;right:84px;top:${TOP + 14}px;font-size:34px;font-weight:500;opacity:.85}
 .h{position:absolute;left:84px;right:84px;top:${TOP + 110}px;font-size:${longT ? 46 : one ? 66 : 56}px;font-weight:900;letter-spacing:-.02em;line-height:1.2}
-.list{position:absolute;left:84px;right:84px;top:${TOP + (one ? 330 : 250) + (longT ? 40 : 0)}px;display:flex;flex-direction:column;gap:${one ? 0 : tight ? 12 : 18}px}
+.list{position:absolute;left:84px;right:84px;top:${TOP + (rv ? 240 : one ? 330 : 250) + (longT ? 40 : 0)}px;display:flex;flex-direction:column;gap:${one ? 0 : tight ? 12 : 18}px}
 .g{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;background:rgba(255,255,255,.1);border-radius:26px;padding:${one ? "64px 44px 48px" : tight ? "6px 28px 6px" : "18px 34px 14px"}}
 .g.p{background:rgba(255,255,255,.05)}.g.p .s,.g.p .vs{opacity:.4}
 .t{display:flex;align-items:center;gap:20px;min-width:0}.t.r{justify-content:flex-end}
@@ -44,11 +53,16 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
 .st{font-size:${one ? 28 : 19}px;font-weight:500;opacity:.85;white-space:nowrap}
 .t.l{opacity:.45}.vs{font-size:${one ? 90 : tight ? 34 : 44}px;opacity:.6;padding:0 18px;font-weight:700}
 .m{grid-column:1/-1;line-height:1.3;margin-top:${one ? 40 : tight ? 2 : 6}px;font-size:${one ? 34 : tight ? 21 : 25}px;opacity:.85;text-align:center}
+.rv .g.one{padding:40px 36px 36px}.rv .g.one .s{font-size:130px}.rv .m{margin-top:20px;font-size:30px}
+.ln{grid-column:1/-1;margin-top:30px;width:100%;border-collapse:collapse;table-layout:fixed;font-size:${g.games[0] && g.games[0].line && g.games[0].line.inn[0].length > 10 ? 24 : 29}px;font-variant-numeric:tabular-nums}
+.ln th{font-weight:500;opacity:.7;font-size:.8em;padding:4px 0}.ln td{font-weight:700;padding:10px 0;border-top:1px solid rgba(255,255,255,.2);text-align:center}
+.ln th:first-child,.ln td.tn{width:118px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ln .tot{font-weight:900;border-left:1px solid rgba(255,255,255,.3)}
+.fx{grid-column:1/-1;margin-top:26px;font-size:27px;line-height:1.5;text-align:left}.fx div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.fx b{font-weight:900;margin-right:6px}
 .src{position:absolute;left:84px;right:84px;bottom:${BOT + 56}px;font-size:26px;opacity:.65}
 .ft{position:absolute;left:84px;right:84px;bottom:${BOT}px;display:flex;justify-content:space-between;font-size:30px;opacity:.9}.ft b{font-weight:900}</style></head><body>
 <div class="k">${esc(g.kicker || "⚾ 경기 종료")}</div><div class="dt">${esc(md)}</div>
 <div class="h">${esc(g.title)}</div>
-<div class="list">${g.games.map(row).join("")}</div>
+<div class="list${rv ? " rv" : ""}">${g.games.map(row).join("")}</div>
 <div class="src">${esc(g.src || "")}</div>
 <div class="ft"><b>@hannun.sports</b><span>${esc(g.foot || "결과 알림")}</span></div></body></html>`;
 (async () => {

@@ -38,6 +38,11 @@ def validate(bd):
                 F.append(f"{tag}: 끝난 경기인데 점수가 숫자가 아님({sa}:{sh})")
             elif int(sa) > 200 or int(sh) > 200:
                 F.append(f"{tag}: 점수가 비정상적으로 큼({sa}:{sh})")
+        ln = r.get("line")   # 리뷰판 스코어보드(2026-10-26~): 이닝 합 = 점수, R = 점수
+        if ln:
+            for side, s, rhe in zip(ln.get("inn", []), (sa, sh), ln.get("rhe", [])):
+                tot = sum(int(x) for x in side if str(x).isdigit())
+                if not s.isdigit() or tot != int(s) or (rhe and str(rhe[0]) != s): F.append(f"{tag}: 스코어보드 합계 {tot}·R {rhe[:1]} 이 점수 {s} 와 다름")
         for n in (a, h):
             if sport not in ("lol", "ufc", "kbo") and re.search(r"[A-Za-z]{3,}", n): W.append(f"{tag}: 한국어 이름 없음 '{n}' — sports/alerts/names_ko.json 에 추가")
             if len(n) > 16: W.append(f"{tag}: 이름이 길어 카드에서 잘릴 수 있음 '{n}'")

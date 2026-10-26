@@ -60,6 +60,95 @@ def get_json(url, data=None, headers=None):
         return json.load(r)
 
 
+# ── 한 경기 리뷰 재료(2026-10-26 사용자 요청 — "리뷰니까 1~9회 스코어보드(안 한 회는 빈칸)·몇 회에 몇 점·홈런·타점·투수 주요 기록") ──
+# row["line"] = {"inn": [[원정 1~N회], [홈 1~N회]], "rhe": [[R,H,E],[R,H,E]]} · row["facts"] = ["홈런 …", "승 … · 패 … · 세 …", …]
+# 이닝 합계가 점수와 다르면 붙이지 않는다(옮겨 적기 오류 방지). KBO 는 경기가 끝나야 공식 박스스코어가 나온다(경기 중엔 API 오류 → 점수만).
+KBO_HDR = {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8", "X-Requested-With": "XMLHttpRequest",
+           "Referer": "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx"}
+
+
+def _cells(tbl):
+    t = json.loads(tbl) if isinstance(tbl, str) else tbl
+    return [[re.sub(r"<[^>]+>", "", c.get("Text") or "").replace("&nbsp;", "").strip() for c in r["row"]] for r in t.get("headers", []) + t.get("rows", [])]
+
+
+def _fit(line, sa, sh):
+    """이닝 합이 점수와 같을 때만 줄 점수를 돌려준다."""
+    try:
+        ok = all(sum(int(x) for x in side if str(x).isdigit()) == int(s) for side, s in zip(line["inn"], (sa, sh)))
+    except (TypeError, ValueError):
+        ok = False
+    if not ok:
+        print(f"::warning::line score 합계 불일치 — 스코어보드 생략 ({line['inn']} vs {sa}:{sh})")
+    return ok
+
+
+def kbo_detail(g, sa, sh):
+    body = urllib.parse.urlencode({"leId": g.get("LE_ID", 1), "srId": g.get("SR_ID", 0), "seasonId": g.get("SEASON_ID") or g["G_ID"][:4], "gameId": g["G_ID"]}).encode()
+    try:
+        sb = get_json("https://www.koreabaseball.com/ws/Schedule.asmx/GetScoreBoardScroll", body, KBO_HDR)
+        bx = get_json("https://www.koreabaseball.com/ws/Schedule.asmx/GetBoxScoreScroll", body, KBO_HDR)
+    except Exception as e:  # noqa: BLE001
+        print(f"::notice::KBO 박스스코어 {g['G_ID']}: {e}"); return {}
+    if sb.get("msg") != "성공" or bx.get("msg") != "성공":
+        return {}
+    inn, rhe = _cells(sb["table2"]), _cells(sb["table3"])
+    n = max(9, max((i + 1 for side in inn[1:3] for i, x in enumerate(side) if x not in ("-", "")), default=9))
+    line = {"inn": [[("" if x == "-" else x) for x in side[:n]] for side in inn[1:3]], "rhe": [r[:3] for r in rhe[:2]]}
+    out = {"line": line} if _fit(line, sa, sh) else {}
+    etc = {r[0]: r[1] for r in _cells(bx["tableEtc"]) if len(r) > 1}
+    facts = [f"{k} {etc[k]}" for k in ("결승타", "홈런") if etc.get(k)]
+    dec, sp, rbi = [], [], []
+    for side in bx.get("arrPitcher", []):
+        rows = [r for r in _cells(side["table"]) if r and r[0] != "선수명"]
+        if rows:
+            r = rows[0]; sp.append(f"{r[0]} {r[6]}이닝 {r[15]}자책 {r[13]}K")
+        dec += [f"{r[2]} {r[0]}" for r in rows if r[2] in ("승", "패", "세")]
+    for side in bx.get("arrHitter", []):
+        names, st = _cells(side["table1"]), _cells(side["table3"])
+        rbi += [f"{nm[-1]} {s[2]}" for nm, s in zip(names, st) if len(s) > 2 and s[2].isdigit() and int(s[2]) >= 2]
+    if rbi: facts.append("타점 " + " · ".join(rbi))
+    if dec: facts.append(" · ".join(sorted(dec, key=lambda x: "승패세".index(x[0]))))
+    if sp: facts.append("선발 " + " / ".join(sp))
+    if facts: out["facts"] = facts[:5]
+    return out
+
+
+def mlb_detail(pk, sa, sh):
+    try:
+        d = get_json(f"https://statsapi.mlb.com/api/v1.1/game/{pk}/feed/live")
+    except Exception as e:  # noqa: BLE001
+        print(f"::notice::MLB feed {pk}: {e}"); return {}
+    ld, gp = d["liveData"], d["gameData"].get("players", {})
+    last = lambda pid, full="": (gp.get(f"ID{pid}") or {}).get("lastName") or full.split(" ")[-1]
+    ls = ld["linescore"]
+    n = max(9, len(ls.get("innings", [])))
+    inn = [[""] * n, [""] * n]
+    for i in ls.get("innings", []):
+        for k, side in ((0, "away"), (1, "home")):
+            if i[side].get("runs") is not None:
+                inn[k][i["num"] - 1] = str(i[side]["runs"])
+    tm = ls.get("teams", {})
+    line = {"inn": inn, "rhe": [[str(tm.get(s, {}).get(x, "")) for x in ("runs", "hits", "errors")] for s in ("away", "home")]}
+    out = {"line": line} if _fit(line, sa, sh) else {}
+    hr = [f"{last(p['matchup']['batter']['id'], p['matchup']['batter']['fullName'])}({p['about']['inning']}회 {p['result'].get('rbi', 1)}점)"
+          for p in ld["plays"]["allPlays"] if p["result"].get("eventType") == "home_run"]
+    facts = ["홈런 " + " · ".join(hr)] if hr else []
+    bx, rbi, sp = ld["boxscore"]["teams"], [], []
+    for s in ("away", "home"):
+        ps = bx[s]["players"]
+        rbi += [f"{last(v['person']['id'], v['person']['fullName'])} {v['stats']['batting']['rbi']}" for v in ps.values() if v.get("stats", {}).get("batting", {}).get("rbi", 0) >= 2]
+        if bx[s].get("pitchers"):
+            v = ps.get(f"ID{bx[s]['pitchers'][0]}", {}); pt = v.get("stats", {}).get("pitching", {})
+            sp.append(f"{last(v['person']['id'], v['person']['fullName'])} {pt.get('inningsPitched', '')}이닝 {pt.get('earnedRuns', 0)}자책 {pt.get('strikeOuts', 0)}K")
+    if rbi: facts.append("타점 " + " · ".join(rbi))
+    dec = ld.get("decisions") or {}
+    if dec: facts.append(" · ".join(f"{k} {dec[e]['fullName'].split(' ')[-1]}" for k, e in (("승", "winner"), ("패", "loser"), ("세", "save")) if dec.get(e)))
+    if sp: facts.append("선발 " + " / ".join(sp))
+    if facts: out["facts"] = facts[:5]
+    return out
+
+
 def kbo(posted):
     """새로 끝난 경기가 있는 날마다 그날 전 경기 결과판 하나: {"sport","date","title","rows","new"}"""
     now, boards = kst(), []
@@ -84,6 +173,10 @@ def kbo(posted):
                     ("진행 중" if str(g.get("GAME_STATE_SC")) == "2" else f"{g.get('G_TM', '')} 시작")
             rows.append({"gid": gid, "away": g["AWAY_NM"].strip(), "home": g["HOME_NM"].strip(), "as": sa, "hs": sh, "pending": not done,
                          "note": " · ".join(x for x in (g.get("S_NM", ""), state) if x)})
+            if done and m and gid not in posted:   # 포스트시즌 결과 = 리뷰 카드(스코어보드·주요 기록)
+                rows[-1].update(kbo_detail(g, sa, sh))
+                if rows[-1].get("facts"):   # 승·패·세는 기록 칸에 있으니 경기 정보 줄은 구장만
+                    rows[-1]["note"] = g.get("S_NM", "")
             if done and gid not in posted and g["G_ID"] not in posted:
                 new.append(gid)
         if new:
@@ -172,6 +265,8 @@ def mlb(posted):
             rows.append({"gid": f"mlb:{g['gamePk']}", "away": ko(a["team"]["name"]), "home": ko(h["team"]["name"]), "pending": not done,
                          "as": str(a.get("score", "-")) if done else "-", "hs": str(h.get("score", "-")) if done else "-",
                          "note": " · ".join(x for x in (series if g.get("gameType") not in ("R", "S", "E") else "", g.get("venue", {}).get("name", ""), state) if x)})
+            if done and g.get("gameType") not in ("R", "S", "E") and f"mlb:{g['gamePk']}" not in posted:   # 포스트시즌 결과 = 리뷰 카드
+                rows[-1].update(mlb_detail(g["gamePk"], rows[-1]["as"], rows[-1]["hs"]))
             if done and f"mlb:{g['gamePk']}" not in posted and ks(g) >= now - datetime.timedelta(hours=FRESH_H):
                 new.append(f"mlb:{g['gamePk']}")
         if new:
@@ -272,7 +367,7 @@ def live_big(posted):
                 return need, label
         return 0, ""
 
-    def add(sport, gid, inn, row, title, gdate, kdate):
+    def add(sport, gid, inn, row, title, gdate, kdate, detail=None):
         # 2026-10-26 사용자 결정: 스토리 = 3회·6회를 마칠 때(점수 차와 상관없이 항상) + 7회부터 점수가 날 때마다 — 단 7회 이후 득점은 점수 차 5 이상이면 올리지 않는다
         # (3회·6회 리뷰가 이미 나갔으니 큰 점수 차 경기에서 너무 많이 올라가지 않게, 좁혀지면 다시).
         # 릴스 = 경기당 한 편, 8회 리뷰(bd["reel"]) — 스토리는 팔로워용, 릴스는 새 사람 유입용이라 골라서(선발·결과 릴스는 따로).
@@ -295,7 +390,7 @@ def live_big(posted):
         reel = key.startswith(f"live:{gid}:8:")
         if reel:
             title = title.replace("— 중간 스코어", "— 8회 리뷰")
-        row = {**row, "pending": True, "live": True}
+        row = {**row, "pending": True, "live": True, **(detail() if detail else {})}
         boards.append({"sport": sport, "live": True, "date": gdate, "kst_date": kdate, "title": title, "rows": [row], "new": [key], "final": False,
                        "gid": gid, "reel": reel})
 
@@ -339,7 +434,7 @@ def live_big(posted):
             stage = f"{STAGE[m[1]]} {m[2]}차전"
             add("kbo", "kbo:" + g["G_ID"], inn, {"away": g["AWAY_NM"].strip(), "home": g["HOME_NM"].strip(), "as": str(g["T_SCORE_CN"]), "hs": str(g["B_SCORE_CN"]),
                                                  "note": f"{inn}회{tb} 진행 중" + (f" · {g['S_NM']}" if g.get("S_NM") else "")},
-                f"{stage} — 중간 스코어", d, d)
+                f"{stage} — 중간 스코어", d, d, lambda g=g: kbo_detail(g, str(g["T_SCORE_CN"]), str(g["B_SCORE_CN"])))
         mid("kbo", reg, regi, d, d)
     if SOURCES.get("mlb", {}).get("on"):
         try:
@@ -366,7 +461,8 @@ def live_big(posted):
             add("mlb", f"mlb:{g['gamePk']}", int(ls.get("currentInning") or 0),
                 {"away": ko(a["team"]["name"]), "home": ko(h["team"]["name"]), "as": str(a.get("score", 0)), "hs": str(h.get("score", 0)),
                  "note": f"{ls.get('currentInning')}회{'초' if ls.get('isTopInning') else '말'} 진행 중 · {g.get('venue', {}).get('name', '')}".rstrip(" ·")},
-                f"{ser} {g.get('seriesGameNumber', '')}차전 — 중간 스코어".replace("  ", " "), (k0 - datetime.timedelta(hours=12)).date(), k0.date())
+                f"{ser} {g.get('seriesGameNumber', '')}차전 — 중간 스코어".replace("  ", " "), (k0 - datetime.timedelta(hours=12)).date(), k0.date(),
+                lambda g=g, a=a, h=h: mlb_detail(g["gamePk"], str(a.get("score", 0)), str(h.get("score", 0))))
         if rk:
             mid("mlb", reg, regi, rk, rk)
     return boards
