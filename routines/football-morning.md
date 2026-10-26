@@ -53,7 +53,7 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **축구 모닝** 브리�
 - 캡션 `captions/YYYY-MM-DD_football.txt`(첫 줄 `[⚽ 축구 모닝] …`). 요청에 캐러셀 `{"kind":"carousel","media":"cards/YYYY-MM/YYYY-MM-DD_football-brief","caption":"captions/YYYY-MM-DD_football.txt","dry_run":"false","is_ai":"false","account":"sports"}`.
 - **⚡ 10초 릴스(2026-10-26~, 사용자 결정 — 스포츠 데이터 릴스 9.2초가 조회 121·평균 시청 23초·건너뛰기 0%)**: **발행하는 날마다** 릴스 1편. 첫 카드 천천히 확대 5.5초 → 둘째 카드 4초, 낭독 없음·배경음악, 약 9초(`tools/make_reel.js` `FAST`, push 뒤 Actions 가 `reels/YYYY-MM/YYYY-MM-DD_football_short.mp4` 를 만든다).
   그래서 **카드 1 = 그날 가장 센 결과**(`cn-score` 큰 스코어 — 첫 프레임에 결론), 카드 2 = 둘째로 센 것. 낭독판·월요일 오디오 릴스는 만들지 않는다(낭독은 앱에만).
-  요청은 **`publish/slots/YYYY-MM-DD_1210_football.json`**(12:10 점심 시간대, 결과 알림 이어 달리기가 올린다 — **단 월요일 주말 결산은 `publish/request.json` 으로 09:00~09:30 즉시 게시**, 2026-10-26 사용자 결정). **월요일은 10초판 대신 결산판 6장**(첫 카드 4.5초 확대 + 5장 × 1.8초 ≈ 12초, `make_reel.js` `RECAP`, 파일 이름 같음) — 카드 6장 모두 첫 줄에 결론이 보이게 쓴다: `{"requests":[{"kind":"reel","media":"reels/YYYY-MM/YYYY-MM-DD_football.mp4","caption":"captions/YYYY-MM-DD_football_reel.txt","dry_run":"false","is_ai":"false","account":"sports","ab":"short","review":"required"}]}` — `_short.mp4` 로 바뀌어 올라간다.
+  요청은 **`publish/slots/YYYY-MM-DD_1210_football.json`**(12:10 점심 시간대, 결과 알림 이어 달리기가 올린다 — **2026-10-26 사용자 결정: 매 발행일 `publish/request.json` 으로 09:00 즉시 게시**(CLAUDE.md '⚽ 축구 모닝 릴스'가 우선)). **월요일은 10초판 대신 결산판 6장**(첫 카드 4.5초 확대 + 5장 × 1.8초 ≈ 12초, `make_reel.js` `RECAP`, 파일 이름 같음) — 카드 6장 모두 첫 줄에 결론이 보이게 쓴다: `{"requests":[{"kind":"reel","media":"reels/YYYY-MM/YYYY-MM-DD_football.mp4","caption":"captions/YYYY-MM-DD_football_reel.txt","dry_run":"false","is_ai":"false","account":"sports","ab":"short","review":"required"}]}` — `_short.mp4` 로 바뀌어 올라간다.
   검수 관문(CLAUDE.md): 브리프 push → Actions 가 MP4 를 만들면 `python3 tools/check_reel.py reels/…_football_short.mp4 --caption captions/…_football_reel.txt` + `reel-reviewer` → 통과하면 `--approve --by agent` 기록 + 캡션 + 요청 파일을 한 커밋으로.
   릴스 캡션 첫 줄은 스코어·숫자부터(예: `[⚽ 축구 모닝] 음바페 2골, 레알 2-1 바르사 · 이삭 3경기 연속골`), 낭독이 없으니 '🎧'·'AI 음성' 줄은 쓰지 않고 `🎵 음악: Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0` 을 넣는다. 해시태그 5개 이하.
 
@@ -62,7 +62,7 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **축구 모닝** 브리�
 2. 카드 검토 하네스 2단계(CLAUDE.md): `python3 tools/check_cards.py` + `node tools/render_cards.js` → 독립 시각 검토 → 통과하면 `/tmp/card-review/<브리프 이름>.stage2.md`.
 
 ## 발행
-1. 브리프 HTML, 캡션, `publish/request.json`(월요일은 릴스도 여기, 다른 날 릴스는 `publish/slots/`) 만 add. 요청 항목마다 `"account":"sports"` (없으면 @hannun.brief 로 올라가니 반드시 넣는다). 맥락 읽기(부상·사고·폭력) 카드가 섞이면 게시 요청에서 뺀다.
+1. 브리프 HTML, 캡션, `publish/request.json`(축구 릴스도 여기 — 매 발행일 09:00 즉시. 🏆 이벤트 픽 릴스는 검수 통과 뒤 가장 가까운 슬롯 `publish/slots/<날짜>_<HHMM>_event.json`, 수습 3편 `"review":"human"`) 만 add. 요청 항목마다 `"account":"sports"` (없으면 @hannun.brief 로 올라가니 반드시 넣는다). 맥락 읽기(부상·사고·폭력) 카드가 섞이면 게시 요청에서 뺀다.
 2. `git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit` → `git pull --rebase origin main` → `git push origin HEAD:main`(실패하면 rebase 후 한 번만 재시도). push 관문 훅이 막으면 메시지대로 고친다.
 3. **끝날 때마다 PushNotification 한 번**(2026-10-24~, 사용자 요청 — Slack 으로 매일 요약): 정상 발행·발행 없음·실패 모두. 형식은 CLAUDE.md '매일 Slack 요약'. 실패면 첫 줄에 ⚠ 와 실패 이유.
 
