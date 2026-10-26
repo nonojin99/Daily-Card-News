@@ -59,6 +59,20 @@
    "status": "published",
    "result": "18111994298269701",
    "posted_kst": "2026-10-27 02:57"
+  },
+  {
+   "id": "pre:mlb:849804",
+   "kind": "pre",
+   "mp4": "reels/sports/2026-10/2026-10-27_pre-mlb-849804.mp4",
+   "caption": "reels/sports/2026-10/2026-10-27_pre-mlb-849804.txt",
+   "score": 50,
+   "why": [
+    "결승급"
+   ],
+   "seconds": 6.0,
+   "made_kst": "2026-10-27 07:01",
+   "until_kst": "2026-10-27 09:00",
+   "status": "queued"
   }
  ],
  "scored": {
