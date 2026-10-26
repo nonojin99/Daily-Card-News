@@ -1,11 +1,11 @@
 {
   "brief": "2026-10-25_baseball-brief.html",
   "variant": "fast",
-  "opening": "static",
+  "opening": "zoom",
   "out": "reels/2026-10/2026-10-25_baseball_short.mp4",
   "cards": 2,
   "seconds": 9.15,
   "bgm": "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3",
   "credit": "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0",
-  "fp": "3571940319ae57c7112b18d38dd260b9bcaa7b74"
+  "fp": "3fd1086fabf0ba4c0c27a77066acc1895c5ecdde"
 }
