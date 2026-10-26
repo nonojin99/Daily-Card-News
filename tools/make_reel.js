@@ -362,7 +362,10 @@ const FAST = { cards: 2, secs: [5.5, 4], outro: 0, xf: 0.35, max: 10.5, zoom: 0.
 // 월요일 축구 주말 결산판(2026-10-26 사용자 결정 — "6개 슬라이드인데 쇼츠는 2개네"): 카드 6장 — 첫 장 4.5초 확대 → 나머지 1.8초씩 넘김, 출처 장 없음
 // = 4.5 + 1.8 × 5 − 0.25 × 5 = 12.25초. 다른 요일 축구·야구는 위 10초판 그대로.
 const RECAP = { cards: 6, secs: [4.5, 1.8], outro: 0, xf: 0.25, max: 14.5, zoom: 0.08, bgm: SHORT.bgm, credit: SHORT.credit, suffix: "_short", variant: "recap", label: "⚡ 주말 결산" };
-const shortOptOf = (type, d) => type === "football" && wdOf(d) === 1 ? RECAP : FAST_OF(type) ? FAST : SHORT;
+// 야구 나이트 캐러셀판(2026-10-26 사용자 결정 — "야구도 캐러셀 내용을 쇼츠로, 페이지당 1.8초, TTS 없이 배경음"): 본문 카드 전부(최대 6장) 1.8초씩, 첫 장도 1.8초(살짝 확대),
+// 표지·출처 장 없음(카드에 출처 칩) = 1.8 × N − 0.25 × (N − 1) — 4장 6.45초 · 6장 9.55초.
+const NIGHT = { cards: 6, secs: [1.8], outro: 0, xf: 0.25, max: 10, zoom: 0.04, bgm: SHORT.bgm, credit: SHORT.credit, suffix: "_short", variant: "night", label: "⚾ 야구 나이트" };
+const shortOptOf = (type, d) => type === "football" && wdOf(d) === 1 ? RECAP : type === "baseball" ? NIGHT : FAST_OF(type) ? FAST : SHORT;
 // 음악 라이브러리판(2026-10-24~ 사용자 결정): 토요일 음악 릴스는 자동 게시하지 않고, 사람이 인스타 앱에서 음악 라이브러리 곡을 붙여 올린다.
 // 그래서 소리 없는 영상으로 카드 전부 × 4초 + 출처 장. 곡은 그 주 플레이리스트에서 라이브러리에 있는 것을 고른다(캡션 파일에 후보).
 const LIB = { cards: 7, sec: 4, outro: 2.2, xf: 0.35, bgm: null, credit: "", suffix: "_lib", variant: "lib", label: "🎵 이번 주 플레이리스트" };

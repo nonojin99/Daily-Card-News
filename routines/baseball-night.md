@@ -44,7 +44,7 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **야구 나이트** 브�
 
 ## 인스타
 - 캡션 `captions/YYYY-MM-DD_baseball.txt`(첫 줄 `[⚾ 야구 나이트] …`), 요청 `{"kind":"carousel","media":"cards/YYYY-MM/YYYY-MM-DD_baseball-brief","caption":"captions/YYYY-MM-DD_baseball.txt","dry_run":"false","is_ai":"false","account":"sports"}`.
-- **⚡ 10초 릴스(2026-10-26~, 사용자 결정 — 스포츠 데이터 릴스 9.2초가 조회 121·평균 시청 23초·건너뛰기 0%)**: **발행하는 날마다** 릴스 1편 — 첫 카드 천천히 확대 5.5초 → 둘째 카드 4초, 낭독 없음·배경음악, 약 9초(`tools/make_reel.js` `FAST`, push 뒤 Actions 가 `reels/YYYY-MM/YYYY-MM-DD_baseball_short.mp4` 를 만든다).
+- **⚡ 캐러셀판 릴스(2026-10-26~, 사용자 결정 — "야구도 캐러셀 내용을 쇼츠로, 페이지당 1.8초, TTS 없이 배경음")**: **발행하는 날마다** 릴스 1편 — 본문 카드 전부(최대 6장)를 1.8초씩 넘김(첫 장 살짝 확대), 표지·출처 장 없음, 낭독 없음·배경음악, 4장이면 약 6.5초(`tools/make_reel.js` `NIGHT`, push 뒤 Actions 가 `reels/YYYY-MM/YYYY-MM-DD_baseball_short.mp4` 를 만든다). 예전 10초판(`FAST`, 2장)은 축구 모닝(월요일 제외)만.
   그래서 **카드 1 = 그날 가장 센 결과**(`cn-score` 큰 스코어 — 첫 프레임에 결론), 카드 2 = 둘째로 센 것.
   요청은 **다음 날 아침 출근길** `publish/slots/<다음 날>_0730_baseball.json`(결과 알림 이어 달리기가 07:30에 올린다): `{"requests":[{"kind":"reel","media":"reels/YYYY-MM/YYYY-MM-DD_baseball.mp4","caption":"captions/YYYY-MM-DD_baseball_reel.txt","dry_run":"false","is_ai":"false","account":"sports","ab":"short","review":"required"}]}` — `_short.mp4` 로 바뀌어 올라간다.
   검수 관문(CLAUDE.md): 브리프 push → Actions 가 MP4 를 만들면 `python3 tools/check_reel.py reels/…_baseball_short.mp4 --caption captions/…_baseball_reel.txt` + `reel-reviewer` → 통과하면 `--approve --by agent` 기록 + 캡션 + 요청 파일을 한 커밋으로.
