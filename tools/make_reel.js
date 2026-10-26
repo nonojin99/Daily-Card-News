@@ -106,8 +106,13 @@ function picNoteOf(html, type, idx = 0) {
   if (/class="cn-gen"/.test(a[1])) return type === "science" ? "AI 개념도" : "AI 생성 이미지";
   return "";
 }
-async function introFrames(b, card1, hook, meta, label, d, wd, handle, tmp, note = "") {
-  const img = "data:image/png;base64," + fs.readFileSync(card1).toString("base64");
+// 카드의 AI 그림 원본(img/gen/…) — 오프닝 배경은 카드 PNG 대신 이걸 쓴다(카드 PNG 를 확대하면 카드 속 'AI 생성 이미지' 배지가 잘려 '지'만 남았다, 2026-10-26 검수)
+function genOf(html, idx = 0) {
+  const a = articleOf(html, idx), g = a && a[1].match(/<img class="cn-gen"[^>]*src="([^"]+)"/);
+  return g && fs.existsSync(path.join(ROOT, g[1])) ? path.join(ROOT, g[1]) : "";
+}
+async function introFrames(b, card1, hook, meta, label, d, wd, handle, tmp, note = "", raw = "") {
+  const img = raw ? "data:image/jpeg;base64," + fs.readFileSync(raw).toString("base64") : "data:image/png;base64," + fs.readFileSync(card1).toString("base64");
   const longest = Math.max(1, ...hook.lines.map(l => l.length));
   const fs_ = Math.max(64, Math.min(112, Math.floor(880 / (longest * 0.9))));
   // 사진·AI 그림이 없는 카드(도표·개념도)는 그림을 확대하면 잘리므로 → 액센트 바탕 큰 글씨(주제어·숫자·제목)만
@@ -117,14 +122,14 @@ async function introFrames(b, card1, hook, meta, label, d, wd, handle, tmp, note
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
 <style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:${pic ? '#111' : meta.ac};font-family:'Noto Sans KR',sans-serif;color:#fff;position:relative;overflow:hidden}
 .pic{position:absolute;left:0;top:0;width:1080px;height:1100px;overflow:hidden}
-.pic div{position:absolute;inset:0;background:url(${img}) top center/auto 2200px no-repeat;transform-origin:50% 40%}
+.pic div{position:absolute;inset:0;background:url(${img}) ${raw ? 'center/cover' : 'top center/auto 2200px'} no-repeat;transform-origin:50% 40%}
 .fade{position:absolute;left:0;right:0;top:700px;height:420px;background:linear-gradient(180deg,rgba(17,17,17,0),#111)}
 .top{position:absolute;left:80px;right:80px;top:150px;display:flex;align-items:center;gap:22px}
 .cat{background:${pic ? meta.ac : '#fff'};color:${pic ? '#fff' : meta.ac};font-weight:900;font-size:40px;padding:10px 30px;border-radius:99px;white-space:nowrap}
 .dt{margin-left:auto;font-size:36px;font-weight:700;white-space:nowrap;text-shadow:0 2px 12px rgba(0,0,0,.6)}
 .txt{position:absolute;left:80px;right:80px;top:${pic ? (hook.topic ? 860 : 1060) : 520}px}
 .tp{display:inline-block;background:${pic ? meta.ac : '#fff'};color:${pic ? '#fff' : meta.ac};font-weight:900;font-size:${Math.min(150, Math.floor(900 / Math.max(2, (hook.topic || '').length)))}px;line-height:1.1;padding:14px 36px 22px;border-radius:28px;margin-bottom:34px;letter-spacing:-.03em}
-.num{font-weight:900;font-size:${Math.min(170, Math.floor(1500 / Math.max(1, (hook.num || '').length)))}px;line-height:1;letter-spacing:-.03em;color:#fff;white-space:nowrap}.lab{font-size:44px;font-weight:700;margin:14px 0 40px;opacity:.85}
+.num{font-weight:900;font-size:${Math.min(170, Math.floor(1500 / Math.max(1, (hook.num || '').length)))}px;line-height:1;letter-spacing:-.03em;color:#fff;white-space:nowrap}.lab{font-size:44px;font-weight:700;margin:34px 0 40px;opacity:.85}
 .h{font-weight:900;font-size:${fs_}px;line-height:1.2;letter-spacing:-.03em;white-space:nowrap}
 .ft{position:absolute;left:80px;right:80px;top:1640px;font-size:32px;opacity:.75}
 .note{position:absolute;left:80px;top:250px;max-width:920px;background:rgba(0,0,0,.55);color:#fff;font-size:28px;font-weight:500;padding:6px 16px;border-radius:10px}</style></head>
@@ -296,7 +301,7 @@ ${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
   const d0 = (spec.segments[0][1] - spec.segments[0][0] + (gapAfter(0) ? GAP : 0)) / sp;
   let intro = [];
   if (spec.opening === "motion" && hook && d0 > INTRO + 0.5 && spec.segments[0][2] === 2)
-    intro = await introFrames(b, files[1], hook, meta, spec.title, d, wd, HANDLE_OF((spec.brief.match(BRIEF) || [])[4]), tmp, picNoteOf(read(spec.brief).toString(), (spec.brief.match(BRIEF) || [])[4], ci));
+    intro = await introFrames(b, files[1], hook, meta, spec.title, d, wd, HANDLE_OF((spec.brief.match(BRIEF) || [])[4]), tmp, picNoteOf(read(spec.brief).toString(), (spec.brief.match(BRIEF) || [])[4], ci), genOf(read(spec.brief).toString(), ci));
   const parts = spec.segments.map(([s, e], k) => `[0:a]atrim=${s}:${e},asetpts=PTS-STARTPTS${gapAfter(k) ? `,apad=pad_dur=${GAP}` : k === N - 1 && outro ? `,apad=pad_dur=${outro}` : ""}[a${k}]`);
   const filter = parts.join(";") + ";" + spec.segments.map((_, k) => `[a${k}]`).join("") + `concat=n=${N}:v=0:a=1${sp !== 1 ? `,atempo=${sp}` : ""}[a]`;
   const last = outro ? `fo.png` : `f${N - 1}.png`;
@@ -377,7 +382,7 @@ async function shortOne(brief, b, base, O = SHORT) {
   const durs = slides.map((_, k) => k < n ? (O.secs ? (O.secs[k] ?? O.secs[O.secs.length - 1]) : O.sec) : O.outro);
   const out_ = `reels/${m[1]}-${m[2]}/${d}_${m[4]}${O.suffix}`;
   const r = await flipReel(b, { m, d, imgs: slides.map(k => files[k - 1]), durs, xf: O.xf, max: O.max, zoom: O.zoom, label, meta, bgm: O.bgm, credit: O.credit, out_,
-    opening: O.variant === "lib" || O.zoom ? "static" : openingOf(brief), card1: files[1], hook: hookOf(html), note: picNoteOf(html, m[4]), tmp });
+    opening: O.variant === "lib" || O.zoom ? "static" : openingOf(brief), card1: files[1], raw: genOf(html), hook: hookOf(html), note: picNoteOf(html, m[4]), tmp });
   const spec = { brief, variant: O.variant, opening: r.opening, out: out_ + ".mp4", cards: n, seconds: +r.total.toFixed(2), bgm: O.bgm, credit: O.credit, fp: shortFp(brief) };
   fs.writeFileSync(path.join(ROOT, out_ + ".reel.json"), JSON.stringify(spec, null, 2) + "\n");
   console.log(`reel: ${out_}.mp4 — ${r.total.toFixed(1)}초, 카드 ${n}장${O.outro ? " + 출처" : ""}`);
@@ -400,7 +405,7 @@ async function flipReel(b, o) {
 .card img{display:block;width:100%}
 .bar{position:absolute;left:97px;right:97px;top:1472px;height:8px;border-radius:9px;background:#e1ddd2}
 .bar i{display:block;height:100%;width:${((k + 1) / imgs.length * 100).toFixed(1)}%;border-radius:9px;background:${meta.ac}}
-.ft{position:absolute;left:97px;right:97px;top:1508px;font-size:30px;color:#55554f;line-height:1.5}.ft b{color:#3d5a4c}</style></head>
+.ft{position:absolute;left:97px;right:97px;top:1508px;font-size:26px;color:#55554f;line-height:1.5;white-space:nowrap}.ft b{color:#3d5a4c;font-size:30px}</style></head>
 <body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">${esc(label)}</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
 <div class="card"><img src="${img}"></div><div class="bar"><i></i></div>
 <div class="ft"><b>${HANDLE_OF(m[4])}</b>${o.credit ? `<br>♪ ${esc(o.credit)}` : ""}</div></body></html>`, { waitUntil: "networkidle" });
@@ -408,7 +413,7 @@ async function flipReel(b, o) {
   }
   await fr.close();
   const hk = o.hook;
-  const intro = o.opening === "motion" && hk && durs[0] > INTRO + 0.5 ? await introFrames(b, o.card1, hk, meta, label, d, wd, HANDLE_OF(m[4]), tmp, o.note) : [];
+  const intro = o.opening === "motion" && hk && durs[0] > INTRO + 0.5 ? await introFrames(b, o.card1, hk, meta, label, d, wd, HANDLE_OF(m[4]), tmp, o.note, o.raw || "") : [];
   const total = durs.reduce((a, c) => a + c, 0) - o.xf * (imgs.length - 1);
   if (o.max && total > o.max) throw new Error(`${label} ${total.toFixed(1)}초 — ${o.max}초 넘음`);
   const ins = imgs.flatMap((_, k) => ["-loop", "1", "-framerate", "30", "-t", String(durs[k]), "-i", path.join(tmp, `s${k}.png`)]);
@@ -443,8 +448,9 @@ function reelBlocks(html) {
     return { card: +at("card"), score: +at("score") || 0, type: at("type"), paras: ps, raw: m[0] };
   }).filter(b => b.card > 0 && b.paras.length);
 }
-async function pointPanels(b, blk, card, note, meta, title, tmp) {
-  const img = "data:image/png;base64," + fs.readFileSync(card).toString("base64"), out = [];
+async function pointPanels(b, blk, card, note, meta, title, tmp, raw = "") {
+  // 그림 띠: AI 그림 원본이 있으면 그것 + 표시 한 번. 없으면 카드 PNG 위쪽(카드에 이미 표시·크레디트가 있으니 덧씌우지 않는다 — 2026-10-26 검수 '표시 두 겹')
+  const img = raw ? "data:image/jpeg;base64," + fs.readFileSync(raw).toString("base64") : "data:image/png;base64," + fs.readFileSync(card).toString("base64"), out = [];
   const pg = await b.newPage({ viewport: { width: 1080, height: 1350 } });
   for (let i = 1; i < blk.paras.length; i++) {
     const k = blk.paras[i].k, f = path.join(tmp, `pt${i}.png`);
@@ -453,12 +459,12 @@ async function pointPanels(b, blk, card, note, meta, title, tmp) {
     await pg.setContent(`<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
 <style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1350px;background:${note ? "#fff" : meta.ac};font-family:'Noto Sans KR',sans-serif;position:relative;overflow:hidden}
-.pic{position:absolute;left:0;top:0;width:1080px;height:520px;background:url(${img}) top center/1080px auto no-repeat}
+.pic{position:absolute;left:0;top:0;width:1080px;height:520px;background:url(${img}) ${raw ? 'center/cover' : 'top center/1080px auto'} no-repeat}
 .pic:after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff)}
 .nt{position:absolute;left:40px;top:28px;background:rgba(0,0,0,.55);color:#fff;font-size:26px;padding:5px 14px;border-radius:10px}
 .k{position:absolute;left:80px;right:80px;top:${note ? 600 : 400}px;font-weight:900;font-size:${fsz}px;line-height:1.15;letter-spacing:-.03em;color:${note ? meta.ac : "#fff"};word-break:keep-all}
 .n{position:absolute;left:80px;bottom:70px;font-size:34px;font-weight:700;color:${note ? "#55554f" : "rgba(255,255,255,.85)"}}</style></head>
-<body>${note ? `<div class="pic"></div><div class="nt">${esc(note)}</div>` : ""}<div class="k">${esc(k)}</div><div class="n">${i + 1} / ${blk.paras.length} · ${esc(title)}</div></body></html>`, { waitUntil: "networkidle" });
+<body>${note ? `<div class="pic"></div>${raw ? `<div class="nt">${esc(note)}</div>` : ""}` : ""}<div class="k">${esc(k)}</div><div class="n">${i + 1} / ${blk.paras.length} · ${esc(title)}</div></body></html>`, { waitUntil: "networkidle" });
     await pg.screenshot({ path: f }); out.push(f);
   }
   await pg.close();
@@ -508,12 +514,12 @@ async function deepFlip(brief, cardNo, b, base) {
   const d = `${m[1]}-${m[2]}-${m[3]}`, tmp = fs.mkdtempSync(path.join(os.tmpdir(), "reel-f-"));
   const cards = await renderCards(b, base, brief, tmp);
   const card = cards.files[cardNo], note = picNoteOf(html, m[4], cardNo - 1), hook = hookOf(html, cardNo - 1);
-  const pts = await pointPanels(b, blk, card, note, cards.meta, (hook?.lines || []).join(" "), tmp);
+  const pts = await pointPanels(b, blk, card, note, cards.meta, (hook?.lines || []).join(" "), tmp, genOf(html, cardNo - 1));
   const imgs = [card, ...pts, cards.files[cards.files.length - 1]];
   const durs = imgs.map((_, k) => k === 0 ? DEEP_FLIP.first : k === imgs.length - 1 ? DEEP_FLIP.outro : DEEP_FLIP.sec);
   const out_ = `reels/${m[1]}-${m[2]}/${d}_${m[4]}_c${cardNo}`, label = "🔎 깊게 보기";
   const r = await flipReel(b, { m, d, html, imgs, durs, xf: DEEP_FLIP.xf, max: DEEP_FLIP.max, label, meta: cards.meta, bgm: FLIP_BGM, credit: FLIP_CREDIT, out_,
-    opening: openingOf(brief), card1: card, hook, note, tmp });
+    opening: openingOf(brief), card1: card, raw: genOf(html, cardNo - 1), hook, note, tmp });
   const spec = { brief, card: cardNo, kind: "deep", variant: "flip", score: blk.score, type: blk.type, out: out_ + ".mp4", opening: r.opening,
     pages: pts.length, seconds: +r.total.toFixed(2), bgm: FLIP_BGM, credit: FLIP_CREDIT, keys: blk.paras.slice(1).map(x => x.k),
     note: `깊게 파는 릴스(페이지 전환형) — 카드 ${cardNo} 요점 ${pts.length}장`, fp: deepFlipFp(brief, blk0) };
