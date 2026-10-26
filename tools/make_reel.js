@@ -319,7 +319,7 @@ ${hook.lines.map(l => `<div class="h">${esc(l)}</div>`).join("")}</div>
   }
   const out = path.join(ROOT, spec.out); fs.mkdirSync(path.dirname(out), { recursive: true });
   execFileSync("ffmpeg", ["-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", path.join(tmp, "list.txt"), "-i", path.join(tmp, "a.m4a"),
-    "-vf", "fps=30,format=yuv420p", "-c:v", "libx264", "-preset", "medium", "-crf", "23", "-c:a", "copy", "-shortest", "-movflags", "+faststart", out]);
+    "-vf", "fps=30,format=yuv420p", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-profile:v", "high", "-level", "4.1", "-preset", "medium", "-crf", "23", "-c:a", "copy", "-shortest", "-movflags", "+faststart", out]);
   const dur = +execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", out]).toString();
   console.log(`reel: ${spec.out} — ${dur.toFixed(1)}초, 프레임 ${N}장`);
   return dur;
@@ -434,8 +434,9 @@ async function flipReel(b, o) {
   if (o.bgm) f.push(`[${imgs.length}:a]atrim=0:${total.toFixed(3)},asetpts=PTS-STARTPTS,afade=t=out:st=${Math.max(0, total - 1.2).toFixed(3)}:d=1.2,volume=0.9[a]`);
   fs.mkdirSync(path.join(ROOT, path.dirname(o.out_)), { recursive: true });
   const aud = o.bgm ? ["-i", path.join(ROOT, o.bgm)] : [], amap = o.bgm ? ["-map", "[a]", "-c:a", "aac", "-b:a", "128k"] : ["-an"];   // 라이브러리판은 소리 없음 — 음악은 인스타 앱에서
+  // xfade 가 yuv444p(High 4:4:4)로 내보내 아이폰·인스타에서 재생이 안 됐다(2026-10-26) — 출력은 yuv420p·High 로 고정
   execFileSync("ffmpeg", ["-v", "error", "-y", ...ins, ...aud, ...extra, "-filter_complex", f.join(";"), "-map", cur, ...amap,
-    "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-t", total.toFixed(3), "-movflags", "+faststart", path.join(ROOT, o.out_ + ".mp4")]);
+    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-profile:v", "high", "-level", "4.1", "-preset", "medium", "-crf", "21", "-t", total.toFixed(3), "-movflags", "+faststart", path.join(ROOT, o.out_ + ".mp4")]);
   return { total, opening: o.zoom ? "zoom" : intro.length ? "motion" : "static" };
 }
 // ── 깊게 파는 릴스(2026-10-26~ 사용자 승인, 같은 날 '페이지 전환형'으로 바꿈 — 아래 deepFlip): 그날 카드 하나를 더 자세히 — 점수(item-scorer) 80점 이상 카드마다, 하루 최대 3편(README '깊게 파는 릴스') ──

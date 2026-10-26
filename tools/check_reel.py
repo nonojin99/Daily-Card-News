@@ -41,6 +41,9 @@ def check(mp4, caption):
     spec = json.load(open(spec_p, encoding="utf-8")) if os.path.exists(spec_p) else {}
     if not spec and not data: W("reel.json 없음 — 구간·오프닝을 확인할 수 없음")
     d = dur(mp4)
+    # 재생 호환(2026-10-26 사고: High 4:4:4·yuv444p 는 아이폰·인스타에서 재생 안 됨)
+    v = subprocess.check_output(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=pix_fmt,profile", "-of", "csv=p=0", mp4]).decode().strip()
+    if "yuv420p" not in v or "4:4:4" in v: F(f"영상 형식 {v} — yuv420p·High 여야 휴대폰·인스타에서 재생된다")
     deep = spec.get("kind") == "deep"   # 깊게 파는 릴스(…_cN.mp4, 2026-10-26~) — 90초 이내, 사건·사고 검사는 그 카드만
     narr = bool(spec.get("audio"))   # 낭독판만 원고 MP3 를 쓴다 — 짧은판·10초판·라이브러리판·페이지 전환형·데이터 릴스는 배경음악만
     lim = DATA_MAX if data else SHORT_MAX if short else (DEEP_MAX if narr else FLIP_MAX) if deep else NARR_MAX

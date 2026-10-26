@@ -77,7 +77,7 @@ def kenburns(img, sec, out, z=0.08):
     """정지 그림 → 천천히 확대되는 영상(첫 2초부터 움직임)."""
     n = int(sec * 30)
     ff("-loop", "1", "-i", img, "-vf", f"scale=2160:-1,zoompan=z='1+{z}*on/{n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={n}:s=1080x1920:fps=30,format=yuv420p,setsar=1",
-       "-frames:v", str(n), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out)
+       "-frames:v", str(n), "-c:v", "libx264", "-pix_fmt", "yuv420p", "-profile:v", "high", "-level", "4.1", "-preset", "veryfast", "-crf", "20", out)
 
 
 def stitch(clips, out, sec_total):
@@ -92,7 +92,7 @@ def stitch(clips, out, sec_total):
     A = len(clips)
     f.append(f"[{A}:a]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,afade=t=out:st={total - 1.2:.3f}:d=1.2,volume=0.9[a]")
     ff(*ins, "-stream_loop", "-1", "-i", os.path.join(ROOT, BGM), "-filter_complex", ";".join(f), "-map", cur if len(clips) > 1 else "[0:v]", "-map", "[a]",
-       "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-c:a", "aac", "-b:a", "128k", "-t", f"{total:.3f}", "-movflags", "+faststart", out)
+       "-c:v", "libx264", "-pix_fmt", "yuv420p", "-profile:v", "high", "-level", "4.1", "-preset", "medium", "-crf", "21", "-c:a", "aac", "-b:a", "128k", "-t", f"{total:.3f}", "-movflags", "+faststart", out)
     return total
 
 
