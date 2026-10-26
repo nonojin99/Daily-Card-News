@@ -188,11 +188,11 @@ def live_reel(bd, rel, label, dry):
     iid = bd["new"][0]
     if any(i["id"] == iid for i in q["items"]):
         return []
-    # 경기 중 릴스는 경기당 한 편, 7회 이후 동점·역전·1점 차일 때만(2026-10-26 사용자 결정 — 경기당 릴스 = 선발·막판 접전·결과 3편)
+    # 경기 중 릴스: 포스트시즌 = 경기당 8회 리뷰 한 편, 정규시즌 = 리그 묶음판 하루 두 번(bd["reel"], 2026-10-26 사용자 결정)
     if bd.get("live") and (not bd.get("reel") or any(i.get("kind") == "live" and i["id"].startswith(f"live:{bd.get('gid')}:") for i in q["items"])):
         return []
     s, why = score(sport, r, bd["title"])
-    if s < RULES["threshold"]:
+    if s < RULES["threshold"] and not bd.get("mid"):
         return []
     now, pre = kst(), bool(bd.get("pre"))
     m = re.search(r"(\d{1,2}):(\d{2}) 시작", r.get("note", ""))
@@ -207,13 +207,17 @@ def live_reel(bd, rel, label, dry):
     kenburns(os.path.join(ROOT, rel), 6.0, f"{tmp}/a.mp4", z=0.06)
     total = stitch([f"{tmp}/a.mp4"], os.path.join(ROOT, base + ".mp4"), 0)
     e, stage = EMO.get(sport, "⚾"), bd["title"].split(" — ")[0]
-    if pre:
+    if bd.get("mid"):
+        head = f"[{e} {label}] 중간 스코어 {bd['title'].split(' — ')[-1]} 진행 중\n" + "\n".join(f"{x['away']} {x['as']}:{x['hs']} {x['home']} ({x.get('note', '')})" for x in bd["rows"])
+        r = {**r, "note": ""}
+        src = "진행 중인 경기 · 공식 기록 기준 · 최종 결과는 경기 끝나고 다시 올려요"
+    elif pre:
         head = f"[{e} {label}] {stage} 선발 — {r['away']} {r['as']} vs {r['home']} {r['hs']}"
         src = "선발은 공식 기록의 예고 기준 · 경기 직전 바뀔 수 있어요"
     else:
         head = f"[{e} {label}] {stage} 진행 중 — {r['away']} {r['as']}:{r['hs']} {r['home']}"
         src = "진행 중인 경기 · 공식 기록 기준 · 최종 결과는 경기 끝나고 다시 올려요"
-    cap = "\n".join([head, r.get("note", ""), "", f"📊 {src}", f"🎵 음악: {CREDIT}", "▶ 해설은 프로필 링크의 앱에서", "", TAGS.get(sport, "#스포츠")])
+    cap = "\n".join([head] + ([r["note"]] if r.get("note") else []) + ["", f"📊 {src}", f"🎵 음악: {CREDIT}", "▶ 해설은 프로필 링크의 앱에서", "", TAGS.get(sport, "#스포츠")])
     open(os.path.join(ROOT, base + ".txt"), "w", encoding="utf-8").write(cap + "\n")
     q["items"].append({"id": iid, "kind": "pre" if pre else "live", "mp4": base + ".mp4", "caption": base + ".txt", "score": s, "why": why, "seconds": round(total, 1),
                        "made_kst": now.strftime("%Y-%m-%d %H:%M"), "until_kst": until.strftime("%Y-%m-%d %H:%M"), "status": "dry" if dry else "queued"})

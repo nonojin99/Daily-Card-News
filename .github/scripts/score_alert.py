@@ -45,6 +45,7 @@ ko = lambda name: NAMES.get(name, name)
 
 
 LIVE_STYLE = {"kicker": "⚾ 중간 스코어", "src": "진행 중인 경기 · 공식 기록 기준 · 최종 결과는 경기 종료 후 다시 올려요", "foot": "포스트시즌 중간 스코어"}
+MID_STYLE = {**LIVE_STYLE, "foot": "중간 스코어"}   # 정규시즌 리그 묶음판(2026-10-26~)
 
 PRE_STYLE = {"kicker": "⚾ 경기 전 · 선발", "src": "선발은 MLB 공식 Stats API·KBO 공식 기록의 예고 기준 · 경기 직전 바뀔 수 있어요", "foot": "포스트시즌 선발 안내"}
 
@@ -255,12 +256,14 @@ def ufc(posted):
     return boards
 
 
-LIVE_STEPS = ((7, "6회"), (4, "3회"))   # (이 회 이상이면 그 단계). 가장 높은 단계 하나만 올린다 — 3회 마침·6회 마침, 그 뒤(7회~)는 점수가 날 때마다(add 참고)
+LIVE_STEPS = ((8, "8회"), (7, "6회"), (4, "3회"))   # (이 회 이상이면 그 단계). 가장 높은 단계 하나만 올린다 — 3회 마침·6회 마침·8회 리뷰(8회 진행 중, 릴스도), 7회~ 득점마다(add 참고)
 
 
 def live_big(posted):
-    """포스트시즌급 야구(KBO 와일드카드·준PO·PO·KS, MLB 와일드카드·디비전·챔피언십·월드시리즈)만, 경기가 길어서 3회·6회를 마칠 때 중간 스코어 한 장.
-    정규시즌 경기는 다루지 않는다(사용자 결정 2026-10-24). 올린 단계는 posted 에 live:<경기>:<회> 로 남겨 중복을 막는다."""
+    """경기 중 스코어(2026-10-26 사용자 결정).
+    포스트시즌급(KBO 와일드카드·준PO·PO·KS, MLB 와일드카드~월드시리즈) = 경기 하나씩: 스토리 3회·6회 마침·8회 리뷰 + 7회~ 득점마다(5점 차 이상 생략), 릴스는 8회 리뷰 한 편.
+    정규시즌(KBO·MLB 공통, 동시에 여러 경기) = 리그 묶음판 하루 두 번: 진행 중 경기들의 가운데 이닝이 3~5회일 때 한 번, 6~8회일 때 한 번 — 스토리 + 릴스.
+    올린 단계는 posted 에 live:<경기>:… / mid:<종목>:<날짜>:<1|2> 로 남겨 중복을 막는다."""
     boards, now = [], kst()
 
     def step(inn):
@@ -272,8 +275,8 @@ def live_big(posted):
     def add(sport, gid, inn, row, title, gdate, kdate):
         # 2026-10-26 사용자 결정: 스토리 = 3회·6회를 마칠 때(점수 차와 상관없이 항상) + 7회부터 점수가 날 때마다 — 단 7회 이후 득점은 점수 차 5 이상이면 올리지 않는다
         # (3회·6회 리뷰가 이미 나갔으니 큰 점수 차 경기에서 너무 많이 올라가지 않게, 좁혀지면 다시).
-        # 릴스 = 경기당 한 편, 7회 이후 동점·역전·1점 차일 때만(bd["reel"]) — 스토리는 팔로워용, 릴스는 새 사람 유입용이라 골라서.
-        # posted 키: live:<경기>:<단계>[:<원정>-<홈>] (단계 = 4·7 이닝 단계 또는 late)
+        # 릴스 = 경기당 한 편, 8회 리뷰(bd["reel"]) — 스토리는 팔로워용, 릴스는 새 사람 유입용이라 골라서(선발·결과 릴스는 따로).
+        # posted 키: live:<경기>:<단계>[:<원정>-<홈>] (단계 = 4·7·8 이닝 단계 또는 late)
         try:
             a, h = int(row["as"]), int(row["hs"])
         except (TypeError, ValueError):
@@ -289,12 +292,26 @@ def live_big(posted):
             key = f"live:{gid}:late:{sc}"
         else:
             return
-        sign = lambda x: (x > 0) - (x < 0)
-        flip = prev is not None and sign(a - h) * sign(int(prev.split("-")[0]) - int(prev.split("-")[1])) == -1   # 역전 = 앞선 팀이 바뀜(동점에서 앞서는 건 아님)
-        reel = inn >= 7 and (abs(a - h) <= 1 or flip)
+        reel = key.startswith(f"live:{gid}:8:")
+        if reel:
+            title = title.replace("— 중간 스코어", "— 8회 리뷰")
         row = {**row, "pending": True, "live": True}
         boards.append({"sport": sport, "live": True, "date": gdate, "kst_date": kdate, "title": title, "rows": [row], "new": [key], "final": False,
                        "gid": gid, "reel": reel})
+
+    def mid(sport, rows, inns, gdate, kdate):
+        """정규시즌 리그 묶음판 — 진행 중 경기 2개 이상, 가운데 이닝으로 1차(3~5회)·2차(6~8회)를 정한다(KBO 18:30 동시 시작이면 대략 19:30·20:45)."""
+        if len(rows) < 2:
+            return
+        md = sorted(inns)[len(inns) // 2]
+        w = 1 if 3 <= md <= 5 else 2 if 6 <= md <= 8 else 0
+        key = f"mid:{sport}:{kdate}:{w}"
+        if not w or key in posted or (w == 1 and f"mid:{sport}:{kdate}:2" in posted):
+            return
+        label = SOURCES.get(sport, {}).get("label", sport.upper())
+        boards.append({"sport": sport, "live": True, "mid": True, "reel": True, "date": gdate, "kst_date": kdate, "final": False, "new": [key],
+                       "title": f"{label} 중간 스코어 — {len(rows)}경기 {'3~5회' if w == 1 else '6~8회'}",
+                       "rows": [{**r, "pending": True, "live": True} for r in rows][:10]})
 
     if SOURCES.get("kbo", {}).get("on"):
         d = now.date()
@@ -305,29 +322,44 @@ def live_big(posted):
                               "Referer": "https://www.koreabaseball.com/Schedule/ScoreBoard.aspx"}).get("game") or []
         except Exception as e:  # noqa: BLE001
             print(f"::warning::KBO live {d}: {e}"); games = []
+        reg, regi = [], []
         for g in games:
             m = re.match(r"(준PO|PO|KS|WC)(\d+)", g.get("GAME_SC_NM") or "")
-            if not m or str(g.get("GAME_STATE_SC")) != "2":
+            if str(g.get("GAME_STATE_SC")) != "2":
                 continue
             try:
                 inn = int(g.get("GAME_INN_NO") or 0)
             except ValueError:
                 continue
             tb = (g.get("GAME_TB_SC_NM") or "").strip()
+            if not m:   # 정규시즌 — 묶음판 재료
+                reg.append({"away": g["AWAY_NM"].strip(), "home": g["HOME_NM"].strip(), "as": str(g["T_SCORE_CN"]), "hs": str(g["B_SCORE_CN"]),
+                            "note": f"{inn}회{tb}" + (f" · {g['S_NM']}" if g.get("S_NM") else "")}); regi.append(inn)
+                continue
             stage = f"{STAGE[m[1]]} {m[2]}차전"
             add("kbo", "kbo:" + g["G_ID"], inn, {"away": g["AWAY_NM"].strip(), "home": g["HOME_NM"].strip(), "as": str(g["T_SCORE_CN"]), "hs": str(g["B_SCORE_CN"]),
                                                  "note": f"{inn}회{tb} 진행 중" + (f" · {g['S_NM']}" if g.get("S_NM") else "")},
                 f"{stage} — 중간 스코어", d, d)
+        mid("kbo", reg, regi, d, d)
     if SOURCES.get("mlb", {}).get("on"):
         try:
             d0, d1 = (now - datetime.timedelta(days=1)).date(), now.date()
             dates = get_json(f"https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate={d0}&endDate={d1}&hydrate=linescore")["dates"]
         except Exception as e:  # noqa: BLE001
             print(f"::warning::MLB live: {e}"); dates = []
+        reg, regi, rk = [], [], None
         for g in (g for dt in dates for g in dt["games"]):
-            if g.get("gameType") not in ("F", "D", "L", "W") or g["status"]["abstractGameState"] != "Live":
+            if g["status"]["abstractGameState"] != "Live":
                 continue
             ls, a, h = g.get("linescore") or {}, g["teams"]["away"], g["teams"]["home"]
+            if g.get("gameType") == "R":   # 정규시즌 — 묶음판 재료(날짜는 KST 기준 경기일)
+                k0 = datetime.datetime.strptime(g["gameDate"][:19], "%Y-%m-%dT%H:%M:%S") + datetime.timedelta(hours=9)
+                rk = rk or k0.date()
+                reg.append({"away": ko(a["team"]["name"]), "home": ko(h["team"]["name"]), "as": str(a.get("score", 0)), "hs": str(h.get("score", 0)),
+                            "note": f"{ls.get('currentInning')}회{'초' if ls.get('isTopInning') else '말'}"}); regi.append(int(ls.get("currentInning") or 0))
+                continue
+            if g.get("gameType") not in ("F", "D", "L", "W"):
+                continue
             ser = {"World Series": "월드시리즈", "League Championship Series": "챔피언십시리즈", "Division Series": "디비전시리즈",
                    "Wild Card": "와일드카드"}.get(g.get("seriesDescription") or "", g.get("seriesDescription") or "MLB 포스트시즌")
             k0 = datetime.datetime.strptime(g["gameDate"][:19], "%Y-%m-%dT%H:%M:%S") + datetime.timedelta(hours=9)
@@ -335,6 +367,8 @@ def live_big(posted):
                 {"away": ko(a["team"]["name"]), "home": ko(h["team"]["name"]), "as": str(a.get("score", 0)), "hs": str(h.get("score", 0)),
                  "note": f"{ls.get('currentInning')}회{'초' if ls.get('isTopInning') else '말'} 진행 중 · {g.get('venue', {}).get('name', '')}".rstrip(" ·")},
                 f"{ser} {g.get('seriesGameNumber', '')}차전 — 중간 스코어".replace("  ", " "), (k0 - datetime.timedelta(hours=12)).date(), k0.date())
+        if rk:
+            mid("mlb", reg, regi, rk, rk)
     return boards
 
 
@@ -611,7 +645,7 @@ def run_once():
         rel = f"sports/alerts/{gdate:%Y-%m}/{gdate}_{sport.replace('.', '-')}_{kst():%H%M}.jpg"
         os.makedirs(os.path.dirname(os.path.join(ROOT, rel)), exist_ok=True)
         spec = os.path.join(ROOT, "sports/alerts/.games.json")
-        json.dump({**SPORT[sport], **(LIVE_STYLE if bd.get("live") else PRE_STYLE if bd.get("pre") else {}), "story": True, "date": str(bd.get("kst_date") or gdate), "dawn": bool(bd.get("dawn")), "title": bd["title"], "games": bd["rows"][:10]},
+        json.dump({**SPORT[sport], **(MID_STYLE if bd.get("mid") else LIVE_STYLE if bd.get("live") else PRE_STYLE if bd.get("pre") else {}), "story": True, "date": str(bd.get("kst_date") or gdate), "dawn": bool(bd.get("dawn")), "title": bd["title"], "games": bd["rows"][:10]},
                   open(spec, "w", encoding="utf-8"), ensure_ascii=False)
         subprocess.run(["node", os.path.join(ROOT, "tools/score_card.js"), spec, os.path.join(ROOT, rel)], check=True)
         os.replace(spec, os.path.join(ROOT, rel[:-4] + ".json"))   # 원자료를 jpg 옆에 남긴다(감사·데이터 릴스 재료)
