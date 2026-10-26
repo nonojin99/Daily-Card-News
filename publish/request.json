@@ -1,23 +1,15 @@
 {
  "requests": [
   {
-   "kind": "carousel",
-   "media": "cards/2026-10/2026-10-26_football-brief",
-   "caption": "captions/2026-10-26_football.txt",
+   "kind": "reel",
+   "media": "reels/2026-10/2026-10-26_football.mp4",
+   "caption": "captions/2026-10-26_football_reel.txt",
    "dry_run": "false",
    "is_ai": "false",
    "account": "sports",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-10/2026-10-26_event-brief",
-   "caption": "captions/2026-10-26_event.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
+   "ab": "short",
    "review": "required"
   }
  ],
- "note": "10/26 월 ⚽ 축구 모닝 주말 결산 캐러셀 + 🏆 이벤트 픽 캐러셀(sports 계정). 월요일 오디오 릴스는 축구 MP3 가 아직 만들어지지 않아 요청하지 않음."
+ "note": "10/26 월 ⚽ 주말 결산 짧은판 릴스(배경음+카드 넘김) — 사용자 요청으로 저녁 대신 즉시 게시"
 }
