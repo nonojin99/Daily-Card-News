@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.10.27">
+<meta property="og:description" content="코스피 5,500선 붕괴·6개월 최저 · 미래에셋생명·국민은행 개인정보 유출 · CNN 미군 이란 공격 준비 보도 · 조달청 입찰보증금 효과 · 김건희 추가구속 심사 · 앤트로픽 IPO 신고서">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.10.27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+  /* ── 서울 날씨 한 줄 (2026-10-11 도입) ── */
+  .weather{margin:14px 0 0;padding:9px 14px;border-radius:10px;background:var(--accent-soft);font-size:14px;color:var(--ink);line-height:1.6}
+  .weather .wx-note{display:inline-block;margin-left:6px;font-size:11.5px;color:var(--faint)}
+  .weather .wx-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+</style>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>코스피가 5,500선 아래로 내려왔고, 보험사도 해킹 피해를 확인했다</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 10월 27일 화요일</span>
+      <span class="count">6 Picks · 분야별</span>
+    </div>
+    <p class="weather">🌡 서울 · 최저 10° 최고 16° · 비 소식 없음 · 바람이 강해요(전국 대부분 강풍, 일부 지역 순간풍속 시속 55km 안팎)
+      <span class="wx-note">⚠ 변동 가능 · <a href="https://www.newsis.com/view/NISX20261026_0003841915">뉴시스 10/27 00:00</a></span></p>
+    <p class="lede">26일 코스피는 1.46% 내린 5,469.47로 마쳐 4월 7일 이후 가장 낮아졌습니다. 미래에셋생명은 해커의 고객 정보 접근을 확인했고 국민은행 피해자는 2,210명으로 늘었으며, CNN은 미군이 트럼프 대통령의 명령 시 이란 대규모 공격을 준비하고 있다고 보도했습니다. 조달청 입찰보증금 시범 결과, 김건희 씨 추가구속 심사, 앤트로픽 IPO 신고서 제출도 담았습니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>10월 27일 화요일, 데일리 브리프입니다. 오늘은 여섯 가지 소식을 전해 드립니다.</p>
+    <p>어제 코스피가 1.46% 내린 5,469선에서 마감하며 5,500선이 무너졌습니다. 4월 7일 이후 가장 낮은 수준입니다. 코스닥은 3.26% 급락해 727선으로 마쳤고, 외국인은 순매도했습니다. 뉴스1은 중동 분쟁 격화와 유가 급등, 그리고 금리 결정과 기업 실적 발표를 앞둔 관망세를 이유로 들었습니다. 이날 시가는 5,499선으로, 0.92% 낮게 출발했습니다.</p>
+    <p>금융권 개인정보 유출이 이어지고 있습니다. 미래에셋생명은 지난 25일 이상 징후를 확인했고, 26일 새벽 개인정보 유출을 확인했습니다. 해커가 약 41개 파일을 조회한 것으로 알려졌고, 유출 대상과 항목은 아직 파악 중입니다. 금융감독원이 현장점검에 나섰고, 경향신문은 생명보험사가 해킹 유출을 당국에 신고한 첫 사례라고 전했습니다. 국민은행은 추가 피해자 2,091명을 확인해 전체 피해자가 2,210명이 됐습니다. 추가 확인된 2,091명은 고객 1,631명과 전현직 임직원 460명입니다. 새로운 해킹이 아니라 기존 사고를 분석하다 추가로 확인된 것입니다.</p>
+    <p>이란 소식입니다. CNN은 미군이 트럼프 대통령이 명령하면 96시간 안에 이란에 대한 대규모 작전을 준비할 수 있다고 보도했습니다. 대통령은 아직 최종 결정을 하지 않았고, 공격은 11월 3일 선거 이후가 유력하다고 전했습니다. 미 국방부가 에너지, 군사, 핵시설을 포함한 표적 목록을 작성 중이라는 내용입니다. 이는 CNN 보도를 전한 것이며 확정된 계획은 아닙니다.</p>
+    <p>조달청이 지난 8월부터 이른바 벌떼 입찰이 우려되는 품목에 입찰보증금을 적용했더니, 건당 평균 입찰 업체가 355곳에서 57곳으로 83.9% 줄었습니다. 평균 낙찰 순위도 41위에서 1.5위로 낮아졌습니다. 조달청은 다음 달 16일부터 대책을 전면 시행하고, 내년부터는 기타공급품명을 500개 넘게 등록한 업체에 신용평가등급확인서 제출을 요구할 계획입니다.</p>
+    <p>김건희 씨의 추가구속 심사가 오늘 열립니다. 대법원은 서면심리 대신 대면 심문을 택했고, 김 씨는 구치소에서 영상으로 참여하며 변호인만 법정에 출석합니다. 구속기간은 31일 만료됩니다. 결과는 심문 당일 늦지 않게 나올 것으로 예상됩니다.</p>
+    <p>마지막으로 앤트로픽이 26일 미국 증권당국에 상장 신고서를 냈습니다. 나스닥 상장, 티커는 ANT로 예정돼 있고, 올해 상반기 매출은 약 163억 달러로 전해졌습니다.</p>
+    <p>끝으로 오늘 서울 날씨입니다. 아침 최저 10도, 낮 최고 16도로 예보됐고 비 소식은 없습니다. 전국 대부분 바람이 강하게 불고, 일부 지역은 순간풍속이 시속 55km 안팎까지 오를 수 있습니다. 날씨는 바뀔 수 있습니다.</p>
+    <p>이상 데일리 브리프였습니다. 자세한 출처는 카드에서 확인하실 수 있습니다. 오늘도 좋은 하루 보내세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">Economy — 증시</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">落</span>
+    <div class="card-top"><span class="topic">증시 · 5,500선 붕괴</span></div>
+    <h2>코스피 5,469.47 마감, 4월 7일 이후 최저 — 코스닥은 3.26% 급락</h2>
+    <div class="summary">
+      <p>26일 코스피는 5,469.47로 마쳐 전 거래일보다 <strong>1.46%</strong> 내렸다. 5,500선을 내준 것으로, 4월 7일 이후 가장 낮은 수준이다. 시가는 5,499.05(51.25p, 0.92% 하락 출발)였고, 코스닥은 727.21로 <strong>3.26%</strong> 급락했다(시가 742.17, 1.27% 하락 출발).</p>
+      <p>외국인은 순매도했고 선물은 순매수였다. 뉴스1은 중동 분쟁 격화와 유가 급등, 금리 결정과 기업 실적 발표를 앞둔 관망세를 하락 배경으로 들었고, SK하이닉스가 막판에 약세를 보였다고 전했다. 이번 주 하이닉스(28일)·삼성전자(29일) 실적 발표는 10/26 브리프에서 다뤘다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">코스피</span><span>5,469.47 마감 · -1.46% · 시가 5,499.05(-0.92%, -51.25p) · 4월 7일 이후 최저</span></li>
+      <li><span class="k">코스닥</span><span>727.21 마감 · -3.26% · 시가 742.17(-1.27%, -9.52p)</span></li>
+      <li><span class="k">수급</span><span>외국인 순매도 · 선물 순매수 (기관·개인 수급은 기사에 없음)</span></li>
+      <li><span class="k">기사 속 배경</span><span>중동 분쟁 격화·유가 급등 · 금리 결정·실적 발표 앞둔 관망세 · SK하이닉스 막판 약세</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>이번 주는 SK하이닉스·삼성전자 실적과 금리 결정이 몰려 있어 지수 수준을 숫자로 기억해 두면 발표 뒤 움직임을 비교하기 쉽다. 기사는 하락 배경을 나열했을 뿐 앞으로의 방향을 말하지 않았고, 이 카드도 전망이나 종목 추천이 아니다.</p>
+    </div>
+    <a class="source" href="https://news1.kr/finance/market-exr/6332213">뉴스1 — 코스피 5,469 마감</a>
+    <span class="ref-note">뉴스1(10/26 16:23 업데이트) <strong>단일 출처</strong> · 교차 확인 못 함 · 기관·개인 수급과 유가 수치는 기사에 없음 · 증시 전망·종목 추천 아님 (확인 2026-10-27)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">코스피 5,500선 붕괴,<br>4월 이후 최저 마감</p>
+      <p class="cn-s">26일 코스피가 1.46% 내린 5,469.47로 마쳐 5,500선이 무너졌어요. 4월 7일 이후 가장 낮은 수준이고, 코스닥은 3.26% 급락했어요.</p>
+      <p class="cn-num">3.26%|코스닥 하락률</p>
+      <p class="cn-img">A trading desk with several dark monitors showing a falling line chart in soft red light, flat illustration, no text, no logos</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Society — 금융 보안</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">侵</span>
+    <div class="card-top"><span class="topic">금융 · 개인정보 유출</span></div>
+    <h2>보험사도 뚫렸다 — 미래에셋생명 유출 확인, 국민은행 피해자는 2,210명으로</h2>
+    <div class="summary">
+      <p>미래에셋생명은 25일 일부 시스템에서 이상 징후를 확인했고, 외부 전문기관 분석 끝에 26일 새벽 개인정보 유출을 확인했다. 고객 청약 시스템과 홈페이지 일부가 침해됐고 해커가 약 <strong>41개</strong> 파일을 조회한 것으로 알려졌지만, 유출 대상과 항목은 파악 중이다. 금융감독원이 긴급 현장점검에 나섰고, 경향신문은 생명보험사가 해킹 유출을 당국에 신고한 첫 사례라고 전했다.</p>
+      <p>국민은행은 추가 피해자 2,091명(고객 1,631명, 전현직 임직원 460명)을 확인해 앞서 2일 공지한 고객 119명을 포함한 피해자가 모두 <strong>2,210명</strong>이 됐다고 밝혔다. 새로운 해킹이 아니라 기존 사고를 분석하다 추가 확인된 것이다. 고객 정보에는 이름·생년월일·암호화된 주민등록번호·성별·주소·연락처·연소득·예금잔액·계좌번호·대출 거래내역·신용등급 등이 포함됐다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">미래에셋생명</span><span>25일 이상 징후 → 26일 새벽 유출 확인 · 해커 약 41개 파일 조회 · 유출 대상·항목 파악 중 · 금감원 긴급 현장점검</span></li>
+      <li><span class="k">국민은행</span><span>추가 2,091명(고객 1,631 + 임직원 460) · 앞서 공지 119명 포함 총 2,210명 · 기존 사고 분석 중 확인</span></li>
+      <li><span class="k">국민은행 유출 항목</span><span>이름·생년월일·암호화된 주민등록번호·성별·주소·전화번호·이메일·직업·연소득·예금잔액·계좌번호·대출 거래내역·신용등급 등</span></li>
+      <li><span class="k">회사 대응</span><span>미래에셋생명 비상대응체계 가동·공격 IP 차단·홈페이지 차단 · 국민은행 사과·재발 방지 약속</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>미래에셋생명은 유출 범위가 아직 확인되지 않았고, 국민은행은 처음 공지보다 피해자가 크게 늘었다. 해당 금융사의 안내를 확인하는 것이 가장 직접적인 방법이며, 이 카드는 두 사건의 원인이나 서로의 관련 여부를 추정하지 않는다.</p>
+    </div>
+    <a class="source" href="https://www.khan.co.kr/article/202610261921011">경향신문 — 미래에셋생명 유출</a>  <a class="source" href="https://www.khan.co.kr/article/202610261921001">경향신문 — 국민은행 피해자 2,210명</a>
+    <span class="ref-note">경향신문(10/26 19:21, 두 기사) · 미래에셋생명 사실은 첫 기사, 국민은행 수치·항목은 둘째 기사 본문 · 같은 매체 두 기사라 교차 확인은 못 함 · 미래에셋생명 유출 범위는 변동 가능 (확인 2026-10-27)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">미래에셋생명 유출 확인,<br>국민은행 피해 2,210명</p>
+      <p class="cn-s">미래에셋생명이 26일 새벽 개인정보 유출을 확인했고 금감원이 현장점검에 나섰어요. 국민은행은 추가 확인으로 피해자가 모두 2,210명이 됐어요.</p>
+      <p class="cn-num">41개|해커가 조회한 파일(미래에셋생명)</p>
+      <p class="cn-note">금감원 긴급 현장점검 / 유출 범위는 파악 중</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">World — 미국·이란</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">備</span>
+    <div class="card-top"><span class="topic">국제 · 이란 공격 준비</span></div>
+    <h2>CNN "미군, 트럼프 명령 시 96시간 안에 이란 대규모 작전 준비" — 최종 결정은 없어</h2>
+    <div class="summary">
+      <p>뉴스1이 전한 CNN 보도에 따르면 미군은 트럼프 대통령이 명령하면 <strong>96시간</strong> 안에 대이란 작전을 준비할 수 있다. 트럼프 대통령은 아직 최종 결정을 내리지 않았고, 보도는 11월 3일 선거 이후 공격 가능성이 높다고 전했다.</p>
+      <p>미 국방부는 에너지·군사·핵시설을 포함한 표적 목록을 작성 중이며, 기존의 제한적 타격을 넘어서는 광범위한 목표물을 설정한 것으로 묘사됐다. 미국이 이스라엘과 공동작전을 조율하고 있다는 내용도 기사 부제에 담겼다. 10/26 브리프의 "끝장이냐 합의냐" 발언에 이은 새 보도다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">출처</span><span>CNN 보도를 뉴스1이 전함(10/27 00:05) · 2차 전달</span></li>
+      <li><span class="k">준비 시간</span><span>대통령 명령 후 96시간 안에 대이란 작전 준비 가능</span></li>
+      <li><span class="k">시점·결정</span><span>트럼프 최종 결정 없음 · 11월 3일 선거 후 공격 유력(보도)</span></li>
+      <li><span class="k">표적·공조</span><span>에너지·군사·핵시설 포함 표적 목록 작성 중 · 이스라엘과 공동작전 조율</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>이 카드는 CNN이 보도한 군의 준비 상황을 뉴스1이 옮긴 것이고, 미 정부의 공식 발표나 이란 측 반응은 기사에 없다. 준비는 결정이 아니며 합의냐 공격이냐는 정해지지 않았다. 코스피 카드의 중동 분쟁 언급과 기사 사이의 인과 관계는 확인되지 않았다.</p>
+    </div>
+    <a class="source" href="https://news1.kr/world/usa-canada/6332576">뉴스1 — CNN, 미군 이란 공격 준비</a>
+    <span class="ref-note">뉴스1(10/27 00:05) <strong>단일 출처</strong>(CNN 인용 2차 보도) · 교차 확인 못 함 · 기사 본문 일부만 열려 부제·요약 중심으로 확인 · 미 정부·이란 공식 입장은 기사에 없음 (확인 2026-10-27)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">CNN "미군, 이란 대규모<br>작전 준비" 보도</p>
+      <p class="cn-s">CNN은 대통령이 명령하면 미군이 96시간 안에 이란 작전을 준비할 수 있다고 전했어요. 트럼프 대통령은 아직 최종 결정을 하지 않았어요.</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="CNN 보도: 표적 목록 작성 중, 명령 후 96시간 내 준비 가능, 최종 결정 없음, 11월 3일 선거 후 유력">
+      <line class="cn-line" x1="50" y1="115" x2="350" y2="115"/>
+      <circle class="cn-off" cx="50" cy="115" r="10"/>
+      <circle class="cn-on" cx="200" cy="115" r="10"/>
+      <circle class="cn-off" cx="350" cy="115" r="10"/>
+      <text class="cn-big" x="50" y="78" text-anchor="middle">현재</text>
+      <text class="cn-small" x="50" y="152" text-anchor="middle">표적 목록 작성</text>
+      <text class="cn-big" x="200" y="78" text-anchor="middle">96시간</text>
+      <text class="cn-small" x="200" y="152" text-anchor="middle">명령 후 준비 가능</text>
+      <text class="cn-big" x="350" y="78" text-anchor="middle">11/3 이후</text>
+      <text class="cn-small" x="350" y="152" text-anchor="middle">유력(보도)</text>
+    </svg>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Policy — 공공조달</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">札</span>
+    <div class="card-top"><span class="topic">정책 · 벌떼 입찰</span></div>
+    <h2>입찰보증금 받았더니 입찰 업체 83.9% 줄었다 — 조달청, 11월 16일 전면 시행</h2>
+    <div class="summary">
+      <p>조달청이 8월부터 일부 품목에 입찰보증금을 적용한 시범 결과, 건당 평균 투찰 업체가 <strong>355곳에서 57곳</strong>으로 83.9% 줄었다. 평균 낙찰 순위는 41위에서 1.5위로 낮아졌다. 조달청은 다음 달 16일부터 '물품 구매 무분별 입찰 근절 대책'을 전면 시행한다.</p>
+      <p>입찰보증금을 부과하는 기준인 상습 심사포기 횟수는 5회에서 2회 이상으로 강화할 방침이다(시행 시점은 기사에 없다). 내년부터는 '기타공급품명'을 500개 넘게 등록한 업체가 신용평가등급확인서를 내야 하고, 유효기간은 1년이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">시범 결과</span><span>건당 평균 투찰 업체 355곳 → 57곳(-83.9%) · 평균 낙찰 순위 41위 → 1.5위</span></li>
+      <li><span class="k">시행</span><span>8월부터 시범 · 11월 16일 전면 시행 ⚠ 변동 가능</span></li>
+      <li><span class="k">기준 강화</span><span>입찰보증금 부과 기준 상습 심사포기 5회 → 2회 이상으로 강화 방침(시행 시점은 기사에 없음)</span></li>
+      <li><span class="k">내년</span><span>내년부터 기타공급품명 500개 초과 등록 업체는 신용평가등급확인서(유효기간 1년) 제출</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>관공서에 물품을 납품하는 사업자라면 11월 16일부터 입찰 조건이 달라지는지 조달청 공고를 확인해 볼 만하다. 이 카드의 효과 수치는 시범 적용 품목의 결과이고, 모든 품목에 같은 결과가 나온다고 기사가 말한 것은 아니다.</p>
+    </div>
+    <a class="source" href="https://www.khan.co.kr/article/202610261829001">경향신문 — 조달청 입찰보증금 시범 결과</a>
+    <span class="ref-note">경향신문(10/26 18:29) <strong>단일 출처</strong> · 교차 확인 못 함 · 대상 품목 범위는 기사에서 '우려 품목'으로만 확인 · 시행 일정은 ⚠ 변동 가능 (확인 2026-10-27)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">입찰보증금 시범 결과,<br>입찰 업체 83.9% 감소</p>
+      <p class="cn-s">조달청이 일부 품목에 입찰보증금을 적용하자 입찰 업체가 평균 355곳에서 57곳으로 줄었어요. 대책은 11월 16일부터 전면 시행돼요.</p>
+      <p class="cn-num">355곳→57곳|건당 평균 입찰 업체</p>
+      <p class="cn-img">A tidy government procurement office desk with stacks of paper bid folders and a stamp, flat illustration, generic, no text, no logos</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Politics — 대법원</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">審</span>
+    <div class="card-top"><span class="topic">정치 · 추가구속 심사</span></div>
+    <h2>김건희 씨 오늘 추가구속 심사 — 대법원이 서면 대신 대면 심문, 구속기간은 31일 만료</h2>
+    <div class="summary">
+      <p>김건희 씨에 대한 추가구속 심사가 27일 대법원에서 열린다. 대법원은 서면심리 대신 대면 심문을 택했다. 김 씨는 구치소에서 영상으로 참여하고 변호인만 법정에 출석한다. 구속기간은 <strong>31일</strong> 만료되며, 결과는 심문 당일 늦지 않게 나올 것으로 예상된다.</p>
+      <p>YTN은 '매관매직' 사건의 주심이 오경미 대법관이라고 전했다. 이 카드는 발행 시점 기준의 일정이며, 심사 결과는 담지 않았다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">일정</span><span>10/27 대법원 심사 · 결과는 당일 늦지 않게 나올 전망</span></li>
+      <li><span class="k">방식</span><span>서면심리 대신 대면 심문 · 김 씨 구치소 영상 출석 · 변호인 법정 출석</span></li>
+      <li><span class="k">참고</span><span>'매관매직' 사건 주심: 오경미 대법관(YTN)</span></li>
+      <li><span class="k">기한</span><span>구속기간 10/31 만료</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>이 카드는 심사가 열린다는 절차 정보만 담았고 구속 여부나 사건의 유무죄에 대한 판단은 없다. 오늘 오후 이후 결과가 나오면 상태가 바뀌므로 최신 보도를 확인해야 한다.</p>
+    </div>
+    <a class="source" href="https://www.ytn.co.kr/_ln/0103_202610270005506976">YTN — 김건희 추가구속 심사</a>
+    <span class="ref-note">YTN(10/27 00:05) <strong>단일 출처</strong> · 교차 확인 못 함 · 청구 주체·사건 세부는 기사 요약에 없어 담지 않음 · 결과 미정 (확인 2026-10-27)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">김건희 추가구속 심사<br>오늘 대법원 대면 심문</p>
+      <p class="cn-s">김건희 씨 추가구속 심사가 27일 대법원에서 열려요. 서면 대신 대면 심문을 택했고, 김 씨는 구치소에서 영상으로 참여하고 변호인만 출석해요.</p>
+      <p class="cn-num">10월 31일|구속기간 만료일</p>
+      <p class="cn-note">27일 대면 심문 / 결과는 당일 전망</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Tech — AI 상장</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">上</span>
+    <div class="card-top"><span class="topic">산업 · AI 기업 상장</span></div>
+    <h2>앤트로픽, 미국 증권당국에 IPO 신고서 제출 — 나스닥 티커 'ANT', 상반기 매출 약 163억 달러</h2>
+    <div class="summary">
+      <p>뉴스1은 인공지능 기업 앤트로픽이 26일 미국 증권거래위원회(SEC)에 기업공개(IPO) 신고서를 제출했다고 전했다. 상장 거래소는 <strong>나스닥</strong>, 티커는 'ANT'로 예정돼 있다.</p>
+      <p>뉴스1에 따르면 올해 상반기 매출은 약 <strong>163억 달러</strong>이며 공식 확정치는 아니다. 기사 요약에는 순손실과 기업가치 수치도 있었으나 단위 표기가 서로 맞지 않아 이 카드에는 싣지 않았다. 상장 시점과 공모가는 기사에서 확인되지 않았다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">제출</span><span>10/26 미국 SEC에 IPO 신고서 제출</span></li>
+      <li><span class="k">상장</span><span>나스닥 · 티커 ANT(예정)</span></li>
+      <li><span class="k">2026 상반기 매출</span><span>약 163억 달러</span></li>
+      <li><span class="k">미확인</span><span>상장 시점·공모가·순손실·기업가치(기사 표기 불일치로 제외)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>신고서 제출은 상장 절차의 시작 단계라 실제 상장 시점과 조건은 아직 정해지지 않았다. 이 카드는 AI 모델 서비스를 만드는 회사의 소식이지만 특정 서비스의 우열이나 투자 판단을 담지 않았다.</p>
+    </div>
+    <a class="source" href="https://news1.kr/world/usa-canada/6332562">뉴스1 — 앤트로픽 미국 상장 신청</a>
+    <span class="ref-note">뉴스1(10/26 22:49) <strong>단일 출처</strong> · 기사 요약·제목 위주로 확인 · 순손실·기업가치는 단위 표기가 어긋나 제외 · 투자 권유 아님 (확인 2026-10-27)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">앤트로픽, 미국 증시<br>상장 신고서 제출</p>
+      <p class="cn-s">앤트로픽이 26일 미국 증권당국에 IPO 신고서를 냈어요. 나스닥에서 티커 ANT로 거래될 예정이고, 상반기 매출은 약 163억 달러예요.</p>
+      <p class="cn-num">163억 달러|2026년 상반기 매출</p>
+      <p class="cn-img">A glowing abstract network of connected nodes above a calm stock exchange building silhouette at dawn, flat illustration, generic, no text, no logos</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">Daily Card News</span> · 2026년 10월 27일 화요일 · 6 Picks<br>
+    각 카드의 대표 출처 기사 본문을 직접 열어 수치·고유명사·발행일시를 확인했습니다. 금융 보안 카드는 같은 매체 두 기사, 나머지는 단일 매체 보도라 해당 카드 ref-note 에 표시했으며, 정부·기업 공식 발표 원문은 확인하지 못했습니다. 기사에 없는 값은 적지 않았습니다.<br>
+    📊 도표: 비교할 수치 흐름이 없거나 값이 한두 개뿐이라 도표를 생략했습니다(증시·해킹·조달·심사·상장). 이란 카드는 보도 단계를 보여 주는 개념 그림만 넣었습니다.<br>
+    ⚠ 날씨·조달 시행 일정·심사 결과는 바뀔 수 있습니다. 증시 내용은 전망이나 종목 추천이 아니며, 상장 소식은 투자 권유가 아닙니다.
+    <!-- tracker: 2026-10-27
+         [추적 중인 스토리 현재 상태]
+         코스피: 10/26 5,469.47(-1.46%) 4/7 이후 최저, 코스닥 727.21(-3.26%). 이번 주 하이닉스 10/28·삼성 10/29·FOMC 10/29. → 실적 발표 결과.
+         금융권 해킹: 미래에셋생명 10/26 새벽 유출 확인(41개 파일 조회, 범위 파악 중), 국민은행 총 2,210명. 더존비즈온 해킹 신고 2건(뉴스1 단일, 이번엔 제외). → 미래에셋생명 유출 규모·금감원 점검 결과.
+         미국·이란: 10/27 CNN 보도(96시간 준비, 11/3 선거 후 유력, 뉴스1 단일). 10/26 카드 후속. → 11/3 이후.
+         조달청 입찰보증금: 11/16 전면 시행(경향 단일). → 시행 후 결과.
+         김건희: 10/27 대법원 추가구속 심사, 구속기간 10/31 만료(YTN 단일). → 심사 결과.
+         앤트로픽 IPO: 10/26 SEC 신고서 제출(뉴스1 단일, 순손실·기업가치 단위 불일치로 제외). → 상장 일정·공모가.
+         [기존 추적 유지 — 새 전개 미확인 또는 이번엔 제외] 조희대 국정조사 · 경기 버스 파업 10/29 조정회의→10/30 · 항공 예약정보 유출 · 52시간 특례 · 올레시키 국지 휴전 10/27 · 프랑스 시위 · 태풍 참피 · 아르텍스 · 솔리다임 상장 · 쿠팡 송치 · FC서울 · 잠수교 · 스타링크 · HD현대.
+         [오늘 다룬 항목] ①코스피 5,500선 붕괴 ②미래에셋생명·국민은행 유출 ③CNN 미군 이란 공격 준비 ④조달청 입찰보증금 ⑤김건희 추가구속 심사 ⑥앤트로픽 IPO 신고서
+         [제외] 메타 신주 950억 달러(단일·앤트로픽과 같은 분야) · 더존비즈온 해킹(단일·'가능성' 표현) · 룰라 4선(한경 단일) · 법인 예금 800조(한경 단일) · CPTPP 발언(본문 미확인) · 역삼동 방화(단독·사건) · 청년 고용 한은 보고서(단일)
+         [reel-scores] 해당 없음 — 전 카드 제외(단일 출처·맥락 읽기), 깊게 파는 릴스 0편(item-scorer). 오늘 본계정 게시는 09:30 서브 플러스 루틴 몫
+         [리서치 도구] mcp__Firecrawl__* 호출 0회. WebSearch 발견 → WebFetch 검증.
+    -->
+  </footer>
+
+</div></body>
+</html>
