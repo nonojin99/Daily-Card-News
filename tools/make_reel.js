@@ -31,7 +31,7 @@ const TITLE = { ai: "듣는 AI", sports: "듣는 스포츠", football: "주말 �
 // 10초판(2026-10-26~ 사용자 결정 — 스포츠 데이터 릴스 9.2초가 조회 121·평균 시청 23초·건너뛰기 0%): 축구 모닝·야구 나이트는 발행일마다
 // '첫 카드 천천히 확대 5.5초 → 둘째 카드 4초', 낭독 없음·배경음악, 출처 장 없음(카드에 출처 칩). 낭독판·13초 짧은판은 만들지 않는다.
 const FAST_OF = type => ["football", "baseball"].includes(type);
-const SHORT_ONLY = (type, wd) => FAST_OF(type) || (type === "football" && (wd === 6 || wd === 2));
+const SHORT_ONLY = (type, wd) => FAST_OF(type) || type === "event" || (type === "football" && (wd === 6 || wd === 2));   // 이벤트 픽은 짧은판만(2026-10-26~)
 const REEL_OF = (type, wd) => ["ai", "science", "activity"].includes(type) || (type === "sports" && (wd === 1 || wd === 2)) || SHORT_ONLY(type, wd);   // 음악(토)은 2026-10-24 브리프 폐지로 뺐다
 // 스포츠 시리즈는 @hannun.sports 로 올라간다(app/cards.html SPORTS_HANDLE 과 같게)
 const HANDLE_OF = type => ["sports", "baseball", "football", "event", "esports"].includes(type) ? "@hannun.sports" : "@hannun.brief";
@@ -365,7 +365,9 @@ const RECAP = { cards: 6, secs: [4.5, 1.8], outro: 0, xf: 0.25, max: 14.5, zoom:
 // 야구 나이트 캐러셀판(2026-10-26 사용자 결정 — "야구도 캐러셀 내용을 쇼츠로, 페이지당 1.8초, TTS 없이 배경음"): 본문 카드 전부(최대 6장) 1.8초씩, 첫 장도 1.8초(살짝 확대),
 // 표지·출처 장 없음(카드에 출처 칩) = 1.8 × N − 0.25 × (N − 1) — 4장 6.45초 · 6장 9.55초.
 const NIGHT = { cards: 6, secs: [1.8], outro: 0, xf: 0.25, max: 10, zoom: 0.04, bgm: SHORT.bgm, credit: SHORT.credit, suffix: "_short", variant: "night", label: "⚾ 야구 나이트" };
-const shortOptOf = (type, d) => type === "football" && wdOf(d) === 1 ? RECAP : type === "baseball" ? NIGHT : FAST_OF(type) ? FAST : SHORT;
+// 🏆 이벤트 픽(2026-10-26 사용자 결정): 카드 전부(최대 5장) — 첫 장 4.5초 확대 → 나머지 1.8초씩, 출처 장 없음 = 최대 4.5 + 1.8 × 4 − 0.25 × 4 = 10.7초
+const EVENT = { ...RECAP, cards: 5, variant: "event", label: "⚡ 대회 결과" };
+const shortOptOf = (type, d) => type === "football" && wdOf(d) === 1 ? RECAP : type === "baseball" ? NIGHT : type === "event" ? EVENT : FAST_OF(type) ? FAST : SHORT;
 // 음악 라이브러리판(2026-10-24~ 사용자 결정): 토요일 음악 릴스는 자동 게시하지 않고, 사람이 인스타 앱에서 음악 라이브러리 곡을 붙여 올린다.
 // 그래서 소리 없는 영상으로 카드 전부 × 4초 + 출처 장. 곡은 그 주 플레이리스트에서 라이브러리에 있는 것을 고른다(캡션 파일에 후보).
 const LIB = { cards: 7, sec: 4, outro: 2.2, xf: 0.35, bgm: null, credit: "", suffix: "_lib", variant: "lib", label: "🎵 이번 주 플레이리스트" };
