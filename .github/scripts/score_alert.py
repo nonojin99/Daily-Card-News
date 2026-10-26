@@ -149,6 +149,9 @@ def mlb_detail(pk, sa, sh):
     return out
 
 
+BOX_WAIT, BOX_SEEN = 20, {}   # 포스트시즌 결과판을 박스스코어가 나올 때까지 미루는 최대 시간(분) · 처음 끝난 걸 본 시각(이 감시 회차 안에서만)
+
+
 def kbo(posted):
     """새로 끝난 경기가 있는 날마다 그날 전 경기 결과판 하나: {"sport","date","title","rows","new"}"""
     now, boards = kst(), []
@@ -177,6 +180,10 @@ def kbo(posted):
                 rows[-1].update(kbo_detail(g, sa, sh))
                 if rows[-1].get("facts"):   # 승·패·세는 기록 칸에 있으니 경기 정보 줄은 구장만
                     rows[-1]["note"] = g.get("S_NM", "")
+                # KBO 박스스코어는 경기가 끝나고 10~15분 뒤에 나온다(2026-10-26 PO1: 종료 21:36 → 21:49) — 최대 BOX_WAIT 분 기다렸다가, 그래도 없으면 점수만
+                first = BOX_SEEN.setdefault(gid, time.time())
+                if "line" not in rows[-1] and time.time() - first < BOX_WAIT * 60:
+                    print(f"{gid}: 박스스코어 대기 중({(time.time() - first) / 60:.0f}분)"); continue
             if done and gid not in posted and g["G_ID"] not in posted:
                 new.append(gid)
         if new:
