@@ -1,7 +1,7 @@
 {
  "verdict": "PASS",
- "sha1": "11afbfe50fe9b8b128a74d04d472db20a967790a",
- "by": "agent",
- "at": "2026-10-26T01:40:05Z",
- "note": "reel-reviewer: 화면 내용 PASS(배지·요점 수정 확인), 형식 yuv420p·High 재인코딩본 check_reel PASS"
+ "sha1": "7815202b6c1d6cd923e3e196882c45787a378bcc",
+ "by": "user",
+ "at": "2026-10-26T01:53:50Z",
+ "note": "사용자 승인(대화): '깊게보기 승인' — 요점 장 바탕 순환·확대 수정본, Actions 재인코딩본이 시안과 같음 확인"
 }
