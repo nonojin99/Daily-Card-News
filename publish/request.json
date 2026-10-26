@@ -9,7 +9,15 @@
    "account": "sports",
    "ab": "short",
    "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-10/2026-10-26_ai-brief",
+   "caption": "captions/2026-10-26_ai.txt",
+   "dry_run": "false",
+   "is_ai": "true",
+   "review": "required"
   }
  ],
- "note": "10/26 월 ⚽ 주말 결산판 릴스 6장(사용자 요청 — 10초판 2장 게시물은 사용자가 삭제)"
+ "note": "10/26 월 ⚽ 주말 결산판 릴스 6장(사용자 요청 — 10초판 2장 게시물은 사용자가 삭제) + 10/26 월 AI·테크 캐러셀 8장(검수 승인)"
 }

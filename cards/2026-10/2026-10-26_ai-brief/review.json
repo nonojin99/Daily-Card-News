@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "ee64d6b01a93b173fb7b9f8dc8d69bb10af171f9",
+ "by": "agent",
+ "cards": 8,
+ "at": "2026-10-26T01:37:18Z",
+ "note": "card-visual-reviewer 재검수 PASS(카드 3·5·6 수정 반영) · 캡션 사실 대조 PASS"
+}
