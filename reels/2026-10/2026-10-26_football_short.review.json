@@ -1,7 +1,7 @@
 {
  "verdict": "PASS",
- "sha1": "92efc131ec1deff2b56ea57dca880d7ed308837f",
+ "sha1": "e8c2955f1d41a845327d231fb3a9556436d26209",
  "by": "agent",
- "at": "2026-10-26T00:32:05Z",
- "note": "reel-reviewer PASS · 10초판 재검수"
+ "at": "2026-10-26T01:39:41Z",
+ "note": "reel-reviewer PASS(6장 결산판) · yuv420p 재인코딩본 — 6장면 프레임 대조 동일"
 }
