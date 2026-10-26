@@ -354,6 +354,10 @@ const FLIP_BGM = "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3", FLIP_CREDIT =
 const SHORT = { cards: 3, secs: [3, 2.5, 2.5], outro: 1.5, xf: 0.3, max: 10, bgm: FLIP_BGM, credit: FLIP_CREDIT, suffix: "_short", variant: "short" };
 // 10초판: 카드 2장(5.5초 확대 + 4초), 출처 장 없음 → 5.5 + 4 − 0.35 = 9.15초. 파일 이름은 짧은판과 같은 _short(게시 "ab":"short" 그대로).
 const FAST = { cards: 2, secs: [5.5, 4], outro: 0, xf: 0.35, max: 10.5, zoom: 0.08, bgm: SHORT.bgm, credit: SHORT.credit, suffix: "_short", variant: "fast" };
+// 월요일 축구 주말 결산판(2026-10-26 사용자 결정 — "6개 슬라이드인데 쇼츠는 2개네"): 카드 6장 — 첫 장 4.5초 확대 → 나머지 1.8초씩 넘김, 출처 장 없음
+// = 4.5 + 1.8 × 5 − 0.25 × 5 = 12.25초. 다른 요일 축구·야구는 위 10초판 그대로.
+const RECAP = { cards: 6, secs: [4.5, 1.8], outro: 0, xf: 0.25, max: 14.5, zoom: 0.08, bgm: SHORT.bgm, credit: SHORT.credit, suffix: "_short", variant: "recap", label: "⚡ 주말 결산" };
+const shortOptOf = (type, d) => type === "football" && wdOf(d) === 1 ? RECAP : FAST_OF(type) ? FAST : SHORT;
 // 음악 라이브러리판(2026-10-24~ 사용자 결정): 토요일 음악 릴스는 자동 게시하지 않고, 사람이 인스타 앱에서 음악 라이브러리 곡을 붙여 올린다.
 // 그래서 소리 없는 영상으로 카드 전부 × 4초 + 출처 장. 곡은 그 주 플레이리스트에서 라이브러리에 있는 것을 고른다(캡션 파일에 후보).
 const LIB = { cards: 7, sec: 4, outro: 2.2, xf: 0.35, bgm: null, credit: "", suffix: "_lib", variant: "lib", label: "🎵 이번 주 플레이리스트" };
@@ -537,7 +541,8 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
       const r = await (mode === "--deep" ? deepFlip : deepOne)(arg, +process.argv[4], b, base);
       if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
     } else if (mode === "--short") {
-      const r = await shortOne(arg, b, base, FAST_OF((path.basename(arg).match(BRIEF) || [])[4]) ? FAST : SHORT);
+      const bm = path.basename(arg).match(BRIEF) || [];
+      const r = await shortOne(arg, b, base, bm[4] ? shortOptOf(bm[4], `${bm[1]}-${bm[2]}-${bm[3]}`) : SHORT);
       if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
     } else if (mode === "--recent") {
       const today = kstToday(), cutoff = new Date(Date.parse(today) - 3 * 864e5).toISOString().slice(0, 10), made = [];
@@ -556,7 +561,7 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
         // 짧은판(A/B). 음악 브리프는 짧은판 대신 라이브러리판(소리 없음 — 사람이 인스타 앱에서 음악을 붙여 게시, 2026-10-24~)
         const lib = m[4] === "music", sspec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}${lib ? LIB.suffix : SHORT.suffix}.reel.json`;
         if (!(fs.existsSync(path.join(ROOT, sspec)) && JSON.parse(read(sspec)).fp === shortFp(n))) {
-          try { const r = await shortOne(n, b, base, lib ? LIB : FAST_OF(m[4]) ? FAST : SHORT); if (!r.skip) made.push(...r.files); }
+          try { const r = await shortOne(n, b, base, lib ? LIB : shortOptOf(m[4], d)); if (!r.skip) made.push(...r.files); }
           catch (e) { console.log(`::warning::short reel failed for ${n}: ${e.message}`); }
         }
         if (SHORT_ONLY(m[4], wdOf(d)) || !fs.existsSync(path.join(ROOT, mp3))) continue;
