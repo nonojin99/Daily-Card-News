@@ -1,13 +1,21 @@
 {
  "requests": [
   {
+   "kind": "story",
+   "media": "sports/alerts/2026-10/2026-10-26_kbo_final.jpg",
+   "caption": "",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports"
+  },
+  {
    "kind": "reel",
-   "media": "reels/sports/2026-10/2026-10-26_live-kbo-20261026htss0-8.mp4",
-   "caption": "reels/sports/2026-10/2026-10-26_live-kbo-20261026htss0-8.txt",
+   "media": "reels/sports/2026-10/2026-10-26_kbo-20261026htss0.mp4",
+   "caption": "reels/sports/2026-10/2026-10-26_kbo-20261026htss0.txt",
    "dry_run": "false",
    "is_ai": "false",
    "account": "sports"
   }
  ],
- "note": "10/26 PO 1차전 8회 리뷰 릴스(KIA 5:1 삼성, 8회말) — 사용자 요청으로 세션이 직접 올림"
+ "note": "10/26 PO 1차전 결과 리뷰(KIA 5:1 삼성) — 스코어보드·주요 기록 리뷰 카드 첫 회, 사용자 요청으로 세션이 직접 올림"
 }
