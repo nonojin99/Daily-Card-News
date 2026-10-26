@@ -31,7 +31,7 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **축구 모닝** 브리�
 - 승부 예측·배당·"유력" 단정 금지. 예상 선발은 구단·감독 발표나 기사 본문에 있을 때만 "○○ 보도". 킥오프 시각은 두 곳에서 맞춰 보고 어긋나면 날짜만.
 - **화요일 = 챔피언스리그 프리뷰**(UCL 경기 주간만) 4~5장: 이번 라운드 빅매치 2장 → 한국 선수 소속 팀 경기 일정(`cn-fixtures`) → 리그 페이즈 순위 경계(`cn-bars`) → (있으면) 월요일 밤 결과 1장.
 - **모든 시각은 한국시간**: `토 23:00(한국시간)`, 자정 넘으면 `일 새벽 1:30` — 요일 함께, 현지 시각 쓰지 않기(변환 근거는 tracker).
-- **릴스 = 짧은판만**(14초 이내, 표지 빼고 본문 카드 1~3번부터): `publish/evening/YYYY-MM-DD_football.json` 에 `{"requests":[{"kind":"reel","media":"reels/YYYY-MM/YYYY-MM-DD_football.mp4","caption":"captions/YYYY-MM-DD_football_reel.txt","dry_run":"false","is_ai":"false","account":"sports","ab":"short"}]}` — `_short.mp4` 로 바뀌어 올라간다. kicker 는 `Football Morning · 축구 모닝 · 주말 프리뷰`(화 `· 챔스 프리뷰`, A매치 `· A매치 프리뷰`) — 릴스 머리말이 이 이름(⚡ 주말 프리뷰)으로 나온다. 카드 1~3번에 핵심(큰 경기·한국 선수 일정·시각)을 몰아 둔다.
+- **릴스 = 10초판**(아래 '인스타' — 프리뷰도 같다). kicker 는 `Football Morning · 축구 모닝 · 주말 프리뷰`(화 `· 챔스 프리뷰`, A매치 `· A매치 프리뷰`) — 릴스 머리말이 이 이름(⚡ 주말 프리뷰)으로 나온다. 카드 1·2번에 핵심(큰 경기·한국 선수 일정·시각)을 몰아 둔다.
 - 원고 700~1,100자, 훅은 "이번 주말 ○○" 식으로 그 주말 가장 큰 사실·숫자부터. tracker `[다음 체크]` 에 다룬 경기를 적어 일·월 결산이 먼저 받는다.
 
 ## 리서치
@@ -51,8 +51,11 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **축구 모닝** 브리�
 
 ## 인스타
 - 캡션 `captions/YYYY-MM-DD_football.txt`(첫 줄 `[⚽ 축구 모닝] …`). 요청에 캐러셀 `{"kind":"carousel","media":"cards/YYYY-MM/YYYY-MM-DD_football-brief","caption":"captions/YYYY-MM-DD_football.txt","dry_run":"false","is_ai":"false","account":"sports"}`.
-- **월요일만** 오디오 릴스도 — **`publish/request.json` 이 아니라 `publish/evening/YYYY-MM-DD_football.json`** 에 쓴다(2026-10-23~ 릴스는 저녁 21시대 게시, `publish/evening/README.md`): `{"requests":[{"kind":"reel","media":"reels/YYYY-MM/YYYY-MM-DD_football.mp4","caption":"captions/YYYY-MM-DD_football_reel.txt","dry_run":"false","is_ai":"true","account":"sports","ab":"auto"}]}`.
-  릴스 캡션 첫 줄은 구체적인 경기·숫자부터(예: `[⚽ 축구 모닝] 오현규 선발 · 베식타시 2-2 팰리스`), '🎧 N초 듣는 ○○'은 둘째 줄. `ab:auto` 면 15초 짧은판과 주마다 번갈아 올라가고 캡션도 자동으로 맞춰진다.
+- **⚡ 10초 릴스(2026-10-26~, 사용자 결정 — 스포츠 데이터 릴스 9.2초가 조회 121·평균 시청 23초·건너뛰기 0%)**: **발행하는 날마다** 릴스 1편. 첫 카드 천천히 확대 5.5초 → 둘째 카드 4초, 낭독 없음·배경음악, 약 9초(`tools/make_reel.js` `FAST`, push 뒤 Actions 가 `reels/YYYY-MM/YYYY-MM-DD_football_short.mp4` 를 만든다).
+  그래서 **카드 1 = 그날 가장 센 결과**(`cn-score` 큰 스코어 — 첫 프레임에 결론), 카드 2 = 둘째로 센 것. 낭독판·월요일 오디오 릴스는 만들지 않는다(낭독은 앱에만).
+  요청은 **`publish/slots/YYYY-MM-DD_1210_football.json`**(12:10 점심 시간대, 결과 알림 이어 달리기가 올린다): `{"requests":[{"kind":"reel","media":"reels/YYYY-MM/YYYY-MM-DD_football.mp4","caption":"captions/YYYY-MM-DD_football_reel.txt","dry_run":"false","is_ai":"false","account":"sports","ab":"short","review":"required"}]}` — `_short.mp4` 로 바뀌어 올라간다.
+  검수 관문(CLAUDE.md): 브리프 push → Actions 가 MP4 를 만들면 `python3 tools/check_reel.py reels/…_football_short.mp4 --caption captions/…_football_reel.txt` + `reel-reviewer` → 통과하면 `--approve --by agent` 기록 + 캡션 + 요청 파일을 한 커밋으로.
+  릴스 캡션 첫 줄은 스코어·숫자부터(예: `[⚽ 축구 모닝] 음바페 2골, 레알 2-1 바르사 · 이삭 3경기 연속골`), 낭독이 없으니 '🎧'·'AI 음성' 줄은 쓰지 않고 `🎵 음악: Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0` 을 넣는다. 해시태그 5개 이하.
 
 ## 검토 (건너뛰지 말 것)
 1. 브리프 검토 하네스: 검증 전용 서브에이전트가 README 체크리스트 전 항목 PASS/FAIL(특히 숫자 정합성·라운드 표기·날짜 최신성·추측 금지). FAIL 은 고치고 애매하면 뺀다.

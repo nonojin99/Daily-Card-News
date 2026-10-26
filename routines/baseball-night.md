@@ -43,7 +43,12 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **야구 나이트** 브�
 - 인스타는 별도 캐러셀: 캡션 `captions/YYYY-MM-DD_esports.txt`(첫 줄 `[🎮 e스포츠] …`), 요청 항목 `"media":"cards/YYYY-MM/YYYY-MM-DD_esports-brief"`, `"account":"sports"`.
 
 ## 인스타
-- 캡션 `captions/YYYY-MM-DD_baseball.txt`(첫 줄 `[⚾ 야구 나이트] …`), 요청 `{"kind":"carousel","media":"cards/YYYY-MM/YYYY-MM-DD_baseball-brief","caption":"captions/YYYY-MM-DD_baseball.txt","dry_run":"false","is_ai":"false","account":"sports"}`. 릴스는 만들지 않는다.
+- 캡션 `captions/YYYY-MM-DD_baseball.txt`(첫 줄 `[⚾ 야구 나이트] …`), 요청 `{"kind":"carousel","media":"cards/YYYY-MM/YYYY-MM-DD_baseball-brief","caption":"captions/YYYY-MM-DD_baseball.txt","dry_run":"false","is_ai":"false","account":"sports"}`.
+- **⚡ 10초 릴스(2026-10-26~, 사용자 결정 — 스포츠 데이터 릴스 9.2초가 조회 121·평균 시청 23초·건너뛰기 0%)**: **발행하는 날마다** 릴스 1편 — 첫 카드 천천히 확대 5.5초 → 둘째 카드 4초, 낭독 없음·배경음악, 약 9초(`tools/make_reel.js` `FAST`, push 뒤 Actions 가 `reels/YYYY-MM/YYYY-MM-DD_baseball_short.mp4` 를 만든다).
+  그래서 **카드 1 = 그날 가장 센 결과**(`cn-score` 큰 스코어 — 첫 프레임에 결론), 카드 2 = 둘째로 센 것.
+  요청은 **다음 날 아침 출근길** `publish/slots/<다음 날>_0730_baseball.json`(결과 알림 이어 달리기가 07:30에 올린다): `{"requests":[{"kind":"reel","media":"reels/YYYY-MM/YYYY-MM-DD_baseball.mp4","caption":"captions/YYYY-MM-DD_baseball_reel.txt","dry_run":"false","is_ai":"false","account":"sports","ab":"short","review":"required"}]}` — `_short.mp4` 로 바뀌어 올라간다.
+  검수 관문(CLAUDE.md): 브리프 push → Actions 가 MP4 를 만들면 `python3 tools/check_reel.py reels/…_baseball_short.mp4 --caption captions/…_baseball_reel.txt` + `reel-reviewer` → 통과하면 `--approve --by agent` 기록 + 캡션 + 요청 파일을 한 커밋으로.
+  릴스 캡션 첫 줄은 스코어·숫자부터, '🎧'·'AI 음성' 줄 없이 `🎵 음악: Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0`. 맥락 읽기(부상·사고·폭력) 카드가 섞이면 릴스도 만들지 않는다.
 - **캡션 해시태그는 최대 5개**(넘으면 게시 스크립트가 거부 — 10/21 첫 회가 9개·8개로 실패). e스포츠 캡션도 같다.
 
 ## 검토 (건너뛰지 말 것)

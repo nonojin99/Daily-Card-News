@@ -15,11 +15,27 @@
   그래서 **주 경로는 결과 알림 이어 달리기**(score_alert.py --watch, 5분마다)가 부르는 tick() — 시간대가 되면 5분 안에 올린다.
   처리한 시간대는 publish/slots/.done.json 에 적고, 예약 실행(워크플로)은 예비로만 — 이미 처리된 시간대는 건너뛴다.
 """
-import datetime, glob, json, os, re, subprocess, sys
+import datetime, glob, json, os, re, subprocess, sys, time
 
 SLOTS = ["0730", "1210", "1840", "2107"]
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 DONE = os.path.join(ROOT, "publish/slots/.done.json")
+SPORTS_Q = os.path.join(ROOT, "sports/reels/queue.json")
+
+
+def note_sports_reel(f):
+    """스포츠 계정 릴스를 올렸으면 데이터 릴스 대기열의 마지막 게시 시각을 맞춘다 — 같은 계정 릴스 간격 30분(2026-10-26 사용자 결정)이 코너 릴스까지 지켜지게."""
+    try:
+        reqs = json.load(open(os.path.join(ROOT, f), encoding="utf-8")).get("requests", [])
+        if not any(r.get("account") == "sports" and r.get("kind") == "reel" for r in reqs) or not os.path.exists(SPORTS_Q):
+            return False
+        q = json.load(open(SPORTS_Q, encoding="utf-8"))
+        q["last_post"] = time.time()
+        json.dump(q, open(SPORTS_Q, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        return True
+    except Exception as e:  # noqa: BLE001
+        print(f"::warning::sports queue last_post update failed: {e}")
+        return False
 
 
 def load_done():
@@ -70,12 +86,14 @@ def process(day, slot):
     print(f"slot {day} {slot}", flush=True)
     fail = False
     for f in files_for(day, slot):
-        code, _ = run(f); fail |= code != 0
+        code, pub = run(f); fail |= code != 0
+        if pub: note_sports_reel(f)
     for s in SLOTS[:SLOTS.index(slot)]:
         caught = False
         for f in files_for(day, s):
             code, pub = run(f); fail |= code != 0
             if pub:
+                note_sports_reel(f)
                 print(f"::notice::따라잡기 1건 게시 — {f} (나머지는 다음 시간대)"); caught = True; break
         if caught:
             break
@@ -90,7 +108,7 @@ def tick():
         return []
     fail = process(day, slot)
     mark_done(f"{day}_{slot}", now, fail)
-    return [os.path.relpath(DONE, ROOT)]
+    return [os.path.relpath(DONE, ROOT), os.path.relpath(SPORTS_Q, ROOT)]
 
 
 def main():

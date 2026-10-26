@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add publish/slots/.done.json 2>/dev/null || exit 0
+          git add publish/slots/.done.json sports/reels/queue.json 2>/dev/null || exit 0
           git diff --staged --quiet && exit 0
           git commit -q -m "시간대 게시 처리(예비 예약) [skip ci]"
           for i in 1 2 3; do git push -q && exit 0; git pull -q --rebase origin main; done

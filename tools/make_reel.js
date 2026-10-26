@@ -27,8 +27,11 @@ const TITLE = { ai: "듣는 AI", sports: "듣는 스포츠", football: "주말 �
 // 릴스 대상: 인스타 게시일에 맞춘다 — 월 ai · 화 sports · 금(전날 목 activity) · 토 music(2026-10-21~, 메인 대신) · 일 science (README '인스타그램 운영')
 // 스포츠는 매일 발행으로 바뀌어도(스포츠 계정) 릴스는 화(지금 주간)·월(주말 결산)만 — README '스포츠 계정'
 // 축구 프리뷰(2026-10-24~): 토 주말 프리뷰·화 챔피언스리그 프리뷰는 짧은판만(14초 이내, 표지 빼고 본문 카드부터) — 낭독판은 만들지 않는다
-const SHORT_ONLY = (type, wd) => type === "football" && (wd === 6 || wd === 2);
-const REEL_OF = (type, wd) => ["ai", "science", "activity"].includes(type) || (type === "sports" && (wd === 1 || wd === 2)) || (type === "football" && wd === 1) || SHORT_ONLY(type, wd);   // 음악(토)은 2026-10-24 브리프 폐지로 뺐다
+// 10초판(2026-10-26~ 사용자 결정 — 스포츠 데이터 릴스 9.2초가 조회 121·평균 시청 23초·건너뛰기 0%): 축구 모닝·야구 나이트는 발행일마다
+// '첫 카드 천천히 확대 5.5초 → 둘째 카드 4초', 낭독 없음·배경음악, 출처 장 없음(카드에 출처 칩). 낭독판·13초 짧은판은 만들지 않는다.
+const FAST_OF = type => ["football", "baseball"].includes(type);
+const SHORT_ONLY = (type, wd) => FAST_OF(type) || (type === "football" && (wd === 6 || wd === 2));
+const REEL_OF = (type, wd) => ["ai", "science", "activity"].includes(type) || (type === "sports" && (wd === 1 || wd === 2)) || SHORT_ONLY(type, wd);   // 음악(토)은 2026-10-24 브리프 폐지로 뺐다
 // 스포츠 시리즈는 @hannun.sports 로 올라간다(app/cards.html SPORTS_HANDLE 과 같게)
 const HANDLE_OF = type => ["sports", "baseball", "football", "event", "esports"].includes(type) ? "@hannun.sports" : "@hannun.brief";
 const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".json": "application/json", ".css": "text/css",
@@ -346,6 +349,8 @@ async function autoOne(brief, b, base) {
 // 짧은판 길이 = 3 × 4 + 2.2 − 0.35 × 3 = 13.15초 — 14초 이내(2026-10-24 사용자 요청). 값을 바꾸면 shortOne 의 max 검사가 막는다.
 const SHORT = { cards: 3, sec: 4, outro: 2.2, xf: 0.35, max: 14, bgm: "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3",
   credit: "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0", suffix: "_short", variant: "short" };
+// 10초판: 카드 2장(5.5초 확대 + 4초), 출처 장 없음 → 5.5 + 4 − 0.35 = 9.15초. 파일 이름은 짧은판과 같은 _short(게시 "ab":"short" 그대로).
+const FAST = { cards: 2, secs: [5.5, 4], outro: 0, xf: 0.35, max: 10.5, zoom: 0.08, bgm: SHORT.bgm, credit: SHORT.credit, suffix: "_short", variant: "fast" };
 // 음악 라이브러리판(2026-10-24~ 사용자 결정): 토요일 음악 릴스는 자동 게시하지 않고, 사람이 인스타 앱에서 음악 라이브러리 곡을 붙여 올린다.
 // 그래서 소리 없는 영상으로 카드 전부 × 4초 + 출처 장. 곡은 그 주 플레이리스트에서 라이브러리에 있는 것을 고른다(캡션 파일에 후보).
 const LIB = { cards: 7, sec: 4, outro: 2.2, xf: 0.35, bgm: null, credit: "", suffix: "_lib", variant: "lib", label: "🎵 이번 주 플레이리스트" };
@@ -360,7 +365,7 @@ async function shortOne(brief, b, base, O = SHORT) {
   const { files, meta } = await renderCards(b, base, brief, tmp);
   const n = Math.min(O.cards, files.length - 2); if (n < 1) return { skip: "카드 없음" };
   const label = O.label || (pv ? `⚡ ${pv[1].trim()}` : `⚡ 핵심 ${n}장`);
-  const slides = [...Array(n).keys()].map(i => i + 2).concat(files.length);
+  const slides = [...Array(n).keys()].map(i => i + 2).concat(O.outro ? [files.length] : []);
   const d = `${m[1]}-${m[2]}-${m[3]}`, wd = "일월화수목금토"[wdOf(d)];
   const fr = await b.newPage({ viewport: { width: 1080, height: 1920 } });
   for (let k = 0; k < slides.length; k++) {
@@ -382,14 +387,18 @@ async function shortOne(brief, b, base, O = SHORT) {
     await fr.screenshot({ path: path.join(tmp, `s${k}.png`) });
   }
   await fr.close();
-  const opening = O.variant === "lib" ? "static" : openingOf(brief), hk = hookOf(html);
+  const opening = O.variant === "lib" || O.zoom ? "static" : openingOf(brief), hk = hookOf(html);
   const intro = opening === "motion" && hk ? await introFrames(b, files[1], hk, meta, label, d, wd, HANDLE_OF(m[4]), tmp, picNoteOf(html, m[4])) : [];
-  const durs = slides.map((_, k) => k < n ? O.sec : O.outro);
+  const durs = slides.map((_, k) => k < n ? (O.secs ? O.secs[k] : O.sec) : O.outro);
   const total = durs.reduce((a, c) => a + c, 0) - O.xf * (slides.length - 1);
   if (O.max && total > O.max) throw new Error(`${O.variant} ${total.toFixed(1)}초 — ${O.max}초 넘음`);
-  const ins = slides.flatMap((_, k) => ["-loop", "1", "-t", String(durs[k]), "-i", path.join(tmp, `s${k}.png`)]);
+  const ins = slides.flatMap((_, k) => ["-loop", "1", "-framerate", "30", "-t", String(durs[k]), "-i", path.join(tmp, `s${k}.png`)]);
   const extra = intro.length ? ["-framerate", String(IFPS), "-i", path.join(tmp, "in%03d.png")] : [];
   let f = slides.map((_, k) => `[${k}:v]fps=30,format=yuv420p,setsar=1[i${k}]`), cur = "[i0]", off = 0;
+  if (O.zoom) {   // 10초판: 첫 장면을 천천히 확대(첫 2초부터 움직임 — 스포츠 데이터 릴스와 같은 방식)
+    const N = Math.round(durs[0] * 30);
+    f[0] = `[0:v]scale=2160:-1,zoompan=z='1+${O.zoom}*on/${N}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=30,format=yuv420p,setsar=1[i0]`;
+  }
   if (intro.length) {   // 첫 장면: 움직이는 INTRO 초 → 카드 1번 정지(남은 시간)
     const I = slides.length + (O.bgm ? 1 : 0);
     f[0] = `[0:v]fps=30,format=yuv420p,setsar=1,trim=0:${(durs[0] - INTRO).toFixed(3)},setpts=PTS-STARTPTS[s0];[${I}:v]fps=30,format=yuv420p,setsar=1[iv];[iv][s0]concat=n=2:v=1:a=0,fps=30,setsar=1[i0]`;
@@ -491,7 +500,7 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
       const r = await deepOne(arg, +process.argv[4], b, base);
       if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
     } else if (mode === "--short") {
-      const r = await shortOne(arg, b, base);
+      const r = await shortOne(arg, b, base, FAST_OF((path.basename(arg).match(BRIEF) || [])[4]) ? FAST : SHORT);
       if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
     } else if (mode === "--recent") {
       const today = kstToday(), cutoff = new Date(Date.parse(today) - 3 * 864e5).toISOString().slice(0, 10), made = [];
@@ -511,7 +520,7 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
         // 짧은판(A/B). 음악 브리프는 짧은판 대신 라이브러리판(소리 없음 — 사람이 인스타 앱에서 음악을 붙여 게시, 2026-10-24~)
         const lib = m[4] === "music", sspec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}${lib ? LIB.suffix : SHORT.suffix}.reel.json`;
         if (!(fs.existsSync(path.join(ROOT, sspec)) && JSON.parse(read(sspec)).fp === shortFp(n))) {
-          try { const r = await shortOne(n, b, base, lib ? LIB : SHORT); if (!r.skip) made.push(...r.files); }
+          try { const r = await shortOne(n, b, base, lib ? LIB : FAST_OF(m[4]) ? FAST : SHORT); if (!r.skip) made.push(...r.files); }
           catch (e) { console.log(`::warning::short reel failed for ${n}: ${e.message}`); }
         }
         if (SHORT_ONLY(m[4], wdOf(d)) || !fs.existsSync(path.join(ROOT, mp3))) continue;
