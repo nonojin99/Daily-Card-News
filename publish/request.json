@@ -17,7 +17,17 @@
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
+  },
+  {
+   "kind": "reel",
+   "media": "reels/2026-10/2026-10-25_baseball.mp4",
+   "caption": "captions/2026-10-25_baseball_reel.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "ab": "short",
+   "review": "human"
   }
  ],
- "note": "10/26 월 ⚽ 주말 결산판 릴스 6장(사용자 요청 — 10초판 2장 게시물은 사용자가 삭제) + 10/26 월 AI·테크 캐러셀 8장(검수 승인)"
+ "note": "10/26 월 ⚽ 주말 결산판 릴스 6장(사용자 요청 — 10초판 2장 게시물은 사용자가 삭제) + 10/26 월 AI·테크 캐러셀 8장(검수 승인) + 10/25 ⚾ 야구 캐러셀판 릴스(카드 4장 × 1.8초, 사용자 승인 — 10/26 18:30 PO 1차전 전 게시)"
 }
