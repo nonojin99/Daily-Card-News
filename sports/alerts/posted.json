@@ -484,6 +484,11 @@
    "status": "failed",
    "at_kst": "2026-10-27 07:02",
    "result": "POST 17841473719316196/media_publish → HTTP 400: {\"error\":{\"message\":\"Media ID is not available\",\"type\":\"OAuthException\",\"code\":9007,\"error_subcode\":2207027,\"is_transient\":false,\"error_user_title\":\"Cannot Publish\",\"error_user_msg\":\"The media is not ready for publishing, please wait for a moment\",\"fb"
+  },
+  "lol:115660540726095057": {
+   "image": "sports/alerts/2026-10/2026-10-27_lol_0750.jpg",
+   "status": "pending",
+   "at_kst": "2026-10-27 07:50"
   }
  },
  "boards": {
