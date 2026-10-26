@@ -1,11 +1,69 @@
 {
- "collected_kst": "2026-10-25 15:25",
+ "collected_kst": "2026-10-26 15:34",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-10-25T06:25:01.114181Z",
+   "checked_at": "2026-10-26T06:34:39.772679Z",
    "media": [
+    {
+     "id": "18082672961417905",
+     "type": "REELS",
+     "timestamp": "2026-10-26T03:15:51+0000",
+     "permalink": "https://www.instagram.com/reel/De8S0uUDo-I/",
+     "first_line": "[오늘의 뉴스] 삼성전자 3분기 잠정 영업이익 107.4조 · 이번 주 하이닉스 28일·삼성 29일 실적 발표",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 114,
+      "reach": 104,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 2455,
+      "ig_reels_video_view_total_time": 255407,
+      "reels_skip_rate": 75.5
+     }
+    },
+    {
+     "id": "18108262103362029",
+     "type": "FEED",
+     "timestamp": "2026-10-26T01:38:25+0000",
+     "permalink": "https://www.instagram.com/p/De8HsaJDS97/",
+     "first_line": "[AI·테크] 앤트로픽 '클로드 듀엣' · 구글 클라우드에 OpenAI 모델 3종 · 영국 AI 바이오보안 1억 6,500만 파운드 — 10월 ",
+     "metrics": {
+      "views": 8,
+      "reach": 3,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1
+     }
+    },
+    {
+     "id": "17912255379497947",
+     "type": "REELS",
+     "timestamp": "2026-10-25T16:08:38+0000",
+     "permalink": "https://www.instagram.com/reel/De7GXMzDX3N/",
+     "first_line": "[우주·과학] 빈 하늘에 71일 뒤 점이 떴다 — 웹이 잡은 우주 나이 12억 년의 별 폭발 후보",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 122,
+      "reach": 118,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2688,
+      "ig_reels_video_view_total_time": 325278,
+      "reels_skip_rate": 80.5
+     }
+    },
     {
      "id": "18109044515195422",
      "type": "FEED",
@@ -13,8 +71,8 @@
      "permalink": "https://www.instagram.com/p/De5MDskCc-q/",
      "first_line": "[우주·과학] 5월 28일엔 비어 있던 자리에 71일 뒤 점이 떴다 🔭 웹 망원경이 우주 나이 12억 년의 별 폭발 후보를 잡았다",
      "metrics": {
-      "views": 4,
-      "reach": 3,
+      "views": 6,
+      "reach": 4,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -45,6 +103,7 @@
      "permalink": "https://www.instagram.com/reel/De0V41gCJCG/",
      "first_line": "[주말 뭐하지] 떡볶이 37곳이 대구로 · 7년 만의 서울마켓페어 · 노들섬 무료 공연",
      "variant": "narrated",
+     "opening": "static",
      "metrics": {
       "views": 112,
       "reach": 106,
@@ -54,7 +113,8 @@
       "saved": 0,
       "total_interactions": 3,
       "ig_reels_avg_watch_time": 2525,
-      "ig_reels_video_view_total_time": 285416
+      "ig_reels_video_view_total_time": 285416,
+      "reels_skip_rate": 87.7
      }
     },
     {
@@ -112,6 +172,7 @@
      "permalink": "https://www.instagram.com/reel/DesY-wtjHB_/",
      "first_line": "[스포츠] 🎧 2분 듣는 스포츠 — KIA 준PO 2연승, 서울 우승 연기, 안세영 47승",
      "variant": "narrated",
+     "opening": "static",
      "metrics": {
       "views": 120,
       "reach": 112,
@@ -121,7 +182,8 @@
       "saved": 0,
       "total_interactions": 4,
       "ig_reels_avg_watch_time": 2792,
-      "ig_reels_video_view_total_time": 323957
+      "ig_reels_video_view_total_time": 323957,
+      "reels_skip_rate": 81.7
      }
     },
     {
@@ -147,6 +209,7 @@
      "permalink": "https://www.instagram.com/reel/DepmBmwgWUF/",
      "first_line": "[AI·테크] 🎧 2분 듣는 AI — 구글 아르곤 출시, 앤트로픽 법안 초안, 중국 수출 제한",
      "variant": "narrated",
+     "opening": "static",
      "metrics": {
       "views": 44,
       "reach": 36,
@@ -156,7 +219,8 @@
       "saved": 0,
       "total_interactions": 1,
       "ig_reels_avg_watch_time": 2710,
-      "ig_reels_video_view_total_time": 135549
+      "ig_reels_video_view_total_time": 135549,
+      "reels_skip_rate": 81.6
      }
     },
     {
@@ -182,6 +246,7 @@
      "permalink": "https://www.instagram.com/reel/DendXZoFGg3/",
      "first_line": "[우주·과학] 🎧 3분 듣는 우주 — 외계행성 대기는 동그란 원이 아니었다",
      "variant": "narrated",
+     "opening": "static",
      "metrics": {
       "views": 114,
       "reach": 105,
@@ -191,7 +256,8 @@
       "saved": 0,
       "total_interactions": 2,
       "ig_reels_avg_watch_time": 2259,
-      "ig_reels_video_view_total_time": 255313
+      "ig_reels_video_view_total_time": 255313,
+      "reels_skip_rate": 91.6
      }
     },
     {
@@ -217,6 +283,7 @@
      "permalink": "https://www.instagram.com/reel/DemFnvsDHBo/",
      "first_line": "🎧 1분 듣는 주말 — 이번 주말 갈 만한 곳 6곳을 귀로 들어 보세요",
      "variant": "narrated",
+     "opening": "static",
      "metrics": {
       "views": 121,
       "reach": 111,
@@ -226,7 +293,8 @@
       "saved": 0,
       "total_interactions": 2,
       "ig_reels_avg_watch_time": 2261,
-      "ig_reels_video_view_total_time": 266872
+      "ig_reels_video_view_total_time": 266872,
+      "reels_skip_rate": 85.8
      }
     },
     {
@@ -250,12 +318,165 @@
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 7,
-   "posts": 14
+   "posts": 17
   },
   {
    "account": "sports",
-   "checked_at": "2026-10-25T06:25:07.354591Z",
+   "checked_at": "2026-10-26T06:34:46.402271Z",
    "media": [
+    {
+     "id": "18380961577235865",
+     "type": "REELS",
+     "timestamp": "2026-10-26T01:41:11+0000",
+     "permalink": "https://www.instagram.com/reel/De8H-ysFGZF/",
+     "first_line": "[⚽ 축구 모닝] 음바페 2골, 레알 2-1 바르사 · 리버풀 2-0 · 맨유 홈 0-3 · 조규성 선제골 · 수원 삼성 7연승",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 112,
+      "reach": 105,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2797,
+      "ig_reels_video_view_total_time": 302146,
+      "reels_skip_rate": 77.4
+     }
+    },
+    {
+     "id": "18157752367479830",
+     "type": "REELS",
+     "timestamp": "2026-10-26T01:40:18+0000",
+     "permalink": "https://www.instagram.com/reel/De8H4kXgJ2i/",
+     "first_line": "[⚾ 야구 나이트] 0-4에서 5-4, 밀워키 월드시리즈 2연승 · 대구 PO 1차전 우천 취소 26일 18:30",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 115,
+      "reach": 104,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 2520,
+      "ig_reels_video_view_total_time": 264648,
+      "reels_skip_rate": 82.5
+     }
+    },
+    {
+     "id": "18116864330102948",
+     "type": "REELS",
+     "timestamp": "2026-10-26T00:15:15+0000",
+     "permalink": "https://www.instagram.com/reel/De7-JZDEQOx/",
+     "first_line": "[🏟 밤사이 결과] 결과판 5장 한 번에",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 128,
+      "reach": 114,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 3530,
+      "ig_reels_video_view_total_time": 413125,
+      "reels_skip_rate": 78.3
+     }
+    },
+    {
+     "id": "18111051596626989",
+     "type": "REELS",
+     "timestamp": "2026-10-26T00:09:28+0000",
+     "permalink": "https://www.instagram.com/reel/De79fK3Acfx/",
+     "first_line": "[🎮 LoL] MKOI 0:2 디플러스 기아",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 119,
+      "reach": 107,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 1896,
+      "ig_reels_video_view_total_time": 204800,
+      "reels_skip_rate": 92.5
+     }
+    },
+    {
+     "id": "18169904227487225",
+     "type": "FEED",
+     "timestamp": "2026-10-26T00:02:02+0000",
+     "permalink": "https://www.instagram.com/p/De78r3xDSDR/",
+     "first_line": "[🏆 이벤트 픽] 요시다 유리 BMW 레이디스 첫 우승 · 유해란·최혜진 공동 2위 · 제네시스 챔피언십 김시우 공동 4위 — 2장",
+     "metrics": {
+      "views": 3,
+      "reach": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18139974481627014",
+     "type": "FEED",
+     "timestamp": "2026-10-26T00:00:38+0000",
+     "permalink": "https://www.instagram.com/p/De78hZSjYpJ/",
+     "first_line": "[⚽ 축구 모닝] 레알 2-1 바르사 · 음바페 2골, 바르사 리그 첫 패 · 조규성 선제골 · 수원 삼성 7연승 — 6장",
+     "metrics": {
+      "views": 3,
+      "reach": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18155536768521706",
+     "type": "REELS",
+     "timestamp": "2026-10-25T23:43:20+0000",
+     "permalink": "https://www.instagram.com/reel/De76fsGlKGO/",
+     "first_line": "[🎮 LoL] LYON 1:2 젠지",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 129,
+      "reach": 122,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2065,
+      "ig_reels_video_view_total_time": 251936,
+      "reels_skip_rate": 91.7
+     }
+    },
+    {
+     "id": "17926231323202106",
+     "type": "FEED",
+     "timestamp": "2026-10-25T14:45:37+0000",
+     "permalink": "https://www.instagram.com/p/De68_TVFeyQ/",
+     "first_line": "[⚾ 야구 나이트] 월드시리즈 2차전 밀워키 5-4, 0-4 뒤집기 · 대구 PO 1차전 우천 취소 26일 18:30 · 한국시리즈 11/2 또",
+     "metrics": {
+      "views": 3,
+      "reach": 1,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1
+     }
+    },
     {
      "id": "18099323366646795",
      "type": "FEED",
@@ -263,13 +484,13 @@
      "permalink": "https://www.instagram.com/p/De5WMbHjnYi/",
      "first_line": "[⚽ 축구 모닝] 서울, 비기고도 10년 만의 K리그1 우승 · 이재성 시즌 1호골 · 토트넘 첼시 원정 2-0 — 4장",
      "metrics": {
-      "views": 0,
-      "reach": 0,
-      "likes": 0,
+      "views": 2,
+      "reach": 1,
+      "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
-      "total_interactions": 0
+      "total_interactions": 1
      }
     },
     {
@@ -279,8 +500,8 @@
      "permalink": "https://www.instagram.com/p/De4YKWrG-op/",
      "first_line": "[⚾ 야구 나이트] 월드시리즈 1차전 밀워키 3-2 · 삼성 마무리 김재윤 PO 엔트리 제외 · PO 1차전 승리팀 77.1% 한국시리즈 — 1",
      "metrics": {
-      "views": 0,
-      "reach": 0,
+      "views": 3,
+      "reach": 2,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -389,7 +610,7 @@
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 5,
-   "posts": 8
+   "posts": 16
   }
  ]
 }
