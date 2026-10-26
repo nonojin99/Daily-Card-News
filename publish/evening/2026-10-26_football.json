@@ -1,0 +1,15 @@
+{
+ "requests": [
+  {
+   "kind": "reel",
+   "media": "reels/2026-10/2026-10-26_football.mp4",
+   "caption": "captions/2026-10-26_football_reel.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "ab": "short",
+   "review": "required"
+  }
+ ],
+ "note": "10/26 월 ⚽ 주말 결산 릴스 — 사용자 요청으로 낭독판 대신 짧은판(배경음+카드 1~3번 넘김, 13초)만. 저녁 게시"
+}
