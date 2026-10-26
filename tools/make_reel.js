@@ -430,6 +430,10 @@ async function flipReel(b, o) {
     const I = imgs.length + (o.bgm ? 1 : 0);
     f[0] = `[0:v]fps=30,format=yuv420p,setsar=1,trim=0:${(durs[0] - INTRO).toFixed(3)},setpts=PTS-STARTPTS[s0];[${I}:v]fps=30,format=yuv420p,setsar=1[iv];[iv][s0]concat=n=2:v=1:a=0,fps=30,setsar=1[i0]`;
   }
+  if (o.zoomEach) for (let k = 1; k < imgs.length - 1; k++) {   // 요점 장마다 천천히 확대(장면이 멈춰 보이지 않게)
+    const N = Math.round(durs[k] * 30);
+    f[k] = `[${k}:v]scale=2160:-1,zoompan=z='1+${o.zoomEach}*on/${N}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=30,format=yuv420p,setsar=1[i${k}]`;
+  }
   for (let k = 1; k < imgs.length; k++) { off += durs[k - 1] - o.xf; f.push(`${cur}[i${k}]xfade=transition=fade:duration=${o.xf}:offset=${off.toFixed(3)}[x${k}]`); cur = `[x${k}]`; }
   if (o.bgm) f.push(`[${imgs.length}:a]atrim=0:${total.toFixed(3)},asetpts=PTS-STARTPTS,afade=t=out:st=${Math.max(0, total - 1.2).toFixed(3)}:d=1.2,volume=0.9[a]`);
   fs.mkdirSync(path.join(ROOT, path.dirname(o.out_)), { recursive: true });
@@ -453,22 +457,25 @@ function reelBlocks(html) {
   }).filter(b => b.card > 0 && b.paras.length);
 }
 async function pointPanels(b, blk, card, note, meta, title, tmp, raw = "") {
-  // 그림 띠: AI 그림 원본이 있으면 그것 + 표시 한 번. 없으면 카드 PNG 위쪽(카드에 이미 표시·크레디트가 있으니 덧씌우지 않는다 — 2026-10-26 검수 '표시 두 겹')
-  const img = raw ? "data:image/jpeg;base64," + fs.readFileSync(raw).toString("base64") : "data:image/png;base64," + fs.readFileSync(card).toString("base64"), out = [];
+  // 요점 장(2026-10-26 사용자 검수: "첫 내용 이후 이미지 변화 없음" — 장마다 같은 그림 띠라 화면이 멈춘 듯했다)
+  // → 그림 띠를 빼고 장마다 바탕을 바꾼다(액센트 → 검정 → 크림 순환) + 큰 쪽 번호. 움직임은 flipReel 의 zoomEach(장마다 천천히 확대).
+  const out = [], n = blk.paras.length;
+  const TH = [{ bg: meta.ac, fg: "#fff", sub: "rgba(255,255,255,.8)", num: "rgba(255,255,255,.16)", bar: "#fff" },
+              { bg: "#1a1a18", fg: "#fff", sub: "rgba(255,255,255,.7)", num: "rgba(255,255,255,.12)", bar: meta.ac },
+              { bg: "#f1efe8", fg: meta.ac, sub: "#55554f", num: "rgba(0,0,0,.07)", bar: meta.ac }];
   const pg = await b.newPage({ viewport: { width: 1080, height: 1350 } });
-  for (let i = 1; i < blk.paras.length; i++) {
-    const k = blk.paras[i].k, f = path.join(tmp, `pt${i}.png`);
+  for (let i = 1; i < n; i++) {
+    const k = blk.paras[i].k, f = path.join(tmp, `pt${i}.png`), t = TH[(i - 1) % TH.length];
     if (!k) { fs.copyFileSync(card, f); out.push(f); continue; }   // 요점 문구가 없으면 카드를 한 번 더
-    const fsz = Math.max(96, Math.min(160, Math.floor(1700 / Math.max(6, k.length))));   // 길면 두 줄로 — 카드보다 크게 읽히게
+    const fsz = Math.max(110, Math.min(180, Math.floor(1800 / Math.max(6, k.length))));
     await pg.setContent(`<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
-<style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1350px;background:${note ? "#fff" : meta.ac};font-family:'Noto Sans KR',sans-serif;position:relative;overflow:hidden}
-.pic{position:absolute;left:0;top:0;width:1080px;height:520px;background:url(${img}) ${raw ? 'center/cover' : 'top center/1080px auto'} no-repeat}
-.pic:after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff)}
-.nt{position:absolute;left:40px;top:28px;background:rgba(0,0,0,.55);color:#fff;font-size:26px;padding:5px 14px;border-radius:10px}
-.k{position:absolute;left:80px;right:80px;top:${note ? 600 : 400}px;font-weight:900;font-size:${fsz}px;line-height:1.15;letter-spacing:-.03em;color:${note ? meta.ac : "#fff"};word-break:keep-all}
-.n{position:absolute;left:80px;bottom:70px;font-size:34px;font-weight:700;color:${note ? "#55554f" : "rgba(255,255,255,.85)"}}</style></head>
-<body>${note ? `<div class="pic"></div>${raw ? `<div class="nt">${esc(note)}</div>` : ""}` : ""}<div class="k">${esc(k)}</div><div class="n">${i + 1} / ${blk.paras.length} · ${esc(title)}</div></body></html>`, { waitUntil: "networkidle" });
+<style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1350px;background:${t.bg};font-family:'Noto Sans KR',sans-serif;position:relative;overflow:hidden}
+.big{position:absolute;right:40px;top:-60px;font-weight:900;font-size:520px;line-height:1;color:${t.num};letter-spacing:-.05em}
+.bar{position:absolute;left:80px;top:430px;width:120px;height:14px;border-radius:7px;background:${t.bar}}
+.k{position:absolute;left:80px;right:80px;top:490px;font-weight:900;font-size:${fsz}px;line-height:1.12;letter-spacing:-.03em;color:${t.fg};word-break:keep-all}
+.n{position:absolute;left:80px;bottom:70px;right:80px;font-size:32px;font-weight:700;color:${t.sub};white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style></head>
+<body><div class="big">${String(i + 1).padStart(2, "0")}</div><div class="bar"></div><div class="k">${esc(k)}</div><div class="n">${i + 1} / ${n} · ${esc(title)}</div></body></html>`, { waitUntil: "networkidle" });
     await pg.screenshot({ path: f }); out.push(f);
   }
   await pg.close();
@@ -504,6 +511,12 @@ async function deepOne(brief, cardNo, b, base) {
   fs.writeFileSync(path.join(ROOT, out_ + ".reel.json"), JSON.stringify(spec, null, 2) + "\n");
   return { files: [spec.out, out_ + ".reel.json"] };
 }
+// 사용자가 승인한 릴스(review.json by user, sha1 = 지금 MP4)는 렌더러가 바뀌어도 다시 굽지 않는다 — 다시 구우면 승인이 무효가 된다(2026-10-26)
+function userLocked(mp4rel) {
+  const r = path.join(ROOT, mp4rel.replace(/\.mp4$/, ".review.json")), v = path.join(ROOT, mp4rel);
+  if (!fs.existsSync(r) || !fs.existsSync(v)) return false;
+  try { const j = JSON.parse(fs.readFileSync(r, "utf8")); return j.by === "user" && j.sha1 === sha(fs.readFileSync(v)); } catch { return false; }
+}
 // 페이지 전환형(2026-10-26~ 기본): 카드 N 3초(오프닝 A/B) → data-k 요점 장 2.5초씩 → 출처 장 1.5초, 배경음악, 낭독 없음.
 // 요점 문구(data-k)가 없는 문단은 장을 만들지 않는다 — 원고 문단은 앱·검수용 근거로 남는다.
 const DEEP_FLIP = { first: 3, sec: 2.5, outro: 1.5, xf: 0.3, max: 20 };
@@ -522,7 +535,7 @@ async function deepFlip(brief, cardNo, b, base) {
   const imgs = [card, ...pts, cards.files[cards.files.length - 1]];
   const durs = imgs.map((_, k) => k === 0 ? DEEP_FLIP.first : k === imgs.length - 1 ? DEEP_FLIP.outro : DEEP_FLIP.sec);
   const out_ = `reels/${m[1]}-${m[2]}/${d}_${m[4]}_c${cardNo}`, label = "🔎 깊게 보기";
-  const r = await flipReel(b, { m, d, html, imgs, durs, xf: DEEP_FLIP.xf, max: DEEP_FLIP.max, label, meta: cards.meta, bgm: FLIP_BGM, credit: FLIP_CREDIT, out_,
+  const r = await flipReel(b, { m, d, html, imgs, durs, xf: DEEP_FLIP.xf, max: DEEP_FLIP.max, zoomEach: 0.05, label, meta: cards.meta, bgm: FLIP_BGM, credit: FLIP_CREDIT, out_,
     opening: openingOf(brief), card1: card, raw: genOf(html, cardNo - 1), hook, note, tmp });
   const spec = { brief, card: cardNo, kind: "deep", variant: "flip", score: blk.score, type: blk.type, out: out_ + ".mp4", opening: r.opening,
     pages: pts.length, seconds: +r.total.toFixed(2), bgm: FLIP_BGM, credit: FLIP_CREDIT, keys: blk.paras.slice(1).map(x => x.k),
@@ -563,6 +576,7 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
         for (const blk of reelBlocks(read(n).toString())) {
           const js = `reels/${m[1]}-${m[2]}/${d}_${m[4]}_c${blk.card}.reel.json`;
           if (fs.existsSync(path.join(ROOT, js)) && JSON.parse(read(js)).fp === deepFlipFp(n, blk)) continue;
+          if (userLocked(js.replace(/\.reel\.json$/, ".mp4"))) { console.log(`reel: ${js} 사용자 승인본 — 다시 굽지 않음`); continue; }
           try { const r = await deepFlip(n, blk.card, b, base); if (r.skip) console.log(`reel: ${n} 카드 ${blk.card} 건너뜀 — ${r.skip}`); else made.push(...r.files); }
           catch (e) { console.log(`::warning::deep reel failed for ${n} c${blk.card}: ${e.message}`); }
         }
@@ -570,7 +584,7 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
         const mp3 = `audio/${m[1]}-${m[2]}/${d}_${m[4]}.mp3`, spec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}.reel.json`;
         // 짧은판(A/B). 음악 브리프는 짧은판 대신 라이브러리판(소리 없음 — 사람이 인스타 앱에서 음악을 붙여 게시, 2026-10-24~)
         const lib = m[4] === "music", sspec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}${lib ? LIB.suffix : SHORT.suffix}.reel.json`;
-        if (!(fs.existsSync(path.join(ROOT, sspec)) && JSON.parse(read(sspec)).fp === shortFp(n))) {
+        if (!(fs.existsSync(path.join(ROOT, sspec)) && JSON.parse(read(sspec)).fp === shortFp(n)) && !userLocked(sspec.replace(/\.reel\.json$/, ".mp4"))) {
           try { const r = await shortOne(n, b, base, lib ? LIB : shortOptOf(m[4], d)); if (!r.skip) made.push(...r.files); }
           catch (e) { console.log(`::warning::short reel failed for ${n}: ${e.message}`); }
         }
