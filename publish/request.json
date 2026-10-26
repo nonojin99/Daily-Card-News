@@ -1,13 +1,13 @@
 {
  "requests": [
   {
-   "kind": "story",
-   "media": "sports/alerts/2026-10/2026-10-26_kbo_live_2000.jpg",
-   "caption": "",
+   "kind": "reel",
+   "media": "reels/sports/2026-10/2026-10-26_live-kbo-20261026htss0-8.mp4",
+   "caption": "reels/sports/2026-10/2026-10-26_live-kbo-20261026htss0-8.txt",
    "dry_run": "false",
    "is_ai": "false",
    "account": "sports"
   }
  ],
- "note": "10/26 PO 1차전 중간 스코어 스토리(KIA 5:0 삼성, 5회초) — 결과 알림 회차가 예전 코드로 돌고 있어 세션이 직접 올림(사용자 요청). 앞선 요청(축구 결산 릴스·AI 캐러셀·야구 릴스)은 모두 게시 완료"
+ "note": "10/26 PO 1차전 8회 리뷰 릴스(KIA 5:1 삼성, 8회말) — 사용자 요청으로 세션이 직접 올림"
 }
