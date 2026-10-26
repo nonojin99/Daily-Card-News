@@ -270,14 +270,13 @@ def live_big(posted):
         return 0, ""
 
     def add(sport, gid, inn, row, title, gdate, kdate):
-        # 2026-10-26 사용자 결정: 스토리 = 3회·6회를 마칠 때 + 7회부터 점수가 날 때마다, 점수 차 5 이상이면 올리지 않는다(좁혀지면 다시).
+        # 2026-10-26 사용자 결정: 스토리 = 3회·6회를 마칠 때(점수 차와 상관없이 항상) + 7회부터 점수가 날 때마다 — 단 7회 이후 득점은 점수 차 5 이상이면 올리지 않는다
+        # (3회·6회 리뷰가 이미 나갔으니 큰 점수 차 경기에서 너무 많이 올라가지 않게, 좁혀지면 다시).
         # 릴스 = 경기당 한 편, 7회 이후 동점·역전·1점 차일 때만(bd["reel"]) — 스토리는 팔로워용, 릴스는 새 사람 유입용이라 골라서.
         # posted 키: live:<경기>:<단계>[:<원정>-<홈>] (단계 = 4·7 이닝 단계 또는 late)
         try:
             a, h = int(row["as"]), int(row["hs"])
         except (TypeError, ValueError):
-            return
-        if abs(a - h) >= 5:
             return
         done = [k[len(f"live:{gid}:"):].split(":") for k in posted if k.startswith(f"live:{gid}:")]
         steps = max([int(p[0]) for p in done if p[0].isdigit()] or [0])
@@ -286,7 +285,7 @@ def live_big(posted):
         sc = f"{a}-{h}"
         if need and steps < need:
             key = f"live:{gid}:{need}:{sc}"
-        elif inn >= 7 and sc != prev:
+        elif inn >= 7 and sc != prev and abs(a - h) < 5:
             key = f"live:{gid}:late:{sc}"
         else:
             return
