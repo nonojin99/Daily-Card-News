@@ -434,6 +434,20 @@
    "status": "published",
    "at_kst": "2026-10-26 08:26",
    "result": "17962756781999012"
+  },
+  "live:kbo:20261026HTSS0:8:5-1": {
+   "image": "sports/alerts/2026-10/2026-10-26_kbo_live_2122.jpg",
+   "status": "published",
+   "at_kst": "2026-10-26 21:24",
+   "result": "18044481959834063",
+   "note": "세션이 직접 게시(8회 리뷰 릴스) — 같은 단계 스토리·릴스 중복 방지"
+  },
+  "live:kbo:20261026HTSS0:4:5-0": {
+   "image": "sports/alerts/2026-10/2026-10-26_kbo_live_2000.jpg",
+   "status": "published",
+   "at_kst": "2026-10-26 19:59",
+   "result": "18131913277693890",
+   "note": "세션이 직접 게시(스토리)"
   }
  },
  "boards": {
