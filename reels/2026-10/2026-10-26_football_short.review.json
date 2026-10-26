@@ -1,7 +1,7 @@
 {
  "verdict": "PASS",
- "sha1": "712f4096fc2499954933a81467c4115fefb94c05",
+ "sha1": "92efc131ec1deff2b56ea57dca880d7ed308837f",
  "by": "agent",
- "at": "2026-10-26T00:22:00Z",
- "note": "reel-reviewer PASS · 사용자 요청: 낭독 대신 배경음+카드 넘김"
+ "at": "2026-10-26T00:32:05Z",
+ "note": "reel-reviewer PASS · 10초판 재검수"
 }
