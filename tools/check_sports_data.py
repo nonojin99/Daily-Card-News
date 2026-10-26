@@ -10,6 +10,7 @@ import json, re, sys
 RESULT = {"ufc": {"승", "패", "무"}}
 
 
+# 2026-10-26: 경기 전 선발(pre)·경기 중 스코어(live) 행을 "끝나지 않은 경기에 점수"로 막아 PO 1차전 스토리가 안 나갔다 — 행 종류별로 따로 본다. KBO 는 KIA·SSG 같은 영문 약칭이 공식 표기.
 def validate(bd):
     F, W = [], []
     sport, rows = bd.get("sport", ""), bd.get("rows") or []
@@ -23,7 +24,11 @@ def validate(bd):
         if (a, h) in seen: F.append(f"{tag}: 같은 경기가 두 번")
         seen.add((a, h))
         sa, sh = str(r.get("as", "")), str(r.get("hs", ""))
-        if r.get("pending"):
+        if r.get("live"):   # 경기 중 중간 스코어(포스트시즌급 야구) — 숫자 점수여야 한다
+            if not (sa.isdigit() and sh.isdigit()): F.append(f"{tag}: 중간 스코어가 숫자가 아님({sa}:{sh})")
+        elif r.get("pre"):   # 경기 전 선발 안내 — 점수 자리에 선발 투수 이름
+            if not sa.strip() or not sh.strip() or sa.isdigit() or sh.isdigit(): F.append(f"{tag}: 선발 투수 이름이 비었거나 숫자({sa}:{sh})")
+        elif r.get("pending"):
             if sa not in ("-", "") or sh not in ("-", ""): F.append(f"{tag}: 끝나지 않은 경기에 점수({sa}:{sh})")
         else:
             ok = RESULT.get(sport)
@@ -34,7 +39,7 @@ def validate(bd):
             elif int(sa) > 200 or int(sh) > 200:
                 F.append(f"{tag}: 점수가 비정상적으로 큼({sa}:{sh})")
         for n in (a, h):
-            if sport not in ("lol", "ufc") and re.search(r"[A-Za-z]{3,}", n): W.append(f"{tag}: 한국어 이름 없음 '{n}' — sports/alerts/names_ko.json 에 추가")
+            if sport not in ("lol", "ufc", "kbo") and re.search(r"[A-Za-z]{3,}", n): W.append(f"{tag}: 한국어 이름 없음 '{n}' — sports/alerts/names_ko.json 에 추가")
             if len(n) > 16: W.append(f"{tag}: 이름이 길어 카드에서 잘릴 수 있음 '{n}'")
     m = re.search(r"(\d+)/(\d+)\s*종료", bd.get("title", ""))
     if m:

@@ -91,7 +91,7 @@ def stitch(clips, out, sec_total):
     total = sum(durs) - 0.35 * (len(clips) - 1)
     A = len(clips)
     f.append(f"[{A}:a]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,afade=t=out:st={total - 1.2:.3f}:d=1.2,volume=0.9[a]")
-    ff(*ins, "-stream_loop", "-1", "-i", os.path.join(ROOT, BGM), "-filter_complex", ";".join(f), "-map", cur if len(clips) > 1 else "[0:v]", "-map", "[a]",
+    ff(*ins, "-stream_loop", "-1", "-i", os.path.join(ROOT, BGM), "-filter_complex", ";".join(f), "-map", cur if len(clips) > 1 else "0:v", "-map", "[a]",   # 클립 하나면 필터 출력이 아니라 입력 스트림(0:v) — "[0:v]" 는 ffmpeg 오류(2026-10-26)
        "-c:v", "libx264", "-pix_fmt", "yuv420p", "-profile:v", "high", "-level", "4.1", "-preset", "medium", "-crf", "21", "-c:a", "aac", "-b:a", "128k", "-t", f"{total:.3f}", "-movflags", "+faststart", out)
     return total
 
@@ -120,7 +120,7 @@ def caption_game(sport, label, row, note_src):
 def on_board(bd, rel, sport_meta, label, title_of, dry):
     """스토리 결과판 하나가 나간 뒤: 새로 끝난 경기마다 점수를 매기고, 기준 이상이면 한 경기 릴스를 만들어 대기열에. 만든 파일 목록을 돌려준다."""
     if bd.get("live") or bd.get("pre"):
-        return []
+        return live_reel(bd, rel, label, dry)
     q, made, sport = load(), [], bd["sport"]
     rows = [r for r in bd["rows"] if r.get("gid") in bd["new"] and not r.get("pending")]
     if sport == "ufc" and bd["rows"] and bd["rows"][-1] in rows:
@@ -155,6 +155,68 @@ def on_board(bd, rel, sport_meta, label, title_of, dry):
         print(f"  한 경기 릴스: {base}.mp4 ({total:.1f}초, 점수 {s})")
     save(q)
     return made + [os.path.relpath(QUEUE, ROOT)]
+
+
+def catchup(posted, meta_of, label_of, title_of, dry):
+    """스토리는 나갔는데 데이터 릴스 점수가 없는 야구 경기(릴스 만들기가 실패했던 회차 — 2026-10-26 한 경기 '[0:v]' 오류)를 max_age_h 안에서 다시 만든다."""
+    q, made, now = load(), [], kst()
+    for gid, v in posted.items():
+        sp = gid.split(":")[0]
+        if sp not in ("kbo", "mlb") or gid in q["scored"] or v.get("status") != "published" or not v.get("image"):
+            continue
+        try:
+            age = (now - datetime.datetime.strptime(v["at_kst"], "%Y-%m-%d %H:%M")).total_seconds() / 3600
+        except (KeyError, ValueError):
+            continue
+        js = os.path.join(ROOT, v["image"][:-4] + ".json")
+        if age > RULES["max_age_h"] or not os.path.exists(js):
+            continue
+        spec = json.load(open(js, encoding="utf-8"))
+        bd = {"sport": sp, "date": spec.get("date"), "kst_date": spec.get("date"), "dawn": spec.get("dawn"), "title": spec.get("title", ""), "rows": spec.get("games") or [], "new": [gid]}
+        if not any(r.get("gid") == gid for r in bd["rows"]):
+            continue
+        print(f"  데이터 릴스 보충: {gid}")
+        made += on_board(bd, v["image"], meta_of(sp), label_of(sp), title_of, dry)
+        q = load()
+    return sorted(set(made))
+
+
+def live_reel(bd, rel, label, dry):
+    """경기 전 선발·경기 중 스코어(포스트시즌급 야구)도 릴스로(2026-10-26 사용자 요청 — "PO 시작했는데 스토리 반응 없네, 릴스도 올려보자").
+    방금 올린 스토리 카드 한 장을 천천히 확대(6초) + 배경음악. 기준 점수 이상만, 늦으면 소용없으니 until(선발 = 경기 시작, 중간 스코어 = 45분 뒤)을 넘기면 버린다."""
+    q, sport, r = load(), bd["sport"], bd["rows"][0]
+    iid = bd["new"][0]
+    if any(i["id"] == iid for i in q["items"]):
+        return []
+    s, why = score(sport, r, bd["title"])
+    if s < RULES["threshold"]:
+        return []
+    now, pre = kst(), bool(bd.get("pre"))
+    m = re.search(r"(\d{1,2}):(\d{2}) 시작", r.get("note", ""))
+    if pre and m and bd.get("kst_date"):
+        until = datetime.datetime.combine(datetime.date.fromisoformat(str(bd["kst_date"])), datetime.time(int(m[1]), int(m[2])))
+    else:
+        until = now + datetime.timedelta(minutes=120 if pre else 45)
+    base = f"reels/sports/{now:%Y-%m}/{now:%Y-%m-%d}_{re.sub(r'[^a-z0-9]+', '-', iid)}"
+    os.makedirs(os.path.join(ROOT, os.path.dirname(base)), exist_ok=True)
+    tmp = f"/tmp/sreel-{re.sub(r'[^a-z0-9]+', '-', iid)}"
+    os.makedirs(tmp, exist_ok=True)
+    kenburns(os.path.join(ROOT, rel), 6.0, f"{tmp}/a.mp4", z=0.06)
+    total = stitch([f"{tmp}/a.mp4"], os.path.join(ROOT, base + ".mp4"), 0)
+    e, stage = EMO.get(sport, "⚾"), bd["title"].split(" — ")[0]
+    if pre:
+        head = f"[{e} {label}] {stage} 선발 — {r['away']} {r['as']} vs {r['home']} {r['hs']}"
+        src = "선발은 공식 기록의 예고 기준 · 경기 직전 바뀔 수 있어요"
+    else:
+        head = f"[{e} {label}] {stage} 진행 중 — {r['away']} {r['as']}:{r['hs']} {r['home']}"
+        src = "진행 중인 경기 · 공식 기록 기준 · 최종 결과는 경기 끝나고 다시 올려요"
+    cap = "\n".join([head, r.get("note", ""), "", f"📊 {src}", f"🎵 음악: {CREDIT}", "▶ 해설은 프로필 링크의 앱에서", "", TAGS.get(sport, "#스포츠")])
+    open(os.path.join(ROOT, base + ".txt"), "w", encoding="utf-8").write(cap + "\n")
+    q["items"].append({"id": iid, "kind": "pre" if pre else "live", "mp4": base + ".mp4", "caption": base + ".txt", "score": s, "why": why, "seconds": round(total, 1),
+                       "made_kst": now.strftime("%Y-%m-%d %H:%M"), "until_kst": until.strftime("%Y-%m-%d %H:%M"), "status": "dry" if dry else "queued"})
+    save(q)
+    print(f"  {'선발' if pre else '중간 스코어'} 릴스: {base}.mp4 ({total:.1f}초, 점수 {s}, {until:%H:%M}까지)")
+    return [base + ".mp4", base + ".txt", os.path.relpath(QUEUE, ROOT)]
 
 
 def maybe_bundle(posted, dry):
@@ -234,7 +296,7 @@ def next_item():
     changed = False
     for i in q["items"]:
         age = (now - datetime.datetime.strptime(i["made_kst"], "%Y-%m-%d %H:%M")).total_seconds() / 3600
-        if i["status"] == "queued" and age > (24 if prob else RULES["max_age_h"]):
+        if i["status"] == "queued" and (age > (24 if prob else RULES["max_age_h"]) or (i.get("until_kst") and now.strftime("%Y-%m-%d %H:%M") > i["until_kst"])):
             i["status"] = "expired"; changed = True
     if changed:
         save(q)

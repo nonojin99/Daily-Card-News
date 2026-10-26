@@ -511,6 +511,9 @@ def reels_tick():
         made = SR.maybe_bundle(load_posted()["posted"], MODE == "dry")
         if made:
             push("결과판 묶음 릴스 [skip ci]", made)
+        made = SR.catchup(load_posted()["posted"], lambda s: dict(SPORT[s]), lambda s: SOURCES.get(s, {}).get("label", s.upper()), board_title, MODE == "dry")
+        if made:
+            push("데이터 릴스 보충 [skip ci]", made)
         it = SR.next_item()
         if not it or MODE == "dry":
             return
