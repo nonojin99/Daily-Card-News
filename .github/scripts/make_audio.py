@@ -215,6 +215,7 @@ def migrate(path, doc, changed):
 
 REEL_BLOCK = re.compile(r'<details\b[^>]*class="reel-script"([^>]*)>(.*?)</details>', re.I | re.S)
 DEEP_DAYS = 3   # 깊게 파는 릴스 원고는 최근 3일 브리프만(지난 브리프를 고쳐도 다시 합성하지 않게)
+DEEP_TTS = False   # 2026-10-26 사용자 결정: 깊게 파는 릴스는 '페이지 전환형'(낭독 없음·배경음악) — 원고 MP3 를 만들지 않는다. 낭독형으로 되돌릴 때만 True
 
 
 def deep_blocks(path, name_match, changed):
@@ -291,7 +292,8 @@ def main():
             try:
                 if API_KEY or DRY_RUN:
                     process(path, m, changed)
-                    deep_blocks(path, m, changed)
+                    if DEEP_TTS:
+                        deep_blocks(path, m, changed)
                 else:
                     with open(path, encoding="utf-8") as f:
                         migrate(path, f.read(), changed)

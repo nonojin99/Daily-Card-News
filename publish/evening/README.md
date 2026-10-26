@@ -5,10 +5,11 @@
 
 ```json
 {"requests": [
-  {"kind":"reel","media":"reels/2026-10/2026-10-29_activity.mp4","caption":"captions/2026-10-30_weekend_reel.txt","dry_run":"false","is_ai":"true","ab":"auto"}
+  {"kind":"reel","media":"reels/2026-10/2026-10-29_activity.mp4","caption":"captions/2026-10-30_weekend_reel.txt","dry_run":"false","is_ai":"true","ab":"short"}
 ], "note": "10/30 금 주말 릴스 — 저녁 게시"}
 ```
 
+- 2026-10-26~ 본계정 릴스는 `"ab":"short"`(페이지 전환형 짧은판 — 낭독 없음·배경음악, CLAUDE.md '⚡ 페이지 전환형 릴스').
 - 파일 이름의 날짜 = **게시하는 날(KST)**. 저녁 실행은 오늘 날짜 파일만 처리한다(지난 파일은 남아 있어도 무시).
 - 스포츠 계정 릴스(월요일 축구 결산)도 같은 방식, 항목에 `"account":"sports"`.
 - 같은 캡션이 최근 게시물에 있으면 게시 스크립트가 멈추므로 두 번 실행돼도 중복 게시되지 않는다.

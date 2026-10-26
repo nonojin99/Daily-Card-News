@@ -4,7 +4,8 @@
 //   node tools/make_reel.js --auto <브리프.html>     구간 자동 계산 → reels/YYYY-MM/<날짜>_<종류>.mp4 + .reel.json
 //   node tools/make_reel.js --lib <음악 브리프.html>   음악 라이브러리판(소리 없음, 카드 전부) → reels/YYYY-MM/<날짜>_music_lib.mp4 (2026-10-24~, 사람이 앱에서 음악을 붙여 게시)
 //   node tools/make_reel.js --short <브리프.html>    15초 '핵심 3장' 릴스(낭독 없음, 배경음악) → reels/YYYY-MM/<날짜>_<종류>_short.mp4 (2026-10-23~ A/B)
-//   node tools/make_reel.js --deep <브리프.html> <카드 번호>   깊게 파는 릴스(2026-10-26~): <details class="reel-script" data-card="N"> 원고 + 그 MP3 → reels/YYYY-MM/<날짜>_<종류>_cN.mp4
+//   node tools/make_reel.js --deep <브리프.html> <카드 번호>   깊게 파는 릴스 '페이지 전환형'(2026-10-26~ 사용자 결정): <details class="reel-script" data-card="N"> 의 data-k 요점 장 + 배경음악, 낭독 없음 → reels/YYYY-MM/<날짜>_<종류>_cN.mp4
+//   node tools/make_reel.js --deep-narr <브리프.html> <카드 번호>   (옛 낭독형 — 원고 MP3 필요, 지금은 자동으로 만들지 않는다)
 //   node tools/make_reel.js --recent                 Actions 용: 최근 3일 릴스 대상 브리프 중 없거나 재료가 바뀐 것만 (REELS_OUT 에 만든 파일 목록)
 //
 //   spec = { "brief", "audio", "out", "title", ("bgm": {"src", "credit"}), "segments": [[시작초, 끝초, 슬라이드 번호(1=표지, 마지막=출처 장), (1이면 다음 구간과 쉼 없이 이어짐)], …] }
@@ -123,7 +124,7 @@ async function introFrames(b, card1, hook, meta, label, d, wd, handle, tmp, note
 .dt{margin-left:auto;font-size:36px;font-weight:700;white-space:nowrap;text-shadow:0 2px 12px rgba(0,0,0,.6)}
 .txt{position:absolute;left:80px;right:80px;top:${pic ? (hook.topic ? 860 : 1060) : 520}px}
 .tp{display:inline-block;background:${pic ? meta.ac : '#fff'};color:${pic ? '#fff' : meta.ac};font-weight:900;font-size:${Math.min(150, Math.floor(900 / Math.max(2, (hook.topic || '').length)))}px;line-height:1.1;padding:14px 36px 22px;border-radius:28px;margin-bottom:34px;letter-spacing:-.03em}
-.num{font-weight:900;font-size:170px;line-height:1;letter-spacing:-.03em;color:#fff}.lab{font-size:44px;font-weight:700;margin:14px 0 40px;opacity:.85}
+.num{font-weight:900;font-size:${Math.min(170, Math.floor(1500 / Math.max(1, (hook.num || '').length)))}px;line-height:1;letter-spacing:-.03em;color:#fff;white-space:nowrap}.lab{font-size:44px;font-weight:700;margin:14px 0 40px;opacity:.85}
 .h{font-weight:900;font-size:${fs_}px;line-height:1.2;letter-spacing:-.03em;white-space:nowrap}
 .ft{position:absolute;left:80px;right:80px;top:1640px;font-size:32px;opacity:.75}
 .note{position:absolute;left:80px;top:250px;max-width:920px;background:rgba(0,0,0,.55);color:#fff;font-size:28px;font-weight:500;padding:6px 16px;border-radius:10px}</style></head>
@@ -347,8 +348,10 @@ async function autoOne(brief, b, base) {
 // 배경음악: Kevin MacLeod "Upbeat Forever" (incompetech.com) — Wikimedia Commons 파일 페이지 기준 CC BY 3.0. 저장소에는 앞 30초만 잘라 둔다(끝 2초 페이드).
 // 어느 쪽(낭독판/짧은판)을 올릴지는 게시 스크립트가 날짜로 번갈아 고른다(.github/scripts/publish_ig.py `ab`).
 // 짧은판 길이 = 3 × 4 + 2.2 − 0.35 × 3 = 13.15초 — 14초 이내(2026-10-24 사용자 요청). 값을 바꾸면 shortOne 의 max 검사가 막는다.
-const SHORT = { cards: 3, sec: 4, outro: 2.2, xf: 0.35, max: 14, bgm: "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3",
-  credit: "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0", suffix: "_short", variant: "short" };
+// 2026-10-26 본계정도 '페이지 전환형'(사용자 결정): 카드 1번 3초(오프닝 A/B 그대로) → 카드 2·3번 2.5초씩 → 출처 장 1.5초
+// = 3 + 2.5 + 2.5 + 1.5 − 0.3 × 3 = 8.6초(10초 이내, 반복 재생 길이). 위 13.15초 계산은 기록.
+const FLIP_BGM = "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3", FLIP_CREDIT = "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0";
+const SHORT = { cards: 3, secs: [3, 2.5, 2.5], outro: 1.5, xf: 0.3, max: 10, bgm: FLIP_BGM, credit: FLIP_CREDIT, suffix: "_short", variant: "short" };
 // 10초판: 카드 2장(5.5초 확대 + 4초), 출처 장 없음 → 5.5 + 4 − 0.35 = 9.15초. 파일 이름은 짧은판과 같은 _short(게시 "ab":"short" 그대로).
 const FAST = { cards: 2, secs: [5.5, 4], outro: 0, xf: 0.35, max: 10.5, zoom: 0.08, bgm: SHORT.bgm, credit: SHORT.credit, suffix: "_short", variant: "fast" };
 // 음악 라이브러리판(2026-10-24~ 사용자 결정): 토요일 음악 릴스는 자동 게시하지 않고, 사람이 인스타 앱에서 음악 라이브러리 곡을 붙여 올린다.
@@ -366,10 +369,23 @@ async function shortOne(brief, b, base, O = SHORT) {
   const n = Math.min(O.cards, files.length - 2); if (n < 1) return { skip: "카드 없음" };
   const label = O.label || (pv ? `⚡ ${pv[1].trim()}` : `⚡ 핵심 ${n}장`);
   const slides = [...Array(n).keys()].map(i => i + 2).concat(O.outro ? [files.length] : []);
-  const d = `${m[1]}-${m[2]}-${m[3]}`, wd = "일월화수목금토"[wdOf(d)];
+  const d = `${m[1]}-${m[2]}-${m[3]}`;
+  const durs = slides.map((_, k) => k < n ? (O.secs ? (O.secs[k] ?? O.secs[O.secs.length - 1]) : O.sec) : O.outro);
+  const out_ = `reels/${m[1]}-${m[2]}/${d}_${m[4]}${O.suffix}`;
+  const r = await flipReel(b, { m, d, imgs: slides.map(k => files[k - 1]), durs, xf: O.xf, max: O.max, zoom: O.zoom, label, meta, bgm: O.bgm, credit: O.credit, out_,
+    opening: O.variant === "lib" || O.zoom ? "static" : openingOf(brief), card1: files[1], hook: hookOf(html), note: picNoteOf(html, m[4]), tmp });
+  const spec = { brief, variant: O.variant, opening: r.opening, out: out_ + ".mp4", cards: n, seconds: +r.total.toFixed(2), bgm: O.bgm, credit: O.credit, fp: shortFp(brief) };
+  fs.writeFileSync(path.join(ROOT, out_ + ".reel.json"), JSON.stringify(spec, null, 2) + "\n");
+  console.log(`reel: ${out_}.mp4 — ${r.total.toFixed(1)}초, 카드 ${n}장${O.outro ? " + 출처" : ""}`);
+  return { files: [out_ + ".mp4", out_ + ".reel.json"] };
+}
+// 페이지 전환형 공통(짧은판·10초판·라이브러리판·깊게 파는 릴스): 장면 PNG(카드 비율)를 1080×1920 틀에 넣어 겹쳐 넘기고 배경음악을 깐다.
+// 첫 장면: zoom 이면 천천히 확대(10초판), 아니면 오프닝 A/B(motion = 카드 그림 확대 INTRO 초 → 정지).
+async function flipReel(b, o) {
+  const { m, d, imgs, durs, meta, label, tmp } = o, wd = "일월화수목금토"[wdOf(d)];
   const fr = await b.newPage({ viewport: { width: 1080, height: 1920 } });
-  for (let k = 0; k < slides.length; k++) {
-    const img = "data:image/png;base64," + fs.readFileSync(files[slides[k] - 1]).toString("base64");
+  for (let k = 0; k < imgs.length; k++) {
+    const img = "data:image/png;base64," + fs.readFileSync(imgs[k]).toString("base64");
     await fr.setContent(`<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
 <style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:#f1efe8;font-family:'Noto Sans KR',sans-serif;color:#1a1a18;position:relative}
@@ -379,45 +395,38 @@ async function shortOne(brief, b, base, O = SHORT) {
 .card{position:absolute;left:97px;top:330px;width:886px;border-radius:28px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.08)}
 .card img{display:block;width:100%}
 .bar{position:absolute;left:97px;right:97px;top:1472px;height:8px;border-radius:9px;background:#e1ddd2}
-.bar i{display:block;height:100%;width:${((k + 1) / slides.length * 100).toFixed(1)}%;border-radius:9px;background:${meta.ac}}
+.bar i{display:block;height:100%;width:${((k + 1) / imgs.length * 100).toFixed(1)}%;border-radius:9px;background:${meta.ac}}
 .ft{position:absolute;left:97px;right:97px;top:1508px;font-size:30px;color:#55554f;line-height:1.5}.ft b{color:#3d5a4c}</style></head>
 <body><div class="top">${meta.cat ? `<span class="cat">${esc(meta.cat)}</span>` : ""}<span class="t">${esc(label)}</span><span class="dt">${+d.slice(5, 7)}.${+d.slice(8, 10)} ${wd}</span></div>
 <div class="card"><img src="${img}"></div><div class="bar"><i></i></div>
-<div class="ft"><b>${HANDLE_OF(m[4])}</b>${O.credit ? `<br>♪ ${esc(O.credit)}` : ""}</div></body></html>`, { waitUntil: "networkidle" });
+<div class="ft"><b>${HANDLE_OF(m[4])}</b>${o.credit ? `<br>♪ ${esc(o.credit)}` : ""}</div></body></html>`, { waitUntil: "networkidle" });
     await fr.screenshot({ path: path.join(tmp, `s${k}.png`) });
   }
   await fr.close();
-  const opening = O.variant === "lib" || O.zoom ? "static" : openingOf(brief), hk = hookOf(html);
-  const intro = opening === "motion" && hk ? await introFrames(b, files[1], hk, meta, label, d, wd, HANDLE_OF(m[4]), tmp, picNoteOf(html, m[4])) : [];
-  const durs = slides.map((_, k) => k < n ? (O.secs ? O.secs[k] : O.sec) : O.outro);
-  const total = durs.reduce((a, c) => a + c, 0) - O.xf * (slides.length - 1);
-  if (O.max && total > O.max) throw new Error(`${O.variant} ${total.toFixed(1)}초 — ${O.max}초 넘음`);
-  const ins = slides.flatMap((_, k) => ["-loop", "1", "-framerate", "30", "-t", String(durs[k]), "-i", path.join(tmp, `s${k}.png`)]);
+  const hk = o.hook;
+  const intro = o.opening === "motion" && hk && durs[0] > INTRO + 0.5 ? await introFrames(b, o.card1, hk, meta, label, d, wd, HANDLE_OF(m[4]), tmp, o.note) : [];
+  const total = durs.reduce((a, c) => a + c, 0) - o.xf * (imgs.length - 1);
+  if (o.max && total > o.max) throw new Error(`${label} ${total.toFixed(1)}초 — ${o.max}초 넘음`);
+  const ins = imgs.flatMap((_, k) => ["-loop", "1", "-framerate", "30", "-t", String(durs[k]), "-i", path.join(tmp, `s${k}.png`)]);
   const extra = intro.length ? ["-framerate", String(IFPS), "-i", path.join(tmp, "in%03d.png")] : [];
-  let f = slides.map((_, k) => `[${k}:v]fps=30,format=yuv420p,setsar=1[i${k}]`), cur = "[i0]", off = 0;
-  if (O.zoom) {   // 10초판: 첫 장면을 천천히 확대(첫 2초부터 움직임 — 스포츠 데이터 릴스와 같은 방식)
+  let f = imgs.map((_, k) => `[${k}:v]fps=30,format=yuv420p,setsar=1[i${k}]`), cur = "[i0]", off = 0;
+  if (o.zoom) {   // 10초판: 첫 장면을 천천히 확대(첫 2초부터 움직임 — 스포츠 데이터 릴스와 같은 방식)
     const N = Math.round(durs[0] * 30);
-    f[0] = `[0:v]scale=2160:-1,zoompan=z='1+${O.zoom}*on/${N}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=30,format=yuv420p,setsar=1[i0]`;
+    f[0] = `[0:v]scale=2160:-1,zoompan=z='1+${o.zoom}*on/${N}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=30,format=yuv420p,setsar=1[i0]`;
   }
-  if (intro.length) {   // 첫 장면: 움직이는 INTRO 초 → 카드 1번 정지(남은 시간)
-    const I = slides.length + (O.bgm ? 1 : 0);
+  if (intro.length) {   // 첫 장면: 움직이는 INTRO 초 → 카드 정지(남은 시간)
+    const I = imgs.length + (o.bgm ? 1 : 0);
     f[0] = `[0:v]fps=30,format=yuv420p,setsar=1,trim=0:${(durs[0] - INTRO).toFixed(3)},setpts=PTS-STARTPTS[s0];[${I}:v]fps=30,format=yuv420p,setsar=1[iv];[iv][s0]concat=n=2:v=1:a=0,fps=30,setsar=1[i0]`;
   }
-  for (let k = 1; k < slides.length; k++) { off += durs[k - 1] - O.xf; f.push(`${cur}[i${k}]xfade=transition=fade:duration=${O.xf}:offset=${off.toFixed(3)}[x${k}]`); cur = `[x${k}]`; }
-  const A = slides.length;
-  f.push(`[${A}:a]atrim=0:${total.toFixed(3)},asetpts=PTS-STARTPTS,afade=t=out:st=${(total - 1.2).toFixed(3)}:d=1.2,volume=0.9[a]`);
-  const out_ = `reels/${m[1]}-${m[2]}/${d}_${m[4]}${O.suffix}`;
-  fs.mkdirSync(path.join(ROOT, path.dirname(out_)), { recursive: true });
-  const aud = O.bgm ? ["-i", path.join(ROOT, O.bgm)] : [], amap = O.bgm ? ["-map", "[a]", "-c:a", "aac", "-b:a", "128k"] : ["-an"];
-  if (!O.bgm) f.pop();   // 라이브러리판은 소리 없음 — 음악은 인스타 앱에서 붙인다
+  for (let k = 1; k < imgs.length; k++) { off += durs[k - 1] - o.xf; f.push(`${cur}[i${k}]xfade=transition=fade:duration=${o.xf}:offset=${off.toFixed(3)}[x${k}]`); cur = `[x${k}]`; }
+  if (o.bgm) f.push(`[${imgs.length}:a]atrim=0:${total.toFixed(3)},asetpts=PTS-STARTPTS,afade=t=out:st=${Math.max(0, total - 1.2).toFixed(3)}:d=1.2,volume=0.9[a]`);
+  fs.mkdirSync(path.join(ROOT, path.dirname(o.out_)), { recursive: true });
+  const aud = o.bgm ? ["-i", path.join(ROOT, o.bgm)] : [], amap = o.bgm ? ["-map", "[a]", "-c:a", "aac", "-b:a", "128k"] : ["-an"];   // 라이브러리판은 소리 없음 — 음악은 인스타 앱에서
   execFileSync("ffmpeg", ["-v", "error", "-y", ...ins, ...aud, ...extra, "-filter_complex", f.join(";"), "-map", cur, ...amap,
-    "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-t", total.toFixed(3), "-movflags", "+faststart", path.join(ROOT, out_ + ".mp4")]);
-  const spec = { brief, variant: O.variant, opening, out: out_ + ".mp4", cards: n, seconds: +total.toFixed(2), bgm: O.bgm, credit: O.credit, fp: shortFp(brief) };
-  fs.writeFileSync(path.join(ROOT, out_ + ".reel.json"), JSON.stringify(spec, null, 2) + "\n");
-  console.log(`reel: ${out_}.mp4 — ${total.toFixed(1)}초, 카드 ${n}장 + 출처`);
-  return { files: [out_ + ".mp4", out_ + ".reel.json"] };
+    "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-t", total.toFixed(3), "-movflags", "+faststart", path.join(ROOT, o.out_ + ".mp4")]);
+  return { total, opening: o.zoom ? "zoom" : intro.length ? "motion" : "static" };
 }
-// ── 깊게 파는 릴스(2026-10-26~ 사용자 승인): 그날 카드 하나를 더 자세히 — 점수(item-scorer) 80점 이상 카드마다, 하루 최대 3편(README '깊게 파는 릴스') ──
+// ── 깊게 파는 릴스(2026-10-26~ 사용자 승인, 같은 날 '페이지 전환형'으로 바꿈 — 아래 deepFlip): 그날 카드 하나를 더 자세히 — 점수(item-scorer) 80점 이상 카드마다, 하루 최대 3편(README '깊게 파는 릴스') ──
 // 원고: 브리프 안 <details class="reel-script" data-card="N" data-score="86" data-type="손해형"><p data-k="화면에 크게 띄울 말">…</p>…</details>
 // MP3: make_audio.py 가 블록마다 audio/YYYY-MM/<날짜>_<종류>_cN.mp3 (+ .json 문단 구간)
 // 화면: 문단 1 = 카드 N(오프닝 A/B 그대로) → 문단 2~ = '요점 장'(카드 그림 + data-k 큰 글씨) → 출처 장 2초. 사건·사고(맥락 읽기) 카드는 만들지 않는다.
@@ -481,6 +490,34 @@ async function deepOne(brief, cardNo, b, base) {
   fs.writeFileSync(path.join(ROOT, out_ + ".reel.json"), JSON.stringify(spec, null, 2) + "\n");
   return { files: [spec.out, out_ + ".reel.json"] };
 }
+// 페이지 전환형(2026-10-26~ 기본): 카드 N 3초(오프닝 A/B) → data-k 요점 장 2.5초씩 → 출처 장 1.5초, 배경음악, 낭독 없음.
+// 요점 문구(data-k)가 없는 문단은 장을 만들지 않는다 — 원고 문단은 앱·검수용 근거로 남는다.
+const DEEP_FLIP = { first: 3, sec: 2.5, outro: 1.5, xf: 0.3, max: 20 };
+async function deepFlip(brief, cardNo, b, base) {
+  const m = brief.match(BRIEF); if (!m) return { skip: "파일명 형식 아님" };
+  const html = read(brief).toString(), blk0 = reelBlocks(html).find(x => x.card === cardNo);
+  if (!blk0) return { skip: `카드 ${cardNo} 릴스 원고 없음` };
+  const art = articleOf(html, cardNo - 1); if (!art) return { skip: `카드 ${cardNo} 없음` };
+  if (/class="tag">\s*(Context|맥락)/.test(art[1])) return { skip: "맥락 읽기(사건·사고) 카드 — 릴스 금지" };
+  const blk = { ...blk0, paras: [blk0.paras[0], ...blk0.paras.slice(1).filter(x => x.k)] };
+  if (blk.paras.length < 2) return { skip: "data-k 요점 문구가 없음" };
+  const d = `${m[1]}-${m[2]}-${m[3]}`, tmp = fs.mkdtempSync(path.join(os.tmpdir(), "reel-f-"));
+  const cards = await renderCards(b, base, brief, tmp);
+  const card = cards.files[cardNo], note = picNoteOf(html, m[4], cardNo - 1), hook = hookOf(html, cardNo - 1);
+  const pts = await pointPanels(b, blk, card, note, cards.meta, (hook?.lines || []).join(" "), tmp);
+  const imgs = [card, ...pts, cards.files[cards.files.length - 1]];
+  const durs = imgs.map((_, k) => k === 0 ? DEEP_FLIP.first : k === imgs.length - 1 ? DEEP_FLIP.outro : DEEP_FLIP.sec);
+  const out_ = `reels/${m[1]}-${m[2]}/${d}_${m[4]}_c${cardNo}`, label = "🔎 깊게 보기";
+  const r = await flipReel(b, { m, d, html, imgs, durs, xf: DEEP_FLIP.xf, max: DEEP_FLIP.max, label, meta: cards.meta, bgm: FLIP_BGM, credit: FLIP_CREDIT, out_,
+    opening: openingOf(brief), card1: card, hook, note, tmp });
+  const spec = { brief, card: cardNo, kind: "deep", variant: "flip", score: blk.score, type: blk.type, out: out_ + ".mp4", opening: r.opening,
+    pages: pts.length, seconds: +r.total.toFixed(2), bgm: FLIP_BGM, credit: FLIP_CREDIT, keys: blk.paras.slice(1).map(x => x.k),
+    note: `깊게 파는 릴스(페이지 전환형) — 카드 ${cardNo} 요점 ${pts.length}장`, fp: deepFlipFp(brief, blk0) };
+  fs.writeFileSync(path.join(ROOT, out_ + ".reel.json"), JSON.stringify(spec, null, 2) + "\n");
+  console.log(`reel: ${spec.out} — ${r.total.toFixed(1)}초, 요점 ${pts.length}장`);
+  return { files: [spec.out, out_ + ".reel.json"] };
+}
+const deepFlipFp = (brief, blk) => sha(read(brief), blk.raw, read(FLIP_BGM), read("tools/make_reel.js"), read("app/cards.html"));
 const deepFp = (brief, blk, mp3) => sha(read(brief), blk.raw, read(mp3), read("tools/make_reel.js"), read("app/cards.html"));
 const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make_reel.js"), read("app/cards.html"));
 
@@ -496,8 +533,8 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
     } else if (mode === "--lib") {
       const r = await shortOne(arg, b, base, LIB);
       if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
-    } else if (mode === "--deep") {
-      const r = await deepOne(arg, +process.argv[4], b, base);
+    } else if (mode === "--deep" || mode === "--deep-narr") {
+      const r = await (mode === "--deep" ? deepFlip : deepOne)(arg, +process.argv[4], b, base);
       if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
     } else if (mode === "--short") {
       const r = await shortOne(arg, b, base, FAST_OF((path.basename(arg).match(BRIEF) || [])[4]) ? FAST : SHORT);
@@ -507,12 +544,11 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
       for (const n of fs.readdirSync(ROOT).sort()) {
         const m = n.match(BRIEF); if (!m) continue;
         const d = `${m[1]}-${m[2]}-${m[3]}`; if (d < cutoff) continue;
-        // 깊게 파는 릴스 — 코너와 상관없이 원고 블록이 있는 카드마다(MP3 가 생긴 뒤)
+        // 깊게 파는 릴스(페이지 전환형) — 코너와 상관없이 원고 블록이 있는 카드마다. 낭독 MP3 는 쓰지 않는다(2026-10-26~)
         for (const blk of reelBlocks(read(n).toString())) {
-          const mp = `audio/${m[1]}-${m[2]}/${d}_${m[4]}_c${blk.card}.mp3`, js = `reels/${m[1]}-${m[2]}/${d}_${m[4]}_c${blk.card}.reel.json`;
-          if (!fs.existsSync(path.join(ROOT, mp))) continue;
-          if (fs.existsSync(path.join(ROOT, js)) && JSON.parse(read(js)).fp === deepFp(n, blk, mp)) continue;
-          try { const r = await deepOne(n, blk.card, b, base); if (r.skip) console.log(`reel: ${n} 카드 ${blk.card} 건너뜀 — ${r.skip}`); else made.push(...r.files); }
+          const js = `reels/${m[1]}-${m[2]}/${d}_${m[4]}_c${blk.card}.reel.json`;
+          if (fs.existsSync(path.join(ROOT, js)) && JSON.parse(read(js)).fp === deepFlipFp(n, blk)) continue;
+          try { const r = await deepFlip(n, blk.card, b, base); if (r.skip) console.log(`reel: ${n} 카드 ${blk.card} 건너뜀 — ${r.skip}`); else made.push(...r.files); }
           catch (e) { console.log(`::warning::deep reel failed for ${n} c${blk.card}: ${e.message}`); }
         }
         if (!REEL_OF(m[4], wdOf(d))) continue;
