@@ -140,6 +140,20 @@
    "status": "published",
    "result": "18181847257433670",
    "posted_kst": "2026-10-27 21:32"
+  },
+  {
+   "id": "kbo:20261027HTSS0",
+   "kind": "game",
+   "mp4": "reels/sports/2026-10/2026-10-27_kbo-20261027-0.mp4",
+   "caption": "reels/sports/2026-10/2026-10-27_kbo-20261027-0.txt",
+   "score": 55,
+   "why": [
+    "KBO",
+    "포스트시즌"
+   ],
+   "seconds": 5.5,
+   "made_kst": "2026-10-27 22:05",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -261,6 +275,16 @@
    "sport": "mlb",
    "title": "밀워키 10:1 탬파베이",
    "at": "2026-10-27 12:14"
+  },
+  "kbo:20261027HTSS0": {
+   "score": 55,
+   "why": [
+    "KBO",
+    "포스트시즌"
+   ],
+   "sport": "kbo",
+   "title": "KIA 3:8 삼성",
+   "at": "2026-10-27 22:05"
   }
  },
  "last_post": 1793104343.1787512,
