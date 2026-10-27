@@ -1,11 +1,32 @@
 {
- "collected_kst": "2026-10-26 15:34",
+ "collected_kst": "2026-10-27 15:31",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-10-26T06:34:39.772679Z",
+   "checked_at": "2026-10-27T06:30:48.766517Z",
    "media": [
+    {
+     "id": "18145023313563363",
+     "type": "REELS",
+     "timestamp": "2026-10-26T12:08:11+0000",
+     "permalink": "https://www.instagram.com/reel/De9Pu8aEmPR/",
+     "first_line": "[AI·테크] 클로드 듀엣 커넥터 6,000개 이상 · 구글 클라우드 OpenAI 모델 3종 · 영국 바이오보안 1억 6,500만 파운드",
+     "variant": "short",
+     "opening": "motion",
+     "metrics": {
+      "views": 163,
+      "reach": 141,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2184,
+      "ig_reels_video_view_total_time": 318983,
+      "reels_skip_rate": 84.7
+     }
+    },
     {
      "id": "18082672961417905",
      "type": "REELS",
@@ -15,15 +36,15 @@
      "variant": "narrated",
      "opening": "static",
      "metrics": {
-      "views": 114,
-      "reach": 104,
+      "views": 120,
+      "reach": 107,
       "likes": 2,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 3,
-      "ig_reels_avg_watch_time": 2455,
-      "ig_reels_video_view_total_time": 255407,
+      "ig_reels_avg_watch_time": 2486,
+      "ig_reels_video_view_total_time": 271059,
       "reels_skip_rate": 75.5
      }
     },
@@ -34,7 +55,7 @@
      "permalink": "https://www.instagram.com/p/De8HsaJDS97/",
      "first_line": "[AI·테크] 앤트로픽 '클로드 듀엣' · 구글 클라우드에 OpenAI 모델 3종 · 영국 AI 바이오보안 1억 6,500만 파운드 — 10월 ",
      "metrics": {
-      "views": 8,
+      "views": 12,
       "reach": 3,
       "likes": 1,
       "comments": 0,
@@ -52,16 +73,16 @@
      "variant": "narrated",
      "opening": "static",
      "metrics": {
-      "views": 122,
-      "reach": 118,
+      "views": 126,
+      "reach": 120,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2688,
-      "ig_reels_video_view_total_time": 325278,
-      "reels_skip_rate": 80.5
+      "ig_reels_avg_watch_time": 2685,
+      "ig_reels_video_view_total_time": 330376,
+      "reels_skip_rate": 80.8
      }
     },
     {
@@ -71,7 +92,7 @@
      "permalink": "https://www.instagram.com/p/De5MDskCc-q/",
      "first_line": "[우주·과학] 5월 28일엔 비어 있던 자리에 71일 뒤 점이 떴다 🔭 웹 망원경이 우주 나이 12억 년의 별 폭발 후보를 잡았다",
      "metrics": {
-      "views": 6,
+      "views": 9,
       "reach": 4,
       "likes": 1,
       "comments": 0,
@@ -317,13 +338,139 @@
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
-   "followers": 7,
-   "posts": 17
+   "followers": 8,
+   "posts": 18
   },
   {
    "account": "sports",
-   "checked_at": "2026-10-26T06:34:46.402271Z",
+   "checked_at": "2026-10-27T06:30:58.321657Z",
    "media": [
+    {
+     "id": "17926623099428930",
+     "type": "REELS",
+     "timestamp": "2026-10-27T03:16:22+0000",
+     "permalink": "https://www.instagram.com/reel/De-3r8vE7Ly/",
+     "first_line": "[⚾ MLB] 밀워키 10:1 탬파베이",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 127,
+      "reach": 107,
+      "likes": 0,
+      "comments": 0,
+      "shares": 1,
+      "saved": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2786,
+      "ig_reels_video_view_total_time": 306519,
+      "reels_skip_rate": 83.3
+     }
+    },
+    {
+     "id": "18138914020725972",
+     "type": "REELS",
+     "timestamp": "2026-10-27T02:37:13+0000",
+     "permalink": "https://www.instagram.com/reel/De-zL66jcEU/",
+     "first_line": "[⚾ MLB] 월드시리즈 3차전 진행 중 — 밀워키 10:0 탬파베이",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 126,
+      "reach": 106,
+      "likes": 0,
+      "comments": 0,
+      "shares": 1,
+      "saved": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2888,
+      "ig_reels_video_view_total_time": 306231,
+      "reels_skip_rate": 79
+     }
+    },
+    {
+     "id": "18101231591059811",
+     "type": "REELS",
+     "timestamp": "2026-10-26T22:04:54+0000",
+     "permalink": "https://www.instagram.com/reel/De-UCjHklOD/",
+     "first_line": "[⚾ MLB] 월드시리즈 3차전 선발 — 밀워키 Robert Gasser vs 탬파베이 페랄타",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 115,
+      "reach": 102,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2124,
+      "ig_reels_video_view_total_time": 218852,
+      "reels_skip_rate": 86
+     }
+    },
+    {
+     "id": "18111994298269701",
+     "type": "REELS",
+     "timestamp": "2026-10-26T17:57:12+0000",
+     "permalink": "https://www.instagram.com/reel/De93rXCElOm/",
+     "first_line": "[🎮 LoL] T1 1:0 CFO",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 115,
+      "reach": 107,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 1802,
+      "ig_reels_video_view_total_time": 194697,
+      "reels_skip_rate": 87.9
+     }
+    },
+    {
+     "id": "17953822701291747",
+     "type": "REELS",
+     "timestamp": "2026-10-26T12:52:31+0000",
+     "permalink": "https://www.instagram.com/reel/De9U0WJk29p/",
+     "first_line": "[⚾ KBO] 플레이오프 1차전 — KIA 5:1 삼성",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 144,
+      "reach": 104,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 3736,
+      "ig_reels_video_view_total_time": 392316,
+      "reels_skip_rate": 72.1
+     }
+    },
+    {
+     "id": "18044481959834063",
+     "type": "REELS",
+     "timestamp": "2026-10-26T12:24:39+0000",
+     "permalink": "https://www.instagram.com/reel/De9RornD1xy/",
+     "first_line": "[⚾ KBO] 플레이오프 1차전 8회 — KIA 5:1 삼성",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 121,
+      "reach": 107,
+      "likes": 3,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 2529,
+      "ig_reels_video_view_total_time": 278266,
+      "reels_skip_rate": 81.3
+     }
+    },
     {
      "id": "18380961577235865",
      "type": "REELS",
@@ -333,16 +480,16 @@
      "variant": "narrated",
      "opening": "static",
      "metrics": {
-      "views": 112,
-      "reach": 105,
+      "views": 113,
+      "reach": 106,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2797,
-      "ig_reels_video_view_total_time": 302146,
-      "reels_skip_rate": 77.4
+      "ig_reels_avg_watch_time": 2734,
+      "ig_reels_video_view_total_time": 306214,
+      "reels_skip_rate": 77.6
      }
     },
     {
@@ -354,16 +501,16 @@
      "variant": "narrated",
      "opening": "static",
      "metrics": {
-      "views": 115,
-      "reach": 104,
+      "views": 117,
+      "reach": 106,
       "likes": 2,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 2,
-      "ig_reels_avg_watch_time": 2520,
-      "ig_reels_video_view_total_time": 264648,
-      "reels_skip_rate": 82.5
+      "ig_reels_avg_watch_time": 2498,
+      "ig_reels_video_view_total_time": 267351,
+      "reels_skip_rate": 82.9
      }
     },
     {
@@ -415,8 +562,8 @@
      "permalink": "https://www.instagram.com/p/De78r3xDSDR/",
      "first_line": "[🏆 이벤트 픽] 요시다 유리 BMW 레이디스 첫 우승 · 유해란·최혜진 공동 2위 · 제네시스 챔피언십 김시우 공동 4위 — 2장",
      "metrics": {
-      "views": 3,
-      "reach": 1,
+      "views": 4,
+      "reach": 2,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -449,15 +596,15 @@
      "variant": "narrated",
      "opening": "static",
      "metrics": {
-      "views": 129,
-      "reach": 122,
+      "views": 130,
+      "reach": 123,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2065,
-      "ig_reels_video_view_total_time": 251936,
+      "ig_reels_avg_watch_time": 2060,
+      "ig_reels_video_view_total_time": 253383,
       "reels_skip_rate": 91.7
      }
     },
@@ -468,8 +615,8 @@
      "permalink": "https://www.instagram.com/p/De68_TVFeyQ/",
      "first_line": "[⚾ 야구 나이트] 월드시리즈 2차전 밀워키 5-4, 0-4 뒤집기 · 대구 PO 1차전 우천 취소 26일 18:30 · 한국시리즈 11/2 또",
      "metrics": {
-      "views": 3,
-      "reach": 1,
+      "views": 5,
+      "reach": 2,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -484,8 +631,8 @@
      "permalink": "https://www.instagram.com/p/De5WMbHjnYi/",
      "first_line": "[⚽ 축구 모닝] 서울, 비기고도 10년 만의 K리그1 우승 · 이재성 시즌 1호골 · 토트넘 첼시 원정 2-0 — 4장",
      "metrics": {
-      "views": 2,
-      "reach": 1,
+      "views": 3,
+      "reach": 2,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -505,8 +652,8 @@
       "likes": 0,
       "comments": 0,
       "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
+      "saved": 1,
+      "total_interactions": 1
      }
     },
     {
@@ -609,8 +756,8 @@
    "errors": [],
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
-   "followers": 5,
-   "posts": 16
+   "followers": 6,
+   "posts": 22
   }
  ]
 }
