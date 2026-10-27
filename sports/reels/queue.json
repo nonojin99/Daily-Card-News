@@ -91,6 +91,19 @@
    "status": "published",
    "result": "18138914020725972",
    "posted_kst": "2026-10-27 11:37"
+  },
+  {
+   "id": "mlb:849804",
+   "kind": "game",
+   "mp4": "reels/sports/2026-10/2026-10-27_mlb-849804.mp4",
+   "caption": "reels/sports/2026-10/2026-10-27_mlb-849804.txt",
+   "score": 50,
+   "why": [
+    "결승급"
+   ],
+   "seconds": 5.5,
+   "made_kst": "2026-10-27 12:14",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -203,6 +216,15 @@
    "sport": "lol",
    "title": "AL 0:2 TLAW",
    "at": "2026-10-27 07:52"
+  },
+  "mlb:849804": {
+   "score": 50,
+   "why": [
+    "결승급"
+   ],
+   "sport": "mlb",
+   "title": "밀워키 10:1 탬파베이",
+   "at": "2026-10-27 12:14"
   }
  },
  "last_post": 1793068639.0331244,
