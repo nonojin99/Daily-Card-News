@@ -2,7 +2,7 @@
  "requests": [
   {
    "kind": "reel",
-   "media": "reels/2026-10/2026-10-27_esports_short.mp4",
+   "media": "reels/2026-10/2026-10-27_esports.mp4",
    "caption": "captions/2026-10-27_esports_reel.txt",
    "dry_run": "false",
    "is_ai": "false",
