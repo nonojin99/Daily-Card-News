@@ -7,16 +7,17 @@
   "type": "손해형",
   "out": "reels/2026-10/2026-10-27_daily_c1.mp4",
   "opening": "motion",
-  "pages": 4,
-  "seconds": 13,
+  "pages": 5,
+  "seconds": 19.2,
   "bgm": "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3",
   "credit": "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0",
   "keys": [
-    "코스닥 3.26% 급락",
-    "외국인 순매도",
-    "유가 급등·중동 분쟁",
-    "전망·추천 아님"
+    "2주 새 6,384 → 5,469",
+    "외국인 하루 약 7천억 매도",
+    "매도의 80%가 두 종목",
+    "브렌트유, 속보 속 116달러대",
+    "28일 하이닉스·29일 삼성"
   ],
-  "note": "깊게 파는 릴스(페이지 전환형) — 카드 1 요점 4장",
-  "fp": "43d1ec2164dafb27d694226d4e0584198b82f568"
+  "note": "깊게 파는 릴스(페이지 전환형) — 카드 1 요점 5장",
+  "fp": "93d6f8a87e1d99a8a25767412b41a3f690db2f6a"
 }
