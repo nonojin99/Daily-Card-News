@@ -517,8 +517,9 @@
   },
   "pre:kbo:20261027HTSS0": {
    "image": "sports/alerts/2026-10/2026-10-27_kbo_1631.jpg",
-   "status": "pending",
-   "at_kst": "2026-10-27 16:31"
+   "status": "published",
+   "at_kst": "2026-10-27 16:31",
+   "result": "18114328450870176"
   }
  },
  "boards": {
