@@ -2,14 +2,13 @@
  "requests": [
   {
    "kind": "reel",
-   "media": "reels/2026-10/2026-10-27_esports.mp4",
-   "caption": "captions/2026-10-27_esports_reel.txt",
+   "media": "reels/2026-10/2026-10-27_health.mp4",
+   "caption": "captions/2026-10-27_health_reel.txt",
    "dry_run": "false",
-   "is_ai": "false",
+   "is_ai": "true",
    "ab": "short",
-   "review": "required",
-   "account": "sports"
+   "review": "human"
   }
  ],
- "note": "10/27 e스포츠 롤드컵 결산 10초판 릴스 — 스포츠 계정은 정해진 시간대가 아니라 검수 통과 즉시 게시(사용자 결정 2026-10-27)"
+ "note": "10/27 화 헬스 코너 릴스 — 페이지 전환형 짧은판, 사용자 승인 기록 있음 · 21:07 슬롯이 media 이중 _short 로 건너뛰어 즉시 게시로 재요청"
 }
