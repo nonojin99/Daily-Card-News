@@ -17,6 +17,7 @@
 // '맥락 읽기'(사건·사고·재난) 카드가 있는 브리프는 만들지 않는다. 카드는 쪽수 칩을 숨기고 다시 렌더한다(문단을 빼도 번호가 안 건너뛰게).
 const http = require("http"), fs = require("fs"), path = require("path"), os = require("os"), crypto = require("crypto");
 const { execFileSync, execSync, spawnSync } = require("child_process");
+const { chartPage } = require("./reel_chart.js");
 let pw; try { pw = require("playwright"); } catch { pw = require(path.join(execSync("npm root -g").toString().trim(), "playwright")); }
 const ROOT = path.resolve(__dirname, "..");
 const GAP = 0.35, MAX = 180, FIT = 178, OUTRO = 2;   // 문단 사이 쉼 0.6 → 0.35초(2026-10-23, 빨리 넘기기)
@@ -452,6 +453,8 @@ function reelBlocks(html) {
   return [...html.matchAll(/<details class="reel-script"([^>]*)>([\s\S]*?)<\/details>/g)].map(m => {
     const at = k => ((m[1].match(new RegExp(`data-${k}="([^"]*)"`)) || [])[1] || "");
     const ps = [...m[2].matchAll(/<p([^>]*)>([\s\S]*?)<\/p>/g)].map(x => ({ k: ((x[1].match(/data-k="([^"]*)"/) || [])[1] || "").replace(/&amp;/g, "&"),
+      sub: ((x[1].match(/data-sub="([^"]*)"/) || [])[1] || "").replace(/&amp;/g, "&"), dur: +((x[1].match(/data-dur="([^"]*)"/) || [])[1] || 0),
+      chart: (() => { const c = (x[1].match(/data-chart='([^']*)'/) || [])[1]; try { return c ? JSON.parse(c.replace(/&amp;/g, "&")) : null; } catch { return null; } })(),
       t: x[2].replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim() })).filter(x => x.t);
     return { card: +at("card"), score: +at("score") || 0, type: at("type"), paras: ps, raw: m[0] };
   }).filter(b => b.card > 0 && b.paras.length);
@@ -467,15 +470,20 @@ async function pointPanels(b, blk, card, note, meta, title, tmp, raw = "") {
   for (let i = 1; i < n; i++) {
     const k = blk.paras[i].k, f = path.join(tmp, `pt${i}.png`), t = TH[(i - 1) % TH.length];
     if (!k) { fs.copyFileSync(card, f); out.push(f); continue; }   // 요점 문구가 없으면 카드를 한 번 더
+    if (blk.paras[i].chart) {   // 라인 차트 장(2026-10-27 — tools/reel_chart.js)
+      await pg.setContent(chartPage({ k, sub: blk.paras[i].sub, chart: blk.paras[i].chart }, { ac: meta.ac, i, n, title }), { waitUntil: "networkidle" });
+      await pg.screenshot({ path: f }); out.push(f); continue;
+    }
     const fsz = Math.max(110, Math.min(180, Math.floor(1800 / Math.max(6, k.length))));
     await pg.setContent(`<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
 <style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1350px;background:${t.bg};font-family:'Noto Sans KR',sans-serif;position:relative;overflow:hidden}
 .big{position:absolute;right:40px;top:-60px;font-weight:900;font-size:520px;line-height:1;color:${t.num};letter-spacing:-.05em}
 .bar{position:absolute;left:80px;top:430px;width:120px;height:14px;border-radius:7px;background:${t.bar}}
-.k{position:absolute;left:80px;right:80px;top:490px;font-weight:900;font-size:${fsz}px;line-height:1.12;letter-spacing:-.03em;color:${t.fg};word-break:keep-all}
+.w{position:absolute;left:80px;right:80px;top:490px}.k{font-weight:900;font-size:${fsz}px;line-height:1.12;letter-spacing:-.03em;color:${t.fg};word-break:keep-all}
+.s{margin-top:44px;font-size:40px;font-weight:700;line-height:1.4;color:${t.sub};word-break:keep-all}
 .n{position:absolute;left:80px;bottom:70px;right:80px;font-size:32px;font-weight:700;color:${t.sub};white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style></head>
-<body><div class="big">${String(i + 1).padStart(2, "0")}</div><div class="bar"></div><div class="k">${esc(k)}</div><div class="n">${i + 1} / ${n} · ${esc(title)}</div></body></html>`, { waitUntil: "networkidle" });
+<body><div class="big">${String(i + 1).padStart(2, "0")}</div><div class="bar"></div><div class="w"><div class="k">${esc(k)}</div>${blk.paras[i].sub ? `<div class="s">${esc(blk.paras[i].sub)}</div>` : ""}</div><div class="n">${i + 1} / ${n} · ${esc(title)}</div></body></html>`, { waitUntil: "networkidle" });
     await pg.screenshot({ path: f }); out.push(f);
   }
   await pg.close();
@@ -533,7 +541,7 @@ async function deepFlip(brief, cardNo, b, base) {
   const card = cards.files[cardNo], note = picNoteOf(html, m[4], cardNo - 1), hook = hookOf(html, cardNo - 1);
   const pts = await pointPanels(b, blk, card, note, cards.meta, (hook?.lines || []).join(" "), tmp, genOf(html, cardNo - 1));
   const imgs = [card, ...pts, cards.files[cards.files.length - 1]];
-  const durs = imgs.map((_, k) => k === 0 ? DEEP_FLIP.first : k === imgs.length - 1 ? DEEP_FLIP.outro : DEEP_FLIP.sec);
+  const durs = imgs.map((_, k) => k === 0 ? DEEP_FLIP.first : k === imgs.length - 1 ? DEEP_FLIP.outro : (blk.paras[k].dur || DEEP_FLIP.sec));
   const out_ = `reels/${m[1]}-${m[2]}/${d}_${m[4]}_c${cardNo}`, label = "🔎 깊게 보기";
   const r = await flipReel(b, { m, d, html, imgs, durs, xf: DEEP_FLIP.xf, max: DEEP_FLIP.max, zoomEach: 0.05, label, meta: cards.meta, bgm: FLIP_BGM, credit: FLIP_CREDIT, out_,
     opening: openingOf(brief), card1: card, raw: genOf(html, cardNo - 1), hook, note, tmp });
@@ -544,7 +552,7 @@ async function deepFlip(brief, cardNo, b, base) {
   console.log(`reel: ${spec.out} — ${r.total.toFixed(1)}초, 요점 ${pts.length}장`);
   return { files: [spec.out, out_ + ".reel.json"] };
 }
-const deepFlipFp = (brief, blk) => sha(read(brief), blk.raw, read(FLIP_BGM), read("tools/make_reel.js"), read("app/cards.html"));
+const deepFlipFp = (brief, blk) => sha(read(brief), blk.raw, read(FLIP_BGM), read("tools/make_reel.js"), /data-chart=/.test(blk.raw) ? read("tools/reel_chart.js") : "", read("app/cards.html"));
 const deepFp = (brief, blk, mp3) => sha(read(brief), blk.raw, read(mp3), read("tools/make_reel.js"), read("app/cards.html"));
 const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make_reel.js"), read("app/cards.html"));
 
