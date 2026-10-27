@@ -37,7 +37,7 @@ KICK = {"soccer": ("⚽ 경기 종료", "#2f6b45", "⚽ 축구 모닝"), "basket
 SPORT = {"kbo": {"kicker": "⚾ 경기 종료", "accent": "#1f5f8b", "src": "기록: KBO 공식 기록 · 해설은 오늘 밤 ⚾ 야구 나이트", "foot": "야구 결과"},
          "lol": {"kicker": "🎮 경기 종료", "accent": "#4a4fa0", "src": "기록: LoL Esports 공식 일정 · 해설은 🎮 e스포츠 브리프", "foot": "e스포츠 결과"},
          "ufc": {"kicker": "🥊 경기 종료", "accent": "#8a2b2b", "src": "기록: ESPN 스코어보드 · 큰 대회 해설은 🏆 이벤트 픽", "foot": "UFC 결과"},
-         "mlb": {"kicker": "⚾ 경기 종료", "accent": "#1f5f8b", "src": "기록: MLB 공식 Stats API · 해설은 ⚾ 야구 나이트", "foot": "MLB 결과"}}
+         "mlb": {"kicker": "⚾ 경기 종료", "accent": "#0b6e72", "src": "기록: MLB 공식 Stats API · 해설은 ⚾ 야구 나이트", "foot": "MLB 결과"}}
 for k, kind in ESPN.items():
     kk, ac, br = KICK[kind]
     SPORT[k] = {"kicker": kk, "accent": ac, "src": f"기록: ESPN 스코어보드 · 해설은 {br}", "foot": f"{SOURCES.get(k, {}).get('label', k)} 결과"}
