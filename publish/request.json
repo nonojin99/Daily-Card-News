@@ -1,14 +1,22 @@
 {
  "requests": [
   {
-   "kind": "reel",
-   "media": "reels/2026-10/2026-10-27_health.mp4",
-   "caption": "captions/2026-10-27_health_reel.txt",
+   "kind": "carousel",
+   "media": "cards/2026-10/2026-10-27_baseball-brief",
+   "caption": "captions/2026-10-27_baseball.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "review": "required",
+   "account": "sports"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-10/2026-10-27_health-brief",
+   "caption": "captions/2026-10-27_health.txt",
    "dry_run": "false",
    "is_ai": "true",
-   "ab": "short",
    "review": "human"
   }
  ],
- "note": "10/27 화 헬스 코너 릴스 — 페이지 전환형 짧은판, 사용자 승인 기록 있음 · 21:07 슬롯이 media 이중 _short 로 건너뛰어 즉시 게시로 재요청"
+ "note": "10/27 야구 나이트 캐러셀(@hannun.sports) + 헬스 캐러셀(본계정, 사용자 승인 기록) — 헬스 릴스는 이미 14:48Z push 로 요청·게시 처리됨"
 }

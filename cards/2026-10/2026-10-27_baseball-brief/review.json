@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "e126b55a06b34eadf343f6d3b16049c96be2e130",
+ "by": "agent",
+ "cards": 6,
+ "at": "2026-10-27T15:22:02Z",
+ "note": "card-visual-reviewer 실물 검수 FAIL 1(04 팀명·숫자 붙음) → MIL|10|1|TB 수정·재구움 후 04.jpg 직접 확인 PASS"
+}
