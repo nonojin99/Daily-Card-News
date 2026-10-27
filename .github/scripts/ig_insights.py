@@ -96,12 +96,54 @@ def account(label, token, uid):
     return rec
 
 
+SNAP_FILE = "insights/snapshots/24h.json"
+
+
+def snapshots():
+    """게시 후 24시간이 지난 게시물의 지표를 한 번만 남긴다(2026-10-27 사용자 승인 — 시간대별 비교용).
+    매시 실행에서 나이 24~48시간이고 아직 기록 없는 게시물만 찍는다 → 24시간 직후 1시간 안의 값."""
+    try:
+        snap = json.load(open(SNAP_FILE, encoding="utf-8"))
+    except Exception:
+        snap = {}
+    now = datetime.datetime.now(datetime.timezone.utc)
+    added = 0
+    for label, tk, uid in (("main", "IG_ACCESS_TOKEN", "IG_USER_ID"), ("sports", "IG_SPORTS_ACCESS_TOKEN", "IG_SPORTS_USER_ID")):
+        t, u = os.environ.get(tk, "").strip(), os.environ.get(uid, "").strip()
+        if not (t and u):
+            continue
+        lst, err = call(t, f"{u}/media", fields="id,caption,media_type,media_product_type,timestamp", limit=LIMIT)
+        if err:
+            print(f"{label} media 오류: {err.get('message')}"); continue
+        for m in lst.get("data", []):
+            key = f"{label}:{m['id']}"
+            try:
+                age = (now - datetime.datetime.strptime(m["timestamp"], "%Y-%m-%dT%H:%M:%S%z")).total_seconds() / 3600
+            except Exception:
+                continue
+            if key in snap or not (24 <= age < 48):
+                continue
+            reel = m.get("media_product_type") == "REELS"
+            vals, bad = insights(t, m["id"], COMMON + (REEL_EXTRA if reel else []))
+            snap[key] = {"account": label, "type": m.get("media_product_type") or m.get("media_type"), "posted_utc": m["timestamp"],
+                         "snapshot_utc": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "age_h": round(age, 1),
+                         "first_line": (m.get("caption") or "").split("\n")[0][:80], "metrics": vals, **({"metric_errors": bad} if bad else {})}
+            added += 1
+    if added:
+        os.makedirs(os.path.dirname(SNAP_FILE), exist_ok=True)
+        json.dump(snap, open(SNAP_FILE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print(f"24시간 스냅샷 {added}건 추가(누적 {len(snap)})")
+
+
 def fmt(v, ms=False):
     if v is None: return "–"
     return f"{v / 1000:.1f}초" if ms else f"{v:,}"
 
 
 def main():
+    if os.environ.get("SNAPSHOT_ONLY") == "1":
+        snapshots(); return
+    snapshots()
     accs = []
     for label, tk, uid in (("main", "IG_ACCESS_TOKEN", "IG_USER_ID"), ("sports", "IG_SPORTS_ACCESS_TOKEN", "IG_SPORTS_USER_ID")):
         t, u = os.environ.get(tk, "").strip(), os.environ.get(uid, "").strip()
