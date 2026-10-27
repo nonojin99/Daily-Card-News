@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-27T04:23:11Z",
-  "count": 283,
+  "generated": "2026-10-27T15:02:53Z",
+  "count": 284,
   "files": [
     {
       "date": "2026-10-27",
@@ -28,6 +28,15 @@
       "day": "27",
       "type": "health",
       "path": "2026-10-27_health-brief.html"
+    },
+    {
+      "date": "2026-10-27",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "27",
+      "type": "baseball",
+      "path": "2026-10-27_baseball-brief.html"
     },
     {
       "date": "2026-10-27",
