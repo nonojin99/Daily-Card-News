@@ -1,21 +1,15 @@
 {
  "requests": [
   {
-   "kind": "story",
-   "media": "sports/alerts/2026-10/2026-10-26_kbo_final.jpg",
-   "caption": "",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports"
-  },
-  {
    "kind": "reel",
-   "media": "reels/sports/2026-10/2026-10-26_kbo-20261026htss0.mp4",
-   "caption": "reels/sports/2026-10/2026-10-26_kbo-20261026htss0.txt",
+   "media": "reels/2026-10/2026-10-27_esports_short.mp4",
+   "caption": "captions/2026-10-27_esports_reel.txt",
    "dry_run": "false",
    "is_ai": "false",
+   "ab": "short",
+   "review": "required",
    "account": "sports"
   }
  ],
- "note": "10/26 PO 1차전 결과 리뷰(KIA 5:1 삼성) — 스코어보드·주요 기록 리뷰 카드 첫 회, 사용자 요청으로 세션이 직접 올림"
+ "note": "10/27 e스포츠 롤드컵 결산 10초판 릴스 — 스포츠 계정은 정해진 시간대가 아니라 검수 통과 즉시 게시(사용자 결정 2026-10-27)"
 }
