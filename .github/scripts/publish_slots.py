@@ -45,9 +45,11 @@ def load_done():
         return {}
 
 
-def mark_done(key, now, fail):
+def mark_done(key, now, fail, waiting=()):
     d = load_done()
     d[key] = {"at_kst": now.strftime("%Y-%m-%d %H:%M"), "fail": bool(fail)}
+    if waiting:
+        d[key]["waiting"] = list(waiting)   # 검수 대기로 못 올린 항목 — check_slots.py 가 알림(Actions 실패 메일)으로 바꾼다
     cut = (now - datetime.timedelta(days=4)).strftime("%Y-%m-%d")
     d = {k: v for k, v in d.items() if k[:10] >= cut}
     os.makedirs(os.path.dirname(DONE), exist_ok=True)
@@ -78,26 +80,28 @@ def run(f):
     print(f"== {f}", flush=True)
     p = subprocess.run([sys.executable, os.path.join(ROOT, ".github/scripts/publish_ig.py")], env={**os.environ, "REQUEST": f}, capture_output=True, text=True, cwd=ROOT)
     sys.stdout.write(p.stdout); sys.stderr.write(p.stderr)
-    return p.returncode, "PUBLISHED" in p.stdout
+    waits = [l.split("검수 대기 —", 1)[1].strip() for l in p.stdout.splitlines() if "검수 대기 —" in l]   # 검수 기록이 없거나 지문이 달라 건너뛴 항목
+    return p.returncode, "PUBLISHED" in p.stdout, waits
 
 
 def process(day, slot):
-    """이 시간대 파일 전부 + 더 이른 시간대에서 못 올린 것 최대 1건. 실패가 있으면 True."""
+    """이 시간대 파일 전부 + 더 이른 시간대에서 못 올린 것 최대 1건. (실패가 있으면 True, 검수 대기로 건너뛴 항목 목록)."""
     print(f"slot {day} {slot}", flush=True)
-    fail = False
+    fail, waiting = False, []
     for f in files_for(day, slot):
-        code, pub = run(f); fail |= code != 0
+        code, pub, waits = run(f); fail |= code != 0
+        waiting += [f"{os.path.basename(f)}: {w[:90]}" for w in waits]
         if pub: note_sports_reel(f)
     for s in SLOTS[:SLOTS.index(slot)]:
         caught = False
         for f in files_for(day, s):
-            code, pub = run(f); fail |= code != 0
+            code, pub, waits = run(f); fail |= code != 0
             if pub:
                 note_sports_reel(f)
                 print(f"::notice::따라잡기 1건 게시 — {f} (나머지는 다음 시간대)"); caught = True; break
         if caught:
             break
-    return fail
+    return fail, waiting
 
 
 def tick():
@@ -106,8 +110,8 @@ def tick():
     day, slot = current(now)
     if not day or f"{day}_{slot}" in load_done():
         return []
-    fail = process(day, slot)
-    mark_done(f"{day}_{slot}", now, fail)
+    fail, waiting = process(day, slot)
+    mark_done(f"{day}_{slot}", now, fail, waiting)
     return [os.path.relpath(DONE, ROOT), os.path.relpath(SPORTS_Q, ROOT)]
 
 
@@ -123,8 +127,8 @@ def main():
     key = f"{day}_{slot}"
     if key in load_done() and os.environ.get("FORCE", "") != "1":
         print(f"{key} 는 이어 달리기가 이미 처리함({load_done()[key]['at_kst']}) — 예비 실행은 건너뜀"); return
-    fail = process(day, slot)
-    mark_done(key, now, fail)
+    fail, waiting = process(day, slot)
+    mark_done(key, now, fail, waiting)
     sys.exit(1 if fail else 0)
 
 

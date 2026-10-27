@@ -1,0 +1,19 @@
+name: Slot check
+
+# 예정 시각에 안 올라간 시간대 게시를 알린다(2026-10-27, 사용자 요청 — 운영 감시 22:40 은 텀이 너무 길다).
+# 이상이 있으면 이 실행이 실패 → GitHub 실패 메일. 판정 규칙은 .github/scripts/check_slots.py.
+on:
+  schedule:
+    - cron: '35 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 .github/scripts/check_slots.py
