@@ -75,6 +75,20 @@
    "status": "published",
    "result": "18101231591059811",
    "posted_kst": "2026-10-27 07:05"
+  },
+  {
+   "id": "live:mlb:849804:8:10-0",
+   "kind": "live",
+   "mp4": "reels/sports/2026-10/2026-10-27_live-mlb-849804-8-10-0.mp4",
+   "caption": "reels/sports/2026-10/2026-10-27_live-mlb-849804-8-10-0.txt",
+   "score": 50,
+   "why": [
+    "결승급"
+   ],
+   "seconds": 6.0,
+   "made_kst": "2026-10-27 11:34",
+   "until_kst": "2026-10-27 12:19",
+   "status": "queued"
   }
  ],
  "scored": {
