@@ -30,7 +30,7 @@ const TITLE = { ai: "듣는 AI", sports: "듣는 스포츠", football: "주말 �
 // 축구 프리뷰(2026-10-24~): 토 주말 프리뷰·화 챔피언스리그 프리뷰는 짧은판만(14초 이내, 표지 빼고 본문 카드부터) — 낭독판은 만들지 않는다
 // 10초판(2026-10-26~ 사용자 결정 — 스포츠 데이터 릴스 9.2초가 조회 121·평균 시청 23초·건너뛰기 0%): 축구 모닝·야구 나이트는 발행일마다
 // '첫 카드 천천히 확대 5.5초 → 둘째 카드 4초', 낭독 없음·배경음악, 출처 장 없음(카드에 출처 칩). 낭독판·13초 짧은판은 만들지 않는다.
-const FAST_OF = type => ["football", "baseball"].includes(type);
+const FAST_OF = type => ["football", "baseball", "esports"].includes(type);
 const SHORT_ONLY = (type, wd) => FAST_OF(type) || (type === "football" && (wd === 6 || wd === 2));
 const REEL_OF = (type, wd) => ["ai", "science", "activity"].includes(type) || (type === "sports" && (wd === 1 || wd === 2)) || SHORT_ONLY(type, wd);   // 음악(토)은 2026-10-24 브리프 폐지로 뺐다
 // 스포츠 시리즈는 @hannun.sports 로 올라간다(app/cards.html SPORTS_HANDLE 과 같게)
