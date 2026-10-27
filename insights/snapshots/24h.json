@@ -1,0 +1,253 @@
+{
+ "main:18145023313563363": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-10-26T12:08:11+0000",
+  "snapshot_utc": "2026-10-27T20:37:00Z",
+  "age_h": 32.5,
+  "first_line": "[AI·테크] 클로드 듀엣 커넥터 6,000개 이상 · 구글 클라우드 OpenAI 모델 3종 · 영국 바이오보안 1억 6,500만 파운드",
+  "metrics": {
+   "views": 163,
+   "reach": 141,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2184,
+   "ig_reels_video_view_total_time": 318983,
+   "reels_skip_rate": 84.7
+  }
+ },
+ "main:18082672961417905": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-10-26T03:15:51+0000",
+  "snapshot_utc": "2026-10-27T20:37:00Z",
+  "age_h": 41.4,
+  "first_line": "[오늘의 뉴스] 삼성전자 3분기 잠정 영업이익 107.4조 · 이번 주 하이닉스 28일·삼성 29일 실적 발표",
+  "metrics": {
+   "views": 122,
+   "reach": 108,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 3,
+   "ig_reels_avg_watch_time": 2491,
+   "ig_reels_video_view_total_time": 274092,
+   "reels_skip_rate": 75.7
+  }
+ },
+ "main:18108262103362029": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-10-26T01:38:25+0000",
+  "snapshot_utc": "2026-10-27T20:37:00Z",
+  "age_h": 43.0,
+  "first_line": "[AI·테크] 앤트로픽 '클로드 듀엣' · 구글 클라우드에 OpenAI 모델 3종 · 영국 AI 바이오보안 1억 6,500만 파운드 — 10월 ",
+  "metrics": {
+   "views": 15,
+   "reach": 4,
+   "likes": 3,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 3
+  }
+ },
+ "sports:18111994298269701": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-26T17:57:12+0000",
+  "snapshot_utc": "2026-10-27T20:37:00Z",
+  "age_h": 26.7,
+  "first_line": "[🎮 LoL] T1 1:0 CFO",
+  "metrics": {
+   "views": 115,
+   "reach": 107,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1802,
+   "ig_reels_video_view_total_time": 194697,
+   "reels_skip_rate": 87.9
+  }
+ },
+ "sports:17953822701291747": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-26T12:52:31+0000",
+  "snapshot_utc": "2026-10-27T20:37:00Z",
+  "age_h": 31.7,
+  "first_line": "[⚾ KBO] 플레이오프 1차전 — KIA 5:1 삼성",
+  "metrics": {
+   "views": 145,
+   "reach": 105,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 3722,
+   "ig_reels_video_view_total_time": 394605,
+   "reels_skip_rate": 72.4
+  }
+ },
+ "sports:18044481959834063": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-26T12:24:39+0000",
+  "snapshot_utc": "2026-10-27T20:37:00Z",
+  "age_h": 32.2,
+  "first_line": "[⚾ KBO] 플레이오프 1차전 8회 — KIA 5:1 삼성",
+  "metrics": {
+   "views": 121,
+   "reach": 107,
+   "likes": 3,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 3,
+   "ig_reels_avg_watch_time": 2529,
+   "ig_reels_video_view_total_time": 278266,
+   "reels_skip_rate": 81.3
+  }
+ },
+ "sports:18380961577235865": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-26T01:41:11+0000",
+  "snapshot_utc": "2026-10-27T20:37:00Z",
+  "age_h": 42.9,
+  "first_line": "[⚽ 축구 모닝] 음바페 2골, 레알 2-1 바르사 · 리버풀 2-0 · 맨유 홈 0-3 · 조규성 선제골 · 수원 삼성 7연승",
+  "metrics": {
+   "views": 115,
+   "reach": 107,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2838,
+   "ig_reels_video_view_total_time": 320695,
+   "reels_skip_rate": 76.9
+  }
+ },
+ "sports:18157752367479830": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-26T01:40:18+0000",
+  "snapshot_utc": "2026-10-27T20:37:00Z",
+  "age_h": 42.9,
+  "first_line": "[⚾ 야구 나이트] 0-4에서 5-4, 밀워키 월드시리즈 2연승 · 대구 PO 1차전 우천 취소 26일 18:30",
+  "metrics": {
+   "views": 117,
+   "reach": 106,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 2,
+   "ig_reels_avg_watch_time": 2498,
+   "ig_reels_video_view_total_time": 267351,
+   "reels_skip_rate": 82.9
+  }
+ },
+ "sports:18116864330102948": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-26T00:15:15+0000",
+  "snapshot_utc": "2026-10-27T20:37:00Z",
+  "age_h": 44.4,
+  "first_line": "[🏟 밤사이 결과] 결과판 5장 한 번에",
+  "metrics": {
+   "views": 128,
+   "reach": 114,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 3530,
+   "ig_reels_video_view_total_time": 413125,
+   "reels_skip_rate": 78.3
+  }
+ },
+ "sports:18111051596626989": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-26T00:09:28+0000",
+  "snapshot_utc": "2026-10-27T20:37:00Z",
+  "age_h": 44.5,
+  "first_line": "[🎮 LoL] MKOI 0:2 디플러스 기아",
+  "metrics": {
+   "views": 119,
+   "reach": 107,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1896,
+   "ig_reels_video_view_total_time": 204800,
+   "reels_skip_rate": 92.5
+  }
+ },
+ "sports:18169904227487225": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-10-26T00:02:02+0000",
+  "snapshot_utc": "2026-10-27T20:37:00Z",
+  "age_h": 44.6,
+  "first_line": "[🏆 이벤트 픽] 요시다 유리 BMW 레이디스 첫 우승 · 유해란·최혜진 공동 2위 · 제네시스 챔피언십 김시우 공동 4위 — 2장",
+  "metrics": {
+   "views": 5,
+   "reach": 2,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18139974481627014": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-10-26T00:00:38+0000",
+  "snapshot_utc": "2026-10-27T20:37:00Z",
+  "age_h": 44.6,
+  "first_line": "[⚽ 축구 모닝] 레알 2-1 바르사 · 음바페 2골, 바르사 리그 첫 패 · 조규성 선제골 · 수원 삼성 7연승 — 6장",
+  "metrics": {
+   "views": 3,
+   "reach": 1,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18155536768521706": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-25T23:43:20+0000",
+  "snapshot_utc": "2026-10-27T20:37:00Z",
+  "age_h": 44.9,
+  "first_line": "[🎮 LoL] LYON 1:2 젠지",
+  "metrics": {
+   "views": 130,
+   "reach": 123,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2060,
+   "ig_reels_video_view_total_time": 253383,
+   "reels_skip_rate": 91.7
+  }
+ }
+}
