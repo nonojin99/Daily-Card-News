@@ -622,6 +622,21 @@
    "status": "published",
    "at_kst": "2026-10-28 13:35",
    "result": "18168126850486380"
+  },
+  "ita.1:401874993": {
+   "image": "sports/alerts/2026-10/2026-10-28_ita-1_0424.jpg",
+   "status": "pending",
+   "at_kst": "2026-10-29 04:24"
+  },
+  "ita.1:401874965": {
+   "image": "sports/alerts/2026-10/2026-10-28_ita-1_0424.jpg",
+   "status": "pending",
+   "at_kst": "2026-10-29 04:24"
+  },
+  "ita.1:401874773": {
+   "image": "sports/alerts/2026-10/2026-10-28_ita-1_0424.jpg",
+   "status": "pending",
+   "at_kst": "2026-10-29 04:24"
   }
  },
  "boards": {
