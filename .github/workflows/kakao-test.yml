@@ -10,10 +10,13 @@ jobs:
           SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}
           RT: ${{ secrets.KAKAO_REFRESH_TOKEN }}
         run: |
-          AT=$(curl -s -X POST https://kauth.kakao.com/oauth/token \
+          RES=$(curl -s -X POST https://kauth.kakao.com/oauth/token \
             -d grant_type=refresh_token -d client_id="$KEY" \
-            -d client_secret="$SECRET" -d refresh_token="$RT" | jq -r .access_token)
-          [ "$AT" = "null" ] && { echo "토큰 갱신 실패"; exit 1; }
+            -d client_secret="$SECRET" -d refresh_token="$RT")
+          AT=$(echo "$RES" | jq -r .access_token)
+          if [ "$AT" = "null" ] || [ -z "$AT" ]; then
+            echo "토큰 갱신 실패:"; echo "$RES"; exit 1
+          fi
           curl -s -X POST https://kapi.kakao.com/v2/api/talk/memo/default/send \
             -H "Authorization: Bearer $AT" \
             --data-urlencode 'template_object={"object_type":"text","text":"데일리 브리핑 테스트 ✅","link":{"web_url":"https://nonojin99.github.io/Daily-Card-News/app/"}}'
