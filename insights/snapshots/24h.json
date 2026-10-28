@@ -389,5 +389,99 @@
    "ig_reels_video_view_total_time": 232623,
    "reels_skip_rate": 83.8
   }
+ },
+ "main:17881560333547640": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-10-27T15:24:39+0000",
+  "snapshot_utc": "2026-10-28T19:28:29Z",
+  "age_h": 28.1,
+  "first_line": "[🩺 헬스] 독감 21.6명, 유행 기준 위 · 들기름 벤조피렌 회수 · 걸음 수와 치매 연구",
+  "metrics": {
+   "views": 7,
+   "reach": 4,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "main:18133208431794321": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-10-27T15:16:08+0000",
+  "snapshot_utc": "2026-10-28T19:28:29Z",
+  "age_h": 28.2,
+  "first_line": "[🩺 헬스] 독감 21.6명, 유행 기준 위 · 들기름 벤조피렌 회수 · 걸음 수와 치매 연구",
+  "metrics": {
+   "views": 133,
+   "reach": 109,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 3187,
+   "ig_reels_video_view_total_time": 357007,
+   "reels_skip_rate": 80.7
+  }
+ },
+ "sports:17912542137487687": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-10-27T15:23:01+0000",
+  "snapshot_utc": "2026-10-28T19:28:29Z",
+  "age_h": 28.1,
+  "first_line": "[⚾ 야구 나이트] 삼성, 3회 4점으로 KIA 8-3 · PO 1승 1패 · 월드시리즈 3차전 한 이닝 8점 — 10월 27일 4장",
+  "metrics": {
+   "views": 3,
+   "reach": 1,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18122400476065857": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-27T15:10:39+0000",
+  "snapshot_utc": "2026-10-28T19:28:29Z",
+  "age_h": 28.3,
+  "first_line": "[⚾ KBO] KIA 3:8 삼성",
+  "metrics": {
+   "views": 149,
+   "reach": 108,
+   "likes": 3,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 3,
+   "ig_reels_avg_watch_time": 3323,
+   "ig_reels_video_view_total_time": 375571,
+   "reels_skip_rate": 77.3
+  }
+ },
+ "sports:18449710570120641": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-27T15:04:52+0000",
+  "snapshot_utc": "2026-10-28T19:28:29Z",
+  "age_h": 28.4,
+  "first_line": "[🏟 오늘 결과] 결과판 3장 한 번에",
+  "metrics": {
+   "views": 120,
+   "reach": 112,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2202,
+   "ig_reels_video_view_total_time": 244449,
+   "reels_skip_rate": 83.6
+  }
  }
 }
