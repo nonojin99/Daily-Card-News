@@ -661,8 +661,9 @@
   },
   "pre:mlb:849799": {
    "image": "sports/alerts/2026-10/2026-10-28_mlb_0702.jpg",
-   "status": "pending",
-   "at_kst": "2026-10-29 07:02"
+   "status": "published",
+   "at_kst": "2026-10-29 07:02",
+   "result": "17967960912199049"
   }
  },
  "boards": {
