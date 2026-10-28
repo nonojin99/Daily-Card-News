@@ -483,5 +483,25 @@
    "ig_reels_video_view_total_time": 244449,
    "reels_skip_rate": 83.6
   }
+ },
+ "sports:18098426426355006": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-27T22:06:56+0000",
+  "snapshot_utc": "2026-10-28T23:58:46Z",
+  "age_h": 25.9,
+  "first_line": "[⚾ MLB] 월드시리즈 4차전 선발 — 밀워키 Dustin May vs 탬파베이 Griffin Jax",
+  "metrics": {
+   "views": 121,
+   "reach": 106,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1616,
+   "ig_reels_video_view_total_time": 172917,
+   "reels_skip_rate": 91.3
+  }
  }
 }
