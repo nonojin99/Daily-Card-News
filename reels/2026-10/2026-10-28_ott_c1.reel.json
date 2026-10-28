@@ -7,16 +7,15 @@
   "type": "흥미형",
   "out": "reels/2026-10/2026-10-28_ott_c1.mp4",
   "opening": "motion",
-  "pages": 4,
-  "seconds": 13,
+  "pages": 3,
+  "seconds": 10.8,
   "bgm": "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3",
   "credit": "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0",
   "keys": [
-    "한국 가격 89,800원",
     "GTA5 이후 13년 만",
-    "2편 예고편 첫날 4.75억+",
-    "지도 GTA5의 약 2배"
+    "지도 GTA5의 약 2배",
+    "2편 예고편 첫날 4.75억 회+"
   ],
-  "note": "깊게 파는 릴스(페이지 전환형) — 카드 1 요점 4장",
-  "fp": "771eeeca5f77b0b6a14480cadbdbf5f9e673d8fd"
+  "note": "깊게 파는 릴스(페이지 전환형) — 카드 1 요점 3장",
+  "fp": "80fb06a9a92ddf69168edd9fd6f36c26db90f333"
 }
