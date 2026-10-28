@@ -249,5 +249,25 @@
    "ig_reels_video_view_total_time": 253383,
    "reels_skip_rate": 91.7
   }
+ },
+ "sports:18101231591059811": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-26T22:04:54+0000",
+  "snapshot_utc": "2026-10-28T00:26:25Z",
+  "age_h": 26.4,
+  "first_line": "[⚾ MLB] 월드시리즈 3차전 선발 — 밀워키 Robert Gasser vs 탬파베이 페랄타",
+  "metrics": {
+   "views": 117,
+   "reach": 104,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2141,
+   "ig_reels_video_view_total_time": 224895,
+   "reels_skip_rate": 85.3
+  }
  }
 }
