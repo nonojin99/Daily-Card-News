@@ -269,5 +269,45 @@
    "ig_reels_video_view_total_time": 224895,
    "reels_skip_rate": 85.3
   }
+ },
+ "sports:17926623099428930": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-27T03:16:22+0000",
+  "snapshot_utc": "2026-10-28T06:48:33Z",
+  "age_h": 27.5,
+  "first_line": "[⚾ MLB] 밀워키 10:1 탬파베이",
+  "metrics": {
+   "views": 133,
+   "reach": 109,
+   "likes": 0,
+   "comments": 0,
+   "shares": 1,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 2878,
+   "ig_reels_video_view_total_time": 325289,
+   "reels_skip_rate": 82.9
+  }
+ },
+ "sports:18138914020725972": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-27T02:37:13+0000",
+  "snapshot_utc": "2026-10-28T06:48:33Z",
+  "age_h": 28.2,
+  "first_line": "[⚾ MLB] 월드시리즈 3차전 진행 중 — 밀워키 10:0 탬파베이",
+  "metrics": {
+   "views": 130,
+   "reach": 108,
+   "likes": 0,
+   "comments": 0,
+   "shares": 1,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 2870,
+   "ig_reels_video_view_total_time": 309970,
+   "reels_skip_rate": 79.4
+  }
  }
 }
