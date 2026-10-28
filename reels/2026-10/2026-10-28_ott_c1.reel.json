@@ -7,15 +7,16 @@
   "type": "흥미형",
   "out": "reels/2026-10/2026-10-28_ott_c1.mp4",
   "opening": "motion",
-  "pages": 3,
-  "seconds": 10.8,
+  "pages": 4,
+  "seconds": 13,
   "bgm": "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3",
   "credit": "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0",
   "keys": [
     "GTA5 이후 13년 만",
+    "전작 GTA5 2.2억 장",
     "지도 GTA5의 약 2배",
     "2편 예고편 첫날 4.75억 회+"
   ],
-  "note": "깊게 파는 릴스(페이지 전환형) — 카드 1 요점 3장",
-  "fp": "80fb06a9a92ddf69168edd9fd6f36c26db90f333"
+  "note": "깊게 파는 릴스(페이지 전환형) — 카드 1 요점 4장",
+  "fp": "c6799f5138536f69c498570d53749b43bda10a7d"
 }
