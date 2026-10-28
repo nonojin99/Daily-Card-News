@@ -200,6 +200,19 @@
    "status": "published",
    "result": "18120190288981385",
    "posted_kst": "2026-10-28 11:35"
+  },
+  {
+   "id": "mlb:849803",
+   "kind": "game",
+   "mp4": "reels/sports/2026-10/2026-10-28_mlb-849803.mp4",
+   "caption": "reels/sports/2026-10/2026-10-28_mlb-849803.txt",
+   "score": 50,
+   "why": [
+    "결승급"
+   ],
+   "seconds": 5.5,
+   "made_kst": "2026-10-28 13:36",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -356,6 +369,15 @@
    "sport": "ita.1",
    "title": "코모 3:1 토리노",
    "at": "2026-10-28 06:47"
+  },
+  "mlb:849803": {
+   "score": 50,
+   "why": [
+    "결승급"
+   ],
+   "sport": "mlb",
+   "title": "밀워키 3:4 탬파베이",
+   "at": "2026-10-28 13:36"
   }
  },
  "last_post": 1793154941.6835198,
