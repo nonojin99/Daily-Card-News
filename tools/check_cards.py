@@ -105,8 +105,41 @@ def main(fname):
         head = f"## 카드 {i} [{topic}] — " + ("PASS" if not out else f"FAIL {nf} · WARN {nw}" if nf else f"WARN {nw}")
         print(head)
         for k, m in out: print(f"  - {k}: {m}")
+    # 깊게 파는 릴스 원고(2026-10-28 사용자 반려 뒤 — GTA 6 릴스의 요점 장 3개가 카드에 이미 있는 가격·날짜를 되풀이했다)
+    # README '깊게 파는 릴스': 카드를 되풀이하지 말고 한 단계 더 들어간다 → 요점 장(data-k)마다 카드 그림(cn)에 없는 새 숫자가 있어야 한다
+    rn, rf, rw = reel_check(src, cards)
+    fails += rf; warns += rw
+    if rn: print(rn)
     print(f"\n합계: FAIL {fails} · WARN {warns}")
     return 1 if fails else 0
+
+# 요점 문구의 숫자. 'GTA5'·'PS5' 처럼 글자에 붙은 숫자는 이름이라 뺀다
+RNUM = re.compile(r"(?<![A-Za-z])\d[\d,]*(?:\.\d+)?")
+
+def reel_check(src, cards):
+    out, f, w = [], 0, 0
+    norm = lambda x: x.replace(",", "").lstrip("0") or "0"
+    for m in re.finditer(r'<details class="reel-script"([^>]*)>(.*?)</details>', src, re.S):
+        n = int((re.search(r'data-card="(\d+)"', m.group(1)) or [0, 0])[1])
+        if not 1 <= n <= len(cards):
+            out.append(f"  - FAIL: reel-script data-card={n} 에 해당하는 카드 없음"); f += 1; continue
+        cn = re.search(r'<div class="cn" hidden>(.*?)</div>\s*$', cards[n - 1][1], re.S)
+        seen = {norm(x) for x in RNUM.findall(text(re.sub(r'<svg.*?</svg>|<p class="cn-img">.*?</p>', "", cn.group(1) if cn else "", flags=re.S)))}
+        pages = []
+        for k in re.findall(r'<p[^>]*\bdata-k="([^"]*)"', m.group(2)):
+            k = html.unescape(k); nums = {norm(x) for x in RNUM.findall(k)}
+            if not nums:
+                out.append(f"  - WARN: 요점 '{k}' 에 숫자 없음 — 숫자·날짜·조건이 든 요점이 강하다"); w += 1
+            elif nums <= seen:
+                out.append(f"  - FAIL: 요점 '{k}' 의 숫자가 모두 카드 {n} 에 이미 있음 — 카드를 되풀이하지 말고 새 정보로"); f += 1
+            for i, (pk, pn) in enumerate(pages, 2):
+                if nums and nums == pn:
+                    out.append(f"  - FAIL: 요점 '{k}' 와 '{pk}' 의 숫자가 같음 — 장마다 다른 정보로"); f += 1
+            pages.append((k, nums))
+        if len(pages) < 2:
+            out.append(f"  - FAIL: 카드 {n} 릴스 원고의 요점 장(data-k)이 {len(pages)}개 — 2개 이상"); f += 1
+    head = "\n## 릴스 원고 — " + ("PASS" if not out else f"FAIL {f} · WARN {w}" if f else f"WARN {w}")
+    return ((head + "\n" + "\n".join(out)) if out else head) if re.search(r'class="reel-script"', src) else "", f, w
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv[1]))

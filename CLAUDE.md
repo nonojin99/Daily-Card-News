@@ -93,6 +93,7 @@
 - **깊게 파는 릴스**: 브리프를 다 쓴 뒤 `item-scorer` 로 카드마다 점수(100) → **80점 이상, 점수 순, 본계정 릴스 하루 최대 3편(코너 릴스 포함), 80점이 없어도 최고점 1편**.
   고른 카드마다 `<details class="reel-script" data-card="N" data-score="86" data-type="손해형|흥미형">` 원고(3~5문단, 2문단부터 `data-k` 요점 문구 — 페이지 전환형이라 `data-k` 가 화면의 전부)를 **같은 브리프에** 넣고
   tracker 에 `reel-scores:` 를 남긴다. 사건·사고 카드는 제외. 사실 검증 대상에 원고도 넣는다. README '깊게 파는 릴스'.
+- **릴스 기획 단계 (2026-10-28 사용자 결정 — GTA 6 릴스가 카드 가격·날짜를 되풀이해 반려)**: 채점 `item-scorer`(점수만) → 기획 `reel-planner`(카드에 없는 새 사실을 추가 조사해 장별 기획표 — 요점 장마다 다른 축: 배경·규모 비교·기록/순위·일정) → 검토 `reel-marketing-reviewer`(장별 새 정보·흐름·2.5초 가독·과장, **FAIL 이면 굽지 않는다**) → **수습 중(`publish/probation.json` `deep-reel` ≥ 1)이면 기획표를 사용자에게 먼저 보여 확인** → 원고(`reel-script`)·브리프 근거 보강 → `check_cards.py`(요점 장 숫자가 모두 카드에 이미 있으면 FAIL, 두 장 숫자가 같으면 FAIL) → push → `check_reel.py` + `reel-reviewer`(0번 기준 = 새 정보). 카드를 되풀이하는 요점 장은 push 관문(1단계)에서 막힌다. `item-scorer` 가 원고 초안을 내도 쓰지 않는다.
 - **시간대 게시**: 릴스 요청은 `publish/slots/<날짜>_<HHMM>_<종류>_c<N>.json`(07:30·12:10·18:40·21:07, 점수 순을 날짜마다 돌려 배정). 코너 릴스는 지금처럼 `publish/evening/`(= 21:07).
   깊게 파는 릴스는 수습 3편(`publish/probation.json` `deep-reel`) 동안 `"review":"human"`. `publish/slots/README.md`.
 - **스포츠 데이터 릴스(Actions 자동)**: 규칙 점수 50 이상 경기 = 한 경기 릴스, 07:40·23:40 = 결과판 묶음 릴스. ~~같은 계정 릴스 간격 최소 30분~~(2026-10-26 폐지 — 결과 릴스는 ASAP), 하루 최대 6편.
