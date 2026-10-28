@@ -625,18 +625,21 @@
   },
   "ita.1:401874993": {
    "image": "sports/alerts/2026-10/2026-10-28_ita-1_0424.jpg",
-   "status": "pending",
-   "at_kst": "2026-10-29 04:24"
+   "status": "published",
+   "at_kst": "2026-10-29 04:24",
+   "result": "18095697149166410"
   },
   "ita.1:401874965": {
    "image": "sports/alerts/2026-10/2026-10-28_ita-1_0424.jpg",
-   "status": "pending",
-   "at_kst": "2026-10-29 04:24"
+   "status": "published",
+   "at_kst": "2026-10-29 04:24",
+   "result": "18095697149166410"
   },
   "ita.1:401874773": {
    "image": "sports/alerts/2026-10/2026-10-28_ita-1_0424.jpg",
-   "status": "pending",
-   "at_kst": "2026-10-29 04:24"
+   "status": "published",
+   "at_kst": "2026-10-29 04:24",
+   "result": "18095697149166410"
   }
  },
  "boards": {
@@ -731,6 +734,10 @@
   "mlb:2026-10-27": {
    "last": 1793162208.0018759,
    "final": true
+  },
+  "ita.1:2026-10-28": {
+   "last": 1793215612.4212437,
+   "final": false
   }
  }
 }
