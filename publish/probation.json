@@ -2,7 +2,7 @@
  "_설명": "수습 기간 — 새 카테고리·형식의 남은 '사용자 승인' 편수(README '검수 체계'). 0 이 되면 에이전트 검수만으로 게시.",
  "money": 3,
  "health": 1,
- "deep-reel": 1,
+ "deep-reel": 0,
  "new-template": 3,
  "ott": 0,
  "food": 1,
