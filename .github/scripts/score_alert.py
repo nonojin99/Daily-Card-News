@@ -679,6 +679,8 @@ def reels_tick():
         try:
             pid = publish_reel(it["mp4"], cap)
             SR.mark(it["id"], "published", pid)
+            import kakao
+            kakao.notify(f"✅ 데이터 릴스 게시 · @hannun.sports\n{os.path.basename(it['mp4'])} (점수 {it['score']})")
         except Exception as e:  # noqa: BLE001
             print(f"::error::sports reel publish failed: {e}")
             SR.mark(it["id"], "failed", e)
@@ -763,6 +765,8 @@ def run_once():
         try:
             pid, status = publish_story(rel), "published"
             print(f"story published: {pid}")
+            import kakao
+            kakao.notify(f"✅ 스토리 게시 · @hannun.sports\n{bd.get('title', sport)}")
         except Exception as e:  # noqa: BLE001
             print(f"::error::{sport} story publish failed: {e}")
             pid, status = str(e)[:300], "failed"

@@ -48,6 +48,11 @@ jobs:
       - name: Watch and publish
         env:
           IG_SPORTS_ACCESS_TOKEN: ${{ secrets.IG_SPORTS_ACCESS_TOKEN }}
+          # 게시 성공 카톡(2026-10-29~) — kakao.py
+          KAKAO_REST_KEY: ${{ secrets.KAKAO_REST_KEY }}
+          KAKAO_CLIENT_SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}
+          KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
+          KAKAO_SECRETS_PAT: ${{ secrets.KAKAO_SECRETS_PAT }}
           IG_SPORTS_USER_ID: ${{ secrets.IG_SPORTS_USER_ID }}
           EXPECT_SPORTS_USERNAME: ${{ vars.EXPECT_SPORTS_USERNAME || 'hannun.sports' }}
           # 시간대 게시(07:30·12:10·18:40·21:07)도 이 루프가 한다(2026-10-26~, publish_slots.tick) — 본계정 릴스용

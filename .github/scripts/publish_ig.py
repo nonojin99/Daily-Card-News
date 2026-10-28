@@ -295,6 +295,7 @@ def publish_one():
         if out:
             with open(out, "a", encoding="utf-8") as fp:
                 fp.write(f"### Published to Instagram (403 2207051 뒤 확인)\n\n{info.get('permalink')}\n")
+        kakao_published(caption, info.get("permalink"))
         return
     info = call("GET", pub["id"], fields="permalink,media_type,media_product_type,timestamp")
     print("PUBLISHED:", json.dumps(info, ensure_ascii=False))
@@ -302,6 +303,14 @@ def publish_one():
     if out:
         with open(out, "a", encoding="utf-8") as fp:
             fp.write(f"### Published to Instagram\n\n{info.get('permalink')}\n")
+    kakao_published(caption, info.get("permalink"))
+
+
+def kakao_published(caption, permalink):
+    """게시 성공 카톡(2026-10-29~, 사용자 요청). 실패해도 게시 결과에는 영향 없음."""
+    import kakao
+    first = next((ln for ln in caption.splitlines() if ln.strip()), "")[:90]
+    kakao.notify(f"✅ 인스타 게시 · @{EXPECT} · {'릴스' if KIND == 'reel' else '캐러셀'}\n{first}", permalink or kakao.APP)
 
 
 if __name__ == "__main__":

@@ -5,58 +5,20 @@
   ① Actions 실패 — 같은 워크플로는 성공하기 전까지 6시간에 한 번만
   ② tools/ops_check.py 의 '사용자 승인 대기' — 새 항목이 보이면 바로
   ③ tools/ops_check.py 의 [높음] — 20분 넘게 남아 있을 때(빌드 직후 잠깐 비는 산출물은 무시)
+  ④ 루틴 결과 — 루틴이 push 한 alerts/outbox/<YYYY-MM-DD_HHMM>_<루틴>.txt (오늘·어제 파일만, CLAUDE.md '카카오 알림')
+게시 성공 알림은 게시 스크립트(publish_ig.py · score_alert.py)가 kakao.notify 로 바로 보낸다.
 같은 항목은 한 번만 보낸다. 상태는 STATE 파일(actions/cache 로 이어 받음).
 
 환경 변수: KAKAO_REST_KEY · KAKAO_CLIENT_SECRET · KAKAO_REFRESH_TOKEN (필수)
            KAKAO_SECRETS_PAT (선택 — 있으면 새 refresh token 을 Secret 에 자동 저장)
            MODE=run|test · TEST_MSG · WF_NAME · WF_CONCLUSION · WF_URL · WF_TITLE · STATE · GITHUB_REPOSITORY
 """
-import datetime, hashlib, json, os, re, subprocess, sys, urllib.parse, urllib.request
+import datetime, glob, hashlib, json, os, re, subprocess, sys
 
-APP = "https://nonojin99.github.io/Daily-Card-News/app/"
+from kakao import APP, access_token, send
 NOW = datetime.datetime.now(datetime.timezone.utc)
 KST = NOW + datetime.timedelta(hours=9)
 STATE = os.environ.get("STATE", "kakao-state/state.json")
-
-
-def post(url, data, headers=None):
-    req = urllib.request.Request(url, urllib.parse.urlencode(data).encode(), headers or {})
-    try:
-        with urllib.request.urlopen(req, timeout=20) as r:
-            return json.loads(r.read())
-    except urllib.error.HTTPError as e:
-        return json.loads(e.read() or b"{}")
-
-
-def access_token():
-    res = post("https://kauth.kakao.com/oauth/token", {
-        "grant_type": "refresh_token",
-        "client_id": os.environ["KAKAO_REST_KEY"],
-        "client_secret": os.environ.get("KAKAO_CLIENT_SECRET", ""),
-        "refresh_token": os.environ["KAKAO_REFRESH_TOKEN"],
-    })
-    if "access_token" not in res:
-        sys.exit(f"카카오 토큰 갱신 실패: {res}")
-    warn = ""
-    new_rt = res.get("refresh_token")   # 만료 1개월 전부터 새 값이 섞여 온다
-    if new_rt:
-        pat = os.environ.get("KAKAO_SECRETS_PAT", "")
-        ok = pat and subprocess.run(
-            ["gh", "secret", "set", "KAKAO_REFRESH_TOKEN", "--body", new_rt, "--repo", os.environ["GITHUB_REPOSITORY"]],
-            env={**os.environ, "GH_TOKEN": pat}, capture_output=True).returncode == 0
-        print("새 refresh token " + ("Secret 에 저장함" if ok else "저장 못 함"))
-        if not ok:
-            warn = "\n⚠ 카카오 토큰 30일 안에 재발급 필요"
-    return res["access_token"], warn
-
-
-def send(at, text, link):
-    tpl = {"object_type": "text", "text": text[:200], "link": {"web_url": link, "mobile_web_url": link}}
-    res = post("https://kapi.kakao.com/v2/api/talk/memo/default/send",
-               {"template_object": json.dumps(tpl, ensure_ascii=False)},
-               {"Authorization": f"Bearer {at}"})
-    print("발송:", res)
-    return res.get("result_code") == 0
 
 
 def clip(lines, head):
@@ -82,7 +44,10 @@ def ops_items():
 
 def main():
     if os.environ.get("MODE") == "test":
-        at, warn = access_token()
+        try:
+            at, warn = access_token()
+        except RuntimeError as e:
+            sys.exit(str(e))
         sys.exit(0 if send(at, (os.environ.get("TEST_MSG") or "카카오 알림 테스트 ✅") + warn, APP) else 1)
 
     try:
@@ -118,13 +83,29 @@ def main():
     if new:
         msgs.append((clip([t for _, t in new], f"🔔 [승인·점검] {len(new)}건"), APP, [k for k, _ in new], "items"))
 
+    # ④ 루틴 결과(outbox)
+    sent_box = st.setdefault("outbox", [])
+    days = {(KST - datetime.timedelta(days=d)).strftime("%Y-%m-%d") for d in (0, 1)}
+    for f in sorted(glob.glob("alerts/outbox/*.txt")):
+        name = os.path.basename(f)
+        if name[:10] in days and name not in sent_box:
+            text = open(f, encoding="utf-8").read().strip()
+            if text:
+                msgs.append((text, APP, name, "outbox"))
+    st["outbox"] = [n for n in sent_box if n[:10] in days]
+
     if msgs:
-        at, warn = access_token()
+        try:
+            at, warn = access_token()
+        except RuntimeError as e:
+            sys.exit(str(e))
         for text, link, key, kind in msgs:
             if send(at, text + warn, link):
                 warn = ""
                 if kind == "fail":
                     fails[key] = NOW.isoformat()
+                elif kind == "outbox":
+                    st["outbox"].append(key)
                 else:
                     for k in key:
                         seen[k]["sent"] = True

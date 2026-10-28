@@ -3,6 +3,7 @@ name: Kakao alert
 # 카카오톡 '나에게 보내기' 알림(2026-10-29~, 사용자 요청) — .github/scripts/kakao_alert.py
 # ① 아래 워크플로가 실패로 끝나면(같은 워크플로는 성공 전까지 6시간에 한 번)
 # ② ops_check 의 '사용자 승인 대기'(새 항목 즉시) ③ ops_check [높음](20분 넘게 남으면)
+# ④ 루틴 결과 alerts/outbox/*.txt. 게시 성공은 게시 스크립트가 바로 보낸다(kakao.py).
 # 루틴 push·워크플로 종료·매시 예약 때마다 확인한다. 같은 항목은 한 번만(상태는 actions/cache).
 # 테스트: Actions → Kakao alert → Run workflow(test 에 보낼 문구).
 # 토큰 자동 갱신: Secret KAKAO_SECRETS_PAT(이 저장소 Secrets 쓰기 권한 fine-grained PAT)가 있으면
@@ -27,6 +28,7 @@ on:
       - 'reels/**/*.review.json'
       - 'cards/**/review.json'
       - 'sports/reels/queue.json'
+      - 'alerts/outbox/**'   # 루틴 결과(CLAUDE.md '카카오 알림')
   schedule:
     - cron: '50 * * * *'
   workflow_dispatch:
