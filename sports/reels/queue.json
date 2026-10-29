@@ -275,6 +275,19 @@
    "status": "published",
    "result": "18130799362697973",
    "posted_kst": "2026-10-29 11:47"
+  },
+  {
+   "id": "mlb:849799",
+   "kind": "game",
+   "mp4": "reels/sports/2026-10/2026-10-29_mlb-849799.mp4",
+   "caption": "reels/sports/2026-10/2026-10-29_mlb-849799.txt",
+   "score": 50,
+   "why": [
+    "결승급"
+   ],
+   "seconds": 5.5,
+   "made_kst": "2026-10-29 12:21",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -504,6 +517,15 @@
    "sport": "lol",
    "title": "LYON 1:2 IG",
    "at": "2026-10-29 09:27"
+  },
+  "mlb:849799": {
+   "score": 50,
+   "why": [
+    "결승급"
+   ],
+   "sport": "mlb",
+   "title": "밀워키 4:1 탬파베이",
+   "at": "2026-10-29 12:21"
   }
  },
  "last_post": 1793242053.0184414,
