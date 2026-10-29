@@ -2,12 +2,13 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-10/2026-10-29_food-brief",
-   "caption": "captions/2026-10-29_food.txt",
+   "media": "cards/2026-10/2026-10-29_baseball-brief",
+   "caption": "captions/2026-10-29_baseball.txt",
    "dry_run": "false",
-   "is_ai": "true",
-   "review": "human"
+   "is_ai": "false",
+   "account": "sports",
+   "review": "required"
   }
  ],
- "note": "10/29 푸드 서브 플러스 — 캐러셀 (사용자 지시로 게시)"
+ "note": "10/29 야구 나이트 — 캐러셀 (릴스 없음)"
 }
