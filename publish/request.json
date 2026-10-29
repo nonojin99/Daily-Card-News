@@ -2,13 +2,12 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-10/2026-10-29_baseball-brief",
-   "caption": "captions/2026-10-29_baseball.txt",
+   "media": "cards/2026-10/2026-10-30_weekend",
+   "caption": "captions/2026-10-30_weekend.txt",
    "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
+   "is_ai": "true",
    "review": "required"
   }
  ],
- "note": "10/29 야구 나이트 — 캐러셀 (릴스 없음)"
+ "note": "10/30 금요일 주말 뭐하지 — 캐러셀 (릴스는 저녁 publish/evening)"
 }

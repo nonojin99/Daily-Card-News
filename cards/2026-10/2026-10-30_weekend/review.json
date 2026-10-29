@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "ce53ff5547a11ac1750a0e0532a29e529ea61f47",
+ "by": "agent",
+ "cards": 8,
+ "at": "2026-10-29T20:56:28Z",
+ "note": "card-visual-reviewer 실물 JPG 검수: 비엣젯 AI 그림 제거 재굽기 후 PASS, 푸터 날짜 10.29/10.30 혼재는 렌더러 동작(WARN)"
+}
