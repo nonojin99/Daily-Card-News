@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-29T01:58:38Z",
-  "count": 290,
+  "generated": "2026-10-29T14:48:00Z",
+  "count": 291,
   "files": [
     {
       "date": "2026-10-29",
@@ -19,6 +19,15 @@
       "day": "29",
       "type": "food",
       "path": "2026-10-29_food-brief.html"
+    },
+    {
+      "date": "2026-10-29",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "29",
+      "type": "baseball",
+      "path": "2026-10-29_baseball-brief.html"
     },
     {
       "date": "2026-10-29",
