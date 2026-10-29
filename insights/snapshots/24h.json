@@ -560,5 +560,25 @@
    "ig_reels_video_view_total_time": 271213,
    "reels_skip_rate": 80.4
   }
+ },
+ "main:17876313735637681": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-10-28T09:41:09+0000",
+  "snapshot_utc": "2026-10-29T12:51:05Z",
+  "age_h": 27.2,
+  "first_line": "[📺 OTT·게임] GTA 6 D-22 · 13년 만의 신작 · 지도 GTA 5의 약 2배",
+  "metrics": {
+   "views": 135,
+   "reach": 115,
+   "likes": 4,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 4,
+   "ig_reels_avg_watch_time": 4063,
+   "ig_reels_video_view_total_time": 475410,
+   "reels_skip_rate": 68.7
+  }
  }
 }
