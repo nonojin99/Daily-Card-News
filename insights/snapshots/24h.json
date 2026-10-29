@@ -503,5 +503,62 @@
    "ig_reels_video_view_total_time": 172917,
    "reels_skip_rate": 91.3
   }
+ },
+ "main:17995073592027847": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-10-28T01:28:36+0000",
+  "snapshot_utc": "2026-10-29T05:36:15Z",
+  "age_h": 28.1,
+  "first_line": "[📺 OTT·게임] GTA 6 한국 89,800원 · 꿀알바 30일 공개 · 재혼 황후 11월 4일",
+  "metrics": {
+   "views": 12,
+   "reach": 4,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1
+  }
+ },
+ "sports:17943822219369611": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-28T04:39:09+0000",
+  "snapshot_utc": "2026-10-29T05:36:15Z",
+  "age_h": 25.0,
+  "first_line": "[⚾ MLB] 밀워키 3:4 탬파베이",
+  "metrics": {
+   "views": 136,
+   "reach": 110,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2431,
+   "ig_reels_video_view_total_time": 277167,
+   "reels_skip_rate": 83.8
+  }
+ },
+ "sports:18120190288981385": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-28T02:35:36+0000",
+  "snapshot_utc": "2026-10-29T05:36:15Z",
+  "age_h": 27.0,
+  "first_line": "[⚾ MLB] 월드시리즈 4차전 진행 중 — 밀워키 2:2 탬파베이",
+  "metrics": {
+   "views": 139,
+   "reach": 112,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2379,
+   "ig_reels_video_view_total_time": 271213,
+   "reels_skip_rate": 80.4
+  }
  }
 }
