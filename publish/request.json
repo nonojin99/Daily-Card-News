@@ -2,23 +2,12 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-10/2026-10-29_football-brief",
-   "caption": "captions/2026-10-29_football.txt",
+   "media": "cards/2026-10/2026-10-29_food-brief",
+   "caption": "captions/2026-10-29_food.txt",
    "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "review": "required"
-  },
-  {
-   "kind": "reel",
-   "media": "reels/2026-10/2026-10-29_football.mp4",
-   "caption": "captions/2026-10-29_football_reel.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "ab": "short",
-   "review": "required"
+   "is_ai": "true",
+   "review": "human"
   }
  ],
- "note": "10/29 축구 모닝 — 세리에A 9라운드 캐러셀 + 10초 릴스"
+ "note": "10/29 푸드 서브 플러스 — 캐러셀 (사용자 지시로 게시)"
 }
