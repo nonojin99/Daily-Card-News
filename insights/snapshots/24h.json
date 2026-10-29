@@ -580,5 +580,65 @@
    "ig_reels_video_view_total_time": 475410,
    "reels_skip_rate": 68.7
   }
+ },
+ "sports:18121351981821678": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-28T22:44:37+0000",
+  "snapshot_utc": "2026-10-29T23:14:18Z",
+  "age_h": 24.5,
+  "first_line": "[🏟 밤사이 결과] 결과판 2장 한 번에",
+  "metrics": {
+   "views": 120,
+   "reach": 104,
+   "likes": 0,
+   "comments": 0,
+   "shares": 15,
+   "saved": 0,
+   "total_interactions": 15,
+   "ig_reels_avg_watch_time": 2673,
+   "ig_reels_video_view_total_time": 278061,
+   "reels_skip_rate": 81.4
+  }
+ },
+ "sports:18117916115078197": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-28T22:07:10+0000",
+  "snapshot_utc": "2026-10-29T23:14:18Z",
+  "age_h": 25.1,
+  "first_line": "[⚾ MLB] 월드시리즈 5차전 선발 — 밀워키 미시오로프스키 vs 탬파베이 라스무센",
+  "metrics": {
+   "views": 119,
+   "reach": 104,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1786,
+   "ig_reels_video_view_total_time": 184020,
+   "reels_skip_rate": 86.4
+  }
+ },
+ "sports:18494922958109204": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-28T21:57:15+0000",
+  "snapshot_utc": "2026-10-29T23:14:18Z",
+  "age_h": 25.3,
+  "first_line": "[🎮 LoL] T1 2:0 MKOI",
+  "metrics": {
+   "views": 122,
+   "reach": 111,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 1,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 1845,
+   "ig_reels_video_view_total_time": 203051,
+   "reels_skip_rate": 87.2
+  }
  }
 }
