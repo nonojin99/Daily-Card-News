@@ -667,8 +667,9 @@
   },
   "lol:115660540726095065": {
    "image": "sports/alerts/2026-10/2026-10-29_lol_0926.jpg",
-   "status": "pending",
-   "at_kst": "2026-10-29 09:26"
+   "status": "published",
+   "at_kst": "2026-10-29 09:26",
+   "result": "18105947426006484"
   }
  },
  "boards": {
@@ -769,8 +770,8 @@
    "final": true
   },
   "lol:2026-10-29": {
-   "last": 1793224508.7294738,
-   "final": false
+   "last": 1793233660.180475,
+   "final": true
   }
  }
 }
