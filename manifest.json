@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-28T23:43:13Z",
-  "count": 289,
+  "generated": "2026-10-29T00:54:11Z",
+  "count": 290,
   "files": [
     {
       "date": "2026-10-29",
@@ -10,6 +10,15 @@
       "day": "29",
       "type": "daily",
       "path": "2026-10-29_daily-brief.html"
+    },
+    {
+      "date": "2026-10-29",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "29",
+      "type": "food",
+      "path": "2026-10-29_food-brief.html"
     },
     {
       "date": "2026-10-29",
