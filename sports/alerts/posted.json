@@ -802,6 +802,11 @@
    "status": "published",
    "at_kst": "2026-10-30 21:17",
    "result": "18074631161750439"
+  },
+  "kbo:20261030SSHT0": {
+   "image": "sports/alerts/2026-10/2026-10-30_kbo_2152.jpg",
+   "status": "pending",
+   "at_kst": "2026-10-30 21:52"
   }
  },
  "boards": {
