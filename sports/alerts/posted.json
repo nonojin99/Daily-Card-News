@@ -796,6 +796,11 @@
    "status": "failed",
    "at_kst": "2026-10-30 21:10",
    "result": "POST 17841473719316196/media_publish → HTTP 400: {\"error\":{\"message\":\"The requested resource does not exist\",\"type\":\"OAuthException\",\"code\":24,\"error_subcode\":2207006,\"is_transient\":false,\"error_user_title\":\"Media Not Found\",\"error_user_msg\":\"The media with 17,898,956,235,457,311 cannot be found.\",\""
+  },
+  "live:kbo:20261030SSHT0:8:2-4": {
+   "image": "sports/alerts/2026-10/2026-10-30_kbo_2117.jpg",
+   "status": "pending",
+   "at_kst": "2026-10-30 21:17"
   }
  },
  "boards": {
