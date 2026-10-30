@@ -717,5 +717,82 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:18131743181510154": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-10-29T12:09:36+0000",
+  "snapshot_utc": "2026-10-30T12:42:51Z",
+  "age_h": 24.6,
+  "first_line": "[🍜 푸드] 피자설기 하루 6,000개 · 시경 픽 비빔밥 50만 개 · 군고구마는 호빵의 3배",
+  "metrics": {
+   "views": 132,
+   "reach": 118,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 3678,
+   "ig_reels_video_view_total_time": 441396,
+   "reels_skip_rate": 65
+  }
+ },
+ "main:18189231928364614": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-10-29T10:47:31+0000",
+  "snapshot_utc": "2026-10-30T12:42:51Z",
+  "age_h": 25.9,
+  "first_line": "[🍜 푸드] 피자설기 하루 6,000개 · 군고구마는 호빵의 3배",
+  "metrics": {
+   "views": 7,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18100127456098784": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-29T12:31:13+0000",
+  "snapshot_utc": "2026-10-30T12:42:51Z",
+  "age_h": 24.2,
+  "first_line": "[⚾ KBO] 플레이오프 3차전 진행 중 — 삼성 6:4 KIA",
+  "metrics": {
+   "views": 121,
+   "reach": 104,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 2558,
+   "ig_reels_video_view_total_time": 266062,
+   "reels_skip_rate": 69.6
+  }
+ },
+ "sports:18113795609154274": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-29T07:37:57+0000",
+  "snapshot_utc": "2026-10-30T12:42:51Z",
+  "age_h": 29.1,
+  "first_line": "[⚾ KBO] 플레이오프 3차전 선발 — 삼성 최원태 vs KIA 시라카와",
+  "metrics": {
+   "views": 115,
+   "reach": 103,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2431,
+   "ig_reels_video_view_total_time": 250400,
+   "reels_skip_rate": 85.3
+  }
  }
 }
