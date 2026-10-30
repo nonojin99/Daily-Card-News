@@ -1,131 +1,6 @@
 {
  "items": [
   {
-   "id": "lol:115660540726095049",
-   "kind": "game",
-   "mp4": "reels/sports/2026-10/2026-10-27_lol-115660540726095049.mp4",
-   "caption": "reels/sports/2026-10/2026-10-27_lol-115660540726095049.txt",
-   "score": 65,
-   "why": [
-    "한국",
-    "롤드컵"
-   ],
-   "seconds": 9.2,
-   "made_kst": "2026-10-27 02:54",
-   "status": "published",
-   "result": "18111994298269701",
-   "posted_kst": "2026-10-27 02:57"
-  },
-  {
-   "id": "pre:mlb:849804",
-   "kind": "pre",
-   "mp4": "reels/sports/2026-10/2026-10-27_pre-mlb-849804.mp4",
-   "caption": "reels/sports/2026-10/2026-10-27_pre-mlb-849804.txt",
-   "score": 50,
-   "why": [
-    "결승급"
-   ],
-   "seconds": 6.0,
-   "made_kst": "2026-10-27 07:01",
-   "until_kst": "2026-10-27 09:00",
-   "status": "published",
-   "result": "18101231591059811",
-   "posted_kst": "2026-10-27 07:05"
-  },
-  {
-   "id": "live:mlb:849804:8:10-0",
-   "kind": "live",
-   "mp4": "reels/sports/2026-10/2026-10-27_live-mlb-849804-8-10-0.mp4",
-   "caption": "reels/sports/2026-10/2026-10-27_live-mlb-849804-8-10-0.txt",
-   "score": 50,
-   "why": [
-    "결승급"
-   ],
-   "seconds": 6.0,
-   "made_kst": "2026-10-27 11:34",
-   "until_kst": "2026-10-27 12:19",
-   "status": "published",
-   "result": "18138914020725972",
-   "posted_kst": "2026-10-27 11:37"
-  },
-  {
-   "id": "mlb:849804",
-   "kind": "game",
-   "mp4": "reels/sports/2026-10/2026-10-27_mlb-849804.mp4",
-   "caption": "reels/sports/2026-10/2026-10-27_mlb-849804.txt",
-   "score": 50,
-   "why": [
-    "결승급"
-   ],
-   "seconds": 5.5,
-   "made_kst": "2026-10-27 12:14",
-   "status": "published",
-   "result": "17926623099428930",
-   "posted_kst": "2026-10-27 12:16"
-  },
-  {
-   "id": "pre:kbo:20261027HTSS0",
-   "kind": "pre",
-   "mp4": "reels/sports/2026-10/2026-10-27_pre-kbo-20261027-0.mp4",
-   "caption": "reels/sports/2026-10/2026-10-27_pre-kbo-20261027-0.txt",
-   "score": 55,
-   "why": [
-    "KBO",
-    "포스트시즌"
-   ],
-   "seconds": 6.0,
-   "made_kst": "2026-10-27 16:33",
-   "until_kst": "2026-10-27 18:30",
-   "status": "published",
-   "result": "18180744646448868",
-   "posted_kst": "2026-10-27 16:35"
-  },
-  {
-   "id": "live:kbo:20261027HTSS0:8:2-8",
-   "kind": "live",
-   "mp4": "reels/sports/2026-10/2026-10-27_live-kbo-20261027-0-8-2-8.mp4",
-   "caption": "reels/sports/2026-10/2026-10-27_live-kbo-20261027-0-8-2-8.txt",
-   "score": 55,
-   "why": [
-    "KBO",
-    "포스트시즌"
-   ],
-   "seconds": 6.0,
-   "made_kst": "2026-10-27 21:29",
-   "until_kst": "2026-10-27 22:14",
-   "status": "published",
-   "result": "18181847257433670",
-   "posted_kst": "2026-10-27 21:32"
-  },
-  {
-   "id": "kbo:20261027HTSS0",
-   "kind": "game",
-   "mp4": "reels/sports/2026-10/2026-10-27_kbo-20261027-0.mp4",
-   "caption": "reels/sports/2026-10/2026-10-27_kbo-20261027-0.txt",
-   "score": 55,
-   "why": [
-    "KBO",
-    "포스트시즌"
-   ],
-   "seconds": 5.5,
-   "made_kst": "2026-10-27 22:05",
-   "status": "published",
-   "result": "18122400476065857",
-   "posted_kst": "2026-10-28 00:10"
-  },
-  {
-   "id": "bundle:2026-10-27_23:40",
-   "kind": "bundle",
-   "mp4": "reels/sports/2026-10/2026-10-27_2340_bundle.mp4",
-   "caption": "reels/sports/2026-10/2026-10-27_2340_bundle.txt",
-   "score": 55,
-   "seconds": 9.3,
-   "made_kst": "2026-10-27 23:43",
-   "status": "published",
-   "result": "18449710570120641",
-   "posted_kst": "2026-10-28 00:04"
-  },
-  {
    "id": "pre:mlb:849803",
    "kind": "pre",
    "mp4": "reels/sports/2026-10/2026-10-28_pre-mlb-849803.mp4",
@@ -385,62 +260,6 @@
   }
  ],
  "scored": {
-  "lol:115660540726095049": {
-   "score": 65,
-   "why": [
-    "한국",
-    "롤드컵"
-   ],
-   "sport": "lol",
-   "title": "T1 1:0 CFO",
-   "at": "2026-10-27 02:54"
-  },
-  "lol:115660540726095051": {
-   "score": 15,
-   "why": [
-    "롤드컵"
-   ],
-   "sport": "lol",
-   "title": "BLG 1:0 KC",
-   "at": "2026-10-27 03:50"
-  },
-  "lol:115660540726095053": {
-   "score": 15,
-   "why": [
-    "롤드컵"
-   ],
-   "sport": "lol",
-   "title": "TSW 0:2 LOS",
-   "at": "2026-10-27 05:49"
-  },
-  "lol:115660540726095057": {
-   "score": 15,
-   "why": [
-    "롤드컵"
-   ],
-   "sport": "lol",
-   "title": "AL 0:2 TLAW",
-   "at": "2026-10-27 07:52"
-  },
-  "mlb:849804": {
-   "score": 50,
-   "why": [
-    "결승급"
-   ],
-   "sport": "mlb",
-   "title": "밀워키 10:1 탬파베이",
-   "at": "2026-10-27 12:14"
-  },
-  "kbo:20261027HTSS0": {
-   "score": 55,
-   "why": [
-    "KBO",
-    "포스트시즌"
-   ],
-   "sport": "kbo",
-   "title": "KIA 3:8 삼성",
-   "at": "2026-10-27 22:05"
-  },
   "ita.1:401874980": {
    "score": 10,
    "why": [
@@ -601,6 +420,15 @@
    "sport": "kbo",
    "title": "삼성 2:4 KIA",
    "at": "2026-10-30 21:54"
+  },
+  "ger.1:401884746": {
+   "score": 10,
+   "why": [
+    "5골+"
+   ],
+   "sport": "ger.1",
+   "title": "마인츠 1:4 엘버스베르크",
+   "at": "2026-10-31 06:27"
   }
  },
  "last_post": 1793371586.8652604,
