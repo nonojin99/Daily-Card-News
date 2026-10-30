@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="축구 모닝 — 2026.10.30">
+<meta property="og:description" content="5대 리그 순위표와 주말 프리뷰 — 바이에른–도르트문트 1·2위 맞대결, 밀란 더비, 리버풀–아스널, 코리안리거 6경기 일정. 시각은 한국시간">
+<meta property="og:type" content="article">
+<title>Football Morning — 2026.10.30</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#2f6b45; --accent-soft:#e9f1ec;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">Football Morning · 축구 모닝 · 리더보드 · 주말 프리뷰</div>
+    <h1>5대 리그 중 세 곳이 승점 동률 선두 — 이번 주말 클라시커, 밀란 더비, 리버풀–아스널</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 10월 30일 금요일</span>
+      <span class="count">6 Picks · 리더보드 + 주말 프리뷰</span>
+    </div>
+    <p class="lede">분데스리가·프리미어리그·세리에A는 1·2위의 승점이 같습니다. 분데스리가 1·2위는 일요일 새벽 2시 30분에 직접 붙습니다. 라리가는 바르셀로나가 2점 앞서 있고, 리그앙은 상위 네 팀이 2점 안에 있습니다. 코리안리거 6명의 주말 경기 시각도 정리했습니다. 이 브리프의 시각은 모두 한국시간입니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>10월 30일 금요일, 축구 모닝입니다.</p>
+    <p>승점 17점으로 같은 분데스리가 1위와 2위가 일요일 새벽 2시 30분에 맞붙습니다. 바이에른 뮌헨과 도르트문트의 데어 클라시커입니다. 바이에른이 득실차에서 앞선 1위입니다. 김민재는 두 경기 연속 뛰지 못했는데, 독일 키커는 이 경기에서 돌아올 수 있다고 보도했습니다.</p>
+    <p>프리미어리그도 맨시티와 아스널이 승점 21점으로 같습니다. 아스널은 월요일 새벽 1시 30분 4위 리버풀 원정을 치르고, 맨시티는 일요일 0시에 3위 브라이턴을 홈으로 부릅니다.</p>
+    <p>라리가는 바르셀로나가 27점으로 1위이고, 6연승 중인 아틀레티코 마드리드가 2점 뒤에 있습니다. 이강인의 아틀레티코는 토요일 밤 10시 레반테 원정을 치르고, 바르셀로나는 일요일 새벽 5시 알라베스를 만납니다.</p>
+    <p>세리에A는 라치오와 인터가 승점 25점으로 공동 선두입니다. 인터는 일요일 새벽 4시 45분 5위 밀란과 밀라노 더비를 치르고, 승점 14점으로 같은 유벤투스와 나폴리는 월요일 새벽 4시 45분에 만납니다.</p>
+    <p>리그앙은 파리 생제르맹이 17점으로 1위이고, 2위 렌부터 4위 모나코까지 2점 안에 몰려 있습니다. 한국시간 토요일 새벽 3시, PSG와 렌이 같은 시각에 각각 원정 경기를 치릅니다.</p>
+    <p>코리안리거 주말은 토요일 새벽 4시 30분 이재성의 마인츠부터 시작합니다. 이강인은 토요일 밤 10시, 황희찬과 설영우는 밤 11시 30분, 김민재는 일요일 새벽 2시 30분, 정우영은 일요일 밤 11시 30분 경기에 나섭니다.</p>
+    <p>지금까지 축구 모닝 리더보드였습니다. 주말 결과는 월요일 결산에서 전해 드립니다.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">리더보드 — 분데스리가 · 프리미어리그</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">獨</span>
+    <div class="card-top"><span class="topic">분데스리가</span></div>
+    <h2>승점 17 동률 1·2위 맞대결 — 바이에른–도르트문트, 일요일 새벽 2시 30분</h2>
+    <div class="summary">
+      <p>분데스리가 7라운드 뒤 <strong>바이에른 뮌헨</strong>과 <strong>도르트문트</strong>는 나란히 5승 2무, 승점 17점이다. 득실차(+19 대 +8)에서 바이에른이 1위다. 3위 프라이부르크와 4위 레버쿠젠이 13점으로 4점 뒤에 있다(분데스리가 순위표). 두 팀의 데어 클라시커는 한국시간 <strong>11월 1일(일) 새벽 2시 30분</strong> 뮌헨에서 열린다.</p>
+      <p><strong>김민재</strong>는 10월 22일 챔피언스리그 아스널전에서 하프타임에 교체된 뒤, 프라이부르크전에 결장했다. 포칼 마그데부르크전에선 교체 명단에 들었지만 뛰지 않았다(포포투). 독일 키커는 도르트문트전 복귀 가능성을 보도했고, NBC도 “복귀할 수도 있다”고 전했다. 출전 여부는 아직 정해지지 않았다. 바이에른은 디아스·무시알라가 빠지고, 노이어는 출전 가능성이 매우 낮다(NBC).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">순위</span><span>1위 바이에른 17점(+19) · 2위 도르트문트 17점(+8) · 3위 프라이부르크 13점 · 4위 레버쿠젠 13점 — 7경기씩</span></li>
+      <li><span class="k">킥오프</span><span>11/1(일) 새벽 2:30 한국시간 · 바이에른 홈</span></li>
+      <li><span class="k">김민재</span><span>최근 두 경기 결장 · 도르트문트전 출전 불확실</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>주중에는 DFB포칼만 열려 리그 순위가 7라운드 뒤 그대로다. 이 경기에서 이긴 팀이 단독 선두가 되고, 비기면 두 팀이 승점 18점으로 다시 나란히 선다.</p>
+    </div>
+    <a class="source" href="https://www.bundesliga.com/en/bundesliga/table">분데스리가 — 순위표</a> <a class="source" href="https://www.nbcsports.com/soccer/news/how-to-watch-bayern-munich-vs-borussia-dortmund-live-stream-tv-team-news-der-klassiker-prediction">NBC — 클라시커 시각·결장</a> <a class="source" href="https://fcbinside.de/2026/10/29/comeback-zum-bvb-kracher-eberl-gibt-kimmich-update">FCB인사이드 — 현지 18:30</a> <a class="source" href="https://www.fourfourtwo.co.kr/news/articleView.html?idxno=100016">포포투 — 김민재</a> <a class="source" href="https://www.sportschau.de/regional/br/br-kimmich-comeback-gegen-dortmund-danks-macht-hoffnung-102.html">스포르트샤우 — 바이에른 상황</a>
+    <span class="ref-note">FCB인사이드 현지 토 18:30(CET)·NBC 1:30 PM(EDT) = UTC 17:30 → 한국시간 일 02:30 · 순위는 분데스리가 공식 순위표 기준(주중 리그 경기 없음) (확인 2026-10-30)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">승점 17 동률,<br>1·2위가 붙는다</p>
+      <p class="cn-s">바이에른과 도르트문트가 일요일 새벽 2시 30분에 맞붙어요. 이긴 팀이 단독 선두예요. 김민재는 출전 여부가 아직 불확실해요.</p>
+      <p class="cn-bars">바이에른:17|도르트문트:17|프라이부르크:13|레버쿠젠:13</p>
+      <p class="cn-note">일 새벽 2:30 바이에른–도르트문트 (한국시간)</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">英</span>
+    <div class="card-top"><span class="topic">EPL</span></div>
+    <h2>맨시티·아스널 승점 21 동률 — 아스널은 월요일 새벽 1시 30분 리버풀 원정</h2>
+    <div class="summary">
+      <p>프리미어리그 8라운드 뒤 <strong>맨시티</strong>와 <strong>아스널</strong>은 7승 1패, 승점 21점으로 같다. 득실차(+11 대 +8)로 맨시티가 1위다. 3위 브라이턴이 16점, 4위 리버풀이 15점이다(NBC 순위표).</p>
+      <p>맨시티는 한국시간 <strong>일요일 0시</strong> 3위 브라이턴을 홈으로 부른다. 아스널은 <strong>월요일 새벽 1시 30분</strong> 안필드에서 4위 리버풀을 만난다. 리버풀이 이기면 아스널과의 승점 차가 3점으로 준다. 아스널은 사카·살리바가 부상으로 빠지고, 다우먼은 출장정지다(프리미어리그뉴스나우). 토요일 밤 9시 30분엔 5위 첼시가 16위 맨유를 만난다(스카이스포츠 일정).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">순위</span><span>1위 맨시티 21점(+11) · 2위 아스널 21점(+8) · 3위 브라이턴 16점 · 4위 리버풀 15점 · 5위 첼시 13점 — 8경기씩</span></li>
+      <li><span class="k">토 21:30</span><span>첼시–맨유</span></li>
+      <li><span class="k">일 0:00</span><span>맨시티(1위)–브라이턴(3위)</span></li>
+      <li><span class="k">월 새벽 1:30</span><span>리버풀(4위)–아스널(2위)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>두 경기가 하루 사이에 이어진다. 맨시티가 먼저 브라이턴전을 치르고, 아스널은 그 결과를 안 채 안필드에 들어간다. 맨시티가 이기면 아스널은 리버풀 원정에서 비기기만 해도 선두와 2점 차가 된다.</p>
+    </div>
+    <a class="source" href="https://www.nbcsports.com/soccer/news/premier-league-table-for-2026-27-season">NBC — EPL 순위표</a> <a class="source" href="https://www.skysports.com/premier-league-fixtures">스카이스포츠 — 9라운드 일정</a> <a class="source" href="https://premierleaguenewsnow.com/2026/10/30/liverpool-arsenal-preview-team-news-lineups-prediction/">프리미어리그뉴스나우 — 리버풀–아스널</a> <a class="source" href="https://khelnow.com/football/manchester-city-vs-brighton-preview-premier-league-202610">켈나우 — 맨시티–브라이턴</a>
+    <span class="ref-note">영국은 10/25부터 GMT(한국−9시간) · 스카이스포츠 일정 토 12:30·15:00, 리버풀–아스널 일 16:30 GMT는 프리미어리그뉴스나우 기준 → 한국시간 토 21:30·일 00:00·월 01:30 · 첼시–맨유는 일부 매체가 15:00으로 적어 ⚠ 변동 가능 · 순위는 NBC 10/29 갱신 기준(주중은 카라바오컵만) (확인 2026-10-30)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">맨시티·아스널<br>승점 21 동률</p>
+      <p class="cn-s">득실차로 맨시티가 1위예요. 맨시티는 일요일 0시 3위 브라이턴과, 아스널은 월요일 새벽 1시 30분 안필드에서 4위 리버풀과 붙어요.</p>
+      <p class="cn-fixtures">첼시|토 21:30|맨유 / 맨시티|일 0:00|브라이턴 / 리버풀|월 새벽 1:30|아스널</p>
+      <p class="cn-note">1위 맨시티 21 · 2위 아스널 21 (득실차)</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">리더보드 — 라리가 · 세리에A · 리그앙</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">西</span>
+    <div class="card-top"><span class="topic">라리가</span></div>
+    <h2>바르사 27점, 6연승 아틀레티코 2점 차 — 이강인은 토요일 밤 10시 레반테 원정</h2>
+    <div class="summary">
+      <p>라리가 10라운드 뒤 <strong>바르셀로나</strong>가 9승 1패, 승점 27점으로 1위다. 2위 <strong>아틀레티코 마드리드</strong>가 25점, 3위 레알 마드리드가 24점, 4위 베티스가 20점이다(AFP). 아틀레티코는 6연승으로, 리그에서 지금 가장 긴 연승을 달리고 있다. 1·2위 승점 차 2점은 4라운드 뒤 가장 작다(인포바에·EFE).</p>
+      <p><strong>이강인</strong>의 아틀레티코는 한국시간 <strong>토요일 밤 10시</strong> 레반테 원정을 치른다. 다음 주 수요일 새벽 챔피언스리그 바이에른전을 앞두고 있어, 스페인 문도 데포르티보는 이강인을 예상 선발에서 뺐다. 다만 선발 구성은 바뀔 수 있다고 덧붙였다(마이데일리). 바르셀로나는 <strong>일요일 새벽 5시</strong> 홈에서 알라베스를, 레알은 월요일 0시 15분 라싱 산탄데르 원정을 치른다(AFP).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">순위</span><span>1위 바르사 27점 · 2위 아틀레티코 25점 · 3위 레알 24점 · 4위 베티스 20점 — 10경기씩</span></li>
+      <li><span class="k">토 22:00</span><span>레반테–아틀레티코(이강인)</span></li>
+      <li><span class="k">일 새벽 5:00</span><span>바르셀로나–알라베스</span></li>
+      <li><span class="k">월 0:15</span><span>라싱 산탄데르–레알 마드리드</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>아틀레티코가 바르사보다 먼저 경기를 치른다. 레반테를 이기면 토요일 밤 잠시 승점 28점으로 1위에 오르고, 바르사는 그 결과를 알고 일요일 새벽 경기에 나선다.</p>
+    </div>
+    <a class="source" href="https://unitel.bo/noticias/agencias/programa-de-la-jornada-de-laliga-y-clasificacion-EH24453546">AFP(우니텔) — 일정·순위</a> <a class="source" href="https://www.infobae.com/america/agencias/2026/10/29/la-jornada-11-de-la-liga-espanola-en-11-numeros/">인포바에(EFE) — 11라운드 숫자</a> <a class="source" href="https://www.mydaily.co.kr/page/view/2026103010585935370">마이데일리 — 이강인</a> <a class="source" href="https://www.besteleven.com/news/articleView.html?idxno=313608">베스트일레븐 — 레반테전 시각</a>
+    <span class="ref-note">AFP 일정 GMT 표기 토 13:00·20:00·일 15:15 → 한국시간 토 22:00·일 05:00·월 00:15 · 레반테전 '31일 오후 10시'는 베스트일레븐·마이데일리와 일치 · 바르사·레알 경기 시각은 AFP 한 곳만 확인 — ⚠ 변동 가능 · 이번 주 라리가 주중 경기 없음 (확인 2026-10-30)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">바르사 27점,<br>2점 뒤 6연승 AT</p>
+      <p class="cn-s">아틀레티코는 6연승으로 2점 차까지 따라왔어요. 이강인의 아틀레티코는 토요일 밤 10시 레반테 원정, 바르사는 일요일 새벽 5시 알라베스와 홈 경기예요.</p>
+      <p class="cn-bars">바르사:27|아틀레티코:25|레알:24|베티스:20</p>
+      <p class="cn-note">토 22:00 레반테–AT(이강인) · 일 새벽 5:00 바르사–알라베스</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">伊</span>
+    <div class="card-top"><span class="topic">세리에A</span></div>
+    <h2>라치오·인터 승점 25 공동 선두 — 밀란 더비 일요일 새벽 4시 45분</h2>
+    <div class="summary">
+      <p>주중 9라운드까지 마친 세리에A는 <strong>라치오</strong>와 <strong>인터</strong>가 승점 25점으로 공동 선두다. 3위 로마 21점, 4위 코모 20점, 5위 밀란 18점이 뒤를 잇는다. 유벤투스와 나폴리는 14점이다(아스카뉴스).</p>
+      <p>인터는 한국시간 <strong>일요일 새벽 4시 45분</strong> 산 시로에서 밀란과 밀라노 더비를 치른다(인터 공식). 밀란은 9라운드에서 볼로냐에 2-4로 져 시즌 첫 리그 패배를 당했다(아스카뉴스). 인터는 주중 베네치아 원정을 상대 자책골 두 개로 2-0으로 이겨 라치오와 공동 선두가 됐다(세리에A 공식). 승점 14점으로 같은 <strong>유벤투스</strong>와 <strong>나폴리</strong>는 <strong>월요일 새벽 4시 45분</strong> 토리노에서 만나고, 라치오는 일요일 밤 11시 칼리아리를 홈으로 부른다(칼초나폴리24).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">순위</span><span>공동 1위 라치오·인터 25점 · 3위 로마 21점 · 4위 코모 20점 · 5위 밀란 18점 — 9경기씩</span></li>
+      <li><span class="k">일 새벽 4:45</span><span>밀란(5위)–인터(공동 1위)</span></li>
+      <li><span class="k">일 23:00</span><span>라치오(공동 1위)–칼리아리</span></li>
+      <li><span class="k">월 새벽 4:45</span><span>유벤투스–나폴리(둘 다 14점)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>밀란 더비는 라치오 경기보다 하루 먼저 열린다. 인터가 지면 라치오는 칼리아리전 결과로 단독 선두에 오를 수 있다. 밀란은 이기면 인터와 승점 차를 4점으로 줄인다.</p>
+    </div>
+    <a class="source" href="https://askanews.it/2026/10/29/calcio-classifica-serie-a-atalanta-a-quota-11/">아스카뉴스 — 9라운드 순위</a> <a class="source" href="https://www.inter.it/it/notizie/serie-a-2026-27-calendario-anticipi-posticipi-inter-6-12-giornata">인터 공식 — 더비 일정</a> <a class="source" href="https://www.calcionapoli24.it/serie_a/prossimo-turno-serie-a-n392314.html">칼초나폴리24 — 10라운드 일정</a> <a class="source" href="https://www.legaseriea.it/serie-a/news/venezia-inter-2026-2027-0-2-cronaca-risultato-gol">세리에A 공식 — 베네치아 0-2 인터</a>
+    <span class="ref-note">이탈리아 CET(한국−8시간) 토 20:45·일 15:00·일 20:45 → 한국시간 일 04:45·일 23:00·월 04:45 · 파라마운트+는 더비를 미국 동부 3:35 PM으로 적어 10분 어긋남 — 리그·구단 공식 20:45 기준 (확인 2026-10-30)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">라치오와 인터,<br>승점 25 공동 선두</p>
+      <p class="cn-s">인터는 일요일 새벽 4시 45분 5위 밀란과 밀라노 더비를 치러요. 승점 14점으로 같은 유벤투스와 나폴리는 월요일 새벽 4시 45분에 만나요.</p>
+      <p class="cn-steps" data-now="1">일 새벽 4:45 더비|일 밤 11시 라치오|월 새벽 4:45 유베전</p>
+      <p class="cn-note">시각은 한국시간 · 공동 1위 라치오·인터 25 · 유베–나폴리 14점 동률</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">佛</span>
+    <div class="card-top"><span class="topic">리그앙</span></div>
+    <h2>PSG 17점 1위, 4위까지 2점 차 — 토 새벽 3시 PSG·렌 같은 시각 각자 원정</h2>
+    <div class="summary">
+      <p>리그앙 8라운드 뒤 <strong>파리 생제르맹</strong>이 5승 2무 1패, 승점 17점으로 1위다. 2위 렌 16점, 3위 릴과 4위 모나코가 15점으로, 상위 네 팀이 2점 안에 있다(릴 구단 순위표). PSG는 8라운드에서 리옹을 2-0으로 이기고 선두를 되찾았다(이투데이).</p>
+      <p>9라운드는 한국시간 토요일 새벽 시작한다. PSG는 한국시간 <strong>토요일 새벽 3시</strong> 르아브르 원정을, 같은 시각 2위 렌도 니스 원정을 따로 치른다. 새벽 5시 5분엔 3위 릴이 랑스와 북부 더비를 연다. 4위 모나코는 월요일 새벽 1시 15분 파리FC 원정에 나선다(풋01).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">순위</span><span>1위 PSG 17점 · 2위 렌 16점 · 3위 릴 15점 · 4위 모나코 15점 — 8경기씩</span></li>
+      <li><span class="k">토 새벽 3:00</span><span>르아브르–PSG · 니스–렌</span></li>
+      <li><span class="k">토 새벽 5:05</span><span>릴–랑스(북부 더비)</span></li>
+      <li><span class="k">월 새벽 1:15</span><span>파리FC–모나코</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>니스–렌이 르아브르–PSG와 같은 시각(현지 금요일 19:00)에 열린다. 그래서 1·2위가 같은 시각에 원정을 치르고, 한국 아침이면 선두 싸움의 첫 결과가 나와 있다.</p>
+    </div>
+    <a class="source" href="https://www.losc.fr/classement">릴(LOSC) — 리그앙 순위표</a> <a class="source" href="https://www.foot01.com/ligue1/l1-programme-tv-et-resultats-de-la-9e-journee-331181">풋01 — 9라운드 일정</a> <a class="source" href="https://www.etoday.co.kr/news/view/2640413">이투데이 — PSG 2-0 리옹</a>
+    <span class="ref-note">프랑스 CET(한국−8시간) 금 19:00·21:05·일 17:15 → 한국시간 토 03:00·05:05·월 01:15 · 풋01 기준, 433풋 일정과 일치 (확인 2026-10-30)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">PSG 17점,<br>4위까지 2점 차</p>
+      <p class="cn-s">상위 네 팀이 승점 2점 안에 몰려 있어요. PSG와 렌은 토요일 새벽 3시 같은 시각 각각 르아브르·니스 원정을 치르고, 5시 5분엔 릴–랑스 더비예요.</p>
+      <p class="cn-bars">PSG:17|렌:16|릴:15|모나코:15</p>
+      <p class="cn-note">토 새벽 3:00 르아브르–PSG · 니스–렌 (한국시간)</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">이번 주말 — 코리안리거</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">韓</span>
+    <div class="card-top"><span class="topic">코리안리거</span></div>
+    <h2>토 새벽 4시 30분 이재성부터 — 이강인 토 22:00 · 김민재 일 새벽 2:30 · 정우영 일 23:30</h2>
+    <div class="summary">
+      <p>코리안리거 주말은 한국시간 <strong>토요일 새벽 4시 30분</strong> 이재성의 마인츠가 엘버스베르크 원정에서 연다. 이재성은 주중 포칼 보훔전에 선발로 나섰지만 팀은 0-2로 져 탈락했다(이투데이). 이강인의 아틀레티코는 <strong>토요일 밤 10시</strong> 레반테 원정을 치른다.</p>
+      <p><strong>토요일 밤 11시 30분</strong>엔 황희찬의 샬케가 라이프치히를, 설영우의 아우크스부르크가 프라이부르크를 홈으로 부른다. 황희찬은 포칼 드레스덴전에 선발로 나섰지만 샬케도 0-2로 져 탈락했다(뉴스핌). 설영우는 포칼 4-2 승리에 선발로 나섰다(뉴스1). 김민재의 뮌헨은 <strong>일요일 새벽 2시 30분</strong> 도르트문트와, 정우영의 우니온 베를린은 <strong>일요일 밤 11시 30분</strong> 홈에서 쾰른과 경기한다(분데스리가 공식 일정).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">토 새벽 4:30</span><span>엘버스베르크–마인츠(이재성)</span></li>
+      <li><span class="k">토 22:00</span><span>레반테–아틀레티코(이강인)</span></li>
+      <li><span class="k">토 23:30</span><span>샬케–라이프치히(황희찬) · 아우크스부르크–프라이부르크(설영우)</span></li>
+      <li><span class="k">일 새벽 2:30</span><span>바이에른–도르트문트(김민재, 출전 불확실)</span></li>
+      <li><span class="k">일 23:30</span><span>우니온 베를린–쾰른(정우영)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>마인츠와 샬케는 주중 포칼에서 둘 다 2부 팀에 0-2로 져 탈락했다. 두 팀 모두 이번 주말 리그 경기가 컵 탈락 뒤 첫 경기다.</p>
+    </div>
+    <a class="source" href="https://www.bundesliga.com/en/bundesliga/matchday">분데스리가 — 8라운드 일정</a> <a class="source" href="https://www.etoday.co.kr/news/view/2640988">이투데이 — 이재성 포칼</a> <a class="source" href="https://www.newspim.com/news/view/20261029000250">뉴스핌 — 황희찬 포칼</a> <a class="source" href="https://www.news1.kr/sports/overseas-soccer/6334213">뉴스1 — 설영우 포칼</a>
+    <span class="ref-note">분데스리가 공식 일정 UTC 표기(금 19:30·토 14:30·토 17:30·일 14:30) → 한국시간 토 04:30·토 23:30·일 02:30·일 23:30 · 이강인 경기는 위 라리가 카드 근거 · 출전은 경기 당일 명단으로 확인 · 리그앙·세리에A 한국 선수는 확인하지 못해 제외, EPL 김지수(브렌트퍼드)·박승수(뉴캐슬)는 기사 본문 확인을 못 해 제외 (확인 2026-10-30)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">코리안리거 주말,<br>토 새벽 4시 반부터</p>
+      <p class="cn-s">이재성이 토 새벽 4:30에 먼저 뛰어요. 이강인 토 밤 10시, 황희찬·설영우 토 밤 11:30, 김민재(출전 불확실) 일 새벽 2:30, 정우영 일 밤 11:30이에요.</p>
+      <p class="cn-fixtures">엘버스베르크|토 새벽 4:30|마인츠 / 레반테|토 22:00|AT마드리드 / 샬케|토 23:30|라이프치히 / 아우크스부르크|토 23:30|프라이부르크 / 바이에른|일 새벽 2:30|도르트문트 / 우니온|일 23:30|쾰른</p>
+      <p class="cn-note">위부터 이재성 · 이강인 · 황희찬 · 설영우 · 김민재(불확실) · 정우영</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 팩트체크 → 디테일 포인트 → 디자인 렌더링 → 검토<br>
+    2026년 10월 30일 금요일 축구 모닝 · 리더보드 + 주말 프리뷰(10/31 토 새벽 ~ 11/2 월 새벽 경기) · 순위는 10/29까지 끝난 경기 기준 · 승부 예측은 하지 않습니다<br>
+    ⏰ 모든 시각은 한국시간(KST)입니다. 유럽은 겨울 시간이라 영국 9시간·독일·스페인·이탈리아·프랑스 8시간 차입니다. ⚠ 변동 가능 — 킥오프는 방송·현지 사정으로 바뀔 수 있으니 출처 링크에서 다시 확인해 주세요.
+    <!-- tracker: 2026-10-30 football (리더보드 + 주말 프리뷰 — 사용자 요청 '금요일 = 현재 리더보드')
+         [순위 경쟁] 분데스 7R: 바이에른 17(+19)·도르트문트 17(+8)·프라이부르크 13·레버쿠젠 13 · EPL 8R: 맨시티 21(+11)·아스널 21(+8)·브라이턴 16·리버풀 15·첼시 13 · 라리가 10R: 바르사 27·AT 25(6연승)·레알 24·베티스 20 · 세리에 9R: 라치오 25·인터 25·로마 21·코모 20·밀란 18·유베·나폴리 14 · 리그앙 8R: PSG 17·렌 16·릴 15·모나코 15
+         [한국 선수] 김민재(뮌헨, 2경기 결장·클라시커 출전 불확실) · 이강인(AT, 문도 데포르티보 예상 선발 제외 — 바이에른전 대비) · 이재성(마인츠, 포칼 보훔전 선발·0-2 탈락) · 황희찬(샬케, 포칼 드레스덴전 선발·0-2 탈락, 77분/72분 매체 불일치 · 제4심 접촉 경고 건은 사건 성격이라 제외) · 설영우(아우크스, 포칼 4-2 승 선발) · 정우영(우니온) · 카스트로프(묀헨글라트바흐, 복귀 단계 — 제외)
+         [오늘 다룬 경기] 프리뷰: 바이에른–도르트문트(일 02:30) · 첼시–맨유(토 21:30)·맨시티–브라이턴(일 00:00)·리버풀–아스널(월 01:30) · 레반테–AT(토 22:00)·바르사–알라베스(일 05:00)·라싱–레알(월 00:15) · 밀란–인터(일 04:45)·라치오–칼리아리(일 23:00)·유베–나폴리(월 04:45) · 르아브르–PSG·니스–렌(토 03:00)·릴–랑스(토 05:05)·파리FC–모나코(월 01:15) · 엘버스베르크–마인츠(토 04:30)·샬케–라이프치히·아우크스–프라이부르크(토 23:30)·우니온–쾰른(일 23:30)
+         [시각 변환] 분데스 공식 UTC +9 · 영국 GMT +9 · 스페인·이탈리아·프랑스 CET +8 · AFP GMT +9
+         [제외한 항목] K리그1 파이널 라운드(사용자 요청 범위 밖) · 아스널 안필드 무승 기록(단일 출처) · 맨시티–빌라 스코어(매체 불일치) · 토트넘–팰리스(2차 근거 없음) · EPL·리그앙·세리에A 한국 선수 · 결장 세부 일부
+         [다음 체크] 월요일 주말 결산: 클라시커·밀란 더비·리버풀–아스널·유베–나폴리 결과 · 김민재 출전 여부 · UCL 4차전 11/4(수) 새벽 AT–바이에른(이강인·김민재)
+         [리서치 도구] Firecrawl 호출 0회. ESPN 공개 API는 후보 발견용 → WebSearch 발견 → WebFetch 검증.
+    -->
+  </footer>
+
+</div></body>
+</html>
