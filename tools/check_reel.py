@@ -46,7 +46,9 @@ def check(mp4, caption):
     if "yuv420p" not in v or "4:4:4" in v: F(f"영상 형식 {v} — yuv420p·High 여야 휴대폰·인스타에서 재생된다")
     deep = spec.get("kind") == "deep"   # 깊게 파는 릴스(…_cN.mp4, 2026-10-26~) — 90초 이내, 사건·사고 검사는 그 카드만
     narr = bool(spec.get("audio"))   # 낭독판만 원고 MP3 를 쓴다 — 짧은판·10초판·라이브러리판·페이지 전환형·데이터 릴스는 배경음악만
-    lim = DATA_MAX if data else SHORT_MAX if short else (DEEP_MAX if narr else FLIP_MAX) if deep else NARR_MAX
+    if short and spec.get("variant") == "board": short_lim = 20.5   # 금요일 축구 리더보드판(2026-10-30 사용자 결정: 선수 일정 + 빅매치 + 큰 글씨 순위표 5장 ≈19초)
+    else: short_lim = SHORT_MAX
+    lim = DATA_MAX if data else short_lim if short else (DEEP_MAX if narr else FLIP_MAX) if deep else NARR_MAX
     if d > lim: F(f"길이 {d:.1f}초 > {lim}초")
     if d < 6: F(f"길이 {d:.1f}초 — 너무 짧음(만들다 실패?)")
     brief = spec.get("brief", "")
