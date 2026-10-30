@@ -1,11 +1,64 @@
 {
- "collected_kst": "2026-10-29 16:21",
+ "collected_kst": "2026-10-30 16:24",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-10-29T07:21:08.137343Z",
+   "checked_at": "2026-10-30T07:23:43.173859Z",
    "media": [
+    {
+     "id": "18172009675407814",
+     "type": "FEED",
+     "timestamp": "2026-10-29T20:57:59+0000",
+     "permalink": "https://www.instagram.com/p/DfF6yCGma43/",
+     "first_line": "[주말 뭐하지] 이번 주말 갈 만한 곳 — 한강 드론 2,000대·여수 불꽃축제·부산 고등어 맨손 잡기",
+     "metrics": {
+      "views": 4,
+      "reach": 2,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18131743181510154",
+     "type": "REELS",
+     "timestamp": "2026-10-29T12:09:36+0000",
+     "permalink": "https://www.instagram.com/reel/DfE-SIvDbYN/",
+     "first_line": "[🍜 푸드] 피자설기 하루 6,000개 · 시경 픽 비빔밥 50만 개 · 군고구마는 호빵의 3배",
+     "variant": "short",
+     "opening": "motion",
+     "metrics": {
+      "views": 132,
+      "reach": 118,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 3706,
+      "ig_reels_video_view_total_time": 441033,
+      "reels_skip_rate": 65
+     }
+    },
+    {
+     "id": "18189231928364614",
+     "type": "FEED",
+     "timestamp": "2026-10-29T10:47:31+0000",
+     "permalink": "https://www.instagram.com/p/DfE08OZoBtr/",
+     "first_line": "[🍜 푸드] 피자설기 하루 6,000개 · 군고구마는 호빵의 3배",
+     "metrics": {
+      "views": 7,
+      "reach": 3,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
     {
      "id": "17876313735637681",
      "type": "REELS",
@@ -434,12 +487,133 @@
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 23
+   "posts": 26
   },
   {
    "account": "sports",
-   "checked_at": "2026-10-29T07:21:15.497434Z",
+   "checked_at": "2026-10-30T07:23:54.232786Z",
    "media": [
+    {
+     "id": "18442145980179188",
+     "type": "REELS",
+     "timestamp": "2026-10-29T22:46:36+0000",
+     "permalink": "https://www.instagram.com/reel/DfGHLdOE0LP/",
+     "first_line": "[🏟 밤사이 결과] 결과판 2장 한 번에",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 123,
+      "reach": 102,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2456,
+      "ig_reels_video_view_total_time": 250590,
+      "reels_skip_rate": 77.2
+     }
+    },
+    {
+     "id": "17959529190267306",
+     "type": "FEED",
+     "timestamp": "2026-10-29T14:50:58+0000",
+     "permalink": "https://www.instagram.com/p/DfFQzMCkaI-/",
+     "first_line": "[⚾ 야구 나이트] 삼성 6-4 KIA, 한국시리즈까지 1승 · 밀워키 창단 첫 월드시리즈 우승 — 10월 29일 4장",
+     "metrics": {
+      "views": 2,
+      "reach": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18108756506574988",
+     "type": "REELS",
+     "timestamp": "2026-10-29T14:45:21+0000",
+     "permalink": "https://www.instagram.com/reel/DfFQHF5iMIp/",
+     "first_line": "[🏟 오늘 결과] 결과판 3장 한 번에",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 110,
+      "reach": 104,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 1846,
+      "ig_reels_video_view_total_time": 192032,
+      "reels_skip_rate": 90.4
+     }
+    },
+    {
+     "id": "18007139441792355",
+     "type": "REELS",
+     "timestamp": "2026-10-29T13:42:21+0000",
+     "permalink": "https://www.instagram.com/reel/DfFI5dsjIQM/",
+     "first_line": "[⚾ KBO] 삼성 6:4 KIA",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 126,
+      "reach": 106,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2795,
+      "ig_reels_video_view_total_time": 290754,
+      "reels_skip_rate": 78.8
+     }
+    },
+    {
+     "id": "18100127456098784",
+     "type": "REELS",
+     "timestamp": "2026-10-29T12:31:13+0000",
+     "permalink": "https://www.instagram.com/reel/DfFAxvoAVh6/",
+     "first_line": "[⚾ KBO] 플레이오프 3차전 진행 중 — 삼성 6:4 KIA",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 121,
+      "reach": 103,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2570,
+      "ig_reels_video_view_total_time": 264719,
+      "reels_skip_rate": 68.6
+     }
+    },
+    {
+     "id": "18113795609154274",
+     "type": "REELS",
+     "timestamp": "2026-10-29T07:37:57+0000",
+     "permalink": "https://www.instagram.com/reel/DfEfMYqiQBT/",
+     "first_line": "[⚾ KBO] 플레이오프 3차전 선발 — 삼성 최원태 vs KIA 시라카와",
+     "variant": "narrated",
+     "opening": "static",
+     "metrics": {
+      "views": 114,
+      "reach": 102,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2450,
+      "ig_reels_video_view_total_time": 249920,
+      "reels_skip_rate": 85.1
+     }
+    },
     {
      "id": "17883596838534334",
      "type": "REELS",
@@ -449,16 +623,16 @@
      "variant": "narrated",
      "opening": "static",
      "metrics": {
-      "views": 122,
-      "reach": 109,
+      "views": 123,
+      "reach": 110,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1852,
-      "ig_reels_video_view_total_time": 200123,
-      "reels_skip_rate": 86.1
+      "ig_reels_avg_watch_time": 1855,
+      "ig_reels_video_view_total_time": 202218,
+      "reels_skip_rate": 86.2
      }
     },
     {
@@ -477,8 +651,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1652,
-      "ig_reels_video_view_total_time": 166889,
+      "ig_reels_avg_watch_time": 1755,
+      "ig_reels_video_view_total_time": 179023,
       "reels_skip_rate": 90.1
      }
     },
@@ -492,14 +666,14 @@
      "opening": "static",
      "metrics": {
       "views": 133,
-      "reach": 117,
+      "reach": 118,
       "likes": 0,
       "comments": 0,
       "shares": 1,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 3454,
-      "ig_reels_video_view_total_time": 404180,
+      "ig_reels_avg_watch_time": 3580,
+      "ig_reels_video_view_total_time": 422519,
       "reels_skip_rate": 65.2
      }
     },
@@ -510,8 +684,8 @@
      "permalink": "https://www.instagram.com/p/DfDpJxND7E_/",
      "first_line": "[⚽ 축구 모닝] 밀란 2-4 볼로냐 · 음방굴라 해트트릭 · 유벤투스 0-2 · 인터 공동 선두 — 4장",
      "metrics": {
-      "views": 4,
-      "reach": 1,
+      "views": 7,
+      "reach": 2,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -571,15 +745,15 @@
      "opening": "static",
      "metrics": {
       "views": 122,
-      "reach": 110,
+      "reach": 111,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 1,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 1857,
-      "ig_reels_video_view_total_time": 202490,
-      "reels_skip_rate": 86.2
+      "ig_reels_avg_watch_time": 1845,
+      "ig_reels_video_view_total_time": 203051,
+      "reels_skip_rate": 87.2
      }
     },
     {
@@ -933,124 +1107,13 @@
       "ig_reels_video_view_total_time": 267351,
       "reels_skip_rate": 82.9
      }
-    },
-    {
-     "id": "18116864330102948",
-     "type": "REELS",
-     "timestamp": "2026-10-26T00:15:15+0000",
-     "permalink": "https://www.instagram.com/reel/De7-JZDEQOx/",
-     "first_line": "[🏟 밤사이 결과] 결과판 5장 한 번에",
-     "variant": "narrated",
-     "opening": "static",
-     "metrics": {
-      "views": 133,
-      "reach": 115,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3587,
-      "ig_reels_video_view_total_time": 423336,
-      "reels_skip_rate": 77.6
-     }
-    },
-    {
-     "id": "18111051596626989",
-     "type": "REELS",
-     "timestamp": "2026-10-26T00:09:28+0000",
-     "permalink": "https://www.instagram.com/reel/De79fK3Acfx/",
-     "first_line": "[🎮 LoL] MKOI 0:2 디플러스 기아",
-     "variant": "narrated",
-     "opening": "static",
-     "metrics": {
-      "views": 119,
-      "reach": 107,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1896,
-      "ig_reels_video_view_total_time": 204800,
-      "reels_skip_rate": 92.5
-     }
-    },
-    {
-     "id": "18169904227487225",
-     "type": "FEED",
-     "timestamp": "2026-10-26T00:02:02+0000",
-     "permalink": "https://www.instagram.com/p/De78r3xDSDR/",
-     "first_line": "[🏆 이벤트 픽] 요시다 유리 BMW 레이디스 첫 우승 · 유해란·최혜진 공동 2위 · 제네시스 챔피언십 김시우 공동 4위 — 2장",
-     "metrics": {
-      "views": 5,
-      "reach": 2,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
-    },
-    {
-     "id": "18139974481627014",
-     "type": "FEED",
-     "timestamp": "2026-10-26T00:00:38+0000",
-     "permalink": "https://www.instagram.com/p/De78hZSjYpJ/",
-     "first_line": "[⚽ 축구 모닝] 레알 2-1 바르사 · 음바페 2골, 바르사 리그 첫 패 · 조규성 선제골 · 수원 삼성 7연승 — 6장",
-     "metrics": {
-      "views": 4,
-      "reach": 2,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
-    },
-    {
-     "id": "18155536768521706",
-     "type": "REELS",
-     "timestamp": "2026-10-25T23:43:20+0000",
-     "permalink": "https://www.instagram.com/reel/De76fsGlKGO/",
-     "first_line": "[🎮 LoL] LYON 1:2 젠지",
-     "variant": "narrated",
-     "opening": "static",
-     "metrics": {
-      "views": 131,
-      "reach": 124,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2053,
-      "ig_reels_video_view_total_time": 254593,
-      "reels_skip_rate": 91.8
-     }
-    },
-    {
-     "id": "17926231323202106",
-     "type": "FEED",
-     "timestamp": "2026-10-25T14:45:37+0000",
-     "permalink": "https://www.instagram.com/p/De68_TVFeyQ/",
-     "first_line": "[⚾ 야구 나이트] 월드시리즈 2차전 밀워키 5-4, 0-4 뒤집기 · 대구 PO 1차전 우천 취소 26일 18:30 · 한국시리즈 11/2 또",
-     "metrics": {
-      "views": 5,
-      "reach": 2,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1
-     }
     }
    ],
    "errors": [],
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 6,
-   "posts": 38
+   "posts": 44
   }
  ]
 }
