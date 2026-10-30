@@ -794,5 +794,62 @@
    "ig_reels_video_view_total_time": 250400,
    "reels_skip_rate": 85.3
   }
+ },
+ "sports:17959529190267306": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-10-29T14:50:58+0000",
+  "snapshot_utc": "2026-10-30T18:33:39Z",
+  "age_h": 27.7,
+  "first_line": "[⚾ 야구 나이트] 삼성 6-4 KIA, 한국시리즈까지 1승 · 밀워키 창단 첫 월드시리즈 우승 — 10월 29일 4장",
+  "metrics": {
+   "views": 3,
+   "reach": 2,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18108756506574988": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-29T14:45:21+0000",
+  "snapshot_utc": "2026-10-30T18:33:39Z",
+  "age_h": 27.8,
+  "first_line": "[🏟 오늘 결과] 결과판 3장 한 번에",
+  "metrics": {
+   "views": 112,
+   "reach": 105,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1881,
+   "ig_reels_video_view_total_time": 197516,
+   "reels_skip_rate": 89.5
+  }
+ },
+ "sports:18007139441792355": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-29T13:42:21+0000",
+  "snapshot_utc": "2026-10-30T18:33:39Z",
+  "age_h": 28.9,
+  "first_line": "[⚾ KBO] 삼성 6:4 KIA",
+  "metrics": {
+   "views": 129,
+   "reach": 107,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2803,
+   "ig_reels_video_view_total_time": 294355,
+   "reels_skip_rate": 79
+  }
  }
 }
