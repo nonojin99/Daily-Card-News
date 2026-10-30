@@ -320,6 +320,21 @@
    "status": "published",
    "result": "18442145980179188",
    "posted_kst": "2026-10-30 07:46"
+  },
+  {
+   "id": "pre:kbo:20261030SSHT0",
+   "kind": "pre",
+   "mp4": "reels/sports/2026-10/2026-10-30_pre-kbo-20261030-0.mp4",
+   "caption": "reels/sports/2026-10/2026-10-30_pre-kbo-20261030-0.txt",
+   "score": 55,
+   "why": [
+    "KBO",
+    "포스트시즌"
+   ],
+   "seconds": 6.0,
+   "made_kst": "2026-10-30 16:31",
+   "until_kst": "2026-10-30 18:30",
+   "status": "queued"
   }
  ],
  "scored": {
