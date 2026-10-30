@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-30T12:48:10Z",
-  "count": 294,
+  "generated": "2026-10-30T15:02:16Z",
+  "count": 295,
   "files": [
     {
       "date": "2026-10-30",
@@ -19,6 +19,15 @@
       "day": "30",
       "type": "travel",
       "path": "2026-10-30_travel-brief.html"
+    },
+    {
+      "date": "2026-10-30",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "30",
+      "type": "baseball",
+      "path": "2026-10-30_baseball-brief.html"
     },
     {
       "date": "2026-10-30",
