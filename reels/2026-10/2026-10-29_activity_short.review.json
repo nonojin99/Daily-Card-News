@@ -1,7 +1,7 @@
 {
  "verdict": "PASS",
  "sha1": "84c5131eb38602278256fe1b949c492c94d427d5",
- "by": "agent",
- "at": "2026-10-29T20:56:32Z",
- "note": "reel-reviewer: 캡션 날씨 문구 수정 후 통과"
+ "by": "user",
+ "at": "2026-10-30T07:11:34Z",
+ "note": "사용자 승인(2026-10-30 대화: '응 릴스 승인') · reel-reviewer PASS"
 }
