@@ -261,6 +261,7 @@ function tableOf(a){
   return {rows, zones, zoneOf: n => zones.find(z => n >= z.lo && n <= z.hi)};
 }
 // 선수 일정(.cn-players) — 행 = 선수|팀|상대|홈/원정|요일|시각(새벽 4:30·밤 10:00)|(표시: 출전 불확실), data-days = "토:10/31|일:11/1"
+//   data-kind="match" = 빅매치 카드(같은 날 사용자 지적 "빅매치 예고가 본문에 없다"): 행 = 경기 이름|홈 팀|원정 팀|걸린 것(승점·순위)|요일|시각|(표시)
 function playersOf(a){
   const t = a.querySelector(".cn .cn-players"); if(!t) return null;
   const rows = clean(t.textContent).split(/\s+\/\s+/).map(r => r.split("|").map(clean)).filter(r => r.length >= 6);
@@ -268,7 +269,7 @@ function playersOf(a){
   const days = Object.fromEntries((t.dataset.days || "").split("|").map(x => x.split(":").map(clean)).filter(x => x.length === 2));
   return {rows, days};
 }
-const WHEN = t => /^새벽/.test(t) ? "🌙 자정 넘어" : /^밤/.test(t) ? "🌃 밤" : /^저녁/.test(t) ? "🌆 저녁" : /^(아침|오전)/.test(t) ? "🌅 아침" : "☀️ 낮";
+const WHEN = t => /^새벽/.test(t) ? "🌙 자정 넘어" : /^자정/.test(t) ? "🌙 자정" : /^밤/.test(t) ? "🌃 밤" : /^저녁/.test(t) ? "🌆 저녁" : /^(아침|오전)/.test(t) ? "🌅 아침" : "☀️ 낮";
 function creditOf(a){
   const names = [...a.querySelectorAll("a.source")].map(x => clean(x.textContent).split(/\s[—–-]\s/)[0]).filter(Boolean);
   return [...new Set(names)].slice(0, 2).join(" · ");

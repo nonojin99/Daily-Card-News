@@ -371,7 +371,8 @@ const NIGHT = { cards: 6, secs: [1.8], outro: 0, xf: 0.25, max: 10, zoom: 0.04, 
 // 금요일 축구 리더보드(2026-10-30 사용자 결정): 코리안리거 일정 + 5대 리그 1위~꼴찌 순위표(cn-table) 6장 — 결산판과 같은 넘김(4.5초 확대 → 1.8초씩), 머리말 '⚡ 리더보드'
 // 2026-10-30 같은 날 사용자 결정 "리더보드 세로 전체 쓰는 큰 글씨로": 순위표 장은 카드를 줄여 넣지 않고 1080×1920 큰 글씨 표(boardPage)로, 2.5초씩·마지막 장 3초
 // = 4.5 + 2.5 × 4 + 3 − 0.25 × 5 = 16.25초
-const BOARD = { ...RECAP, secs: [4.5, 2.5, 2.5, 2.5, 2.5, 3], max: 17, variant: "board", label: "⚡ 리더보드" };
+// 같은 날 사용자 지적("빅매치 예고가 본문에 없다")으로 카드 2 = 빅매치 카드가 들어가 7장: 선수 일정 4.5 → 빅매치 3 → 순위표 2.5 × 4 → 마지막 3 = 20.5 − 0.25 × 6 = 19초
+const BOARD = { ...RECAP, cards: 7, secs: [4.5, 3, 2.5, 2.5, 2.5, 2.5, 3], max: 20, variant: "board", label: "⚡ 리더보드" };
 const hasTable = n => { try { return /class="cn-table"/.test(read(n).toString()); } catch { return false; } };
 const shortOptOf = (type, d, n = "") => type === "football" && wdOf(d) === 1 ? RECAP : type === "football" && hasTable(n) ? BOARD : type === "baseball" ? NIGHT : FAST_OF(type) ? FAST : SHORT;
 // 음악 라이브러리판(2026-10-24~ 사용자 결정): 토요일 음악 릴스는 자동 게시하지 않고, 사람이 인스타 앱에서 음악 라이브러리 곡을 붙여 올린다.
