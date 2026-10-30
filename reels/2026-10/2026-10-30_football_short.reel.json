@@ -1,11 +1,11 @@
 {
   "brief": "2026-10-30_football-brief.html",
-  "variant": "fast",
+  "variant": "board",
   "opening": "zoom",
   "out": "reels/2026-10/2026-10-30_football_short.mp4",
-  "cards": 2,
-  "seconds": 9.15,
+  "cards": 6,
+  "seconds": 12.25,
   "bgm": "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3",
   "credit": "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0",
-  "fp": "5bea49cd13dd5f2daa5f9650c1c7a7c7ce407062"
+  "fp": "9a463e8028c278f7b67f9293b035508ac3101d32"
 }
