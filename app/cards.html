@@ -199,6 +199,23 @@
   .tbl .tf{display:flex;justify-content:space-between;align-items:center;gap:2cqw;padding:2cqw 0 3cqw;font-size:1.75cqw;color:var(--faint)}
   .tbl .lg{display:flex;gap:2cqw;color:var(--muted)} .tbl .lg i{display:inline-block;width:1.3cqw;height:1.3cqw;border-radius:.3cqw;margin-right:.6cqw;vertical-align:-.1cqw}
   .tbl .tf .h{font-weight:700;color:var(--accent);font-size:2cqw;letter-spacing:.02em}
+  /* 선수 일정 카드(2026-10-30 사용자 결정 — 시안 A '요일별 타임라인'): .cn-players 가 있는 카드는 카드 한 장 전체가 '언제 누가 뛰나' 목록.
+     <p class="cn-players" data-days="토:10/31|일:11/1">이재성|마인츠|엘버스베르크|원정|토|새벽 4:30 / 김민재|바이에른|도르트문트|홈|일|새벽 2:30|출전 불확실 / …</p> */
+  .slide.plr{background:var(--stage);padding:5.9cqw 6.7cqw 0}
+  .plr .pk{font-size:2cqw;font-weight:700;letter-spacing:.14em;color:var(--accent)}
+  .plr .pt{font-size:5cqw;font-weight:900;letter-spacing:-.02em;line-height:1.15;margin:.9cqw 0 .7cqw}
+  .plr .ps{font-size:2.2cqw;font-weight:500;color:var(--muted);margin-bottom:1.6cqw}
+  .plr .pl{flex:1;min-height:0;display:flex;flex-direction:column;gap:1.1cqw}
+  .plr .pd{flex:0 0 auto;font-size:2.4cqw;font-weight:900;color:var(--accent);display:flex;align-items:center;gap:1.3cqw;margin-top:.6cqw}
+  .plr .pd:after{content:"";flex:1;height:2px;background:var(--line)}
+  .plr .pr{flex:1 1 0;max-height:15cqw;min-height:0;display:grid;grid-template-columns:21cqw 1fr;align-items:center;background:var(--card);border-radius:1.9cqw;padding:0 2.6cqw}
+  .plr .tm{font-size:3.7cqw;font-weight:900;letter-spacing:-.02em;line-height:1.1;white-space:nowrap}
+  .plr .tm small{display:block;font-size:1.85cqw;font-weight:700;color:var(--faint);letter-spacing:0;margin-top:.4cqw}
+  .plr .nm{font-size:3.5cqw;font-weight:900;line-height:1.15}
+  .plr .nm em{font-style:normal;display:inline-block;font-size:1.7cqw;font-weight:700;color:#fff;background:#c06a24;border-radius:99px;padding:.3cqw 1.1cqw;margin-left:.9cqw;vertical-align:.4cqw}
+  .plr .vs{font-size:2.1cqw;font-weight:500;color:var(--muted);margin-top:.4cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .plr .pf{display:flex;justify-content:space-between;align-items:center;gap:2cqw;padding:1.8cqw 0 3cqw;font-size:1.75cqw;color:var(--faint)}
+  .plr .pf .h{font-weight:700;color:var(--accent);font-size:2cqw;letter-spacing:.02em}
 </style>
 </head>
 <body>
@@ -243,6 +260,15 @@ function tableOf(a){
   });
   return {rows, zones, zoneOf: n => zones.find(z => n >= z.lo && n <= z.hi)};
 }
+// 선수 일정(.cn-players) — 행 = 선수|팀|상대|홈/원정|요일|시각(새벽 4:30·밤 10:00)|(표시: 출전 불확실), data-days = "토:10/31|일:11/1"
+function playersOf(a){
+  const t = a.querySelector(".cn .cn-players"); if(!t) return null;
+  const rows = clean(t.textContent).split(/\s+\/\s+/).map(r => r.split("|").map(clean)).filter(r => r.length >= 6);
+  if(!rows.length) return null;
+  const days = Object.fromEntries((t.dataset.days || "").split("|").map(x => x.split(":").map(clean)).filter(x => x.length === 2));
+  return {rows, days};
+}
+const WHEN = t => /^새벽/.test(t) ? "🌙 자정 넘어" : /^밤/.test(t) ? "🌃 밤" : /^저녁/.test(t) ? "🌆 저녁" : /^(아침|오전)/.test(t) ? "🌅 아침" : "☀️ 낮";
 function creditOf(a){
   const names = [...a.querySelectorAll("a.source")].map(x => clean(x.textContent).split(/\s[—–-]\s/)[0]).filter(Boolean);
   return [...new Set(names)].slice(0, 2).join(" · ");
@@ -658,7 +684,7 @@ async function zipStore(files){
       if(ptoks.some(t => !(geo.kr && geo.kr.places[t]))) geo.world = await fetch("geo/world.json").then(r => r.json()).catch(() => null);
     }
     const cards = picks.map(({a, b}) => ({
-      pc: photoOf(a)?.credit || "", ahead: a.dataset.plan === "ahead", title: titleOf(a), sum: summaryOf(a), credit: creditOf(a), num: titleNum(a), vis: visualOf(a, geo, Number(b.date.slice(0, 4))), tb: tableOf(a), note: clean(a.querySelector(".cn .cn-note")?.textContent),
+      pc: photoOf(a)?.credit || "", ahead: a.dataset.plan === "ahead", title: titleOf(a), sum: summaryOf(a), credit: creditOf(a), num: titleNum(a), vis: visualOf(a, geo, Number(b.date.slice(0, 4))), tb: tableOf(a), pl: playersOf(a), note: clean(a.querySelector(".cn .cn-note")?.textContent),
       label: clean(a.querySelector(".topic")?.textContent), ac: b.ac, acs: b.acs, date: b.date, ai: !!a.querySelector(".cn img.cn-gen")
     }));
     if(geo && geo.kr) document.body.insertAdjacentHTML("afterbegin", `<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="kr" class="ig-land" d="${geo.kr.outline}"/></defs></svg>`);
@@ -691,6 +717,17 @@ async function zipStore(files){
     cards.forEach((c, i) => {
       const len = plain(c.title).length;
       const [lab, ...rest] = c.label.split("·").map(clean);
+      if(c.pl){   // 선수 일정 카드 — 카드 한 장 전체가 요일별 타임라인(시안 A)
+        const {rows, days} = c.pl, order = [...new Set(rows.map(r => r[4]))];
+        h += `<section class="slide plr" aria-label="${i + 1}번 카드 · 선수 일정" style="--accent:${c.ac};--accent-soft:${c.acs}"><span class="count">${i + 2}/${N}</span>
+          <div class="pk">${esc(cat || kicker)}${lab ? " · " + esc(lab) : ""}</div><div class="pt">${c.title}</div>
+          <div class="ps">${esc(c.note || "모두 한국시간 · 킥오프는 바뀔 수 있어요")}${c.credit ? `<span style="float:right;color:var(--faint)">${esc(c.credit)}</span>` : ""}</div>
+          <div class="pl">${order.map(d => `<div class="pd">${esc(days[d] ? days[d] + " " + d : d + "요일")}</div>` + rows.filter(r => r[4] === d).map(r =>
+            `<div class="pr"><div class="tm">${esc(r[5])}<small>${WHEN(r[5])}</small></div><div><div class="nm">${esc(r[0])}${r[6] ? `<em>${esc(r[6])}</em>` : ""}</div><div class="vs">${esc(r[1])} vs ${esc(r[2])} · ${esc(r[3])}</div></div></div>`).join("")).join("")}</div>
+          <div class="pf"><span>새벽 = 자정 넘어</span><span><span class="h">${HANDLE}</span> · ${esc(cat || kicker.toUpperCase())} · ${md2(c.date)}</span></div>
+        </section>`;
+        return;
+      }
       if(c.tb){   // 순위표 카드 — 카드 한 장 전체가 표(시안 A)
         const {rows, zones, zoneOf} = c.tb, cuts = new Set(zones.flatMap(z => [z.lo - 1, z.hi]));
         h += `<section class="slide tbl" aria-label="${i + 1}번 카드 · 순위표" style="--accent:${c.ac};--accent-soft:${c.acs}"><span class="count">${i + 2}/${N}</span>

@@ -7,7 +7,7 @@ import re, sys, html
 from pathlib import Path
 
 BANNED_TOPICS = {"발견", "결과", "전망", "관측 기법", "대상 행성", "선행 연구", "배경", "기타", "분석", "의미", "연구", "개요", "요약"}
-INFO = ("cn-table", "cn-ring", "cn-waffle", "cn-ticket", "cn-over", "cn-fixtures", "cn-scores", "cn-score", "cn-link", "cn-shift", "cn-steps", "cn-bars", "cn-place", "cn-when", "cn-num")
+INFO = ("cn-players", "cn-table", "cn-ring", "cn-waffle", "cn-ticket", "cn-over", "cn-fixtures", "cn-scores", "cn-score", "cn-link", "cn-shift", "cn-steps", "cn-bars", "cn-place", "cn-when", "cn-num")
 PHOTO_OK = re.compile(r"^https://(cdn\.(esawebb|esahubble)\.org/archives/images/screen/|(upload|thumb)\.wikimedia\.org/wikipedia/commons/)")
 LICENSE = re.compile(r"CC0|CC BY|퍼블릭 도메인|Public domain|공공누리", re.I)
 NUM = re.compile(r"\d[\d,]*(?:\.\d+)?")
@@ -108,6 +108,19 @@ def main(fname):
             if not grab("cn-note", cn): W("cn-table 카드에 cn-note 없음 — 오른쪽 위 '몇 라운드 뒤 · 기준일'")
             if not re.search(r"\d+\s*라운드", body_t): F("cn-table 카드 본문에 'N라운드' 기준이 없음 — 언제 순위인지")
             cn = cn.replace(tb.group(0), "")
+        # 선수 일정(2026-10-30 사용자 결정 — 시안 A 요일별 타임라인): 선수|팀|상대|홈/원정|요일|시각(|표시)
+        pl = re.search(r'<p class="cn-players"([^>]*)>(.*?)</p>', cn, re.S)
+        if pl:
+            prow = [[c.strip() for c in r.split("|")] for r in re.split(r"\s+/\s+", text(pl.group(2)).strip()) if r.strip()]
+            dz = re.search(r'data-days="([^"]*)"', pl.group(1))
+            days = {x.split(":")[0].strip() for x in dz.group(1).split("|")} if dz else set()
+            if not dz: W("cn-players data-days 없음 — 요일 머리에 날짜(10/31)가 안 나온다")
+            if not 1 <= len(prow) <= 8: F(f"cn-players {len(prow)}명 — 1~8명(넘으면 카드를 나눈다)")
+            for r in prow:
+                if len(r) not in (6, 7): F(f"cn-players '{r[0]}' 칸 {len(r)}개 (선수|팀|상대|홈/원정|요일|시각|표시)"); continue
+                if r[3] not in ("홈", "원정", "중립"): F(f"cn-players {r[0]}: 홈/원정 칸 '{r[3]}'")
+                if days and r[4] not in days: F(f"cn-players {r[0]}: 요일 '{r[4]}' 이 data-days 에 없음")
+                if not re.fullmatch(r"(새벽|아침|오전|낮|오후|저녁|밤) \d{1,2}:\d{2}", r[5]): F(f"cn-players {r[0]}: 시각 '{r[5]}' — '새벽 4:30'·'밤 11:30' 처럼(24시간 표기 금지)")
         # 숫자 출처: 카드용 문장·그림의 숫자가 같은 카드 본문·스펙 표에 있는가
         cn_t = text(cn)
         norm = lambda x: x.replace(",", "").lstrip("0") or "0"   # 08 = 8, 1,331 = 1331
