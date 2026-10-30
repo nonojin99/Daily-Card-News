@@ -640,5 +640,82 @@
    "ig_reels_video_view_total_time": 203051,
    "reels_skip_rate": 87.2
   }
+ },
+ "sports:17883596838534334": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-29T03:23:59+0000",
+  "snapshot_utc": "2026-10-30T05:35:39Z",
+  "age_h": 26.2,
+  "first_line": "[⚾ MLB] 밀워키 4:1 탬파베이",
+  "metrics": {
+   "views": 123,
+   "reach": 110,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1855,
+   "ig_reels_video_view_total_time": 202218,
+   "reels_skip_rate": 86.2
+  }
+ },
+ "sports:18130799362697973": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-29T02:47:28+0000",
+  "snapshot_utc": "2026-10-30T05:35:39Z",
+  "age_h": 26.8,
+  "first_line": "[⚾ MLB] 월드시리즈 5차전 진행 중 — 밀워키 4:0 탬파베이",
+  "metrics": {
+   "views": 118,
+   "reach": 102,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1755,
+   "ig_reels_video_view_total_time": 179023,
+   "reels_skip_rate": 90.1
+  }
+ },
+ "sports:18098612171407243": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-28T23:47:06+0000",
+  "snapshot_utc": "2026-10-30T05:35:39Z",
+  "age_h": 29.8,
+  "first_line": "[⚽ 축구 모닝] 밀란 2-4 볼로냐 · 음방굴라 해트트릭 · 유벤투스 0-2 제노아",
+  "metrics": {
+   "views": 133,
+   "reach": 118,
+   "likes": 0,
+   "comments": 0,
+   "shares": 1,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 3580,
+   "ig_reels_video_view_total_time": 422519,
+   "reels_skip_rate": 65.2
+  }
+ },
+ "sports:18062138171537040": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-10-28T23:45:28+0000",
+  "snapshot_utc": "2026-10-30T05:35:39Z",
+  "age_h": 29.8,
+  "first_line": "[⚽ 축구 모닝] 밀란 2-4 볼로냐 · 음방굴라 해트트릭 · 유벤투스 0-2 · 인터 공동 선두 — 4장",
+  "metrics": {
+   "views": 7,
+   "reach": 2,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
