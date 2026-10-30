@@ -354,6 +354,20 @@
    "status": "published",
    "result": "18049721030819734",
    "posted_kst": "2026-10-30 21:20"
+  },
+  {
+   "id": "kbo:20261030SSHT0",
+   "kind": "game",
+   "mp4": "reels/sports/2026-10/2026-10-30_kbo-20261030-0.mp4",
+   "caption": "reels/sports/2026-10/2026-10-30_kbo-20261030-0.txt",
+   "score": 55,
+   "why": [
+    "KBO",
+    "포스트시즌"
+   ],
+   "seconds": 5.5,
+   "made_kst": "2026-10-30 21:54",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -563,6 +577,16 @@
    "sport": "lol",
    "title": "BLG 1:2 TES",
    "at": "2026-10-30 10:01"
+  },
+  "kbo:20261030SSHT0": {
+   "score": 55,
+   "why": [
+    "KBO",
+    "포스트시즌"
+   ],
+   "sport": "kbo",
+   "title": "삼성 2:4 KIA",
+   "at": "2026-10-30 21:54"
   }
  },
  "last_post": 1793362844.4010916,
