@@ -19,7 +19,7 @@
 const http = require("http"), fs = require("fs"), path = require("path"), os = require("os"), crypto = require("crypto");
 const { execFileSync, execSync, spawnSync } = require("child_process");
 const { chartPage } = require("./reel_chart.js");
-const { movePage, parseRows, zonesOf, pairUp } = require("./table_move.js");
+const { movePage, boardPage, parseRows, zonesOf, pairUp } = require("./table_move.js");
 let pw; try { pw = require("playwright"); } catch { pw = require(path.join(execSync("npm root -g").toString().trim(), "playwright")); }
 const ROOT = path.resolve(__dirname, "..");
 const GAP = 0.35, MAX = 180, FIT = 178, OUTRO = 2;   // 문단 사이 쉼 0.6 → 0.35초(2026-10-23, 빨리 넘기기)
@@ -369,13 +369,32 @@ const RECAP = { cards: 6, secs: [4.5, 1.8], outro: 0, xf: 0.25, max: 14.5, zoom:
 // 표지·출처 장 없음(카드에 출처 칩) = 1.8 × N − 0.25 × (N − 1) — 4장 6.45초 · 6장 9.55초.
 const NIGHT = { cards: 6, secs: [1.8], outro: 0, xf: 0.25, max: 10, zoom: 0.04, bgm: SHORT.bgm, credit: SHORT.credit, suffix: "_short", variant: "night", label: "⚾ 야구 나이트" };
 // 금요일 축구 리더보드(2026-10-30 사용자 결정): 코리안리거 일정 + 5대 리그 1위~꼴찌 순위표(cn-table) 6장 — 결산판과 같은 넘김(4.5초 확대 → 1.8초씩), 머리말 '⚡ 리더보드'
-const BOARD = { ...RECAP, variant: "board", label: "⚡ 리더보드" };
+// 2026-10-30 같은 날 사용자 결정 "리더보드 세로 전체 쓰는 큰 글씨로": 순위표 장은 카드를 줄여 넣지 않고 1080×1920 큰 글씨 표(boardPage)로, 2.5초씩·마지막 장 3초
+// = 4.5 + 2.5 × 4 + 3 − 0.25 × 5 = 16.25초
+const BOARD = { ...RECAP, secs: [4.5, 2.5, 2.5, 2.5, 2.5, 3], max: 17, variant: "board", label: "⚡ 리더보드" };
 const hasTable = n => { try { return /class="cn-table"/.test(read(n).toString()); } catch { return false; } };
 const shortOptOf = (type, d, n = "") => type === "football" && wdOf(d) === 1 ? RECAP : type === "football" && hasTable(n) ? BOARD : type === "baseball" ? NIGHT : FAST_OF(type) ? FAST : SHORT;
 // 음악 라이브러리판(2026-10-24~ 사용자 결정): 토요일 음악 릴스는 자동 게시하지 않고, 사람이 인스타 앱에서 음악 라이브러리 곡을 붙여 올린다.
 // 그래서 소리 없는 영상으로 카드 전부 × 4초 + 출처 장. 곡은 그 주 플레이리스트에서 라이브러리에 있는 것을 고른다(캡션 파일에 후보).
 const LIB = { cards: 7, sec: 4, outro: 2.2, xf: 0.35, bgm: null, credit: "", suffix: "_lib", variant: "lib", label: "🎵 이번 주 플레이리스트" };
-const shortFp = brief => sha(read(brief), read(SHORT.bgm), read("tools/make_reel.js"), read("app/cards.html"));
+const shortFp = brief => sha(read(brief), read(SHORT.bgm), read("tools/make_reel.js"), read("app/cards.html"), hasTable(brief) ? read("tools/table_move.js") : "");
+// 리더보드 큰 글씨 장면: 순위표 카드(.cn-table) 슬라이드 번호 → 1080×1920 PNG
+async function boardScenes(b, html, slides, meta, d, m, tmp) {
+  const arts = [...html.matchAll(/<article class="card"[^>]*>([\s\S]*?)<\/article>/g)].map(x => x[1]), out = {};
+  const strip = x => x.replace(/<br\s*\/?>/g, " ").replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+  const pg = await b.newPage({ viewport: { width: 1080, height: 1920 } }), wd = "일월화수목금토"[wdOf(d)];
+  for (let i = 0; i < slides.length; i++) {
+    const a = arts[slides[i] - 2], t = a && a.match(/<p class="cn-table"([^>]*)>([\s\S]*?)<\/p>/); if (!t) continue;
+    const raw = strip(t[2]).split(/\s+\/\s+/).map(r => r.split("|").map(x => x.trim())).filter(r => r.length >= 7);
+    const zs = (t[1].match(/data-zones="([^"]*)"/) || [])[1] || "";
+    const note = strip((a.match(/<p class="cn-note">([\s\S]*?)<\/p>/) || [0, ""])[1]).replace(/\s+\/\s+/g, " · ");
+    await pg.setContent(boardPage({ title: strip((a.match(/<p class="cn-t">([\s\S]*?)<\/p>/) || [0, ""])[1]), note, zones: zonesOf(zs), raw },
+      { ac: meta.ac, cat: meta.cat || "⚽ 축구 모닝", label: BOARD.label, date: `${+m[2]}.${+m[3]} ${wd}`, handle: HANDLE_OF(m[4]), credit: FLIP_CREDIT, i, n: slides.length }), { waitUntil: "networkidle" });
+    const f = path.join(tmp, `board${i}.png`); await pg.screenshot({ path: f }); out[slides[i]] = f;
+  }
+  await pg.close();
+  return out;
+}
 async function shortOne(brief, b, base, O = SHORT) {
   const m = brief.match(BRIEF); if (!m) return { skip: "파일명 형식 아님" };
   const html = read(brief).toString();
@@ -390,7 +409,8 @@ async function shortOne(brief, b, base, O = SHORT) {
   const d = `${m[1]}-${m[2]}-${m[3]}`;
   const durs = slides.map((_, k) => k < n ? (O.secs ? (O.secs[k] ?? O.secs[O.secs.length - 1]) : O.sec) : O.outro);
   const out_ = `reels/${m[1]}-${m[2]}/${d}_${m[4]}${O.suffix}`;
-  const r = await flipReel(b, { m, d, imgs: slides.map(k => files[k - 1]), durs, xf: O.xf, max: O.max, zoom: O.zoom, label, meta, bgm: O.bgm, credit: O.credit, out_,
+  const full = O.variant === "board" ? await boardScenes(b, html, slides, meta, d, m, tmp) : {};
+  const r = await flipReel(b, { m, d, imgs: slides.map(k => full[k] || files[k - 1]), full: slides.map(k => !!full[k]), durs, xf: O.xf, max: O.max, zoom: O.zoom, label, meta, bgm: O.bgm, credit: O.credit, out_,
     opening: O.variant === "lib" || O.zoom ? "static" : openingOf(brief), card1: files[1], raw: genOf(html), hook: hookOf(html), note: picNoteOf(html, m[4]), tmp });
   const spec = { brief, variant: O.variant, opening: r.opening, out: out_ + ".mp4", cards: n, seconds: +r.total.toFixed(2), bgm: O.bgm, credit: O.credit, fp: shortFp(brief) };
   fs.writeFileSync(path.join(ROOT, out_ + ".reel.json"), JSON.stringify(spec, null, 2) + "\n");
@@ -403,6 +423,7 @@ async function flipReel(b, o) {
   const { m, d, imgs, durs, meta, label, tmp } = o, wd = "일월화수목금토"[wdOf(d)];
   const fr = await b.newPage({ viewport: { width: 1080, height: 1920 } });
   for (let k = 0; k < imgs.length; k++) {
+    if (o.full && o.full[k]) { fs.copyFileSync(imgs[k], path.join(tmp, `s${k}.png`)); continue; }   // 이미 1080×1920 장면(리더보드 큰 글씨 표)
     const img = "data:image/png;base64," + fs.readFileSync(imgs[k]).toString("base64");
     await fr.setContent(`<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">

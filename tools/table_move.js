@@ -75,4 +75,37 @@ window.setP(0);
 })();
 </script></body></html>`;
 }
-module.exports = { movePage, parseRows, zonesOf, pairUp };
+// 리더보드 릴스용 '큰 글씨 순위표' 장면(2026-10-30 사용자 결정 — "리더보드 세로 전체 쓰는 큰 글씨로"): 카드(1080×1350)를 줄여 넣지 않고
+// 1080×1920 화면 전체에 표를 그린다. sc = {title, note, zones, raw: [[팀,경기,승,무,패,득실,승점], …]}, o = movePage 와 같은 opts
+function boardPage(sc, o) {
+  const N = sc.raw.length, top = 476, H = 1240, rh = H / N, fs = Math.min(40, rh * 0.56);
+  const zoneOf = r => sc.zones.find(z => r >= z.lo && r <= z.hi);
+  const cuts = new Set(sc.zones.flatMap(z => [z.lo - 1, z.hi]));
+  const sv = v => esc(String(v).replace(/^-/, "−"));
+  return `<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
+<style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:#f1efe8;font-family:'Noto Sans KR',sans-serif;color:#1a1a18;position:relative;overflow:hidden}
+.top{position:absolute;left:56px;right:56px;top:150px;display:flex;align-items:center;gap:22px}
+.cat{background:${o.ac};color:#fff;font-weight:900;font-size:36px;padding:10px 26px;border-radius:99px;white-space:nowrap}
+.lb{font-weight:900;font-size:46px;letter-spacing:-.02em;white-space:nowrap}.dt{margin-left:auto;font-size:30px;color:#55554f;font-weight:500;white-space:nowrap}
+.ttl{position:absolute;left:56px;right:56px;top:252px;font-weight:900;font-size:64px;letter-spacing:-.03em}
+.sub{position:absolute;left:56px;right:56px;top:344px;font-size:29px;color:#55554f;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.box{position:absolute;left:56px;right:56px;top:${top - 62}px;height:${H + 76}px;background:#fff;border-radius:28px}
+.hd,.r{position:absolute;left:56px;right:56px;display:grid;grid-template-columns:14px 70px 1fr 80px 64px 64px 64px 104px 112px;align-items:center;padding:0 24px 0 18px}
+.hd{top:${top - 56}px;height:50px;font-size:24px;font-weight:700;color:#9a9a94}
+.r{height:${rh.toFixed(1)}px;font-size:${fs.toFixed(0)}px;font-weight:700;border-top:1px solid #ebe8e0}
+.r.cut{border-top:3px dashed #b9b5a8}
+.z{width:9px;height:62%;border-radius:5px}.k{text-align:center;color:#77776f;font-weight:900}.t{padding-left:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s{text-align:center;color:#55554f;font-weight:500;font-size:.82em}.p{text-align:center;font-weight:900;font-size:1.12em}
+.bar{position:absolute;left:56px;right:56px;top:1745px;height:8px;border-radius:9px;background:#e1ddd2}
+.bar i{display:block;height:100%;width:${((o.i + 1) / o.n * 100).toFixed(1)}%;border-radius:9px;background:${o.ac}}
+.ft{position:absolute;left:56px;right:56px;top:1776px;font-size:25px;color:#55554f;line-height:1.45;display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.ft b{color:#3d5a4c;font-size:29px}.lg{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px 16px;font-size:22px;max-width:560px}.lg span{white-space:nowrap}.lg i{display:inline-block;width:16px;height:16px;border-radius:4px;margin-right:6px;vertical-align:-1px}</style></head>
+<body><div class="top"><span class="cat">${esc(o.cat)}</span><span class="lb">${esc(o.label)}</span><span class="dt">${esc(o.date)}</span></div>
+<div class="ttl">${esc(sc.title)}</div><div class="sub">${esc(sc.note)}</div><div class="box"></div>
+<div class="hd"><span></span><span class="k" style="color:#9a9a94">#</span><span class="t">팀</span><span class="s">경기</span><span class="s">승</span><span class="s">무</span><span class="s">패</span><span class="s">득실</span><span class="p" style="font-size:24px">승점</span></div>
+${sc.raw.map((r, k) => { const z = zoneOf(k + 1); return `<div class="r${cuts.has(k) && k > 0 ? " cut" : ""}" style="top:${(top + k * rh).toFixed(1)}px"><span class="z" style="background:${z ? z.c : "transparent"}"></span><span class="k">${k + 1}</span><span class="t">${esc(r[0])}</span><span class="s">${sv(r[1])}</span><span class="s">${sv(r[2])}</span><span class="s">${sv(r[3])}</span><span class="s">${sv(r[4])}</span><span class="s">${sv(r[5])}</span><span class="p">${sv(r[6])}</span></div>`; }).join("")}
+<div class="bar"><i></i></div>
+<div class="ft"><span><b>${esc(o.handle)}</b>${o.credit ? `<br>♪ ${esc(o.credit)}` : ""}</span><span class="lg">${sc.zones.map(z => `<span><i style="background:${z.c}"></i>${esc(z.name)}</span>`).join("")}</span></div></body></html>`;
+}
+module.exports = { movePage, boardPage, parseRows, zonesOf, pairUp };
