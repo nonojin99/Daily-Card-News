@@ -781,8 +781,9 @@
   },
   "live:kbo:20261030SSHT0:7:2-1": {
    "image": "sports/alerts/2026-10/2026-10-30_kbo_2047.jpg",
-   "status": "pending",
-   "at_kst": "2026-10-30 20:47"
+   "status": "published",
+   "at_kst": "2026-10-30 20:47",
+   "result": "17895705891614171"
   }
  },
  "boards": {
