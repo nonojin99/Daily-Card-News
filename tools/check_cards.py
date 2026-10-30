@@ -99,6 +99,7 @@ def main(fname):
                 if gd and not r[5].startswith(("+", "-", "−")): W(f"cn-table {r[0]}: 득실 '{r[5]}' 에 +/− 부호")
                 if prev is not None and pts > prev: F(f"cn-table {k}위 {r[0]} 승점 {pts} 이 윗줄({prev})보다 큼 — 순서 확인")
                 prev = pts
+            if not re.search(r'data-league="[^"]+"', tb.group(1)): F("cn-table data-league 없음 — 월·화 순위 변동 릴스가 금요일 표를 찾는 이름(EPL·라리가·분데스리가·세리에A·리그앙)")
             zs = re.search(r'data-zones="([^"]*)"', tb.group(1))
             if not zs: W("cn-table data-zones 없음 — 챔스·유로파·강등 구역 색이 안 나온다")
             else:
@@ -128,6 +129,41 @@ def main(fname):
         head = f"## 카드 {i} [{topic}] — " + ("PASS" if not out else f"FAIL {nf} · WARN {nw}" if nf else f"WARN {nw}")
         print(head)
         for k, m in out: print(f"  - {k}: {m}")
+    # 순위 변동 릴스 재료(2026-10-30~): <div class="table-move" hidden data-league data-zones data-round> — 금요일 리더보드 표와 팀 이름이 같아야 한다
+    mv = re.findall(r'<div class="table-move"([^>]*)>(.*?)</div>', src, re.S)
+    if mv:
+        import datetime
+        m0 = re.search(r"(\d{4}-\d{2}-\d{2})_football", fname)
+        fri = {}
+        if m0:
+            d0 = datetime.date.fromisoformat(m0.group(1))
+            for k in range(1, 8):
+                f = d0 - datetime.timedelta(days=k)
+                fp = Path(fname).parent / f"{f}_football-brief.html"
+                if f.weekday() == 4 and fp.exists():
+                    for at, body in re.findall(r'<p class="cn-table"([^>]*)>(.*?)</p>', fp.read_text(encoding="utf-8"), re.S):
+                        lg = re.search(r'data-league="([^"]*)"', at)
+                        if lg: fri[lg.group(1)] = {r.split("|")[0].strip() for r in re.split(r"\s+/\s+", text(body).strip()) if r.strip()}
+                    break
+        print("\n## 순위 변동 릴스 재료(table-move)")
+        for at, body in mv:
+            lg = (re.search(r'data-league="([^"]*)"', at) or [None, ""])[1]
+            rows = [[c.strip() for c in r.split("|")] for r in re.split(r"\s+/\s+", text(body).strip()) if r.strip()]
+            bad = [r[0] for r in rows if len(r) != 7]
+            msg = []
+            if not lg: msg.append("FAIL: data-league 없음")
+            if not re.search(r'data-round="[^"]+"', at): msg.append("WARN: data-round 없음(예: 9라운드 뒤)")
+            if bad: msg.append(f"FAIL: 칸 7개가 아닌 행 {bad}")
+            for r in rows:
+                if len(r) == 7:
+                    try:
+                        if int(r[2]) + int(r[3]) + int(r[4]) != int(r[1]): msg.append(f"FAIL: {r[0]} 승+무+패 ≠ 경기")
+                    except ValueError: msg.append(f"FAIL: {r[0]} 숫자 아님")
+            if not fri: msg.append("FAIL: 비교할 금요일 리더보드(cn-table) 없음")
+            elif lg not in fri: msg.append(f"FAIL: 금요일 표에 '{lg}' 없음")
+            elif fri[lg] != {r[0] for r in rows}: msg.append(f"FAIL: 팀 이름이 금요일과 다름 — 금요일에만 {sorted(fri[lg] - {r[0] for r in rows})}, 지금만 {sorted({r[0] for r in rows} - fri[lg])}")
+            nf = sum(1 for x in msg if x.startswith("FAIL")); fails += nf; warns += len(msg) - nf
+            print(f"  - {lg or '?'} {len(rows)}팀 — " + ("PASS" if not msg else " · ".join(msg)))
     # 깊게 파는 릴스 원고(2026-10-28 사용자 반려 뒤 — GTA 6 릴스의 요점 장 3개가 카드에 이미 있는 가격·날짜를 되풀이했다)
     # README '깊게 파는 릴스': 카드를 되풀이하지 말고 한 단계 더 들어간다 → 요점 장(data-k)마다 카드 그림(cn)에 없는 새 숫자가 있어야 한다
     rn, rf, rw = reel_check(src, cards)

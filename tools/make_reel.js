@@ -6,6 +6,7 @@
 //   node tools/make_reel.js --short <브리프.html>    15초 '핵심 3장' 릴스(낭독 없음, 배경음악) → reels/YYYY-MM/<날짜>_<종류>_short.mp4 (2026-10-23~ A/B)
 //   node tools/make_reel.js --deep <브리프.html> <카드 번호>   깊게 파는 릴스 '페이지 전환형'(2026-10-26~ 사용자 결정): <details class="reel-script" data-card="N"> 의 data-k 요점 장 + 배경음악, 낭독 없음 → reels/YYYY-MM/<날짜>_<종류>_cN.mp4
 //   node tools/make_reel.js --deep-narr <브리프.html> <카드 번호>   (옛 낭독형 — 원고 MP3 필요, 지금은 자동으로 만들지 않는다)
+//   node tools/make_reel.js --move <월·화 축구 브리프.html>   순위 변동 릴스(금요일 리더보드 대비, 2026-10-30~) → reels/YYYY-MM/<날짜>_football_move.mp4
 //   node tools/make_reel.js --recent                 Actions 용: 최근 3일 릴스 대상 브리프 중 없거나 재료가 바뀐 것만 (REELS_OUT 에 만든 파일 목록)
 //
 //   spec = { "brief", "audio", "out", "title", ("bgm": {"src", "credit"}), "segments": [[시작초, 끝초, 슬라이드 번호(1=표지, 마지막=출처 장), (1이면 다음 구간과 쉼 없이 이어짐)], …] }
@@ -18,6 +19,7 @@
 const http = require("http"), fs = require("fs"), path = require("path"), os = require("os"), crypto = require("crypto");
 const { execFileSync, execSync, spawnSync } = require("child_process");
 const { chartPage } = require("./reel_chart.js");
+const { movePage, parseRows, zonesOf, pairUp } = require("./table_move.js");
 let pw; try { pw = require("playwright"); } catch { pw = require(path.join(execSync("npm root -g").toString().trim(), "playwright")); }
 const ROOT = path.resolve(__dirname, "..");
 const GAP = 0.35, MAX = 180, FIT = 178, OUTRO = 2;   // 문단 사이 쉼 0.6 → 0.35초(2026-10-23, 빨리 넘기기)
@@ -366,7 +368,10 @@ const RECAP = { cards: 6, secs: [4.5, 1.8], outro: 0, xf: 0.25, max: 14.5, zoom:
 // 야구 나이트 캐러셀판(2026-10-26 사용자 결정 — "야구도 캐러셀 내용을 쇼츠로, 페이지당 1.8초, TTS 없이 배경음"): 본문 카드 전부(최대 6장) 1.8초씩, 첫 장도 1.8초(살짝 확대),
 // 표지·출처 장 없음(카드에 출처 칩) = 1.8 × N − 0.25 × (N − 1) — 4장 6.45초 · 6장 9.55초.
 const NIGHT = { cards: 6, secs: [1.8], outro: 0, xf: 0.25, max: 10, zoom: 0.04, bgm: SHORT.bgm, credit: SHORT.credit, suffix: "_short", variant: "night", label: "⚾ 야구 나이트" };
-const shortOptOf = (type, d) => type === "football" && wdOf(d) === 1 ? RECAP : type === "baseball" ? NIGHT : FAST_OF(type) ? FAST : SHORT;
+// 금요일 축구 리더보드(2026-10-30 사용자 결정): 코리안리거 일정 + 5대 리그 1위~꼴찌 순위표(cn-table) 6장 — 결산판과 같은 넘김(4.5초 확대 → 1.8초씩), 머리말 '⚡ 리더보드'
+const BOARD = { ...RECAP, variant: "board", label: "⚡ 리더보드" };
+const hasTable = n => { try { return /class="cn-table"/.test(read(n).toString()); } catch { return false; } };
+const shortOptOf = (type, d, n = "") => type === "football" && wdOf(d) === 1 ? RECAP : type === "football" && hasTable(n) ? BOARD : type === "baseball" ? NIGHT : FAST_OF(type) ? FAST : SHORT;
 // 음악 라이브러리판(2026-10-24~ 사용자 결정): 토요일 음악 릴스는 자동 게시하지 않고, 사람이 인스타 앱에서 음악 라이브러리 곡을 붙여 올린다.
 // 그래서 소리 없는 영상으로 카드 전부 × 4초 + 출처 장. 곡은 그 주 플레이리스트에서 라이브러리에 있는 것을 고른다(캡션 파일에 후보).
 const LIB = { cards: 7, sec: 4, outro: 2.2, xf: 0.35, bgm: null, credit: "", suffix: "_lib", variant: "lib", label: "🎵 이번 주 플레이리스트" };
@@ -553,6 +558,67 @@ async function deepFlip(brief, cardNo, b, base) {
   return { files: [spec.out, out_ + ".reel.json"] };
 }
 const deepFlipFp = (brief, blk) => sha(read(brief), blk.raw, read(FLIP_BGM), read("tools/make_reel.js"), /data-chart=/.test(blk.raw) ? read("tools/reel_chart.js") : "", read("app/cards.html"));
+// ── 순위 변동 릴스(2026-10-30 사용자 요청: "월~화 주말 경기 끝나고 리뷰할 때 금요일 대비 변한 순위표를 애니메이션으로") ──
+// 월·화 축구 브리프에 <div class="table-move" hidden data-league="EPL" data-zones="…" data-round="9라운드 뒤">팀|경기|승|무|패|득실|승점 / …</div> 를 넣으면
+// 그 전 가장 가까운 금요일 리더보드의 같은 리그 순위표(.cn-table data-league)와 팀 이름으로 맞춰 → reels/YYYY-MM/<날짜>_football_move.mp4
+// 리그 한 장면 = 금요일 순위 정지 0.8초 → 행이 새 자리로 1.8초 → 변동(▲▼) 정지 2.2초(≈4.8초). 낭독 없음, 배경음악. 리그 순서 = 브리프 순서, 최대 5리그(≈24초).
+const MOVE = { hold0: 0.8, anim: 1.8, hold1: 2.2, fps: 30, max: 29 };
+const LEAGUE_KO = { EPL: "프리미어리그", "라리가": "라리가", "분데스리가": "분데스리가", "세리에A": "세리에A", "리그앙": "리그앙" };
+function moveBlocks(html) {
+  return [...html.matchAll(/<div class="table-move"([^>]*)>([\s\S]*?)<\/div>/g)].map(x => {
+    const at = k => ((x[1].match(new RegExp(`${k}="([^"]*)"`)) || [])[1] || "");
+    return { league: at("data-league"), zones: at("data-zones"), round: at("data-round"), rows: parseRows(x[2]) };
+  }).filter(x => x.league && x.rows.length >= 10);
+}
+function fridayOf(d) {   // d 이전 가장 가까운 금요일 축구 브리프(순위표가 있는 것)
+  for (let k = 1; k <= 7; k++) {
+    const f = new Date(Date.parse(d) - k * 864e5).toISOString().slice(0, 10), n = `${f}_football-brief.html`;
+    if (wdOf(f) === 5 && fs.existsSync(path.join(ROOT, n)) && hasTable(n)) return n;
+  }
+  return "";
+}
+function fridayTables(n) {
+  const html = read(n).toString(), out = {};
+  for (const x of html.matchAll(/<p class="cn-table"([^>]*)>([\s\S]*?)<\/p>/g)) {
+    const lg = (x[1].match(/data-league="([^"]*)"/) || [])[1]; if (lg) out[lg] = parseRows(x[2]);
+  }
+  return out;
+}
+const moveFp = (brief, fri) => sha(read(brief), fri ? read(fri) : "", read(FLIP_BGM), read("tools/make_reel.js"), read("tools/table_move.js"));
+async function moveOne(brief, b) {
+  const m = brief.match(BRIEF); if (!m || m[4] !== "football") return { skip: "축구 브리프 아님" };
+  const html = read(brief).toString(), d = `${m[1]}-${m[2]}-${m[3]}`, blocks = moveBlocks(html);
+  if (!blocks.length) return { skip: "table-move 없음" };
+  const fri = fridayOf(d); if (!fri) return { skip: "비교할 금요일 리더보드 없음" };
+  const ft = fridayTables(fri), fd = fri.slice(0, 10), ac = (html.match(/--accent:\s*(#[0-9a-fA-F]{6})/) || [0, "#2f6b45"])[1];
+  const scenes = blocks.filter(x => ft[x.league]).slice(0, 5).map(x => ({ league: x.league, title: `${LEAGUE_KO[x.league] || x.league} 순위 변화`,
+    sub: `금 ${+fd.slice(5, 7)}.${+fd.slice(8, 10)} → ${x.round || "주말 경기 뒤"}`, rows: pairUp(ft[x.league], x.rows), zones: zonesOf(x.zones) }));
+  if (!scenes.length) return { skip: "금요일 순위표와 맞는 리그 없음(data-league 확인)" };
+  const per = MOVE.hold0 + MOVE.anim + MOVE.hold1, total = per * scenes.length;
+  if (total > MOVE.max) throw new Error(`순위 변동 릴스 ${total.toFixed(1)}초 — ${MOVE.max}초 넘음`);
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "reel-m-")), pg = await b.newPage({ viewport: { width: 1080, height: 1920 } });
+  const wd = "일월화수목금토"[wdOf(d)], list = [], N = Math.round(MOVE.anim * MOVE.fps);
+  for (let i = 0; i < scenes.length; i++) {
+    await pg.setContent(movePage(scenes[i], { ac, cat: "⚽ 축구 모닝", label: "⚡ 순위 변화", date: `${+m[2]}.${+m[3]} ${wd}`, handle: HANDLE_OF("football"), credit: FLIP_CREDIT, i, n: scenes.length }), { waitUntil: "networkidle" });
+    const shot = async (p, name, dur) => { await pg.evaluate(v => window.setP(v), p); const f = path.join(tmp, name); await pg.screenshot({ path: f }); list.push(`file '${f}'`, `duration ${dur.toFixed(4)}`); return f; };
+    await shot(0, `m${i}_a.png`, MOVE.hold0);
+    for (let k = 1; k < N; k++) await shot(k / N, `m${i}_${String(k).padStart(3, "0")}.png`, 1 / MOVE.fps);
+    const last = await shot(1, `m${i}_z.png`, MOVE.hold1);
+    if (i === scenes.length - 1) list.push(`file '${last}'`);   // concat 마지막 장 길이가 먹히도록 한 번 더
+  }
+  await pg.close();
+  fs.writeFileSync(path.join(tmp, "list.txt"), list.join("\n") + "\n");
+  const out_ = `reels/${m[1]}-${m[2]}/${d}_football_move`;
+  fs.mkdirSync(path.join(ROOT, path.dirname(out_)), { recursive: true });
+  execFileSync("ffmpeg", ["-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", path.join(tmp, "list.txt"), "-i", path.join(ROOT, FLIP_BGM),
+    "-filter_complex", `[0:v]fps=30,format=yuv420p,setsar=1[v];[1:a]atrim=0:${total.toFixed(3)},asetpts=PTS-STARTPTS,afade=t=out:st=${Math.max(0, total - 1.2).toFixed(3)}:d=1.2,volume=0.9[a]`,
+    "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-profile:v", "high", "-level", "4.1", "-preset", "medium", "-crf", "21", "-c:a", "aac", "-b:a", "128k",
+    "-t", total.toFixed(3), "-movflags", "+faststart", path.join(ROOT, out_ + ".mp4")]);
+  const spec = { brief, kind: "move", friday: fri, leagues: scenes.map(s => s.league), out: out_ + ".mp4", seconds: +total.toFixed(2), bgm: FLIP_BGM, credit: FLIP_CREDIT, fp: moveFp(brief, fri) };
+  fs.writeFileSync(path.join(ROOT, out_ + ".reel.json"), JSON.stringify(spec, null, 2) + "\n");
+  console.log(`reel: ${out_}.mp4 — ${total.toFixed(1)}초, ${scenes.map(s => s.league).join("·")} (금 ${fd} 대비)`);
+  return { files: [out_ + ".mp4", out_ + ".reel.json"] };
+}
 const deepFp = (brief, blk, mp3) => sha(read(brief), blk.raw, read(mp3), read("tools/make_reel.js"), read("app/cards.html"));
 const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make_reel.js"), read("app/cards.html"));
 
@@ -573,7 +639,10 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
       if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
     } else if (mode === "--short") {
       const bm = path.basename(arg).match(BRIEF) || [];
-      const r = await shortOne(arg, b, base, bm[4] ? shortOptOf(bm[4], `${bm[1]}-${bm[2]}-${bm[3]}`) : SHORT);
+      const r = await shortOne(arg, b, base, bm[4] ? shortOptOf(bm[4], `${bm[1]}-${bm[2]}-${bm[3]}`, arg) : SHORT);
+      if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
+    } else if (mode === "--move") {
+      const r = await moveOne(arg, b);
       if (r.skip) { console.log(`reel: ${arg} 건너뜀 — ${r.skip}`); code = 3; }
     } else if (mode === "--recent") {
       const today = kstToday(), cutoff = new Date(Date.parse(today) - 3 * 864e5).toISOString().slice(0, 10), made = [];
@@ -588,12 +657,20 @@ const fingerprint = (brief, mp3) => sha(read(brief), read(mp3), read("tools/make
           try { const r = await deepFlip(n, blk.card, b, base); if (r.skip) console.log(`reel: ${n} 카드 ${blk.card} 건너뜀 — ${r.skip}`); else made.push(...r.files); }
           catch (e) { console.log(`::warning::deep reel failed for ${n} c${blk.card}: ${e.message}`); }
         }
+        // 순위 변동 릴스 — table-move 블록이 있는 축구 브리프(월·화 결산)
+        if (m[4] === "football" && /class="table-move"/.test(read(n).toString())) {
+          const mj = `reels/${m[1]}-${m[2]}/${d}_football_move.reel.json`;
+          if (!(fs.existsSync(path.join(ROOT, mj)) && JSON.parse(read(mj)).fp === moveFp(n, fridayOf(d))) && !userLocked(mj.replace(/\.reel\.json$/, ".mp4"))) {
+            try { const r = await moveOne(n, b); if (r.skip) console.log(`reel: ${n} 순위 변동 건너뜀 — ${r.skip}`); else made.push(...r.files); }
+            catch (e) { console.log(`::warning::move reel failed for ${n}: ${e.message}`); }
+          }
+        }
         if (!REEL_OF(m[4], wdOf(d))) continue;
         const mp3 = `audio/${m[1]}-${m[2]}/${d}_${m[4]}.mp3`, spec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}.reel.json`;
         // 짧은판(A/B). 음악 브리프는 짧은판 대신 라이브러리판(소리 없음 — 사람이 인스타 앱에서 음악을 붙여 게시, 2026-10-24~)
         const lib = m[4] === "music", sspec = `reels/${m[1]}-${m[2]}/${d}_${m[4]}${lib ? LIB.suffix : SHORT.suffix}.reel.json`;
         if (!(fs.existsSync(path.join(ROOT, sspec)) && JSON.parse(read(sspec)).fp === shortFp(n)) && !userLocked(sspec.replace(/\.reel\.json$/, ".mp4"))) {
-          try { const r = await shortOne(n, b, base, lib ? LIB : shortOptOf(m[4], d)); if (!r.skip) made.push(...r.files); }
+          try { const r = await shortOne(n, b, base, lib ? LIB : shortOptOf(m[4], d, n)); if (!r.skip) made.push(...r.files); }
           catch (e) { console.log(`::warning::short reel failed for ${n}: ${e.message}`); }
         }
         if (SHORT_ONLY(m[4], wdOf(d)) || !fs.existsSync(path.join(ROOT, mp3))) continue;

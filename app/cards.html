@@ -232,7 +232,7 @@ function summaryOf(a){
   return clean(out);
 }
 // 순위표(.cn-table) — 행 = 팀|경기|승|무|패|득실|승점(1위부터, 18·20팀), data-zones = "1-4:챔스|5:유로파|18-20:강등"(색은 이름으로)
-const ZONE_C = [[/챔스|챔피언스|UCL/, "#2f6d9e"], [/유로파|UEL/, "#c06a24"], [/컨퍼런스|UECL/, "#3a8a7a"], [/플레이오프/, "#de9a8f"], [/강등/, "#b8433a"]];
+const ZONE_C = [[/예선/, "#86b3d9"], [/챔스|챔피언스|UCL/, "#2f6d9e"], [/유로파|UEL/, "#c06a24"], [/컨퍼런스|UECL/, "#3a8a7a"], [/플레이오프/, "#de9a8f"], [/강등/, "#b8433a"]];
 function tableOf(a){
   const t = a.querySelector(".cn .cn-table"); if(!t) return null;
   const rows = clean(t.textContent).split(/\s+\/\s+/).map(r => r.split("|").map(clean)).filter(r => r.length >= 7);

@@ -29,6 +29,11 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **축구 모닝** 브리�
 - 순위표 카드: `cn-t` = `프리미어리그 순위<br>9라운드 뒤`, `cn-note` = `9라운드 뒤 · 11/5 기준 / 이번 주말: 일 새벽 1:30 리버풀–아스널`, 본문 = 기준 라운드·상위권 승점 차·이번 주말 빅매치(한국시간)·코리안리거.
 - 서브에이전트 A = EPL·라리가·세리에A 순위표 + 빅매치, B = 분데스리가·리그앙 순위표 + 코리안리거 일정. 순위표는 공식·주요 매체 본문으로 확인(ESPN API 는 발견용).
 - 첫 3편은 수습(`new-template`) — 요청에 `"review":"human"`, 알림에 미리보기 주소와 '승인 요청'.
+- 릴스는 ⚡ 리더보드판(`make_reel.js` `BOARD`, 6장 넘김 ≈12초, `…_short.mp4`, `"ab":"short"`).
+
+## 월·화 = 순위 변동 릴스 (2026-10-30 사용자 요청) — README '📈 월·화 = 순위 변동 릴스'
+- 월요일 주말 결산(화요일도, 월요일 밤 경기가 있으면)에 그 주말 경기를 마친 리그마다 `<div class="table-move" hidden data-league="EPL" data-zones="…" data-round="9라운드 뒤">…전체 순위…</div>` 를 넣는다(카드 아님). 팀 이름·data-league 는 금요일 `cn-table` 과 같게, 숫자는 같은 출처 본문으로 확인.
+- push → Actions 가 `reels/YYYY-MM/<날짜>_football_move.mp4` → `check_reel.py` + `reel-reviewer` → 승인 기록 + 캡션(`captions/<날짜>_football_move.txt`, 첫 줄 = 가장 크게 움직인 팀·숫자) + `request.json` 항목(`"ab"` 없이, `"account":"sports"`, 첫 3편 `"review":"human"`). 결산판 릴스(`_short`)와 같은 커밋에 둘 다 넣어도 된다.
 
 ## 프리뷰 (토요일 · A매치 기간, 2026-10-24~) — README '스포츠 계정 → ⚽ 축구 프리뷰'
 - 파일 이름은 같다(`YYYY-MM-DD_football-brief.html`), h1·캡션 첫 줄 `⚽ 축구 모닝 · 주말 프리뷰`(A매치 기간 `· A매치 프리뷰`).
