@@ -178,6 +178,27 @@
   html.png .slide{width:1080px;border-radius:0;box-shadow:none}
   html.png .nav,html.png .saves{display:none}
   @media (prefers-reduced-motion:reduce){.rail{scroll-behavior:auto}}
+  /* 순위표 카드(2026-10-30 사용자 결정 — 시안 A '클래식 표', 시즌 끝까지): .cn-table 이 있는 카드는 카드 한 장 전체가 1~20위 표.
+     <p class="cn-table" data-zones="1-4:챔스|5:유로파|18-20:강등">맨시티|8|7|0|1|+11|21 / …</p> — 팀|경기|승|무|패|득실|승점, 1위부터 */
+  .slide.tbl{background:var(--stage);padding:5.6cqw 6.4cqw 0}
+  .tbl .th{display:flex;align-items:flex-end;justify-content:space-between;gap:3cqw;margin-bottom:2.2cqw}
+  .tbl .tk{font-size:2cqw;font-weight:700;letter-spacing:.12em;color:var(--accent)}
+  .tbl .tt{font-size:4.8cqw;font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-top:.8cqw}
+  .tbl .tm{font-size:1.95cqw;font-weight:500;color:var(--muted);text-align:right;line-height:1.5;max-width:44%}
+  .tbl .tw{flex:1;min-height:0;background:var(--card);border-radius:2cqw;padding:.6cqw 2.4cqw;display:flex;flex-direction:column}
+  .tbl .tr{flex:1;display:grid;grid-template-columns:.75cqw 4.6cqw 1fr 5cqw 5cqw 5cqw 5cqw 7cqw 7.8cqw;align-items:center;border-bottom:1px solid var(--line);font-size:2.2cqw;font-weight:500;min-height:0}
+  .tbl .tr:last-child{border-bottom:0}
+  .tbl .tr.hd{flex:0 0 3.8cqw;font-size:1.65cqw;font-weight:700;color:var(--faint)}
+  .tbl .tr.cut{border-bottom:2px dashed var(--faint)}
+  .tbl .zb{width:.55cqw;height:62%;border-radius:.3cqw}
+  .tbl .rk{font-weight:700;color:var(--muted);text-align:center}
+  .tbl .tn{font-weight:700;padding-left:.8cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tbl .sv{text-align:center;color:var(--muted)}
+  .tbl .pt{text-align:center;font-size:2.6cqw;font-weight:900;color:var(--ink)}
+  .tbl .tr.hd .pt{font-size:1.65cqw;font-weight:700;color:var(--faint)}
+  .tbl .tf{display:flex;justify-content:space-between;align-items:center;gap:2cqw;padding:2cqw 0 3cqw;font-size:1.75cqw;color:var(--faint)}
+  .tbl .lg{display:flex;gap:2cqw;color:var(--muted)} .tbl .lg i{display:inline-block;width:1.3cqw;height:1.3cqw;border-radius:.3cqw;margin-right:.6cqw;vertical-align:-.1cqw}
+  .tbl .tf .h{font-weight:700;color:var(--accent);font-size:2cqw;letter-spacing:.02em}
 </style>
 </head>
 <body>
@@ -209,6 +230,18 @@ function summaryOf(a){
   let out = "";
   for(const x of sents){ if((out + " " + x).length > 100 && out) break; out += (out ? " " : "") + x; }
   return clean(out);
+}
+// 순위표(.cn-table) — 행 = 팀|경기|승|무|패|득실|승점(1위부터, 18·20팀), data-zones = "1-4:챔스|5:유로파|18-20:강등"(색은 이름으로)
+const ZONE_C = [[/챔스|챔피언스|UCL/, "#2f6d9e"], [/유로파|UEL/, "#c06a24"], [/컨퍼런스|UECL/, "#3a8a7a"], [/플레이오프/, "#de9a8f"], [/강등/, "#b8433a"]];
+function tableOf(a){
+  const t = a.querySelector(".cn .cn-table"); if(!t) return null;
+  const rows = clean(t.textContent).split(/\s+\/\s+/).map(r => r.split("|").map(clean)).filter(r => r.length >= 7);
+  if(rows.length < 10) return null;
+  const zones = (t.dataset.zones || "").split("|").map(z => z.split(":").map(clean)).filter(z => z.length === 2).map(([r, name], k) => {
+    const [lo, hi] = r.split("-").map(Number);
+    return {lo, hi: hi || lo, name, c: (ZONE_C.find(([re]) => re.test(name)) || [0, ["#2f6d9e", "#c06a24", "#3a8a7a", "#b8433a"][k % 4]])[1]};
+  });
+  return {rows, zones, zoneOf: n => zones.find(z => n >= z.lo && n <= z.hi)};
 }
 function creditOf(a){
   const names = [...a.querySelectorAll("a.source")].map(x => clean(x.textContent).split(/\s[—–-]\s/)[0]).filter(Boolean);
@@ -625,7 +658,7 @@ async function zipStore(files){
       if(ptoks.some(t => !(geo.kr && geo.kr.places[t]))) geo.world = await fetch("geo/world.json").then(r => r.json()).catch(() => null);
     }
     const cards = picks.map(({a, b}) => ({
-      pc: photoOf(a)?.credit || "", ahead: a.dataset.plan === "ahead", title: titleOf(a), sum: summaryOf(a), credit: creditOf(a), num: titleNum(a), vis: visualOf(a, geo, Number(b.date.slice(0, 4))),
+      pc: photoOf(a)?.credit || "", ahead: a.dataset.plan === "ahead", title: titleOf(a), sum: summaryOf(a), credit: creditOf(a), num: titleNum(a), vis: visualOf(a, geo, Number(b.date.slice(0, 4))), tb: tableOf(a), note: clean(a.querySelector(".cn .cn-note")?.textContent),
       label: clean(a.querySelector(".topic")?.textContent), ac: b.ac, acs: b.acs, date: b.date, ai: !!a.querySelector(".cn img.cn-gen")
     }));
     if(geo && geo.kr) document.body.insertAdjacentHTML("afterbegin", `<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><path id="kr" class="ig-land" d="${geo.kr.outline}"/></defs></svg>`);
@@ -658,6 +691,18 @@ async function zipStore(files){
     cards.forEach((c, i) => {
       const len = plain(c.title).length;
       const [lab, ...rest] = c.label.split("·").map(clean);
+      if(c.tb){   // 순위표 카드 — 카드 한 장 전체가 표(시안 A)
+        const {rows, zones, zoneOf} = c.tb, cuts = new Set(zones.flatMap(z => [z.lo - 1, z.hi]));
+        h += `<section class="slide tbl" aria-label="${i + 1}번 카드 · 순위표" style="--accent:${c.ac};--accent-soft:${c.acs}"><span class="count">${i + 2}/${N}</span>
+          <div class="th"><div><div class="tk">${esc(cat || kicker)}${lab ? " · " + esc(lab) : ""}</div><div class="tt">${c.title}</div></div>
+            <div class="tm">${c.note.split(/\s+\/\s+/).map(esc).join("<br>")}${c.credit ? `<br>${esc(c.credit)}` : ""}</div></div>
+          <div class="tw"><div class="tr hd"><span></span><span class="rk">#</span><span class="tn">팀</span><span class="sv">경기</span><span class="sv">승</span><span class="sv">무</span><span class="sv">패</span><span class="sv">득실</span><span class="pt">승점</span></div>
+          ${rows.map((r, k) => { const z = zoneOf(k + 1);
+            return `<div class="tr${cuts.has(k + 1) && k + 1 < rows.length ? " cut" : ""}"><span class="zb" style="background:${z ? z.c : "transparent"}"></span><span class="rk">${k + 1}</span><span class="tn">${esc(r[0])}</span>${r.slice(1, 6).map(v => `<span class="sv">${esc(v.replace(/^-/, "−"))}</span>`).join("")}<span class="pt">${esc(r[6])}</span></div>`; }).join("")}</div>
+          <div class="tf"><div class="lg">${zones.map(z => `<span><i style="background:${z.c}"></i>${esc(z.name)}</span>`).join("")}</div><span><span class="h">${HANDLE}</span> · ${esc(cat || kicker.toUpperCase())} · ${md2(c.date)}</span></div>
+        </section>`;
+        return;
+      }
       h += `<section class="slide" aria-label="${i + 1}번 카드" style="--accent:${c.ac};--accent-soft:${c.acs}">
         <div class="stage"><span class="count">${i + 2}/${N}</span>
           ${c.vis || (c.num

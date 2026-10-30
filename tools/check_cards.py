@@ -7,7 +7,7 @@ import re, sys, html
 from pathlib import Path
 
 BANNED_TOPICS = {"발견", "결과", "전망", "관측 기법", "대상 행성", "선행 연구", "배경", "기타", "분석", "의미", "연구", "개요", "요약"}
-INFO = ("cn-ring", "cn-waffle", "cn-ticket", "cn-over", "cn-fixtures", "cn-scores", "cn-score", "cn-link", "cn-shift", "cn-steps", "cn-bars", "cn-place", "cn-when", "cn-num")
+INFO = ("cn-table", "cn-ring", "cn-waffle", "cn-ticket", "cn-over", "cn-fixtures", "cn-scores", "cn-score", "cn-link", "cn-shift", "cn-steps", "cn-bars", "cn-place", "cn-when", "cn-num")
 PHOTO_OK = re.compile(r"^https://(cdn\.(esawebb|esahubble)\.org/archives/images/screen/|(upload|thumb)\.wikimedia\.org/wikipedia/commons/)")
 LICENSE = re.compile(r"CC0|CC BY|퍼블릭 도메인|Public domain|공공누리", re.I)
 NUM = re.compile(r"\d[\d,]*(?:\.\d+)?")
@@ -84,6 +84,29 @@ def main(fname):
         # 제목과 같은 큰 숫자
         for v in re.findall(r'class="cn-num">([^|<]+)\|', cn):
             if v.strip().replace(" ", "") in tt: F(f"cn-num '{v.strip()}' 이 제목과 중복")
+        # 순위표(2026-10-30 사용자 결정 — 시안 A, 카드 한 장 전체가 1~20위 표). 표 숫자는 출처 순위표와 대조(사실 검증)하고 여기선 형식·산수만 본다
+        tb = re.search(r'<p class="cn-table"([^>]*)>(.*?)</p>', cn, re.S)
+        if tb:
+            rows = [[c.strip() for c in r.split("|")] for r in re.split(r"\s+/\s+", text(tb.group(2)).strip()) if r.strip()]
+            if len(rows) not in (18, 20): F(f"cn-table {len(rows)}팀 — 5대 리그는 18팀(분데스·리그앙) 또는 20팀")
+            prev = None
+            for k, r in enumerate(rows, 1):
+                if len(r) != 7: F(f"cn-table {k}위 칸 {len(r)}개 (팀|경기|승|무|패|득실|승점)"); continue
+                try: gp, w, d, l, pts = (int(r[x]) for x in (1, 2, 3, 4, 6)); gd = int(r[5].replace("−", "-").replace("+", ""))
+                except ValueError: F(f"cn-table {k}위 '{r[0]}' 숫자 아님"); continue
+                if w + d + l != gp: F(f"cn-table {r[0]}: 승{w}+무{d}+패{l} ≠ 경기 {gp}")
+                if pts != 3 * w + d: W(f"cn-table {r[0]}: 승점 {pts} ≠ 3×{w}+{d} — 승점 삭감이면 본문에 적기")
+                if gd and not r[5].startswith(("+", "-", "−")): W(f"cn-table {r[0]}: 득실 '{r[5]}' 에 +/− 부호")
+                if prev is not None and pts > prev: F(f"cn-table {k}위 {r[0]} 승점 {pts} 이 윗줄({prev})보다 큼 — 순서 확인")
+                prev = pts
+            zs = re.search(r'data-zones="([^"]*)"', tb.group(1))
+            if not zs: W("cn-table data-zones 없음 — 챔스·유로파·강등 구역 색이 안 나온다")
+            else:
+                for z in zs.group(1).split("|"):
+                    if not re.fullmatch(r"\d+(-\d+)?:[^:|]+", z.strip()): F(f"cn-table data-zones 형식 '{z}' (예: 1-4:챔스)")
+            if not grab("cn-note", cn): W("cn-table 카드에 cn-note 없음 — 오른쪽 위 '몇 라운드 뒤 · 기준일'")
+            if not re.search(r"\d+\s*라운드", body_t): F("cn-table 카드 본문에 'N라운드' 기준이 없음 — 언제 순위인지")
+            cn = cn.replace(tb.group(0), "")
         # 숫자 출처: 카드용 문장·그림의 숫자가 같은 카드 본문·스펙 표에 있는가
         cn_t = text(cn)
         norm = lambda x: x.replace(",", "").lstrip("0") or "0"   # 08 = 8, 1,331 = 1331
