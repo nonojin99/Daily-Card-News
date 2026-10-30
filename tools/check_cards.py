@@ -120,6 +120,9 @@ def main(fname):
                 if len(r) not in (6, 7): F(f"cn-players '{r[0]}' 칸 {len(r)}개 (선수|팀|상대|홈/원정|요일|시각|표시)"); continue
                 if 'data-kind="match"' not in pl.group(1) and r[3] not in ("홈", "원정", "중립"): F(f"cn-players {r[0]}: 홈/원정 칸 '{r[3]}'")
                 if days and r[4] not in days: F(f"cn-players {r[0]}: 요일 '{r[4]}' 이 data-days 에 없음")
+                # 숫자에는 단위(2026-10-30 사용자 지적 "5위 18 대 공동 1위 25 — 18, 25가 뭔가 했다"): 위·점·경기·골·연승 등이 바로 붙어야 한다
+                for n in re.finditer(r"\d+(?:\.\d+)?(?!\d)(\S*)", r[3]):
+                    if not re.match(r"(·\d+)?(위|점|경기|골|연승|연패|승|무|패|분|%|명|R|라운드)", n.group(1)): F(f"cn-players {r[0]}: '{r[3]}' 의 숫자 '{n.group(0)}' 에 단위가 없음 — '18점'·'5위'처럼")
                 if not re.fullmatch(r"(새벽|아침|오전|낮|오후|저녁|밤|자정) \d{1,2}:\d{2}", r[5]): F(f"cn-players {r[0]}: 시각 '{r[5]}' — '새벽 4:30'·'밤 11:30' 처럼(24시간 표기 금지)")
         # 숫자 출처: 카드용 문장·그림의 숫자가 같은 카드 본문·스펙 표에 있는가
         cn_t = text(cn)

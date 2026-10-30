@@ -269,7 +269,7 @@ function playersOf(a){
   const days = Object.fromEntries((t.dataset.days || "").split("|").map(x => x.split(":").map(clean)).filter(x => x.length === 2));
   return {rows, days};
 }
-const WHEN = t => /^새벽/.test(t) ? "🌙 자정 넘어" : /^자정/.test(t) ? "🌙 자정" : /^밤/.test(t) ? "🌃 밤" : /^저녁/.test(t) ? "🌆 저녁" : /^(아침|오전)/.test(t) ? "🌅 아침" : "☀️ 낮";
+const WHEN = t => /^새벽/.test(t) ? "🌙 자정 넘어" : /^자정/.test(t) ? "" : /^밤/.test(t) ? "🌃 밤" : /^저녁/.test(t) ? "🌆 저녁" : /^(아침|오전)/.test(t) ? "🌅 아침" : "☀️ 낮";
 function creditOf(a){
   const names = [...a.querySelectorAll("a.source")].map(x => clean(x.textContent).split(/\s[—–-]\s/)[0]).filter(Boolean);
   return [...new Set(names)].slice(0, 2).join(" · ");
@@ -724,7 +724,7 @@ async function zipStore(files){
           <div class="pk">${esc(cat || kicker)}${lab ? " · " + esc(lab) : ""}</div><div class="pt">${c.title}</div>
           <div class="ps">${esc(c.note || "모두 한국시간 · 킥오프는 바뀔 수 있어요")}${c.credit ? `<span style="float:right;color:var(--faint)">${esc(c.credit)}</span>` : ""}</div>
           <div class="pl">${order.map(d => `<div class="pd">${esc(days[d] ? days[d] + " " + d : d + "요일")}</div>` + rows.filter(r => r[4] === d).map(r =>
-            `<div class="pr"><div class="tm">${esc(r[5])}<small>${WHEN(r[5])}</small></div><div><div class="nm">${esc(r[0])}${r[6] ? `<em>${esc(r[6])}</em>` : ""}</div><div class="vs">${esc(r[1])} vs ${esc(r[2])} · ${esc(r[3])}</div></div></div>`).join("")).join("")}</div>
+            `<div class="pr"><div class="tm">${esc(r[5])}${WHEN(r[5]) ? `<small>${WHEN(r[5])}</small>` : ""}</div><div><div class="nm">${esc(r[0])}${r[6] ? `<em>${esc(r[6])}</em>` : ""}</div><div class="vs">${esc(r[1])} vs ${esc(r[2])} · ${esc(r[3])}</div></div></div>`).join("")).join("")}</div>
           <div class="pf"><span>새벽 = 자정 넘어</span><span><span class="h">${HANDLE}</span> · ${esc(cat || kicker.toUpperCase())} · ${md2(c.date)}</span></div>
         </section>`;
         return;
