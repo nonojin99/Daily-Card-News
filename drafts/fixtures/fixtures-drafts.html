@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--stage:#f3f1ea;--card:#fff;--ink:#1a1a18;--muted:#55554f;--faint:#9a9a94;--line:#e6e4dd;--acc:#2f6b45;--acc-s:#e9f1ec;--night:#26304a;--dawn:#4b5d8a;--warn:#c06a24;--sans:'Noto Sans KR',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#ddd;font-family:var(--sans);color:var(--ink);word-break:keep-all}
+.c{width:1080px;height:1350px;background:var(--stage);position:relative;overflow:hidden;padding:64px 72px 52px;display:flex;flex-direction:column}
+.kick{font:700 22px var(--sans);letter-spacing:.14em;color:var(--acc)}
+.ttl{font:900 54px var(--sans);letter-spacing:-.02em;line-height:1.15;margin:10px 0 8px}
+.sub{font:500 24px var(--sans);color:var(--muted);margin-bottom:28px}
+.ft{margin-top:auto;display:flex;justify-content:space-between;font:500 19px var(--sans);color:var(--faint);padding-top:18px}
+.ft b{color:var(--acc);font-size:22px}
+.unc{display:inline-block;font:700 18px var(--sans);color:#fff;background:var(--warn);border-radius:99px;padding:3px 12px;margin-left:10px;vertical-align:4px}
+/* A 요일별 타임라인 */
+.da{font:900 26px var(--sans);color:var(--acc);margin:14px 0 8px;display:flex;align-items:center;gap:14px}.da:after{content:"";flex:1;height:2px;background:var(--line)}
+.ta{display:grid;grid-template-columns:230px 1fr;align-items:center;background:var(--card);border-radius:20px;padding:20px 28px;margin-bottom:12px}
+.ta .tm{font:900 40px var(--sans);letter-spacing:-.02em}.ta .tm small{display:block;font:700 20px var(--sans);color:var(--faint);letter-spacing:0}
+.ta .pl{font:900 38px var(--sans)}.ta .vs{font:500 23px var(--sans);color:var(--muted);margin-top:4px}
+/* B 선수 그리드 */
+.gb{display:grid;grid-template-columns:1fr 1fr;gap:18px;flex:1}
+.gb .p{background:var(--card);border-radius:24px;padding:26px 28px;display:flex;flex-direction:column}
+.gb .nm{font:900 46px var(--sans);letter-spacing:-.02em}.gb .tm{margin-top:auto;font:900 34px var(--sans);color:var(--acc)}
+.gb .dy{font:700 22px var(--sans);color:var(--faint)}.gb .vs{font:500 22px var(--sans);color:var(--muted);margin-top:6px}
+/* C 시간축 */
+.tc{background:var(--card);border-radius:24px;flex:1;position:relative;padding:30px}
+.tc .ax{position:absolute;left:62px;top:40px;bottom:40px;width:6px;border-radius:3px;background:linear-gradient(#d9d4c6,#d9d4c6)}
+.tc .bk{position:absolute;left:96px;font:900 24px var(--sans);color:var(--acc)}
+.tc .band{position:absolute;left:30px;right:30px;border-radius:14px}
+.tc .ev{position:absolute;left:48px;display:flex;align-items:center;gap:22px}
+.tc .dot{width:34px;height:34px;border-radius:50%;background:var(--acc);border:6px solid #fff;box-shadow:0 0 0 2px var(--acc)}
+.tc .lab{font:900 34px var(--sans)}.tc .lab small{font:500 22px var(--sans);color:var(--muted);margin-left:12px}
+.tc .t{font:900 26px var(--sans);color:var(--acc);min-width:150px}
+/* D 알람 */
+.al{background:var(--card);border-radius:22px;display:flex;align-items:center;padding:18px 30px;margin-bottom:14px;gap:26px}
+.al .ic{font-size:40px;width:56px;text-align:center}
+.al .tm{min-width:270px}.al .tm b{display:block;font:900 52px var(--sans);letter-spacing:-.03em;line-height:1}.al .tm small{font:700 21px var(--sans);color:var(--faint)}
+.al .pl{font:900 34px var(--sans)}.al .vs{font:500 22px var(--sans);color:var(--muted);margin-top:4px}
+/* E 편성표 */
+.te{display:grid;grid-template-columns:1fr 1fr;gap:18px;flex:1}
+.te .col{display:flex;flex-direction:column;gap:12px}
+.te .h{font:900 30px var(--sans);text-align:center;padding:12px;border-radius:16px;background:var(--acc);color:#fff}
+.te .sl{border-radius:18px;padding:18px 22px;color:#fff}
+.te .sl .w{font:700 20px var(--sans);opacity:.75}.te .sl .tm{font:900 36px var(--sans)}
+.te .sl .pl{font:900 32px var(--sans);margin-top:10px}.te .sl .vs{font:500 21px var(--sans);opacity:.85}
+.te .dawn{background:var(--dawn)}.te .night{background:var(--night)}
+</style></head><body><div id="root"></div>
+<script>
+// [선수, 팀, 상대, 홈/원정, 요일, 표시 시각, 시간대, 정렬용 시(토 0시 기준), 불확실]
+const P=[["이재성","마인츠","엘버스베르크","원정","토","새벽 4:30","dawn",4.5,""],["이강인","AT마드리드","레반테","원정","토","밤 10:00","night",22,""],["황희찬","샬케","라이프치히","홈","토","밤 11:30","night",23.5,""],["설영우","아우크스부르크","프라이부르크","홈","토","밤 11:30","night",23.5,""],["김민재","바이에른","도르트문트","홈","일","새벽 2:30","dawn",26.5,"출전 불확실"],["정우영","우니온 베를린","쾰른","홈","일","밤 11:30","night",47.5,""]];
+const DAY={토:"10/31 토",일:"11/1 일"};
+const HD=`<div class="kick">⚽ 축구 모닝 · 코리안리거</div><div class="ttl">이번 주말 코리안리거<br>언제 뛰나</div><div class="sub">모두 한국시간 · 킥오프는 바뀔 수 있어요</div>`;
+const FT=n=>`<div class="ft"><span>새벽 = 자정 넘어 · 밤 = 저녁 이후</span><span><b>@hannun.sports</b> · 10.30 · 시안 ${n}</span></div>`;
+const U=p=>p[8]?`<span class="unc">${p[8]}</span>`:"";
+const vs=p=>`${p[1]} vs ${p[2]} · ${p[3]}`;
+const V={
+A:()=>HD+["토","일"].map(d=>`<div class="da">${DAY[d]}</div>`+P.filter(p=>p[4]==d).map(p=>`<div class="ta"><div class="tm">${p[5]}<small>${p[6]=="dawn"?"🌙 자정 넘어":"🌆 저녁"}</small></div><div><div class="pl">${p[0]}${U(p)}</div><div class="vs">${vs(p)}</div></div></div>`).join("")).join("")+FT("A · 요일별 타임라인"),
+B:()=>HD+`<div class="gb">`+P.map(p=>`<div class="p"><div class="nm">${p[0]}${U(p)}</div><div class="vs">${vs(p)}</div><div class="tm">${p[4]} ${p[5]}</div><div class="dy">${DAY[p[4]]}</div></div>`).join("")+`</div>`+FT("B · 선수 카드 6칸"),
+C:()=>{const y=h=>50+(h-2)/(48-2)*840;
+ let used=[],pos=P.map(p=>{let yy=y(p[7]);while(used.some(u=>Math.abs(u-yy)<74))yy+=74;used.push(yy);return yy;});
+ const lastSat=Math.max(...pos.filter((_,i)=>P[i][4]=="토")),firstSun=Math.min(...pos.filter((_,i)=>P[i][4]=="일")),mid=(lastSat+firstSun)/2+12;
+ return HD+`<div class="tc">`+
+
+ `<div class="bk" style="top:${y(2)-36}px;left:auto;right:40px">10/31 토요일</div><div style="position:absolute;left:30px;right:30px;top:${mid}px;border-top:3px dashed #b9b4a6"></div><div class="bk" style="top:${mid+8}px;left:auto;right:40px">11/1 일요일</div>`+
+ P.map((p,i)=>`<div class="ev" style="top:${pos[i]-24+24}px;z-index:2"><span class="dot"></span><span class="t">${p[4]} ${p[5]}</span><span class="lab">${p[0]}${U(p)}<small>${p[1]} vs ${p[2]}</small></span></div>`).join("")+
+ `</div>`+FT("C · 주말 시간축")},
+D:()=>HD+P.map(p=>`<div class="al"><div class="ic">${p[6]=="dawn"?"🌙":"🌆"}</div><div class="tm"><small>${DAY[p[4]]}</small><b>${p[5]}</b></div><div><div class="pl">${p[0]}${U(p)}</div><div class="vs">${vs(p)}</div></div></div>`).join("")+FT("D · 알람 목록"),
+E:()=>HD+`<div class="te">`+["토","일"].map(d=>`<div class="col"><div class="h">${DAY[d]}</div>`+P.filter(p=>p[4]==d).map(p=>`<div class="sl ${p[6]}"><div class="w">${p[6]=="dawn"?"🌙 새벽":"🌆 밤"}</div><div class="tm">${p[5]}</div><div class="pl">${p[0]}${p[8]?" ⚠":""}</div><div class="vs">${p[1]} vs ${p[2]}${p[8]?" · "+p[8]:""}</div></div>`).join("")+`</div>`).join("")+`</div>`+FT("E · 주말 편성표")};
+document.getElementById("root").innerHTML=`<div class="c">${V[new URLSearchParams(location.search).get("v")||"A"]()}</div>`;
+</script></body></html>
