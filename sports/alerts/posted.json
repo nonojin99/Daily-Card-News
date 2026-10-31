@@ -892,6 +892,26 @@
    "status": "published",
    "at_kst": "2026-11-01 02:16",
    "result": "17925967431442822"
+  },
+  "eng.1:401879251": {
+   "image": "sports/alerts/2026-10/2026-10-31_eng-1_0259.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-01 02:59"
+  },
+  "eng.1:401879247": {
+   "image": "sports/alerts/2026-10/2026-10-31_eng-1_0259.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-01 02:59"
+  },
+  "eng.1:401878763": {
+   "image": "sports/alerts/2026-10/2026-10-31_eng-1_0259.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-01 02:59"
+  },
+  "eng.1:401879245": {
+   "image": "sports/alerts/2026-10/2026-10-31_eng-1_0259.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-01 02:59"
   }
  },
  "boards": {
