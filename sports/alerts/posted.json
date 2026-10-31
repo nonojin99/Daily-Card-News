@@ -847,8 +847,9 @@
   },
   "ita.1:401874798": {
    "image": "sports/alerts/2026-10/2026-10-31_ita-1_0059.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-01 00:59"
+   "status": "failed",
+   "at_kst": "2026-11-01 00:59",
+   "result": "POST 17841473719316196/media_publish → HTTP 400: {\"error\":{\"message\":\"The requested resource does not exist\",\"type\":\"OAuthException\",\"code\":24,\"error_subcode\":2207006,\"is_transient\":false,\"error_user_title\":\"Media Not Found\",\"error_user_msg\":\"The media with 17,899,396,002,457,311 cannot be found.\",\""
   }
  },
  "boards": {
