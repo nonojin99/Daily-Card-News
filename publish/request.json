@@ -2,23 +2,23 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-10/2026-10-30_football-brief",
-   "caption": "captions/2026-10-30_football.txt",
+   "media": "cards/2026-11/2026-11-01_football-brief",
+   "caption": "captions/2026-11-01_football.txt",
    "dry_run": "false",
    "is_ai": "false",
    "account": "sports",
-   "review": "human"
+   "review": "required"
   },
   {
    "kind": "reel",
-   "media": "reels/2026-10/2026-10-30_football.mp4",
-   "caption": "captions/2026-10-30_football_reel.txt",
+   "media": "reels/2026-11/2026-11-01_football.mp4",
+   "caption": "captions/2026-11-01_football_reel.txt",
    "dry_run": "false",
    "is_ai": "false",
    "account": "sports",
    "ab": "short",
-   "review": "human"
+   "review": "required"
   }
  ],
- "note": "10/30 축구 모닝 리더보드 7장판(선수 일정 + 빅매치 + 순위표 5장) — 캐러셀 + 큰 글씨 리더보드 릴스 19초, 사용자 지시로 재게시(이전 게시물은 사용자가 삭제)"
+ "note": "11/1 축구 모닝 결과 6장 — 캐러셀 + 핵심 2장 짧은판 릴스(사용자 '축구 승인' 기록)"
 }
