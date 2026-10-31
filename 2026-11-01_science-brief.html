@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="우주·과학 브리프 — 2026.11.01">
+<meta property="og:description" content="백색왜성 WD J1328−1450 주위에서 가스 고리 두 겹 발견 — 기존 21개는 봉우리가 둘, 이 별은 넷. 행성체 둘이 빚었을 수 있다는 심사 통과 논문">
+<meta property="og:type" content="article">
+<title>Science Brief — 2026.11.01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d4a7c; --accent-soft:#eceef5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  .photo{margin:4px 0 18px}
+  .photo img{display:block;width:100%;height:auto;min-height:140px;border-radius:10px;
+        background:#0d1020;color:#8f96b3;font-size:12px}
+  .photo figcaption{padding:10px 2px 0;font-size:12.5px;color:var(--muted);line-height:1.55}
+  .photo .credit{display:block;margin-top:5px;font-size:11px;color:var(--faint)}
+  .photo .credit a{color:inherit;text-decoration:underline;text-underline-offset:2px;
+        text-decoration-color:var(--line)}
+
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">Long-read · 우주·과학</div>
+    <h1>죽은 별의 가스 고리 두 겹 — 행성체 둘이 빚었을까</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 1일 일요일</span>
+      <span class="count">One Topic · 롱리드</span>
+    </div>
+    <p class="lede">백색왜성 <strong>WD J1328−1450</strong> 주변에서 천문학자들이 지금까지 없던 신호를 찾았습니다. 가스 원반을 가진 백색왜성 21개는 모두 선 윤곽에 봉우리가 둘이었는데, 이 별은 <strong>넷</strong>입니다. 연구진은 안쪽과 바깥쪽 가스 고리가 따로 있고, 각각을 행성체가 만들고 있을 수 있다고 봅니다. 10월 26일 Nature Astronomy에 실리고 ESO가 27일 보도한 심사 통과 논문입니다. 직접 본 것이 아니라 스펙트럼에서 추론한 그림이라는 점까지, 여섯 장에 걸쳐 따라가 봅니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 1일 일요일, 우주·과학 브리프입니다. 오늘은 죽은 별 주위에서 발견된 두 겹의 가스 고리 이야기입니다.</p>
+    <p>가스 원반을 가진 백색왜성은 지금까지 21개가 알려져 있는데, 모두 빛의 스펙트럼 윤곽에 봉우리가 두 개였습니다. 이번에 WD J1328 마이너스 1450이라는 별에서는 봉우리가 네 개 나타났습니다. 연구진은 가스 고리가 안쪽과 바깥쪽 두 겹이라고 해석합니다. 유럽남방천문대 ESO가 10월 27일 발표했고, 논문은 Nature Astronomy에 실렸습니다.</p>
+    <p>백색왜성은 태양 같은 별이 연료를 다 쓰고 남긴 핵입니다. 태양도 약 50억 년 뒤에는 백색왜성이 됩니다. 이번 별은 칠레 파라날의 초거대망원경 VLT에 달린 X-shooter 분광기로 관측했습니다. 별빛을 무지갯빛으로 펼쳐 보면 어떤 원소가 어떻게 움직이는지 읽을 수 있습니다. 회전하는 고리에서는 다가오는 쪽 가스와 멀어지는 쪽 가스가 각각 봉우리를 만들어서, 고리가 하나면 봉우리가 둘이고 속도가 다른 고리 두 겹이 겹치면 넷이 됩니다.</p>
+    <p>고리의 위치는 이렇게 읽습니다. 안쪽 가스 고리는 별 중심에서 태양 반지름의 0.14배에서 0.34배 사이이고, 바깥쪽은 0.54배에서 1.93배 사이입니다. 두 고리 사이에는 빈틈이 있고, 관측은 2021년 5월부터 7월, 그리고 2023년 5월에 이뤄졌습니다. 별은 표면 온도가 약 1만 7,400켈빈, 질량은 태양의 0.47배이고, 신호는 2년 넘게 변하지 않았습니다. 이 반지름들은 선 윤곽에 모형을 맞춘 값이라 오차 범위가 큽니다. 연구진 중 한 명은 두 고리가 놀랄 만큼 안정적이라고 말했습니다.</p>
+    <p>두 고리는 성분도 다릅니다. 마그네슘 신호가 안쪽 고리에서만 나옵니다. 참고로 운석인 콘드라이트의 마그네슘 대 칼슘 비는 약 5에서 15, 지구 맨틀은 약 8, 지구 지각은 약 1.6입니다. 두 고리가 같은 비율이라면 바깥 고리에서도 보여야 하는데 보이지 않았고, 이는 바깥 고리에 마그네슘이 뚜렷이 부족하다는 뜻이라고 논문은 씁니다. 한 행성의 서로 다른 층, 곧 마그네슘이 많은 맨틀과 부족한 지각 물질이 각각 고리를 만들었을 가능성도 열려 있습니다.</p>
+    <p>그렇다면 고리를 만드는 천체는 얼마나 클까요. ESO는 안쪽은 수 킬로미터, 바깥쪽은 명왕성이나 달만 한 크기까지 가능하다고 설명합니다. 논문 계산으로는 별의 조석력에 부서지지 않으려면 바깥 고리 천체의 밀도가 세제곱센티미터당 63그램을 넘어야 하는데, 알려진 가장 조밀한 외계행성의 세 배가 넘습니다. 그래서 내부 강도가 있는 단단한 천체여야 한다고 결론 냅니다. 안쪽과 바깥쪽 크기는 모두 가능한 최대치를 따진 상한 추정입니다.</p>
+    <p>다만 이 행성체들은 직접 관측된 것이 아니라 원반 구조에서 추론한 것입니다. 직접 본 것은 봉우리가 네 개인 스펙트럼이고, 행성체 둘이라는 설명은 해석입니다. 한 행성의 서로 다른 층이 각각 고리를 만들었을 가능성도 남아 있습니다. 이 발견은 태양계의 먼 미래를 미리 보여 주는 사례로도 소개됩니다. 후속 관측 계획은 공식적으로 알려진 것이 없고, ESO의 차세대 장비로 이런 이중 원반을 일상적으로 찾을 수 있게 될 것이라는 전망은 2차 매체의 보도입니다.</p>
+    <p>정리하면, 확인된 것은 봉우리 네 개의 스펙트럼, 2년 넘게 변하지 않은 안정성, 안쪽 고리의 마그네슘 신호입니다. 추론인 것은 고리 두 겹을 만든 행성체 둘과 그 크기이고, 열려 있는 것은 한 행성의 서로 다른 층일 가능성과 후속 관측 계획입니다. 헤드라인의 행성 둘 발견은 행성체 둘일 수 있는 구조의 발견으로 읽는 편이 정확합니다.</p>
+    <p>이상 우주·과학 브리프였습니다. 좋은 한 주 보내세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">Premise — 봉우리 넷</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">環</span>
+    <div class="card-top"><span class="topic">봉우리 4개의 신호</span></div>
+    <h2>가스 원반 백색왜성 21개는 모두 봉우리가 둘이었다 — 이 별만 넷이다</h2>
+    <div class="summary">
+      <p>ESO와 공동 연구진은 백색왜성 <strong>WD J1328−1450</strong> 주위에 가스 고리가 <strong>두 겹</strong> 있다고 발표했다. 칼슘 이온(Ca II) 방출선 등의 선 윤곽에서 봉우리가 <strong>넷</strong>으로 나타났기 때문이다(논문 수락본·Universe Today). 지금까지 알려진 가스 원반 백색왜성 21개는 모두 봉우리가 둘이었다.</p>
+      <p>논문은 Nature Astronomy에 실렸고(DOI 10.1038/s41550-026-03004-3, 게재일은 EarthSky 기준 10월 26일), ESO 보도자료 eso2613은 10월 27일 나왔다. 연구진은 이 구조를 만드는 행성체가 고리마다 하나씩, 둘일 수 있다고 제안한다(ESO).</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">대상</span><span>WD J1328−1450(WD J132800.85−145019.95) · 백색왜성</span></li>
+      <li><span class="when">신호</span><span>Ca II·O I 방출선 선 윤곽 봉우리 4개(기존 21개는 2개)</span></li>
+      <li><span class="when">해석</span><span>가스 고리 2겹 · 각각을 행성체가 만들 가능성</span></li>
+      <li><span class="when">공개</span><span>논문 2026-10-26 · ESO 보도 2026-10-27(심사 통과)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>이 카드의 "행성체 둘"은 관측된 천체가 아니라 신호를 설명하려고 제안된 해석이다. 보인 것은 봉우리 네 개짜리 스펙트럼이다.</p>
+    </div>
+    <a class="source" href="https://www.eso.org/public/news/eso2613/">ESO — 보도자료 eso2613</a>  <a class="source" href="https://www.universetoday.com/articles/dead-planets-orbiting-a-dead-star">Universe Today — 봉우리 4개·기존 21개</a>
+    <span class="ref-note">ESO(2026-10-27)·Universe Today(날짜 본문 미표기, 10/27 전후) · 서지·DOI·Ca II 선 윤곽은 논문 수락본 PDF(카드 3·4 출처 참고), 게재일 10/26은 EarthSky(카드 2 출처) 근거 (확인 2026-11-01)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">죽은 별의 가스 고리,<br>봉우리가 4개</p>
+      <p class="cn-s">가스 원반이 있는 백색왜성 21개는 모두 신호의 봉우리가 둘이었어요. 이 별만 넷이고, 그래서 가스 고리가 두 겹이라는 해석이 나왔어요.</p>
+      <p class="cn-num">21개|봉우리 2개였던 기존 백색왜성</p>
+      <p class="cn-img">A tiny dim white star surrounded by two faint concentric glowing gas rings with a dark gap between them, deep space, conceptual schematic, not a real photograph, no text</p>
+      <img class="cn-gen" loading="lazy" src="img/gen/2026-11/2026-11-01_science-brief/01.jpg" alt="AI 생성 개념도">
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Context — 백색왜성</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">星</span>
+    <div class="card-top"><span class="topic">백색왜성이란</span></div>
+    <h2>태양도 약 50억 년 뒤 이 모습이 된다 — 죽은 별을 VLT 분광기로 읽었다</h2>
+    <div class="summary">
+      <p>백색왜성은 태양 같은 별이 연료를 다 쓰고 남긴 뜨거운 핵이다. EarthSky는 태양도 약 <strong>50억 년</strong> 뒤 백색왜성이 된다고 설명한다. 이 때문에 연구진은 이번 발견을 태양계의 먼 미래를 엿보는 사례로 소개한다.</p>
+      <p>관측에는 칠레 파라날 ESO VLT의 <strong>X-shooter</strong> 분광기가 쓰였다(TechTimes). 별빛을 파장별로 펼치면 어떤 원소가 어떤 속도로 움직이는지 선 윤곽에서 읽을 수 있고, 고리가 하나면 봉우리가 둘, 속도가 다른 고리 둘이 겹치면 넷이 된다는 것이 해석의 핵심이다.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">정체</span><span>태양 같은 별이 남긴 핵 · 태양도 약 50억 년 뒤</span></li>
+      <li><span class="when">장비</span><span>ESO VLT(파라날) X-shooter 분광기</span></li>
+      <li><span class="when">원리</span><span>회전하는 고리: 다가오는 쪽·멀어지는 쪽 가스가 각각 봉우리 → 고리 1겹 2개, 2겹 4개</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>사진 한 장이 아니라 빛의 모양에서 읽어 낸 구조다. 그래서 이 연구의 그림은 모두 상상도이고, 근거는 선 윤곽의 숫자다.</p>
+    </div>
+    <a class="source" href="https://earthsky.org/space/is-this-our-solar-systems-future-white-dwarf-debris-disks/">EarthSky — 백색왜성·태양의 미래</a>  <a class="source" href="https://www.techtimes.com/articles/329639/20261028/white-dwarf-double-debris-disc-discovered-stellar-corpse-shows-two-rings-not-one.htm">TechTimes — X-shooter 관측</a>
+    <span class="ref-note">EarthSky(2026-10-29)·TechTimes(2026-10-28, 2차 매체) · 봉우리 원리 설명은 일반 해설이며 논문의 모형 해석과 같은 방향 (확인 2026-11-01)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">태양의 먼 미래,<br>백색왜성을 읽다</p>
+      <p class="cn-s">태양도 약 50억 년 뒤 백색왜성이 돼요. 연구진은 칠레 VLT의 X-shooter 분광기로 별빛을 펼쳐 가스의 움직임을 읽었어요.</p>
+      <p class="cn-num">약 50억 년|태양이 백색왜성이 되기까지</p>
+      <p class="cn-img">A small white dwarf star with a faint disc of dust next to a distant large telescope dome silhouette under a starry sky, conceptual schematic, not a real photograph, no text</p>
+      <img class="cn-gen" loading="lazy" src="img/gen/2026-11/2026-11-01_science-brief/02.jpg" alt="AI 생성 개념도">
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Measure — 고리의 위치</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">譜</span>
+    <div class="card-top"><span class="topic">고리는 어디에</span></div>
+    <h2>안쪽 0.14~0.34, 바깥 0.54~1.93 태양 반지름 — 2년 넘게 변하지 않았다</h2>
+    <div class="summary">
+      <p>선 윤곽 모형으로 맞춘 안쪽 가스 고리는 별 중심에서 <strong>0.14~0.34 R☉</strong>, 바깥 고리는 <strong>0.54~1.93 R☉</strong>(R☉ = 태양 반지름)이다. 두 고리 사이에는 틈이 있고, 시선에 대한 기울기는 약 77°이며 선 윤곽은 2년 넘게 변하지 않았다(논문 수락본). 관측은 2021년 5~7월과 2023년 5월에 이뤄졌다.</p>
+      <p>별은 표면 온도 약 17,424 K, 질량 약 0.47 M☉(태양의 0.47배)다. 공동 저자 레이고스-빌체스는 두 가스 고리가 "놀랄 만큼 안정적"이라고 말했다(phys.org).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">안쪽 고리</span><span>0.14(+0.01/−0.02) ~ 0.34(+0.02/−0.05) R☉</span></li>
+      <li><span class="k">바깥 고리</span><span>0.54(+0.44/−0.16) ~ 1.93(+0.10/−0.30) R☉</span></li>
+      <li><span class="k">기울기</span><span>시선 기준 77(+9/−13)°</span></li>
+      <li><span class="k">별</span><span>Teff 17,424 ± 567 K · 0.47 ± 0.09 M☉ · 냉각 나이 73(+49/−26) 백만 년</span></li>
+      <li><span class="k">관측</span><span>2021년 5·6·7월, 2023년 5월(VLT X-shooter)</span></li>
+      <li><span class="k">확인 한계</span><span>수락본 PDF는 8월 생성본이라 출판본과 숫자가 다를 수 있음 · 고리 반지름은 모형 맞춤값(오차 큼)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>가스는 별 가까이에서 쉽게 흩어지는데도 2년 넘게 모양이 그대로라는 점이 포인트다. 고리를 계속 채우는 무언가가 있다는 단서가 된다.</p>
+    </div>
+    <a class="source" href="https://www.eso.org/public/archives/releases/sciencepapers/eso2613/eso2613a.pdf">논문 수락본(PDF) — 고리 반지름·별 물리량</a>  <a class="source" href="https://phys.org/news/2026-10-debris-disk-orbiting-dead-star.html">phys.org — 저자 인용</a>
+    <span class="ref-note">논문 수락본 PDF(2026-08 생성)·phys.org(2026-10-27) · 수치는 PDF 표기 그대로 · 출판본 대조 못 함 (확인 2026-11-01)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">두 고리 사이엔 틈,<br>2년째 그대로</p>
+      <p class="cn-s">안쪽 고리는 태양 반지름의 0.14~0.34배, 바깥 고리는 0.54~1.93배 구간이에요. 모양은 2년 넘게 변하지 않았어요.</p>
+      <p class="cn-num">1.93배|바깥 고리 끝(태양 반지름 기준)</p>
+      <p class="cn-img">Two thin concentric glowing rings of gas around a small white star seen at a steep angle with a dark empty gap between the rings, conceptual schematic, not a real photograph, no text</p>
+      <img class="cn-gen" loading="lazy" src="img/gen/2026-11/2026-11-01_science-brief/03.jpg" alt="AI 생성 개념도">
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Clue — 마그네슘</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">鎂</span>
+    <div class="card-top"><span class="topic">성분이 다르다</span></div>
+    <h2>마그네슘 신호는 안쪽 고리에만 — 바깥 고리에선 6σ 넘게 있어야 할 신호가 없다</h2>
+    <div class="summary">
+      <p>마그네슘(Mg I) 방출선은 <strong>안쪽 고리에서만</strong> 나온다. 두 고리의 칼슘 대비 마그네슘 비가 같다면 바깥 고리에서도 6σ 넘는 Mg 방출이 보여야 하는데 없다. 논문은 이를 바깥 고리에 Mg가 뚜렷이 부족하다는 "모형에 의존하지 않는 증거"로 쓴다(논문 수락본).</p>
+      <p>ESO는 두 고리의 성분 차이를 한 행성체의 서로 다른 층, 곧 지각과 핵이 각각 고리를 만든 경우로도 설명할 수 있다고 소개한다. 논문은 마그네슘이 많은 맨틀 물질과 적은 지각 물질이 각각 고리를 만들었을 가능성도 든다. 즉 "행성체 둘"과 "행성 하나의 서로 다른 층"이 아직 함께 열려 있다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">신호</span><span>흡수선 Ca·Mg·Si · 방출선 Ca II·O I·Mg·Fe II(수락본은 Mg I/II 표기 혼재)</span></li>
+      <li><span class="k">핵심</span><span>Mg I 방출은 안쪽 고리만 · 바깥 고리 Mg 부족</span></li>
+      <li><span class="k">비교값</span><span>콘드라이트 Mg/Ca 약 5~15 · 지구 맨틀 약 8 · 지구 지각 약 1.6</span></li>
+      <li><span class="k">대안 해석</span><span>한 행성체의 서로 다른 층이 각각 고리를 형성(ESO: 지각·핵 / 논문: 맨틀·지각)</span></li>
+      <li><span class="k">확인 한계</span><span>별 대기의 Mg 함량은 선 하나에서 구해 과소평가 가능성(논문) — 고리의 Mg 부재 판정과는 별개 · 원반 모형의 변수끼리 겹쳐 다른 배치도 맞을 수 있음(논문)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>두 고리의 성분 차이는 "서로 다른 천체"를 지지하는 단서이지 증명이 아니다. 같은 천체의 서로 다른 층이라는 설명이 여전히 가능하다.</p>
+    </div>
+    <a class="source" href="https://www.eso.org/public/archives/releases/sciencepapers/eso2613/eso2613a.pdf">논문 수락본(PDF) — 조성·Mg/Ca</a>  <a class="source" href="https://www.eso.org/public/news/eso2613/">ESO — 맨틀·지각 대안</a>
+    <span class="ref-note">논문 수락본 PDF·ESO 보도자료(2026-10-27) · 6σ·비교값은 PDF 기준, 층 구조 대안은 ESO(지각·핵)·논문(맨틀·지각) 기준 (확인 2026-11-01)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">마그네슘 신호는<br>안쪽 고리에만</p>
+      <p class="cn-s">같은 성분이라면 바깥 고리에서도 보여야 하는데 보이지 않았어요. 서로 다른 천체일 수도, 한 행성의 서로 다른 층일 수도 있어요.</p>
+      <p class="cn-num">6σ 이상|있어야 하는데 없는 Mg 신호</p>
+      <p class="cn-img">A cutaway of a small rocky planetary body showing a magnesium-rich mantle layer and a thin crust layer with glowing dust streaming from each layer, conceptual schematic, not a real photograph, no text</p>
+      <img class="cn-gen" loading="lazy" src="img/gen/2026-11/2026-11-01_science-brief/04.jpg" alt="AI 생성 개념도">
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Size — 행성체 크기</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">質</span>
+    <div class="card-top"><span class="topic">얼마나 큰가</span></div>
+    <h2>안쪽은 수 km, 바깥은 명왕성·달급까지 — 바깥 천체는 밀도 63 g/cm³ 이상이어야 한다</h2>
+    <div class="summary">
+      <p>ESO 설명으로 안쪽 고리를 만드는 천체는 <strong>수 km</strong> 크기, 바깥쪽은 <strong>명왕성이나 달</strong>만 한 크기까지 가능하다(phys.org). 이는 상한 추정이다.</p>
+      <p>논문은 별의 조석력에 부서지지 않으려면 바깥 원반 천체의 요구 밀도가 최대 <strong>63 g/cm³ 이상</strong>이라고 계산했다. 알려진 가장 조밀한 외계행성의 3배가 넘는 값이라, 내부 강도를 가진 단단한 천체여야 한다고 결론 낸다(Universe Today).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">안쪽 천체</span><span>수 km(ESO 서술) — 상한 추정</span></li>
+      <li><span class="k">바깥 천체</span><span>명왕성·달 크기까지(ESO 서술) — 상한 추정</span></li>
+      <li><span class="k">요구 밀도</span><span>바깥 원반 최대 ≳63 g/cm³ · 가장 조밀한 알려진 외계행성의 3배 넘음(Universe Today)</span></li>
+      <li><span class="k">결론</span><span>내부 강도를 가진 천체여야 조석 파괴를 견딤</span></li>
+      <li><span class="k">확인 한계</span><span>직접 관측된 천체가 아님 · 보도의 크기와 논문 계산의 상한 표현이 다를 수 있어 보도자료 서술을 따름</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>"명왕성만 하다"는 가능한 최대 크기이지 실제 크기가 아니다. 밀도 계산은 크기를 정하기보다 맨몸 덩어리로는 안 되고 단단해야 한다는 조건을 준다.</p>
+    </div>
+    <a class="source" href="https://www.universetoday.com/articles/dead-planets-orbiting-a-dead-star">Universe Today — 요구 밀도</a>  <a class="source" href="https://phys.org/news/2026-10-debris-disk-orbiting-dead-star.html">phys.org — 크기 서술(ESO 전재)</a>
+    <span class="ref-note">Universe Today(10/27 전후)·phys.org(2026-10-27) · 크기 서술은 ESO 보도자료 전재, 밀도는 Universe Today (확인 2026-11-01)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">바깥 고리 천체는<br>단단해야 한다</p>
+      <p class="cn-s">바깥 고리 천체는 명왕성이나 달만 한 크기까지 가능하다고 해요. 별의 중력에 부서지지 않으려면 밀도가 알려진 외계행성의 3배 넘게 높아야 해요.</p>
+      <p class="cn-num">63 g/cm³ 이상|바깥 천체 요구 밀도</p>
+      <p class="cn-img">A small dense rocky body orbiting a white dwarf star close enough to be stretched by tidal forces yet holding together, conceptual schematic, not a real photograph, no text</p>
+      <img class="cn-gen" loading="lazy" src="img/gen/2026-11/2026-11-01_science-brief/05.jpg" alt="AI 생성 개념도">
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Limits — 아직 열려 있는 것</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">未</span>
+    <div class="card-top"><span class="topic">확정이 아닌 부분</span></div>
+    <h2>행성체는 직접 보인 게 아니다 — 후속 관측 계획은 아직 알려진 게 없다</h2>
+    <div class="summary">
+      <p>이 연구에서 직접 관측된 것은 스펙트럼의 선 윤곽이다. 행성체의 존재와 크기는 원반 구조에서 추론한 것이고, 두 고리의 성분 차이를 한 행성의 층 구조로 설명할 가능성도 남아 있다.</p>
+      <p>연구가 주목받는 이유는 태양 같은 별의 먼 미래를 미리 보여 줄 수 있어서다(EarthSky). 후속 관측 계획은 보도자료와 phys.org에 적혀 있지 않다. TechTimes는 ESO의 차세대 장비로 이런 이중 원반 계를 일상적으로 찾을 수 있게 될 것으로 본다고 썼지만, 이는 2차 매체의 전망이며 이 별에 대한 구체적 계획은 아니다.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">확인된 것</span><span>선 윤곽 봉우리 4개 · 2년 넘는 안정성 · 안쪽 Mg 신호(심사 통과 논문)</span></li>
+      <li><span class="when">추론인 것</span><span>고리 2겹의 행성체 2개 · 크기(상한)</span></li>
+      <li><span class="when">열린 것</span><span>한 행성의 서로 다른 층일 가능성 · 후속 관측 계획 미공개</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>확실한 것과 추론인 것을 나눠 읽으면 헤드라인의 "행성 둘 발견"은 "행성체 둘일 수 있는 구조 발견"으로 읽힌다.</p>
+    </div>
+    <a class="source" href="https://earthsky.org/space/is-this-our-solar-systems-future-white-dwarf-debris-disks/">EarthSky — 태양계의 미래</a>  <a class="source" href="https://www.techtimes.com/articles/329639/20261028/white-dwarf-double-debris-disc-discovered-stellar-corpse-shows-two-rings-not-one.htm">TechTimes — 이중 원반 전망(2차)</a>
+    <span class="ref-note">EarthSky(2026-10-29)·TechTimes(2026-10-28, 2차 매체) · 후속 관측 계획: 공식 문서 근거 없음 (확인 2026-11-01)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">행성체는 추론,<br>후속 계획은 미정</p>
+      <p class="cn-s">직접 본 것은 스펙트럼이고 행성체 둘은 해석이에요. 한 행성의 서로 다른 층일 가능성도 남아 있고, 후속 관측 계획은 아직 알려지지 않았어요.</p>
+      <p class="cn-num">4개|확인된 스펙트럼 봉우리</p>
+      <p class="cn-img">A white dwarf star with two faint ghostly outlines of small planetary bodies sketched in dotted lines near its rings, expressing uncertainty, conceptual schematic, not a real photograph, no text</p>
+      <img class="cn-gen" loading="lazy" src="img/gen/2026-11/2026-11-01_science-brief/06.jpg" alt="AI 생성 개념도">
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">Daily Card News</span> · 2026년 11월 1일 일요일 · One Topic · 롱리드<br>
+    논문(Nature Astronomy, DOI 10.1038/s41550-026-03004-3, Gentile Fusillo 외)은 동료 심사를 통과했습니다. 수치는 ESO가 공개한 수락본 PDF(2026-08 생성)에서 가져왔고 출판본·nature.com 페이지는 열람하지 못해 숫자가 다를 수 있습니다. 같은 천체의 후속 연구는 확인하지 못했습니다.<br>
+    🖼 이미지: ESA/Webb·Hubble에 이 천체의 사진이 없고, ESO 상상도(eso2613a, 크레디트 ESO/L. Calçada)는 허용 호스트가 아니며 이용 조건 페이지를 확인하지 못해 쓰지 않았습니다. 모든 카드 그림은 'AI 개념도'이며 실제 천체의 모습이 아닙니다.<br>
+    📊 도표: 검토한 카드는 3(고리 반지름)·5(요구 밀도)입니다. 값마다 오차 범위와 단위가 달라 한 축에 올리면 오해를 부를 수 있어 스펙 표로만 두었습니다.
+    <!-- tracker: 2026-11-01 우주·과학 서브 (일요일 롱리드).
+         [이번 주제] WD J1328−1450(WD J132800.85−145019.95) 이중 가스 고리 — "A double debris disc around a white dwarf sculpted by two planetary bodies", Nature Astronomy 2026, DOI 10.1038/s41550-026-03004-3, 게재 2026-10-26(EarthSky 근거), ESO eso2613 2026-10-27. 제1저자 N. P. Gentile Fusillo(트리에스테대), Lagos-Vilches·Gänsicke(워릭), Manser(임페리얼), Koester(킬). 프리프린트 못 찾음.
+         핵심: 가스 원반 백색왜성 21개 모두 이중 피크, 이번엔 사중 피크 · 안쪽 0.14~0.34 R☉, 바깥 0.54~1.93 R☉, i=77° · 2년+ 불변 · Teff 17,424K 0.47 M☉ 냉각 73Myr · Mg I 안쪽만(바깥 6σ+ 부재) · 바깥 요구 밀도 ≳63 g/cm³ · 크기: ESO '안쪽 수 km, 바깥 명왕성·달급'(상한). VLT X-shooter, 관측 2021-05~07·2023-05.
+         [지난 회차와 중복 회피] 10/25 AT 2026abck, 10/18 WASP-17b, 10/11 FRB 20240304B, 10/4 극단적 잔해 원반(젊은 별 실리카 원반 — 이번은 죽은 별·가스 고리라 별개), 9/27 베수비오, 9/20 디키노돈트, 9/13 데니소바인, 9/6 토성 십각형, 8/30 로먼, 8/23 블랙홀별, 8/16 3I/ATLAS, 8/9 폭염, 8/2 갈색왜성.
+         [탈락 후보] XLSSC 122(6월 AAS 보도·재게시) · CD-35 2722 외계 달(7월 ESO) · 허블 재이온화 초신성 바람(Nature Astronomy 10/21, 일러스트뿐·추상적, 차선) · 녹색 백색왜성 WD J1330+6435(한계 큼) · Cat's Head 성운 weic2622(10/29, 새 성과 없음) · Rubin 왜소행성 후보(프리프린트).
+         [확인 못 해 제외한 수치] 게재 시각 · 백색왜성 거리(논문 ≃500pc 한 줄, 시차 오차 미확인) · 출판본 대조 · 도플러 속도(km/s) · ESO 이미지 이용 조건 · 후속 관측 계획. 논문의 철 밀도 가정 지름(안쪽 45~172 km, 바깥 346~2,340 km)은 ESO '수 km'와 표현이 달라 카드에 싣지 않음.
+         [이미지] 실제 사진 0장: esawebb/esahubble에 이 천체 사진 없음. 관련 현상 사진 없음(Cat's Head는 무관). ESO eso2613a(상상도, 'ESO/L. Calçada') 라이선스 미확인·비허용 호스트라 제외. cn-img(AI 개념도) 카드 6장 전부.
+         [시각화] 본문 도표 없음 — 카드 3·5 검토, 오차 범위·단위가 달라 스펙 표로 대체.
+         [출처 분산] ①ESO·UT ②EarthSky·TechTimes ③PDF·phys ④PDF·ESO ⑤UT·phys ⑥EarthSky·TechTimes — 각 URL 최대 2카드.
+         [리서치 도구] mcp__Firecrawl__* 0회. nature.com·Nanowerk 열람 불가.
+    -->
+  </footer>
+
+</div></body>
+</html>
