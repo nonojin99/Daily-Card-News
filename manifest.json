@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-31T20:51:01Z",
-  "count": 299,
+  "generated": "2026-10-31T23:45:29Z",
+  "count": 300,
   "files": [
     {
       "date": "2026-11-01",
@@ -19,6 +19,15 @@
       "day": "01",
       "type": "science",
       "path": "2026-11-01_science-brief.html"
+    },
+    {
+      "date": "2026-11-01",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "01",
+      "type": "football",
+      "path": "2026-11-01_football-brief.html"
     },
     {
       "date": "2026-10-31",
