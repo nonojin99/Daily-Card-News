@@ -262,6 +262,20 @@
    "status": "published",
    "result": "18110748926625058",
    "posted_kst": "2026-11-01 07:42"
+  },
+  {
+   "id": "lol:115660540726095093",
+   "kind": "game",
+   "mp4": "reels/sports/2026-11/2026-11-01_lol-115660540726095093.mp4",
+   "caption": "reels/sports/2026-11/2026-11-01_lol-115660540726095093.txt",
+   "score": 65,
+   "why": [
+    "한국",
+    "롤드컵"
+   ],
+   "seconds": 9.2,
+   "made_kst": "2026-11-01 08:52",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -602,6 +616,16 @@
    "sport": "ufc",
    "title": "Julian Erosa 승:패 JeongYeong Lee",
    "at": "2026-11-01 08:09"
+  },
+  "lol:115660540726095093": {
+   "score": 65,
+   "why": [
+    "한국",
+    "롤드컵"
+   ],
+   "sport": "lol",
+   "title": "BLG 2:0 한화생명",
+   "at": "2026-11-01 08:52"
   }
  },
  "last_post": 1793486577.2346985,
