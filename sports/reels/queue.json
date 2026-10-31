@@ -285,6 +285,16 @@
    "status": "published",
    "result": "17902529373602956",
    "posted_kst": "2026-10-31 09:50"
+  },
+  {
+   "id": "bundle:2026-10-31_23:40",
+   "kind": "bundle",
+   "mp4": "reels/sports/2026-10/2026-10-31_2340_bundle.mp4",
+   "caption": "reels/sports/2026-10/2026-10-31_2340_bundle.txt",
+   "score": 55,
+   "seconds": 6.5,
+   "made_kst": "2026-10-31 23:44",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -532,6 +542,9 @@
   },
   "2026-10-31_07:40": {
    "made_kst": "2026-10-31 07:40"
+  },
+  "2026-10-31_23:40": {
+   "made_kst": "2026-10-31 23:44"
   }
  }
 }
