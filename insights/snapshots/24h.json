@@ -888,5 +888,25 @@
    "ig_reels_video_view_total_time": 255262,
    "reels_skip_rate": 76.7
   }
+ },
+ "sports:18090192812269451": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-30T07:35:02+0000",
+  "snapshot_utc": "2026-10-31T09:30:37Z",
+  "age_h": 25.9,
+  "first_line": "[⚾ KBO] 플레이오프 4차전 선발 — 삼성 페덱 vs KIA 네일",
+  "metrics": {
+   "views": 109,
+   "reach": 104,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2209,
+   "ig_reels_video_view_total_time": 225398,
+   "reels_skip_rate": 86
+  }
  }
 }
