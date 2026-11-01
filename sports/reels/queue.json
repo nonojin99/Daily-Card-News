@@ -312,6 +312,20 @@
    "status": "published",
    "result": "18108762833209497",
    "posted_kst": "2026-11-01 16:18"
+  },
+  {
+   "id": "kbo:20261101HTSS0",
+   "kind": "game",
+   "mp4": "reels/sports/2026-11/2026-11-01_kbo-20261101-0.mp4",
+   "caption": "reels/sports/2026-11/2026-11-01_kbo-20261101-0.txt",
+   "score": 55,
+   "why": [
+    "KBO",
+    "포스트시즌"
+   ],
+   "seconds": 5.5,
+   "made_kst": "2026-11-01 16:45",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -713,6 +727,16 @@
    "sport": "ufc",
    "title": "Renato Moicano 패:승 Tom Nolan",
    "at": "2026-11-01 11:51"
+  },
+  "kbo:20261101HTSS0": {
+   "score": 55,
+   "why": [
+    "KBO",
+    "포스트시즌"
+   ],
+   "sport": "kbo",
+   "title": "KIA 1:6 삼성",
+   "at": "2026-11-01 16:45"
   }
  },
  "last_post": 1793517492.9717548,
