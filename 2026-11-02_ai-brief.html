@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="AI 브리프 — 2026.11.02">
+<meta property="og:description" content="엔비디아 루빈 사양 하향 · 네이버 10억 달러 투자 · 제미나이 4 카본 · 오라클 칩 · 뉴욕 챗봇법 · 체인얼리시스 침입">
+<meta property="og:type" content="article">
+<title>AI Brief — 2026.11.02</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#2a6b7c; --accent-soft:#e9f0f2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">AI Brief · AI·테크 서브</div>
+    <h1>엔비디아가 루빈 사양을 낮췄고, 네이버엔 10억 달러가 들어온다</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 2일 월요일</span>
+      <span class="count">6 Picks · AI·테크</span>
+    </div>
+    <p class="lede">엔비디아는 차세대 루빈 GPU의 메모리 대역폭을 출하 사양에서 낮췄고, 네이버에는 10억 달러를 투자합니다. 구글은 사이버 방어용 모델 제미나이 4 카본을 일부 방어자에게만 열었고, 오라클 클라우드는 엔비디아 외 칩을 늘립니다. 뉴욕주는 미성년자 대상 위험 챗봇 기능을 금지했고, 체인얼리시스는 외부 침입 사고를 공지했습니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 2일 월요일, AI 브리프입니다. 주말 사이 쌓인 테크 소식 여섯 가지를 전해 드립니다. 반도체와 투자, 모델, 정책, 보안 순서입니다.</p>
+    <p>먼저 엔비디아입니다. 엔비디아가 9월에 차세대 루빈 GPU 사양을 조용히 낮췄고, 출하 제품에 그대로 반영됐습니다. GPU 한 개당 메모리 대역폭이 22에서 19.2 TB/s로, 연결 대역폭인 NVLink는 3.6에서 3.0 TB/s로 줄었습니다. 반면 연산 성능과 메모리 용량은 그대로입니다. 엔비디아는 이유를 설명하지 않았습니다. 랙 단위로 보면 베라 루빈 NVL72의 메모리 대역폭은 1,580에서 1,400 TB/s로 내려갔습니다.</p>
+    <p>엔비디아는 네이버에도 10억 달러를 투자합니다. 지분은 약 4.54퍼센트로 3대 주주가 될 전망입니다. 납입일은 11월 6일로 일주일 미뤄졌고, 11월 3일에 환율로 최종 금액이 확정됩니다. 신주는 1년간 의무 보유 대상입니다. 네이버는 브룩필드와 최소 90억 달러 규모 AI 컴퓨팅 인프라 계약을 이미 체결했습니다.</p>
+    <p>구글은 사이버 방어에 특화한 제미나이 4 카본을 발표했습니다. 취약점 찾기 점수가 88.2퍼센트로 높지만 안전장치 없이 측정한 결과이고, 지금은 일부 사이버 방어자에게만 열려 있습니다. 일반 공개 일정은 가능한 한 빨리라고만 밝혔습니다. 간접 프롬프트 인젝션 공격 성공률은 앞선 모델 아르곤의 0.7퍼센트에서 0.0퍼센트로 내려갔다고 합니다.</p>
+    <p>오라클 클라우드는 엔비디아 외 칩을 늘리겠다고 밝혔습니다. 지금 쓸 수 있는 것은 엔비디아 루빈 랙과 포지트론의 추론 칩이고, 구글 TPU와 세레브라스 칩은 2027년에 들어옵니다. 재라페뇨 가속기와 SambaNova 칩은 아직 일정이 없습니다.</p>
+    <p>정책 소식입니다. 뉴욕주가 18세 미만에게 위험한 AI 챗봇 기능 12개 범주를 금지하는 법에 서명했습니다. 사람인 척하기, 자해 부추기기, 선정적 대화 등이 포함되고 2027년 1월 1일 시행됩니다. 위반 한 건당 최대 25,000달러입니다.</p>
+    <p>마지막은 보안입니다. 블록체인 분석업체 체인얼리시스가 외부 침입 사고를 공지했습니다. 사용자 이름과 이메일 등이 접근됐지만, 회사는 비밀번호와 수사 내용은 접근되지 않은 것으로 판단한다고 밝혔습니다. 모두 회사 설명입니다.</p>
+    <p>지금까지 11월 2일 AI 브리프였습니다. 자세한 내용과 출처는 카드뉴스에서 확인하세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">Hardware — 엔비디아</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">減</span>
+    <div class="card-top"><span class="topic">루빈 사양 하향</span></div>
+    <h2>엔비디아, 루빈 GPU 메모리 대역폭을 22→19.2 TB/s로 낮췄다 — 연산 성능은 그대로</h2>
+    <div class="summary">
+      <p>엔비디아가 9월에 차세대 '루빈' GPU 사양을 조용히 낮췄고, 이 수치가 출하 하드웨어에 반영됐다. GPU 한 개당 HBM4 메모리 대역폭은 <strong>22→19.2 TB/s</strong>, NVLink는 3.6→3.0 TB/s로 줄었다. 스케일아웃 네트워킹은 0.4→0.45 TB/s로 올랐다. HBM4 용량(288GB)과 FP4 추론 50 PFLOPS·학습 35 PFLOPS는 그대로다(ServeTheHome).</p>
+      <p>랙 단위로 보면 Vera Rubin NVL72의 메모리 대역폭은 1,580→1,400 TB/s, NVLink는 260→216 TB/s로 내려갔다. 8개 GPU 서버 HGX Rubin NVL8은 HBM4 용량이 2.3→2.0TB, 메모리 대역폭이 176→130 TB/s다. 매체는 HGX NVL8 기준 HBM4 스택 8개 중 7개만 쓰는 것으로 추정했고, 엔비디아는 이유를 설명하지 않았다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">GPU 1개</span><span>HBM4 대역폭 22→19.2 TB/s · NVLink 3.6→3.0 TB/s · 네트워킹 0.4→0.45 TB/s</span></li>
+      <li><span class="k">그대로</span><span>HBM4 288GB · FP4 추론 50 PFLOPS · FP4 학습 35 PFLOPS</span></li>
+      <li><span class="k">NVL72</span><span>메모리 1,580→1,400 TB/s · NVLink 260→216 TB/s · 네트워크 28.8→32.4 TB/s</span></li>
+      <li><span class="k">NVL8</span><span>HBM4 2.3→2.0TB · 대역폭 176→130 TB/s · NVLink 28.8→24 TB/s</span></li>
+      <li><span class="k">확인 한계</span><span>ServeTheHome 단일 본문 ⚠ 7개 스택 사용은 필자의 추정 · 엔비디아는 예전에도 수치를 '잠정치'라 했음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>숫자가 줄었다고 곧 성능이 떨어진다는 뜻은 아니다. 연산 성능은 그대로이고 메모리와 연결 대역폭만 깎였다. 거대 모델 학습·추론에서 이 대역폭이 얼마나 병목이 되는지는 기사에 나오지 않는다. 퍼센트 감소율은 매체마다 달라 TB/s 값만 적었다.</p>
+    </div>
+    <a class="source" href="https://www.servethehome.com/nvidia-updates-rubin-gpu-specs-as-first-production-hardware-arrives/">ServeTheHome — 루빈 사양 변경</a>
+    <span class="ref-note">ServeTheHome(10/31) <strong>단일 매체</strong> · 감소율(%)은 서술이 달라 싣지 않고 TB/s 값만 적음 (확인 2026-11-02)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">엔비디아 루빈 GPU,<br>메모리 대역폭 하향</p>
+      <p class="cn-s">엔비디아가 루빈 GPU의 메모리 대역폭을 22에서 19.2 TB/s로 낮췄어요. 연산 성능은 그대로이고 이유는 설명하지 않았어요.</p>
+      <p class="cn-num">1,400 TB/s|NVL72 랙 메모리 대역폭(조정 후)</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="GPU 1개당 HBM4 대역폭 22에서 19.2 TB/s로 하향">
+      <line class="cn-ax" x1="100" y1="33" x2="100" y2="141"/>
+      <text class="cn-cat" x="90" y="64" text-anchor="end">이전</text>
+      <path class="cn-b1" d="M100,45 h190.0 a4,4 0 0 1 4,4 v20 a4,4 0 0 1 -4,4 h-190.0 z"/>
+      <text class="cn-val" x="300.0" y="64">22 TB/s</text>
+      <text class="cn-cat" x="90" y="118" text-anchor="end">조정 후</text>
+      <path class="cn-b1" d="M100,99 h165.8 a4,4 0 0 1 4,4 v20 a4,4 0 0 1 -4,4 h-165.8 z"/>
+      <text class="cn-val" x="275.8" y="118">19.2 TB/s</text>
+
+      </svg>
+      <p class="cn-img">Abstract close-up of a glowing computer chip with memory stacks beside it and one stack dimmed, conceptual schematic, not a real photograph, no text, no logos</p>
+      <img class="cn-gen" loading="lazy" src="img/gen/2026-11/2026-11-02_ai-brief/01.jpg" alt="AI 생성 일러스트">
+
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Business — 네이버</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">投</span>
+    <div class="card-top"><span class="topic">네이버 투자</span></div>
+    <h2>엔비디아, 네이버에 10억 달러 투자 — 지분 약 4.54%, 납입은 11월 6일로 일주일 미뤄졌다</h2>
+    <div class="summary">
+      <p>엔비디아가 제3자배정 유상증자로 네이버에 <strong>10억 달러</strong>(중앙이코노미 원화 환산 약 1조 4,809억 원)를 투자한다. 신주 724만 1,564주를 주당 20만 4,500원에 받아 지분 약 4.54%, 3대 주주가 될 전망이다. 이해진 의장 지분은 4.03%에서 약 3.84%로 낮아진다(중앙이코노미).</p>
+      <p>납입일은 10월 30일에서 <strong>11월 6일</strong>로, 신주 상장은 11월 20일에서 27일로 미뤄졌다. 11월 3일 환율로 최종 주식 수와 원화 금액이 확정되고, 신주는 1년간 의무 보유 대상이다. 네이버는 브룩필드와 최소 90억 달러 규모 AI 컴퓨팅 인프라 계약을 이미 체결했다(중앙이코노미). 더퍼블릭은 네이버클라우드가 실제 매출과 연계해 사용료를 내는 구조를 택했다고 전했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">투자</span><span>엔비디아 10억 달러 · 신주 724만 1,564주 · 주당 20만 4,500원 · 약 1조 4,809억 원</span></li>
+      <li><span class="k">지분</span><span>엔비디아 약 4.54%(3대 주주) · 이해진 의장 4.03%→약 3.84%</span></li>
+      <li><span class="k">일정</span><span>11/3 최종 확정 → 11/6 납입(10/30에서 연기) → 11/27 상장(11/20에서 연기)</span></li>
+      <li><span class="k">조건</span><span>신주 1년 의무 보유 · 브룩필드와 최소 90억 달러 AI 인프라 계약 체결(중앙이코노미)</span></li>
+      <li><span class="k">확인 한계</span><span>금액·주식 수·일정은 두 매체 일치 ⚠ 매출 연계 사용료는 더퍼블릭 단일 · 원화 금액은 환율에 따라 11/3 확정</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>납입일이 일주일 밀렸다는 점과 11월 3일에 숫자가 확정된다는 점이 핵심이다. 환율에 따라 원화 금액과 지분율이 조금 달라질 수 있어 '약'이 붙은 값은 확정 전 숫자다. 투자금의 사용처나 협력 규모는 기사에 구체적으로 나오지 않는다.</p>
+    </div>
+    <a class="source" href="https://www.joongangenews.com/news/articleView.html?idxno=559788">중앙이코노미 — 엔비디아 네이버 투자</a>  <a class="source" href="https://www.thepublic.kr/news/articleView.html?idxno=324605">더퍼블릭 — 확정·상장 일정</a>
+    <span class="ref-note">중앙이코노미(10/30 08:39, 수정 08:54)·더퍼블릭(11/1 08:54) 일치 · 더퍼블릭 본문의 곱셈 환산(약 1조 4,800억 원)과 '10억 달러(약 1조 3,400억 원)' 표기 차이는 환산 기준 차이로 보여 중앙이코노미 값을 씀 (확인 2026-11-02)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">엔비디아가 네이버에<br>10억 달러 투자</p>
+      <p class="cn-s">엔비디아가 네이버에 10억 달러를 투자해 지분 약 4.54%를 갖게 돼요. 납입은 11월 6일로 일주일 미뤄졌고 11월 3일에 금액이 확정돼요.</p>
+      <p class="cn-num">724만 주|새로 발행하는 신주 수</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="11월 3일 최종 확정, 11월 6일 납입, 11월 27일 신주 상장 순서의 일정">
+      <line class="cn-line" x1="50" y1="115" x2="200" y2="115"/>
+      <line class="cn-line-off" x1="200" y1="115" x2="350" y2="115"/>
+      <circle class="cn-on" cx="50" cy="115" r="10"/>
+      <circle class="cn-off" cx="200" cy="115" r="10"/>
+      <circle class="cn-off" cx="350" cy="115" r="10"/>
+      <text class="cn-big" x="50" y="78" text-anchor="middle">11월 3일</text>
+      <text class="cn-small" x="50" y="152" text-anchor="middle">최종 확정</text>
+      <text class="cn-big" x="200" y="78" text-anchor="middle">11월 6일</text>
+      <text class="cn-small" x="200" y="152" text-anchor="middle">납입</text>
+      <text class="cn-big" x="350" y="78" text-anchor="middle">11월 27일</text>
+      <text class="cn-small" x="350" y="152" text-anchor="middle">신주 상장</text>
+      </svg>
+      <p class="cn-img">Two abstract glowing server towers connected by a thin bridge of light over a calm night cityscape, conceptual schematic, not a real photograph, no text, no logos</p>
+      <img class="cn-gen" loading="lazy" src="img/gen/2026-11/2026-11-02_ai-brief/02.jpg" alt="AI 생성 일러스트">
+
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Model — 구글</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">盾</span>
+    <div class="card-top"><span class="topic">제미나이 4 카본</span></div>
+    <h2>구글 '제미나이 4 카본' — 취약점 찾기 88.2%, 하지만 일부 사이버 방어자에게만 열렸다</h2>
+    <div class="summary">
+      <p>구글이 10월 28일 사이버 방어에 특화한 '제미나이 4 카본'을 발표했다. 가장 강력한 모델이라고 소개했고 2주 전 나온 '아르곤'의 후속이다. Artificial Analysis 지능 지수 v5.0에서 <strong>59점</strong>으로 1위다. 취약점 찾기(SEC-bench Pro) 88.2%, 익스플로잇(ExploitGym) 54.8%, 패치(CWE-bench) 71.0%다. 간접 프롬프트 인젝션 공격 성공률은 아르곤 0.7%에서 0.0%로 내려갔다.</p>
+      <p>다만 이 벤치마크는 안전장치(가드레일) 없이 돌린 결과라고 구글이 밝혔다. 구글은 미국 정부의 자발적 사전 모델 시험에도 참여하고 있다. 접근은 이번 주 일부 사이버 방어자부터 열렸다. 딥마인드의 '페어윈드' 프로그램으로 신뢰 파트너에게 넓히며, 일반 공개 일정은 '가능한 한 빨리'라고만 했다. 입력 100만 토큰당 2달러·출력 10달러는 도입가이고 이후 4달러·20달러다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">발표</span><span>10/28 · 아르곤 후속 · AI 지수 v5.0 59점으로 1위</span></li>
+      <li><span class="k">벤치마크</span><span>취약점 찾기 88.2% · 익스플로잇 54.8% · 패치 71.0%(가드레일 없이 측정)</span></li>
+      <li><span class="k">안전</span><span>간접 프롬프트 인젝션 성공률 0.7%→0.0%(아르곤 대비)</span></li>
+      <li><span class="k">접근</span><span>일부 사이버 방어자만 · 신뢰 파트너로 점차 확대 · 일반 공개 일정 미정</span></li>
+      <li><span class="k">가격</span><span>100만 토큰당 입력 2달러·출력 10달러(도입가) → 4달러·20달러 · 캐시 입력 95% 할인</span></li>
+      <li><span class="k">확인 한계</span><span>구글 공식 블로그 단일 · 수치는 회사 발표 ⚠ 가격 인상 시점 날짜는 구글 본문에 없음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>성능표보다 눈여겨볼 곳은 접근 조건이다. 가드레일 없이 시험한 수치이므로 공개 서비스 성능과 같다고 읽기는 어렵다. 누구나 쓸 수 있는 모델이 아니라는 점이 이번 발표의 핵심이다.</p>
+    </div>
+    <a class="source" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/">구글 — 제미나이 4 카본 소개</a>
+    <span class="ref-note">구글 블로그(10/28) 공식 <strong>단일 출처</strong> · 모든 수치는 회사 설명 · 교차 확인 못 함 · '구글 쇼크' 증시 하락과의 연관은 확인되지 않아 연결하지 않음 (확인 2026-11-02)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">구글 제미나이 4 카본,<br>방어용 모델 공개</p>
+      <p class="cn-s">구글이 사이버 방어 특화 모델 제미나이 4 카본을 발표했어요. 취약점 찾기 88.2%지만 지금은 일부 사이버 방어자에게만 열렸어요.</p>
+      <p class="cn-num">59점|AI 지수 v5.0 1위 점수</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="제미나이 4 카본 벤치마크 취약점 찾기 88.2%, 패치 71.0%, 익스플로잇 54.8%">
+      <line class="cn-ax" x1="100" y1="33" x2="100" y2="195"/>
+      <text class="cn-cat" x="90" y="64" text-anchor="end">취약점 찾기</text>
+      <path class="cn-b1" d="M100,45 h167.6 a4,4 0 0 1 4,4 v20 a4,4 0 0 1 -4,4 h-167.6 z"/>
+      <text class="cn-val" x="277.6" y="64">88.2%</text>
+      <text class="cn-cat" x="90" y="118" text-anchor="end">패치</text>
+      <path class="cn-b1" d="M100,99 h134.9 a4,4 0 0 1 4,4 v20 a4,4 0 0 1 -4,4 h-134.9 z"/>
+      <text class="cn-val" x="244.9" y="118">71.0%</text>
+      <text class="cn-cat" x="90" y="172" text-anchor="end">익스플로잇</text>
+      <path class="cn-b1" d="M100,153 h104.1 a4,4 0 0 1 4,4 v20 a4,4 0 0 1 -4,4 h-104.1 z"/>
+      <text class="cn-val" x="214.1" y="172">54.8%</text>
+
+      </svg>
+      <p class="cn-img">A friendly digital shield made of light protecting a row of small abstract buildings with a locked gate, conceptual schematic, not a real photograph, no text, no logos</p>
+      <img class="cn-gen" loading="lazy" src="img/gen/2026-11/2026-11-02_ai-brief/03.jpg" alt="AI 생성 일러스트">
+
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Hardware — 오라클</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">換</span>
+    <div class="card-top"><span class="topic">오라클 새 칩</span></div>
+    <h2>오라클 클라우드, 구글 TPU·세레브라스 칩 들인다 — 지금 쓸 수 있는 건 엔비디아 루빈과 포지트론</h2>
+    <div class="summary">
+      <p>오라클 클라우드(OCI)가 10월 27일 라스베이거스 오라클 AI 월드에서 엔비디아 외 칩을 늘리는 계획을 밝혔다. 엔비디아 Vera Rubin NVL72·Vera CPU와 Positron Atlas 추론 칩은 <strong>지금 바로</strong> 쓸 수 있다(Data Center Knowledge).</p>
+      <p>구글 TPU(학습·추론)와 세레브라스 WSE(고속 추론)는 <strong>2027년</strong>에 들어오고, TPU 도입은 여러 해에 걸쳐 늘어난다. OpenAI·브로드컴의 '재라페뇨' 가속기와 SambaNova SN50은 일정이 없다. 애널리스트 브렌던 버크는 구글이 TPU를 내부에서만 쓰는 것보다 공개하는 편이 가치가 높다고 말했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">발표</span><span>10/27 오라클 AI 월드(라스베이거스)</span></li>
+      <li><span class="k">지금</span><span>엔비디아 Vera Rubin NVL72 · Vera CPU · Positron Atlas 추론 칩</span></li>
+      <li><span class="k">2027년</span><span>구글 TPU(학습·추론, 여러 해에 걸쳐 확대) · 세레브라스 WSE(고속 추론)</span></li>
+      <li><span class="k">일정 없음</span><span>OpenAI·브로드컴 재라페뇨 가속기 · SambaNova SN50</span></li>
+      <li><span class="k">확인 한계</span><span>Data Center Knowledge 단일 ⚠ 오라클이 '구글 클라우드 밖에서 TPU를 제공하는 첫 하이퍼스케일러'가 되겠다고 밝혔으나 회사 주장이라 싣지 않음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>'오픈 실리콘'이라는 말이 붙었지만 지금 쓸 수 있는 칩은 엔비디아와 포지트론뿐이고, 구글 TPU와 세레브라스는 2027년이다. 발표된 칩과 실제 제공 시점을 구분해 읽어야 한다.</p>
+    </div>
+    <a class="source" href="https://www.datacenterknowledge.com/data-center-chips/oracle-cloud-to-offer-google-tpus-and-new-ai-chips">Data Center Knowledge — 오라클의 새 AI 칩</a>
+    <span class="ref-note">Data Center Knowledge(10/28) <strong>단일 매체</strong> · 칩별 제공 시점·애널리스트 발언 모두 이 기사 기준 (확인 2026-11-02)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">오라클 클라우드,<br>엔비디아 외 칩 확대</p>
+      <p class="cn-s">오라클 클라우드가 구글 TPU와 세레브라스 칩을 들인다고 밝혔어요. 다만 이 칩들은 2027년부터이고 지금은 엔비디아 중심이에요.</p>
+      <p class="cn-num">2027년|구글 TPU·세레브라스 도입 시점</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="오라클 클라우드 AI 칩 제공 시점: 지금, 2027년, 일정 없음">
+      <rect class="cn-ring" x="14" y="30" width="117" height="160" rx="12"/>
+      <text class="cn-big" x="72" y="64" text-anchor="middle">지금 가능</text>
+      <text class="cn-small" x="72" y="96" text-anchor="middle">엔비디아</text>
+      <text class="cn-small" x="72" y="120" text-anchor="middle">Vera Rubin</text>
+      <text class="cn-small" x="72" y="144" text-anchor="middle">Positron</text>
+      <rect class="cn-ring" x="141" y="30" width="117" height="160" rx="12"/>
+      <text class="cn-big" x="199" y="64" text-anchor="middle">2027년</text>
+      <text class="cn-small" x="199" y="96" text-anchor="middle">구글 TPU</text>
+      <text class="cn-small" x="199" y="120" text-anchor="middle">세레브라스</text>
+      <text class="cn-small" x="199" y="144" text-anchor="middle">WSE</text>
+      <rect class="cn-ring" x="268" y="30" width="117" height="160" rx="12"/>
+      <text class="cn-big" x="326" y="64" text-anchor="middle">일정 없음</text>
+      <text class="cn-small" x="326" y="96" text-anchor="middle">재라페뇨</text>
+      <text class="cn-small" x="326" y="120" text-anchor="middle">SambaNova</text>
+      <text class="cn-small" x="326" y="144" text-anchor="middle">SN50</text>
+
+      </svg>
+      <p class="cn-img">A modern data center aisle with several differently shaped glowing chip modules on shelves, one set lit and others dim, conceptual schematic, not a real photograph, no text, no logos</p>
+      <img class="cn-gen" loading="lazy" src="img/gen/2026-11/2026-11-02_ai-brief/04.jpg" alt="AI 생성 일러스트">
+
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Policy — 뉴욕주</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">法</span>
+    <div class="card-top"><span class="topic">뉴욕 챗봇법</span></div>
+    <h2>뉴욕주, 18세 미만에게 위험한 AI 챗봇 기능 12개 범주 금지 — 2027년 1월 시행</h2>
+    <div class="summary">
+      <p>뉴욕주 캐시 호컬 주지사가 미성년자 대상 AI 챗봇 안전법(S.9051-B/A.10379-C)에 서명했다. 18세 미만에게 <strong>12개 범주</strong>의 위험한 동반자형 챗봇 기능을 금지하며, 사람인 척하기·자해 부추기기·선정적 대화 등이 포함된다. 2027년 1월 1일 시행이고 위반 건당 최대 25,000달러다(IAPP).</p>
+      <p>법무장관이 민원 포털을 운영한다. 연령 확인은 여러 방식을 써야 하고 그중 하나는 정부 신분증에 의존하지 않아야 한다. 확인한 연령 데이터는 확인 뒤 삭제해야 하며, 법원은 불법 수집한 개인정보의 삭제를 명령할 수 있다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">서명</span><span>호컬 뉴욕주지사 · S.9051-B/A.10379-C</span></li>
+      <li><span class="k">금지</span><span>18세 미만 대상 12개 범주 위험 기능(사람인 척하기·자해 부추기기·선정적 대화 등)</span></li>
+      <li><span class="k">시행</span><span>2027-01-01 · 위반 건당 최대 25,000달러</span></li>
+      <li><span class="k">연령 확인</span><span>복수 방식 · 정부 신분증 비의존 방식 1개 이상 · 확인 후 연령 데이터 삭제</span></li>
+      <li><span class="k">확인 한계</span><span>IAPP 단일 ⚠ 12개 범주의 전체 목록은 기사에 일부만 나옴 · 한국 적용 여부와 무관</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>금지하는 것은 챗봇 전체가 아니라 미성년자 대상 위험 기능이다. 연령 확인 정보를 확인 뒤 지우게 한 조항은 확인 과정에서 개인정보가 쌓이는 것을 막으려는 장치로 읽힌다. 시행까지 약 두 달 남았다.</p>
+    </div>
+    <a class="source" href="https://iapp.org/news/a/new-york-s-governor-signs-youth-ai-chatbot-safety-bill">IAPP — 뉴욕주 청소년 AI 챗봇 안전법</a>
+    <span class="ref-note">IAPP(10/28) <strong>단일 매체</strong> · 법 조항은 기사가 요약한 내용 (확인 2026-11-02)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">뉴욕주, 미성년자 대상<br>위험 챗봇 기능 금지</p>
+      <p class="cn-s">뉴욕주가 18세 미만에게 위험한 AI 챗봇 기능 12개 범주를 금지했어요. 사람인 척하기와 자해 부추기기 등이 포함되고 2027년 1월 1일부터 시행돼요.</p>
+      <p class="cn-num">25,000달러|위반 1건당 최대 금액</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="뉴욕 챗봇법: 12개 범주 금지, 2027년 1월 1일 시행, 위반 건당 최대 25,000달러">
+      <rect class="cn-ring" x="14" y="30" width="117" height="160" rx="12"/>
+      <text class="cn-big" x="72" y="64" text-anchor="middle">금지 범주</text>
+      <text class="cn-small" x="72" y="96" text-anchor="middle">12개</text>
+      <text class="cn-small" x="72" y="120" text-anchor="middle">미성년자 대상</text>
+      <text class="cn-small" x="72" y="144" text-anchor="middle">동반자형 챗봇</text>
+      <rect class="cn-ring" x="141" y="30" width="117" height="160" rx="12"/>
+      <text class="cn-big" x="199" y="64" text-anchor="middle">시행일</text>
+      <text class="cn-small" x="199" y="96" text-anchor="middle">2027년</text>
+      <text class="cn-small" x="199" y="120" text-anchor="middle">1월 1일</text>
+      <text class="cn-small" x="199" y="144" text-anchor="middle">시행</text>
+      <rect class="cn-ring" x="268" y="30" width="117" height="160" rx="12"/>
+      <text class="cn-big" x="326" y="64" text-anchor="middle">위반 시</text>
+      <text class="cn-small" x="326" y="96" text-anchor="middle">건당 최대</text>
+      <text class="cn-small" x="326" y="120" text-anchor="middle">25,000달러</text>
+      <text class="cn-small" x="326" y="144" text-anchor="middle">법무장관 포털</text>
+
+      </svg>
+      <p class="cn-img">A child-safe tablet screen showing a friendly chat bubble with a protective fence around it, soft pastel flat illustration, conceptual schematic, not a real photograph, no text, no logos</p>
+      <img class="cn-gen" loading="lazy" src="img/gen/2026-11/2026-11-02_ai-brief/05.jpg" alt="AI 생성 일러스트">
+
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Security — 침입 공지</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">侵</span>
+    <div class="card-top"><span class="topic">체인얼리시스 침입</span></div>
+    <h2>체인얼리시스 침입 공지 — '공격형 에이전트' 기법으로 이름·이메일 접근, 비밀번호는 아니라고 밝혀</h2>
+    <div class="summary">
+      <p>블록체인 분석업체 체인얼리시스가 10월 30일 보안 사고를 공지했다. 외부 행위자가 <strong>공격형 에이전트(agentic) 기법</strong>으로 시스템과 내부 도구에 무단 접근했다는 것이다. 접근된 정보는 사용자 ID·이름·이메일·조직 내 역할 라벨이다.</p>
+      <p>회사는 현재까지 수사 내용(그래프·메모·사건), 거래·조회 결과, 평문 비밀번호, MFA 비밀값, 세션 토큰은 접근되지 않은 것으로 판단한다고 밝혔다. 바이낸스 도난과는 무관하다고 선을 그었고, 조직별 접근 기록 상세는 분석이 끝나면 따로 공개하겠다고 했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">공지</span><span>10/30 · 회사 블로그</span></li>
+      <li><span class="k">수법</span><span>외부 행위자가 '공격형 에이전트' 기법으로 시스템·내부 도구에 무단 접근(회사 설명)</span></li>
+      <li><span class="k">접근됨</span><span>사용자 ID · 이름 · 이메일 · 조직 내 역할 라벨</span></li>
+      <li><span class="k">접근 안 됨(현재 판단)</span><span>수사 내용 · 거래·조회 결과 · 평문 비밀번호 · MFA 비밀값 · 세션 토큰</span></li>
+      <li><span class="k">확인 한계</span><span>회사 블로그 단일 ⚠ '에이전트가 침입했다'는 표현과 바이낸스 무관은 회사 설명이며 독립 검증 없음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>공지문은 '무엇에 접근됐는지'와 '무엇은 아닌지'를 나눠 적었다. 비밀번호와 MFA 비밀값이 빠졌다는 판단은 현재까지의 것이고, 조직별 상세는 분석 뒤에 나온다. 에이전트 기법이라는 표현은 회사의 설명이다.</p>
+    </div>
+    <a class="source" href="https://www.chainalysis.com/blog/security-incident-october-30/">체인얼리시스 — 10월 30일 보안 사고 공지</a>
+    <span class="ref-note">체인얼리시스 공식 블로그(10/30) <strong>단일 출처</strong> · 교차 확인 못 함 · 침입 방식·범위·바이낸스 무관 모두 회사 주장 (확인 2026-11-02)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">체인얼리시스 침입,<br>접근 범위 공개</p>
+      <p class="cn-s">체인얼리시스가 외부 침입 사고를 공지했어요. 이름과 이메일은 접근됐지만 비밀번호와 수사 내용은 아니라고 회사가 밝혔어요. 바이낸스와는 무관하대요.</p>
+      <p class="cn-num">10월 30일|보안 사고 공지일</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="접근된 정보 4가지와 접근되지 않았다고 판단한 정보">
+      <rect class="cn-ring" x="14" y="30" width="181" height="160" rx="12"/>
+      <text class="cn-big" x="104" y="64" text-anchor="middle">접근됨</text>
+      <text class="cn-small" x="104" y="96" text-anchor="middle">사용자 ID</text>
+      <text class="cn-small" x="104" y="120" text-anchor="middle">이름</text>
+      <text class="cn-small" x="104" y="144" text-anchor="middle">이메일</text>
+      <text class="cn-small" x="104" y="168" text-anchor="middle">역할 라벨</text>
+      <rect class="cn-ring" x="205" y="30" width="181" height="160" rx="12"/>
+      <text class="cn-big" x="295" y="64" text-anchor="middle">접근 안 됨</text>
+      <text class="cn-small" x="295" y="96" text-anchor="middle">수사 내용</text>
+      <text class="cn-small" x="295" y="120" text-anchor="middle">비밀번호</text>
+      <text class="cn-small" x="295" y="144" text-anchor="middle">MFA 비밀값</text>
+      <text class="cn-small" x="295" y="168" text-anchor="middle">세션 토큰</text>
+
+      </svg>
+      <p class="cn-img">A night office with a glowing door slightly ajar and a careful guard lamp, abstract shapes, conceptual schematic, not a real photograph, no text, no logos</p>
+      <img class="cn-gen" loading="lazy" src="img/gen/2026-11/2026-11-02_ai-brief/06.jpg" alt="AI 생성 일러스트">
+
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 마케팅 인사이트 → 디자인 렌더링 → 검토<br>
+    큐레이션: 10/26 AI 브리프·최근 메인(올트먼 방한·구글 쇼크·빗썸/바이낸스 해킹)과 겹치지 않는 새 항목만 포함 · 대부분 단일 출처라 카드마다 확인 한계를 적었습니다.<br>
+    모든 수치는 보도 기준이며 변동될 수 있습니다.
+    <!-- tracker: 2026-11-02 ai-brief
+         [추적 중인 스토리 현재 상태]
+         엔비디아 루빈 사양 하향(ServeTheHome 단일): 대역폭 22→19.2 TB/s. → 엔비디아 공식 설명.
+         엔비디아-네이버 10억 달러(중앙이코노미·더퍼블릭): 11/3 확정, 11/6 납입, 11/27 상장. → 확정 금액.
+         제미나이 4 카본(구글 공식 단일): 일부 방어자 한정. → 일반 공개.
+         오라클 비엔비디아 칩(DCK 단일): TPU·세레브라스 2027. 
+         뉴욕 챗봇법(IAPP 단일): 2027-01-01 시행.
+         체인얼리시스 침입(회사 블로그 단일): 조직별 상세는 분석 뒤 공개.
+         [기존 추적 — 이번 창구 새 전개 미확인] 클로드 듀엣 · 구글 클라우드 OpenAI 모델 · 영국 AI 투자 · 플린트 · HD현대로보틱스 · 5대 은행 보안 예산.
+         [오늘 다룬 항목] ①루빈 사양 하향 ②네이버 투자 ③제미나이 4 카본 ④오라클 칩 ⑤뉴욕 챗봇법 ⑥체인얼리시스
+         [제외한 항목] 지니 4(딥마인드 단일, 후순위) · OpenAI 투자 유치 목표(본문 미확인·수치 상충) · 메타 975억 달러 주식 발행(본문 미확인) · 캐나다 코히어 지분(상충) · 구글 Jules 종료·클로드 요금제 개편(뉴스레터 단일) · 올트먼 방한(어제 메인)
+         [리서치 도구] mcp__Firecrawl__* 호출 0회. WebSearch 발견 → WebFetch 검증.
+    -->
+  </footer>
+
+</div></body>
+</html>
