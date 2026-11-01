@@ -1036,6 +1036,11 @@
    "status": "published",
    "at_kst": "2026-11-01 15:05",
    "result": "18248640058313721"
+  },
+  "live:kbo:20261101HTSS0:7:1-6": {
+   "image": "sports/alerts/2026-11/2026-11-01_kbo_1602.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-01 16:02"
   }
  },
  "boards": {
