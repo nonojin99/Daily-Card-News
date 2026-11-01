@@ -2,21 +2,13 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-01_science-brief",
-   "caption": "captions/2026-11-01_science.txt",
+   "media": "cards/2026-11/2026-11-01_baseball-brief",
+   "caption": "captions/2026-11-01_baseball.txt",
    "dry_run": "false",
-   "is_ai": "true",
-   "review": "required"
-  },
-  {
-   "kind": "reel",
-   "media": "reels/2026-11/2026-11-01_science.mp4",
-   "caption": "captions/2026-11-01_science_reel.txt",
-   "dry_run": "false",
-   "is_ai": "true",
-   "ab": "short",
+   "is_ai": "false",
+   "account": "sports",
    "review": "required"
   }
  ],
- "note": "11/1 일요일 우주·과학 캐러셀 + 짧은판 릴스(8.6초, 사용자 '릴스 검수 후 업로드' 지시)"
+ "note": "11/1 야구 나이트 캐러셀(PO5 삼성 6-1 KIA)"
 }
