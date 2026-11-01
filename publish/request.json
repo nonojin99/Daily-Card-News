@@ -2,23 +2,12 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-01_football-brief",
-   "caption": "captions/2026-11-01_football.txt",
+   "media": "cards/2026-11/2026-11-01_science-brief",
+   "caption": "captions/2026-11-01_science.txt",
    "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "review": "required"
-  },
-  {
-   "kind": "reel",
-   "media": "reels/2026-11/2026-11-01_football.mp4",
-   "caption": "captions/2026-11-01_football_reel.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "ab": "short",
+   "is_ai": "true",
    "review": "required"
   }
  ],
- "note": "11/1 축구 모닝 결과 6장 — 캐러셀 + 핵심 2장 짧은판 릴스(사용자 '축구 승인' 기록)"
+ "note": "11/1 일요일 우주·과학 캐러셀(백색왜성 이중 가스 고리) — 릴스는 이번엔 요청하지 않음"
 }
