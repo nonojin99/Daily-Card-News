@@ -1045,5 +1045,25 @@
    "ig_reels_video_view_total_time": 178895,
    "reels_skip_rate": 90.1
   }
+ },
+ "sports:17902529373602956": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-31T00:50:33+0000",
+  "snapshot_utc": "2026-11-01T05:50:48Z",
+  "age_h": 29.0,
+  "first_line": "[🎮 LoL] G2 0:2 한화생명",
+  "metrics": {
+   "views": 2,
+   "reach": 1,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 1640,
+   "ig_reels_video_view_total_time": 4921,
+   "reels_skip_rate": 100
+  }
  }
 }
