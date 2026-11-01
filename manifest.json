@@ -1,7 +1,25 @@
 {
-  "generated": "2026-11-01T18:15:30Z",
-  "count": 301,
+  "generated": "2026-11-01T20:49:02Z",
+  "count": 303,
   "files": [
+    {
+      "date": "2026-11-02",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "02",
+      "type": "daily",
+      "path": "2026-11-02_daily-brief.html"
+    },
+    {
+      "date": "2026-11-02",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "02",
+      "type": "ai",
+      "path": "2026-11-02_ai-brief.html"
+    },
     {
       "date": "2026-11-01",
       "month": "2026-11",
