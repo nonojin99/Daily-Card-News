@@ -295,6 +295,21 @@
    "status": "published",
    "result": "17986814346105699",
    "posted_kst": "2026-11-01 12:06"
+  },
+  {
+   "id": "live:kbo:20261101HTSS0:8:1-6",
+   "kind": "live",
+   "mp4": "reels/sports/2026-11/2026-11-01_live-kbo-20261101-0-8-1-6.mp4",
+   "caption": "reels/sports/2026-11/2026-11-01_live-kbo-20261101-0-8-1-6.txt",
+   "score": 55,
+   "why": [
+    "KBO",
+    "포스트시즌"
+   ],
+   "seconds": 6.0,
+   "made_kst": "2026-11-01 16:16",
+   "until_kst": "2026-11-01 17:01",
+   "status": "queued"
   }
  ],
  "scored": {
