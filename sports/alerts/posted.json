@@ -1078,6 +1078,11 @@
    "status": "published",
    "at_kst": "2026-11-02 01:00",
    "result": "17954050953322300"
+  },
+  "ger.1:401884750": {
+   "image": "sports/alerts/2026-11/2026-11-01_ger-1_0123.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-02 01:23"
   }
  },
  "boards": {
