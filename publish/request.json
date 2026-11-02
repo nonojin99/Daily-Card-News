@@ -2,8 +2,8 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-03_baseball-brief",
-   "caption": "captions/2026-11-03_baseball.txt",
+   "media": "cards/2026-11/2026-11-03_football-brief",
+   "caption": "captions/2026-11-03_football.txt",
    "dry_run": "false",
    "is_ai": "false",
    "account": "sports",
@@ -11,8 +11,8 @@
   },
   {
    "kind": "reel",
-   "media": "reels/2026-11/2026-11-03_baseball.mp4",
-   "caption": "captions/2026-11-03_baseball_reel.txt",
+   "media": "reels/2026-11/2026-11-03_football.mp4",
+   "caption": "captions/2026-11-03_football_reel.txt",
    "dry_run": "false",
    "is_ai": "false",
    "account": "sports",
@@ -20,5 +20,5 @@
    "review": "required"
   }
  ],
- "note": "11/3 한국시리즈 1차전 데이터 프리뷰 — 캐러셀 + 5장 릴스(8초), 에이전트 검수 PASS"
+ "note": "11/3 축구 모닝 챔스 프리뷰 — 캐러셀 + 10초판 릴스, 에이전트 검수 PASS (순위 변동 릴스는 렌더러 FAIL 2 로 보류)"
 }
