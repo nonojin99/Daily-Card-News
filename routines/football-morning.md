@@ -33,7 +33,7 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **축구 모닝** 브리�
 
 ## 월·화 = 순위 변동 릴스 (2026-10-30 사용자 요청) — README '📈 월·화 = 순위 변동 릴스'
 - 월요일 주말 결산(화요일도, 월요일 밤 경기가 있으면)에 그 주말 경기를 마친 리그마다 `<div class="table-move" hidden data-league="EPL" data-zones="…" data-round="9라운드 뒤">…전체 순위…</div>` 를 넣는다(카드 아님). 팀 이름·data-league 는 금요일 `cn-table` 과 같게, 숫자는 같은 출처 본문으로 확인.
-- push → Actions 가 `reels/YYYY-MM/<날짜>_football_move.mp4` → `check_reel.py` + `reel-reviewer` → 승인 기록 + 캡션(`captions/<날짜>_football_move.txt`, 첫 줄 = 가장 크게 움직인 팀·숫자) + `request.json` 항목(`"ab"` 없이, `"account":"sports"`, 첫 3편 `"review":"human"`). 결산판 릴스(`_short`)와 같은 커밋에 둘 다 넣어도 된다.
+- push → Actions 가 `reels/YYYY-MM/<날짜>_football_move.mp4` → `check_reel.py` + `reel-reviewer` → 승인 기록 + 캡션(`captions/<날짜>_football_move.txt`, 첫 줄 = 가장 크게 움직인 팀·숫자) + `request.json` 항목(`"ab"` 없이, `"account":"sports"`, **`"review":"required"` — 2026-11-02 사용자 승인으로 수습 없음, 에이전트 검수만으로 바로 게시**). **매주 월요일 주말 결산 때마다 5대 리그(EPL·라리가·분데스리가·세리에A·리그앙) 재료를 넣어 별도 릴스로 요청**(월요일 밤 경기가 남은 리그는 캡션에 밝힌다). 결산판 릴스(`_short`)와 같은 커밋에 둘 다 넣어도 된다.
 
 ## 프리뷰 (토요일 · A매치 기간, 2026-10-24~) — README '스포츠 계정 → ⚽ 축구 프리뷰'
 - 파일 이름은 같다(`YYYY-MM-DD_football-brief.html`), h1·캡션 첫 줄 `⚽ 축구 모닝 · 주말 프리뷰`(A매치 기간 `· A매치 프리뷰`).

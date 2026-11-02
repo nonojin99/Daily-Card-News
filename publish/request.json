@@ -26,7 +26,7 @@
    "dry_run": "false",
    "is_ai": "false",
    "account": "sports",
-   "review": "human"
+   "review": "required"
   }
  ],
  "note": "11/2 축구 모닝 주말 결산 캐러셀 + 결산판 릴스 + 순위 변동 릴스(수습 human)"
