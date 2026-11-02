@@ -1,80 +1,6 @@
 {
  "items": [
   {
-   "id": "bundle:2026-10-30_07:40",
-   "kind": "bundle",
-   "mp4": "reels/sports/2026-10/2026-10-30_0740_bundle.mp4",
-   "caption": "reels/sports/2026-10/2026-10-30_0740_bundle.txt",
-   "score": 55,
-   "seconds": 6.5,
-   "made_kst": "2026-10-30 07:44",
-   "status": "published",
-   "result": "18442145980179188",
-   "posted_kst": "2026-10-30 07:46"
-  },
-  {
-   "id": "pre:kbo:20261030SSHT0",
-   "kind": "pre",
-   "mp4": "reels/sports/2026-10/2026-10-30_pre-kbo-20261030-0.mp4",
-   "caption": "reels/sports/2026-10/2026-10-30_pre-kbo-20261030-0.txt",
-   "score": 55,
-   "why": [
-    "KBO",
-    "포스트시즌"
-   ],
-   "seconds": 6.0,
-   "made_kst": "2026-10-30 16:31",
-   "until_kst": "2026-10-30 18:30",
-   "status": "published",
-   "result": "18090192812269451",
-   "posted_kst": "2026-10-30 16:35"
-  },
-  {
-   "id": "live:kbo:20261030SSHT0:8:2-4",
-   "kind": "live",
-   "mp4": "reels/sports/2026-10/2026-10-30_live-kbo-20261030-0-8-2-4.mp4",
-   "caption": "reels/sports/2026-10/2026-10-30_live-kbo-20261030-0-8-2-4.txt",
-   "score": 55,
-   "why": [
-    "KBO",
-    "포스트시즌"
-   ],
-   "seconds": 6.0,
-   "made_kst": "2026-10-30 21:18",
-   "until_kst": "2026-10-30 22:03",
-   "status": "published",
-   "result": "18049721030819734",
-   "posted_kst": "2026-10-30 21:20"
-  },
-  {
-   "id": "kbo:20261030SSHT0",
-   "kind": "game",
-   "mp4": "reels/sports/2026-10/2026-10-30_kbo-20261030-0.mp4",
-   "caption": "reels/sports/2026-10/2026-10-30_kbo-20261030-0.txt",
-   "score": 55,
-   "why": [
-    "KBO",
-    "포스트시즌"
-   ],
-   "seconds": 5.5,
-   "made_kst": "2026-10-30 21:54",
-   "status": "published",
-   "result": "18131542426865829",
-   "posted_kst": "2026-10-30 21:56"
-  },
-  {
-   "id": "bundle:2026-10-30_23:40",
-   "kind": "bundle",
-   "mp4": "reels/sports/2026-10/2026-10-30_2340_bundle.mp4",
-   "caption": "reels/sports/2026-10/2026-10-30_2340_bundle.txt",
-   "score": 55,
-   "seconds": 6.5,
-   "made_kst": "2026-10-30 23:44",
-   "status": "published",
-   "result": "17957481444270845",
-   "posted_kst": "2026-10-30 23:46"
-  },
-  {
    "id": "bundle:2026-10-31_07:40",
    "kind": "bundle",
    "mp4": "reels/sports/2026-10/2026-10-31_0740_bundle.mp4",
@@ -218,50 +144,6 @@
   }
  ],
  "scored": {
-  "ita.1:401874976": {
-   "score": 10,
-   "why": [
-    "5골+"
-   ],
-   "sport": "ita.1",
-   "title": "레체 1:5 프로시노네",
-   "at": "2026-10-30 04:33"
-  },
-  "ita.1:401874969": {
-   "score": 0,
-   "why": [],
-   "sport": "ita.1",
-   "title": "아탈란타 2:2 피오렌티나",
-   "at": "2026-10-30 06:52"
-  },
-  "lol:115660540726095073": {
-   "score": 15,
-   "why": [
-    "롤드컵"
-   ],
-   "sport": "lol",
-   "title": "KC 2:0 CFO",
-   "at": "2026-10-30 07:29"
-  },
-  "lol:115660540726095069": {
-   "score": 15,
-   "why": [
-    "롤드컵"
-   ],
-   "sport": "lol",
-   "title": "BLG 1:2 TES",
-   "at": "2026-10-30 10:01"
-  },
-  "kbo:20261030SSHT0": {
-   "score": 55,
-   "why": [
-    "KBO",
-    "포스트시즌"
-   ],
-   "sport": "kbo",
-   "title": "삼성 2:4 KIA",
-   "at": "2026-10-30 21:54"
-  },
   "ger.1:401884746": {
    "score": 10,
    "why": [
@@ -633,6 +515,15 @@
    "sport": "esp.1",
    "title": "레알 소시에다드 1:2 아틀레틱 빌바오",
    "at": "2026-11-02 07:02"
+  },
+  "ita.1:401874963": {
+   "score": 10,
+   "why": [
+    "5골+"
+   ],
+   "sport": "ita.1",
+   "title": "피오렌티나 4:2 사수올로",
+   "at": "2026-11-03 04:28"
   }
  },
  "last_post": 1793573161.2764018,
