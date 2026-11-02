@@ -1105,5 +1105,99 @@
    "ig_reels_video_view_total_time": 319751,
    "reels_skip_rate": 78
   }
+ },
+ "main:17955478299320430": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-11-01T01:23:40+0000",
+  "snapshot_utc": "2026-11-02T02:22:35Z",
+  "age_h": 25.0,
+  "first_line": "[우주·과학] 가스 원반 백색왜성 21개는 봉우리 2개, 이 별만 4개 — 고리가 두 겹?",
+  "metrics": {
+   "views": 118,
+   "reach": 106,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 2772,
+   "ig_reels_video_view_total_time": 299448,
+   "reels_skip_rate": 68.6
+  }
+ },
+ "main:18075671999777332": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-01T00:26:45+0000",
+  "snapshot_utc": "2026-11-02T02:22:35Z",
+  "age_h": 25.9,
+  "first_line": "[우주·과학] 죽은 별 둘레의 가스 고리가 두 겹? 봉우리가 4개인 신호 🔭 백색왜성 WD J1328−1450",
+  "metrics": {
+   "views": 8,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:17957178126267128": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-01T00:00:47+0000",
+  "snapshot_utc": "2026-11-02T02:22:35Z",
+  "age_h": 26.4,
+  "first_line": "[⚽ 축구 모닝] 클라시커 2-2, 종료 1분 전 동점골 · 첼시·토트넘 나란히 2-0",
+  "metrics": {
+   "views": 175,
+   "reach": 141,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 4015,
+   "ig_reels_video_view_total_time": 570243,
+   "reels_skip_rate": 63.1
+  }
+ },
+ "sports:18116366984108151": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-10-31T23:59:19+0000",
+  "snapshot_utc": "2026-11-02T02:22:35Z",
+  "age_h": 26.4,
+  "first_line": "[⚽ 축구 모닝] 클라시커 2-2, 김민재 풀타임 · 첼시 2-0 맨유 · 아틀레티코 7연승 — 어젯밤 결과 6장",
+  "metrics": {
+   "views": 0,
+   "reach": 0,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:17888838984486935": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-10-31T23:54:59+0000",
+  "snapshot_utc": "2026-11-02T02:22:35Z",
+  "age_h": 26.5,
+  "first_line": "[🎮 LoL] BLG 2:0 한화생명",
+  "metrics": {
+   "views": 4,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2100,
+   "ig_reels_video_view_total_time": 6302,
+   "reels_skip_rate": 66.7
+  }
  }
 }
