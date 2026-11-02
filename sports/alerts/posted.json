@@ -1135,8 +1135,9 @@
   },
   "ita.1:401874971": {
    "image": "sports/alerts/2026-11/2026-11-02_ita-1_0640.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-03 06:40"
+   "status": "published",
+   "at_kst": "2026-11-03 06:40",
+   "result": "18416410618091322"
   }
  },
  "boards": {
@@ -1317,8 +1318,8 @@
    "final": true
   },
   "ita.1:2026-11-02": {
-   "last": 1793647725.1047125,
-   "final": false
+   "last": 1793655904.595623,
+   "final": true
   }
  }
 }
