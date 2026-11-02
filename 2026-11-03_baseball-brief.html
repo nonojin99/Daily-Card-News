@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="야구 나이트 — 2026.11.03">
+<meta property="og:description" content="한국시리즈 1차전 데이터 프리뷰 · KT 대니엘 대 삼성 최원태 · 1차전 승리팀 우승 73.8%">
+<meta property="og:type" content="article">
+<title>Baseball Night — 2026.11.03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#1f5f8b; --accent-soft:#e8f0f5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">Baseball Night · 야구 나이트</div>
+    <h1>한국시리즈 1차전, 숫자로 먼저 본다</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 3일 화요일</span>
+      <span class="count">5 Picks · KBO 한국시리즈 프리뷰</span>
+    </div>
+    <p class="lede">오늘 18시 30분 수원에서 KT와 삼성의 한국시리즈 1차전이 열립니다. 선발 매치업, 올해 맞대결, 팀 기록, 휴식 차이를 숫자로 정리했습니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 3일 화요일, 야구 나이트입니다.</p>
+    <p>한국시리즈 1차전을 이긴 팀은 42번 중 31번 우승했습니다. 확률로 73.8퍼센트입니다. 오늘 오후 6시 30분 수원에서 KT와 삼성이 그 1차전을 치릅니다.</p>
+    <p>선발은 KT 데이비스 대니엘과 삼성 최원태입니다. 대니엘은 정규시즌 평균자책 2.13, 최원태는 4.68입니다. 대니엘은 올해 삼성전 등판이 없고, 최원태는 올해 KT전 평균자책이 6.94였습니다.</p>
+    <p>올해 맞대결은 삼성이 9승 7패로 앞섰지만 마지막 10월 12일 경기는 KT가 4대 2로 이겼습니다.</p>
+    <p>팀 타율은 KT가 0.286으로 1위, 홈런은 삼성이 140개로 KT의 121개보다 많습니다.</p>
+    <p>KT는 시즌 종료 뒤 거의 3주를 쉬었고, 삼성은 플레이오프 5차전 뒤 하루만 쉬었습니다.</p>
+    <p>지금까지 11월 3일 야구 나이트였습니다. 자세한 출처는 카드에서 확인하세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">KBO — 한국시리즈 1차전 프리뷰</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">先</span>
+    <div class="card-top"><span class="topic">KS 1차전 통계</span></div>
+    <h2>1차전을 이긴 팀, 42번 중 31번 우승했다</h2>
+    <div class="summary"><p>한국시리즈는 3일(화) 18시 30분 수원에서 7전 4선승으로 시작한다. 1982년 이후 무승부를 뺀 42번의 한국시리즈에서 <strong>1차전 승리팀이 우승한 것은 31번(73.8%)</strong>이다(뉴시스·스포츠경향).</p></div>
+    <ul class="spec"><li><span class="k">시작</span><span>11/3(화) 18:30, 수원 KT위즈파크</span></li><li><span class="k">방식</span><span>7전 4선승</span></li><li><span class="k">1차전 승리팀 우승</span><span>42회 중 31회 (73.8%)</span></li></ul>
+    <div class="insight">
+      <span class="tag">⚾ 알고 보면 달라지는 것</span>
+      <p>1차전 승리가 우승을 보장하진 않는다. 4번 중 1번은 1차전을 내주고도 우승했다.</p>
+    </div>
+    <a class="source" href="https://www.newsis.com/view/NISX20261102_0003850977">뉴시스 — 선발·통계</a> <a class="source" href="https://sports.khan.co.kr/article/202611021638003/">스포츠경향 — 1차전</a> 
+    <span class="ref-note">31/42·73.8%는 뉴시스·스포츠경향 일치 · 시작 시각은 뉴스1·스포티비뉴스 일치 (확인 2026-11-03)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">1차전 이긴 팀이<br>우승한 비율은?</p>
+      <p class="cn-s">한국시리즈 1차전을 이긴 팀은 42번 중 31번 우승했어요. 오늘 저녁 18시 30분 수원에서 KT와 삼성이 그 1차전을 치러요.</p>
+      <p class="cn-num">73.8%|1차전 승리팀 우승, 42번 중 31번</p>
+      <p class="cn-note">1982년 이후 무승부 제외 / 오늘 18:30 수원</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">投</span>
+    <div class="card-top"><span class="topic">선발 매치업</span></div>
+    <h2>KT 대니엘 ERA 2.13, 삼성 최원태 ERA 4.68</h2>
+    <div class="summary"><p>선발은 11/2 미디어데이에서 발표됐다. KT 데이비스 대니엘은 정규시즌 <strong>10경기 55이닝 5승 2패 평균자책 2.13</strong>, 삼성 최원태는 24경기 125이닝 7승 5패 평균자책 4.68이다(뉴시스).</p><p>대니엘은 올해 삼성전 등판이 없다. 최원태는 올해 KT전 2경기(1패) 평균자책 6.94였다(스포츠경향·스포티비뉴스). 플레이오프 평균자책은 10.80이다(스포티비뉴스).</p></div>
+    <ul class="spec"><li><span class="k">KT 대니엘</span><span>10경기 55이닝 5승 2패 ERA 2.13</span></li><li><span class="k">삼성 최원태</span><span>24경기 125이닝 7승 5패 ERA 4.68</span></li><li><span class="k">최원태 KT전</span><span>2경기 1패 ERA 6.94</span></li><li><span class="k">최원태 PO</span><span>ERA 10.80</span></li></ul>
+    <div class="insight">
+      <span class="tag">⚾ 알고 보면 달라지는 것</span>
+      <p>대니엘은 올해 삼성 타선을 한 번도 상대하지 않았다. 삼성은 대니엘의 공을 올해 경기에서 본 적이 없다(스포츠경향·스포티비뉴스).</p>
+    </div>
+    <a class="source" href="https://www.newsis.com/view/NISX20261102_0003850977">뉴시스 — 선발 발표</a> <a class="source" href="https://sports.khan.co.kr/article/202611021651003/">스포츠경향 — 상대 기록</a> <a class="source" href="https://www.spotvnews.co.kr/news/articleView.html?idxno=1017007">스포티비뉴스 — 1차전</a> 
+    <span class="ref-note">정규시즌 성적은 뉴시스·스포티비뉴스·스포츠경향 일치 · KT전 ERA 6.94는 스포츠경향·스포티비뉴스, PO ERA 10.80은 스포티비뉴스 본문 (확인 2026-11-03)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">KT 대니엘 대<br>삼성 최원태</p>
+      <p class="cn-s">KT는 대니엘, 삼성은 최원태가 선발이에요. 대니엘은 올해 삼성전 등판이 없고, 최원태는 올해 KT전 평균자책이 6.94예요.</p>
+      <p class="cn-num">2.13 대 4.68|올해 평균자책, 낮을수록 좋아요</p>
+      <p class="cn-note">KT 대니엘 · 삼성 최원태</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">對</span>
+    <div class="card-top"><span class="topic">올해 맞대결</span></div>
+    <h2>올해 맞대결은 삼성 9승 7패, 마지막은 KT가 이겼다</h2>
+    <div class="summary"><p>정규시즌 KT와 삼성의 올해 맞대결은 <strong>삼성 9승 7패</strong>, 모두 16경기다(파이낸셜뉴스). 마지막 맞대결인 10/12에는 KT가 4-2로 이겼다(뉴스1).</p><p>포스트시즌에서 두 팀이 만나는 것은 이번이 처음이다. 2021년에는 KT가 1위 결정전에서 삼성을 1-0으로 꺾고 한국시리즈에 직행해 통합우승을 했다(뉴스1).</p></div>
+    <ul class="spec"><li><span class="k">올해 전적</span><span>삼성 9승 7패</span></li><li><span class="k">마지막 맞대결</span><span>10/12 KT 4-2 삼성</span></li><li><span class="k">포스트시즌</span><span>첫 맞대결</span></li></ul>
+    <div class="insight">
+      <span class="tag">⚾ 알고 보면 달라지는 것</span>
+      <p>상대 전적은 삼성이 앞서지만, 시즌 끝에는 KT가 이겼다.</p>
+    </div>
+    <a class="source" href="https://www.fnnews.com/news/202611011825453652">파이낸셜뉴스 — 한국시리즈</a> <a class="source" href="https://www.news1.kr/sports/baseball/6340058">뉴스1 — 한국시리즈</a> 
+    <span class="ref-note">9승 7패는 파이낸셜뉴스 본문 · 10/12 스코어와 2021 1위 결정전은 뉴스1 본문 (확인 2026-11-03)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">올해 맞대결,<br>삼성이 9승 7패</p>
+      <p class="cn-s">올해 정규시즌 맞대결은 삼성이 16경기 중 9승 7패로 앞서요. 그래도 마지막인 10월 12일 경기는 KT가 4-2로 이겼어요.</p>
+      <p class="cn-score">KT|7|9|삼성</p>
+      <p class="cn-note">올해 맞대결 승수 16경기 / 마지막 10/12 KT 4-2</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">打</span>
+    <div class="card-top"><span class="topic">팀 기록</span></div>
+    <h2>타율은 KT 0.286, 홈런은 삼성 140개</h2>
+    <div class="summary"><p>정규시즌 팀 타율은 <strong>KT 0.286(1위)</strong>, 삼성은 그 뒤를 이은 0.273이다. 홈런은 삼성이 <strong>140개(4위)</strong>로 KT 121개(7위)보다 19개 많다(스포츠경향).</p><p>팀 평균자책은 KT 4.14(2위), 삼성 4.31(4위)이다. 삼성은 플레이오프 5경기에서 팀 평균자책 2.66을 기록했다(스포츠경향).</p></div>
+    <ul class="spec"><li><span class="k">팀 타율</span><span>KT 0.286(1위) · 삼성 0.273</span></li><li><span class="k">홈런</span><span>삼성 140(4위) · KT 121(7위)</span></li><li><span class="k">팀 ERA</span><span>KT 4.14(2위) · 삼성 4.31(4위)</span></li><li><span class="k">삼성 PO 5경기</span><span>팀 ERA 2.66</span></li></ul>
+    <div class="insight">
+      <span class="tag">⚾ 알고 보면 달라지는 것</span>
+      <p>타율은 KT가, 홈런은 삼성이 앞선다.</p>
+    </div>
+    <a class="source" href="https://sports.khan.co.kr/article/202611021651003/">스포츠경향 — 팀 기록</a> 
+    <span class="ref-note">팀 타율·홈런·ERA와 삼성 PO ERA는 스포츠경향 본문 (확인 2026-11-03)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">KT는 타율이 1위,<br>삼성은 홈런이 많다</p>
+      <p class="cn-s">KT는 팀 타율 0.286으로 1위예요. 홈런은 삼성이 140개로 4위, KT는 121개로 7위라서 삼성이 19개 더 많아요.</p>
+      <p class="cn-num">0.286 대 140개|KT 팀 타율 대 삼성 홈런</p>
+      <p class="cn-note">KT 홈런 121개 · 삼성 팀 타율 0.273</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">休</span>
+    <div class="card-top"><span class="topic">컨디션</span></div>
+    <h2>KT는 거의 3주 쉬었고, 삼성은 하루 쉬었다</h2>
+    <div class="summary"><p>KT는 10/12 정규시즌을 마치고 <strong>거의 3주</strong>를 쉬었다(스포츠경향). 삼성은 11/1 플레이오프 5차전을 치른 뒤 한국시리즈 전 쉬는 날이 <strong>11/2 하루</strong>뿐이다(파이낸셜뉴스).</p><p>삼성 선발 최원태는 플레이오프 3차전에 1⅔이닝 2실점으로 일찍 내려갔다(스포티비뉴스). 원태인은 한국시리즈 1·2차전 불펜으로 쓰인다(스포츠경향).</p></div>
+    <ul class="spec"><li><span class="k">KT</span><span>10/12 시즌 종료 후 거의 3주</span></li><li><span class="k">삼성</span><span>PO 5차전(11/1) 뒤 하루</span></li><li><span class="k">삼성 원태인</span><span>KS 1·2차전 불펜</span></li></ul>
+    <div class="insight">
+      <span class="tag">⚾ 알고 보면 달라지는 것</span>
+      <p>휴식일은 KT가 훨씬 길고, 삼성은 플레이오프를 5차전까지 치르고 올라왔다.</p>
+    </div>
+    <a class="source" href="https://sports.khan.co.kr/article/202611021651003/">스포츠경향 — 휴식·기록</a> <a class="source" href="https://sports.khan.co.kr/article/202611021638003/">스포츠경향 — 1차전</a> <a class="source" href="https://www.fnnews.com/news/202611011825453652">파이낸셜뉴스 — 한국시리즈</a> <a class="source" href="https://www.spotvnews.co.kr/news/articleView.html?idxno=1017007">스포티비뉴스 — 1차전</a> 
+    <span class="ref-note">KT 휴식 거의 3주는 스포츠경향 11/2(202611021651003) · 삼성 하루는 파이낸셜뉴스 본문 · 최원태 PO 3차전은 스포티비뉴스 · 정확한 직행 일수는 기사별로 달라 뺐다 (확인 2026-11-03)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">KT는 거의 3주,<br>삼성은 하루 쉬었다</p>
+      <p class="cn-s">KT는 시즌이 끝난 10월 12일부터 거의 3주를 쉬었어요. 삼성은 11월 1일 플레이오프 5차전을 치르고 하루만 쉬고 왔어요.</p>
+      <p class="cn-num">거의 3주 대 1일|1차전 전 휴식 기간</p>
+      <p class="cn-note">KT 10/12 시즌 종료 / 삼성 11/1 PO 5차전</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 팩트체크 → 디테일 포인트 → 디자인 렌더링 → 검토<br>
+    2026년 11월 3일 화요일 야구 나이트 · KBO 한국시리즈 1차전 데이터 프리뷰<br>
+    📊 도표: SVG 도표는 넣지 않았습니다. 수치는 카드 넘겨보기용 그림(cn-*)이고 값은 본문·스펙 표에 있습니다.<br>
+    ⚠ 모든 정보는 참고용이며, 최종 확인은 각 카드의 출처 링크를 권장합니다.
+    <!-- tracker: 2026-11-03 baseball (KS 1차전 데이터 프리뷰)
+         [순위·시리즈 현재 상태] KBO: 한국시리즈 KT(정규시즌 1위) vs 삼성(PO 3승 2패), 1차전 11/3 18:30 수원, 7전 4선승 / MLB: 월드시리즈 종료
+         [오늘 다룬 경기] 1차전 프리뷰(선발 KT 대니엘 vs 삼성 최원태)
+         [제외한 항목] KT 정확한 휴식 일수·삼성 최종 승패·정규시즌 1위 우승 확률 30/35(본문 미확인) · 김지찬 PO5 타점(매체별 표기 불일치) · 대니엘 입단 시점(뉴시스 8월 대 경향 7월 불일치) · 롤 월즈: 큰 경기 없음(8강 11/3~)
+         [다음 체크] 1차전 결과(11/3 밤) · 2차전 선발 · 월즈 8강
+         [리서치 도구] Firecrawl 호출 0회. WebSearch 발견 → WebFetch 검증.
+    -->
+  </footer>
+
+</div></body>
+</html>
