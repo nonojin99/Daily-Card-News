@@ -90,7 +90,8 @@ def account(label, token, uid):
         vals, bad = insights(token, m["id"], COMMON + (REEL_EXTRA if reel else []))
         rec["media"].append({"id": m["id"], "type": m.get("media_product_type") or m.get("media_type"), "timestamp": m.get("timestamp"),
                              "permalink": m.get("permalink"), "first_line": (m.get("caption") or "").split("\n")[0][:80],
-                             **({"variant": (v := "short" if "⚡ 핵심" in (m.get("caption") or "") else "narrated"),
+                             **({"tag": ((m.get("caption") or "").split("\n")[0][:80].split("]")[0].lstrip("[") if (m.get("caption") or "").startswith("[") else ""),
+                                 "variant": (v := "short" if ("⚡ 핵심" in (m.get("caption") or "") or "🎵 음악" in (m.get("caption") or "")) else "narrated"),
                                  "opening": ops.get((m.get("caption") or "").split("\n")[0][:80], {}).get(v, "static")} if reel else {}),
                              "metrics": vals, **({"metric_errors": bad} if bad else {})})
     return rec
