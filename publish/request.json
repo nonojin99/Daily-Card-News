@@ -2,12 +2,23 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-02_ai-brief",
-   "caption": "captions/2026-11-02_ai.txt",
+   "media": "cards/2026-11/2026-11-03_baseball-brief",
+   "caption": "captions/2026-11-03_baseball.txt",
    "dry_run": "false",
-   "is_ai": "true",
+   "is_ai": "false",
+   "account": "sports",
+   "review": "required"
+  },
+  {
+   "kind": "reel",
+   "media": "reels/2026-11/2026-11-03_baseball.mp4",
+   "caption": "captions/2026-11-03_baseball_reel.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "ab": "short",
    "review": "required"
   }
  ],
- "note": "11/2 월 AI·테크 코너 캐러셀(일러스트 반영 재구움본, 검수 PASS)"
+ "note": "11/3 한국시리즈 1차전 데이터 프리뷰 — 캐러셀 + 5장 릴스(8초), 에이전트 검수 PASS"
 }
