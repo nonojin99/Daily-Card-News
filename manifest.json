@@ -1,7 +1,16 @@
 {
-  "generated": "2026-11-02T03:16:18Z",
-  "count": 304,
+  "generated": "2026-11-02T16:14:08Z",
+  "count": 305,
   "files": [
+    {
+      "date": "2026-11-03",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "03",
+      "type": "baseball",
+      "path": "2026-11-03_baseball-brief.html"
+    },
     {
       "date": "2026-11-02",
       "month": "2026-11",
