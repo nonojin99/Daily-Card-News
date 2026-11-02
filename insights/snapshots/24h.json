@@ -1199,5 +1199,65 @@
    "ig_reels_video_view_total_time": 6302,
    "reels_skip_rate": 66.7
   }
+ },
+ "sports:18071247434780939": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-01T07:48:05+0000",
+  "snapshot_utc": "2026-11-02T07:51:40Z",
+  "age_h": 24.1,
+  "first_line": "[⚾ KBO] KIA 1:6 삼성",
+  "metrics": {
+   "views": 128,
+   "reach": 108,
+   "likes": 0,
+   "comments": 0,
+   "shares": 3,
+   "saved": 0,
+   "total_interactions": 3,
+   "ig_reels_avg_watch_time": 2694,
+   "ig_reels_video_view_total_time": 293697,
+   "reels_skip_rate": 77.6
+  }
+ },
+ "sports:18108762833209497": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-01T07:18:06+0000",
+  "snapshot_utc": "2026-11-02T07:51:40Z",
+  "age_h": 24.6,
+  "first_line": "[⚾ KBO] 플레이오프 5차전 진행 중 — KIA 1:6 삼성",
+  "metrics": {
+   "views": 125,
+   "reach": 107,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2303,
+   "ig_reels_video_view_total_time": 255690,
+   "reels_skip_rate": 81.3
+  }
+ },
+ "sports:17986814346105699": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-01T03:06:06+0000",
+  "snapshot_utc": "2026-11-02T07:51:40Z",
+  "age_h": 28.8,
+  "first_line": "[⚾ KBO] 플레이오프 5차전 선발 — KIA 올러 vs 삼성 후라도",
+  "metrics": {
+   "views": 130,
+   "reach": 116,
+   "likes": 3,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 3,
+   "ig_reels_avg_watch_time": 2377,
+   "ig_reels_video_view_total_time": 278153,
+   "reels_skip_rate": 89.5
+  }
  }
 }
