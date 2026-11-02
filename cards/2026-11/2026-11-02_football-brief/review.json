@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "a84bedc116687c8b2ef2d878e240228425c1429d",
+ "by": "agent",
+ "cards": 8,
+ "at": "2026-11-02T01:55:40Z",
+ "note": "card-visual-reviewer PASS (카드 동일, 지문만 변경) 2026-11-02"
+}
