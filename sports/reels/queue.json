@@ -141,6 +141,16 @@
    "status": "published",
    "result": "17964280194209449",
    "posted_kst": "2026-11-02 07:46"
+  },
+  {
+   "id": "bundle:2026-11-03_07:40",
+   "kind": "bundle",
+   "mp4": "reels/sports/2026-11/2026-11-03_0740_bundle.mp4",
+   "caption": "reels/sports/2026-11/2026-11-03_0740_bundle.txt",
+   "score": 55,
+   "seconds": 9.3,
+   "made_kst": "2026-11-03 07:44",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -601,6 +611,9 @@
   "2026-11-02_23:40": {
    "made_kst": "2026-11-02 23:44",
    "skip": "결과판 0개"
+  },
+  "2026-11-03_07:40": {
+   "made_kst": "2026-11-03 07:44"
   }
  }
 }
