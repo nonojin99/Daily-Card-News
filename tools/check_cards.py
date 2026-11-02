@@ -63,6 +63,10 @@ def main(fname):
         # 분야 태그
         if topic in BANNED_TOPICS: F(f"topic '{topic}' 은 분류어 — 카드만의 핵심어로")
         if sub and not 2 <= len(topic.replace(" ", "")) <= 8: W(f"topic '{topic}' 길이 (2~8자 권장)")
+        # AI 일러스트 태그는 Actions(make_images.py)만 넣는다 — 세션이 미리 쓰면 '이미 있다'며 생성을 건너뛰어 깨진 그림이 된다(2026-11-02 사고)
+        for gsrc in re.findall(r'<img[^>]*class="cn-gen"[^>]*src="([^"]+)"', cn):
+            if not (Path(fname).resolve().parent / gsrc).exists():
+                F(f"cn-gen 이미지 파일 없음({gsrc}) — <img class=\"cn-gen\"> 는 직접 쓰지 말고 cn-img 장면 묘사만 둔다(Actions 가 만들어 넣는다)")
         # 그림
         has_v = 'class="cn-v"' in cn
         has_chart = 'class="chart"' in a

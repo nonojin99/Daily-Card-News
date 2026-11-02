@@ -151,7 +151,14 @@
 클래식 배경음(`div.reel-bgm`)은 녹음까지 퍼블릭 도메인·CC0·CC BY 인 Commons 음원만. README '음악 브리프 — 음원·주요 구절'.
 
 ## 하지 말 것
+- **`<img class="cn-gen">` 를 브리프에 직접 쓰지 않는다**(2026-11-02 사고 — 일러스트 7장이 안 만들어지고 앱에 깨진 그림이 떴다). AI 그림은 카드 `.cn` 안에 `<p class="cn-img">영문 장면</p>` 만 두면
+  push 뒤 Actions(`make_images.py`)가 이미지를 만들고 `<img>` 를 스스로 넣는다. 태그가 이미 있으면 '그림 있음'으로 보고 건너뛴다. 어제 브리프를 복사할 때도 `cn-gen` 줄은 빼고 복사한다.
+  `tools/check_cards.py` 가 파일 없는 `cn-gen` 을 FAIL 로 잡으므로 push 관문도 막는다.
 - 세션에서 GitHub Actions 를 실행하려 하지 않는다(403). push 하면 Actions 가 manifest·MP3·이미지·인스타 카드 JPG 를 알아서 처리하고,
   카드 JPG 는 브리프나 렌더러가 바뀌면 스스로 다시 굽는다.
 - 로컬 웹 서버를 따로 백그라운드로 띄우지 않는다. `tools/render_cards.js` 가 매번 자기 서버를 띄웠다 닫는다.
 - `playwright install` 금지. 브라우저는 `/opt/pw-browsers/chromium`.
+
+## 어제 파일을 복사할 때 (반복 사고 방지, 2026-11-02)
+- 어제 브리프에서 **복사하지 말 것**: `<div class="audio-player">`(Actions 가 넣는다), `<img class="cn-gen">`(Actions 가 넣는다), 어제 날짜·제목·og 태그·tracker.
+- 복사할 것은 `<style>` 블록과 구조뿐이다. 복사 뒤 `grep -c 'cn-gen\|audio-player' <오늘 브리프>` 가 0 인지 확인한다.
