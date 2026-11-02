@@ -1259,5 +1259,42 @@
    "ig_reels_video_view_total_time": 278153,
    "reels_skip_rate": 89.5
   }
+ },
+ "sports:18102747461556685": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-01T18:16:43+0000",
+  "snapshot_utc": "2026-11-02T20:43:24Z",
+  "age_h": 26.4,
+  "first_line": "[⚾ 야구 나이트] 삼성 6-1 KIA, 2년 만에 한국시리즈 · 후라도 7이닝 비자책 PO MVP · 3일 수원서 KT와 한국시리즈 — 11월",
+  "metrics": {
+   "views": 3,
+   "reach": 2,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1
+  }
+ },
+ "sports:18130431374510841": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-01T14:46:13+0000",
+  "snapshot_utc": "2026-11-02T20:43:24Z",
+  "age_h": 30.0,
+  "first_line": "[🏟 오늘 결과] 결과판 4장 한 번에",
+  "metrics": {
+   "views": 108,
+   "reach": 105,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1434,
+   "ig_reels_video_view_total_time": 152004,
+   "reels_skip_rate": 97.1
+  }
  }
 }
