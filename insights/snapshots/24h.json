@@ -1390,5 +1390,25 @@
    "saved": 0,
    "total_interactions": 2
   }
+ },
+ "main:17960272221016261": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-11-02T12:07:33+0000",
+  "snapshot_utc": "2026-11-03T18:24:06Z",
+  "age_h": 30.3,
+  "first_line": "[AI·테크] 엔비디아 루빈 GPU 메모리 대역폭 22→19.2 TB/s · 네이버에 10억 달러 투자 · 구글 제미나이 4 카본 88.2%",
+  "metrics": {
+   "views": 160,
+   "reach": 137,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 3316,
+   "ig_reels_video_view_total_time": 464257,
+   "reels_skip_rate": 71.5
+  }
  }
 }
