@@ -188,6 +188,8 @@
   .tbl .tw{flex:1;min-height:0;background:var(--card);border-radius:2cqw;padding:.6cqw 2.4cqw;display:flex;flex-direction:column}
   .tbl .tr{flex:1;display:grid;grid-template-columns:.75cqw 4.6cqw 1fr 5cqw 5cqw 5cqw 5cqw 7cqw 7.8cqw;align-items:center;border-bottom:1px solid var(--line);font-size:2.2cqw;font-weight:500;min-height:0}
   .tbl .tr:last-child{border-bottom:0}
+  .tbl .tr.hl{background:var(--accent-soft);margin:0 -1.2cqw;padding:0 1.2cqw;border-radius:.8cqw}
+  .tbl .tr.hl .tn{color:var(--accent)} .tbl .hc{font-style:normal;font-size:1.5cqw;font-weight:500;background:var(--accent);color:#fff;border-radius:99px;padding:.1cqw .9cqw;margin-left:.9cqw;vertical-align:.15cqw}
   .tbl .tr.hd{flex:0 0 3.8cqw;font-size:1.65cqw;font-weight:700;color:var(--faint)}
   .tbl .tr.cut{border-bottom:2px dashed var(--faint)}
   .tbl .zb{width:.55cqw;height:62%;border-radius:.3cqw}
@@ -249,7 +251,7 @@ function summaryOf(a){
   return clean(out);
 }
 // 순위표(.cn-table) — 행 = 팀|경기|승|무|패|득실|승점(1위부터, 18·20팀), data-zones = "1-4:챔스|5:유로파|18-20:강등"(색은 이름으로)
-const ZONE_C = [[/예선/, "#86b3d9"], [/챔스|챔피언스|UCL/, "#2f6d9e"], [/유로파|UEL/, "#c06a24"], [/컨퍼런스|UECL/, "#3a8a7a"], [/플레이오프/, "#de9a8f"], [/강등/, "#b8433a"]];
+const ZONE_C = [[/예선/, "#86b3d9"], [/직행|챔스|챔피언스|UCL/, "#2f6d9e"], [/유로파|UEL/, "#c06a24"], [/컨퍼런스|UECL/, "#3a8a7a"], [/플레이오프/, "#de9a8f"], [/강등|탈락/, "#b8433a"]];
 function tableOf(a){
   const t = a.querySelector(".cn .cn-table"); if(!t) return null;
   const rows = clean(t.textContent).split(/\s+\/\s+/).map(r => r.split("|").map(clean)).filter(r => r.length >= 7);
@@ -258,7 +260,10 @@ function tableOf(a){
     const [lo, hi] = r.split("-").map(Number);
     return {lo, hi: hi || lo, name, c: (ZONE_C.find(([re]) => re.test(name)) || [0, ["#2f6d9e", "#c06a24", "#3a8a7a", "#b8433a"][k % 4]])[1]};
   });
-  return {rows, zones, zoneOf: n => zones.find(z => n >= z.lo && n <= z.hi)};
+  // 36팀 리그 페이즈(챔스·유로파)는 18팀씩 두 장 — data-start="19" 로 둘째 장의 첫 순위를, data-hl="바이에른:김민재|아틀레티코:이강인" 로 눈여겨볼 팀(+표시)을 지정(2026-11-03)
+  const start = Math.max(1, parseInt(t.dataset.start || "1", 10) || 1);
+  const hl = Object.fromEntries((t.dataset.hl || "").split("|").map(x => x.split(":").map(clean)).filter(x => x[0]));
+  return {rows, zones, start, hl, zoneOf: n => zones.find(z => n >= z.lo && n <= z.hi)};
 }
 // 선수 일정(.cn-players) — 행 = 선수|팀|상대|홈/원정|요일|시각(새벽 4:30·밤 10:00)|(표시: 출전 불확실), data-days = "토:10/31|일:11/1"
 //   data-kind="match" = 빅매치 카드(같은 날 사용자 지적 "빅매치 예고가 본문에 없다"): 행 = 경기 이름|홈 팀|원정 팀|걸린 것(승점·순위)|요일|시각|(표시)
@@ -433,7 +438,13 @@ function infoOf(a, geo, year){
   const endChip = () => when && when.to ? chipG(262, 46, wEl.dataset.label || (when.days && when.days > 1 ? `${md(when.from)}~` : "날짜"),
       `${when.to.getDate()}일`, `${KWD[when.to.getDay()]}요일`, note ? note.split(/\s+\/\s+/) : null) : "";
   // 여러 경기 스코어 묶음(2026-10-21~, 야구 나이트 KBO 5경기 등): <p class="cn-scores">KIA|5|3|LG / 두산|2|1|SSG / …</p> 최대 6경기
-  const ms = T(".cn-scores") ? T(".cn-scores").split(/\s+\/\s+/).map(g => g.split("|").map(clean)).filter(g => g.length >= 4).slice(0, 6) : null;
+  //   2026-11-03 시안 2-A '리그별 스코어보드': 행 맨 앞이 '#' 면 리그 제목줄("#EPL 9라운드|순위"), 다섯째 칸 = 이긴 팀 칩("7위 · 13점") — 경기 최대 6줄 + 제목 최대 3줄
+  const msAll = T(".cn-scores") ? T(".cn-scores").split(/\s+\/\s+/).map(g => g.split("|").map(clean)).filter(g => g.length >= 4 || (g[0] || "").startsWith("#")) : null;
+  const ms = msAll ? msAll.filter(g => !(g[0] || "").startsWith("#")).slice(0, 6) : null;
+  const rkEl = cn.querySelector(".cn-rank"), rkCut = (rkEl?.dataset.cut || "").match(/^(\d+):(.+)$/);
+  const rk = rkEl ? {rows: clean(rkEl.textContent).split(/\s+\/\s+/).map(r => r.split("|").map(clean)).filter(r => r.length >= 2), start: Math.max(1, parseInt(rkEl.dataset.start || "1", 10) || 1),
+    cut: rkCut ? {at: +rkCut[1], label: clean(rkCut[2])} : null, hl: Object.fromEntries((rkEl.dataset.hl || "").split("|").map(x => x.split(":").map(clean)).filter(x => x[0]))} : null;
+  const msBoard = !!(msAll && msAll.some(g => (g[0] || "").startsWith("#") || g.length >= 5));
   // 경기 일정판(2026-10-24~, 축구 프리뷰): <p class="cn-fixtures">PSG|토 23:00|낭트 / 맨시티|일 새벽 1:30|아스널</p> 최대 6경기 — 시각은 한국시간만(맨 위 '킥오프 · 한국시간' 고정)
   const fx = T(".cn-fixtures") ? T(".cn-fixtures").split(/\s+\/\s+/).map(g => g.split("|").map(clean)).filter(g => g.length >= 3).slice(0, 6) : null;
   const sc = parts(".cn-score"), lk = parts(".cn-link"), sh = parts(".cn-shift"), st = parts(".cn-steps"), br = parts(".cn-bars");
@@ -469,6 +480,36 @@ function infoOf(a, geo, year){
       <text x="54" y="168" style="font:900 ${fsz(tk[1], 58, 32)}px var(--sans);fill:var(--ink);letter-spacing:-.03em">${esc(tk[1])}</text>
       <text x="232" y="98" class="ig-k" style="font-weight:700">${esc(tk[2])}</text>
       <text x="230" y="168" style="font:900 ${fsz(tk[3], 58, 32)}px var(--sans);fill:var(--accent);letter-spacing:-.03em">${esc(tk[3])}</text>`;
+  }else if(ms && ms.length >= 2 && msBoard){
+    const items = []; let cnt = 0;
+    for(const row of msAll){ if((row[0] || "").startsWith("#")) items.push({h: row}); else if(cnt < 6){ items.push({m: row}); cnt++; } }
+    const HH = 17, MH = 28, usable = 236, tot = items.reduce((s, x) => s + (x.h ? HH : MH), 0), k = Math.min(1, usable / tot);
+    let y = 8 + (usable - tot * k) / 2;
+    g = items.map(x => {
+      if(x.h){ const hy = y; y += HH * k;
+        return `<text x="24" y="${(hy + 12).toFixed(1)}" style="font:700 10.5px var(--sans);fill:var(--accent)">${esc(x.h[0].slice(1).trim())}</text>${x.h[1] ? `<text x="376" y="${(hy + 12).toFixed(1)}" text-anchor="end" style="font:500 9.5px var(--sans);fill:var(--muted)">${esc(x.h[1])}</text>` : ""}`; }
+      const [a, s1, s2, b, chip] = x.m, yy = y, rh = MH * k; y += rh;
+      const na = Number(s1), nb = Number(s2), wa = na > nb, wb = nb > na;
+      return `<rect x="16" y="${(yy + 1).toFixed(1)}" width="368" height="${(rh - 3).toFixed(1)}" rx="7" fill="#fff"/>
+        <text x="118" y="${(yy + rh / 2 + 5).toFixed(1)}" text-anchor="end" class="ig-mteam${wb ? " lo" : ""}" style="font-size:14.5px">${esc(a)}</text>
+        <text x="148" y="${(yy + rh / 2 + 7).toFixed(1)}" text-anchor="middle" class="ig-msc" style="font-size:19px">${esc(s1)}:${esc(s2)}</text>
+        <text x="178" y="${(yy + rh / 2 + 5).toFixed(1)}" class="ig-mteam${wa ? " lo" : ""}" style="font-size:14.5px">${esc(b)}</text>
+        ${chip ? `<text x="376" y="${(yy + rh / 2 + 4).toFixed(1)}" text-anchor="end" style="font:700 9.5px var(--sans);fill:var(--accent)">${esc(chip)}</text>` : ""}`; }).join("");
+  }else if(rk && rk.rows.length >= 4){
+    // 시안 1-A '경계선 표'(2026-11-03): <p class="cn-rank" data-start="6" data-cut="8:16강 직행 · 8위까지" data-hl="바이에른:김민재|아틀레티코:이강인">슈투트가르트|7|+5 / …</p> — 팀|승점|득실, 직행선은 점선 + 라벨
+    const n = rk.rows.length, hasCut = rk.cut ? 1 : 0, rh = Math.min(18, (204 - hasCut * 14) / n), x0 = 14, w = 322;   // 오른쪽 위 쪽수 알약(x≥344)·왼쪽 아래 번호 배지(y≥222)를 피해 그린다
+    let y = 12 + (204 - n * rh - hasCut * 14) / 2;
+    g = `<rect x="${x0}" y="${(y - 4).toFixed(1)}" width="${w}" height="${(n * rh + hasCut * 14 + 8).toFixed(1)}" rx="9" fill="#fff"/>` +
+      rk.rows.map((r, i) => { const rank = rk.start + i, hit = r[0] in rk.hl, cutHere = rk.cut && rank === rk.cut.at + 1;
+        let o = ""; if(cutHere){ o += `<line x1="26" x2="326" y1="${(y + 7).toFixed(1)}" y2="${(y + 7).toFixed(1)}" stroke="var(--accent)" stroke-width="1.4" stroke-dasharray="5 4"/><text x="176" y="${(y + 10).toFixed(1)}" text-anchor="middle" style="font:700 9px var(--sans);fill:var(--accent);paint-order:stroke;stroke:#fff;stroke-width:5px">▲ ${esc(rk.cut.label)}</text>`; y += 14; }
+        const yy = y; y += rh;
+        o += (hit ? `<rect x="${x0 + 4}" y="${yy.toFixed(1)}" width="${w - 8}" height="${(rh - 1).toFixed(1)}" rx="4" fill="var(--accent-soft)"/>` : "") +
+          `<text x="40" y="${(yy + rh / 2 + 4).toFixed(1)}" text-anchor="end" style="font:700 10.5px var(--sans);fill:var(--faint)">${rank}</text>
+           <text x="52" y="${(yy + rh / 2 + 4.2).toFixed(1)}" style="font:700 11.5px var(--sans);fill:${hit ? "var(--accent)" : "var(--ink)"}">${esc(r[0])}</text>` +
+          (hit && rk.hl[r[0]] ? `<g><rect x="${(52 + r[0].length * 11.5 + 8).toFixed(1)}" y="${(yy + rh / 2 - 6).toFixed(1)}" width="${(rk.hl[r[0]].length * 9.5 + 10).toFixed(1)}" height="12" rx="6" fill="var(--accent)"/><text x="${(52 + r[0].length * 11.5 + 13).toFixed(1)}" y="${(yy + rh / 2 + 3).toFixed(1)}" style="font:500 8.5px var(--sans);fill:#fff">${esc(rk.hl[r[0]])}</text></g>` : "") +
+          `<text x="272" y="${(yy + rh / 2 + 4).toFixed(1)}" text-anchor="end" style="font:500 10px var(--sans);fill:var(--muted)">${esc((r[2] || "").replace(/^-/, "−"))}</text>
+           <text x="322" y="${(yy + rh / 2 + 4.5).toFixed(1)}" text-anchor="end" style="font:900 12.5px var(--sans);fill:var(--ink)">${esc(r[1])}</text>`;
+        return o; }).join("");
   }else if(ms && ms.length >= 2){
     const rh = Math.min(40, (note ? 165 : 200) / ms.length), y0 = (note ? 105 : 125) - rh * (ms.length - 1) / 2;
     g = ms.map(([a, x, y, b], i) => { const yy = y0 + i * rh, na = Number(x), nb = Number(y), wa = na > nb, wb = nb > na;
@@ -730,13 +771,13 @@ async function zipStore(files){
         return;
       }
       if(c.tb){   // 순위표 카드 — 카드 한 장 전체가 표(시안 A)
-        const {rows, zones, zoneOf} = c.tb, cuts = new Set(zones.flatMap(z => [z.lo - 1, z.hi]));
+        const {rows, zones, zoneOf, start, hl} = c.tb, cuts = new Set(zones.flatMap(z => [z.lo - 1, z.hi]));
         h += `<section class="slide tbl" aria-label="${i + 1}번 카드 · 순위표" style="--accent:${c.ac};--accent-soft:${c.acs}"><span class="count">${i + 2}/${N}</span>
           <div class="th"><div><div class="tk">${esc(cat || kicker)}${lab ? " · " + esc(lab) : ""}</div><div class="tt">${c.title}</div></div>
             <div class="tm">${c.note.split(/\s+\/\s+/).map(esc).join("<br>")}${c.credit ? `<br>${esc(c.credit)}` : ""}</div></div>
           <div class="tw"><div class="tr hd"><span></span><span class="rk">#</span><span class="tn">팀</span><span class="sv">경기</span><span class="sv">승</span><span class="sv">무</span><span class="sv">패</span><span class="sv">득실</span><span class="pt">승점</span></div>
-          ${rows.map((r, k) => { const z = zoneOf(k + 1);
-            return `<div class="tr${cuts.has(k + 1) && k + 1 < rows.length ? " cut" : ""}"><span class="zb" style="background:${z ? z.c : "transparent"}"></span><span class="rk">${k + 1}</span><span class="tn">${esc(r[0])}</span>${r.slice(1, 6).map(v => `<span class="sv">${esc(v.replace(/^-/, "−"))}</span>`).join("")}<span class="pt">${esc(r[6])}</span></div>`; }).join("")}</div>
+          ${rows.map((r, k) => { const n = k + start, z = zoneOf(n), mark = hl[r[0]];
+            return `<div class="tr${cuts.has(n) && k + 1 < rows.length ? " cut" : ""}${r[0] in hl ? " hl" : ""}"><span class="zb" style="background:${z ? z.c : "transparent"}"></span><span class="rk">${n}</span><span class="tn">${esc(r[0])}${mark ? `<em class="hc">${esc(mark)}</em>` : ""}</span>${r.slice(1, 6).map(v => `<span class="sv">${esc(v.replace(/^-/, "−"))}</span>`).join("")}<span class="pt">${esc(r[6])}</span></div>`; }).join("")}</div>
           <div class="tf"><div class="lg">${zones.map(z => `<span><i style="background:${z.c}"></i>${esc(z.name)}</span>`).join("")}</div><span><span class="h">${HANDLE}</span> · ${esc(cat || kicker.toUpperCase())} · ${md2(c.date)}</span></div>
         </section>`;
         return;

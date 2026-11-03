@@ -7,7 +7,7 @@ import re, sys, html
 from pathlib import Path
 
 BANNED_TOPICS = {"발견", "결과", "전망", "관측 기법", "대상 행성", "선행 연구", "배경", "기타", "분석", "의미", "연구", "개요", "요약"}
-INFO = ("cn-players", "cn-table", "cn-ring", "cn-waffle", "cn-ticket", "cn-over", "cn-fixtures", "cn-scores", "cn-score", "cn-link", "cn-shift", "cn-steps", "cn-bars", "cn-place", "cn-when", "cn-num")
+INFO = ("cn-players", "cn-table", "cn-rank", "cn-ring", "cn-waffle", "cn-ticket", "cn-over", "cn-fixtures", "cn-scores", "cn-score", "cn-link", "cn-shift", "cn-steps", "cn-bars", "cn-place", "cn-when", "cn-num")
 PHOTO_OK = re.compile(r"^https://(cdn\.(esawebb|esahubble)\.org/archives/images/screen/|(upload|thumb)\.wikimedia\.org/wikipedia/commons/)")
 LICENSE = re.compile(r"CC0|CC BY|퍼블릭 도메인|Public domain|공공누리", re.I)
 NUM = re.compile(r"\d[\d,]*(?:\.\d+)?")
@@ -104,13 +104,16 @@ def main(fname):
                 if prev is not None and pts > prev: F(f"cn-table {k}위 {r[0]} 승점 {pts} 이 윗줄({prev})보다 큼 — 순서 확인")
                 prev = pts
             if not re.search(r'data-league="[^"]+"', tb.group(1)): F("cn-table data-league 없음 — 월·화 순위 변동 릴스가 금요일 표를 찾는 이름(EPL·라리가·분데스리가·세리에A·리그앙)")
+            st = re.search(r'data-start="(\d+)"', tb.group(1))
+            if st and int(st.group(1)) not in (1, 19): F(f"cn-table data-start {st.group(1)} — 36팀은 1(1~18위)·19(19~36위) 두 장")
+            if st and len(rows) != 18: F("cn-table data-start 는 18팀씩 나눈 장에만(36팀 = 18 + 18)")
             zs = re.search(r'data-zones="([^"]*)"', tb.group(1))
             if not zs: W("cn-table data-zones 없음 — 챔스·유로파·강등 구역 색이 안 나온다")
             else:
                 for z in zs.group(1).split("|"):
                     if not re.fullmatch(r"\d+(-\d+)?:[^:|]+", z.strip()): F(f"cn-table data-zones 형식 '{z}' (예: 1-4:챔스)")
             if not grab("cn-note", cn): W("cn-table 카드에 cn-note 없음 — 오른쪽 위 '몇 라운드 뒤 · 기준일'")
-            if not re.search(r"\d+\s*라운드", body_t): F("cn-table 카드 본문에 'N라운드' 기준이 없음 — 언제 순위인지")
+            if not re.search(r"\d+\s*(라운드|차전)", body_t): F("cn-table 카드 본문에 'N라운드'(챔스·유로파는 'N차전') 기준이 없음 — 언제 순위인지")
             cn = cn.replace(tb.group(0), "")
         # 선수 일정(2026-10-30 사용자 결정 — 시안 A 요일별 타임라인): 선수|팀|상대|홈/원정|요일|시각(|표시)
         pl = re.search(r'<p class="cn-players"([^>]*)>(.*?)</p>', cn, re.S)
@@ -129,7 +132,13 @@ def main(fname):
                     if not re.match(r"(·\d+)?(위|점|경기|골|연승|연패|승|무|패|분|%|명|R|라운드)", n.group(1)): F(f"cn-players {r[0]}: '{r[3]}' 의 숫자 '{n.group(0)}' 에 단위가 없음 — '18점'·'5위'처럼")
                 if not re.fullmatch(r"(새벽|아침|오전|낮|오후|저녁|밤|자정) \d{1,2}:\d{2}", r[5]): F(f"cn-players {r[0]}: 시각 '{r[5]}' — '새벽 4:30'·'밤 11:30' 처럼(24시간 표기 금지)")
         # 숫자 출처: 카드용 문장·그림의 숫자가 같은 카드 본문·스펙 표에 있는가
-        cn_t = text(cn)
+        # 순위 줄(cn-rank, 시안 1-A)은 표라서 cn-table 처럼 숫자 검사에서 뺀다(순위·승점은 출처 순위표와 대조). cn-scores 의 리그 제목줄('#…')·다섯째 칸 칩은 4칸까지만 본다(2026-11-03)
+        def _scores(m):
+            rows = [r for r in re.split(r"\s+/\s+", m.group(2).strip()) if r.strip() and not r.strip().startswith("#")]
+            return m.group(1) + " / ".join("|".join(r.split("|")[:4]) for r in rows) + "</p>"
+        cn_chk = re.sub(r'<p class="cn-rank"[^>]*>.*?</p>', "", cn, flags=re.S)
+        cn_chk = re.sub(r'(<p class="cn-scores"[^>]*>)(.*?)</p>', _scores, cn_chk, flags=re.S)
+        cn_t = text(cn_chk)
         norm = lambda x: x.replace(",", "").lstrip("0") or "0"   # 08 = 8, 1,331 = 1331
         body_nums = {norm(b) for b in NUM.findall(body_t.replace(" ", ""))}
         for n in sorted(set(NUM.findall(cn_t))):
@@ -196,6 +205,10 @@ def main(fname):
         for comp in ("챔스", "유로파", "컨퍼런스"):
             if comp in kk.group(1) and not any(comp in (re.search(r'data-league="([^"]*)"', at) or [None, ""])[1] for at, _ in mv):
                 print(f'\n## 챔스·유로파 결산 필수 페이지\n  - FAIL: kicker 에 "{comp} 결산" 인데 data-league="{comp}" table-move(승점·순위 변동) 없음'); fails += 1
+            tcs = [at for at in re.findall(r'<p class="cn-table"([^>]*)>', src) if f'data-league="{comp}"' in at]
+            starts = {int((re.search(r'data-start="(\d+)"', at) or [0, 1])[1]) for at in tcs}
+            if comp in kk.group(1) and starts != {1, 19}:
+                print(f'\n## 챔스·유로파 결산 필수 페이지\n  - FAIL: "{comp} 결산" 카드에 36팀 순위표 두 장(cn-table data-league="{comp}" data-start="1" 과 "19", 18팀씩)이 없음'); fails += 1
     # 깊게 파는 릴스 원고(2026-10-28 사용자 반려 뒤 — GTA 6 릴스의 요점 장 3개가 카드에 이미 있는 가격·날짜를 되풀이했다)
     # README '깊게 파는 릴스': 카드를 되풀이하지 말고 한 단계 더 들어간다 → 요점 장(data-k)마다 카드 그림(cn)에 없는 새 숫자가 있어야 한다
     rn, rf, rw = reel_check(src, cards)
