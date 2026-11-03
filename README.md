@@ -839,7 +839,7 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
 | 요일 | 브리프 | 파일 | 액센트 | 인스타(본계정) |
 |---|---|---|---|---|
 | 화 | 💰 머니 | `_money-brief.html` | `#1f7a5c`/`#e7f3ee` | 캐러셀 |
-| 화 | 🩺 헬스 | `_health-brief.html` | `#b5485a`/`#f8eaed` | 앱만(게시 안 함) |
+| 화 | 🩺 헬스 | `_health-brief.html` | `#b5485a`/`#f8eaed` | 캐러셀(2026-11-03~) |
 | 수 | 📺 OTT·게임·웹툰 | `_ott-brief.html` | `#5b3fa0`/`#eeeaf7` | 캐러셀 |
 | 목 | 🍜 푸드 | `_food-brief.html` | `#b5651d`/`#f7ede3` | 캐러셀 |
 

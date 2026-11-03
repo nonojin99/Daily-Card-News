@@ -37,7 +37,7 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **서브 플러스** 브�
 
 ## 4. 발행
 1. 오늘 만든 브리프 HTML, 캡션, `publish/request.json` 만 add 합니다.
-   - 화: 머니 캐러셀 1건(헬스는 앱만, 게시 안 함). 수: OTT 캐러셀. 목: 푸드 캐러셀. 릴스는 만들지 않습니다.
+   - 화: 머니 캐러셀 1건 + 헬스 캐러셀 1건(2026-11-03 사용자 결정 — 헬스도 인스타 게시, 요청은 머니 → 헬스 순으로 따로 push). 수: OTT 캐러셀. 목: 푸드 캐러셀. 릴스는 만들지 않습니다.
    - 캡션 `captions/YYYY-MM-DD_<종류>.txt`: 첫 줄 `[💰 머니]`·`[📺 OTT·게임]`·`[🍜 푸드]` + 핵심 숫자, 본문 카드별 한 줄, "▶ 전체 브리프와 출처는 프로필 링크의 앱에서 (nonojin99.github.io/Daily-Card-News/app/)", AI 그림이 있으면 표시, 해시태그 3~5개(README 표).
    - 요청: `{"requests":[{"kind":"carousel","media":"cards/YYYY-MM/YYYY-MM-DD_<종류>-brief","caption":"captions/YYYY-MM-DD_<종류>.txt","dry_run":"false","is_ai":"<AI 그림 있으면 true>"}], "note":"…"}` — `account` 는 넣지 않습니다(본계정).
 2. `git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit -m "YYYY-MM-DD <종류> brief"` → `git pull --rebase origin main` → `git push origin HEAD:main`(실패하면 rebase 후 한 번만 재시도). push 관문 훅이 막으면 메시지대로 고칩니다.

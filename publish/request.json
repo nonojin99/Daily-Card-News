@@ -2,12 +2,12 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-03_money-brief",
-   "caption": "captions/2026-11-03_money.txt",
+   "media": "cards/2026-11/2026-11-03_health-brief",
+   "caption": "captions/2026-11-03_health.txt",
    "dry_run": "false",
    "is_ai": "true",
-   "review": "human"
+   "review": "required"
   }
  ],
- "note": "2026-11-03 머니 캐러셀 — 사용자 승인(수습 3→2), 구운 JPG 검수 PASS"
+ "note": "2026-11-03 헬스 캐러셀 — 사용자 승인(수습 1→0), 구운 JPG 검수 PASS. 머니는 앞서 게시 요청함"
 }
