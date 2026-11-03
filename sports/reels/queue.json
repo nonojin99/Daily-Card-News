@@ -1,46 +1,6 @@
 {
  "items": [
   {
-   "id": "bundle:2026-10-31_07:40",
-   "kind": "bundle",
-   "mp4": "reels/sports/2026-10/2026-10-31_0740_bundle.mp4",
-   "caption": "reels/sports/2026-10/2026-10-31_0740_bundle.txt",
-   "score": 55,
-   "seconds": 6.5,
-   "made_kst": "2026-10-31 07:40",
-   "status": "published",
-   "result": "18344180710274697",
-   "posted_kst": "2026-10-31 07:42"
-  },
-  {
-   "id": "lol:115660540726095081",
-   "kind": "game",
-   "mp4": "reels/sports/2026-10/2026-10-31_lol-115660540726095081.mp4",
-   "caption": "reels/sports/2026-10/2026-10-31_lol-115660540726095081.txt",
-   "score": 65,
-   "why": [
-    "한국",
-    "롤드컵"
-   ],
-   "seconds": 9.2,
-   "made_kst": "2026-10-31 09:48",
-   "status": "published",
-   "result": "17902529373602956",
-   "posted_kst": "2026-10-31 09:50"
-  },
-  {
-   "id": "bundle:2026-10-31_23:40",
-   "kind": "bundle",
-   "mp4": "reels/sports/2026-10/2026-10-31_2340_bundle.mp4",
-   "caption": "reels/sports/2026-10/2026-10-31_2340_bundle.txt",
-   "score": 55,
-   "seconds": 6.5,
-   "made_kst": "2026-10-31 23:44",
-   "status": "published",
-   "result": "18156463588525338",
-   "posted_kst": "2026-10-31 23:46"
-  },
-  {
    "id": "bundle:2026-11-01_07:40",
    "kind": "bundle",
    "mp4": "reels/sports/2026-11/2026-11-01_0740_bundle.mp4",
@@ -206,59 +166,6 @@
   }
  ],
  "scored": {
-  "ger.1:401884746": {
-   "score": 10,
-   "why": [
-    "5골+"
-   ],
-   "sport": "ger.1",
-   "title": "마인츠 1:4 엘버스베르크",
-   "at": "2026-10-31 06:27"
-  },
-  "esp.1:401882817": {
-   "score": 0,
-   "why": [],
-   "sport": "esp.1",
-   "title": "에스파뇰 1:0 비야레알",
-   "at": "2026-10-31 06:54"
-  },
-  "lol:115660540726095077": {
-   "score": 15,
-   "why": [
-    "롤드컵"
-   ],
-   "sport": "lol",
-   "title": "LOS 2:1 TLAW",
-   "at": "2026-10-31 08:04"
-  },
-  "lol:115660540726095081": {
-   "score": 65,
-   "why": [
-    "한국",
-    "롤드컵"
-   ],
-   "sport": "lol",
-   "title": "G2 0:2 한화생명",
-   "at": "2026-10-31 09:48"
-  },
-  "eng.1:401879248": {
-   "score": 10,
-   "why": [
-    "빅클럽"
-   ],
-   "sport": "eng.1",
-   "title": "Man Utd 0:2 첼시",
-   "at": "2026-10-31 23:34"
-  },
-  "esp.1:401882820": {
-   "score": 10,
-   "why": [
-    "빅클럽"
-   ],
-   "sport": "esp.1",
-   "title": "아틀레티코 2:0 레반테",
-   "at": "2026-10-31 23:57"
-  },
   "ger.1:401884753": {
    "score": 20,
    "why": [
@@ -617,6 +524,24 @@
    "sport": "kbo",
    "title": "삼성 7:8 KT",
    "at": "2026-11-03 22:23"
+  },
+  "uefa.champions:401915311": {
+   "score": 15,
+   "why": [
+    "챔스"
+   ],
+   "sport": "uefa.champions",
+   "title": "슈투트가르트 0:2 갈라타사라이",
+   "at": "2026-11-04 04:42"
+  },
+  "uefa.champions:401915310": {
+   "score": 15,
+   "why": [
+    "챔스"
+   ],
+   "sport": "uefa.champions",
+   "title": "Sporting 1:0 샤흐타르",
+   "at": "2026-11-04 04:42"
   }
  },
  "last_post": 1793712407.832771,
