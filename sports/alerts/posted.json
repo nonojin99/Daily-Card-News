@@ -1210,6 +1210,16 @@
    "status": "published",
    "at_kst": "2026-11-03 22:20",
    "result": "18146347477569280"
+  },
+  "uefa.champions:401915311": {
+   "image": "sports/alerts/2026-11/2026-11-03_uefa-champions_0440.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-04 04:40"
+  },
+  "uefa.champions:401915310": {
+   "image": "sports/alerts/2026-11/2026-11-03_uefa-champions_0440.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-04 04:40"
   }
  },
  "boards": {
