@@ -2,6 +2,6 @@
  "verdict": "PASS",
  "sha1": "0c4287325c5ad8d50e020e8fb10858c339c37280",
  "by": "agent",
- "at": "2026-11-02T23:55:57Z",
- "note": "reel-reviewer PASS(WARN3: 순위 단일 매체·맞대결 헤드라인·카드2 중복 — 수용), 카드 문구 수정 뒤 재굽기본 기계검사 PASS"
+ "at": "2026-11-03T01:00:39Z",
+ "note": "재굽기본 reel-reviewer PASS"
 }
