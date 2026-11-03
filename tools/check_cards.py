@@ -61,6 +61,8 @@ def main(fname):
             if not re.search(r'class="cn-when"[^>]*data-label=', cn): F("미리 예약 카드에 cn-when + data-label(예매 오픈·예약 마감) 없음")
             if "변동" not in body_t: F("미리 예약 카드에 '⚠ 변동 가능' 표기 없음")
         # 분야 태그
+        # 카드 윗줄(topic)이 큰 제목과 같은 말이면 새 정보가 아니다(2026-11-03 검수 지적 — '이강인 vs 김민재'·'월요일 밤 4경기')
+        if topic and len(topic.replace(" ", "")) >= 4 and topic.replace(" ", "") in tt.replace(" ", ""): W(f"topic '{topic}' 이 제목과 같은 말 — 장소·대회·구분처럼 새 정보로(예: 챔스 4차전 · 마드리드)")
         if topic in BANNED_TOPICS: F(f"topic '{topic}' 은 분류어 — 카드만의 핵심어로")
         if sub and not 2 <= len(topic.replace(" ", "")) <= 8: W(f"topic '{topic}' 길이 (2~8자 권장)")
         # AI 일러스트 태그는 Actions(make_images.py)만 넣는다 — 세션이 미리 쓰면 '이미 있다'며 생성을 건너뛰어 깨진 그림이 된다(2026-11-02 사고)
@@ -131,6 +133,17 @@ def main(fname):
                 for n in re.finditer(r"\d+(?:\.\d+)?(?!\d)(\S*)", r[3]):
                     if not re.match(r"(·\d+)?(위|점|경기|골|연승|연패|승|무|패|분|%|명|R|라운드)", n.group(1)): F(f"cn-players {r[0]}: '{r[3]}' 의 숫자 '{n.group(0)}' 에 단위가 없음 — '18점'·'5위'처럼")
                 if not re.fullmatch(r"(새벽|아침|오전|낮|오후|저녁|밤|자정) \d{1,2}:\d{2}", r[5]): F(f"cn-players {r[0]}: 시각 '{r[5]}' — '새벽 4:30'·'밤 11:30' 처럼(24시간 표기 금지)")
+        rkm = re.search(r'<p class="cn-rank"([^>]*)>(.*?)</p>', cn, re.S)
+        if rkm and len([r for r in re.split(r"\s+/\s+", text(rkm.group(2)).strip()) if r.strip()]) > 11: W("cn-rank 11줄 넘음 — 글자가 작아진다(10~11줄 이하, 예: 8위 직행선부터)")
+        fxm = re.search(r'<p class="cn-fixtures"[^>]*>(.*?)</p>', cn, re.S)
+        if fxm:
+            frows = [r.split("|") for r in re.split(r"\s+/\s+", text(fxm.group(1)).strip()) if r.strip()]
+            if any(len(r) >= 4 for r in frows) and len(frows) > 4: W("cn-fixtures 선수 이름(넷째 칸)은 4경기까지 — 줄이 좁다")
+        # 제목에 쓴 순위·숫자는 그림에서도 보여야 한다(예: 제목 '19~30위는 전부 3점'인데 표는 6~18위 — 2026-11-03 검수 지적): 표 범위 밖 순위 구간을 제목에 쓰면 WARN
+        if rkm:
+            _st = int((re.search(r'data-start="(\d+)"', rkm.group(1)) or [0, 1])[1]); _n = len([r for r in re.split(r"\s+/\s+", text(rkm.group(2)).strip()) if r.strip()])
+            for _a, _b in re.findall(r"(\d+)~(\d+)위", tt):
+                if int(_b) > _st + _n - 1 or int(_a) < _st: W(f"제목의 '{_a}~{_b}위' 가 cn-rank 표({_st}~{_st + _n - 1}위)에 안 보임 — 표 범위를 맞추거나 제목을 바꾼다")
         # 숫자 출처: 카드용 문장·그림의 숫자가 같은 카드 본문·스펙 표에 있는가
         # 순위 줄(cn-rank, 시안 1-A)은 표라서 cn-table 처럼 숫자 검사에서 뺀다(순위·승점은 출처 순위표와 대조). cn-scores 의 리그 제목줄('#…')·다섯째 칸 칩은 4칸까지만 본다(2026-11-03)
         def _scores(m):

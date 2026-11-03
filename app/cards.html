@@ -446,7 +446,7 @@ function infoOf(a, geo, year){
     cut: rkCut ? {at: +rkCut[1], label: clean(rkCut[2])} : null, hl: Object.fromEntries((rkEl.dataset.hl || "").split("|").map(x => x.split(":").map(clean)).filter(x => x[0]))} : null;
   const msBoard = !!(msAll && msAll.some(g => (g[0] || "").startsWith("#") || g.length >= 5));
   // 경기 일정판(2026-10-24~, 축구 프리뷰): <p class="cn-fixtures">PSG|토 23:00|낭트 / 맨시티|일 새벽 1:30|아스널</p> 최대 6경기 — 시각은 한국시간만(맨 위 '킥오프 · 한국시간' 고정)
-  const fx = T(".cn-fixtures") ? T(".cn-fixtures").split(/\s+\/\s+/).map(g => g.split("|").map(clean)).filter(g => g.length >= 3).slice(0, 6) : null;
+  const fx = T(".cn-fixtures") ? T(".cn-fixtures").split(/\s+\/\s+/).map(g => g.split("|").map(clean)).filter(g => g.length >= 3).slice(0, 6) : null;   // 넷째 칸(선택) = 한국 선수 이름 칩("이강인·김민재") — 4경기까지
   const sc = parts(".cn-score"), lk = parts(".cn-link"), sh = parts(".cn-shift"), st = parts(".cn-steps"), br = parts(".cn-bars");
   // 새 템플릿(2026-10-25 사용자 승인 — '너무 자주 본 막대 도표' 대신):
   //   cn-ring   "38.3|851억 원|20대 이하가 안 받은 돈|예상 지급액의 38.3%"  큰 숫자 + 비율 고리(T2)
@@ -491,16 +491,17 @@ function infoOf(a, geo, year){
       const [a, s1, s2, b, chip] = x.m, yy = y, rh = MH * k; y += rh;
       const na = Number(s1), nb = Number(s2), wa = na > nb, wb = nb > na;
       return `<rect x="16" y="${(yy + 1).toFixed(1)}" width="368" height="${(rh - 3).toFixed(1)}" rx="7" fill="#fff"/>
-        <text x="118" y="${(yy + rh / 2 + 5).toFixed(1)}" text-anchor="end" class="ig-mteam${wb ? " lo" : ""}" style="font-size:14.5px">${esc(a)}</text>
+        <text x="118" y="${(yy + rh / 2 + 5).toFixed(1)}" text-anchor="end" class="ig-mteam${wb ? " lo" : ""}" style="font-size:14.5px${wb ? ";fill:#77776f" : ""}">${esc(a)}</text>
         <text x="148" y="${(yy + rh / 2 + 7).toFixed(1)}" text-anchor="middle" class="ig-msc" style="font-size:19px">${esc(s1)}:${esc(s2)}</text>
-        <text x="178" y="${(yy + rh / 2 + 5).toFixed(1)}" class="ig-mteam${wa ? " lo" : ""}" style="font-size:14.5px">${esc(b)}</text>
-        ${chip ? `<text x="376" y="${(yy + rh / 2 + 4).toFixed(1)}" text-anchor="end" style="font:700 9.5px var(--sans);fill:var(--accent)">${esc(chip)}</text>` : ""}`; }).join("") + (note ? `<text x="215" y="238" text-anchor="middle" style="font:500 9.5px var(--sans);fill:var(--muted)">${esc(note)}</text>` : "");
+        <text x="178" y="${(yy + rh / 2 + 5).toFixed(1)}" class="ig-mteam${wa ? " lo" : ""}" style="font-size:14.5px${wa ? ";fill:#77776f" : ""}">${esc(b)}</text>
+        ${chip ? `<text x="376" y="${(yy + rh / 2 + 4).toFixed(1)}" text-anchor="end" style="font:700 9.5px var(--sans);fill:var(--accent)">${esc(chip)}</text>` : ""}`; }).join("") + (note ? `<text x="215" y="239" text-anchor="middle" style="font:700 11px var(--sans);fill:var(--muted)">${esc(note)}</text>` : "");
   }else if(rk && rk.rows.length >= 4){
     // 시안 1-A '경계선 표'(2026-11-03): <p class="cn-rank" data-start="6" data-cut="8:16강 직행 · 8위까지" data-hl="바이에른:김민재|아틀레티코:이강인">팀|승점|득실 / …</p> — 팀|승점|득실, 직행선은 점선 + 라벨
     // 줄이 적으면(4~8줄) 글자·줄 높이를 키운다(s 배). 오른쪽 위 쪽수 알약(x≥344)·왼쪽 아래 번호 배지(y≥222)를 피해 그린다
-    const n = rk.rows.length, hasCut = rk.cut ? 1 : 0, s = Math.min(1.7, Math.max(1, 13 / n)), cutH = 14 * Math.min(s, 1.3), rh = Math.min(18 * s, (194 - hasCut * cutH) / n), x0 = 14, w = 322, f = Math.min(s, rh / 18);
-    let y = 12 + (194 - n * rh - hasCut * cutH) / 2;
-    g = `<rect x="${x0}" y="${(y - 4).toFixed(1)}" width="${w}" height="${(n * rh + hasCut * cutH + 8).toFixed(1)}" rx="9" fill="#fff"/>` +
+    const n = rk.rows.length, hasCut = rk.cut ? 1 : 0, s = Math.min(1.7, Math.max(1, 13 / n)), cutH = 14 * Math.min(s, 1.3), HDR = 11, rh = Math.min(18 * s, (194 - HDR - hasCut * cutH) / n), x0 = 14, w = 322, f = Math.min(s, rh / 18);
+    let y = 12 + (194 - HDR - n * rh - hasCut * cutH) / 2 + HDR;   // 맨 위 열 머리글(득실·승점) 한 줄
+    g = `<rect x="${x0}" y="${(y - HDR - 4).toFixed(1)}" width="${w}" height="${(n * rh + hasCut * cutH + HDR + 8).toFixed(1)}" rx="9" fill="#fff"/>` +
+      `<text x="272" y="${(y - 3).toFixed(1)}" text-anchor="end" style="font:500 8px var(--sans);fill:var(--faint)">득실</text><text x="322" y="${(y - 3).toFixed(1)}" text-anchor="end" style="font:700 8px var(--sans);fill:var(--faint)">승점</text>` +
       rk.rows.map((r, i) => { const rank = rk.start + i, hit = r[0] in rk.hl, cutHere = rk.cut && rank === rk.cut.at + 1, ty = o => (o).toFixed(1);
         let o = ""; if(cutHere){ o += `<line x1="26" x2="326" y1="${ty(y + cutH / 2)}" y2="${ty(y + cutH / 2)}" stroke="var(--accent)" stroke-width="1.4" stroke-dasharray="5 4"/><text x="176" y="${ty(y + cutH / 2 + 3)}" text-anchor="middle" style="font:700 ${9 * Math.min(f, 1.3)}px var(--sans);fill:var(--accent);paint-order:stroke;stroke:#fff;stroke-width:5px">▲ ${esc(rk.cut.label)}</text>`; y += cutH; }
         const yy = y, cy = yy + rh / 2; y += rh;
@@ -510,7 +511,7 @@ function infoOf(a, geo, year){
           (hit && rk.hl[r[0]] ? `<g><rect x="${ty(52 + r[0].length * 11.5 * f + 8)}" y="${ty(cy - 6 * f)}" width="${ty(rk.hl[r[0]].length * 9.5 * f + 10)}" height="${ty(12 * f)}" rx="${ty(6 * f)}" fill="var(--accent)"/><text x="${ty(52 + r[0].length * 11.5 * f + 13)}" y="${ty(cy + 3 * f)}" style="font:500 ${8.5 * f}px var(--sans);fill:#fff">${esc(rk.hl[r[0]])}</text></g>` : "") +
           `<text x="272" y="${ty(cy + 4 * f)}" text-anchor="end" style="font:500 ${10 * f}px var(--sans);fill:var(--muted)">${esc((r[2] || "").replace(/^-/, "−"))}</text>
            <text x="322" y="${ty(cy + 4.5 * f)}" text-anchor="end" style="font:900 ${12.5 * f}px var(--sans);fill:var(--ink)">${esc(r[1])}</text>`;
-        return o; }).join("") + (note ? `<text x="215" y="238" text-anchor="middle" style="font:500 9.5px var(--sans);fill:var(--muted)">${esc(note)}</text>` : "");
+        return o; }).join("") + (note ? `<text x="215" y="239" text-anchor="middle" style="font:700 11px var(--sans);fill:var(--muted)">${esc(note)}</text>` : "");
   }else if(ms && ms.length >= 2){
     const rh = Math.min(40, (note ? 165 : 200) / ms.length), y0 = (note ? 105 : 125) - rh * (ms.length - 1) / 2;
     g = ms.map(([a, x, y, b], i) => { const yy = y0 + i * rh, na = Number(x), nb = Number(y), wa = na > nb, wb = nb > na;
@@ -519,14 +520,15 @@ function infoOf(a, geo, year){
         <text x="200" y="${(yy + 8).toFixed(1)}" text-anchor="middle" class="ig-msc">${esc(x)} : ${esc(y)}</text>
         <text x="250" y="${(yy + 7).toFixed(1)}" class="ig-mteam${wa ? " lo" : ""}">${esc(b)}</text>`; }).join("") + (note ? lines(note, 200, 206, "ig-s") : "");
   }else if(fx && fx.length){
-    const rh = Math.min(40, (note ? 150 : 180) / fx.length), y0 = (note ? 112 : 130) - rh * (fx.length - 1) / 2;
+    const named = fx.some(r => r[3]), rh = Math.min(named ? 44 : 40, (note ? (named ? 168 : 150) : (named ? 180 : 180)) / fx.length), y0 = (note ? 118 : 132) - rh * (fx.length - 1) / 2;
     g = `<text x="200" y="${(y0 - rh / 2 - 10).toFixed(1)}" text-anchor="middle" class="ig-k">킥오프 · 한국시간</text>` +
-      fx.map(([a, t, b], i) => { const yy = y0 + i * rh, fs = t.length > 9 ? 13 : t.length > 7 ? 15 : 17;
+      fx.map(([a, t, b, who], i) => { const yy = y0 + i * rh, fs = t.length > 9 ? 13 : t.length > 7 ? 15 : 17;
       return `${i ? `<line x1="40" x2="360" y1="${(yy - rh / 2).toFixed(1)}" y2="${(yy - rh / 2).toFixed(1)}" class="ig-line"/>` : ""}
-        <text x="136" y="${(yy + 6).toFixed(1)}" text-anchor="end" class="ig-mteam" style="font-size:${a.length > 6 ? 14 : 17}px">${esc(a)}</text>
-        <rect x="142" y="${(yy - 12).toFixed(1)}" width="116" height="26" rx="13" class="ig-pill"/>
-        <text x="200" y="${(yy + 6).toFixed(1)}" text-anchor="middle" class="ig-pillt" style="font-size:${fs}px">${esc(t)}</text>
-        <text x="264" y="${(yy + 6).toFixed(1)}" class="ig-mteam" style="font-size:${b.length > 6 ? 14 : 17}px">${esc(b)}</text>`; }).join("") + (note ? lines(note, 200, 214, "ig-s") : "");
+        <text x="136" y="${(yy + 6 - (who ? 8 : 0)).toFixed(1)}" text-anchor="end" class="ig-mteam" style="font-size:${a.length > 6 ? 14 : 17}px">${esc(a)}</text>
+        <rect x="142" y="${(yy - 12 - (who ? 8 : 0)).toFixed(1)}" width="116" height="26" rx="13" class="ig-pill"/>
+        <text x="200" y="${(yy + 6 - (who ? 8 : 0)).toFixed(1)}" text-anchor="middle" class="ig-pillt" style="font-size:${fs}px">${esc(t)}</text>
+        <text x="264" y="${(yy + 6 - (who ? 8 : 0)).toFixed(1)}" class="ig-mteam" style="font-size:${b.length > 6 ? 14 : 17}px">${esc(b)}</text>
+        ${who ? `<text x="200" y="${(yy + 17).toFixed(1)}" text-anchor="middle" style="font:700 10px var(--sans);fill:var(--accent)">${esc(who)}</text>` : ""}`; }).join("") + (note ? lines(note, 200, 214, "ig-s") : "");
   }else if(sc && sc.length >= 4){
     const best = Number(cn.querySelector(".cn-score").dataset.best || 0);
     const dots = (x, n) => best ? Array.from({length: best}, (_, i) => `<circle cx="${x + i * 22}" cy="138" r="7" class="${i < n ? "ig-son" : "ig-soff"}"/>`).join("") : "";
