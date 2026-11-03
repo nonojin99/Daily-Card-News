@@ -163,6 +163,20 @@
    "status": "published",
    "result": "18383522680230698",
    "posted_kst": "2026-11-03 22:26"
+  },
+  {
+   "id": "uefa.champions:401915386",
+   "kind": "game",
+   "mp4": "reels/sports/2026-11/2026-11-04_uefa-champions-401915386.mp4",
+   "caption": "reels/sports/2026-11/2026-11-04_uefa-champions-401915386.txt",
+   "score": 55,
+   "why": [
+    "챔스",
+    "빅매치"
+   ],
+   "seconds": 9.2,
+   "made_kst": "2026-11-04 07:01",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -551,6 +565,66 @@
    "sport": "uefa.champions",
    "title": "릴 0:0 Bodo/Glimt",
    "at": "2026-11-04 06:52"
+  },
+  "uefa.champions:401915386": {
+   "score": 55,
+   "why": [
+    "챔스",
+    "빅매치"
+   ],
+   "sport": "uefa.champions",
+   "title": "바이에른 뮌헨 2:0 아틀레티코",
+   "at": "2026-11-04 07:01"
+  },
+  "uefa.champions:401915387": {
+   "score": 25,
+   "why": [
+    "챔스",
+    "빅클럽"
+   ],
+   "sport": "uefa.champions",
+   "title": "애스턴 빌라 0:3 바르셀로나",
+   "at": "2026-11-04 07:01"
+  },
+  "uefa.champions:401915307": {
+   "score": 25,
+   "why": [
+    "챔스",
+    "빅클럽"
+   ],
+   "sport": "uefa.champions",
+   "title": "인터 밀란 3:0 페예노르트",
+   "at": "2026-11-04 07:01"
+  },
+  "uefa.champions:401915385": {
+   "score": 15,
+   "why": [
+    "챔스"
+   ],
+   "sport": "uefa.champions",
+   "title": "S Bratislava 0:4 LASK Linz",
+   "at": "2026-11-04 07:01"
+  },
+  "uefa.champions:401915308": {
+   "score": 25,
+   "why": [
+    "챔스",
+    "5골+"
+   ],
+   "sport": "uefa.champions",
+   "title": "AS 로마 2:3 Man Utd",
+   "at": "2026-11-04 07:01"
+  },
+  "uefa.champions:401915309": {
+   "score": 35,
+   "why": [
+    "챔스",
+    "빅클럽",
+    "5골+"
+   ],
+   "sport": "uefa.champions",
+   "title": "파리 생제르맹 6:0 비야레알",
+   "at": "2026-11-04 07:01"
   }
  },
  "last_post": 1793712407.832771,
