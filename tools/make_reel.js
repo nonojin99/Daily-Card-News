@@ -585,11 +585,11 @@ const deepFlipFp = (brief, blk) => sha(read(brief), blk.raw, read(FLIP_BGM), rea
 // 그 전 가장 가까운 금요일 리더보드의 같은 리그 순위표(.cn-table data-league)와 팀 이름으로 맞춰 → reels/YYYY-MM/<날짜>_football_move.mp4
 // 리그 한 장면 = 금요일 순위 정지 0.8초 → 행이 새 자리로 1.8초 → 변동(▲▼) 정지 2.2초(≈4.8초). 낭독 없음, 배경음악. 리그 순서 = 브리프 순서, 최대 5리그(≈24초).
 const MOVE = { hold0: 0.8, anim: 1.8, hold1: 2.2, fps: 30, max: 29 };
-const LEAGUE_KO = { EPL: "프리미어리그", "라리가": "라리가", "분데스리가": "분데스리가", "세리에A": "세리에A", "리그앙": "리그앙" };
+const LEAGUE_KO = { EPL: "프리미어리그", "라리가": "라리가", "분데스리가": "분데스리가", "세리에A": "세리에A", "리그앙": "리그앙", "챔스": "챔피언스리그", "유로파": "유로파리그", "컨퍼런스": "컨퍼런스리그" };
 function moveBlocks(html) {
   return [...html.matchAll(/<div class="table-move"([^>]*)>([\s\S]*?)<\/div>/g)].map(x => {
     const at = k => ((x[1].match(new RegExp(`${k}="([^"]*)"`)) || [])[1] || "");
-    return { league: at("data-league"), zones: at("data-zones"), round: at("data-round"), rows: parseRows(x[2]) };
+    return { league: at("data-league"), zones: at("data-zones"), round: at("data-round"), rows: parseRows(x[2]), prev: parseRows(at("data-prev")), prevLabel: at("data-prev-label") };
   }).filter(x => x.league && x.rows.length >= 10);
 }
 function fridayOf(d) {   // d 이전 가장 가까운 금요일 축구 브리프(순위표가 있는 것)
@@ -611,10 +611,13 @@ async function moveOne(brief, b) {
   const m = brief.match(BRIEF); if (!m || m[4] !== "football") return { skip: "축구 브리프 아님" };
   const html = read(brief).toString(), d = `${m[1]}-${m[2]}-${m[3]}`, blocks = moveBlocks(html);
   if (!blocks.length) return { skip: "table-move 없음" };
-  const fri = fridayOf(d); if (!fri) return { skip: "비교할 금요일 리더보드 없음" };
-  const ft = fridayTables(fri), fd = fri.slice(0, 10), ac = (html.match(/--accent:\s*(#[0-9a-fA-F]{6})/) || [0, "#2f6b45"])[1];
-  const scenes = blocks.filter(x => ft[x.league]).slice(0, 5).map(x => ({ league: x.league, title: `${LEAGUE_KO[x.league] || x.league} 순위 변화`,
-    sub: `금 ${+fd.slice(5, 7)}.${+fd.slice(8, 10)} → ${x.round || "주말 경기 뒤"}`, rows: pairUp(ft[x.league], x.rows), zones: zonesOf(x.zones) }));
+  const fri = fridayOf(d); if (!fri && !blocks.some(x => x.prev.length)) return { skip: "비교할 금요일 리더보드 없음" };   // 챔스·유로파는 data-prev(직전 순위표)로 비교 — 금요일 표 불필요
+  const ft = fri ? fridayTables(fri) : {}, fd = fri.slice(0, 10), ac = (html.match(/--accent:\s*(#[0-9a-fA-F]{6})/) || [0, "#2f6b45"])[1];
+  const scenes = blocks.filter(x => x.prev.length || ft[x.league]).slice(0, 5).map(x => x.prev.length
+    ? ({ league: x.league, title: `${LEAGUE_KO[x.league] || x.league} 순위 변화`, sub: `${x.prevLabel || "직전 순위"} → ${x.round || "경기 뒤"}`,
+         rows: pairUp(x.prev, x.rows), zones: zonesOf(x.zones), ph: [x.prevLabel || "직전 순위", "경기 반영 중…", x.round || "경기 뒤"] })
+    : ({ league: x.league, title: `${LEAGUE_KO[x.league] || x.league} 순위 변화`,
+         sub: `금 ${+fd.slice(5, 7)}.${+fd.slice(8, 10)} → ${x.round || "주말 경기 뒤"}`, rows: pairUp(ft[x.league], x.rows), zones: zonesOf(x.zones) }));
   if (!scenes.length) return { skip: "금요일 순위표와 맞는 리그 없음(data-league 확인)" };
   const per = MOVE.hold0 + MOVE.anim + MOVE.hold1, total = per * scenes.length;
   if (total > MOVE.max) throw new Error(`순위 변동 릴스 ${total.toFixed(1)}초 — ${MOVE.max}초 넘음`);
@@ -638,7 +641,7 @@ async function moveOne(brief, b) {
     "-t", total.toFixed(3), "-movflags", "+faststart", path.join(ROOT, out_ + ".mp4")]);
   const spec = { brief, kind: "move", friday: fri, leagues: scenes.map(s => s.league), out: out_ + ".mp4", seconds: +total.toFixed(2), bgm: FLIP_BGM, credit: FLIP_CREDIT, fp: moveFp(brief, fri) };
   fs.writeFileSync(path.join(ROOT, out_ + ".reel.json"), JSON.stringify(spec, null, 2) + "\n");
-  console.log(`reel: ${out_}.mp4 — ${total.toFixed(1)}초, ${scenes.map(s => s.league).join("·")} (금 ${fd} 대비)`);
+  console.log(`reel: ${out_}.mp4 — ${total.toFixed(1)}초, ${scenes.map(s => s.league).join("·")} (${fri ? "금 " + fd : "직전 순위"} 대비)`);
   return { files: [out_ + ".mp4", out_ + ".reel.json"] };
 }
 const deepFp = (brief, blk, mp3) => sha(read(brief), blk.raw, read(mp3), read("tools/make_reel.js"), read("app/cards.html"));

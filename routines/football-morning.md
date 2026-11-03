@@ -35,6 +35,11 @@ GitHub 레포 nonojin99/Daily-Card-News 의 오늘자 **축구 모닝** 브리�
 - 월요일 주말 결산(화요일도, 월요일 밤 경기가 있으면)에 그 주말 경기를 마친 리그마다 `<div class="table-move" hidden data-league="EPL" data-zones="…" data-round="9라운드 뒤">…전체 순위…</div>` 를 넣는다(카드 아님). 팀 이름·data-league 는 금요일 `cn-table` 과 같게, 숫자는 같은 출처 본문으로 확인.
 - push → Actions 가 `reels/YYYY-MM/<날짜>_football_move.mp4` → `check_reel.py` + `reel-reviewer` → 승인 기록 + 캡션(`captions/<날짜>_football_move.txt`, 첫 줄 = 가장 크게 움직인 팀·숫자) + `request.json` 항목(`"ab"` 없이, `"account":"sports"`, **`"review":"required"` — 2026-11-02 사용자 승인으로 수습 없음, 에이전트 검수만으로 바로 게시**). **매주 월요일 주말 결산 때마다 5대 리그(EPL·라리가·분데스리가·세리에A·리그앙) 재료를 넣어 별도 릴스로 요청**(월요일 밤 경기가 남은 리그는 캡션에 밝힌다). 결산판 릴스(`_short`)와 같은 커밋에 둘 다 넣어도 된다.
 
+## 챔스·유로파 결산 = 승점·순위 변동 페이지 필수 (2026-11-03 사용자 요청)
+- UCL·UEL(·UECL) 경기 결과를 다루는 결산 브리프(kicker `· 챔스 결산`/`· 유로파 결산`)에는 **리그 페이즈 순위표의 승점·순위 변동 `table-move` 블록을 반드시** 넣는다: `data-league="챔스"`(`유로파`·`컨퍼런스`), `data-zones="1-8:16강 직행|9-24:플레이오프|25-36:탈락"`, `data-round="4차전 뒤"`, `data-prev-label="3차전 뒤"`, `data-prev="직전 순위 36행"`(팀|경기|승|무|패|득실|승점 / …) + 본문에 이번 순위 36행. 팀 구성이 같아야 하고 `check_cards.py` 가 FAIL 로 막는다.
+- 순위·승점은 UEFA 공식 표 또는 주요 매체 순위표 본문으로 확인(승+무+패=경기, 승점=3승+무 맞는지). 본문 카드 한 장에는 직행선(8위)·플레이오프선(24위) 경계와 크게 오른·내린 팀을 숫자로 쓴다.
+- 릴스: `…_football_move.mp4` 를 월요일 순위 변동 릴스처럼 검수해 `"review":"required"` 요청(`"ab"` 없음, `"account":"sports"`, 캡션 `captions/<날짜>_football_move.txt`). 월요일 5대 리그 변동 릴스와 같은 날이면 한 파일에 같이 담긴다(최대 5장면).
+
 ## 프리뷰 (토요일 · A매치 기간, 2026-10-24~) — README '스포츠 계정 → ⚽ 축구 프리뷰'
 - 파일 이름은 같다(`YYYY-MM-DD_football-brief.html`), h1·캡션 첫 줄 `⚽ 축구 모닝 · 주말 프리뷰`(A매치 기간 `· A매치 프리뷰`).
 - **주말 프리뷰 4~6장**: 이번 주말 가장 큰 경기(순위·승점 `cn-bars`, `cn-note` 에 한국시간 킥오프) → **한국 선수 출전 예정 일정**(`cn-fixtures` `PSG|토 23:00|낭트 / …`) → 주목 매치 2장(더비·순위 경쟁·걸린 기록 `cn-num`) → K리그 주말 → (있으면) 금요일 밤 결과 1장.

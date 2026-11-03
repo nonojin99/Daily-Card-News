@@ -3,7 +3,7 @@
 // 팀 이름으로 맞춰, 행이 금요일 자리 → 새 자리로 미끄러지고 승점이 올라가며 ▲▼ 변동이 뜬다. 한 리그 = 한 장면.
 // movePage(scene, opts) 가 1080×1920 HTML 을 돌려주고, 페이지의 window.setP(p)(0~1)로 프레임마다 진행도를 맞춘다.
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const ZONE_C = [[/예선/, "#86b3d9"], [/챔스|챔피언스|UCL/, "#2f6d9e"], [/유로파|UEL/, "#c06a24"], [/컨퍼런스|UECL/, "#3a8a7a"], [/플레이오프/, "#de9a8f"], [/강등/, "#b8433a"]];
+const ZONE_C = [[/예선/, "#86b3d9"], [/직행|챔스|챔피언스|UCL/, "#2f6d9e"], [/유로파|UEL/, "#c06a24"], [/컨퍼런스|UECL/, "#3a8a7a"], [/플레이오프/, "#de9a8f"], [/강등|탈락/, "#b8433a"]];
 
 // 순위표 행 문자열("팀|경기|승|무|패|득실|승점 / …") → [{team, gp, gd, pts}]
 function parseRows(s) {
@@ -27,6 +27,7 @@ function pairUp(before, after) {
 // scene = {league, title, sub, rows: pairUp 결과, zones}, opts = {ac, cat, label, date, handle, credit, i, n}
 function movePage(sc, o) {
   const N = sc.rows.length, top = 470, H = 1230, rh = H / N;
+  const PH = sc.ph || ["금요일 순위", "주말 경기 반영 중…", "주말 경기 뒤"];   // 챔스·유로파 등은 scene.ph 로 바꾼다(2026-11-03)
   const zoneOf = r => sc.zones.find(z => r >= z.lo && r <= z.hi);
   const data = JSON.stringify(sc.rows.map(r => [r.from, r.to, r.p0, r.p1, r.g0, r.gp]));
   return `<!doctype html><html><head><meta charset="utf-8">
@@ -52,7 +53,7 @@ function movePage(sc, o) {
 .ft{position:absolute;left:72px;right:72px;top:1776px;font-size:25px;color:#55554f;line-height:1.45;display:flex;justify-content:space-between;align-items:flex-start}
 .ft b{color:#3d5a4c;font-size:29px}.lg{display:flex;gap:16px;font-size:22px;white-space:nowrap;flex-wrap:nowrap}.ft>span:first-child{min-width:0}.lg i{display:inline-block;width:16px;height:16px;border-radius:4px;margin-right:6px;vertical-align:-1px}</style></head>
 <body><div class="top"><span class="cat">${esc(o.cat)}</span><span class="lb">${esc(o.label)}</span><span class="dt">${esc(o.date)}</span></div>
-<div class="ttl">${esc(sc.title)}</div><div class="sub"><span>${esc(sc.sub)}</span><b id="ph">금요일 순위</b></div>
+<div class="ttl">${esc(sc.title)}</div><div class="sub"><span>${esc(sc.sub)}</span><b id="ph">${esc(PH[0])}</b></div>
 <div class="box"></div>
 <div class="zs">${sc.zones.map(z => `<i style="top:${((z.lo - 1) * rh + rh * .18).toFixed(1)}px;height:${((z.hi - z.lo + 1) * rh - rh * .36).toFixed(1)}px;background:${z.c}"></i>`).join("")}</div>
 ${sc.rows.map((r, k) => `<div class="r" id="r${k}"><span class="k">${r.to}</span><span>${esc(r.team)}</span><span class="g">${r.g0}경기</span><span class="p"><span class="d"></span> <span class="v">${r.p0}</span></span></div>`).join("")}
@@ -70,7 +71,7 @@ window.setP=p=>{ const e=ease(Math.min(1,Math.max(0,p)));
     const d=el.querySelector(".d"); d.style.opacity=p>=1?1:0;
     el.className=el.className.replace(/ (up|dn|eq)/g,"")+(t<f?" up":t>f?" dn":" eq");
     d.textContent=t<f?"▲"+(f-t):t>f?"▼"+(t-f):"–"; });
-  document.getElementById("ph").textContent=p<=0?"금요일 순위":p<1?"주말 경기 반영 중…":"주말 경기 뒤"; };
+  document.getElementById("ph").textContent=p<=0?${JSON.stringify(PH[0])}:p<1?${JSON.stringify(PH[1])}:${JSON.stringify(PH[2])}; };
 window.setP(0);
 })();
 </script></body></html>`;

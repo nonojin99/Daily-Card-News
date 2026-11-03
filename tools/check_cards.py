@@ -179,11 +179,23 @@ def main(fname):
                     try:
                         if int(r[2]) + int(r[3]) + int(r[4]) != int(r[1]): msg.append(f"FAIL: {r[0]} 승+무+패 ≠ 경기")
                     except ValueError: msg.append(f"FAIL: {r[0]} 숫자 아님")
-            if not fri: msg.append("FAIL: 비교할 금요일 리더보드(cn-table) 없음")
+            pv = re.search(r'data-prev="([^"]*)"', at)
+            if pv:   # 챔스·유로파 등: 직전 순위표를 블록에 직접 싣는다(data-prev, 같은 7칸 형식)
+                prow = [[c.strip() for c in r.split("|")] for r in re.split(r"\s+/\s+", pv.group(1).strip()) if r.strip()]
+                if any(len(r) != 7 for r in prow): msg.append("FAIL: data-prev 에 칸 7개가 아닌 행")
+                elif {r[0] for r in prow} != {r[0] for r in rows}: msg.append("FAIL: data-prev 와 팀 구성이 다름")
+                if not re.search(r'data-prev-label="[^"]+"', at): msg.append("WARN: data-prev-label 없음(예: 3차전 뒤)")
+            elif not fri: msg.append("FAIL: 비교할 금요일 리더보드(cn-table) 없음")
             elif lg not in fri: msg.append(f"FAIL: 금요일 표에 '{lg}' 없음")
             elif fri[lg] != {r[0] for r in rows}: msg.append(f"FAIL: 팀 이름이 금요일과 다름 — 금요일에만 {sorted(fri[lg] - {r[0] for r in rows})}, 지금만 {sorted({r[0] for r in rows} - fri[lg])}")
             nf = sum(1 for x in msg if x.startswith("FAIL")); fails += nf; warns += len(msg) - nf
             print(f"  - {lg or '?'} {len(rows)}팀 — " + ("PASS" if not msg else " · ".join(msg)))
+    # 챔스·유로파 결산(2026-11-03 사용자 요청): 리뷰(결산) 브리프에는 승점·순위 변동 페이지(table-move)가 필수
+    kk = re.search(r'class="kicker"[^>]*>([^<]*)<', src)
+    if kk and "결산" in kk.group(1):
+        for comp in ("챔스", "유로파", "컨퍼런스"):
+            if comp in kk.group(1) and not any(comp in (re.search(r'data-league="([^"]*)"', at) or [None, ""])[1] for at, _ in mv):
+                print(f'\n## 챔스·유로파 결산 필수 페이지\n  - FAIL: kicker 에 "{comp} 결산" 인데 data-league="{comp}" table-move(승점·순위 변동) 없음'); fails += 1
     # 깊게 파는 릴스 원고(2026-10-28 사용자 반려 뒤 — GTA 6 릴스의 요점 장 3개가 카드에 이미 있는 가격·날짜를 되풀이했다)
     # README '깊게 파는 릴스': 카드를 되풀이하지 말고 한 단계 더 들어간다 → 요점 장(data-k)마다 카드 그림(cn)에 없는 새 숫자가 있어야 한다
     rn, rf, rw = reel_check(src, cards)
