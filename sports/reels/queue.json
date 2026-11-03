@@ -187,6 +187,20 @@
    "status": "published",
    "result": "18503655946099608",
    "posted_kst": "2026-11-03 21:26"
+  },
+  {
+   "id": "kbo:20261103SSKT0",
+   "kind": "game",
+   "mp4": "reels/sports/2026-11/2026-11-03_kbo-20261103-0.mp4",
+   "caption": "reels/sports/2026-11/2026-11-03_kbo-20261103-0.txt",
+   "score": 75,
+   "why": [
+    "KBO",
+    "결승급"
+   ],
+   "seconds": 5.5,
+   "made_kst": "2026-11-03 22:23",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -591,6 +605,16 @@
    "sport": "eng.1",
    "title": "에버턴 1:0 뉴캐슬",
    "at": "2026-11-03 07:04"
+  },
+  "kbo:20261103SSKT0": {
+   "score": 75,
+   "why": [
+    "KBO",
+    "결승급"
+   ],
+   "sport": "kbo",
+   "title": "삼성 7:8 KT",
+   "at": "2026-11-03 22:23"
   }
  },
  "last_post": 1793708777.7049258,
