@@ -1213,13 +1213,15 @@
   },
   "uefa.champions:401915311": {
    "image": "sports/alerts/2026-11/2026-11-03_uefa-champions_0440.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-04 04:40"
+   "status": "published",
+   "at_kst": "2026-11-04 04:40",
+   "result": "17953022754318814"
   },
   "uefa.champions:401915310": {
    "image": "sports/alerts/2026-11/2026-11-03_uefa-champions_0440.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-04 04:40"
+   "status": "published",
+   "at_kst": "2026-11-04 04:40",
+   "result": "17953022754318814"
   }
  },
  "boards": {
@@ -1414,6 +1416,10 @@
   "kbo:2026-11-03": {
    "last": 1793712189.9883027,
    "final": true
+  },
+  "uefa.champions:2026-11-03": {
+   "last": 1793734970.5972729,
+   "final": false
   }
  }
 }
