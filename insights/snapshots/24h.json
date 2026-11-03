@@ -1296,5 +1296,82 @@
    "ig_reels_video_view_total_time": 152004,
    "reels_skip_rate": 97.1
   }
+ },
+ "sports:18028731146697274": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-02T02:12:04+0000",
+  "snapshot_utc": "2026-11-03T02:52:51Z",
+  "age_h": 24.7,
+  "first_line": "[⚽ 축구 모닝] 프랑크푸르트 ▲6 · 라요·헤타페 ▲5 · 슈투트가르트 ▲4 — 5대 리그 금요일 대비 순위 변동",
+  "metrics": {
+   "views": 130,
+   "reach": 115,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 6046,
+   "ig_reels_video_view_total_time": 719539,
+   "reels_skip_rate": 57.4
+  }
+ },
+ "sports:18181792039436927": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-01T23:53:00+0000",
+  "snapshot_utc": "2026-11-03T02:52:51Z",
+  "age_h": 27.0,
+  "first_line": "[⚽ 축구 모닝] 아스널 안필드 14년 만의 1-0 · 맨시티 홈 0-1 · 바르사 6-1",
+  "metrics": {
+   "views": 0,
+   "reach": 0,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 7323,
+   "ig_reels_video_view_total_time": 21970,
+   "reels_skip_rate": 0
+  }
+ },
+ "sports:18124730620935442": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-01T23:51:03+0000",
+  "snapshot_utc": "2026-11-03T02:52:51Z",
+  "age_h": 27.0,
+  "first_line": "[⚽ 축구 모닝] 아스널 안필드 14년 만의 승리 · 바르사 6-1 · 밀란 더비 3-1 — 주말 결산 6장",
+  "metrics": {
+   "views": 0,
+   "reach": 0,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:17964280194209449": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-01T22:45:55+0000",
+  "snapshot_utc": "2026-11-03T02:52:51Z",
+  "age_h": 28.1,
+  "first_line": "[🏟 밤사이 결과] 결과판 4장 한 번에",
+  "metrics": {
+   "views": 121,
+   "reach": 107,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 3165,
+   "ig_reels_video_view_total_time": 341829,
+   "reels_skip_rate": 81.3
+  }
  }
 }
