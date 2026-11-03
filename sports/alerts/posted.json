@@ -1231,33 +1231,39 @@
   },
   "uefa.champions:401915386": {
    "image": "sports/alerts/2026-11/2026-11-03_uefa-champions_0657.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-04 06:57"
+   "status": "published",
+   "at_kst": "2026-11-04 06:57",
+   "result": "18041178743842893"
   },
   "uefa.champions:401915387": {
    "image": "sports/alerts/2026-11/2026-11-03_uefa-champions_0657.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-04 06:57"
+   "status": "published",
+   "at_kst": "2026-11-04 06:57",
+   "result": "18041178743842893"
   },
   "uefa.champions:401915307": {
    "image": "sports/alerts/2026-11/2026-11-03_uefa-champions_0657.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-04 06:57"
+   "status": "published",
+   "at_kst": "2026-11-04 06:57",
+   "result": "18041178743842893"
   },
   "uefa.champions:401915385": {
    "image": "sports/alerts/2026-11/2026-11-03_uefa-champions_0657.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-04 06:57"
+   "status": "published",
+   "at_kst": "2026-11-04 06:57",
+   "result": "18041178743842893"
   },
   "uefa.champions:401915308": {
    "image": "sports/alerts/2026-11/2026-11-03_uefa-champions_0657.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-04 06:57"
+   "status": "published",
+   "at_kst": "2026-11-04 06:57",
+   "result": "18041178743842893"
   },
   "uefa.champions:401915309": {
    "image": "sports/alerts/2026-11/2026-11-03_uefa-champions_0657.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-04 06:57"
+   "status": "published",
+   "at_kst": "2026-11-04 06:57",
+   "result": "18041178743842893"
   }
  },
  "boards": {
@@ -1454,8 +1460,8 @@
    "final": true
   },
   "uefa.champions:2026-11-03": {
-   "last": 1793742725.5921018,
-   "final": false
+   "last": 1793743269.2107444,
+   "final": true
   }
  }
 }
