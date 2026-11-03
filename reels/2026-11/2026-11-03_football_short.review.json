@@ -1,7 +1,7 @@
 {
  "verdict": "PASS",
- "sha1": "0c4287325c5ad8d50e020e8fb10858c339c37280",
+ "sha1": "86cd274b3822df385f5abb21f774d40a6f637c86",
  "by": "agent",
- "at": "2026-11-03T01:00:39Z",
- "note": "재굽기본 reel-reviewer PASS"
+ "at": "2026-11-03T01:17:02Z",
+ "note": "새 템플릿 재굽기본 reel-reviewer PASS"
 }
