@@ -153,6 +153,21 @@
    "status": "published",
    "result": "18152877784536984",
    "posted_kst": "2026-11-03 07:46"
+  },
+  {
+   "id": "pre:kbo:20261103SSKT0",
+   "kind": "pre",
+   "mp4": "reels/sports/2026-11/2026-11-03_pre-kbo-20261103-0.mp4",
+   "caption": "reels/sports/2026-11/2026-11-03_pre-kbo-20261103-0.txt",
+   "score": 75,
+   "why": [
+    "KBO",
+    "결승급"
+   ],
+   "seconds": 6.0,
+   "made_kst": "2026-11-03 16:34",
+   "until_kst": "2026-11-03 18:30",
+   "status": "queued"
   }
  ],
  "scored": {
