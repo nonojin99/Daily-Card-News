@@ -1410,5 +1410,62 @@
    "ig_reels_video_view_total_time": 464257,
    "reels_skip_rate": 71.5
   }
+ },
+ "sports:17909468352664805": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-02T23:03:24+0000",
+  "snapshot_utc": "2026-11-03T23:56:58Z",
+  "age_h": 24.9,
+  "first_line": "[⚾ 야구 나이트] 1차전 이긴 팀 42번 중 31번 우승 · 대니엘 ERA 2.13 대 최원태 4.68 · 올해 맞대결 삼성 9승 7패 — 한",
+  "metrics": {
+   "views": 132,
+   "reach": 102,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 3939,
+   "ig_reels_video_view_total_time": 409657,
+   "reels_skip_rate": 69.9
+  }
+ },
+ "sports:18128164516924885": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-02T23:01:47+0000",
+  "snapshot_utc": "2026-11-03T23:56:58Z",
+  "age_h": 24.9,
+  "first_line": "[⚾ 야구 나이트] 1차전 이긴 팀 42번 중 31번 우승 · 대니엘 ERA 2.13 대 최원태 4.68 · 삼성 9승 7패 — 한국시리즈 1차",
+  "metrics": {
+   "views": 7,
+   "reach": 1,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18152877784536984": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-02T22:46:51+0000",
+  "snapshot_utc": "2026-11-03T23:56:58Z",
+  "age_h": 25.2,
+  "first_line": "[🏟 밤사이 결과] 결과판 3장 한 번에",
+  "metrics": {
+   "views": 127,
+   "reach": 110,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2233,
+   "ig_reels_video_view_total_time": 245661,
+   "reels_skip_rate": 86.4
+  }
  }
 }
