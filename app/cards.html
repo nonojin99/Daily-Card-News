@@ -483,7 +483,7 @@ function infoOf(a, geo, year){
   }else if(ms && ms.length >= 2 && msBoard){
     const items = []; let cnt = 0;
     for(const row of msAll){ if((row[0] || "").startsWith("#")) items.push({h: row}); else if(cnt < 6){ items.push({m: row}); cnt++; } }
-    const HH = 17, MH = 28, usable = 236, tot = items.reduce((s, x) => s + (x.h ? HH : MH), 0), k = Math.min(1, usable / tot);
+    const HH = 17, MH = 28, usable = note ? 220 : 236, tot = items.reduce((s, x) => s + (x.h ? HH : MH), 0), k = Math.min(1, usable / tot);
     let y = 8 + (usable - tot * k) / 2;
     g = items.map(x => {
       if(x.h){ const hy = y; y += HH * k;
@@ -494,22 +494,23 @@ function infoOf(a, geo, year){
         <text x="118" y="${(yy + rh / 2 + 5).toFixed(1)}" text-anchor="end" class="ig-mteam${wb ? " lo" : ""}" style="font-size:14.5px">${esc(a)}</text>
         <text x="148" y="${(yy + rh / 2 + 7).toFixed(1)}" text-anchor="middle" class="ig-msc" style="font-size:19px">${esc(s1)}:${esc(s2)}</text>
         <text x="178" y="${(yy + rh / 2 + 5).toFixed(1)}" class="ig-mteam${wa ? " lo" : ""}" style="font-size:14.5px">${esc(b)}</text>
-        ${chip ? `<text x="376" y="${(yy + rh / 2 + 4).toFixed(1)}" text-anchor="end" style="font:700 9.5px var(--sans);fill:var(--accent)">${esc(chip)}</text>` : ""}`; }).join("");
+        ${chip ? `<text x="376" y="${(yy + rh / 2 + 4).toFixed(1)}" text-anchor="end" style="font:700 9.5px var(--sans);fill:var(--accent)">${esc(chip)}</text>` : ""}`; }).join("") + (note ? `<text x="215" y="238" text-anchor="middle" style="font:500 9.5px var(--sans);fill:var(--muted)">${esc(note)}</text>` : "");
   }else if(rk && rk.rows.length >= 4){
-    // 시안 1-A '경계선 표'(2026-11-03): <p class="cn-rank" data-start="6" data-cut="8:16강 직행 · 8위까지" data-hl="바이에른:김민재|아틀레티코:이강인">슈투트가르트|7|+5 / …</p> — 팀|승점|득실, 직행선은 점선 + 라벨
-    const n = rk.rows.length, hasCut = rk.cut ? 1 : 0, rh = Math.min(18, (204 - hasCut * 14) / n), x0 = 14, w = 322;   // 오른쪽 위 쪽수 알약(x≥344)·왼쪽 아래 번호 배지(y≥222)를 피해 그린다
-    let y = 12 + (204 - n * rh - hasCut * 14) / 2;
-    g = `<rect x="${x0}" y="${(y - 4).toFixed(1)}" width="${w}" height="${(n * rh + hasCut * 14 + 8).toFixed(1)}" rx="9" fill="#fff"/>` +
-      rk.rows.map((r, i) => { const rank = rk.start + i, hit = r[0] in rk.hl, cutHere = rk.cut && rank === rk.cut.at + 1;
-        let o = ""; if(cutHere){ o += `<line x1="26" x2="326" y1="${(y + 7).toFixed(1)}" y2="${(y + 7).toFixed(1)}" stroke="var(--accent)" stroke-width="1.4" stroke-dasharray="5 4"/><text x="176" y="${(y + 10).toFixed(1)}" text-anchor="middle" style="font:700 9px var(--sans);fill:var(--accent);paint-order:stroke;stroke:#fff;stroke-width:5px">▲ ${esc(rk.cut.label)}</text>`; y += 14; }
-        const yy = y; y += rh;
-        o += (hit ? `<rect x="${x0 + 4}" y="${yy.toFixed(1)}" width="${w - 8}" height="${(rh - 1).toFixed(1)}" rx="4" fill="var(--accent-soft)"/>` : "") +
-          `<text x="40" y="${(yy + rh / 2 + 4).toFixed(1)}" text-anchor="end" style="font:700 10.5px var(--sans);fill:var(--faint)">${rank}</text>
-           <text x="52" y="${(yy + rh / 2 + 4.2).toFixed(1)}" style="font:700 11.5px var(--sans);fill:${hit ? "var(--accent)" : "var(--ink)"}">${esc(r[0])}</text>` +
-          (hit && rk.hl[r[0]] ? `<g><rect x="${(52 + r[0].length * 11.5 + 8).toFixed(1)}" y="${(yy + rh / 2 - 6).toFixed(1)}" width="${(rk.hl[r[0]].length * 9.5 + 10).toFixed(1)}" height="12" rx="6" fill="var(--accent)"/><text x="${(52 + r[0].length * 11.5 + 13).toFixed(1)}" y="${(yy + rh / 2 + 3).toFixed(1)}" style="font:500 8.5px var(--sans);fill:#fff">${esc(rk.hl[r[0]])}</text></g>` : "") +
-          `<text x="272" y="${(yy + rh / 2 + 4).toFixed(1)}" text-anchor="end" style="font:500 10px var(--sans);fill:var(--muted)">${esc((r[2] || "").replace(/^-/, "−"))}</text>
-           <text x="322" y="${(yy + rh / 2 + 4.5).toFixed(1)}" text-anchor="end" style="font:900 12.5px var(--sans);fill:var(--ink)">${esc(r[1])}</text>`;
-        return o; }).join("");
+    // 시안 1-A '경계선 표'(2026-11-03): <p class="cn-rank" data-start="6" data-cut="8:16강 직행 · 8위까지" data-hl="바이에른:김민재|아틀레티코:이강인">팀|승점|득실 / …</p> — 팀|승점|득실, 직행선은 점선 + 라벨
+    // 줄이 적으면(4~8줄) 글자·줄 높이를 키운다(s 배). 오른쪽 위 쪽수 알약(x≥344)·왼쪽 아래 번호 배지(y≥222)를 피해 그린다
+    const n = rk.rows.length, hasCut = rk.cut ? 1 : 0, s = Math.min(1.7, Math.max(1, 13 / n)), cutH = 14 * Math.min(s, 1.3), rh = Math.min(18 * s, (194 - hasCut * cutH) / n), x0 = 14, w = 322, f = Math.min(s, rh / 18);
+    let y = 12 + (194 - n * rh - hasCut * cutH) / 2;
+    g = `<rect x="${x0}" y="${(y - 4).toFixed(1)}" width="${w}" height="${(n * rh + hasCut * cutH + 8).toFixed(1)}" rx="9" fill="#fff"/>` +
+      rk.rows.map((r, i) => { const rank = rk.start + i, hit = r[0] in rk.hl, cutHere = rk.cut && rank === rk.cut.at + 1, ty = o => (o).toFixed(1);
+        let o = ""; if(cutHere){ o += `<line x1="26" x2="326" y1="${ty(y + cutH / 2)}" y2="${ty(y + cutH / 2)}" stroke="var(--accent)" stroke-width="1.4" stroke-dasharray="5 4"/><text x="176" y="${ty(y + cutH / 2 + 3)}" text-anchor="middle" style="font:700 ${9 * Math.min(f, 1.3)}px var(--sans);fill:var(--accent);paint-order:stroke;stroke:#fff;stroke-width:5px">▲ ${esc(rk.cut.label)}</text>`; y += cutH; }
+        const yy = y, cy = yy + rh / 2; y += rh;
+        o += (hit ? `<rect x="${x0 + 4}" y="${ty(yy)}" width="${w - 8}" height="${ty(rh - 1)}" rx="4" fill="var(--accent-soft)"/>` : "") +
+          `<text x="${40 * (1 + (f - 1) * .1)}" y="${ty(cy + 4 * f)}" text-anchor="end" style="font:700 ${10.5 * f}px var(--sans);fill:var(--faint)">${rank}</text>
+           <text x="52" y="${ty(cy + 4.2 * f)}" style="font:700 ${11.5 * f}px var(--sans);fill:${hit ? "var(--accent)" : "var(--ink)"}">${esc(r[0])}</text>` +
+          (hit && rk.hl[r[0]] ? `<g><rect x="${ty(52 + r[0].length * 11.5 * f + 8)}" y="${ty(cy - 6 * f)}" width="${ty(rk.hl[r[0]].length * 9.5 * f + 10)}" height="${ty(12 * f)}" rx="${ty(6 * f)}" fill="var(--accent)"/><text x="${ty(52 + r[0].length * 11.5 * f + 13)}" y="${ty(cy + 3 * f)}" style="font:500 ${8.5 * f}px var(--sans);fill:#fff">${esc(rk.hl[r[0]])}</text></g>` : "") +
+          `<text x="272" y="${ty(cy + 4 * f)}" text-anchor="end" style="font:500 ${10 * f}px var(--sans);fill:var(--muted)">${esc((r[2] || "").replace(/^-/, "−"))}</text>
+           <text x="322" y="${ty(cy + 4.5 * f)}" text-anchor="end" style="font:900 ${12.5 * f}px var(--sans);fill:var(--ink)">${esc(r[1])}</text>`;
+        return o; }).join("") + (note ? `<text x="215" y="238" text-anchor="middle" style="font:500 9.5px var(--sans);fill:var(--muted)">${esc(note)}</text>` : "");
   }else if(ms && ms.length >= 2){
     const rh = Math.min(40, (note ? 165 : 200) / ms.length), y0 = (note ? 105 : 125) - rh * (ms.length - 1) / 2;
     g = ms.map(([a, x, y, b], i) => { const yy = y0 + i * rh, na = Number(x), nb = Number(y), wa = na > nb, wb = nb > na;
