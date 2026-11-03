@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-03T00:33:32Z",
-  "count": 307,
+  "generated": "2026-11-03T00:56:50Z",
+  "count": 309,
   "files": [
     {
       "date": "2026-11-03",
@@ -28,6 +28,24 @@
       "day": "03",
       "type": "baseball",
       "path": "2026-11-03_baseball-brief.html"
+    },
+    {
+      "date": "2026-11-03",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "03",
+      "type": "health",
+      "path": "2026-11-03_health-brief.html"
+    },
+    {
+      "date": "2026-11-03",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "03",
+      "type": "money",
+      "path": "2026-11-03_money-brief.html"
     },
     {
       "date": "2026-11-02",
