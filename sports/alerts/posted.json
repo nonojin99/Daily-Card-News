@@ -1291,8 +1291,9 @@
   },
   "live:kbo:20261104SSKT0:8:1-1": {
    "image": "sports/alerts/2026-11/2026-11-04_kbo_2048.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-04 20:49"
+   "status": "published",
+   "at_kst": "2026-11-04 20:49",
+   "result": "18176182567455391"
   }
  },
  "boards": {
