@@ -616,23 +616,24 @@ async function moveOne(brief, b) {
   const hlOf = lg => { const m_ = [...html.matchAll(/<p class="cn-table"([^>]*)>/g)].map(y => y[1]).find(a => a.includes(`data-league="${lg}"`) && /data-hl=/.test(a)); const h = {};   // 카드 순위표의 한국 선수 팀 표시 → 릴스 강조(2026-11-04)
     for (const kv of (((m_ || "").match(/data-hl="([^"]*)"/) || [])[1] || "").split("|")) { const [t, n] = kv.split(":"); if (t && n) h[t.trim()] = n.trim(); } return h; };
   const scenes = blocks.filter(x => x.prev.length || ft[x.league]).slice(0, 5).flatMap(x => x.prev.length && x.rows.length >= 30
-    ? zoneScenes(pairUp(x.prev, x.rows), zonesOf(x.zones), hlOf(x.league), { league: x.league, sub: `${x.prevLabel || "직전 순위"} → ${x.round || "경기 뒤"} · ${LEAGUE_KO[x.league] || x.league}`, ph: [x.prevLabel || "직전 순위", "경기 반영 중…", x.round || "경기 뒤"] })
+    ? zoneScenes(pairUp(x.prev, x.rows), zonesOf(x.zones), hlOf(x.league), { league: x.league, note: "승점 동률은 득실순 · 집계 매체 한 곳 기준 · 미경기 팀은 목 새벽 경기", sub: `${x.prevLabel || "직전 순위"} → ${x.round || "경기 뒤"} · ${LEAGUE_KO[x.league] || x.league}`, ph: [x.prevLabel || "직전 순위", "경기 반영 중…", x.round || "경기 뒤"] })
     : [x.prev.length
     ? ({ league: x.league, title: `${LEAGUE_KO[x.league] || x.league} 순위 변화`, sub: `${x.prevLabel || "직전 순위"} → ${x.round || "경기 뒤"}`,
          rows: pairUp(x.prev, x.rows), zones: zonesOf(x.zones), ph: [x.prevLabel || "직전 순위", "경기 반영 중…", x.round || "경기 뒤"] })
     : ({ league: x.league, title: `${LEAGUE_KO[x.league] || x.league} 순위 변화`,
          sub: `금 ${+fd.slice(5, 7)}.${+fd.slice(8, 10)} → ${x.round || "주말 경기 뒤"}`, rows: pairUp(ft[x.league], x.rows), zones: zonesOf(x.zones) })]);
   if (!scenes.length) return { skip: "금요일 순위표와 맞는 리그 없음(data-league 확인)" };
-  const per = MOVE.hold0 + MOVE.anim + MOVE.hold1, total = per * scenes.length;
+  const tm = sc => sc.t || MOVE, total = scenes.reduce((a, sc) => a + tm(sc).hold0 + tm(sc).anim + tm(sc).hold1, 0);
   if (total > MOVE.max) throw new Error(`순위 변동 릴스 ${total.toFixed(1)}초 — ${MOVE.max}초 넘음`);
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "reel-m-")), pg = await b.newPage({ viewport: { width: 1080, height: 1920 } });
-  const wd = "일월화수목금토"[wdOf(d)], list = [], N = Math.round(MOVE.anim * MOVE.fps);
+  const wd = "일월화수목금토"[wdOf(d)], list = [];
   for (let i = 0; i < scenes.length; i++) {
+    const TM = tm(scenes[i]), N = Math.round(TM.anim * MOVE.fps);
     await pg.setContent(movePage(scenes[i], { ac, cat: "⚽ 축구 모닝", label: "⚡ 순위 변화", date: `${+m[2]}.${+m[3]} ${wd}`, handle: HANDLE_OF("football"), credit: FLIP_CREDIT, i, n: scenes.length }), { waitUntil: "networkidle" });
     const shot = async (p, name, dur) => { await pg.evaluate(v => window.setP(v), p); const f = path.join(tmp, name); await pg.screenshot({ path: f }); list.push(`file '${f}'`, `duration ${dur.toFixed(4)}`); return f; };
-    await shot(0, `m${i}_a.png`, MOVE.hold0);
+    await shot(0, `m${i}_a.png`, TM.hold0);
     for (let k = 1; k < N; k++) await shot(k / N, `m${i}_${String(k).padStart(3, "0")}.png`, 1 / MOVE.fps);
-    const last = await shot(1, `m${i}_z.png`, MOVE.hold1);
+    const last = await shot(1, `m${i}_z.png`, TM.hold1);
     if (i === scenes.length - 1) list.push(`file '${last}'`);   // concat 마지막 장 길이가 먹히도록 한 번 더
   }
   await pg.close();

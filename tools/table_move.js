@@ -31,7 +31,8 @@ function zoneScenes(rows, zones, hl, base) {
     const sel = rows.filter(r => r.to >= z.lo && r.to <= z.hi);
     const byF = [...sel].sort((a, b) => a.from - b.from), byT = [...sel].sort((a, b) => a.to - b.to);
     const out = byT.map((r, i) => ({ ...r, from: byF.indexOf(r) + 1, to: i + 1, f0: r.from, t0: r.to, hl: (hl || {})[r.team] || "" }));
-    return { ...base, title: `${z.name} ${z.lo}~${z.hi}위`, rows: out, zones: [{ lo: 1, hi: out.length, name: z.name, c: z.c }] };
+    const hs = out.filter(r => r.hl).map(r => `${r.team}(${r.hl}) ${r.f0}→${r.t0}위`);   // 첫 프레임부터 결론이 보이게 부제에 한국 선수 팀 변동을 쓴다
+    return { ...base, title: `${z.name} ${z.lo}~${z.hi}위`, sub: hs.length ? hs.join(' · ') : base.sub, t: { hold0: 0.3, anim: 1.3, hold1: 2.9, fps: 30 }, rows: out, zones: [{ lo: 1, hi: out.length, name: z.name, c: z.c }] };
   }).filter(sc => sc.rows.length);
 }
 
@@ -40,7 +41,7 @@ function movePage(sc, o) {
   const N = sc.rows.length, top = 470, H = 1230, rh = H / N;
   const PH = sc.ph || ["금요일 순위", "주말 경기 반영 중…", "주말 경기 뒤"];   // 챔스·유로파 등은 scene.ph 로 바꾼다(2026-11-03)
   const zoneOf = r => sc.zones.find(z => r >= z.lo && r <= z.hi);
-  const data = JSON.stringify(sc.rows.map(r => [r.from, r.to, r.p0, r.p1, r.g0, r.gp, r.f0 || r.from, r.t0 || r.to]));   // 구간 장면(2026-11-04): from/to = 장면 안 자리, f0/t0 = 실제 순위(표시·▲▼)
+  const data = JSON.stringify(sc.rows.map(r => [r.from, r.to, r.p0, r.p1, r.g0, r.gp, r.f0 || r.from, r.t0 || r.to, r.g0 === r.gp ? 1 : 0]));   // 마지막 = 아직 이번 라운드 경기 전(미경기) 표시   // 구간 장면(2026-11-04): from/to = 장면 안 자리, f0/t0 = 실제 순위(표시·▲▼)
   return `<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
 <style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:#f1efe8;font-family:'Noto Sans KR',sans-serif;color:#1a1a18;position:relative;overflow:hidden}
@@ -70,19 +71,19 @@ function movePage(sc, o) {
 <div class="zs">${sc.zones.map(z => `<i style="top:${((z.lo - 1) * rh + rh * .18).toFixed(1)}px;height:${((z.hi - z.lo + 1) * rh - rh * .36).toFixed(1)}px;background:${z.c}"></i>`).join("")}</div>
 ${sc.rows.map((r, k) => `<div class="r${r.hl ? " hl" : ""}" id="r${k}"><span class="k">${r.f0 || r.from}</span><span>${esc(r.team)}${r.hl ? `<span class="chip">${esc(r.hl)}</span>` : ""}</span><span class="g">${r.g0}경기</span><span class="p"><span class="d"></span> <span class="v">${r.p0}</span></span></div>`).join("")}
 <div class="bar"><i></i></div>
-<div class="ft"><span><b>${esc(o.handle)}</b>${o.credit ? `<br>♪ ${esc(o.credit)}` : ""}</span><span class="lg">${sc.zones.filter((z, k, a) => a.findIndex(y => y.name === z.name) === k).map(z => `<span><i style="background:${z.c}"></i>${esc(z.name)}</span>`).join("")}</span></div>
+<div class="ft"><span><b>${esc(o.handle)}</b>${o.credit ? `<br>♪ ${esc(o.credit)}` : ""}${sc.note ? `<br>${esc(sc.note)}` : ""}</span><span class="lg">${sc.zones.filter((z, k, a) => a.findIndex(y => y.name === z.name) === k).map(z => `<span><i style="background:${z.c}"></i>${esc(z.name)}</span>`).join("")}</span></div>
 <script>
 (() => {   // 장면마다 같은 탭에 다시 그리므로 전역 const 를 두지 않는다(두 번째 장면의 선언이 실패해 앞 장면 데이터가 남았다)
 const D=${data}, Y0=${top}, RH=${rh};
 const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 window.setP=p=>{ const e=ease(Math.min(1,Math.max(0,p)));
-  D.forEach(([f,t,p0,p1,g0,g1,F,T],k)=>{ const el=document.getElementById("r"+k), y=Y0+((f-1)+(t-f)*e)*RH;
+  D.forEach(([f,t,p0,p1,g0,g1,F,T,W],k)=>{ const el=document.getElementById("r"+k), y=Y0+((f-1)+(t-f)*e)*RH;
     el.style.top=y.toFixed(1)+"px"; el.querySelector(".k").textContent=p<1?F:T;
     el.querySelector(".v").textContent=Math.round(p0+(p1-p0)*e); el.querySelector(".g").textContent=(p<.5?g0:g1)+"경기";
-    el.classList.toggle("mv",F!==T&&p>0&&p<1);
+    el.classList.toggle("mv",!W&&F!==T&&p>0&&p<1);
     const d=el.querySelector(".d"); d.style.opacity=p>=1?1:0;
     el.className=el.className.replace(/ (up|dn|eq)/g,"")+(T<F?" up":T>F?" dn":" eq");
-    d.textContent=T<F?"▲"+(F-T):T>F?"▼"+(T-F):"–"; });
+    d.textContent=W?"미경기":T<F?"▲"+(F-T):T>F?"▼"+(T-F):"–"; if(W){el.className=el.className.replace(/ (up|dn)/g,"")+" eq";d.style.fontSize=".62em";} });
   document.getElementById("ph").textContent=p<=0?${JSON.stringify(PH[0])}:p<1?${JSON.stringify(PH[1])}:${JSON.stringify(PH[2])}; };
 window.setP(0);
 })();
