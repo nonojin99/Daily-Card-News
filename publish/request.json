@@ -15,6 +15,16 @@
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
+  },
+  {
+   "kind": "reel",
+   "media": "reels/2026-11/2026-11-04_football",
+   "caption": "captions/2026-11-04_football_reel.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "ab": "short",
+   "account": "sports",
+   "review": "required"
   }
  ],
  "note": "2026-11-04 OTT·문화 캐러셀 — 구운 JPG 검수 통과본"
