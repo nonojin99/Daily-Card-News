@@ -1,0 +1,4 @@
+⚠ [운영 감시] 문제 2건 — 11/4 릴스 2개(OTT·문화) 미게시
+요청 media 경로 오류로 MP4를 못 찾고 건너뜀(파일은 있고 검수 PASS). media를 …_ott.mp4 / …_culture.mp4 로 고치고 .done.json 정리 필요
+Score alert 실패 1건 확인 권장
+nonojin99.github.io/Daily-Card-News/app/
