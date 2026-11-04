@@ -24,12 +24,23 @@ function pairUp(before, after) {
   return after.map((r, i) => { const b = map.get(r.team); return { team: r.team, from: b.rank, to: i + 1, p0: b.pts, p1: r.pts, g0: b.gp, gp: r.gp, gd: r.gd }; });
 }
 
+// 36팀처럼 긴 표(챔스·유로파)는 한 화면에 다 못 읽는다 → 구간(직행·플레이오프·탈락)마다 한 장면, 그 구간에 '들어간' 팀만 큰 글씨로(2026-11-04 사용자 결정: 구간별 3장 + 한국 선수 팀 강조).
+// rows = pairUp 결과, zones = zonesOf, hl = {팀: "김민재"} — 장면 안 자리는 장면에 보이는 팀끼리의 상대 순서, 표시 숫자는 실제 순위.
+function zoneScenes(rows, zones, hl, base) {
+  return zones.map(z => {
+    const sel = rows.filter(r => r.to >= z.lo && r.to <= z.hi);
+    const byF = [...sel].sort((a, b) => a.from - b.from), byT = [...sel].sort((a, b) => a.to - b.to);
+    const out = byT.map((r, i) => ({ ...r, from: byF.indexOf(r) + 1, to: i + 1, f0: r.from, t0: r.to, hl: (hl || {})[r.team] || "" }));
+    return { ...base, title: `${z.name} ${z.lo}~${z.hi}위`, rows: out, zones: [{ lo: 1, hi: out.length, name: z.name, c: z.c }] };
+  }).filter(sc => sc.rows.length);
+}
+
 // scene = {league, title, sub, rows: pairUp 결과, zones}, opts = {ac, cat, label, date, handle, credit, i, n}
 function movePage(sc, o) {
   const N = sc.rows.length, top = 470, H = 1230, rh = H / N;
   const PH = sc.ph || ["금요일 순위", "주말 경기 반영 중…", "주말 경기 뒤"];   // 챔스·유로파 등은 scene.ph 로 바꾼다(2026-11-03)
   const zoneOf = r => sc.zones.find(z => r >= z.lo && r <= z.hi);
-  const data = JSON.stringify(sc.rows.map(r => [r.from, r.to, r.p0, r.p1, r.g0, r.gp]));
+  const data = JSON.stringify(sc.rows.map(r => [r.from, r.to, r.p0, r.p1, r.g0, r.gp, r.f0 || r.from, r.t0 || r.to]));   // 구간 장면(2026-11-04): from/to = 장면 안 자리, f0/t0 = 실제 순위(표시·▲▼)
   return `<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
 <style>*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;background:#f1efe8;font-family:'Noto Sans KR',sans-serif;color:#1a1a18;position:relative;overflow:hidden}
@@ -48,6 +59,7 @@ function movePage(sc, o) {
 .r .d{text-align:right;font-weight:900;font-size:.9em;opacity:0}
 .r.up .d{color:#2f8a4f}.r.dn .d{color:#c0392b}.r.eq .d{color:#b9b5a8}
 .r.mv{background:${o.ac}14;border-radius:14px}
+.r.hl{background:#fff4d6;border-radius:14px;box-shadow:inset 0 0 0 3px #e3b341}.chip{display:inline-block;margin-left:14px;padding:2px 16px;border-radius:99px;background:#e3b341;color:#3b2a00;font-size:.62em;font-weight:900;vertical-align:2px}
 .bar{position:absolute;left:72px;right:72px;top:1745px;height:8px;border-radius:9px;background:#e1ddd2}
 .bar i{display:block;height:100%;width:${((o.i + 1) / o.n * 100).toFixed(1)}%;border-radius:9px;background:${o.ac}}
 .ft{position:absolute;left:72px;right:72px;top:1776px;font-size:25px;color:#55554f;line-height:1.45;display:flex;justify-content:space-between;align-items:flex-start}
@@ -56,7 +68,7 @@ function movePage(sc, o) {
 <div class="ttl">${esc(sc.title)}</div><div class="sub"><span>${esc(sc.sub)}</span><b id="ph">${esc(PH[0])}</b></div>
 <div class="box"></div>
 <div class="zs">${sc.zones.map(z => `<i style="top:${((z.lo - 1) * rh + rh * .18).toFixed(1)}px;height:${((z.hi - z.lo + 1) * rh - rh * .36).toFixed(1)}px;background:${z.c}"></i>`).join("")}</div>
-${sc.rows.map((r, k) => `<div class="r" id="r${k}"><span class="k">${r.to}</span><span>${esc(r.team)}</span><span class="g">${r.g0}경기</span><span class="p"><span class="d"></span> <span class="v">${r.p0}</span></span></div>`).join("")}
+${sc.rows.map((r, k) => `<div class="r${r.hl ? " hl" : ""}" id="r${k}"><span class="k">${r.f0 || r.from}</span><span>${esc(r.team)}${r.hl ? `<span class="chip">${esc(r.hl)}</span>` : ""}</span><span class="g">${r.g0}경기</span><span class="p"><span class="d"></span> <span class="v">${r.p0}</span></span></div>`).join("")}
 <div class="bar"><i></i></div>
 <div class="ft"><span><b>${esc(o.handle)}</b>${o.credit ? `<br>♪ ${esc(o.credit)}` : ""}</span><span class="lg">${sc.zones.filter((z, k, a) => a.findIndex(y => y.name === z.name) === k).map(z => `<span><i style="background:${z.c}"></i>${esc(z.name)}</span>`).join("")}</span></div>
 <script>
@@ -64,13 +76,13 @@ ${sc.rows.map((r, k) => `<div class="r" id="r${k}"><span class="k">${r.to}</span
 const D=${data}, Y0=${top}, RH=${rh};
 const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 window.setP=p=>{ const e=ease(Math.min(1,Math.max(0,p)));
-  D.forEach(([f,t,p0,p1,g0,g1],k)=>{ const el=document.getElementById("r"+k), y=Y0+((f-1)+(t-f)*e)*RH;
-    el.style.top=y.toFixed(1)+"px"; el.querySelector(".k").textContent=p<1?f:t;
+  D.forEach(([f,t,p0,p1,g0,g1,F,T],k)=>{ const el=document.getElementById("r"+k), y=Y0+((f-1)+(t-f)*e)*RH;
+    el.style.top=y.toFixed(1)+"px"; el.querySelector(".k").textContent=p<1?F:T;
     el.querySelector(".v").textContent=Math.round(p0+(p1-p0)*e); el.querySelector(".g").textContent=(p<.5?g0:g1)+"경기";
-    el.classList.toggle("mv",f!==t&&p>0&&p<1);
+    el.classList.toggle("mv",F!==T&&p>0&&p<1);
     const d=el.querySelector(".d"); d.style.opacity=p>=1?1:0;
-    el.className=el.className.replace(/ (up|dn|eq)/g,"")+(t<f?" up":t>f?" dn":" eq");
-    d.textContent=t<f?"▲"+(f-t):t>f?"▼"+(t-f):"–"; });
+    el.className=el.className.replace(/ (up|dn|eq)/g,"")+(T<F?" up":T>F?" dn":" eq");
+    d.textContent=T<F?"▲"+(F-T):T>F?"▼"+(T-F):"–"; });
   document.getElementById("ph").textContent=p<=0?${JSON.stringify(PH[0])}:p<1?${JSON.stringify(PH[1])}:${JSON.stringify(PH[2])}; };
 window.setP(0);
 })();
@@ -109,4 +121,4 @@ ${sc.raw.map((r, k) => { const z = zoneOf(k + 1); return `<div class="r${cuts.ha
 <div class="bar"><i></i></div>
 <div class="ft"><span><b>${esc(o.handle)}</b>${o.credit ? `<br>♪ ${esc(o.credit)}` : ""}</span><span class="lg">${sc.zones.map(z => `<span><i style="background:${z.c}"></i>${esc(z.name)}</span>`).join("")}</span></div></body></html>`;
 }
-module.exports = { movePage, boardPage, parseRows, zonesOf, pairUp };
+module.exports = { movePage, boardPage, parseRows, zonesOf, pairUp, zoneScenes };

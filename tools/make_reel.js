@@ -19,7 +19,7 @@
 const http = require("http"), fs = require("fs"), path = require("path"), os = require("os"), crypto = require("crypto");
 const { execFileSync, execSync, spawnSync } = require("child_process");
 const { chartPage } = require("./reel_chart.js");
-const { movePage, boardPage, parseRows, zonesOf, pairUp } = require("./table_move.js");
+const { movePage, boardPage, parseRows, zonesOf, pairUp, zoneScenes } = require("./table_move.js");
 let pw; try { pw = require("playwright"); } catch { pw = require(path.join(execSync("npm root -g").toString().trim(), "playwright")); }
 const ROOT = path.resolve(__dirname, "..");
 const GAP = 0.35, MAX = 180, FIT = 178, OUTRO = 2;   // 문단 사이 쉼 0.6 → 0.35초(2026-10-23, 빨리 넘기기)
@@ -613,11 +613,15 @@ async function moveOne(brief, b) {
   if (!blocks.length) return { skip: "table-move 없음" };
   const fri = fridayOf(d); if (!fri && !blocks.some(x => x.prev.length)) return { skip: "비교할 금요일 리더보드 없음" };   // 챔스·유로파는 data-prev(직전 순위표)로 비교 — 금요일 표 불필요
   const ft = fri ? fridayTables(fri) : {}, fd = fri.slice(0, 10), ac = (html.match(/--accent:\s*(#[0-9a-fA-F]{6})/) || [0, "#2f6b45"])[1];
-  const scenes = blocks.filter(x => x.prev.length || ft[x.league]).slice(0, 5).map(x => x.prev.length
+  const hlOf = lg => { const m_ = [...html.matchAll(/<p class="cn-table"([^>]*)>/g)].map(y => y[1]).find(a => a.includes(`data-league="${lg}"`) && /data-hl=/.test(a)); const h = {};   // 카드 순위표의 한국 선수 팀 표시 → 릴스 강조(2026-11-04)
+    for (const kv of (((m_ || "").match(/data-hl="([^"]*)"/) || [])[1] || "").split("|")) { const [t, n] = kv.split(":"); if (t && n) h[t.trim()] = n.trim(); } return h; };
+  const scenes = blocks.filter(x => x.prev.length || ft[x.league]).slice(0, 5).flatMap(x => x.prev.length && x.rows.length >= 30
+    ? zoneScenes(pairUp(x.prev, x.rows), zonesOf(x.zones), hlOf(x.league), { league: x.league, sub: `${x.prevLabel || "직전 순위"} → ${x.round || "경기 뒤"} · ${LEAGUE_KO[x.league] || x.league}`, ph: [x.prevLabel || "직전 순위", "경기 반영 중…", x.round || "경기 뒤"] })
+    : [x.prev.length
     ? ({ league: x.league, title: `${LEAGUE_KO[x.league] || x.league} 순위 변화`, sub: `${x.prevLabel || "직전 순위"} → ${x.round || "경기 뒤"}`,
          rows: pairUp(x.prev, x.rows), zones: zonesOf(x.zones), ph: [x.prevLabel || "직전 순위", "경기 반영 중…", x.round || "경기 뒤"] })
     : ({ league: x.league, title: `${LEAGUE_KO[x.league] || x.league} 순위 변화`,
-         sub: `금 ${+fd.slice(5, 7)}.${+fd.slice(8, 10)} → ${x.round || "주말 경기 뒤"}`, rows: pairUp(ft[x.league], x.rows), zones: zonesOf(x.zones) }));
+         sub: `금 ${+fd.slice(5, 7)}.${+fd.slice(8, 10)} → ${x.round || "주말 경기 뒤"}`, rows: pairUp(ft[x.league], x.rows), zones: zonesOf(x.zones) })]);
   if (!scenes.length) return { skip: "금요일 순위표와 맞는 리그 없음(data-league 확인)" };
   const per = MOVE.hold0 + MOVE.anim + MOVE.hold1, total = per * scenes.length;
   if (total > MOVE.max) throw new Error(`순위 변동 릴스 ${total.toFixed(1)}초 — ${MOVE.max}초 넘음`);
