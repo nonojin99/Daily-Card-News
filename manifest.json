@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-04T04:35:55Z",
-  "count": 313,
+  "generated": "2026-11-04T14:42:41Z",
+  "count": 314,
   "files": [
     {
       "date": "2026-11-04",
@@ -28,6 +28,15 @@
       "day": "04",
       "type": "culture",
       "path": "2026-11-04_culture-brief.html"
+    },
+    {
+      "date": "2026-11-04",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "04",
+      "type": "baseball",
+      "path": "2026-11-04_baseball-brief.html"
     },
     {
       "date": "2026-11-04",
