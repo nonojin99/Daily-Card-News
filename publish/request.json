@@ -18,11 +18,20 @@
   },
   {
    "kind": "reel",
-   "media": "reels/2026-11/2026-11-04_football",
+   "media": "reels/2026-11/2026-11-04_football.mp4",
    "caption": "captions/2026-11-04_football_reel.txt",
    "dry_run": "false",
    "is_ai": "false",
    "ab": "short",
+   "account": "sports",
+   "review": "required"
+  },
+  {
+   "kind": "reel",
+   "media": "reels/2026-11/2026-11-04_football_move.mp4",
+   "caption": "captions/2026-11-04_football_move.txt",
+   "dry_run": "false",
+   "is_ai": "false",
    "account": "sports",
    "review": "required"
   }
