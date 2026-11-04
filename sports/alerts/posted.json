@@ -1339,8 +1339,9 @@
   },
   "uefa.champions:401915301": {
    "image": "sports/alerts/2026-11/2026-11-04_uefa-champions_0654.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-05 06:54"
+   "status": "published",
+   "at_kst": "2026-11-05 06:54",
+   "result": "18101364929435188"
   }
  },
  "boards": {
@@ -1547,6 +1548,10 @@
   "kbo:2026-11-04": {
    "last": 1793801216.5028298,
    "final": true
+  },
+  "uefa.champions:2026-11-04": {
+   "last": 1793829375.5497656,
+   "final": false
   }
  }
 }
