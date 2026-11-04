@@ -1324,6 +1324,16 @@
    "status": "failed",
    "at_kst": "2026-11-05 02:24",
    "result": "공개 주소에 이미지가 안 뜸: https://nonojin99.github.io/Daily-Card-News/sports/alerts/2026-11/2026-11-04_uefa-europa_0224.jpg"
+  },
+  "uefa.champions:401915383": {
+   "image": "sports/alerts/2026-11/2026-11-04_uefa-champions_0442.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-05 04:42"
+  },
+  "uefa.champions:401915382": {
+   "image": "sports/alerts/2026-11/2026-11-04_uefa-champions_0442.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-05 04:42"
   }
  },
  "boards": {
