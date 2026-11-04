@@ -1,3 +1,3 @@
 {"requests": [
-  {"kind":"reel","media":"reels/2026-11/2026-11-04_ott","caption":"captions/2026-11-04_ott_reel.txt","dry_run":"false","is_ai":"true","ab":"short","review":"required"}
+  {"kind":"reel","media":"reels/2026-11/2026-11-04_ott.mp4","caption":"captions/2026-11-04_ott_reel.txt","dry_run":"false","is_ai":"true","ab":"short","review":"required"}
 ], "note": "11/4 OTT 릴스 — 17:30 퇴근 직전 게시, reel-reviewer PASS"}
