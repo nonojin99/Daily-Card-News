@@ -1,11 +1,75 @@
 {
- "collected_kst": "2026-11-03 17:08",
+ "collected_kst": "2026-11-04 16:42",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-03T08:08:08.295840Z",
+   "checked_at": "2026-11-04T07:41:35.714585Z",
    "media": [
+    {
+     "id": "18196012519399553",
+     "type": "FEED",
+     "timestamp": "2026-11-04T03:32:15+0000",
+     "permalink": "https://www.instagram.com/p/DfTf4AhEVTX/",
+     "first_line": "[📺 OTT·게임] 재혼 황후 오늘 디즈니+ 공개 · 꿀알바 넷플릭스 국내 1위 · 젤다 시간의 오카리나 5일 — 11월 4일 OTT·게임·웹툰",
+     "metrics": {
+      "views": 10,
+      "reach": 2,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1
+     }
+    },
+    {
+     "id": "17978371362171479",
+     "type": "FEED",
+     "timestamp": "2026-11-04T01:13:33+0000",
+     "permalink": "https://www.instagram.com/p/DfTQAI7jfVN/",
+     "first_line": "[문화] 서울에서 세계 첫선 뮤지컬 워더링하이츠 · 안창홍 개인전 오늘 개막 · 최종면접 오늘 개봉 — 11월 4일 문화 브리프 6장",
+     "metrics": {
+      "views": 4,
+      "reach": 3,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1
+     }
+    },
+    {
+     "id": "17867500746679847",
+     "type": "FEED",
+     "timestamp": "2026-11-03T10:35:09+0000",
+     "permalink": "https://www.instagram.com/p/DfRrermFYvM/",
+     "first_line": "[🩺 헬스] 독감 43주 외래 1,000명당 19.2명 · 쯔쯔가무시 철 · 12월부터 산정특례 본인부담 7%",
+     "metrics": {
+      "views": 12,
+      "reach": 5,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1
+     }
+    },
+    {
+     "id": "18099623168107968",
+     "type": "FEED",
+     "timestamp": "2026-11-03T08:42:24+0000",
+     "permalink": "https://www.instagram.com/p/DfRekstFlUE/",
+     "first_line": "[💰 머니] 10월 물가 2.8%↑ · 유류세 인하 11월 30일까지 · 주담대 고정금리 5.11%",
+     "metrics": {
+      "views": 11,
+      "reach": 5,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
     {
      "id": "17960272221016261",
      "type": "REELS",
@@ -17,7 +81,7 @@
      "opening": "motion",
      "metrics": {
       "views": 160,
-      "reach": 136,
+      "reach": 137,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -35,8 +99,8 @@
      "permalink": "https://www.instagram.com/p/DfOUvC-Dc4H/",
      "first_line": "[AI·테크] 엔비디아 루빈 GPU 메모리 대역폭 22→19.2 TB/s · 엔비디아, 네이버에 10억 달러 투자 · 구글 제미나이 4 카본 —",
      "metrics": {
-      "views": 8,
-      "reach": 2,
+      "views": 10,
+      "reach": 3,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -168,16 +232,16 @@
      "variant": "narrated",
      "opening": "static",
      "metrics": {
-      "views": 135,
+      "views": 136,
       "reach": 115,
       "likes": 4,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 4,
-      "ig_reels_avg_watch_time": 4063,
-      "ig_reels_video_view_total_time": 475410,
-      "reels_skip_rate": 68.7
+      "ig_reels_avg_watch_time": 4042,
+      "ig_reels_video_view_total_time": 477037,
+      "reels_skip_rate": 69
      }
     },
     {
@@ -187,7 +251,7 @@
      "permalink": "https://www.instagram.com/p/DfBQLpcDB1N/",
      "first_line": "[📺 OTT·게임] GTA 6 한국 89,800원 · 꿀알바 30일 공개 · 재혼 황후 11월 4일",
      "metrics": {
-      "views": 12,
+      "views": 13,
       "reach": 4,
       "likes": 1,
       "comments": 0,
@@ -499,94 +563,150 @@
       "ig_reels_video_view_total_time": 135549,
       "reels_skip_rate": 81.6
      }
-    },
-    {
-     "id": "18249061108312497",
-     "type": "FEED",
-     "timestamp": "2026-10-18T20:57:31+0000",
-     "permalink": "https://www.instagram.com/p/Depl--EFimY/",
-     "first_line": "[AI·테크] 구글 제미나이 4 아르곤 출시 · 앤트로픽 AI 안전 법안 초안 · 중국 AI 핵심 기술 수출 제한 초안 — 10월 19일 AI ",
-     "metrics": {
-      "views": 11,
-      "reach": 4,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 2
-     }
-    },
-    {
-     "id": "18220969792355115",
-     "type": "REELS",
-     "timestamp": "2026-10-18T01:04:31+0000",
-     "permalink": "https://www.instagram.com/reel/DendXZoFGg3/",
-     "first_line": "[우주·과학] 🎧 3분 듣는 우주 — 외계행성 대기는 동그란 원이 아니었다",
-     "tag": "우주·과학",
-     "variant": "narrated",
-     "opening": "static",
-     "metrics": {
-      "views": 114,
-      "reach": 105,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 2,
-      "ig_reels_avg_watch_time": 2259,
-      "ig_reels_video_view_total_time": 255313,
-      "reels_skip_rate": 91.6
-     }
-    },
-    {
-     "id": "18144714883516769",
-     "type": "FEED",
-     "timestamp": "2026-10-18T00:31:56+0000",
-     "permalink": "https://www.instagram.com/p/DenZulfGjMm/",
-     "first_line": "[우주·과학] 외계행성 대기는 동그란 원이 아니었다 🔭 웹 망원경이 그린 WASP-17b의 '대기 가장자리 지도'",
-     "metrics": {
-      "views": 27,
-      "reach": 6,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 2
-     }
-    },
-    {
-     "id": "18108259193625361",
-     "type": "REELS",
-     "timestamp": "2026-10-17T12:17:38+0000",
-     "permalink": "https://www.instagram.com/reel/DemFnvsDHBo/",
-     "first_line": "🎧 1분 듣는 주말 — 이번 주말 갈 만한 곳 6곳을 귀로 들어 보세요",
-     "tag": "",
-     "variant": "narrated",
-     "opening": "static",
-     "metrics": {
-      "views": 121,
-      "reach": 111,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 2,
-      "ig_reels_avg_watch_time": 2261,
-      "ig_reels_video_view_total_time": 266872,
-      "reels_skip_rate": 85.8
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 31
+   "posts": 35
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-03T08:08:20.311291Z",
+   "checked_at": "2026-11-04T07:41:49.246519Z",
    "media": [
+    {
+     "id": "18119174132053731",
+     "type": "REELS",
+     "timestamp": "2026-11-04T07:39:05+0000",
+     "permalink": "https://www.instagram.com/reel/DfT8F9kCTxo/",
+     "first_line": "[⚾ KBO] 한국시리즈 2차전 선발 — 삼성 페덱 vs KT 고영표",
+     "tag": "⚾ KBO",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 0,
+      "reach": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 0,
+      "ig_reels_video_view_total_time": 0,
+      "reels_skip_rate": 0
+     }
+    },
+    {
+     "id": "18027761321938443",
+     "type": "REELS",
+     "timestamp": "2026-11-04T04:39:12+0000",
+     "permalink": "https://www.instagram.com/reel/DfTnhkVlFGH/",
+     "first_line": "[⚽ 축구 모닝] 바이에른 8위로 · 아틀레티코 22위로 — 챔스 화요일 경기 뒤 순위 변동 (한국시간 수 새벽 종료)",
+     "tag": "⚽ 축구 모닝",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 123,
+      "reach": 107,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 4378,
+      "ig_reels_video_view_total_time": 468458,
+      "reels_skip_rate": 68.9
+     }
+    },
+    {
+     "id": "18142340824729625",
+     "type": "REELS",
+     "timestamp": "2026-11-04T04:38:40+0000",
+     "permalink": "https://www.instagram.com/reel/DfTncjOE1na/",
+     "first_line": "[⚽ 축구 모닝 · 챔스 결산] 바이에른 2-0 아틀레티코, 이강인·김민재 교체 출전 · PSG 6-0 · 8위 직행선",
+     "tag": "⚽ 축구 모닝 · 챔스 결산",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 112,
+      "reach": 103,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2599,
+      "ig_reels_video_view_total_time": 265155,
+      "reels_skip_rate": 85.3
+     }
+    },
+    {
+     "id": "18125913208903225",
+     "type": "REELS",
+     "timestamp": "2026-11-03T22:05:18+0000",
+     "permalink": "https://www.instagram.com/reel/DfS6cWeDK1X/",
+     "first_line": "[⚽ 챔피언스리그] 바이에른 뮌헨 2:0 아틀레티코",
+     "tag": "⚽ 챔피언스리그",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 136,
+      "reach": 113,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 3484,
+      "ig_reels_video_view_total_time": 407629,
+      "reels_skip_rate": 74.3
+     }
+    },
+    {
+     "id": "18383522680230698",
+     "type": "REELS",
+     "timestamp": "2026-11-03T13:26:42+0000",
+     "permalink": "https://www.instagram.com/reel/DfR_GNyjn9Q/",
+     "first_line": "[⚾ KBO] 삼성 7:8 KT",
+     "tag": "⚾ KBO",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 166,
+      "reach": 113,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 5555,
+      "ig_reels_video_view_total_time": 633346,
+      "reels_skip_rate": 69.9
+     }
+    },
+    {
+     "id": "18503655946099608",
+     "type": "REELS",
+     "timestamp": "2026-11-03T12:26:11+0000",
+     "permalink": "https://www.instagram.com/reel/DfR4J85iTLr/",
+     "first_line": "[⚾ KBO] 한국시리즈 1차전 진행 중 — 삼성 5:8 KT",
+     "tag": "⚾ KBO",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 122,
+      "reach": 104,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2784,
+      "ig_reels_video_view_total_time": 297982,
+      "reels_skip_rate": 67.6
+     }
+    },
     {
      "id": "17884671693628912",
      "type": "REELS",
@@ -597,16 +717,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 7,
-      "reach": 0,
+      "views": 116,
+      "reach": 103,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 0,
-      "ig_reels_video_view_total_time": 0,
-      "reels_skip_rate": 0
+      "ig_reels_avg_watch_time": 2105,
+      "ig_reels_video_view_total_time": 223232,
+      "reels_skip_rate": 90.2
      }
     },
     {
@@ -626,8 +746,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2802,
-      "ig_reels_video_view_total_time": 299827,
+      "ig_reels_avg_watch_time": 2796,
+      "ig_reels_video_view_total_time": 302001,
       "reels_skip_rate": 71.7
      }
     },
@@ -657,16 +777,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 131,
-      "reach": 101,
+      "views": 132,
+      "reach": 102,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3961,
-      "ig_reels_video_view_total_time": 408075,
-      "reels_skip_rate": 69.6
+      "ig_reels_avg_watch_time": 3939,
+      "ig_reels_video_view_total_time": 409657,
+      "reels_skip_rate": 69.9
      }
     },
     {
@@ -695,16 +815,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 126,
-      "reach": 109,
+      "views": 128,
+      "reach": 111,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2248,
-      "ig_reels_video_view_total_time": 245139,
-      "reels_skip_rate": 86.2
+      "ig_reels_avg_watch_time": 2221,
+      "ig_reels_video_view_total_time": 246627,
+      "reels_skip_rate": 86.5
      }
     },
     {
@@ -815,16 +935,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 108,
-      "reach": 105,
+      "views": 109,
+      "reach": 106,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1434,
-      "ig_reels_video_view_total_time": 152004,
-      "reels_skip_rate": 97.1
+      "ig_reels_avg_watch_time": 1436,
+      "ig_reels_video_view_total_time": 153755,
+      "reels_skip_rate": 97.2
      }
     },
     {
@@ -859,16 +979,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 126,
-      "reach": 108,
+      "views": 130,
+      "reach": 109,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2292,
-      "ig_reels_video_view_total_time": 256782,
-      "reels_skip_rate": 81.5
+      "ig_reels_avg_watch_time": 2308,
+      "ig_reels_video_view_total_time": 260900,
+      "reels_skip_rate": 81.7
      }
     },
     {
@@ -1084,133 +1204,13 @@
       "ig_reels_video_view_total_time": 305641,
       "reels_skip_rate": 75.9
      }
-    },
-    {
-     "id": "18022114685728902",
-     "type": "REELS",
-     "timestamp": "2026-10-30T12:47:01+0000",
-     "permalink": "https://www.instagram.com/reel/DfHnYJYjsLY/",
-     "first_line": "[⚽ 축구 모닝] 빅매치 6경기 언제? 바이에른–도르트문트 일 새벽 2:30 · 5대 리그 1위~꼴찌 순위",
-     "tag": "⚽ 축구 모닝",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 113,
-      "reach": 101,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3228,
-      "ig_reels_video_view_total_time": 335777,
-      "reels_skip_rate": 72.8
-     }
-    },
-    {
-     "id": "18128871248483437",
-     "type": "FEED",
-     "timestamp": "2026-10-30T12:45:32+0000",
-     "permalink": "https://www.instagram.com/p/DfHnOEiEQGK/",
-     "first_line": "[⚽ 축구 모닝] 이번 주말 빅매치 6경기 + 5대 리그 1위~꼴찌 순위 · 바이에른–도르트문트 승점 17점 맞대결 — 7장",
-     "metrics": {
-      "views": 2,
-      "reach": 1,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
-    },
-    {
-     "id": "18049721030819734",
-     "type": "REELS",
-     "timestamp": "2026-10-30T12:20:38+0000",
-     "permalink": "https://www.instagram.com/reel/DfHkXHvFWmY/",
-     "first_line": "[⚾ KBO] 플레이오프 4차전 진행 중 — 삼성 2:4 KIA",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 119,
-      "reach": 104,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2385,
-      "ig_reels_video_view_total_time": 245714,
-      "reels_skip_rate": 82.5
-     }
-    },
-    {
-     "id": "18090192812269451",
-     "type": "REELS",
-     "timestamp": "2026-10-30T07:35:02+0000",
-     "permalink": "https://www.instagram.com/reel/DfHDrcaihpu/",
-     "first_line": "[⚾ KBO] 플레이오프 4차전 선발 — 삼성 페덱 vs KIA 네일",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 109,
-      "reach": 104,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2209,
-      "ig_reels_video_view_total_time": 225398,
-      "reels_skip_rate": 86
-     }
-    },
-    {
-     "id": "18442145980179188",
-     "type": "REELS",
-     "timestamp": "2026-10-29T22:46:36+0000",
-     "permalink": "https://www.instagram.com/reel/DfGHLdOE0LP/",
-     "first_line": "[🏟 밤사이 결과] 결과판 2장 한 번에",
-     "tag": "🏟 밤사이 결과",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 125,
-      "reach": 104,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2454,
-      "ig_reels_video_view_total_time": 255262,
-      "reels_skip_rate": 76.7
-     }
-    },
-    {
-     "id": "17959529190267306",
-     "type": "FEED",
-     "timestamp": "2026-10-29T14:50:58+0000",
-     "permalink": "https://www.instagram.com/p/DfFQzMCkaI-/",
-     "first_line": "[⚾ 야구 나이트] 삼성 6-4 KIA, 한국시리즈까지 1승 · 밀워키 창단 첫 월드시리즈 우승 — 10월 29일 4장",
-     "metrics": {
-      "views": 3,
-      "reach": 2,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
     }
    ],
    "errors": [],
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 6,
-   "posts": 72
+   "posts": 78
   }
  ]
 }
