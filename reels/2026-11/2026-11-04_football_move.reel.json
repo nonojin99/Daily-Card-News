@@ -3,11 +3,13 @@
   "kind": "move",
   "friday": "2026-10-30_football-brief.html",
   "leagues": [
+    "챔스",
+    "챔스",
     "챔스"
   ],
   "out": "reels/2026-11/2026-11-04_football_move.mp4",
-  "seconds": 4.8,
+  "seconds": 14.4,
   "bgm": "audio/cc/upbeat-forever_kevin-macleod_0-30.mp3",
   "credit": "Upbeat Forever — Kevin MacLeod (incompetech.com) · CC BY 3.0",
-  "fp": "8501cbfd4d47ee1d0b76de9198324fc86fe35109"
+  "fp": "8044ee3e40927682d98b416a323a4fe8dd87ce0e"
 }
