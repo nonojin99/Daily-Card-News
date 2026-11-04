@@ -1524,5 +1524,79 @@
    "ig_reels_video_view_total_time": 223232,
    "reels_skip_rate": 90.2
   }
+ },
+ "main:17867500746679847": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-03T10:35:09+0000",
+  "snapshot_utc": "2026-11-04T14:23:24Z",
+  "age_h": 27.8,
+  "first_line": "[🩺 헬스] 독감 43주 외래 1,000명당 19.2명 · 쯔쯔가무시 철 · 12월부터 산정특례 본인부담 7%",
+  "metrics": {
+   "views": 12,
+   "reach": 5,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1
+  }
+ },
+ "main:18099623168107968": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-03T08:42:24+0000",
+  "snapshot_utc": "2026-11-04T14:23:24Z",
+  "age_h": 29.7,
+  "first_line": "[💰 머니] 10월 물가 2.8%↑ · 유류세 인하 11월 30일까지 · 주담대 고정금리 5.11%",
+  "metrics": {
+   "views": 12,
+   "reach": 6,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18383522680230698": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-03T13:26:42+0000",
+  "snapshot_utc": "2026-11-04T14:23:24Z",
+  "age_h": 24.9,
+  "first_line": "[⚾ KBO] 삼성 7:8 KT",
+  "metrics": {
+   "views": 166,
+   "reach": 113,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 5555,
+   "ig_reels_video_view_total_time": 633346,
+   "reels_skip_rate": 69.9
+  }
+ },
+ "sports:18503655946099608": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-03T12:26:11+0000",
+  "snapshot_utc": "2026-11-04T14:23:24Z",
+  "age_h": 26.0,
+  "first_line": "[⚾ KBO] 한국시리즈 1차전 진행 중 — 삼성 5:8 KT",
+  "metrics": {
+   "views": 122,
+   "reach": 104,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2784,
+   "ig_reels_video_view_total_time": 297982,
+   "reels_skip_rate": 67.6
+  }
  }
 }
