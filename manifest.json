@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-04T20:55:15Z",
-  "count": 316,
+  "generated": "2026-11-04T23:45:24Z",
+  "count": 317,
   "files": [
     {
       "date": "2026-11-05",
@@ -19,6 +19,15 @@
       "day": "05",
       "type": "activity",
       "path": "2026-11-05_activity-brief.html"
+    },
+    {
+      "date": "2026-11-05",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "05",
+      "type": "football",
+      "path": "2026-11-05_football-brief.html"
     },
     {
       "date": "2026-11-04",
