@@ -2,24 +2,17 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-04_ott-brief",
-   "caption": "captions/2026-11-04_ott.txt",
+   "media": "cards/2026-11/2026-11-05_football-brief",
+   "caption": "captions/2026-11-05_football.txt",
    "dry_run": "false",
-   "is_ai": "true",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-04_culture-brief",
-   "caption": "captions/2026-11-04_culture.txt",
-   "dry_run": "false",
-   "is_ai": "true",
+   "is_ai": "false",
+   "account": "sports",
    "review": "required"
   },
   {
    "kind": "reel",
-   "media": "reels/2026-11/2026-11-04_football.mp4",
-   "caption": "captions/2026-11-04_football_reel.txt",
+   "media": "reels/2026-11/2026-11-05_football.mp4",
+   "caption": "captions/2026-11-05_football_reel.txt",
    "dry_run": "false",
    "is_ai": "false",
    "ab": "short",
@@ -28,22 +21,13 @@
   },
   {
    "kind": "reel",
-   "media": "reels/2026-11/2026-11-04_football_move.mp4",
-   "caption": "captions/2026-11-04_football_move.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-04_baseball-brief",
-   "caption": "captions/2026-11-04_baseball.txt",
+   "media": "reels/2026-11/2026-11-05_football_move.mp4",
+   "caption": "captions/2026-11-05_football_move.txt",
    "dry_run": "false",
    "is_ai": "false",
    "account": "sports",
    "review": "required"
   }
  ],
- "note": "2026-11-04 OTT·문화 캐러셀 — 구운 JPG 검수 통과본"
+ "note": "2026-11-05 축구 모닝 챔스 결산 — 캐러셀 + 결산 릴스 + 순위 변동 릴스 (에이전트 검수 통과본)"
 }
