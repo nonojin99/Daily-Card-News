@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """시간대 게시(2026-10-26~, 사용자 승인) — 릴스를 하루 여러 시간대에 나눠 올린다.
 
-  시간대: 0730(출근) · 1210(점심) · 1840(퇴근) · 2107(저녁). 워크플로 'Publish scheduled reels' 가 시간대마다 예약 실행한다.
+  시간대: 0730(출근) · 1210(점심) · 1730(퇴근 직전, 2026-11-04~ OTT) · 1840(퇴근) · 2107(저녁). 워크플로 'Publish scheduled reels' 가 시간대마다 예약 실행한다.
   요청 파일: publish/slots/<게시 날짜>_<HHMM>_<이름>.json  (형식은 publish/request.json 과 같은 {"requests":[…]})
             publish/evening/<게시 날짜>_<이름>.json        = 2107 시간대(예전 방식, 그대로 쓴다)
 
@@ -17,7 +17,7 @@
 """
 import datetime, glob, json, os, re, subprocess, sys, time
 
-SLOTS = ["0730", "1210", "1840", "2107"]
+SLOTS = ["0730", "1210", "1730", "1840", "2107"]
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 DONE = os.path.join(ROOT, "publish/slots/.done.json")
 SPORTS_Q = os.path.join(ROOT, "sports/reels/queue.json")
