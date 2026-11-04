@@ -7,7 +7,15 @@
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-04_culture-brief",
+   "caption": "captions/2026-11-04_culture.txt",
+   "dry_run": "false",
+   "is_ai": "true",
+   "review": "required"
   }
  ],
- "note": "2026-11-04 OTT 캐러셀 — 구운 JPG 검수(card-visual-reviewer) 통과 전에는 게시 관문이 보류"
+ "note": "2026-11-04 OTT·문화 캐러셀 — 구운 JPG 검수 통과본"
 }
