@@ -34,6 +34,15 @@
    "is_ai": "false",
    "account": "sports",
    "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-04_baseball-brief",
+   "caption": "captions/2026-11-04_baseball.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "review": "required"
   }
  ],
  "note": "2026-11-04 OTT·문화 캐러셀 — 구운 JPG 검수 통과본"
