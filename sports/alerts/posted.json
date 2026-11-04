@@ -1342,6 +1342,36 @@
    "status": "published",
    "at_kst": "2026-11-05 06:54",
    "result": "18101364929435188"
+  },
+  "uefa.champions:401915304": {
+   "image": "sports/alerts/2026-11/2026-11-04_uefa-champions_0701.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-05 07:01"
+  },
+  "uefa.champions:401915305": {
+   "image": "sports/alerts/2026-11/2026-11-04_uefa-champions_0701.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-05 07:01"
+  },
+  "uefa.champions:401915303": {
+   "image": "sports/alerts/2026-11/2026-11-04_uefa-champions_0701.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-05 07:01"
+  },
+  "uefa.champions:401915306": {
+   "image": "sports/alerts/2026-11/2026-11-04_uefa-champions_0701.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-05 07:01"
+  },
+  "uefa.champions:401915381": {
+   "image": "sports/alerts/2026-11/2026-11-04_uefa-champions_0701.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-05 07:01"
+  },
+  "uefa.champions:401915302": {
+   "image": "sports/alerts/2026-11/2026-11-04_uefa-champions_0701.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-05 07:01"
   }
  },
  "boards": {
