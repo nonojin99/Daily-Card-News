@@ -2,12 +2,12 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-03_health-brief",
-   "caption": "captions/2026-11-03_health.txt",
+   "media": "cards/2026-11/2026-11-04_ott-brief",
+   "caption": "captions/2026-11-04_ott.txt",
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
   }
  ],
- "note": "2026-11-03 헬스 캐러셀 — 사용자 승인(수습 1→0), 구운 JPG 검수 PASS. 머니는 앞서 게시 요청함"
+ "note": "2026-11-04 OTT 캐러셀 — 구운 JPG 검수(card-visual-reviewer) 통과 전에는 게시 관문이 보류"
 }
