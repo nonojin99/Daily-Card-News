@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.11.05">
+<meta property="og:description" content="미 중간선거 민주당 상·하원 동시 탈환 · 코스피 5,683.80 · 윤석열 선거법 2심 유죄 · 한진칼 최대주주 호반 · 홍콩ELS 제재 3,746억">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.11.05</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+  /* ── 서울 날씨 한 줄 (2026-10-11 도입) ── */
+  .weather{margin:14px 0 0;padding:9px 14px;border-radius:10px;background:var(--accent-soft);font-size:14px;color:var(--ink);line-height:1.6}
+  .weather .wx-note{display:inline-block;margin-left:6px;font-size:11.5px;color:var(--faint)}
+  .weather .wx-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>미 중간선거 민주당 상·하원 동시 탈환, 홍콩ELS 제재 3,746억 원</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 5일 목요일</span>
+      <span class="count">7 Picks · 분야별</span>
+    </div>
+    <p class="lede">미국 중간선거에서 민주당이 상·하원을 동시에 되찾았다고 뉴스1이 전했고, 트럼프 대통령은 이란전쟁으로 오른 휘발유값이 패인이었을 것이라고 했습니다. 코스피는 5,683.80으로 마감했고, 윤석열 전 대통령은 선거법 항소심에서도 유죄를 받았습니다. 한진칼 최대주주가 호반으로 바뀌었고, 홍콩ELS 제재는 3,746억 원으로 확정됐습니다. 입동인 7일에는 기온이 크게 떨어집니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 5일 목요일, 데일리 브리프입니다. 오늘은 일곱 가지 소식을 전해 드립니다.</p>
+    <p>미국 중간선거에서 민주당이 상원과 하원을 동시에 되찾았습니다. 한 선거에서 양원이 함께 뒤집힌 건 2006년 이후 20년 만입니다. 첫 무슬림 상원의원과 첫 공개 동성애자 남성 상원의원이 나왔고, 캔자스는 94년 만에 민주당 상원의원을 냈습니다. 하원에서 민주당은 최소 228석을 확보한 것으로 추정되고, 존슨 하원의장은 차기 회기에 공화당 지도자 역할을 맡지 않겠다고 밝혔습니다. 트럼프 대통령은 이란전쟁으로 단기간 휘발유 가격이 오른 것이 패배의 이유였을 것이라고 말했습니다. 뉴스1과 뉴시스 보도입니다.</p>
+    <p>코스피는 5,683.80으로 0.62퍼센트 올라 마감했습니다. 장중 한때 5,420선까지 밀렸지만 기관 매수로 반등했습니다. 외국인은 2조 5천억 원 넘게 순매도했고, 기관과 개인이 약 2조 1천억 원어치를 사들였습니다. 반도체주는 약세였고 2차전지와 친환경주는 급등했습니다. 뉴스1 보도입니다.</p>
+    <p>뉴욕 증시는 중간선거 뒤 급등했습니다. 장중 다우지수는 2.94퍼센트, 나스닥은 2.17퍼센트 올랐는데, 종가가 아닌 장중 수치입니다. 같은 날 발표된 10월 민간고용은 8만 6천 명 늘어 예상치 7만 5천 명을 웃돌았고, 12월 금리 인상 확률이 79퍼센트대로 전해졌습니다. 공식 고용보고서는 6일 발표됩니다. 와이티엔 보도입니다.</p>
+    <p>윤석열 전 대통령이 선거법 위반 항소심에서도 유죄를 받았습니다. 서울고법은 1심의 징역 1년 6개월, 집행유예 3년을 유지했습니다. 윤 전 대통령 측은 상고하겠다고 밝혔습니다. 두 건의 허위사실 발언이 쟁점이었고, 확정 전에는 반환 의무가 없습니다. 형이 확정되면 국민의힘은 선거보전비용 397억 원을 돌려줘야 합니다. 뉴시스 보도입니다.</p>
+    <p>한진칼 최대주주가 호반그룹으로 바뀌었습니다. 호반 측 지분이 20.69퍼센트로 조원태 회장 측 20.58퍼센트를 근소하게 앞섭니다. 조 회장은 12월까지 주식을 추가로 사들일 계획이라 다시 뒤집힐 수 있고. 뉴스1 보도입니다.</p>
+    <p>홍콩 H지수 ELS 판매 제재가 확정됐습니다. 증권사를 포함한 제재 총액이 3,746억 원으로 출범 후 가장 큽니다. 은행 7곳 과징금이 3,619억 원이고, 행정소송 가능성이 남아 있습니다. 뉴스1 보도입니다.</p>
+    <p>7일 입동에는 추위가 찾아옵니다. 5일 비가 오후에 그치고 6일 찬 북서풍에 기온이 5도에서 8도 떨어지며, 7일 아침 수도권과 강원 내륙은 영하권으로 내려갈 수 있습니다. 뉴스1 보도입니다.</p>
+    <p>이상으로 오늘의 데일리 브리프를 마칩니다. 자세한 내용과 출처는 카드에서 확인하세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">World — 미국 중간선거</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">議</span>
+    <div class="card-top"><span class="topic">국제 · 미국 중간선거</span></div>
+    <h2>민주당, 상·하원 동시 탈환 — 20년 만의 양원 뒤집기, 트럼프 "이란전쟁 휘발유값이 패인일 듯"</h2>
+    <div class="summary">
+      <p>미국 중간선거에서 민주당이 상·하원을 동시에 뒤집었다. 한 선거에서 양원이 함께 바뀐 것은 <strong>2006년 이후 20년</strong> 만이고, 트럼프 대통령은 임기 후반 2년을 여소야대로 보낸다(뉴스1). 엘사예드가 첫 무슬림 상원의원, 파파스가 첫 공개 동성애자 남성 상원의원이 됐고 캔자스는 94년 만에 민주당 상원의원을 냈다.</p>
+      <p>뉴시스는 민주당이 하원에서 최소 <strong>228석</strong>을 확보한 것으로 추정되고 NBC는 258석을 전망한다고 전했다. 존슨 하원의장은 차기 회기에 공화당 지도자 역할을 맡지 않겠다고 했다. 트럼프는 이란전쟁으로 단기간 휘발유 가격이 오른 것이 패배의 이유였을 것이라고 말했다(YTN은 이를 "대체로 사실"이라는 제목으로 전했다).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">결과</span><span>민주당 상·하원 동시 탈환 · 2006년 이후 20년 만(뉴스1)</span></li>
+      <li><span class="k">하원</span><span>민주당 최소 228석 확보 추정 · NBC 258석 전망(뉴시스 · 258석은 NBC 전망)</span></li>
+      <li><span class="k">공화당</span><span>존슨 하원의장 차기 회기 대표직 안 맡겠다 · 지도부 선출 투표 10일 예정(뉴시스)</span></li>
+      <li><span class="k">트럼프 발언</span><span>이란전쟁에 따른 단기 휘발유값 상승이 패인일 가능성 높음 · 전쟁은 이란의 핵무기 보유를 막기 위해 선택의 여지 없이 해야 했고 그럴 만한 가치가 있었다고 주장(YTN)</span></li>
+      <li><span class="k">확인 한계</span><span>상원 최종 의석수는 본문에서 확인하지 못해 싣지 않음 · 하원 의석은 추정치로 매체별 편차가 큼 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>선거 결과와 대통령의 해석을 나란히 전한 카드다. 패인에 대한 평가는 발언 당사자의 주장이며, 의석수는 개표가 끝나기 전의 추정이라는 점을 함께 봐야 한다.</p>
+    </div>
+    <a class="source" href="https://www.news1.kr/world/usa-canada/6343367">뉴스1 — '블루 쓰나미' 주역들</a>  <a class="source" href="https://www.newsis.com/view/NISX20261105_0003855382">뉴시스 — 존슨 하원의장 대표직 사임</a>  <a class="source" href="https://www.ytn.co.kr/_ln/0104_202611050326016729">YTN — 트럼프 "이란전쟁 탓 패배"</a>
+    <span class="ref-note">뉴스1(11/4 20:00 업데이트)·뉴시스(11/5 05:28 수정)·YTN(11/5 03:26) · 228석은 뉴시스 평가, 258석은 NBC 전망 (확인 2026-11-05)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">민주당 상·하원 동시 탈환,<br>20년 만이에요</p>
+      <p class="cn-s">미국 중간선거에서 민주당이 상원과 하원을 함께 되찾았어요. 트럼프 대통령은 이란전쟁으로 오른 휘발유값이 패인이었을 거라고 말했어요.</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="2006년과 2026년 사이 20년 만에 상·하원 동시 뒤집기">
+        <line class="cn-line" x1="60" y1="95" x2="340" y2="95"/><circle class="cn-on" cx="60" cy="95" r="7"/><circle class="cn-on" cx="340" cy="95" r="7"/>
+        <text class="cn-small" x="60" y="68" text-anchor="middle">2006</text><text class="cn-small" x="340" y="68" text-anchor="middle">2026</text>
+        <text class="cn-dim" x="200" y="125" text-anchor="middle">20년 만</text>
+        <text class="cn-big" x="200" y="185" text-anchor="middle">상·하원 동시 탈환</text>
+      </svg>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Market — 코스피</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">升</span>
+    <div class="card-top"><span class="topic">증시 · 코스피 마감</span></div>
+    <h2>코스피 5,683.80 마감(+0.62%) — 장중 5,420선까지 밀렸다 기관 매수로 반등, 외국인 2.5조 원 순매도</h2>
+    <div class="summary">
+      <p>코스피는 4일 <strong>5,683.80</strong>에 마감해 0.62% 올랐다. 장중 고가는 5,828.13이었고 저가는 5,420선까지 밀렸다가 기관 매수로 반등했다(뉴스1). 코스닥은 1.50% 올랐다.</p>
+      <p>외국인은 <strong>2조 5,071억 원</strong> 순매도했고 기관과 개인이 약 2.1조 원 순매수했다. 반도체주는 약세였고 2차전지·친환경주는 급등했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">코스피</span><span>5,683.80 마감 · +0.62% · 장중 고가 5,828.13</span></li>
+      <li><span class="k">코스닥</span><span>+1.50%(종가는 기사에 없음)</span></li>
+      <li><span class="k">수급</span><span>외국인 순매도 2조 5,071억 원 · 기관+개인 순매수 약 2.1조 원</span></li>
+      <li><span class="k">업종</span><span>반도체주 약세 · 2차전지·친환경주 급등</span></li>
+      <li><span class="k">확인 한계</span><span>뉴스1 단일 ⚠ 환율은 기사에 없음 · 장중 저가의 정확한 값은 '5,420선'으로만 표기</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>지수는 소폭 올랐지만 외국인 매도와 기관·개인 매수가 맞부딪친 하루였다. 업종별로 흐름이 엇갈려 지수만으로는 체감이 다르다. 이 카드는 투자 권유가 아니다.</p>
+    </div>
+    <a class="source" href="https://news1.kr/finance/market-exr/6343055">뉴스1 — 코스피 시황 종합</a>
+    <span class="ref-note">뉴스1(11/4 16:02) · <strong>단일 매체</strong> (확인 2026-11-05)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">코스피 5,683.80 마감,<br>외국인 2.5조 순매도</p>
+      <p class="cn-s">코스피가 0.62% 올라 마감했어요. 장중 5,420선까지 밀렸지만 기관 매수로 반등했어요. 외국인은 2조 5천억 원 넘게 팔았어요.</p>
+      <p class="cn-num">2조 5,071억|외국인 순매도 금액</p>
+      <p class="cn-img">A single glowing bar chart column rising from a deep dip on a dark-blue wall of screens, flat illustration, no text, no logos</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Market — 뉴욕·고용</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">雇</span>
+    <div class="card-top"><span class="topic">증시 · 뉴욕·미 고용</span></div>
+    <h2>뉴욕 증시 선거 뒤 급등, 10월 민간고용 8.6만 명 — 12월 금리 인상 확률 79.2%</h2>
+    <div class="summary">
+      <p>중간선거 뒤 뉴욕 증시가 크게 올랐다. 미 동부 오후 1시 6분 장중 기준 다우 <strong>+2.94%</strong>, S&amp;P500 +1.91%, 나스닥 +2.17%이고, 분점 정부로 대규모 입법 변화가 줄 것이라는 기대가 이유로 전해졌다(YTN). 종가가 아닌 장중 수치다.</p>
+      <p>ADP 10월 민간고용은 <strong>8.6만 명</strong> 늘어 예상 7.5만 명을 웃돌았다. 전문·사업서비스는 2.7만 명 줄어 3개월 연속 감소했다. 기사는 페드워치 기준 12월 금리 인상 확률을 79.2%로 전했다. 공식 고용보고서는 6일 발표 예정이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">뉴욕 장중</span><span>다우 53,307.77(+2.94%) · S&amp;P500 7,713.73(+1.91%) · 나스닥 25,921.42(+2.17%) · 미 동부 13:06 기준</span></li>
+      <li><span class="k">ADP 10월</span><span>+8.6만 명(예상 7.5만) · 전문·사업서비스 -2.7만, 3개월 연속 감소</span></li>
+      <li><span class="k">임금</span><span>기존 근로자 3.0% · 이직자 4.8%</span></li>
+      <li><span class="k">금리</span><span>페드워치 12월 인상 확률 79.2%(YTN ADP 기사)</span></li>
+      <li><span class="k">확인 한계</span><span>YTN 단일 ⚠ 증시 수치는 장중 값, 종가는 확인하지 못함 · 공식 고용보고서는 6일 발표</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>증시는 정치 일정을 호재로 읽었지만, 고용이 예상보다 좋으면 금리 부담이 커진다는 반대 신호도 같은 날 나왔다. 한 가지 지표로 방향을 단정하지 않는 편이 낫다.</p>
+    </div>
+    <a class="source" href="https://www.ytn.co.kr/_ln/0104_202611050349081077">YTN — 뉴욕증시 급등</a>  <a class="source" href="https://www.ytn.co.kr/_ln/0104_202611050348314293">YTN — ADP 민간고용</a>
+    <span class="ref-note">YTN(11/5 03:49·03:48) · <strong>단일 매체</strong> · 지수는 장중 수치 (확인 2026-11-05)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">뉴욕 증시 급등,<br>민간고용 8.6만 명 증가</p>
+      <p class="cn-s">중간선거 뒤 뉴욕 증시가 장중 크게 올랐어요. 10월 민간고용은 예상보다 많은 8.6만 명 늘었고, 12월 금리 인상 확률도 79.2%로 전해졌어요.</p>
+      <p class="cn-num">79.2%|12월 금리 인상 확률(페드워치)</p>
+      <p class="cn-img">A tall glass skyscraper canyon at golden hour with a small bull statue silhouette in the foreground, flat illustration, no text, no logos</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Society — 선거법 재판</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">判</span>
+    <div class="card-top"><span class="topic">사회 · 항소심 선고</span></div>
+    <h2>윤석열 선거법 항소심도 유죄 — 징역 1년 6개월·집행유예 3년 유지, 확정되면 국민의힘 397억 원 반환</h2>
+    <div class="summary">
+      <p>서울고법 형사2-1부가 1심을 유지하고 항소를 기각했다. 허위사실은 두 건이다. 2021년 12월 14일 관훈토론에서 윤우진 전 세무서장에게 변호사를 소개한 적이 없다고 한 것, 2022년 1월 17일 인터뷰에서 김건희 여사와 함께 전성배 씨를 만난 적이 없다고 한 것이다(뉴시스). 윤 측은 "당연히 상고해서 다투겠다"고 했다.</p>
+      <p>형이 확정되면 당선이 무효가 되고 국민의힘은 선거보전비용 <strong>397억 원</strong>을 반환해야 한다. 확정 전에는 해당이 없다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">선고</span><span>11/4 서울고법 형사2-1부 · 항소 기각, 1심 유지</span></li>
+      <li><span class="k">형량</span><span>징역 1년 6개월 · 집행유예 3년(1심 유지)</span></li>
+      <li><span class="k">쟁점</span><span>2021.12.14 관훈토론 · 2022.1.17 인터뷰 발언의 허위사실 2건</span></li>
+      <li><span class="k">다음 단계</span><span>윤 측 상고 의사 · 확정 시 선거보전비용 397억 원 반환(확정 전엔 해당 없음)</span></li>
+      <li><span class="k">확인 한계</span><span>뉴시스 단일 ⚠ 형량은 기사 본문의 1심 유지 서술 기준 · 상고 여부는 이후 확인 필요</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>2심 판결이며 대법원 판단이 남아 있다는 점이 핵심이다. 397억 원 반환은 형이 확정될 때의 시나리오이고 지금 발생한 일이 아니다.</p>
+    </div>
+    <a class="source" href="https://www.newsis.com/view/NISX20261104_0003855083">뉴시스 — 윤석열 선거법 항소심</a>
+    <span class="ref-note">뉴시스(11/4 17:33 입력, 18:26 수정) · <strong>단일 매체</strong> (확인 2026-11-05)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">윤석열 선거법 2심도 유죄,<br>집유 3년 유지</p>
+      <p class="cn-s">서울고법이 징역 1년 6개월, 집행유예 3년이라는 1심을 유지했어요. 윤 전 대통령 측은 상고하겠다고 밝혔고, 확정되면 국민의힘은 397억 원을 돌려줘야 해요.</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="징역 18개월 막대와 집행유예 36개월 막대">
+        <text class="cn-small" x="40" y="42">징역 1년 6개월</text><rect class="cn-on" x="40" y="52" width="150" height="28" rx="4"/>
+        <text class="cn-small" x="40" y="122">집행유예 3년</text><rect class="cn-off" x="40" y="132" width="300" height="28" rx="4"/>
+        <text class="cn-dim" x="40" y="195">1심 형량 유지 · 상고 예정</text>
+      </svg>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Industry — 한진칼</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">權</span>
+    <div class="card-top"><span class="topic">산업 · 경영권</span></div>
+    <h2>한진칼 최대주주 호반으로 — 20.69% 대 20.58%, 조원태 측 12월까지 추가 매수 계획</h2>
+    <div class="summary">
+      <p>한진칼 최대주주가 호반그룹으로 바뀌었다. 호반 측 지분이 <strong>20.69%</strong>로 조원태 회장 측 <strong>20.58%</strong>를 앞섰고, 호반산업 지분이 0.54%p 늘었다(뉴스1). 조 회장은 12월까지 32만 5천 주를 사들일 계획이라 다시 뒤집힐 수 있다.</p>
+          </div>
+    <ul class="spec">
+      <li><span class="k">지분</span><span>호반그룹 20.69% · 조원태 회장 측 20.58%(차 0.11%p, 계산값)</span></li>
+      <li><span class="k">변동</span><span>호반산업 지분 0.54%p 증가</span></li>
+      <li><span class="k">대응</span><span>조 회장 12월까지 32만 5천 주 매수 계획</span></li>
+      <li><span class="k">확인 한계</span><span>뉴스1 단일 ⚠ 우선주 주가·산업은행 변수는 본문 근거를 확인하지 못해 싣지 않음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>격차가 0.11%p에 불과해 한 번의 매수로도 순위가 바뀔 수 있다. 경영권 분쟁은 주가 변동이 크므로 이 카드는 투자 권유가 아니다.</p>
+    </div>
+    <a class="source" href="https://www.news1.kr/industry/general-industry/6343360">뉴스1 — 한진칼 최대주주 변경</a>
+    <span class="ref-note">뉴스1(11/4 19:23 업데이트) · <strong>단일 매체</strong> · 0.11%p는 20.69−20.58 계산값 (확인 2026-11-05)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">한진칼 최대주주가<br>호반으로 바뀌었어요</p>
+      <p class="cn-s">호반 측 지분이 20.69%로 조원태 회장 측 20.58%를 앞섰어요. 조 회장은 12월까지 주식을 더 살 계획이라 다시 뒤집힐 수 있어요.</p>
+      <p class="cn-num">0.11%p|호반과 조원태 측의 지분 격차</p>
+      <svg class="cn-v" viewBox="0 0 400 220" role="img" aria-label="호반 20.69퍼센트 대 조원태 측 20.58퍼센트">
+        <text class="cn-small" x="40" y="42">호반그룹</text><rect class="cn-on" x="40" y="52" width="248.3" height="28" rx="4"/><text class="cn-big" x="298" y="73">20.69%</text>
+        <text class="cn-small" x="40" y="122">조원태 회장 측</text><rect class="cn-off" x="40" y="132" width="247.0" height="28" rx="4"/><text class="cn-big" x="298" y="153">20.58%</text>
+        <text class="cn-dim" x="40" y="195">격차 0.11%p</text>
+      </svg>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Finance — 홍콩ELS</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">罰</span>
+    <div class="card-top"><span class="topic">금융 · 제재 확정</span></div>
+    <h2>홍콩ELS 판매 제재 확정 — 제재 총액 3,746억 원, 출범 후 최대</h2>
+    <div class="summary">
+      <p>홍콩 H지수 ELS 불완전판매 제재가 확정됐다. 증권사를 포함한 제재 총액은 <strong>3,746억 3,200만 원</strong>으로 출범 후 최대다(뉴스1). 은행 7곳의 과징금이 <strong>3,619억 6,000만 원</strong>이다.</p>
+      <p>제재까지 3년이 걸렸고, 행정소송 가능성이 남아 있다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">총액</span><span>증권사 포함 제재 총액 3,746억 3,200만 원 · 출범 후 최대</span></li>
+      <li><span class="k">은행</span><span>7곳 과징금 3,619억 6,000만 원</span></li>
+      <li><span class="k">경과</span><span>제재까지 3년 · 행정소송 가능성 남음</span></li>
+      <li><span class="k">확인 한계</span><span>뉴스1 단일 ⚠ 은행별 금액과 투자자 배상 비율은 기사에 없어 싣지 않음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>금융상품은 수익률보다 손실 구조를 먼저 설명해야 한다는 점이 제재 규모로 드러났다. 가입 전 원금 손실 조건을 확인하는 습관이 가장 현실적인 대비다.</p>
+    </div>
+    <a class="source" href="https://news1.kr/finance/general-finance/6342752">뉴스1 — 홍콩ELS 제재 확정</a>
+    <span class="ref-note">뉴스1(11/4 16:42 업데이트) · <strong>단일 매체</strong> (확인 2026-11-05)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">홍콩ELS 제재 3,746억,<br>출범 후 최대</p>
+      <p class="cn-s">증권사까지 합친 제재 총액이 3,746억 원이에요. 은행 7곳 과징금만 3,619억 원이고, 제재까지 3년이 걸렸으며 행정소송 가능성이 남아 있어요.</p>
+      <p class="cn-num">3,746억 원|홍콩ELS 제재 총액</p>
+      <p class="cn-img">A heavy brass balance scale holding a stack of paper contracts on one side and gold coins on the other, flat illustration, no text, no logos</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Life — 입동 한파</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">冬</span>
+    <div class="card-top"><span class="topic">생활 · 날씨</span></div>
+    <h2>입동 7일 아침 영하권 — 6일 찬 북서풍에 기온 5~8도 하락</h2>
+    <div class="summary">
+      <p>5일 전국 대부분 지역에 내린 비는 오후에 그칠 듯하고, 6일 찬 북서풍에 기온이 <strong>5~8도</strong> 떨어질 전망이다(뉴스1). 입동인 7일 아침에는 수도권과 강원 내륙이 영하권으로 내려갈 수 있다.</p>
+      <p>옷차림을 한 단계 두껍게 바꾸고, 주말 야외 일정이라면 출발 전 기상청 예보를 확인하는 편이 좋다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">5일</span><span>전국 대부분 지역 비, 오후에 그칠 듯</span></li>
+      <li><span class="k">기온 변화</span><span>6일 찬 북서풍에 5~8도 하락</span></li>
+            <li><span class="k">7일(입동)</span><span>아침 수도권·강원 내륙 영하권 가능</span></li>
+      <li><span class="k">확인 한계</span><span>뉴스1 단일 ⚠ 서울의 구체적 최저·최고기온은 확인하지 못해 싣지 않음 · 예보는 바뀔 수 있음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>기온이 한 번에 크게 꺾이는 시기에는 방한용품 수요가 먼저 움직인다. 지금은 예보가 바뀔 수 있어, 구매보다 일정 확인이 먼저다.</p>
+    </div>
+    <a class="source" href="https://news1.kr/society/weather-disaster/6343287">뉴스1 — 입동 한파 예보</a>
+    <span class="ref-note">뉴스1(11/4 18:00) · <strong>단일 매체</strong> (확인 2026-11-05)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">입동 7일 아침 영하권,<br>기온 5~8도 떨어져요</p>
+      <p class="cn-s">5일 내린 비가 오후에 그치고, 6일 찬 북서풍에 기온이 5~8도 떨어져요. 입동인 7일 아침엔 수도권과 강원 내륙이 영하권일 수 있어요.</p>
+      <p class="cn-num">최대 8도|비 그친 뒤 떨어지는 기온 폭</p>
+      <p class="cn-img">A quiet Korean street in early winter morning with frost on parked bicycles and breath mist in cold air, soft blue light, flat illustration, no text, no logos</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 마케팅 인사이트 → 디자인 렌더링 → 검토<br>
+    큐레이션: 11/4 브리프(이스라엘 지원·항공 위협·한학자·래블업·청소년 SNS·출국심사)와 겹치지 않는 새 전개만 포함 · 정치·재판 카드는 '맥락 읽기' 라벨. 서울 기온 기사를 확인하지 못해 날씨 한 줄은 넣지 않았습니다.<br>
+    📊 도표: 형량·지분처럼 단순 비교가 있는 카드만 막대로, 나머지는 단일 시점 수치라 카드 숫자만 사용했습니다.<br>
+    모든 수치는 보도 기준이며 변동될 수 있습니다.
+    <!-- tracker: 2026-11-05
+         [추적 중인 스토리 현재 상태]
+         미 중간선거: 민주당 상·하원 동시 탈환(뉴스1), 하원 민주 최소 228석 추정(뉴시스), 존슨 대표직 안 맡음, 공화 지도부 투표 11/10. 트럼프 "이란전쟁 휘발유값이 패인일 듯"(YTN). 상원 최종 의석 미확인.
+         코스피 11/4 5,683.80(+0.62%). 뉴욕 장중 급등·ADP 8.6만·12월 인상 확률 79.2%, 공식 고용보고서 11/6.
+         윤석열 선거법 2심 유죄 유지(징역 1년6개월·집유 3년), 상고 예정, 확정 시 397억 반환.
+         한진칼 최대주주 호반 20.69% vs 조원태 20.58%, 조 회장 12월까지 32만 5천 주 매수 계획.
+         홍콩ELS 제재 3,746억 확정, 행정소송 가능성.
+         입동 한파: 7일 아침 수도권·강원 내륙 영하권 가능.
+         [기존 추적 유지 — 새 전개 미반영] 트럼프 이스라엘 군사지원 중단 예고 · 유럽 항공 폭탄 위협 · 한학자 보석 취소 · 청소년 SNS 제한 · 조희대 탄핵 · 내년 예산안(12/2).
+         [오늘 다룬 항목] ①중간선거 ②코스피 ③뉴욕·ADP ④윤석열 2심 ⑤한진칼 ⑥홍콩ELS ⑦입동 한파
+         [제외] 세브란스 흉기 난동(사건·사고) · 조작기소 특검법 법사위 통과(정치 편중) · 삼성바이오로직스 노조 2차 파업 · KBO 한국시리즈 2차전(스포츠 계정 몫) · 조희대 탄핵 당일 전개(본문 미확인)
+         [날씨] 서울 기온 기사 본문 미확인 → 날씨 한 줄·원고 날씨 문단 생략.
+         [reel-scores] 목요일 06:00 루틴은 인스타 요청 파일을 건드리지 않음(09:30 서브 플러스 담당).
+         [리서치 도구] mcp__Firecrawl__* 호출 0회.
+    -->
+  </footer>
+
+</div></body>
+</html>
