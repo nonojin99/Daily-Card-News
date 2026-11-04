@@ -213,6 +213,20 @@
    "status": "published",
    "result": "18119530313106120",
    "posted_kst": "2026-11-04 20:53"
+  },
+  {
+   "id": "kbo:20261104SSKT0",
+   "kind": "game",
+   "mp4": "reels/sports/2026-11/2026-11-04_kbo-20261104-0.mp4",
+   "caption": "reels/sports/2026-11/2026-11-04_kbo-20261104-0.txt",
+   "score": 75,
+   "why": [
+    "KBO",
+    "결승급"
+   ],
+   "seconds": 5.5,
+   "made_kst": "2026-11-04 23:07",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -671,6 +685,16 @@
    "sport": "lol",
    "title": "IG 3:1 TES",
    "at": "2026-11-04 12:09"
+  },
+  "kbo:20261104SSKT0": {
+   "score": 75,
+   "why": [
+    "KBO",
+    "결승급"
+   ],
+   "sport": "kbo",
+   "title": "삼성 3:2 KT",
+   "at": "2026-11-04 23:06"
   }
  },
  "last_post": 1793793213.0129974,
