@@ -1467,5 +1467,42 @@
    "ig_reels_video_view_total_time": 245661,
    "reels_skip_rate": 86.4
   }
+ },
+ "sports:18080073302436399": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-03T01:17:59+0000",
+  "snapshot_utc": "2026-11-04T06:02:41Z",
+  "age_h": 28.7,
+  "first_line": "[⚽ 축구 모닝 · 챔스 프리뷰] 이강인 vs 김민재, 수 새벽 5시 · 한국 선수 4명 일정",
+  "metrics": {
+   "views": 120,
+   "reach": 108,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2796,
+   "ig_reels_video_view_total_time": 302001,
+   "reels_skip_rate": 71.7
+  }
+ },
+ "sports:18095014241692486": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-02T23:57:13+0000",
+  "snapshot_utc": "2026-11-04T06:02:41Z",
+  "age_h": 30.1,
+  "first_line": "[⚽ 축구 모닝 · 챔스 프리뷰] 이강인 vs 김민재, 수 새벽 5시 아틀레티코–바이에른",
+  "metrics": {
+   "views": 3,
+   "reach": 1,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
