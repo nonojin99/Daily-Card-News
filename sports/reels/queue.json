@@ -445,6 +445,54 @@
    "sport": "uefa.europa",
    "title": "본머스 3:1 Sparta",
    "at": "2026-11-06 05:44"
+  },
+  "uefa.europa:401915533": {
+   "score": 10,
+   "why": [
+    "빅클럽"
+   ],
+   "sport": "uefa.europa",
+   "title": "마르세유 1:0 레버쿠젠",
+   "at": "2026-11-06 06:58"
+  },
+  "uefa.europa:401915525": {
+   "score": 0,
+   "why": [],
+   "sport": "uefa.europa",
+   "title": "Lech Poznan 1:3 벤피카",
+   "at": "2026-11-06 06:58"
+  },
+  "uefa.europa:401915531": {
+   "score": 0,
+   "why": [],
+   "sport": "uefa.europa",
+   "title": "Union SG 2:1 셀타 비고",
+   "at": "2026-11-06 06:58"
+  },
+  "uefa.europa:401915522": {
+   "score": 10,
+   "why": [
+    "5골+"
+   ],
+   "sport": "uefa.europa",
+   "title": "베식타시 2:3 셀틱",
+   "at": "2026-11-06 06:58"
+  },
+  "uefa.europa:401915524": {
+   "score": 10,
+   "why": [
+    "5골+"
+   ],
+   "sport": "uefa.europa",
+   "title": "NK Celje 3:2 Sturm Graz",
+   "at": "2026-11-06 06:58"
+  },
+  "uefa.europa:401915523": {
+   "score": 0,
+   "why": [],
+   "sport": "uefa.europa",
+   "title": "Dinamo Zagreb 2:0 선덜랜드",
+   "at": "2026-11-06 06:58"
   }
  },
  "last_post": 1793839746.0300784,
