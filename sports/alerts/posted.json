@@ -1468,6 +1468,21 @@
    "status": "published",
    "at_kst": "2026-11-06 06:56",
    "result": "18098039882148955"
+  },
+  "uefa.europa:401915529": {
+   "image": "sports/alerts/2026-11/2026-11-05_uefa-europa_0703.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-06 07:03"
+  },
+  "uefa.europa:401915532": {
+   "image": "sports/alerts/2026-11/2026-11-05_uefa-europa_0703.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-06 07:03"
+  },
+  "uefa.europa:401915530": {
+   "image": "sports/alerts/2026-11/2026-11-05_uefa-europa_0703.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-06 07:03"
   }
  },
  "boards": {
