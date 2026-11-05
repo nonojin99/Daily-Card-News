@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.11.06">
+<meta property="og:description" content="코스피 5.28% 급락 5,383.80 · 나스닥 조정장 · 쿠팡 과징금 집행정지 기각 · 윤석열 내란 2심 선고 1월 26일 · 가상자산 과세 2029년 유예">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.11.06</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+  /* ── 서울 날씨 한 줄 (2026-10-11 도입) ── */
+  .weather{margin:14px 0 0;padding:9px 14px;border-radius:10px;background:var(--accent-soft);font-size:14px;color:var(--ink);line-height:1.6}
+  .weather .wx-note{display:inline-block;margin-left:6px;font-size:11.5px;color:var(--faint)}
+  .weather .wx-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>코스피 5.28% 급락 5,383.80, 쿠팡 과징금 집행정지 기각</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 6일 금요일</span>
+      <span class="count">6 Picks · 분야별</span>
+    </div>
+    <p class="weather">🌬 서울 · 최저 3° 최고 9° · 전국 강풍 가능 <span class="wx-note">⚠ 변동 가능 · <a href="https://www.newsis.com/view/NISX20261105_0003857087">뉴시스 11/6 00:00</a></span></p>
+    <p class="lede">코스피가 하루 새 5.28% 급락해 5,383.80으로 마감했고 코스피·코스닥 모두 매도 사이드카가 발동됐습니다. 뉴욕에서는 나스닥이 장중 조정장에 들어섰고, 오늘 밤 미 10월 고용보고서가 나옵니다. 법원은 쿠팡의 개인정보 과징금 집행정지를 기각했고, 윤석열 전 대통령의 내란 우두머리 항소심 선고는 내년 1월 26일로 잡혔습니다. 가상자산 과세는 2029년까지 또 미뤄질 전망입니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 6일 금요일, 데일리 브리프입니다. 오늘은 여섯 가지 소식을 전해 드립니다.</p>
+    <p>코스피가 하루 만에 5.28퍼센트 급락해 5,383.80으로 마감했습니다. 코스피와 코스닥 모두 매도 사이드카가 발동됐고, 삼성전자는 약 7퍼센트 떨어졌습니다. 미국 중간선거에서 민주당이 압승한 뒤 AI 데이터센터 규제 우려가 커진 것이 원인으로 꼽힙니다. 코스닥도 5.11퍼센트 내렸고, 원달러 환율은 1,342원대였습니다. 외국인은 3조 원대를 순매도했는데 금액은 매체마다 조금씩 다릅니다. 개인은 2조 7천억 원 가까이, 기관은 9,300억 원을 순매수했습니다. 증권가는 단기 이슈로 보는 시각이 많고, 한 증권사는 고대역폭메모리 수요가 장기계약으로 안정적이라고 평가했습니다.</p>
+    <p>뉴욕 증시에서는 나스닥이 최고 종가보다 10퍼센트 넘게 빠지며 조정장에 들어섰습니다. 장중 한때 낙폭은 3.9퍼센트였고, 모두 마감 기준이 아닙니다. 미국 10월 고용보고서가 오늘 발표됩니다.</p>
+    <p>법원이 쿠팡의 개인정보 과징금 집행정지 신청을 기각했습니다. 합계 6,200억 원대 과징금 효력이 유지되고, 이 가운데 유출 관련이 4,200억 원대입니다. 시정명령과 공표명령은 본안 선고 뒤 30일까지 멈춥니다. 재판부는 손해가 금전 보상으로 회복 가능해 보인다고 봤습니다. 쿠팡은 현금을 거의 다 써야 한다고 주장했고, 개인정보위는 현금성 자산이 2조 6천억 원을 넘고 24개월 분할 납부라고 맞섰습니다. 뉴시스 보도입니다.</p>
+    <p>윤석열 전 대통령의 내란 우두머리 혐의 항소심 선고일이 내년 1월 26일로 정해졌습니다. 1심은 무기징역이었고, 계획이 언제 시작됐는지가 쟁점입니다. 특검은 노상원 수첩을 근거로 최소 1년 전부터라고 보고, 1심은 계엄 2일 전 결정으로 봤습니다. 윤 전 대통령은 계엄이 호소형이고 헌법상 대통령 권한이라고 주장합니다. 와이티엔 보도입니다.</p>
+    <p>조작기소 특검법을 둘러싼 국회 필리버스터가 밤 11시 기준 약 7시간째 이어졌습니다. 민주당이 토론 종결 동의안을 냈고, 오늘 종결 표결이 예상됩니다. 법안은 조사 대상이 최대 309명, 기간은 최대 200일이며, 공소취소 조항은 삭제됐습니다. 표결 결과는 확인되지 않았습니다. 뉴스1 보도입니다.</p>
+    <p>정부가 가상자산 과세를 2029년까지 2년 더 미루는 방안을 추진합니다. 미국이 2029년에 정보교환에 참여하기 때문입니다. 과세 설계는 기타소득, 연 250만 원 공제, 20퍼센트 분리과세입니다. 확정은 아니고 국회 협의가 필요합니다. 한국경제와 뉴스1 보도입니다.</p>
+    <p>끝으로 오늘 서울 날씨입니다. 아침 최저 3도, 낮 최고 9도로 쌀쌀하고 바람이 강하게 불 수 있습니다. 서울 비 소식은 기사에 없습니다.</p>
+    <p>이상으로 오늘의 데일리 브리프를 마칩니다. 자세한 내용과 출처는 카드에서 확인하세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">Market — 코스피 급락</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">落</span>
+    <div class="card-top"><span class="topic">증시 · 코스피 마감</span></div>
+    <h2>코스피 5.28% 급락, 5,383.80 마감 — 코스피·코스닥 모두 매도 사이드카, 삼성전자 약 7% 하락</h2>
+    <div class="summary">
+      <p>코스피는 5일 <strong>5,383.80</strong>에 마감해 하루 새 300.00포인트(-5.28%) 떨어졌다. 코스닥도 678.41로 36.54포인트(-5.11%) 내렸고, 두 시장 모두 매도 사이드카가 발동됐다(뉴시스).</p>
+      <p>한국경제는 미 중간선거에서 민주당이 압승한 뒤 AI 데이터센터 규제 우려가 커진 것을 원인으로 짚었다. 당선·선두 주지사 후보 36명 중 34명이 데이터센터 규제에 하나 이상 찬성한다는 The Information 집계를 인용했다. 증권가는 단기 이슈로 본다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">지수</span><span>코스피 5,383.80(-300.00p, -5.28%) · 코스닥 678.41(-36.54p, -5.11%) · 원/달러 1,342.1원(+0.6원)(뉴시스)</span></li>
+      <li><span class="k">수급(코스피)</span><span>외국인 순매도 3.83조 원 · 개인 순매수 2.69조 원 · 기관 순매수 9,300억 원(한국경제)</span></li>
+      <li><span class="k">종목</span><span>삼성전자 약 -7%(장중 20만 원 아래) · SK하이닉스 약 -9.5%(뉴스1)</span></li>
+      <li><span class="k">증권가 해석</span><span>삼성증권은 세제 혜택 축소·비용 상승 쪽을 예상 · 미래에셋은 HBM 수요가 장기계약으로 안정적이라고 평가(한국경제)</span></li>
+      <li><span class="k">확인 한계</span><span>외국인 순매도액은 매체별로 다름(뉴스1 약 3.39조 원 · 한국경제 코스피 3.83조 원) ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>하루 5%대 낙폭이 나온 날에는 "왜"가 한 줄로 정리된다. 선거 결과가 곧바로 AI 반도체 기대에 연결된 사례라, 정책 변수가 업종 가격에 얼마나 빨리 반영되는지 보여 준다. 이 카드는 투자 권유가 아니다.</p>
+    </div>
+    <a class="source" href="https://www.newsis.com/view/NISX20261105_0003856623">뉴시스 — 지수·사이드카·환율</a>  <a class="source" href="https://www.hankyung.com/article/2026110586056">한국경제 — 수급·원인</a>  <a class="source" href="https://www.news1.kr/finance/market-exr/6344503">뉴스1 — 외국인·종목</a>
+    <span class="ref-note">뉴시스(11/5 15:33)·한국경제(11/5 15:35)·뉴스1(11/5 16:12) · 5,383.80과 -5.28%는 세 매체 일치 (확인 2026-11-06)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">코스피 5.28% 급락,<br>5,383.80 마감</p>
+      <p class="cn-s">미 중간선거 뒤 AI 데이터센터 규제 우려가 커지며 코스피와 코스닥 모두 매도 사이드카가 발동됐어요. 삼성전자는 약 7% 떨어졌어요.</p>
+      <p class="cn-num">-5.28%|코스피 하루 하락률</p>
+      <p class="cn-img">A tall glowing bar chart column of a stock screen collapsing downward in a dark blue trading room, flat illustration, no text, no logos</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">World — 뉴욕증시</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">嵐</span>
+    <div class="card-top"><span class="topic">증시 · 뉴욕 장중</span></div>
+    <h2>나스닥 조정장 진입, 장중 -3.94% — 데이터센터 규제 공포, 6일 미 고용보고서</h2>
+    <div class="summary">
+      <p>한국경제에 따르면 미 동부 5일 오전 10시 20분 기준 나스닥은 3.94% 내린 24,723.78로, 직전 사상 최고 종가보다 10% 넘게 빠져 조정장에 들어섰다. 같은 시각 S&P500은 약 1.9%, 다우는 489포인트(약 0.9%) 내렸다.</p>
+      <p>CNBC는 동부 오후 3시 6분 발행 기사에서 나스닥이 약 4.5%, S&P500이 약 4% 하락했다고 전했고, 12월 금리 인상 확률이 83%에서 66%로 낮아졌다고 적었다. <strong>모두 장중 수치로 마감값이 아니다.</strong> 미 10월 고용보고서는 6일 발표되며 시장 전망은 비농업 +6.5만 명, 실업률 4.2%다(CNBC).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">나스닥</span><span>동부 오전 10:20 기준 -3.94%(24,723.78) · 최고 종가 대비 10% 이상 하락(한국경제)</span></li>
+      <li><span class="k">S&P500·다우</span><span>S&P500 약 -1.9% · 다우 -489p(한국경제)</span></li>
+      <li><span class="k">CNBC(15:06 발행)</span><span>나스닥 약 -4.5% · S&P500 약 -4% · 12월 인상 확률 83%→66%</span></li>
+      <li><span class="k">6일 일정</span><span>미 10월 고용보고서 6일 발표 예정(발표 시각 미확인) · 전망 +6.5만 명 · 실업률 4.2%(CNBC)</span></li>
+      <li><span class="k">확인 한계</span><span>5일 미국 정규장 마감값은 확인하지 못함 · 시점별 낙폭이 달라 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>같은 날이라도 시점에 따라 낙폭이 -3.9%에서 -4.5%로 달랐다. 장중 수치를 마감처럼 인용하면 틀리므로 기준 시각을 함께 적는 것이 안전하다. 이 카드는 투자 권유가 아니다.</p>
+    </div>
+    <a class="source" href="https://www.hankyung.com/article/202611069553i">한국경제 — 나스닥 조정장</a>  <a class="source" href="https://cnbc.com/investingclub/2026/11/05/how-wall-streets-postelection-rally-got-obliterated-and-whats-next.html">CNBC — 선거 뒤 랠리 소멸·고용보고서</a>
+    <span class="ref-note">한국경제(11/6 00:29)·CNBC(11/5 오후 3:06 동부) · 마감값 아님 (확인 2026-11-06)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">나스닥 조정장,<br>장중 3.94% 하락</p>
+      <p class="cn-s">최고 종가보다 10% 넘게 빠졌어요. 모두 장중 수치라 마감 기준이 아니에요. 오늘은 미국 10월 고용보고서도 나와서 시장이 숨죽이고 있어요.</p>
+      <p class="cn-num">10% 넘게|최고 종가 대비 하락(나스닥)</p>
+      <p class="cn-img">A glowing neon data center building with a downward red arrow shaped cloud above it at dusk, flat illustration, no text, no logos</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Society — 쿠팡 과징금</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">罰</span>
+    <div class="card-top"><span class="topic">사회 · 개인정보 과징금</span></div>
+    <h2>법원, 쿠팡 개인정보 과징금 집행정지 기각 — 총 6,200억 원대 부과 효력 유지, 시정·공표명령은 정지</h2>
+    <div class="summary">
+      <p>서울행정법원 행정4부는 5일 쿠팡이 낸 과징금 부과 집행정지 신청을 기각했다. 개인정보보호위원회가 쿠팡과 쿠팡풀필먼트서비스에 부과한 과징금은 합계 6,249억 원이고, 이 중 유출 관련이 4,235억 원이다(뉴시스).</p>
+      <p>재판부는 손해가 금전 보상으로 원상회복이 가능해 보이고, 회복할 수 없는 손해나 긴급한 필요가 소명되지 않았다고 봤다. 시정명령·공표명령 집행정지는 받아들여져 본안 선고 뒤 30일까지 효력이 멈춘다. 쿠팡은 심문에서 현금을 거의 다 써야 한다고 주장했고, 개인정보위는 2.6조 원 넘는 현금성 자산과 24개월 분할 납부를 들어 맞섰다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">결정</span><span>집행정지 신청 기각(과징금) · 시정·공표명령은 인용 — 본안 선고 뒤 30일까지</span></li>
+      <li><span class="k">과징금</span><span>합계 약 6,249억 원 · 유출 관련 약 4,235억 원</span></li>
+      <li><span class="k">기각 이유</span><span>손해는 금전 보상으로 회복 가능해 보임 · 회복 불가 손해·긴급성 소명 부족</span></li>
+      <li><span class="k">양측 주장</span><span>쿠팡: 현금을 거의 다 써야 함 · 개인정보위: 현금성 자산 2.6조 원 넘음, 24개월 분할</span></li>
+      <li><span class="k">확인 한계</span><span>뉴시스 단일 보도 · 본안 소송은 계속 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>제목의 "효력 유지"는 집행정지를 받아들였다는 뜻이 아니라 기각이라는 뜻이다. 본안 판단은 따로 남아 있어 최종 결론은 아니다.</p>
+    </div>
+    <a class="source" href="https://www.newsis.com/view/NISX20261105_0003857003">뉴시스 — 쿠팡 집행정지 기각</a>
+    <span class="ref-note">뉴시스(11/5 18:37) · <strong>단일 매체</strong> · 합계 6,249억 원을 "6,200억 원대"로 줄여 표기 (확인 2026-11-06)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">쿠팡 과징금 효력 유지,<br>집행정지 기각</p>
+      <p class="cn-s">법원이 쿠팡의 과징금 집행정지 신청을 받아들이지 않았어요. 합계 6,200억 원대 과징금 효력은 유지돼요. 시정·공표명령은 본안 뒤 30일까지 멈춰요.</p>
+      <p class="cn-num">6,200억대|과징금 합계</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Politics — 내란 재판</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">裁</span>
+    <div class="card-top"><span class="topic">정치 · 재판 일정</span></div>
+    <h2>윤석열 내란 우두머리 항소심 선고 2027년 1월 26일 — 계획 시점이 쟁점</h2>
+    <div class="summary">
+      <p>윤석열 전 대통령의 내란 우두머리 혐의 항소심 선고일이 <strong>2027년 1월 26일</strong>로 정해졌다. 1심은 무기징역이었고, YTN은 특검이 사형을 구형했다고 전했다.</p>
+      <p>윤 전 대통령은 계엄이 "호소형"이며 헌법상 대통령 권한이라고 주장했다. 쟁점은 계획이 언제 시작됐느냐다. 특검은 노상원 수첩을 근거로 최소 1년 전부터라고 보고, 1심은 계엄 2일 전 결정으로 봤다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">선고일</span><span>2027년 1월 26일(YTN)</span></li>
+      <li><span class="k">1심</span><span>무기징역</span></li>
+      <li><span class="k">특검</span><span>사형 구형(YTN) · 계획은 최소 1년 전부터, 노상원 수첩 근거</span></li>
+      <li><span class="k">피고인 주장</span><span>계엄은 "호소형"·헌법상 대통령 권한</span></li>
+      <li><span class="k">확인 한계</span><span>1심 선고일·항소심 재판부는 기사에 없음 · 사형 구형 시점은 YTN 문장이 모호해 단정하지 않음 ⚠ 일정 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>선고일이 정해졌을 뿐 결론이 나온 것은 아니다. 양측의 주장은 각자의 입장이며, 계획 시점에 대한 법원 판단이 항소심의 핵심 대목이다.</p>
+    </div>
+    <a class="source" href="https://www.ytn.co.kr/_ln/0103_202611052202117253">YTN — 항소심 선고일</a>
+    <span class="ref-note">YTN(11/5 22:02) · 뉴시스 속보 제목으로 선고일만 교차 확인 · <strong>본문 단일</strong> (확인 2026-11-06)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">윤석열 내란 2심,<br>선고는 1월 26일</p>
+      <p class="cn-s">내란 우두머리 항소심 선고일이 2027년 1월 26일로 정해졌어요. 1심은 무기징역이었어요. 계획이 언제 시작됐는지가 쟁점이에요.</p>
+      <p class="cn-when" data-label="선고일">2027년 1월 26일</p>
+      <p class="cn-note">1심 무기징역 / 계획 시점이 쟁점</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Politics — 국회</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">議</span>
+    <div class="card-top"><span class="topic">정치 · 국회 본회의</span></div>
+    <h2>조작기소 특검법 필리버스터 약 7시간째 — 민주당 종결 동의안, 6일 표결 전망</h2>
+    <div class="summary">
+      <p>5일 국회 본회의에 상정된 조작기소 특검법을 두고 국민의힘 박형수 의원이 필리버스터에 나서 밤 11시 기준 약 7시간째 이어졌다. 박 의원은 "대통령 구하기 위한 위헌 법안"이라고 주장했다(뉴스1).</p>
+      <p>민주당은 토론 종결 동의안을 냈고 6일 종결 표결 뒤 법안을 처리할 계획이다. 법안은 검찰·국정원·감사원의 윤석열 정부 조작수사·조작기소를 조사하며, 대상은 최대 309명, 기간은 최대 200일이다. 공소취소 조항은 삭제됐다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">상황</span><span>5일 본회의 상정 · 필리버스터 밤 11시 기준 약 7시간(뉴스1)</span></li>
+      <li><span class="k">일정</span><span>민주당 종결 동의안 제출 · 6일 종결 표결 예상 · 이후 법안 처리 계획</span></li>
+      <li><span class="k">내용</span><span>조사 대상 최대 309명 · 기간 최대 200일 · 공소취소 조항 삭제</span></li>
+      <li><span class="k">쟁점</span><span>국민의힘: 위헌 법안 · 민주당: 조작수사 규명</span></li>
+      <li><span class="k">확인 한계</span><span>표결 결과는 이 브리프 작성 시점에 미확인 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>법안의 찬반은 여야 입장이 갈리는 대목이라, 카드는 일정과 법안 내용만 전한다. 표결 결과는 6일 중 나오므로 앱 밖에서 한 번 더 확인하는 것이 좋다.</p>
+    </div>
+    <a class="source" href="https://www.news1.kr/politics/assembly/6344900">뉴스1 — 필리버스터·종결 표결</a>  <a class="source" href="https://www.ytn.co.kr/_ln/0101_202611060002195972">YTN — 필리버스터 대치(제목)</a>
+    <span class="ref-note">뉴스1(11/5 23:00)·YTN(11/6 00:02, 제목 수준 확인) · 법안 내용은 뉴스1 본문 (확인 2026-11-06)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">조작기소 특검법,<br>필리버스터 약 7시간째</p>
+      <p class="cn-s">국민의힘 필리버스터가 밤새 이어졌고, 민주당은 종결 동의안을 냈어요. 6일 종결 표결이 예상돼요. 조사 대상은 최대 309명, 기간은 최대 200일이에요.</p>
+      <p class="cn-num">309명|조사 대상 최대(기간 최대 200일)</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Economy — 가상자산 과세</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">稅</span>
+    <div class="card-top"><span class="topic">경제 · 가상자산 과세</span></div>
+    <h2>가상자산 과세 2029년까지 2년 또 유예 추진 — 시행 연기 네 번째, 미국은 2029년 정보교환 참여</h2>
+    <div class="summary">
+      <p>정부가 가상자산 양도·대여 소득 과세를 2027년에서 <strong>2029년</strong>으로 2년 더 미루는 방안을 추진한다(한국경제·뉴스1). 한국경제는 이번이 네 번째 유예라고 전했다.</p>
+      <p>이유는 미국이 2029년에 가상자산 정보교환에 참여해 미국 거래소 이용자 정보를 얻기 어렵고, 국내 거래소 이용자만 과세될 수 있다는 공정성 문제가 있어서다. 과세 설계는 기타소득, 연 250만 원 공제, 20% 분리과세이며 유예 2년간 손실 이월공제 3년은 국회와 협의하기로 했다. 국회 협의가 필요하다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">유예</span><span>2027년 → 2029년 · 국회 협의 필요(한국경제·뉴스1)</span></li>
+      <li><span class="k">사유</span><span>미국 2029년 정보교환 참여 · 국내 이용자만 과세되는 공정성 문제</span></li>
+      <li><span class="k">과세 설계</span><span>기타소득 · 연 250만 원 공제 · 20% 분리과세(한국경제)</span></li>
+      <li><span class="k">손실 이월</span><span>유예 2년간 3년 이월공제를 국회와 협의</span></li>
+      <li><span class="k">확인 한계</span><span>"네 번째"와 세율·공제액은 한국경제에만 있음 · 뉴스1은 "추진"으로 확정 아님 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>과세 시점이 거듭 밀리면서 투자자는 규칙을 알고 대비하기 어렵다. 확정이 아닌 "추진" 단계이므로, 국회 협의 결과를 보고 판단하는 편이 안전하다. 이 카드는 투자 권유가 아니다.</p>
+    </div>
+    <a class="source" href="https://www.hankyung.com/article/2026110590561">한국경제 — 유예 사유·과세 설계</a>  <a class="source" href="https://www.news1.kr/economy/trend/6344094">뉴스1 — 2029년 유예 추진</a>
+    <span class="ref-note">한국경제(11/5 17:30, 11/6 02:04 갱신)·뉴스1(11/5 16:09 갱신) · 2029년·3년 이월공제는 두 매체 일치 (확인 2026-11-06)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">가상자산 과세,<br>2029년으로 또 유예</p>
+      <p class="cn-s">정부가 가상자산 과세를 2027년에서 2029년으로 2년 더 미루는 방안을 추진해요. 미국이 2029년에 정보교환에 참여하기 때문이에요.</p>
+      <p class="cn-num">2027→2029|가상자산 과세 시행 연기</p>
+      <p class="cn-img">A golden coin resting on a calendar page with a clock behind it on a soft green desk, flat illustration, no text, no logos</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 마케팅 인사이트 → 디자인 렌더링 → 검토<br>
+    큐레이션: 11/5 브리프(중간선거·코스피·뉴욕 ADP·선거법 2심·한진칼·홍콩ELS·입동 한파)와 겹치지 않는 새 전개만 포함 · 정치·재판 카드는 '맥락 읽기' 라벨. 미국장 수치는 모두 장중 기준입니다.<br>
+    📊 도표: 지수 하락률·건수처럼 단일 시점 수치라 카드 숫자만 사용했습니다.<br>
+    모든 수치는 보도 기준이며 변동될 수 있습니다.
+    <!-- tracker: 2026-11-06
+         [추적 중인 스토리 현재 상태]
+         코스피 11/5 5,383.80(-5.28%), 코스닥 678.41(-5.11%), 매도 사이드카. 원인 지목: 미 중간선거 뒤 AI 데이터센터 규제 우려. 나스닥 장중 -3.94%(조정장), 6일 밤 10:30 미 10월 고용보고서(전망 +6.5만·4.2%).
+         쿠팡 과징금 집행정지 기각(6,249억), 시정·공표명령은 정지. 본안 진행.
+         윤석열 내란 우두머리 2심 선고 2027-01-26. 조작기소 특검법 필리버스터 중, 6일 종결 표결 예상.
+         가상자산 과세 2029년 유예 추진(국회 협의 필요).
+         [기존 추적 유지 — 새 전개 미반영] 중간선거 결과 · 윤석열 선거법 2심 · 한진칼 · 홍콩ELS · 입동 한파 · 이스라엘 지원 중단 · 유럽 항공 폭탄 위협(11/5~6 25편 이상, 사건·사고라 제외) · 한학자 · 청소년 SNS.
+         [오늘 다룬 항목] ①코스피 급락 ②뉴욕 조정장·고용보고서 ③쿠팡 집행정지 기각 ④윤석열 내란 2심 선고일 ⑤조작기소 특검법 필리버스터 ⑥가상자산 과세 유예
+         [제외] 영란은행 금리 인상(보조) · 카카오 GPU 임차(단일·제목 수준) · 최태원 특강(수치 이상) · 니케 런처 악성코드(사건·사고) · 유럽 항공 위협 후속(사건·사고)
+         [날씨] 서울 최저 3 최고 9, 강풍 가능, 서울 비 언급 없음(뉴시스 11/6 00:00).
+         [reel-scores] 금요일 메인은 인스타 요청 없음(주말 뭐하지 캐러셀은 여행 브리프 몫).
+         [리서치 도구] mcp__Firecrawl__* 호출 0회.
+    -->
+  </footer>
+
+</div></body>
+</html>
