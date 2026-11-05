@@ -1598,5 +1598,42 @@
    "ig_reels_video_view_total_time": 297982,
    "reels_skip_rate": 67.6
   }
+ },
+ "main:17978371362171479": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-04T01:13:33+0000",
+  "snapshot_utc": "2026-11-05T02:17:21Z",
+  "age_h": 25.1,
+  "first_line": "[문화] 서울에서 세계 첫선 뮤지컬 워더링하이츠 · 안창홍 개인전 오늘 개막 · 최종면접 오늘 개봉 — 11월 4일 문화 브리프 6장",
+  "metrics": {
+   "views": 14,
+   "reach": 5,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 2
+  }
+ },
+ "sports:18125913208903225": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-03T22:05:18+0000",
+  "snapshot_utc": "2026-11-05T02:17:21Z",
+  "age_h": 28.2,
+  "first_line": "[⚽ 챔피언스리그] 바이에른 뮌헨 2:0 아틀레티코",
+  "metrics": {
+   "views": 136,
+   "reach": 113,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 3484,
+   "ig_reels_video_view_total_time": 407629,
+   "reels_skip_rate": 74.3
+  }
  }
 }
