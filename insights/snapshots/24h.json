@@ -1712,5 +1712,65 @@
    "ig_reels_video_view_total_time": 268094,
    "reels_skip_rate": 84.6
   }
+ },
+ "sports:18242504152318445": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-04T14:45:13+0000",
+  "snapshot_utc": "2026-11-05T18:40:54Z",
+  "age_h": 27.9,
+  "first_line": "[🏟 오늘 결과] 결과판 2장 한 번에",
+  "metrics": {
+   "views": 134,
+   "reach": 106,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 2,
+   "ig_reels_avg_watch_time": 3159,
+   "ig_reels_video_view_total_time": 334872,
+   "reels_skip_rate": 72.4
+  }
+ },
+ "sports:18109751771225745": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-04T14:10:08+0000",
+  "snapshot_utc": "2026-11-05T18:40:54Z",
+  "age_h": 28.5,
+  "first_line": "[⚾ KBO] 삼성 3:2 KT",
+  "metrics": {
+   "views": 142,
+   "reach": 113,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 2,
+   "ig_reels_avg_watch_time": 3367,
+   "ig_reels_video_view_total_time": 377187,
+   "reels_skip_rate": 73.2
+  }
+ },
+ "sports:18119530313106120": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-04T11:53:26+0000",
+  "snapshot_utc": "2026-11-05T18:40:54Z",
+  "age_h": 30.8,
+  "first_line": "[⚾ KBO] 한국시리즈 2차전 진행 중 — 삼성 1:1 KT",
+  "metrics": {
+   "views": 125,
+   "reach": 108,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1878,
+   "ig_reels_video_view_total_time": 201007,
+   "reels_skip_rate": 86
+  }
  }
 }
