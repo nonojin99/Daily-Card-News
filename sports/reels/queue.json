@@ -493,6 +493,31 @@
    "sport": "uefa.europa",
    "title": "Dinamo Zagreb 2:0 선덜랜드",
    "at": "2026-11-06 06:58"
+  },
+  "uefa.europa:401915529": {
+   "score": 10,
+   "why": [
+    "빅클럽"
+   ],
+   "sport": "uefa.europa",
+   "title": "유벤투스 2:1 AZ Alkmaar",
+   "at": "2026-11-06 07:09"
+  },
+  "uefa.europa:401915532": {
+   "score": 0,
+   "why": [],
+   "sport": "uefa.europa",
+   "title": "OFI Crete 2:0 Hapoel Be'er",
+   "at": "2026-11-06 07:09"
+  },
+  "uefa.europa:401915530": {
+   "score": 10,
+   "why": [
+    "5골+"
+   ],
+   "sport": "uefa.europa",
+   "title": "Ararat-Armenia 2:3 Torreense",
+   "at": "2026-11-06 07:09"
   }
  },
  "last_post": 1793839746.0300784,
