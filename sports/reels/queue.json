@@ -151,6 +151,21 @@
    "status": "published",
    "result": "18242504152318445",
    "posted_kst": "2026-11-04 23:45"
+  },
+  {
+   "id": "lol:115660540726095115",
+   "kind": "game",
+   "mp4": "reels/sports/2026-11/2026-11-05_lol-115660540726095115.mp4",
+   "caption": "reels/sports/2026-11/2026-11-05_lol-115660540726095115.txt",
+   "score": 95,
+   "why": [
+    "한국",
+    "포스트시즌",
+    "롤드컵"
+   ],
+   "seconds": 5.5,
+   "made_kst": "2026-11-05 09:45",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -454,6 +469,17 @@
    "sport": "uefa.champions",
    "title": "Sabah 1:4 Viking FK",
    "at": "2026-11-05 07:03"
+  },
+  "lol:115660540726095115": {
+   "score": 95,
+   "why": [
+    "한국",
+    "포스트시즌",
+    "롤드컵"
+   ],
+   "sport": "lol",
+   "title": "젠지 3:0 LYON",
+   "at": "2026-11-05 09:44"
   }
  },
  "last_post": 1793803520.4281244,
