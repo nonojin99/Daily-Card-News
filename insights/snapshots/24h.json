@@ -1635,5 +1635,82 @@
    "ig_reels_video_view_total_time": 407629,
    "reels_skip_rate": 74.3
   }
+ },
+ "main:18196012519399553": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-04T03:32:15+0000",
+  "snapshot_utc": "2026-11-05T08:02:38Z",
+  "age_h": 28.5,
+  "first_line": "[📺 OTT·게임] 재혼 황후 오늘 디즈니+ 공개 · 꿀알바 넷플릭스 국내 1위 · 젤다 시간의 오카리나 5일 — 11월 4일 OTT·게임·웹툰",
+  "metrics": {
+   "views": 12,
+   "reach": 3,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 2
+  }
+ },
+ "sports:18119174132053731": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-04T07:39:05+0000",
+  "snapshot_utc": "2026-11-05T08:02:38Z",
+  "age_h": 24.4,
+  "first_line": "[⚾ KBO] 한국시리즈 2차전 선발 — 삼성 페덱 vs KT 고영표",
+  "metrics": {
+   "views": 119,
+   "reach": 103,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 2416,
+   "ig_reels_video_view_total_time": 244065,
+   "reels_skip_rate": 80.2
+  }
+ },
+ "sports:18027761321938443": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-04T04:39:12+0000",
+  "snapshot_utc": "2026-11-05T08:02:38Z",
+  "age_h": 27.4,
+  "first_line": "[⚽ 축구 모닝] 바이에른 8위로 · 아틀레티코 22위로 — 챔스 화요일 경기 뒤 순위 변동 (한국시간 수 새벽 종료)",
+  "metrics": {
+   "views": 123,
+   "reach": 107,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 4378,
+   "ig_reels_video_view_total_time": 468458,
+   "reels_skip_rate": 68.9
+  }
+ },
+ "sports:18142340824729625": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-04T04:38:40+0000",
+  "snapshot_utc": "2026-11-05T08:02:38Z",
+  "age_h": 27.4,
+  "first_line": "[⚽ 축구 모닝 · 챔스 결산] 바이에른 2-0 아틀레티코, 이강인·김민재 교체 출전 · PSG 6-0 · 8위 직행선",
+  "metrics": {
+   "views": 115,
+   "reach": 104,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2553,
+   "ig_reels_video_view_total_time": 268094,
+   "reels_skip_rate": 84.6
+  }
  }
 }
