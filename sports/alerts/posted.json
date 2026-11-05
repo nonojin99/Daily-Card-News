@@ -1435,33 +1435,39 @@
   },
   "uefa.europa:401915533": {
    "image": "sports/alerts/2026-11/2026-11-05_uefa-europa_0656.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-06 06:56"
+   "status": "published",
+   "at_kst": "2026-11-06 06:56",
+   "result": "18098039882148955"
   },
   "uefa.europa:401915525": {
    "image": "sports/alerts/2026-11/2026-11-05_uefa-europa_0656.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-06 06:56"
+   "status": "published",
+   "at_kst": "2026-11-06 06:56",
+   "result": "18098039882148955"
   },
   "uefa.europa:401915531": {
    "image": "sports/alerts/2026-11/2026-11-05_uefa-europa_0656.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-06 06:56"
+   "status": "published",
+   "at_kst": "2026-11-06 06:56",
+   "result": "18098039882148955"
   },
   "uefa.europa:401915522": {
    "image": "sports/alerts/2026-11/2026-11-05_uefa-europa_0656.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-06 06:56"
+   "status": "published",
+   "at_kst": "2026-11-06 06:56",
+   "result": "18098039882148955"
   },
   "uefa.europa:401915524": {
    "image": "sports/alerts/2026-11/2026-11-05_uefa-europa_0656.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-06 06:56"
+   "status": "published",
+   "at_kst": "2026-11-06 06:56",
+   "result": "18098039882148955"
   },
   "uefa.europa:401915523": {
    "image": "sports/alerts/2026-11/2026-11-05_uefa-europa_0656.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-06 06:56"
+   "status": "published",
+   "at_kst": "2026-11-06 06:56",
+   "result": "18098039882148955"
   }
  },
  "boards": {
@@ -1678,7 +1684,7 @@
    "final": true
   },
   "uefa.europa:2026-11-05": {
-   "last": 1793911496.8820515,
+   "last": 1793915880.1666682,
    "final": false
   }
  }
