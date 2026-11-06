@@ -1,0 +1,3 @@
+⚠ [운영 감시] 문제 1건 — KBO 결과 알림 카드(KT-SS 21:25) 인스타 게시 실패
+media_publish HTTP 400 '미디어 준비 안 됨'(9007) — 일시적일 가능성, 재시도 여부 확인 필요. Pages 빌드 실패 2건은 이후 재배포 성공.
+nonojin99.github.io/Daily-Card-News/app/
