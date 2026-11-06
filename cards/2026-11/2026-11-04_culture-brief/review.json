@@ -1,8 +1,0 @@
-{
- "verdict": "PASS",
- "sha1": "23559b6ed4cb95fc89507d5f5219411cf1430cb2",
- "by": "agent",
- "cards": 8,
- "at": "2026-11-04T01:12:11Z",
- "note": "card-visual-reviewer: 표지 제목 수정 후 8장 PASS(카드 1 cn-num 은 AI 그림 카드에서 JPG 에 안 나오는 렌더러 동작 — 릴스 첫 장면용), 2026-11-04"
-}
