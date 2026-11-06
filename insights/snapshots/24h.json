@@ -1772,5 +1772,62 @@
    "ig_reels_video_view_total_time": 201007,
    "reels_skip_rate": 86
   }
+ },
+ "sports:18191507083414755": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-04T23:51:34+0000",
+  "snapshot_utc": "2026-11-06T00:07:05Z",
+  "age_h": 24.3,
+  "first_line": "[⚽ 축구 모닝] 페네르바흐체 31위→19위 · 포르투 34위→26위 · 코모 9위→4위 — 챔스 4차전 뒤 순위 변동",
+  "metrics": {
+   "views": 146,
+   "reach": 120,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 6267,
+   "ig_reels_video_view_total_time": 758425,
+   "reels_skip_rate": 56.7
+  }
+ },
+ "sports:18360503692221148": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-04T23:50:45+0000",
+  "snapshot_utc": "2026-11-06T00:07:05Z",
+  "age_h": 24.3,
+  "first_line": "[⚽ 축구 모닝 · 챔스 결산] 황인범 투입 2분 만에 도움, 포르투 4-1 나폴리 · 코모 9-1 랑스",
+  "metrics": {
+   "views": 110,
+   "reach": 102,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 7179,
+   "ig_reels_video_view_total_time": 725178,
+   "reels_skip_rate": 78
+  }
+ },
+ "sports:18352034404264699": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-04T23:49:06+0000",
+  "snapshot_utc": "2026-11-06T00:07:05Z",
+  "age_h": 24.3,
+  "first_line": "[⚽ 축구 모닝 · 챔스 결산] 황인범 투입 2분 만에 도움, 포르투 4-1 나폴리 · 코모 9-1 랑스 · 8~10위 승점·득실 동률",
+  "metrics": {
+   "views": 8,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
