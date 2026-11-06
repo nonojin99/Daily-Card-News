@@ -1886,5 +1886,25 @@
    "ig_reels_video_view_total_time": 184794,
    "reels_skip_rate": 89.4
   }
+ },
+ "main:18010403445004931": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-11-05T08:34:56+0000",
+  "snapshot_utc": "2026-11-06T15:53:03Z",
+  "age_h": 31.3,
+  "first_line": "[📺 OTT·게임] 재혼 황후 11/4 공개 · 꿀알바 국내 1위 · 젤다 11/5 출시",
+  "metrics": {
+   "views": 107,
+   "reach": 103,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 2265,
+   "ig_reels_video_view_total_time": 237899,
+   "reels_skip_rate": 79.4
+  }
  }
 }
