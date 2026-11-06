@@ -156,6 +156,21 @@
    "status": "published",
    "result": "18146045410588061",
    "posted_kst": "2026-11-05 09:49"
+  },
+  {
+   "id": "lol:115660540726095097",
+   "kind": "game",
+   "mp4": "reels/sports/2026-11/2026-11-06_lol-115660540726095097.mp4",
+   "caption": "reels/sports/2026-11/2026-11-06_lol-115660540726095097.txt",
+   "score": 95,
+   "why": [
+    "한국",
+    "포스트시즌",
+    "롤드컵"
+   ],
+   "seconds": 5.5,
+   "made_kst": "2026-11-06 09:44",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -518,6 +533,17 @@
    "sport": "uefa.europa",
    "title": "Ararat-Armenia 2:3 Torreense",
    "at": "2026-11-06 07:09"
+  },
+  "lol:115660540726095097": {
+   "score": 95,
+   "why": [
+    "한국",
+    "포스트시즌",
+    "롤드컵"
+   ],
+   "sport": "lol",
+   "title": "BLG 3:0 디플러스 기아",
+   "at": "2026-11-06 09:44"
   }
  },
  "last_post": 1793839746.0300784,
