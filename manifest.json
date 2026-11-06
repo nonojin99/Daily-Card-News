@@ -1,7 +1,16 @@
 {
-  "generated": "2026-11-06T14:42:01Z",
-  "count": 322,
+  "generated": "2026-11-06T20:45:31Z",
+  "count": 323,
   "files": [
+    {
+      "date": "2026-11-07",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "07",
+      "type": "daily",
+      "path": "2026-11-07_daily-brief.html"
+    },
     {
       "date": "2026-11-06",
       "month": "2026-11",
