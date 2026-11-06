@@ -4,10 +4,20 @@
    "kind": "carousel",
    "media": "cards/2026-11/2026-11-06_baseball-brief",
    "caption": "captions/2026-11-06_baseball.txt",
-   "dry_run": "false",
-   "is_ai": "false",
+   "review": "required",
    "account": "sports",
-   "review": "required"
+   "dry_run": "false",
+   "is_ai": "false"
+  },
+  {
+   "kind": "reel",
+   "media": "reels/2026-11/2026-11-06_baseball.mp4",
+   "caption": "captions/2026-11-06_baseball_reel.txt",
+   "ab": "short",
+   "review": "required",
+   "account": "sports",
+   "dry_run": "false",
+   "is_ai": "false"
   }
  ]
 }
