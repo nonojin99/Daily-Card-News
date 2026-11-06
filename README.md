@@ -879,7 +879,7 @@ node tools/render_cards.js YYYY-MM-DD_science-brief.html /tmp/card-review/YYYY-M
 | ⚾ 야구 나이트 | `YYYY-MM-DD_baseball-brief.html` | 매일 23:30 KST | **오늘 끝난** KBO 전 경기(스코어 묶음 `cn-scores`)·순위, MLB(한국 선수·포스트시즌·큰 기록), 오늘 저녁 롤 e스포츠 | 시즌 중 매일 밤 |
 | ⚽ 축구 모닝 | `YYYY-MM-DD_football-brief.html` | 매일 08:30 KST | **어젯밤~오늘 새벽** 유럽 5대 리그·UCL·유로파, 어제 K리그. 월요일 = 주말 결산 | 경기 다음 날(대개 일·월·수·목) + **토 = 주말 프리뷰**, A매치 기간 = A매치 프리뷰·한국 경기 결과 |
 | 🏆 이벤트 픽 | `YYYY-MM-DD_event-brief.html` | 축구 모닝 루틴이 조사(08:30) | 어젯밤~새벽 끝난 **큰 대회**: 테니스 그랜드슬램·골프 메이저/한국 선수 우승권·UFC 넘버 대회·NFL 플레이오프 | 대회 다음 날만 |
-| 🎮 e스포츠 | `YYYY-MM-DD_esports-brief.html` | 야구 나이트 루틴이 조사(23:30) | 오늘 저녁 끝난 롤 **큰 경기**: LCK 플레이오프·결승, MSI, 월즈, 한국 팀 국제전 | 큰 경기 날만 |
+| 🎮 e스포츠 | `YYYY-MM-DD_esports-brief.html` | 야구 나이트 루틴이 조사(23:30) | 오늘 저녁 끝난 롤 **큰 경기**: LCK 플레이오프·결승, MSI, 월즈, 한국 팀 국제전 + 정규 시즌 결과·대진·로스터 소식 | **매일**(2026-11-06 사용자 요청, 새 소식 없을 때만 건너뜀) |
 
 - **결과 알림 → 스토리 (2026-10-23~, AI·토큰 0, 사용자 결정 2026-10-24 '피드는 시리즈만, 실시간 결과는 스토리')**: 워크플로 `Score alert` 가 355분 동안 5분마다 공식 기록을 보고, 끝나면 스스로 다음 회차를 띄운다(이어 달리기 — 이 저장소의 예약 실행은 하루 1~2번만 늦게 돌아 2026-10-24 바꿈, 6시간 예약은 예비). **끊기면 감시가 다시 띄운다**(2026-10-26 사용자 요청 — 새벽 회차 러너가 끊겨 Relay 가 돌지 못해 롤드컵 스토리가 멈춘 일 뒤): `Score alert watchdog` 이 Score alert 실행이 끝날 때마다(workflow_run, 90초 뒤)와 매시 23분 예약에 돌고 있거나 대기 중인 회차가 없으면 새로 띄운다. 최근 3회차가 모두 20분 안에 실패했으면 코드 문제로 보고 띄우지 않는다(경고만 — 고친 뒤 `request.txt` 를 바꿔 push). 종목은 `sports/alerts/sources.json`(켜기·끄기, 다시 올리는 간격), 한국어 팀 이름은 `names_ko.json` —
   ⚾ KBO 스코어보드 JSON(`koreabaseball.com` GetKboGameList, `GAME_STATE_SC` 3 + 정상경기) · 🎮 LoL 일정 API(`lolesports.com` getSchedule, 롤드컵·MSI·퍼스트 스탠드·LCK, completed) ·
