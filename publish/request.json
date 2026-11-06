@@ -2,12 +2,12 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-06_football-brief",
-   "caption": "captions/2026-11-06_football.txt",
+   "media": "cards/2026-11/2026-11-06_baseball-brief",
+   "caption": "captions/2026-11-06_baseball.txt",
    "dry_run": "false",
    "is_ai": "false",
    "account": "sports",
-   "review": "human"
+   "review": "required"
   }
  ]
 }
