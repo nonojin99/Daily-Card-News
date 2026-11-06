@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.11.07">
+<meta property="og:description" content="코스피 이틀 새 10.98% 급락 · 미 10월 고용 16만5천 명 · 트럼프 비서실장 교체 · 공정위 해외가격 제재 · 미중 부산합의 · 내란 특수본">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.11.07</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+  /* ── 서울 날씨 한 줄 (2026-10-11 도입) ── */
+  .weather{margin:14px 0 0;padding:9px 14px;border-radius:10px;background:var(--accent-soft);font-size:14px;color:var(--ink);line-height:1.6}
+  .weather .wx-note{display:inline-block;margin-left:6px;font-size:11.5px;color:var(--faint)}
+  .weather .wx-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>코스피 이틀 새 10.98% 급락, 미 고용 16만5천 명 깜짝 호조</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 7일 토요일</span>
+      <span class="count">6 Picks · 분야별</span>
+    </div>
+    <p class="weather">🌬 서울 · 최저 -1° 최고 9° · 올가을 첫 영하, 오전 체감 -4° · 일요일(8일) 수도권 비 5㎜ 안팎 <span class="wx-note">⚠ 변동 가능 · <a href="https://www.hankyung.com/article/2026110615757">한국경제 11/6 17:45</a></span></p>
+    <p class="lede">코스피가 6일에도 6.02% 떨어져 5,059.69로 마감하며 이틀 새 10.98% 급락했습니다. 간밤 미국 10월 고용보고서는 16만5천 명 증가로 예상을 크게 웃돌아 12월 금리 인상 확률이 76% 이상으로 올랐습니다. 트럼프 대통령은 중간선거 참패 사흘 만에 비서실장을 교체했고, 공정위는 해외보다 비싸게 파는 행위를 제재하는 시행령 개정안을 내놨습니다. 미국은 중국에 부산 무역합의 이행을 촉구했고, 중수청과 경찰은 내란 재수사 특별수사본부 구성에 들어갔습니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 7일 토요일, 데일리 브리프입니다. 오늘은 여섯 가지 소식을 전해 드립니다.</p>
+    <p>코스피가 어제도 6.02퍼센트 떨어져 5,059.69로 마감했습니다. 이틀 동안 10.98퍼센트 빠진 셈입니다. 코스닥도 5.03퍼센트 내렸고, 원달러 환율은 1,356원대로 전날보다 14원 넘게 올랐습니다. 전날 코스피도 5.28퍼센트 떨어졌었습니다. 오전에는 8퍼센트 넘게 빠지며 서킷브레이커가 발동됐고 이어 매도 사이드카도 나왔습니다. 외국인은 어제 2조 7천억 원 넘게 팔았고, 이틀 합계는 6조 원이 넘습니다. 한 매체는 미국 기술주 급락과 데이터센터 규제 우려를 원인으로 짚었지만, 반도체 주문이 실제로 줄었다는 확인은 아직 없다고 전했습니다.</p>
+    <p>미국 10월 고용보고서는 일자리가 16만5천 명 늘어 시장 예상을 크게 웃돌았습니다. 실업률은 4.2퍼센트에서 4.1퍼센트로 내렸습니다. 9월 증가 폭도 6만 명으로 높아졌습니다. 이에 따라 다음 달 연준의 금리 인상 확률은 전날 66퍼센트에서 76퍼센트 이상으로 올랐습니다. 다만 예상치는 매체마다 달라 정확한 수치는 확인이 필요합니다.</p>
+    <p>트럼프 대통령이 중간선거 참패 사흘 만에 수지 와일스 비서실장을 교체한다고 발표했습니다. 후임은 스티븐 밀러 부비서실장으로, 9일 월요일부터 맡습니다. 와일스 실장은 트럼프 대통령의 정치조직으로 옮깁니다. 선거 패배 뒤 첫 인사 조치입니다. 뉴시스 보도입니다.</p>
+    <p>공정거래위원회가 독점규제법 시행령 개정안을 입법예고했습니다. 시장지배적 사업자가 정당한 이유 없이 다른 시장의 같거나 비슷한 상품보다 현저히 비싸게 가격을 매기는 행위를 막는 내용입니다. 예를 들어 해외에서 1만 원인 구독이 국내에서 2만 원이면 남용에 해당할 수 있다는 설명입니다. 공정위 관계자는 특정 기업을 겨냥한 것은 아니라고 했습니다. 의견 수렴은 다음 달 16일까지입니다. 한국경제 보도입니다.</p>
+    <p>미국 재무장관과 무역대표부 대표가 중국 부총리와 통화하며 2025년 부산 무역합의를 즉각 이행하라고 요구했다고 파이낸셜타임스가 전했습니다. 희토류 수출 이행이 쟁점이고, 중국은 불이행을 부인합니다. 휴전 만료일은 2027년 1월 10일입니다. 뉴시스 보도입니다.</p>
+    <p>중대범죄수사청과 경찰이 12·3 계엄 내란 사건을 다시 수사할 특별수사본부 구성에 들어갔습니다. 두 특검이 이미 180일씩 수사를 마친 뒤여서 성과와 재판 혼선 우려도 나옵니다. 설치 장소와 인력 구성은 협의 단계입니다. 와이티엔 보도입니다.</p>
+    <p>끝으로 오늘 서울 날씨입니다. 아침 최저 영하 1도로 올가을 처음 영하권이고, 낮 최고는 9도입니다. 오전 체감온도는 영하 4도까지 내려가니 따뜻하게 입으세요. 오늘 서울 비 소식은 기사에 없고, 내일 일요일에 수도권에 5밀리미터 안팎의 비가 예보됐습니다.</p>
+    <p>이상으로 오늘의 데일리 브리프를 마칩니다. 자세한 내용과 출처는 카드에서 확인하세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">Market — 코스피 이틀째 급락</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">暴</span>
+    <div class="card-top"><span class="topic">증시 · 코스피 6일 마감</span></div>
+    <h2>코스피 6일 -6.02% 5,059.69 마감 — 이틀 새 -10.98%, 서킷브레이커·사이드카 발동</h2>
+    <div class="summary">
+      <p>코스피는 6일 <strong>5,059.69</strong>에 마감해 324.11포인트(-6.02%) 떨어졌다. 전날 -5.28%에 이어 이틀간 624.11포인트(-10.98%) 빠졌다(두 날 하락폭·하락률로 계산한 값). 코스닥은 644.27로 34.14포인트(-5.03%) 내렸다(뉴스핌).</p>
+      <p>디지털데일리에 따르면 오전 9시 3분 8% 넘게 하락해 1단계 서킷브레이커로 20분간 거래가 멈췄고, 9시 34분 코스피 매도 사이드카가 발동됐다. 외국인은 6일 2조 7,692억 원을 순매도해 이틀 합계 6조 1,620억 원이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">지수</span><span>코스피 5,059.69(-324.11p, -6.02%) · 코스닥 644.27(-34.14p, -5.03%)(뉴스핌)</span></li>
+      <li><span class="k">이틀 누적</span><span>-624.11p(-10.98%)는 6일 하락폭과 5일 -5.28%로 계산한 값(기사에 직접 없음)</span></li>
+      <li><span class="k">환율</span><span>원/달러 1,356.6원(15:30 기준, 전일 종가보다 +14.5원)(뉴스핌)</span></li>
+      <li><span class="k">수급</span><span>외국인 6일 순매도 2조 7,692억 원 · 5일 3조 3,928억 원 · 합계 6조 1,620억 원(디지털데일리)</span></li>
+      <li><span class="k">장중</span><span>09:03 서킷브레이커(20분 정지) · 09:34 코스피 매도 사이드카(디지털데일리)</span></li>
+      <li><span class="k">원인 해석</span><span>미 기술주 매도 · 중간선거 뒤 AI 데이터센터 규제 우려 · 필라델피아반도체지수 5일(미국) -12.25%(디지털데일리) · 반도체 주문이 실제 줄었다는 확인은 아직 없음</span></li>
+      <li><span class="k">확인 한계</span><span>수급·장중 시각·5일 -5.28%는 디지털데일리 단일, 누적은 계산값 · 종목별 등락률은 확인하지 못함 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>이틀 연속 5%대 낙폭이라 "얼마나 빠졌나"가 가장 먼저 궁금해지는 상황이다. 누적 -10.98% 한 줄이 개별 일간 수치보다 상황을 빨리 전한다. 이 카드는 투자 권유가 아니다.</p>
+    </div>
+    <a class="source" href="https://www.newspim.com/news/view/20261106000965">뉴스핌 — 지수·환율</a>  <a class="source" href="https://www.ddaily.co.kr/page/view/2026110615524945049">디지털데일리 — 수급·서킷브레이커</a>
+    <span class="ref-note">뉴스핌(11/6 16:04)·디지털데일리(11/6 15:58) · 5,059.69·-324.11p·-6.02%는 두 기사 일치 · 이틀 누적은 계산값 (확인 2026-11-07)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">코스피 이틀 새<br>10.98% 급락</p>
+      <p class="cn-s">6일에도 6.02% 떨어져 5,059.69로 마감했어요. 전날 -5.28%에 이어 오전엔 서킷브레이커와 매도 사이드카까지 발동됐어요.</p>
+      <p class="cn-num">5,059.69|6일 코스피 마감</p>
+      <p class="cn-img">A tall glowing bar chart column of a stock screen collapsing downward in a dark blue trading room, flat illustration, no text, no logos</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">World — 미국 고용</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">雇</span>
+    <div class="card-top"><span class="topic">경제 · 미국 10월 고용</span></div>
+    <h2>미 10월 고용 16만5천 명 증가 깜짝 호조 — 12월 금리 인상 확률 66%→76%</h2>
+    <div class="summary">
+      <p>뉴시스에 따르면 미국 10월 비농업 고용은 <strong>16만5,000명</strong> 늘어 예상(5만 9,000명)을 크게 웃돌았고, 실업률은 4.2%에서 4.1%로 내렸다. 한국경제는 지난해 3월 이후 최대 증가라고 전했다.</p>
+      <p>CME 페드워치 기준 12월 9일 FOMC에서 0.25%p 인상 확률은 전날 66%에서 76% 이상으로 올랐다. 연준은 9월에 0.25%p 올린 뒤 10월 동결했고 기준금리는 3.75~4.00%다. 미 10년물 국채금리는 4.868%다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">고용</span><span>10월 비농업 +16만 5,000명(뉴시스·한국경제 일치) · 실업률 4.1%(전월 4.2%)(뉴시스)</span></li>
+      <li><span class="k">수정</span><span>9월 2만 9,000→6만 명 · 8월 18만 6,000명(5만 3,000명 상향) · 두 달 합계 8만 4,000명 증가(뉴시스)</span></li>
+      <li><span class="k">금리</span><span>12월 9일 FOMC 0.25%p 인상 확률 66%→76% 이상 · 기준금리 3.75~4.00%(뉴시스)</span></li>
+      <li><span class="k">국채금리</span><span>10년물 4.868% · 2년물 4.524% · 30년물 5.275%(뉴시스)</span></li>
+      <li><span class="k">확인 한계</span><span>시장 예상치가 뉴시스 5만 9,000명·한국경제(다우존스) 6만 5,000명으로 다름 · 76%는 뉴시스 단일 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>"호조"가 증시에는 금리 인상 우려라는 반대 해석으로 이어질 수 있다. 같은 숫자가 보는 시장에 따라 다른 뜻이 되므로 예상치 기준을 함께 적어야 오해가 없다. 이 카드는 투자 권유가 아니다.</p>
+    </div>
+    <a class="source" href="https://newsis.com/view/NISX20261107_0003858706">뉴시스 — 고용·금리 확률</a>  <a class="source" href="https://www.hankyung.com/article/202611061820i">한국경제 — 지난해 3월 이후 최대</a>
+    <span class="ref-note">뉴시스(11/7 00:36, 05:22 수정)·한국경제(11/6 23:28) · 16만 5,000명은 두 매체 일치 (확인 2026-11-07)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">미 10월 고용<br>16만5천 명 증가</p>
+      <p class="cn-s">시장 예상을 크게 웃돌았고 실업률은 4.2%에서 4.1%로 내렸어요. 그래서 12월 금리 인상 확률이 66%에서 76% 이상으로 올랐어요.</p>
+      <p class="cn-num">66%→76%|12월 금리 인상 확률</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">World — 미국 정치</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">替</span>
+    <div class="card-top"><span class="topic">국제 · 백악관 인사</span></div>
+    <h2>트럼프, 선거 참패 사흘 만에 비서실장 교체 — 후임 스티븐 밀러, 9일부터</h2>
+    <div class="summary">
+      <p>뉴시스에 따르면 트럼프 대통령은 6일(현지) 수지 와일스 비서실장을 교체한다고 발표했다. 후임은 스티븐 밀러 부비서실장이고 <strong>11월 9일(월)</strong>부터 비서실장을 맡는다.</p>
+      <p>와일스는 트럼프의 정치조직으로 옮긴다. 중간선거 패배 뒤 첫 인사 조치다. 기사는 헤그세스 국방장관 경질설도 제기돼 있다고 전했고, 이번 인사를 "국정 기조를 바꾸지 않겠다는 뜻"으로 해석했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">발표</span><span>6일(현지) 비서실장 교체(뉴시스)</span></li>
+      <li><span class="k">인사</span><span>와일스 → 트럼프 정치조직 · 후임 밀러 부비서실장, 11월 9일부터</span></li>
+      <li><span class="k">맥락</span><span>중간선거 패배 뒤 첫 인사 조치 · 헤그세스 국방장관 경질설 제기(기사 언급)</span></li>
+      <li><span class="k">확인 한계</span><span>뉴시스 단일 보도 · 다른 매체 교차 확인 못함 · "기조 유지" 해석은 기사의 해석 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>인사 발표와 그 의미 해석은 다른 층위다. "기조 유지"는 보도의 해석이므로 확정된 사실로 읽지 않는 편이 안전하다.</p>
+    </div>
+    <a class="source" href="https://newsis.com/view/NISX20261107_0003858715">뉴시스 — 비서실장 교체</a>
+    <span class="ref-note">뉴시스(11/7 04:35, 04:54 수정) · <strong>단일 매체</strong> (확인 2026-11-07)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">트럼프, 비서실장 교체<br>후임 스티븐 밀러</p>
+      <p class="cn-s">중간선거 참패 사흘 만에 수지 와일스 비서실장을 바꾼다고 발표했어요. 후임인 스티븐 밀러 부비서실장이 9일 월요일부터 맡아요. 와일스는 정치조직으로 옮겨요.</p>
+      <p class="cn-when" data-label="취임">11월 9일(월)</p>
+      <p class="cn-note">선거 패배 뒤 첫 인사 / 뉴시스 단일 보도</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Consumer — 공정위</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">價</span>
+    <div class="card-top"><span class="topic">소비 · 독점규제법 시행령</span></div>
+    <h2>공정위, 해외보다 현저히 비싸면 제재 추진 — 독점규제법 시행령 개정안 입법예고</h2>
+    <div class="summary">
+      <p>한국경제에 따르면 공정위는 시장지배적 사업자가 정당한 이유 없이 다른 시장의 동종·유사 상품보다 가격을 현저히 높게 책정하는 행위를 막는 시행령 개정안을 내놨다. 의견수렴은 <strong>다음 달 16일</strong>까지다.</p>
+      <p>기사는 해외 1만 원인 구독이 국내 2만 원이면 남용에 해당할 수 있다는 예를 들었다. 유튜브 프리미엄이 해당할 수 있다는 관측도 전했는데, 한국엔 가족요금제가 없고 개인요금 14,900원이 6명이면 월 8만 9,400원(약 2.4배)이라는 비교다. 공정위 관계자는 특정 기업을 겨냥한 것이 아니라고 했고, 기사는 이것이 곧 제재 대상이라는 뜻은 아니며 시장지배적 사업자인지 먼저 판단해야 한다고 덧붙였다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">내용</span><span>동종·유사 상품의 다른 시장 가격보다 정당한 이유 없이 현저히 높게 책정하는 행위 제한(한국경제)</span></li>
+      <li><span class="k">일정</span><span>입법예고 · 의견수렴 다음 달(12월) 16일까지</span></li>
+      <li><span class="k">예시</span><span>해외 1만 원 구독이 국내 2만 원이면 남용 가능</span></li>
+      <li><span class="k">비교 관측</span><span>영국 가족요금제 19.99파운드(약 3만 6,400원) · 미국 26.99달러(약 3만 6,600원) · 한국 개인요금 14,900원×6명=8만 9,400원</span></li>
+      <li><span class="k">확인 한계</span><span>한국경제 단일 · 유튜브 해당 여부는 기사 속 관측(공정위는 특정 기업 겨냥 아니라고 함) · 과징금 액수는 기사에 없음 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>"해외 1만 원, 국내 2만 원"처럼 가격 차이를 한 줄로 보여 주는 예시가 법 개정 소식을 생활 뉴스로 바꾼다. 다만 특정 서비스가 해당된다는 것은 관측일 뿐 확정이 아니다.</p>
+    </div>
+    <a class="source" href="https://www.hankyung.com/article/2026110615881">한국경제 — 공정위 시행령 개정안</a>
+    <span class="ref-note">한국경제(11/6 18:03, 11/7 02:33 수정) · <strong>단일 매체</strong> (확인 2026-11-07)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">공정위, 해외보다<br>비싸면 제재 추진</p>
+      <p class="cn-s">독점규제법 시행령 개정안이 입법예고됐어요. 정당한 이유 없이 다른 시장의 동종·유사 상품보다 현저히 높게 가격을 매기는 행위가 대상이에요. 의견수렴은 12월 16일까지예요.</p>
+      <p class="cn-num">12월 16일|의견수렴 마감</p>
+      <p class="cn-img">A small shopping cart on a balance scale weighing a price tag against a globe on a soft green desk, flat illustration, no text, no logos</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">World — 미중 무역</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">土</span>
+    <div class="card-top"><span class="topic">국제 · 미중 무역합의</span></div>
+    <h2>미국, 중국에 "부산 무역합의 즉각 이행" 요구 — 희토류 갈등 재점화, 휴전 만료 2027년 1월 10일</h2>
+    <div class="summary">
+      <p>뉴시스가 파이낸셜타임스를 인용해 전한 내용이다. 6일(현지) 베선트 재무장관과 그리어 무역대표부 대표가 허리펑 부총리와 통화하며 2025년 10월 부산 합의를 "완전하고 즉각적으로" 이행하라고 요구했다.</p>
+      <p>미국은 9월에 중국이 희토류 수출 공약의 약 3분의 2를 이행했다고 밝혔고, 그 뒤 공급은 늘지 않았다고 알려졌다. 대두 구매는 이행하지만 다른 농산물은 아니라는 입장이다. 중국은 불이행을 부인한다. 트럼프·시진핑은 2주 뒤 선전 APEC에서 만날 전망이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">통화</span><span>베선트·그리어 ↔ 허리펑, 6일(현지)(뉴시스, FT 인용)</span></li>
+      <li><span class="k">요구</span><span>2025년 10월 부산 합의 "완전하고 즉각적" 이행</span></li>
+      <li><span class="k">쟁점</span><span>희토류 수출 공약 약 3분의 2 이행(미국 9월 밝힘) · 대두 외 농산물 · 일본 대상 이트륨 수출제한</span></li>
+      <li><span class="k">일정</span><span>휴전 만료 2027년 1월 10일 · 2주 뒤 선전 APEC 회담 전망 · 12월 마이애미 G20 가능</span></li>
+      <li><span class="k">확인 한계</span><span>뉴시스 단일(FT 원문 미확인) · 중국은 불이행 부인 ⚠ 일정 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>정상회담을 앞두고 압박 수위가 올라간 흐름이다. 휴전 만료일(2027년 1월 10일)이라는 날짜 하나가 이후 뉴스를 읽는 기준점이 된다.</p>
+    </div>
+    <a class="source" href="https://newsis.com/view/NISX20261107_0003858713">뉴시스 — 부산합의 이행 요구(FT 인용)</a>
+    <span class="ref-note">뉴시스(11/7 04:32, 05:36 수정) · <strong>단일 매체</strong>, FT 인용 (확인 2026-11-07)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">미국, 중국에<br>부산합의 즉각 이행 요구</p>
+      <p class="cn-s">희토류 수출을 둘러싼 갈등이 다시 불거졌어요. 중국은 불이행을 부인하고, 트럼프·시진핑 회담은 2주 뒤 선전 APEC으로 전망돼요.</p>
+      <p class="cn-num">2027년 1월 10일|부산 합의 휴전 만료일</p>
+      <p class="cn-note">희토류 공약 약 3분의 2 이행 / FT 인용 단일 보도</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Politics — 내란 재수사</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">査</span>
+    <div class="card-top"><span class="topic">사회 · 내란 재수사</span></div>
+    <h2>중수청·경찰, 내란 특별수사본부 구성 착수 — 두 특검 180일 수사 뒤 실효성 우려</h2>
+    <div class="summary">
+      <p>YTN에 따르면 중대범죄수사청(중수청)과 경찰이 12·3 계엄 내란 사건을 다시 수사할 특별수사본부 구성에 들어갔다. 경찰은 강일구 경무관 파견이 예상되고, 중수청은 서울지방중수청 국장급 인사 파견을 검토하는 것으로 알려졌다.</p>
+      <p>기사는 두 특검이 이미 180일씩 수사를 마친 만큼 성과를 낼 수 있을지, 진행 중인 재판에 혼선이 생기지 않을지 우려가 있다고 전했다. 두 특검이 내란 종료 시점과 주요 계엄 고발자 기소 여부에서 결론이 엇갈렸다는 지적도 있다. 설치 장소 협의와 인력 구성은 앞으로 할 일이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">구성</span><span>중수청·경찰이 내란 특별수사본부 구성 착수(YTN)</span></li>
+      <li><span class="k">배경</span><span>내란 특검·2차 종합특검 각각 180일 수사 종료</span></li>
+      <li><span class="k">쟁점</span><span>내란 종료 시점·주요 계엄 고발자 기소 여부 결론 엇갈림 · 실효성·재판 혼선 우려</span></li>
+      <li><span class="k">확인 한계</span><span>YTN 단일 · 설치 장소·인력 협의 단계 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>수사본부 구성은 수사의 시작일 뿐 결론이 아니다. 중복 우려는 보도가 짚은 쟁점이며, 카드는 기사에 있는 사실만 전한다.</p>
+    </div>
+    <a class="source" href="https://www.ytn.co.kr/_ln/0103_202611070513336569">YTN — 내란 특수본 중복·혼선 우려</a>
+    <span class="ref-note">YTN(11/7 05:13) · <strong>단일 매체</strong> (확인 2026-11-07)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">내란 재수사 위한<br>특수본 구성 착수</p>
+      <p class="cn-s">중수청과 경찰이 내란 재수사를 위한 특별수사본부 구성에 나섰어요. 두 특검이 이미 180일씩 수사를 마친 뒤라 실효성 우려가 나와요.</p>
+      <p class="cn-num">180일|두 특검 각각 수사 기간</p>
+      <p class="cn-note">장소·인력 협의 중 / YTN 단일 보도</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 마케팅 인사이트 → 디자인 렌더링 → 검토<br>
+    큐레이션: 11/6 브리프(코스피 11/5·나스닥 조정장·쿠팡·내란 2심 선고일·특검법·가상자산 과세)와 겹치지 않는 새 전개만 포함 · 정치·수사·인사 카드는 '맥락 읽기' 라벨. 조작기소 특검법 표결 결과는 확인하지 못해 제외했습니다.<br>
+    📊 도표: 지수 하락률·건수처럼 단일 시점 수치라 카드 숫자만 사용했습니다.<br>
+    모든 수치는 보도 기준이며 변동될 수 있습니다.
+    <!-- tracker: 2026-11-07
+         [추적 중인 스토리 현재 상태]
+         코스피 11/6 5,059.69(-6.02%), 이틀 -10.98%, 서킷브레이커·사이드카. 원인 지목: 미 기술주 매도·데이터센터 규제 우려(반도체 주문 감소 확인은 아직 없음).
+         미 10월 고용 +16.5만, 실업률 4.1%, 12월 인상 확률 76%+ (12/9 FOMC).
+         트럼프 비서실장 와일스→밀러(11/9~). 공정위 시행령 개정안 의견수렴 12/16까지. 미중 부산합의 이행 요구(휴전 만료 2027-01-10, 선전 APEC 2주 뒤 전망).
+         내란 재수사 중수청·경찰 특수본 구성 착수.
+         [기존 추적 유지 — 새 전개 미반영] 쿠팡 과징금 본안 · 윤석열 내란 2심 선고 2027-01-26 · 조작기소 특검법 필리버스터(표결 결과 미확인) · 가상자산 과세 2029 유예 추진 · 중간선거 후속.
+         [오늘 다룬 항목] ①코스피 6일 급락 ②미 10월 고용 ③트럼프 비서실장 교체 ④공정위 해외가격 제재 ⑤미중 부산합의 ⑥내란 특수본
+         [제외] 마곡동 온수관 파열(사건·사고, 복구 미확인) · 특검법 표결(미확인) · 삼성전자·SK하이닉스 종가(본문 미확인)
+         [날씨] 서울 최저 -1 최고 9, 체감 -4, 7일 서울 강수 언급 없음·8일 수도권 5mm 안팎(한국경제 11/6 17:45).
+         [reel-scores] 토요일 메인은 릴스 없음.
+         [리서치 도구] mcp__Firecrawl__* 호출 0회.
+    -->
+  </footer>
+
+</div></body>
+</html>
