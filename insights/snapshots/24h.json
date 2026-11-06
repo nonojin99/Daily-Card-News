@@ -1829,5 +1829,62 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "sports:18141494917627564": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-05T01:08:20+0000",
+  "snapshot_utc": "2026-11-06T07:52:16Z",
+  "age_h": 30.7,
+  "first_line": "[⚾ 야구 나이트] 한국시리즈 2차전 삼성 3-2 KT, 연장 12회 끝 1승 1패 · 3차전 6일 대구",
+  "metrics": {
+   "views": 119,
+   "reach": 102,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2941,
+   "ig_reels_video_view_total_time": 311842,
+   "reels_skip_rate": 70.6
+  }
+ },
+ "sports:18125963020714873": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-05T01:06:42+0000",
+  "snapshot_utc": "2026-11-06T07:52:16Z",
+  "age_h": 30.8,
+  "first_line": "[⚾ 야구 나이트] 삼성 3-2 KT, 연장 12회 끝에 한국시리즈 1승 1패 · 3차전 6일 대구",
+  "metrics": {
+   "views": 2,
+   "reach": 2,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18146045410588061": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-05T00:49:00+0000",
+  "snapshot_utc": "2026-11-06T07:52:16Z",
+  "age_h": 31.1,
+  "first_line": "[🎮 LoL] 젠지 3:0 LYON",
+  "metrics": {
+   "views": 122,
+   "reach": 105,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1759,
+   "ig_reels_video_view_total_time": 184794,
+   "reels_skip_rate": 89.4
+  }
  }
 }
