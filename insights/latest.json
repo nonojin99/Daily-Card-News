@@ -1,11 +1,33 @@
 {
- "collected_kst": "2026-11-05 17:03",
+ "collected_kst": "2026-11-06 17:07",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-05T08:02:42.476191Z",
+   "checked_at": "2026-11-06T08:07:13.291102Z",
    "media": [
+    {
+     "id": "18010403445004931",
+     "type": "REELS",
+     "timestamp": "2026-11-05T08:34:56+0000",
+     "permalink": "https://www.instagram.com/reel/DfWnR6MkZaU/",
+     "first_line": "[📺 OTT·게임] 재혼 황후 11/4 공개 · 꿀알바 국내 1위 · 젤다 11/5 출시",
+     "tag": "📺 OTT·게임",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 101,
+      "reach": 97,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2334,
+      "ig_reels_video_view_total_time": 228734,
+      "reels_skip_rate": 78.1
+     }
+    },
     {
      "id": "18196012519399553",
      "type": "FEED",
@@ -45,8 +67,8 @@
      "permalink": "https://www.instagram.com/p/DfRrermFYvM/",
      "first_line": "[🩺 헬스] 독감 43주 외래 1,000명당 19.2명 · 쯔쯔가무시 철 · 12월부터 산정특례 본인부담 7%",
      "metrics": {
-      "views": 16,
-      "reach": 6,
+      "views": 17,
+      "reach": 7,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -541,40 +563,78 @@
       "saved": 0,
       "total_interactions": 3
      }
-    },
-    {
-     "id": "17952012954319880",
-     "type": "REELS",
-     "timestamp": "2026-10-18T20:58:29+0000",
-     "permalink": "https://www.instagram.com/reel/DepmBmwgWUF/",
-     "first_line": "[AI·테크] 🎧 2분 듣는 AI — 구글 아르곤 출시, 앤트로픽 법안 초안, 중국 수출 제한",
-     "tag": "AI·테크",
-     "variant": "narrated",
-     "opening": "static",
-     "metrics": {
-      "views": 44,
-      "reach": 36,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2710,
-      "ig_reels_video_view_total_time": 135549,
-      "reels_skip_rate": 81.6
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 35
+   "posts": 36
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-05T08:02:59.447618Z",
+   "checked_at": "2026-11-06T08:07:25.318998Z",
    "media": [
+    {
+     "id": "17979328098176905",
+     "type": "REELS",
+     "timestamp": "2026-11-06T07:36:01+0000",
+     "permalink": "https://www.instagram.com/reel/DfZFVUPknGH/",
+     "first_line": "[⚾ KBO] 한국시리즈 3차전 선발 — KT 소형준 vs 삼성 후라도",
+     "tag": "⚾ KBO",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 29,
+      "reach": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 0,
+      "ig_reels_video_view_total_time": 0,
+      "reels_skip_rate": 0
+     }
+    },
+    {
+     "id": "18211164838367435",
+     "type": "FEED",
+     "timestamp": "2026-11-06T01:05:08+0000",
+     "permalink": "https://www.instagram.com/p/DfYYoaKGrGs/",
+     "first_line": "[⚽ 축구 모닝] 월 새벽 5시 아틀레티코–바르셀로나 1·2위 맞대결 + 5대 리그 1위~꼴찌 순위 — 7장",
+     "metrics": {
+      "views": 5,
+      "reach": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18024853361722658",
+     "type": "REELS",
+     "timestamp": "2026-11-06T00:47:58+0000",
+     "permalink": "https://www.instagram.com/reel/DfYWoh4me44/",
+     "first_line": "[🎮 LoL] BLG 3:0 디플러스 기아",
+     "tag": "🎮 LoL",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 116,
+      "reach": 107,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2039,
+      "ig_reels_video_view_total_time": 216215,
+      "reels_skip_rate": 82.9
+     }
+    },
     {
      "id": "18141494917627564",
      "type": "REELS",
@@ -592,8 +652,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2957,
-      "ig_reels_video_view_total_time": 307569,
+      "ig_reels_avg_watch_time": 2941,
+      "ig_reels_video_view_total_time": 311842,
       "reels_skip_rate": 70.6
      }
     },
@@ -604,8 +664,8 @@
      "permalink": "https://www.instagram.com/p/DfV0A-kEXat/",
      "first_line": "[⚾ 야구 나이트] 삼성 3-2 KT, 연장 12회 끝에 한국시리즈 1승 1패 · 3차전 6일 대구",
      "metrics": {
-      "views": 1,
-      "reach": 1,
+      "views": 2,
+      "reach": 2,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -623,16 +683,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 119,
-      "reach": 104,
+      "views": 122,
+      "reach": 105,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1741,
-      "ig_reels_video_view_total_time": 181105,
-      "reels_skip_rate": 89.3
+      "ig_reels_avg_watch_time": 1759,
+      "ig_reels_video_view_total_time": 184794,
+      "reels_skip_rate": 89.4
      }
     },
     {
@@ -686,8 +746,8 @@
      "permalink": "https://www.instagram.com/p/DfVrInGjVRI/",
      "first_line": "[⚽ 축구 모닝 · 챔스 결산] 황인범 투입 2분 만에 도움, 포르투 4-1 나폴리 · 코모 9-1 랑스 · 8~10위 승점·득실 동률",
      "metrics": {
-      "views": 4,
-      "reach": 2,
+      "views": 8,
+      "reach": 3,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -727,16 +787,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 141,
-      "reach": 112,
+      "views": 142,
+      "reach": 113,
       "likes": 2,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 2,
-      "ig_reels_avg_watch_time": 3386,
-      "ig_reels_video_view_total_time": 375913,
-      "reels_skip_rate": 73
+      "ig_reels_avg_watch_time": 3367,
+      "ig_reels_video_view_total_time": 377187,
+      "reels_skip_rate": 73.2
      }
     },
     {
@@ -837,16 +897,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 136,
-      "reach": 113,
+      "views": 137,
+      "reach": 114,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 3484,
-      "ig_reels_video_view_total_time": 407629,
-      "reels_skip_rate": 74.3
+      "ig_reels_avg_watch_time": 3465,
+      "ig_reels_video_view_total_time": 408906,
+      "reels_skip_rate": 74.6
      }
     },
     {
@@ -859,16 +919,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 166,
-      "reach": 113,
+      "views": 167,
+      "reach": 114,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 5555,
-      "ig_reels_video_view_total_time": 633346,
-      "reels_skip_rate": 69.9
+      "ig_reels_avg_watch_time": 5515,
+      "ig_reels_video_view_total_time": 634256,
+      "reels_skip_rate": 70.2
      }
     },
     {
@@ -944,7 +1004,7 @@
      "permalink": "https://www.instagram.com/p/DfQieZDCRxd/",
      "first_line": "[⚽ 축구 모닝 · 챔스 프리뷰] 이강인 vs 김민재, 수 새벽 5시 아틀레티코–바이에른",
      "metrics": {
-      "views": 3,
+      "views": 4,
       "reach": 1,
       "likes": 0,
       "comments": 0,
@@ -1045,16 +1105,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 0,
-      "reach": 0,
+      "views": 1,
+      "reach": 1,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 7323,
-      "ig_reels_video_view_total_time": 21970,
-      "reels_skip_rate": 0
+      "ig_reels_avg_watch_time": 5861,
+      "ig_reels_video_view_total_time": 23445,
+      "reels_skip_rate": 100
      }
     },
     {
@@ -1064,7 +1124,7 @@
      "permalink": "https://www.instagram.com/p/DfN8-WxHci-/",
      "first_line": "[⚽ 축구 모닝] 아스널 안필드 14년 만의 승리 · 바르사 6-1 · 밀란 더비 3-1 — 주말 결산 6장",
      "metrics": {
-      "views": 1,
+      "views": 2,
       "reach": 1,
       "likes": 0,
       "comments": 0,
@@ -1083,16 +1143,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 121,
-      "reach": 107,
+      "views": 122,
+      "reach": 108,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3165,
-      "ig_reels_video_view_total_time": 341829,
-      "reels_skip_rate": 81.3
+      "ig_reels_avg_watch_time": 3156,
+      "ig_reels_video_view_total_time": 344006,
+      "reels_skip_rate": 81.5
      }
     },
     {
@@ -1132,79 +1192,13 @@
       "ig_reels_video_view_total_time": 153755,
       "reels_skip_rate": 97.2
      }
-    },
-    {
-     "id": "18071247434780939",
-     "type": "REELS",
-     "timestamp": "2026-11-01T07:48:05+0000",
-     "permalink": "https://www.instagram.com/reel/DfMOtJJjv7b/",
-     "first_line": "[⚾ KBO] KIA 1:6 삼성",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 129,
-      "reach": 109,
-      "likes": 0,
-      "comments": 0,
-      "shares": 3,
-      "saved": 0,
-      "total_interactions": 3,
-      "ig_reels_avg_watch_time": 2689,
-      "ig_reels_video_view_total_time": 295834,
-      "reels_skip_rate": 77.8
-     }
-    },
-    {
-     "id": "18108762833209497",
-     "type": "REELS",
-     "timestamp": "2026-11-01T07:18:06+0000",
-     "permalink": "https://www.instagram.com/reel/DfMLTuIErKk/",
-     "first_line": "[⚾ KBO] 플레이오프 5차전 진행 중 — KIA 1:6 삼성",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 130,
-      "reach": 109,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2308,
-      "ig_reels_video_view_total_time": 260900,
-      "reels_skip_rate": 81.7
-     }
-    },
-    {
-     "id": "17986814346105699",
-     "type": "REELS",
-     "timestamp": "2026-11-01T03:06:06+0000",
-     "permalink": "https://www.instagram.com/reel/DfLueovDxdG/",
-     "first_line": "[⚾ KBO] 플레이오프 5차전 선발 — KIA 올러 vs 삼성 후라도",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 130,
-      "reach": 116,
-      "likes": 3,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 3,
-      "ig_reels_avg_watch_time": 2376,
-      "ig_reels_video_view_total_time": 280410,
-      "reels_skip_rate": 89.5
-     }
     }
    ],
    "errors": [],
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 6,
-   "posts": 87
+   "posts": 90
   }
  ]
 }
