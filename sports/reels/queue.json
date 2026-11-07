@@ -208,6 +208,20 @@
    "status": "published",
    "result": "18224116552348312",
    "posted_kst": "2026-11-07 17:01"
+  },
+  {
+   "id": "kbo:20261107KTSS0",
+   "kind": "game",
+   "mp4": "reels/sports/2026-11/2026-11-07_kbo-20261107-0.mp4",
+   "caption": "reels/sports/2026-11/2026-11-07_kbo-20261107-0.txt",
+   "score": 75,
+   "why": [
+    "KBO",
+    "결승급"
+   ],
+   "seconds": 5.5,
+   "made_kst": "2026-11-07 17:28",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -580,6 +594,16 @@
    "sport": "lol",
    "title": "T1 3:1 KC",
    "at": "2026-11-07 11:02"
+  },
+  "kbo:20261107KTSS0": {
+   "score": 75,
+   "why": [
+    "KBO",
+    "결승급"
+   ],
+   "sport": "kbo",
+   "title": "KT 5:10 삼성",
+   "at": "2026-11-07 17:28"
   }
  },
  "last_post": 1794038488.9881973,
