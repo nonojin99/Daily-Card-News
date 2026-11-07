@@ -1963,5 +1963,25 @@
    "ig_reels_video_view_total_time": 266316,
    "reels_skip_rate": 82.9
   }
+ },
+ "sports:17907552264606201": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-06T11:56:45+0000",
+  "snapshot_utc": "2026-11-07T15:37:13Z",
+  "age_h": 27.7,
+  "first_line": "[⚾ KBO] 한국시리즈 3차전 진행 중 — KT 1:4 삼성",
+  "metrics": {
+   "views": 130,
+   "reach": 105,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 2938,
+   "ig_reels_video_view_total_time": 311470,
+   "reels_skip_rate": 74.3
+  }
  }
 }
