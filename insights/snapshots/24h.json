@@ -1906,5 +1906,42 @@
    "ig_reels_video_view_total_time": 237899,
    "reels_skip_rate": 79.4
   }
+ },
+ "sports:18211164838367435": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-06T01:05:08+0000",
+  "snapshot_utc": "2026-11-07T01:49:07Z",
+  "age_h": 24.7,
+  "first_line": "[⚽ 축구 모닝] 월 새벽 5시 아틀레티코–바르셀로나 1·2위 맞대결 + 5대 리그 1위~꼴찌 순위 — 7장",
+  "metrics": {
+   "views": 5,
+   "reach": 1,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18024853361722658": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-06T00:47:58+0000",
+  "snapshot_utc": "2026-11-07T01:49:07Z",
+  "age_h": 25.0,
+  "first_line": "[🎮 LoL] BLG 3:0 디플러스 기아",
+  "metrics": {
+   "views": 116,
+   "reach": 107,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2039,
+   "ig_reels_video_view_total_time": 216215,
+   "reels_skip_rate": 82.9
+  }
  }
 }
