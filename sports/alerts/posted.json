@@ -1648,6 +1648,16 @@
    "status": "published",
    "at_kst": "2026-11-08 02:11",
    "result": "17943882099375210"
+  },
+  "ger.1:401884745": {
+   "image": "sports/alerts/2026-11/2026-11-07_ger-1_0228.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-08 02:28"
+  },
+  "ger.1:401884740": {
+   "image": "sports/alerts/2026-11/2026-11-07_ger-1_0228.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-08 02:28"
   }
  },
  "boards": {
