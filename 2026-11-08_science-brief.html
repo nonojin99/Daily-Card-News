@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="우주·과학 브리프 — 2026.11.08">
+<meta property="og:description" content="빅뱅 7억 년 뒤 '작은 붉은 점' QSO1의 블랙홀은 은하 질량의 약 3분의 2 — 별보다 먼저 생긴 원시 블랙홀에서 자랐을 수 있는지 따진 심사 통과 논문">
+<meta property="og:type" content="article">
+<title>Science Brief — 2026.11.08</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d4a7c; --accent-soft:#eceef5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  .photo{margin:4px 0 18px}
+  .photo img{display:block;width:100%;height:auto;min-height:140px;border-radius:10px;
+        background:#0d1020;color:#8f96b3;font-size:12px}
+  .photo figcaption{padding:10px 2px 0;font-size:12.5px;color:var(--muted);line-height:1.55}
+  .photo .credit{display:block;margin-top:5px;font-size:11px;color:var(--faint)}
+  .photo .credit a{color:inherit;text-decoration:underline;text-underline-offset:2px;
+        text-decoration-color:var(--line)}
+
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">Long-read · 우주·과학</div>
+    <h1>블랙홀이 은하의 3분의 2 — 별보다 먼저 생긴 블랙홀의 후손일까</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 8일 일요일</span>
+      <span class="count">One Topic · 롱리드</span>
+    </div>
+    <p class="lede">초기 우주의 '작은 붉은 점' <strong>QSO1</strong>은 블랙홀이 전체 질량의 약 <strong>3분의 2</strong>를 차지합니다. 가까운 은하에서 블랙홀이 차지하는 비율의 수천 배입니다. 존스 홉킨스대 연구진은 이런 블랙홀이 별보다 먼저 생긴 원시 블랙홀에서 자랐을 수 있는지 따져 봤고, 논문은 Physical Review Letters에 실려 11월 5일 보도됐습니다. 세 갈래 길 중 하나는 배제됐고, 하나는 어렵고, 하나는 일부 조건에서 가능하다는 결과입니다. 원시 블랙홀은 아직 직접 확인된 적이 없다는 점까지, 여섯 장에 걸쳐 따라가 봅니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 8일 일요일, 우주·과학 브리프입니다. 오늘은 초기 우주의 작은 붉은 점 하나가 원시 블랙홀에서 자랐을 수 있는지 따져 본 이야기입니다.</p>
+    <p>블랙홀이 은하 전체 질량의 약 3분의 2를 차지합니다. 제임스웹 우주망원경이 찍은 작은 붉은 점 QSO1의 중심 블랙홀은 태양 질량의 약 5천만 배이고, 가까운 은하에서 블랙홀이 차지하는 비율의 수천 배입니다. 빅뱅 약 7억 년 뒤의 모습이고 크기는 약 1,300광년입니다. 이 점의 질량을 가스 운동으로 직접 잰 결과는 5월에 공개됐고, 이번 주 소식은 이 관측 결과를 별보다 먼저 생긴 원시 블랙홀로 설명할 수 있는지 따져 본 논문입니다. 가까운 은하에서는 블랙홀이 은하 질량의 아주 작은 부분일 뿐이어서, 같은 방식으로 자랐다고 보기 어렵다는 점이 출발점입니다.</p>
+    <p>이 질량은 가스가 도는 속도로 쟀습니다. 연구진은 NIRSpec이라는 장비로 수소 가스의 속도 지도를 그렸고, 가스가 행성이 태양을 돌듯 중심 둘레를 돈다는 것을 확인했습니다. 질량 대부분이 중심 블랙홀에 모여 있다는 뜻이고, 단순한 중력 법칙이라 가스 속도에서 블랙홀 질량을 직접 계산할 수 있었습니다. QSO1은 은하단 Abell 2744의 중력렌즈로 확대돼 하늘의 세 곳에 보이고, 빛은 130억 년 넘게 날아왔습니다. 금속 함량은 태양의 0.5퍼센트 미만입니다.</p>
+    <p>그렇다면 이 블랙홀은 어떻게 생겼을까요. 존스 홉킨스대 연구진은 원시 블랙홀의 가능성을 따졌습니다. 원시 블랙홀은 별과 은하 먼지, 무거운 원소가 생기기 전부터 존재했을 수 있는 이론상의 천체입니다. QSO1은 나이와 크기, 거의 수소와 헬륨뿐인 성분 때문에 후보로 거론됐습니다. 작은 붉은 점은 지금까지 약 100개가 목록에 올랐고, 원시 블랙홀의 직접 증거는 한 번도 발견되지 않았습니다.</p>
+    <p>논문은 세 가지 길을 따졌습니다. 처음부터 무거운 블랙홀로 생기는 길은 우주배경복사 관측 한계로 배제됐습니다. 가벼운 원시 블랙홀이 합쳐 자라는 길은 필요한 암흑물질 덩어리가 드물어 어렵습니다. 중간 질량 원시 블랙홀이 가스를 빨아들여 자라는 길은 일부 조건에서 가능하다는 결과였습니다.</p>
+    <p>다른 연구진의 시뮬레이션도 비슷한 결론에 닿았습니다. 태양 질량의 약 5천만 배인 원시 블랙홀을 씨앗으로 놓았더니, 별 형성이 늦게 시작되고 금속량이 태양보다 낮게 유지되는 QSO1 같은 천체가 만들어졌습니다. 다만 컴퓨터 속에서 가능했다는 것이 실제로 그랬다는 증거는 아닙니다.</p>
+    <p>그래서 이번 연구는 개념 증명입니다. 연구를 보도한 phys.org는 원시 블랙홀이 QSO1 크기와 소용돌이치는 원반을 갖추려면 특별한 조건이 필요하다고 전했습니다. 한 천체로 가능성을 시험했을 뿐 원시 기원을 입증하지는 않습니다. 다음 단계는 약 100개 작은 붉은 점 가운데 몇 개가 원시 블랙홀일 수 있는지 따지는 것이고, 입증하려면 별로는 만들 수 없을 만큼 가벼운 블랙홀이나 별보다 오래된 블랙홀을 찾아야 합니다.</p>
+    <p>정리하면, 확인된 것은 QSO1의 블랙홀이 약 5천만 태양질량이고 전체 질량의 약 3분의 2라는 점입니다. 추론인 것은 이 블랙홀이 원시 블랙홀에서 자랐을 가능성이며, 열려 있는 것은 그것을 가려낼 관측입니다. 원시 블랙홀 발견이라는 제목보다 원시 블랙홀일 수 있는 길이 남았다는 말이 정확합니다. 사진 속 붉은 점 하나가 우주 초기의 블랙홀이 어떻게 태어났는지 묻고 있고, 그 답은 앞으로의 관측이 가려 줄 것입니다. 이번 논문은 심사를 통과했지만 결론은 어디까지나 가능성의 목록입니다.</p>
+    <p>이상 우주·과학 브리프였습니다. 좋은 한 주 보내세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">Premise — 블랙홀이 더 무겁다</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">重</span>
+    <div class="card-top"><span class="topic">QSO1</span></div>
+    <h2>블랙홀이 은하 질량의 약 3분의 2 — 빅뱅 7억 년 뒤 '작은 붉은 점'의 5천만 태양질량</h2>
+    <figure class="photo" data-card-cap="작은 붉은 점 여섯 개 모음(QSO1과 무관한 예시)">
+      <img src="img/2026-11-08/littlereddots.jpg"
+           data-remote="https://cdn.esawebb.org/archives/images/screen/littlereddots.jpg"
+           loading="lazy" alt="제임스웹 근적외선 카메라로 찍은 작은 붉은 점 여섯 개를 모은 사진. 각각 작고 붉은 점으로 보인다">
+      <figcaption>
+        <strong>Little Red Dots (NIRCam Image)</strong> — <b>QSO1과 무관한 예시</b>다. 제임스웹이 찍은 작은 붉은 점 여섯 개를 모은 사진으로, 초기 우주의 작고 붉은 천체들이 어떻게 보이는지 보여 준다. 2025년 1월 14일 공개.
+        <span class="credit">이미지: <a href="https://esawebb.org/images/littlereddots/">NASA, ESA, CSA, STScI, D. Kocevski (Colby College)</a> ·
+          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span>
+      </figcaption>
+    </figure>
+    <div class="summary">
+      <p>ESA/Webb에 따르면 QSO1은 은하단 Abell 2744 뒤에 있는 '작은 붉은 점'으로, 중심 블랙홀의 질량은 태양의 약 <strong>5천만 배</strong>다. 이는 QSO1 전체 질량의 약 <strong>3분의 2</strong>로, 가까운 은하에서 블랙홀이 차지하는 비율의 수천 배다. 이미지 설명은 블랙홀이 주변 은하 물질의 약 2배라고 쓴다.</p>
+      <p>이 천체는 빅뱅 약 7억 년 뒤의 모습이고 크기는 약 1,300광년이다. 이번 주 새 소식은 이 관측이 아니라 5월에 나온 이 결과를 '별보다 먼저 생긴 원시 블랙홀'에서 설명할 수 있는지 따져 본 심사 통과 논문(11월 5일 보도)이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">대상</span><span>Abell2744-QSO1 · 작은 붉은 점(Little Red Dot)</span></li>
+      <li><span class="k">블랙홀</span><span>약 5천만 태양질량 · 이전 간접 추정은 약 4천만(ESA/Webb)</span></li>
+      <li><span class="k">비중</span><span>QSO1 전체 질량의 약 3분의 2 · 주변 은하 물질의 약 2배(ESA/Webb)</span></li>
+      <li><span class="k">크기·시기</span><span>지름 약 1,300광년 · 적색이동 약 7 · 빅뱅 약 7억 년 뒤</span></li>
+      <li><span class="k">공개</span><span>관측 결과·사진 2026-05-27(ESA/Webb) · 원시 블랙홀 논문 보도 2026-11-05</span></li>
+      <li><span class="k">확인 한계</span><span>질량은 가스 운동으로 계산한 값이며 동료 심사 단계는 ESA/Webb 발표(Nature·MNRAS 언급) 기준</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>이 카드의 요점은 '블랙홀이 은하보다 무겁다'는 점이다. 가까운 은하에서는 블랙홀이 은하 질량의 아주 작은 부분일 뿐이어서, 같은 방식으로 자랐다고 보기 어렵다.</p>
+    </div>
+    <a class="source" href="https://esawebb.org/images/weic2609a/">ESA/Webb — QSO1 사진·설명</a>  <a class="source" href="https://esawebb.org/news/weic2609/">ESA/Webb — 보도자료 weic2609</a>
+    <span class="ref-note">ESA/Webb 이미지 페이지 weic2609a·보도자료 weic2609(2026-05-27) · 사진은 같은 현상(작은 붉은 점)의 무관한 예시 — esawebb.org/images/littlereddots(2025-01-14), 크레디트는 이미지 페이지 원문(QSO1 자체 사진 weic2609a는 크레디트가 길어 출처 장 넘침으로 제외) · 이번 주 소식(원시 블랙홀 논문)은 카드 3~6 출처 (확인 2026-11-08)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">블랙홀이 은하의<br>약 3분의 2</p>
+      <p class="cn-s">작은 붉은 점 QSO1의 블랙홀은 태양의 약 5천만 배예요. 빅뱅 약 7억 년 뒤인데 전체 질량의 약 3분의 2를 차지해요. 사진은 무관한 예시예요.</p>
+      <p class="cn-num">약 2배|주변 은하 물질 대비 블랙홀</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Measure — 가스의 속도</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">測</span>
+    <div class="card-top"><span class="topic">측정 방법</span></div>
+    <h2>가스가 도는 속도로 쟀다 — 렌즈 덕에 한 천체가 하늘에 세 번 보인다</h2>
+    <div class="summary">
+      <p>ESA/Webb에 따르면 연구진은 NIRSpec의 IFU로 수소 가스의 속도 지도와 원소 분포를 얻었다. 가스는 행성이 태양을 돌듯 중심 둘레를 도는 케플러 운동을 했고, 이는 질량 대부분이 별이 아니라 중심 블랙홀에 모여 있다는 뜻이다. 단순한 중력 법칙을 따르므로 가스 속도에서 블랙홀 질량을 직접 계산할 수 있었다.</p>
+      <p>QSO1은 은하단 Abell 2744(판도라 은하단)의 중력렌즈로 확대돼 하늘의 세 곳에 보인다. 빛은 130억 년 넘게 날아왔고, 금속 함량은 태양의 0.5% 미만이라 가장 '깨끗한' 은하 환경 중 하나로 소개된다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">장비</span><span>NIRSpec IFU(속도·원소 지도) · NIRCam(영상)</span></li>
+      <li><span class="k">원리</span><span>가스의 케플러 운동 → 질량 대부분이 중심 블랙홀에 있다는 신호</span></li>
+      <li><span class="k">렌즈</span><span>Abell 2744(판도라 은하단)가 확대 · 하늘의 세 곳에 보임</span></li>
+      <li><span class="k">여행</span><span>빛이 130억 년 넘게 이동</span></li>
+      <li><span class="k">금속량</span><span>태양의 0.5% 미만</span></li>
+      <li><span class="k">확인 한계</span><span>ESA/Webb는 결과를 '시사'라고 표현하며 블랙홀의 기원을 단정하지 않음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>블랙홀 질량은 보통 간접 방법으로 추정한다. 이 연구는 가스가 도는 속도라는 직접 단서에서 질량을 계산했고, ESA/Webb는 이를 초기 우주 블랙홀 질량의 첫 직접 측정이라고 소개한다.</p>
+    </div>
+    <a class="source" href="https://esawebb.org/news/weic2609/">ESA/Webb — 측정 방법·렌즈</a>  <a class="source" href="https://esawebb.org/images/weic2609a/">ESA/Webb — 이미지 설명</a>
+    <span class="ref-note">ESA/Webb(2026-05-27, 보도자료 weic2609) · 렌즈 3곳·금속량·직접 측정 표현은 보도자료 기준 · 연구진 발언은 ESA/Webb 인용 (확인 2026-11-08)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">가스가 도는 속도로<br>블랙홀을 쟀어요</p>
+      <p class="cn-s">연구진은 NIRSpec으로 가스의 속도를 지도로 그렸어요. 가스가 도는 속도로 질량을 직접 계산했고, QSO1은 렌즈 덕에 하늘의 세 곳에 보여요.</p>
+      <p class="cn-num">3곳|하늘에서 QSO1이 보이는 자리</p>
+      <p class="cn-img">A dark compact sphere at the center with a thin swirling disk of glowing gas orbiting it with faint arrow trails showing orbit direction, deep space background, conceptual schematic, not a real photograph, no text</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Hypothesis — 별보다 먼저</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">原</span>
+    <div class="card-top"><span class="topic">원시 블랙홀</span></div>
+    <h2>별보다 먼저 생겼을 수 있는 블랙홀 — 원시 블랙홀은 아직 한 번도 직접 확인되지 않았다</h2>
+    <div class="summary">
+      <p>존스 홉킨스대 연구진은 QSO1이 원시 블랙홀을 품었을 가능성을 따졌다. phys.org는 원시 블랙홀을 별과 은하 먼지, 무거운 원소가 생기기 전부터 존재했을 수 있는 이론상의 천체로 설명한다. QSO1은 나이와 크기, 그리고 수소와 헬륨이 거의 전부인 성분 때문에 후보로 거론됐다.</p>
+      <p>지금까지 약 <strong>100개</strong>의 작은 붉은 점이 목록에 올랐다. 원시 블랙홀의 직접 증거는 한 번도 발견되지 않았다. 논문은 Physical Review Letters에 실렸고(DOI 10.1103/6y1w-87pd), 보도는 11월 5일 phys.org에 나왔다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">논문</span><span>"Primordial-Black-Hole-Based Pathways to Little Red Dots", Physical Review Letters</span></li>
+      <li><span class="k">저자</span><span>V. De Luca, L. Del Grosso 외(존스 홉킨스대 등)</span></li>
+      <li><span class="k">근거</span><span>QSO1의 나이·크기·성분(거의 수소·헬륨, 무거운 원소 부족)</span></li>
+      <li><span class="k">규모</span><span>작은 붉은 점 약 100개 목록(phys.org)</span></li>
+      <li><span class="k">확인 한계</span><span>PRL 정확한 게재일 미확인 · ESA/Webb 이미지 설명은 '수백 개'로 표현해 매체별 표기가 다름</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>원시 블랙홀은 '있을 수도 있다'는 이론이지 관측된 천체가 아니다. 이번 연구도 QSO1이 그렇다고 주장하는 것이 아니라 그럴 수 있는 길이 있는지를 따져 본 것이다.</p>
+    </div>
+    <a class="source" href="https://phys.org/news/2026-11-webb-space-telescope-red-dots.html">phys.org — 존스 홉킨스 연구 보도</a>
+    <span class="ref-note">phys.org(2026-11-05, 존스 홉킨스대 보도자료 기반) 단일 출처로 서술 · 논문 서지는 phys.org 기재 · 약 100개는 phys.org 표기 (확인 2026-11-08)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">별보다 먼저 생긴<br>블랙홀의 후손일까</p>
+      <p class="cn-s">원시 블랙홀은 별과 무거운 원소보다 앞서 존재했을 수 있는 이론상의 천체예요. 아직 직접 확인된 적은 없고, 작은 붉은 점은 약 100개가 목록에 올랐어요.</p>
+      <p class="cn-num">약 100개|목록화된 작은 붉은 점</p>
+      <p class="cn-img">A single tiny dark sphere with a faint glowing ring appearing alone in an empty black void before any stars, small distant dust-free space, conceptual schematic, not a real photograph, no text</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Pathways — 세 갈래 길</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">道</span>
+    <div class="card-top"><span class="topic">세 가지 경로</span></div>
+    <h2>원시 블랙홀이 QSO1이 되는 길 세 가지 — 하나는 배제, 하나는 어렵고, 하나는 가능</h2>
+    <div class="summary">
+      <p>arXiv 논문(게재본과 일치하는 v2)에 따르면 연구진은 3가지 경로를 따졌다. 첫째, 초기 우주에서 무거운 블랙홀로 곧바로 생기는 길은 우주배경복사의 μ-왜곡 한계로 <strong>배제</strong>됐다. 둘째, 가벼운 원시 블랙홀이 합쳐 자라는 길은 일부 합병 이력에서 가능하지만 필요한 암흑물질 덩어리(헤일로)가 드물어 어렵다.</p>
+      <p>셋째, 중간 질량 원시 블랙홀이 가스를 빨아들여 자라는 길은 일부 조건에서 가능하다. 연구진은 금속량 변화까지 함께 모형화해 작은 붉은 점의 특성을 재현할 수 있는 영역을 찾았고, 금속이 매우 적고 질량이 큰 QSO1을 특별한 시험 사례로 썼다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">① 직접 생성</span><span>우주배경복사 μ-왜곡 한계로 배제</span></li>
+      <li><span class="k">② 위계적 합병</span><span>일부 합병 이력에서 가능 · 필요한 헤일로가 드물어 어려움</span></li>
+      <li><span class="k">③ 가스 흡입</span><span>중간 질량 원시 블랙홀 · 일부 매개변수 영역에서 가능(금속량 진화 포함)</span></li>
+      <li><span class="k">시험 사례</span><span>QSO1 — 매우 낮은 금속량, 큰 질량</span></li>
+      <li><span class="k">이력</span><span>arXiv v1 2025-12-22 · v2 2026-06-12(게재본과 일치)</span></li>
+      <li><span class="k">확인 한계</span><span>초록 요약 기준 — 세부 수치(질량 범위 등)는 논문 본문 미확인</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>세 길 가운데 가장 앞서 지워진 것은 '처음부터 무거운 블랙홀'이다. 남은 길은 작게 시작해 가스를 먹고 크는 쪽이다.</p>
+    </div>
+    <a class="source" href="https://arxiv.org/abs/2512.19666">arXiv — 논문 초록 2512.19666</a>
+    <span class="ref-note">arXiv:2512.19666(v1 2025-12-22, v2 2026-06-12, 페이지 설명상 v2가 PRL 게재본과 일치) · 초록 기반 정리, 본문 수치는 읽지 못함 (확인 2026-11-08)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">세 갈래 길 중<br>하나는 이미 지워졌다</p>
+      <p class="cn-s">처음부터 무거운 블랙홀로 생기는 길은 배제됐어요. 합병하는 길은 어렵고, 작은 원시 블랙홀이 가스를 먹고 자라는 길은 일부 조건에서 가능해요.</p>
+      <p class="cn-num">3가지|따져 본 경로</p>
+      <p class="cn-note">배제 · 어려움 · 가능</p>
+      <p class="cn-img">Three diverging narrow paths on a dark map starting from one small glowing point, the first path blocked by a closed gate, the second path winding and thin, the third path open and bright, abstract, conceptual schematic, not a real photograph, no text</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Cross-check — 다른 팀</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">證</span>
+    <div class="card-top"><span class="topic">다른 연구진</span></div>
+    <h2>다른 팀의 우주론 시뮬레이션도 5천만 태양질량 씨앗으로 QSO1을 닮은 천체를 만들었다</h2>
+    <div class="summary">
+      <p>Saiyang Zhang 등 다른 연구진은 태양 질량의 약 5천만 배(5×10⁷)인 원시 블랙홀을 씨앗으로 놓고 고해상도 우주론 시뮬레이션을 돌렸다(arXiv 2512.14066, ApJL 게재 수락). 씨앗의 강한 되먹임이 별 형성을 적색이동 약 10 이하까지 늦추고, 이후 별 형성이 짧고 폭발적으로 일어난다는 결과였다.</p>
+      <p>유출이 무거운 원소를 밖으로 밀어내고 유입이 깨끗한 가스를 데려오면서 금속량이 태양보다 낮게 유지됐고, 블랙홀은 에딩턴 한계의 1~10%로 자랐다. 연구진은 이를 QSO1의 성질에 대한 물리적으로 그럴듯한 설명이라고 쓴다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">씨앗</span><span>원시 블랙홀 약 5×10⁷ 태양질량</span></li>
+      <li><span class="k">별 형성</span><span>되먹임으로 적색이동 약 10 이하까지 지연 · 이후 짧고 폭발적</span></li>
+      <li><span class="k">성장</span><span>에딩턴 한계의 약 1~10%</span></li>
+      <li><span class="k">금속량</span><span>태양보다 낮은 금속량(subsolar)으로 유지 — 구체 수치는 논문 본문 미확인</span></li>
+      <li><span class="k">이력</span><span>arXiv v1 2025-12-16 · v2 2026-03-12 · ApJL 수락</span></li>
+      <li><span class="k">확인 한계</span><span>시뮬레이션이 관측과 맞는다는 것이 원시 블랙홀의 존재 증거는 아님</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>두 팀 모두 '될 수 있다'를 보인 것이다. 컴퓨터 속에서 QSO1을 닮은 천체가 만들어졌다는 것과 실제로 그랬다는 것은 별개의 문제다.</p>
+    </div>
+    <a class="source" href="https://arxiv.org/abs/2512.14066">arXiv — 원시 블랙홀 씨앗 시뮬레이션 2512.14066</a>  <a class="source" href="https://arxiv.org/abs/2512.19666">arXiv — 비교: PRL 논문 초록</a>
+    <span class="ref-note">arXiv:2512.14066(v1 2025-12-16, v2 2026-03-12, ApJL 수락 표기) · 저자 Saiyang Zhang, Boyuan Liu, Volker Bromm, Florian Kühnel · PRL 논문과는 다른 연구진 (확인 2026-11-08)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">다른 팀 시뮬레이션도<br>가능하다고 봤다</p>
+      <p class="cn-s">5천만 태양질량 원시 블랙홀 씨앗으로 시뮬레이션하자 QSO1처럼 금속이 적은 천체가 만들어졌어요. 다만 가능성을 보인 것이지 증거는 아니에요.</p>
+      <p class="cn-num">5천만 태양질량|시뮬레이션 씨앗</p>
+      <p class="cn-img">A glowing gas cloud simulation cube slice showing a small bright dot at the center with thin filaments of gas flowing inward and puffs flowing outward, dark blue background, conceptual schematic, not a real photograph, no text</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Limits — 개념 증명</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">限</span>
+    <div class="card-top"><span class="topic">한계와 다음</span></div>
+    <h2>개념 증명일 뿐 — 증거가 되려면 너무 가볍거나 별보다 오래된 블랙홀을 찾아야 한다</h2>
+    <div class="summary">
+      <p>phys.org에 따르면 이번 연구는 한 천체(QSO1)로 가능성을 시험한 개념 증명이다. 원시 블랙홀이 QSO1 크기와 소용돌이치는 원반을 갖추려면 특별한 조건이 필요하고, 일부 시나리오가 다른 시나리오보다 가능성이 높다는 것까지 보였을 뿐 원시 기원을 입증하지는 않는다. 가장 그럴듯한 것으로 소개된 길은 더 작은 원시 블랙홀이 주변 가스를 끌어당겨 자란 경우다.</p>
+      <p>다음 단계는 약 100개 작은 붉은 점 가운데 몇 개가 원시 블랙홀일 수 있는지 따지는 것이다. 입증하려면 별로는 만들 수 없을 만큼 가벼운 블랙홀이나 별보다 오래된 블랙홀을 찾아야 한다. 공동저자 델 그로소는 '이 이론의 문이 열려 있었다'고 말했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">성격</span><span>개념 증명(proof of concept) · 한 천체 검증</span></li>
+      <li><span class="k">결론</span><span>일부 시나리오가 더 그럴듯함 · 원시 기원은 입증 안 됨</span></li>
+      <li><span class="k">제약</span><span>우주론적 제약이 원시 블랙홀의 수를 제한</span></li>
+      <li><span class="k">다음</span><span>약 100개 작은 붉은 점 중 원시 블랙홀 후보 몇 개인지 검토</span></li>
+      <li><span class="k">입증 조건</span><span>별로 못 만드는 가벼운 블랙홀 또는 별보다 오래된 블랙홀 발견</span></li>
+      <li><span class="k">확인 한계</span><span>phys.org 단일 출처 · 가능성 순위는 논문 초록의 '일부 영역에서 가능'과 강조점이 다를 수 있음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>'발견'이라는 말이 붙기 쉬운 소재지만 이 카드의 결론은 '아직 모른다'이다. 확인된 것은 관측된 블랙홀의 무게이고, 원시 블랙홀이라는 해석은 가능성의 목록에 있다.</p>
+    </div>
+    <a class="source" href="https://phys.org/news/2026-11-webb-space-telescope-red-dots.html">phys.org — 한계·다음 단계</a>
+    <span class="ref-note">phys.org(2026-11-05) 단일 출처 · 델 그로소 발언은 phys.org가 전한 내용의 번역 요약 (확인 2026-11-08)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">개념 증명일 뿐,<br>증거는 아직 없다</p>
+      <p class="cn-s">이번 연구는 한 천체로 가능성만 따져 본 개념 증명이에요. 입증하려면 별로는 못 만드는 가벼운 블랙홀이나 별보다 오래된 블랙홀을 찾아야 해요.</p>
+      <p class="cn-num">1개|이번에 검증한 천체</p>
+      <p class="cn-img">A lone telescope-free scene of a dark sky with a small question mark shaped gap in the star field and one tiny bright dot beside it, minimal, conceptual schematic, not a real photograph, no text</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 마케팅 인사이트 → 디자인 렌더링 → 검토<br>
+    큐레이션: 11/1(백색왜성 이중 원반)·10/25(AT 2026abck)·10/18(WASP-17b) 등 최근 회차와 겹치지 않는 주제 · 이번 주 새 소식은 원시 블랙홀 논문(PRL, 11/5 보도)이고 QSO1 관측·사진은 5월 공개분임을 카드 1에 밝혔습니다. 직접 증거는 없는 가설 단계이므로 제목·카드를 '가능성' 수준으로 썼습니다.<br>
+    📊 도표: 질량·시기가 단일 천체의 추정값이고 오차 범위가 출처에 없어 카드 숫자와 스펙 표만 사용했습니다. 검토한 카드는 1번(블랙홀 비중)·5번(시뮬레이션)입니다.<br>
+    모든 수치는 보도 기준이며 변동될 수 있습니다.
+    <!-- tracker: 2026-11-08
+         [오늘 다룬 주제] 작은 붉은 점 Abell2744-QSO1, 원시 블랙홀 기원 가능성. 논문 "Primordial-Black-Hole-Based Pathways to Little Red Dots", Physical Review Letters, DOI 10.1103/6y1w-87pd, 보도 phys.org 2026-11-05(존스 홉킨스 Hannah Robbins). arXiv 2512.19666 v1 2025-12-22, v2 2026-06-12(=게재본). 저자 De Luca, Del Grosso, Franciolini, Kritos, Berti, D'Orazio, Silk. PRL 정확한 게재일 미확인(APS 403).
+         핵심: 블랙홀 ~5천만 M☉, QSO1 질량의 ~2/3(주변 은하 물질의 ~2배), 지름 ~1,300광년, z~7, 빅뱅 ~7억 년 뒤, 금속량 <0.5% 태양, 렌즈(Abell 2744) 3곳. 직접 생성 배제(CMB μ-왜곡), 합병 어려움(헤일로 희소), 가스 흡입 가능. 작은 붉은 점 목록 ~100개(phys.org; ESA/Webb 이미지 설명은 '수백 개').
+         관측 주체: ESA/Webb weic2609 2026-05-27(Nature·MNRAS). 다른 팀 arXiv 2512.14066(Zhang·Liu·Bromm·Kühnel, ApJL 수락) 5×10^7 M☉ 씨앗 시뮬레이션.
+         [지난 회차와 중복 회피] 11/1 백색왜성 이중 원반, 10/25 AT 2026abck, 10/18 WASP-17b, 10/11 FRB 20240304B, 10/4 잔해 원반, 9/27 베수비오, 9/20 디키노돈트, 9/13 데니소바인, 9/6 토성 십각형, 8/30 로먼, 8/23 블랙홀별, 8/16 3I/ATLAS.
+         [탈락 후보] 허블·웹 TNO 27개(NASA 원문 9/8, 창 밖) · Rubin Aquarius IV·Rubin-GC1(arXiv 8~9월, 공개 사진 없음) · 거대 외계행성 직접 촬영 Space.com 11/6(본문 미확인) · ScienceAlert '직접 증거' 제목(과장 위험, 미인용).
+         [이미지] 카드 1: ESA/Webb littlereddots(2025-01-14, QSO1 무관 예시, Credit 'NASA, ESA, CSA, STScI, D. Kocevski (Colby College)', CC BY 4.0 — esawebb.org/copyright 확인). QSO1 자체 사진 weic2609a는 크레디트가 길어(렌더 1단계 출처 장 넘침 FAIL) 제외. 카드 2~6 cn-img(AI 개념도).
+         [확인 못 해 제외한 수치] z=7.04 소수점(arXiv 본문 미확인) · PRL 게재일 · 논문 본문 질량 범위 · QSO1 5천만의 동료 심사 단계(ESA/Webb가 Nature·MNRAS 언급).
+         [출처 분산] ①S3·S2 ②S2·S3 ③phys.org ④arXiv 2512.19666 ⑤arXiv 2512.14066·2512.19666 ⑥phys.org — 각 URL 최대 2카드.
+         [리서치 도구] mcp__Firecrawl__* 0회.
+    -->
+  </footer>
+
+</div></body>
+</html>
