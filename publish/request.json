@@ -2,28 +2,30 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-06_weekend",
-   "caption": "captions/2026-11-06_weekend.txt",
+   "media": "cards/2026-11/2026-11-08_science-brief",
+   "caption": "captions/2026-11-08_science.txt",
    "review": "required",
    "dry_run": "false",
    "is_ai": "true"
   },
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-07_baseball-brief",
-   "caption": "captions/2026-11-07_baseball.txt",
+   "media": "cards/2026-11/2026-11-08_football-brief",
+   "caption": "captions/2026-11-08_football.txt",
    "dry_run": "false",
    "is_ai": "false",
    "account": "sports",
    "review": "required"
   },
   {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-08_science-brief",
-   "caption": "captions/2026-11-08_science.txt",
-   "review": "required",
+   "kind": "reel",
+   "media": "reels/2026-11/2026-11-08_football.mp4",
+   "caption": "captions/2026-11-08_football_reel.txt",
    "dry_run": "false",
-   "is_ai": "true"
+   "is_ai": "false",
+   "account": "sports",
+   "ab": "short",
+   "review": "required"
   }
  ]
 }
