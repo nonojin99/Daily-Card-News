@@ -158,6 +158,16 @@
    "status": "failed",
    "result": "공개 주소에 영상이 안 뜸: https://nonojin99.github.io/Daily-Card-News/reels/sports/2026-11/2026-11-07_2340_bundle.mp4",
    "posted_kst": "2026-11-08 00:00"
+  },
+  {
+   "id": "bundle:2026-11-08_07:40",
+   "kind": "bundle",
+   "mp4": "reels/sports/2026-11/2026-11-08_0740_bundle.mp4",
+   "caption": "reels/sports/2026-11/2026-11-08_0740_bundle.txt",
+   "score": 55,
+   "seconds": 12.2,
+   "made_kst": "2026-11-08 07:43",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -651,6 +661,9 @@
   },
   "2026-11-07_23:40": {
    "made_kst": "2026-11-07 23:45"
+  },
+  "2026-11-08_07:40": {
+   "made_kst": "2026-11-08 07:43"
   }
  }
 }
