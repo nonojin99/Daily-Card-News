@@ -1943,5 +1943,25 @@
    "ig_reels_video_view_total_time": 216215,
    "reels_skip_rate": 82.9
   }
+ },
+ "sports:17979328098176905": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-06T07:36:01+0000",
+  "snapshot_utc": "2026-11-07T08:40:26Z",
+  "age_h": 25.1,
+  "first_line": "[⚾ KBO] 한국시리즈 3차전 선발 — KT 소형준 vs 삼성 후라도",
+  "metrics": {
+   "views": 125,
+   "reach": 112,
+   "likes": 0,
+   "comments": 0,
+   "shares": 2,
+   "saved": 0,
+   "total_interactions": 2,
+   "ig_reels_avg_watch_time": 2377,
+   "ig_reels_video_view_total_time": 266316,
+   "reels_skip_rate": 82.9
+  }
  }
 }
