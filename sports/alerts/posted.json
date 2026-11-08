@@ -1816,6 +1816,21 @@
    "status": "published",
    "at_kst": "2026-11-09 01:27",
    "result": "18439741957179222"
+  },
+  "eng.1:401879244": {
+   "image": "sports/alerts/2026-11/2026-11-08_eng-1_0200.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-09 02:00"
+  },
+  "eng.1:401878759": {
+   "image": "sports/alerts/2026-11/2026-11-08_eng-1_0200.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-09 02:00"
+  },
+  "eng.1:401879239": {
+   "image": "sports/alerts/2026-11/2026-11-08_eng-1_0200.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-09 02:00"
   }
  },
  "boards": {
