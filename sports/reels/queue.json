@@ -221,6 +221,20 @@
    "status": "published",
    "result": "17989557344879404",
    "posted_kst": "2026-11-08 16:37"
+  },
+  {
+   "id": "kbo:20261108KTSS0",
+   "kind": "game",
+   "mp4": "reels/sports/2026-11/2026-11-08_kbo-20261108-0.mp4",
+   "caption": "reels/sports/2026-11/2026-11-08_kbo-20261108-0.txt",
+   "score": 75,
+   "why": [
+    "KBO",
+    "결승급"
+   ],
+   "seconds": 5.5,
+   "made_kst": "2026-11-08 17:11",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -691,6 +705,16 @@
    "sport": "ufc",
    "title": "Waldo Cortes Acosta 패:승 Johnny Walker",
    "at": "2026-11-08 13:10"
+  },
+  "kbo:20261108KTSS0": {
+   "score": 75,
+   "why": [
+    "KBO",
+    "결승급"
+   ],
+   "sport": "kbo",
+   "title": "KT 1:12 삼성",
+   "at": "2026-11-08 17:11"
   }
  },
  "last_post": 1794123441.4405565,
