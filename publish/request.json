@@ -35,6 +35,16 @@
    "is_ai": "false",
    "account": "sports",
    "review": "required"
+  },
+  {
+   "kind": "reel",
+   "media": "reels/2026-11/2026-11-08_baseball.mp4",
+   "caption": "captions/2026-11-08_baseball_reel.txt",
+   "ab": "short",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "review": "required"
   }
  ]
 }
