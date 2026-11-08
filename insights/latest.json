@@ -1,11 +1,27 @@
 {
- "collected_kst": "2026-11-07 16:27",
+ "collected_kst": "2026-11-08 16:37",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-07T07:26:56.863881Z",
+   "checked_at": "2026-11-08T07:37:29.029789Z",
    "media": [
+    {
+     "id": "18103638458530277",
+     "type": "FEED",
+     "timestamp": "2026-11-07T21:09:41+0000",
+     "permalink": "https://www.instagram.com/p/DfdHRs9FFWj/",
+     "first_line": "[우주·과학] 블랙홀이 은하 질량의 약 3분의 2 — 별보다 먼저 생긴 블랙홀의 후손일까? 🔭 작은 붉은 점 QSO1",
+     "metrics": {
+      "views": 2,
+      "reach": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
     {
      "id": "17910224400331604",
      "type": "FEED",
@@ -13,8 +29,8 @@
      "permalink": "https://www.instagram.com/p/Dfak3CGnXwe/",
      "first_line": "[주말 뭐하지] 토요일 서울 -1도 올가을 가장 추운 날 · 부산불꽃축제 7일 저녁 7시 · 쓱데이·롯데마트 할인 8일 마감",
      "metrics": {
-      "views": 9,
-      "reach": 3,
+      "views": 14,
+      "reach": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -32,16 +48,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 108,
-      "reach": 104,
+      "views": 109,
+      "reach": 105,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2264,
-      "ig_reels_video_view_total_time": 244540,
-      "reels_skip_rate": 79.6
+      "ig_reels_avg_watch_time": 2280,
+      "ig_reels_video_view_total_time": 255420,
+      "reels_skip_rate": 79.8
      }
     },
     {
@@ -137,7 +153,7 @@
      "permalink": "https://www.instagram.com/p/DfOUvC-Dc4H/",
      "first_line": "[AI·테크] 엔비디아 루빈 GPU 메모리 대역폭 22→19.2 TB/s · 엔비디아, 네이버에 10억 달러 투자 · 구글 제미나이 4 카본 —",
      "metrics": {
-      "views": 13,
+      "views": 15,
       "reach": 4,
       "likes": 2,
       "comments": 0,
@@ -541,40 +557,188 @@
       "saved": 0,
       "total_interactions": 5
      }
-    },
-    {
-     "id": "18027659936698377",
-     "type": "REELS",
-     "timestamp": "2026-10-19T23:02:32+0000",
-     "permalink": "https://www.instagram.com/reel/DesY-wtjHB_/",
-     "first_line": "[스포츠] 🎧 2분 듣는 스포츠 — KIA 준PO 2연승, 서울 우승 연기, 안세영 47승",
-     "tag": "스포츠",
-     "variant": "narrated",
-     "opening": "static",
-     "metrics": {
-      "views": 121,
-      "reach": 112,
-      "likes": 3,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 4,
-      "ig_reels_avg_watch_time": 2775,
-      "ig_reels_video_view_total_time": 324686,
-      "reels_skip_rate": 81.8
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 37
+   "posts": 39
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-07T07:27:07.293974Z",
+   "checked_at": "2026-11-08T07:37:40.221801Z",
    "media": [
+    {
+     "id": "17989557344879404",
+     "type": "REELS",
+     "timestamp": "2026-11-08T07:37:15+0000",
+     "permalink": "https://www.instagram.com/reel/DfePFTYjTFF/",
+     "first_line": "[⚾ KBO] 한국시리즈 5차전 진행 중 — KT 1:11 삼성",
+     "tag": "⚾ KBO",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 0,
+      "reach": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 0,
+      "ig_reels_video_view_total_time": 0,
+      "reels_skip_rate": 0
+     }
+    },
+    {
+     "id": "18181242376442193",
+     "type": "REELS",
+     "timestamp": "2026-11-08T03:05:07+0000",
+     "permalink": "https://www.instagram.com/reel/Dfdv7K7ihAv/",
+     "first_line": "[⚾ KBO] 한국시리즈 5차전 선발 — KT 대니엘 vs 삼성 원태인",
+     "tag": "⚾ KBO",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 128,
+      "reach": 107,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2687,
+      "ig_reels_video_view_total_time": 287536,
+      "reels_skip_rate": 77.4
+     }
+    },
+    {
+     "id": "18114983659876777",
+     "type": "REELS",
+     "timestamp": "2026-11-08T01:04:24+0000",
+     "permalink": "https://www.instagram.com/reel/DfdiGr3kT4K/",
+     "first_line": "[🎮 LoL] 젠지 3:0 IG",
+     "tag": "🎮 LoL",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 2,
+      "reach": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2873,
+      "ig_reels_video_view_total_time": 2873,
+      "reels_skip_rate": 100
+     }
+    },
+    {
+     "id": "18129039493942173",
+     "type": "REELS",
+     "timestamp": "2026-11-07T23:51:07+0000",
+     "permalink": "https://www.instagram.com/reel/DfdZt-hgSVD/",
+     "first_line": "[⚽ 축구 모닝] 맨시티 노팅엄 원정 1-3 리그 3연패 · 아스널 1-0 헐 선두",
+     "tag": "⚽ 축구 모닝",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 118,
+      "reach": 108,
+      "likes": 1,
+      "comments": 0,
+      "shares": 2,
+      "saved": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 4134,
+      "ig_reels_video_view_total_time": 454839,
+      "reels_skip_rate": 69.2
+     }
+    },
+    {
+     "id": "17927676078201617",
+     "type": "FEED",
+     "timestamp": "2026-11-07T23:49:30+0000",
+     "permalink": "https://www.instagram.com/p/DfdZkLzlRGU/",
+     "first_line": "[⚽ 축구 모닝] 맨시티 노팅엄 원정 1-3 리그 3연패 · 김민재 결장 · 레알 3-0 공동 선두 — 6장",
+     "metrics": {
+      "views": 1,
+      "reach": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18110292362252904",
+     "type": "REELS",
+     "timestamp": "2026-11-07T22:45:33+0000",
+     "permalink": "https://www.instagram.com/reel/DfdSPEVASqA/",
+     "first_line": "[🏟 밤사이 결과] 결과판 4장 한 번에",
+     "tag": "🏟 밤사이 결과",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 125,
+      "reach": 104,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 4268,
+      "ig_reels_video_view_total_time": 452467,
+      "reels_skip_rate": 76
+     }
+    },
+    {
+     "id": "18652489132035868",
+     "type": "REELS",
+     "timestamp": "2026-11-07T08:30:39+0000",
+     "permalink": "https://www.instagram.com/reel/DfbwYM1gKbs/",
+     "first_line": "[⚾ KBO] KT 5:10 삼성",
+     "tag": "⚾ KBO",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 154,
+      "reach": 112,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 3549,
+      "ig_reels_video_view_total_time": 404587,
+      "reels_skip_rate": 70.5
+     }
+    },
+    {
+     "id": "18224116552348312",
+     "type": "REELS",
+     "timestamp": "2026-11-07T08:01:22+0000",
+     "permalink": "https://www.instagram.com/reel/DfbtBt7kz5F/",
+     "first_line": "[⚾ KBO] 한국시리즈 4차전 진행 중 — KT 5:10 삼성",
+     "tag": "⚾ KBO",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 128,
+      "reach": 109,
+      "likes": 3,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 2543,
+      "ig_reels_video_view_total_time": 277255,
+      "reels_skip_rate": 76.9
+     }
+    },
     {
      "id": "17926687764440343",
      "type": "REELS",
@@ -585,16 +749,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 133,
-      "reach": 108,
+      "views": 134,
+      "reach": 109,
       "likes": 2,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 2,
-      "ig_reels_avg_watch_time": 2914,
-      "ig_reels_video_view_total_time": 314742,
-      "reels_skip_rate": 75.9
+      "ig_reels_avg_watch_time": 2875,
+      "ig_reels_video_view_total_time": 319216,
+      "reels_skip_rate": 76.1
      }
     },
     {
@@ -614,8 +778,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 3236,
-      "ig_reels_video_view_total_time": 6472,
+      "ig_reels_avg_watch_time": 2815,
+      "ig_reels_video_view_total_time": 8446,
       "reels_skip_rate": 100
      }
     },
@@ -629,16 +793,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 113,
-      "reach": 106,
+      "views": 114,
+      "reach": 107,
       "likes": 2,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 2,
-      "ig_reels_avg_watch_time": 2321,
-      "ig_reels_video_view_total_time": 250764,
-      "reels_skip_rate": 81.1
+      "ig_reels_avg_watch_time": 2315,
+      "ig_reels_video_view_total_time": 254697,
+      "reels_skip_rate": 81.3
      }
     },
     {
@@ -658,8 +822,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2504,
-      "ig_reels_video_view_total_time": 5009,
+      "ig_reels_avg_watch_time": 1915,
+      "ig_reels_video_view_total_time": 5746,
       "reels_skip_rate": 100
      }
     },
@@ -809,16 +973,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 122,
-      "reach": 105,
+      "views": 124,
+      "reach": 106,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1759,
-      "ig_reels_video_view_total_time": 184794,
-      "reels_skip_rate": 89.4
+      "ig_reels_avg_watch_time": 1792,
+      "ig_reels_video_view_total_time": 189972,
+      "reels_skip_rate": 88.6
      }
     },
     {
@@ -1034,177 +1198,13 @@
       "ig_reels_video_view_total_time": 408906,
       "reels_skip_rate": 74.6
      }
-    },
-    {
-     "id": "18383522680230698",
-     "type": "REELS",
-     "timestamp": "2026-11-03T13:26:42+0000",
-     "permalink": "https://www.instagram.com/reel/DfR_GNyjn9Q/",
-     "first_line": "[⚾ KBO] 삼성 7:8 KT",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 167,
-      "reach": 114,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 5515,
-      "ig_reels_video_view_total_time": 634256,
-      "reels_skip_rate": 70.2
-     }
-    },
-    {
-     "id": "18503655946099608",
-     "type": "REELS",
-     "timestamp": "2026-11-03T12:26:11+0000",
-     "permalink": "https://www.instagram.com/reel/DfR4J85iTLr/",
-     "first_line": "[⚾ KBO] 한국시리즈 1차전 진행 중 — 삼성 5:8 KT",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 122,
-      "reach": 104,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2784,
-      "ig_reels_video_view_total_time": 297982,
-      "reels_skip_rate": 67.6
-     }
-    },
-    {
-     "id": "17884671693628912",
-     "type": "REELS",
-     "timestamp": "2026-11-03T07:37:04+0000",
-     "permalink": "https://www.instagram.com/reel/DfRXEWlEoUs/",
-     "first_line": "[⚾ KBO] 한국시리즈 1차전 선발 — 삼성 최원태 vs KT 대니엘",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 116,
-      "reach": 103,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2105,
-      "ig_reels_video_view_total_time": 223232,
-      "reels_skip_rate": 90.2
-     }
-    },
-    {
-     "id": "18080073302436399",
-     "type": "REELS",
-     "timestamp": "2026-11-03T01:17:59+0000",
-     "permalink": "https://www.instagram.com/reel/DfQrr94FSCu/",
-     "first_line": "[⚽ 축구 모닝 · 챔스 프리뷰] 이강인 vs 김민재, 수 새벽 5시 · 한국 선수 4명 일정",
-     "tag": "⚽ 축구 모닝 · 챔스 프리뷰",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 121,
-      "reach": 109,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2786,
-      "ig_reels_video_view_total_time": 303706,
-      "reels_skip_rate": 72
-     }
-    },
-    {
-     "id": "18095014241692486",
-     "type": "FEED",
-     "timestamp": "2026-11-02T23:57:13+0000",
-     "permalink": "https://www.instagram.com/p/DfQieZDCRxd/",
-     "first_line": "[⚽ 축구 모닝 · 챔스 프리뷰] 이강인 vs 김민재, 수 새벽 5시 아틀레티코–바이에른",
-     "metrics": {
-      "views": 4,
-      "reach": 1,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
-    },
-    {
-     "id": "17909468352664805",
-     "type": "REELS",
-     "timestamp": "2026-11-02T23:03:24+0000",
-     "permalink": "https://www.instagram.com/reel/DfQcSpsEtE2/",
-     "first_line": "[⚾ 야구 나이트] 1차전 이긴 팀 42번 중 31번 우승 · 대니엘 ERA 2.13 대 최원태 4.68 · 올해 맞대결 삼성 9승 7패 — 한",
-     "tag": "⚾ 야구 나이트",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 133,
-      "reach": 103,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3915,
-      "ig_reels_video_view_total_time": 411076,
-      "reels_skip_rate": 70.2
-     }
-    },
-    {
-     "id": "18128164516924885",
-     "type": "FEED",
-     "timestamp": "2026-11-02T23:01:47+0000",
-     "permalink": "https://www.instagram.com/p/DfQcIQjCXtf/",
-     "first_line": "[⚾ 야구 나이트] 1차전 이긴 팀 42번 중 31번 우승 · 대니엘 ERA 2.13 대 최원태 4.68 · 삼성 9승 7패 — 한국시리즈 1차",
-     "metrics": {
-      "views": 7,
-      "reach": 1,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
-    },
-    {
-     "id": "18152877784536984",
-     "type": "REELS",
-     "timestamp": "2026-11-02T22:46:51+0000",
-     "permalink": "https://www.instagram.com/reel/DfQaZmYEfz9/",
-     "first_line": "[🏟 밤사이 결과] 결과판 3장 한 번에",
-     "tag": "🏟 밤사이 결과",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 128,
-      "reach": 111,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2221,
-      "ig_reels_video_view_total_time": 246627,
-      "reels_skip_rate": 86.5
-     }
     }
    ],
    "errors": [],
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 7,
-   "posts": 96
+   "posts": 104
   }
  ]
 }
