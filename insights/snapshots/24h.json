@@ -2057,5 +2057,45 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "sports:17926687764440343": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-07T03:06:12+0000",
+  "snapshot_utc": "2026-11-08T07:12:57Z",
+  "age_h": 28.1,
+  "first_line": "[⚾ KBO] 한국시리즈 4차전 선발 — KT 로건 vs 삼성 장찬희",
+  "metrics": {
+   "views": 134,
+   "reach": 109,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 2,
+   "ig_reels_avg_watch_time": 2875,
+   "ig_reels_video_view_total_time": 319216,
+   "reels_skip_rate": 76.1
+  }
+ },
+ "sports:18114549773177012": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-07T02:05:46+0000",
+  "snapshot_utc": "2026-11-08T07:12:57Z",
+  "age_h": 29.1,
+  "first_line": "[🎮 LoL] T1 3:1 KC",
+  "metrics": {
+   "views": 2,
+   "reach": 1,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 2815,
+   "ig_reels_video_view_total_time": 8446,
+   "reels_skip_rate": 100
+  }
  }
 }
