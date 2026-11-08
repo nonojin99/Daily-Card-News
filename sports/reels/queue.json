@@ -1,23 +1,6 @@
 {
  "items": [
   {
-   "id": "lol:115660540726095115",
-   "kind": "game",
-   "mp4": "reels/sports/2026-11/2026-11-05_lol-115660540726095115.mp4",
-   "caption": "reels/sports/2026-11/2026-11-05_lol-115660540726095115.txt",
-   "score": 95,
-   "why": [
-    "한국",
-    "포스트시즌",
-    "롤드컵"
-   ],
-   "seconds": 5.5,
-   "made_kst": "2026-11-05 09:45",
-   "status": "published",
-   "result": "18146045410588061",
-   "posted_kst": "2026-11-05 09:49"
-  },
-  {
    "id": "lol:115660540726095097",
    "kind": "game",
    "mp4": "reels/sports/2026-11/2026-11-06_lol-115660540726095097.mp4",
@@ -252,88 +235,6 @@
   }
  ],
  "scored": {
-  "uefa.champions:401915301": {
-   "score": 35,
-   "why": [
-    "챔스",
-    "빅클럽",
-    "5골+"
-   ],
-   "sport": "uefa.champions",
-   "title": "나폴리 1:4 FC Porto",
-   "at": "2026-11-05 06:56"
-  },
-  "uefa.champions:401915304": {
-   "score": 25,
-   "why": [
-    "챔스",
-    "빅클럽"
-   ],
-   "sport": "uefa.champions",
-   "title": "베티스 1:2 도르트문트",
-   "at": "2026-11-05 07:03"
-  },
-  "uefa.champions:401915305": {
-   "score": 25,
-   "why": [
-    "챔스",
-    "5골+"
-   ],
-   "sport": "uefa.champions",
-   "title": "코모 9:1 Lens",
-   "at": "2026-11-05 07:03"
-  },
-  "uefa.champions:401915303": {
-   "score": 15,
-   "why": [
-    "챔스"
-   ],
-   "sport": "uefa.champions",
-   "title": "클뤼프 브뤼허 2:1 PSV 에인트호번",
-   "at": "2026-11-05 07:03"
-  },
-  "uefa.champions:401915306": {
-   "score": 35,
-   "why": [
-    "챔스",
-    "빅클럽",
-    "5골+"
-   ],
-   "sport": "uefa.champions",
-   "title": "맨시티 3:2 라이프치히",
-   "at": "2026-11-05 07:03"
-  },
-  "uefa.champions:401915381": {
-   "score": 25,
-   "why": [
-    "챔스",
-    "빅클럽"
-   ],
-   "sport": "uefa.champions",
-   "title": "아스널 2:1 Slavia Prague",
-   "at": "2026-11-05 07:03"
-  },
-  "uefa.champions:401915302": {
-   "score": 25,
-   "why": [
-    "챔스",
-    "5골+"
-   ],
-   "sport": "uefa.champions",
-   "title": "Sabah 1:4 Viking FK",
-   "at": "2026-11-05 07:03"
-  },
-  "lol:115660540726095115": {
-   "score": 95,
-   "why": [
-    "한국",
-    "포스트시즌",
-    "롤드컵"
-   ],
-   "sport": "lol",
-   "title": "젠지 3:0 LYON",
-   "at": "2026-11-05 09:44"
-  },
   "uefa.europa:401915534": {
    "score": 10,
    "why": [
@@ -745,6 +646,15 @@
    "sport": "esp.1",
    "title": "베티스 2:0 엘체",
    "at": "2026-11-08 23:55"
+  },
+  "eng.1:401879243": {
+   "score": 10,
+   "why": [
+    "빅클럽"
+   ],
+   "sport": "eng.1",
+   "title": "리버풀 3:1 크리스털 팰리스",
+   "at": "2026-11-09 00:58"
   }
  },
  "last_post": 1794148976.61624,
