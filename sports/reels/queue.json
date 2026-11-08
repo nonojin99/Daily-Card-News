@@ -170,6 +170,21 @@
    "status": "published",
    "result": "18110292362252904",
    "posted_kst": "2026-11-08 07:45"
+  },
+  {
+   "id": "lol:115660540726095127",
+   "kind": "game",
+   "mp4": "reels/sports/2026-11/2026-11-08_lol-115660540726095127.mp4",
+   "caption": "reels/sports/2026-11/2026-11-08_lol-115660540726095127.txt",
+   "score": 95,
+   "why": [
+    "한국",
+    "포스트시즌",
+    "롤드컵"
+   ],
+   "seconds": 5.5,
+   "made_kst": "2026-11-08 10:02",
+   "status": "queued"
   }
  ],
  "scored": {
@@ -578,6 +593,17 @@
    "sport": "ufc",
    "title": "Gabriel Lorenço 패:승 Thomas Petersen",
    "at": "2026-11-08 09:39"
+  },
+  "lol:115660540726095127": {
+   "score": 95,
+   "why": [
+    "한국",
+    "포스트시즌",
+    "롤드컵"
+   ],
+   "sport": "lol",
+   "title": "젠지 3:0 IG",
+   "at": "2026-11-08 10:02"
   }
  },
  "last_post": 1794091541.0709357,
