@@ -2137,5 +2137,42 @@
    "ig_reels_video_view_total_time": 278939,
    "reels_skip_rate": 77.1
   }
+ },
+ "main:18103638458530277": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-07T21:09:41+0000",
+  "snapshot_utc": "2026-11-08T23:38:57Z",
+  "age_h": 26.5,
+  "first_line": "[우주·과학] 블랙홀이 은하 질량의 약 3분의 2 — 별보다 먼저 생긴 블랙홀의 후손일까? 🔭 작은 붉은 점 QSO1",
+  "metrics": {
+   "views": 2,
+   "reach": 1,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18110292362252904": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-07T22:45:33+0000",
+  "snapshot_utc": "2026-11-08T23:38:57Z",
+  "age_h": 24.9,
+  "first_line": "[🏟 밤사이 결과] 결과판 4장 한 번에",
+  "metrics": {
+   "views": 125,
+   "reach": 105,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 4268,
+   "ig_reels_video_view_total_time": 452467,
+   "reels_skip_rate": 76
+  }
  }
 }
