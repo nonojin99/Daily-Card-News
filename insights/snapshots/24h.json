@@ -1983,5 +1983,79 @@
    "ig_reels_video_view_total_time": 311470,
    "reels_skip_rate": 74.3
   }
+ },
+ "main:17910224400331604": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-06T21:30:29+0000",
+  "snapshot_utc": "2026-11-08T00:27:00Z",
+  "age_h": 26.9,
+  "first_line": "[주말 뭐하지] 토요일 서울 -1도 올가을 가장 추운 날 · 부산불꽃축제 7일 저녁 7시 · 쓱데이·롯데마트 할인 8일 마감",
+  "metrics": {
+   "views": 14,
+   "reach": 5,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:17912514300305058": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-06T22:45:31+0000",
+  "snapshot_utc": "2026-11-08T00:27:00Z",
+  "age_h": 25.7,
+  "first_line": "[🏟 밤사이 결과] 결과판 4장 한 번에",
+  "metrics": {
+   "views": 114,
+   "reach": 107,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 2,
+   "ig_reels_avg_watch_time": 2315,
+   "ig_reels_video_view_total_time": 254697,
+   "reels_skip_rate": 81.3
+  }
+ },
+ "sports:18130905775852927": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-06T21:05:05+0000",
+  "snapshot_utc": "2026-11-08T00:27:00Z",
+  "age_h": 27.4,
+  "first_line": "[⚾ 야구 나이트] 삼성 5-1 KT, 후라도 7이닝 무사사구 1실점 · 한국시리즈 2승 1패",
+  "metrics": {
+   "views": 1,
+   "reach": 1,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1915,
+   "ig_reels_video_view_total_time": 5746,
+   "reels_skip_rate": 100
+  }
+ },
+ "sports:17989578237065059": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-06T21:02:56+0000",
+  "snapshot_utc": "2026-11-08T00:27:00Z",
+  "age_h": 27.4,
+  "first_line": "[⚾ 야구 나이트] 삼성 5-1 KT, 후라도 7이닝 1실점 · 한국시리즈 2승 1패",
+  "metrics": {
+   "views": 0,
+   "reach": 0,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
