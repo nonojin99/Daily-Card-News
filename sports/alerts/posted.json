@@ -1741,13 +1741,15 @@
   },
   "ufc:401928119": {
    "image": "sports/alerts/2026-11/2026-11-08_ufc_1246.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-08 12:46"
+   "status": "published",
+   "at_kst": "2026-11-08 12:46",
+   "result": "18108295226312861"
   },
   "ufc:401928111": {
    "image": "sports/alerts/2026-11/2026-11-08_ufc_1246.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-08 12:46"
+   "status": "published",
+   "at_kst": "2026-11-08 12:46",
+   "result": "18108295226312861"
   }
  },
  "boards": {
@@ -2012,7 +2014,7 @@
    "final": true
   },
   "ufc:2026-11-08": {
-   "last": 1794105932.2327614,
+   "last": 1794109687.7486649,
    "final": false
   },
   "lol:2026-11-08": {
