@@ -1,3 +1,32 @@
-{"requests": [
-  {"kind":"carousel","media":"cards/2026-11/2026-11-09_ai-brief","caption":"captions/2026-11-09_ai.txt","dry_run":"false","is_ai":"true","review":"required"}
-], "note": "11/9 월 AI·테크 코너 캐러셀 — card-visual-reviewer PASS"}
+{
+ "requests": [
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-09_ai-brief",
+   "caption": "captions/2026-11-09_ai.txt",
+   "dry_run": "false",
+   "is_ai": "true",
+   "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-09_football-brief",
+   "caption": "captions/2026-11-09_football.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "review": "required"
+  },
+  {
+   "kind": "reel",
+   "media": "reels/2026-11/2026-11-09_football.mp4",
+   "caption": "captions/2026-11-09_football_reel.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "ab": "short",
+   "review": "required"
+  }
+ ],
+ "note": "11/9 월 AI·테크 코너 캐러셀 — card-visual-reviewer PASS · 11/9 축구 모닝 주말 결산 캐러셀+결산판 릴스(순위 변동 릴스는 검수 FAIL 로 보류)"
+}
