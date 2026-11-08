@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="축구 모닝 — 2026.11.09">
+<meta property="og:description" content="바르사 AT 원정 2-1 역전, 이강인 60분 · 맨유 4-4 빌라 · 리버풀 3-1 팰리스 · 서울 우승 뒤 4경기 무승 — 시각은 한국시간">
+<meta property="og:type" content="article">
+<title>Football Morning — 2026.11.09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#2f6b45; --accent-soft:#e9f1ec;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+</style>
+</head>
+<body><div class="wrap">
+  <header>
+    <div class="kicker">Football Morning · 축구 모닝</div>
+    <h1>바르사, AT마드리드 원정 역전승 — 주말 결산</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 9일 월요일</span>
+      <span class="count">7 Picks · 일요일~월요일 새벽</span>
+    </div>
+    <p class="lede">바르셀로나가 이강인이 60분 뛴 아틀레티코 원정에서 2-1로 역전승했고, 맨유는 애스턴 빌라와 4-4로 비겼습니다. 리버풀은 팰리스를 3-1로 이겼고 서울은 울산에 졌습니다. 시각은 모두 한국시간입니다.</p>
+  </header>
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 9일 월요일, 축구 모닝입니다.</p>
+    <p>이강인이 선발로 뛴 아틀레티코가 바르셀로나에 1대2로 역전패했습니다. 전반 10분 시메오네가 먼저 넣었지만 페르민이 전반 45분과 후반 21분에 두 골을 넣었습니다. 이강인은 후반 15분까지 60분을 뛰었고, 선제골로 이어진 패스를 했습니다. 바르사는 승점 33점으로 1위를 지켰고 레알과 3점 차입니다. 아틀레티코는 3위로 내려갔습니다.</p>
+    <p>맨유와 애스턴 빌라는 4대4로 비겼습니다. 빌라가 4분 만에 2대0으로 앞섰고, 맨유가 따라붙으면 빌라가 다시 달아났습니다. 맨유는 90분 이후 지르크지와 도르구의 연속 골로 승점을 챙겼습니다. 맨유는 승점 8점으로 18위입니다.</p>
+    <p>리버풀은 팰리스 원정에서 3대1로 이겼습니다. 비르츠가 리그 12경기 만의 시즌 첫 리그 골을 넣었고 이사크가 89분에 쐐기를 박았습니다. 팰리스는 리그 4연패로 꼴찌입니다. 브라이턴은 브렌트퍼드를 2대0으로 이겨 맨시티를 제치고 2위가 됐고, 선두 아스널과 5점 차입니다.</p>
+    <p>세리에A에서는 인터가 코모를 2대0으로 이겼고, 라치오는 나폴리와 1대1로 비겨 11경기 무패로 선두를 지켰습니다. 라치오 29점, 인터 28점, 로마 27점으로 선두부터 3위까지 2점 차입니다.</p>
+    <p>황희찬은 호펜하임 원정에 선발 풀타임으로 뛰었지만 슛 2개에 그쳤고 샬케는 1대2로 졌습니다. 정우영은 프라이부르크전 하프타임에 교체로 들어갔지만 우니온이 0대2로 졌습니다.</p>
+    <p>K리그1에서는 서울이 울산에 1대2로 졌습니다. 우승을 확정한 뒤 2무 2패로 4경기째 이기지 못했습니다. 부천은 0대2를 2대2로 만들어 승점 33점으로 잔류를 확정했습니다.</p>
+    <p>리그앙에서는 릴과 마르세유가 나란히 2대1로 이겼고, 브레스트는 리옹을 2대0으로 눌렀습니다. PSG는 승점 23점으로 선두입니다.</p>
+    <p>지금까지 주말 결산, 축구 모닝이었습니다.</p>
+  </details>
+  <div class="section-rule"><span class="label">라리가 — 12라운드</span><span class="bar"></span></div>
+  <article class="card">
+    <span class="hanja" aria-hidden="true">逆</span>
+    <div class="card-top"><span class="topic">바르사 선두 유지</span></div>
+    <h2>바르사, AT마드리드 원정 2-1 역전 — 페르민 멀티골, 이강인 선발 60분</h2>
+    <div class="summary">
+      <p><strong>바르셀로나</strong>가 아틀레티코 마드리드 원정에서 2-1로 역전승했다. 줄리아노 시메오네가 전반 10분 먼저 넣었지만 페르민 로페스가 전반 45분 동점골, 후반 21분(스카이스포츠 기록 66분) 역전골을 넣었다(스카이스포츠).</p>
+      <p><strong>이강인</strong>은 4-4-2 투톱으로 선발해 후반 15분 교체될 때까지 60분을 뛰었다. 득점·도움은 없었지만 발 바깥쪽으로 알바레스에게 준 패스가 시메오네의 선제골로 이어졌다. 전반 24분 슛은 골키퍼 정면이었다(SBS).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">월 새벽 5:00</span><span>AT마드리드 1-2 바르셀로나 · 메트로폴리타노</span></li>
+      <li><span class="k">득점</span><span>시메오네 10분 · 페르민 45분·66분</span></li>
+      <li><span class="k">승점</span><span>바르사 33 · 레알 30 · AT마드리드 28</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>AT마드리드는 3위(승점 28)로 내려갔다. 바르사는 11승 1패 승점 33점으로 1위를 지켰고, 2위 레알 마드리드와 3점 차다.</p>
+    </div>
+    <a class="source" href="https://www.skysports.com/football/atletico-madrid-vs-barcelona/8396617806626611232">스카이스포츠 — AT마드리드 1-2 바르셀로나</a>
+    <a class="source" href="https://news.sbs.co.kr/news/endPage.do?news_id=N1008836483">SBS — 이강인 선발 60분</a>
+    <span class="ref-note">킥오프 월 새벽 5:00은 스카이스포츠 일 8:00pm(UK, GMT)의 한국시간 환산 · 순위·승점은 스카이스포츠 라리가 순위표(11/8 21:27 UK 갱신) · 한국 매체 일부 제목의 '페드리 멀티골'은 스카이 기록·본문과 달라 쓰지 않음 · 후반 21분과 66분은 같은 시각의 서로 다른 표기 (확인 2026-11-09)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">바르사 역전 2-1,<br>이강인 60분 선발</p>
+      <p class="cn-s">바르셀로나가 AT마드리드 원정에서 2-1로 역전승했어요. 페르민이 두 골을 넣었고, 이강인은 선발로 60분을 뛰었어요. 선제골의 기점 패스는 이강인이었어요.</p>
+      <p class="cn-score">AT마드리드|1|2|바르셀로나</p>
+      <p class="cn-num">3점|바르사와 2위 레알의 승점 차</p>
+      <p class="cn-note">바르사 33점 · 레알 30점 · AT 28점</p>
+    </div>
+  </article>
+  <div class="section-rule"><span class="label">프리미어리그 — 10라운드</span><span class="bar"></span></div>
+  <article class="card">
+    <span class="hanja" aria-hidden="true">鬪</span>
+    <div class="card-top"><span class="topic">올드 트래퍼드</span></div>
+    <h2>맨유 4-4 빌라 — 0-2, 2-3에서 두 번 따라붙었다, 추가시간 두 골</h2>
+    <div class="summary">
+      <p><strong>맨체스터 유나이티드</strong>가 올드 트래퍼드에서 애스턴 빌라와 4-4로 비겼다. 빌라는 알리송이 전반 1분, 니콜라스 잭슨이 4분에 넣어 4분 만에 2-0으로 앞섰다(스카이스포츠).</p>
+      <p>맨유는 브루누 페르난드스 페널티킥(16분)과 티엘레망스(44분)로 따라붙었다. 빌라는 후반 매긴(페널티킥 48분)과 고레츠카(53분)가 다시 달아났고, 맨유는 교체로 들어온 지르크지(90+2분)와 도르구(90+6분)가 추가시간에 연속 골을 넣었다(스카이스포츠).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">월 새벽 1:30</span><span>맨유 4-4 빌라 · 올드 트래퍼드</span></li>
+      <li><span class="k">빌라</span><span>알리송 1분 · 잭슨 4분 · 매긴 PK 48분 · 고레츠카 53분</span></li>
+      <li><span class="k">맨유</span><span>B. 페르난드스 PK 16분 · 티엘레망스 44분 · 지르크지 90+2분 · 도르구 90+6분</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>맨유는 이 무승부로 승점 8점, 18위에 머문다. 18위로 강등권 맨 위다. 17위 코번트리(9점)와 1점 차다.</p>
+    </div>
+    <a class="source" href="https://www.skysports.com/football/manchester-united-vs-aston-villa/5045238736477164232">스카이스포츠 — 맨유 4-4 애스턴 빌라</a>
+    <span class="ref-note">킥오프 월 새벽 1:30은 11/6 브리프의 한국시간 변환 · 순위·승점은 스카이스포츠 프리미어리그 순위표(11/8 18:27 UK 갱신) · 도르구 헤더 장면 서술과 감독 발언은 기사 서술이 길어 제외 (확인 2026-11-09)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">맨유 4-4 빌라,<br>추가시간 두 골</p>
+      <p class="cn-s">빌라가 4분 만에 2-0, 맨유가 따라붙고 빌라가 다시 달아났어요. 맨유는 추가시간 지르크지·도르구의 연속 골로 4-4를 만들었어요.</p>
+      <p class="cn-score">맨유|4|4|애스턴 빌라</p>
+      <p class="cn-num">4분|빌라가 2-0을 만든 시간</p>
+      <p class="cn-note">맨유 승점 8 · 18위</p>
+    </div>
+  </article>
+  <article class="card">
+    <span class="hanja" aria-hidden="true">驚</span>
+    <div class="card-top"><span class="topic">셀허스트 파크</span></div>
+    <h2>리버풀, 팰리스 원정 3-1 — 이사크 89분 쐐기, 브라이턴은 브렌트퍼드 꺾고 2위</h2>
+    <div class="summary">
+      <p><strong>리버풀</strong>이 셀허스트 파크에서 크리스털 팰리스를 3-1로 이겼다. 맥알리스터가 전반 40분 먼저 넣었고, 비르츠가 후반 9분 리그 12경기 만의 시즌 첫 리그 골을 넣었다. 이사크가 89분 세 번째 골을 넣었다(스카이스포츠).</p>
+      <p>팰리스는 리그 4연패로 꼴찌(승점 7)다. 10경기 24실점은 1980-81시즌 이후 같은 구간 최다라고 기사는 전한다. 같은 날 <strong>브라이턴</strong>은 브렌트퍼드를 2-0으로 이겼다. 브렌트퍼드 이고르 티아구가 전반 23분 VAR 뒤 퇴장당했다(스카이스포츠).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">일 23:00</span><span>팰리스 1-3 리버풀 · 맥알리스터 40분 · 비르츠 54분 · 이사크 89분</span></li>
+      <li><span class="k">일</span><span>브라이턴 2-0 브렌트퍼드 · D. 고메스 15분 · 그로스 PK</span></li>
+      <li><span class="k">승점</span><span>아스널 27 · 브라이턴 22 · 맨시티 21 · 리버풀 18</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>브라이턴이 승점 22점으로 맨시티(21점)를 제치고 2위에 올라 선두 아스널(27점)과 5점 차다. 리버풀은 4위(18점)다.</p>
+    </div>
+    <a class="source" href="https://www.skysports.com/football/crystal-palace-vs-liverpool/5442425909523012232">스카이스포츠 — 팰리스 1-3 리버풀</a>
+    <a class="source" href="https://www.skysports.com/football/brighton-and-hove-albion-vs-brentford/5565576225764913232">스카이스포츠 — 브라이턴 2-0 브렌트퍼드</a>
+    <span class="ref-note">킥오프 일 23:00은 11/6 브리프의 한국시간 변환(브라이턴전은 같은 날 일요일로만 표기) · 팰리스 니케티아 PK 만회골(90+5분) · 그로스 PK 분은 기사에 42·43분으로 갈려 적지 않음 · 순위·승점은 스카이스포츠 순위표(11/8 18:27 UK 갱신) (확인 2026-11-09)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">리버풀 3-1 팰리스,<br>브라이턴 2위로</p>
+      <p class="cn-s">리버풀이 팰리스 원정에서 3-1로 이겼어요. 비르츠가 시즌 첫 리그 골을 넣었고, 브라이턴은 브렌트퍼드를 2-0으로 눌러 맨시티를 제치고 2위가 됐어요.</p>
+      <p class="cn-scores">팰리스|1|3|리버풀 / 브라이턴|2|0|브렌트퍼드</p>
+      <p class="cn-num">24실점|팰리스의 10경기 실점</p>
+      <p class="cn-note">아스널 27점 · 브라이턴 22점 · 맨시티 21점</p>
+    </div>
+  </article>
+  <div class="section-rule"><span class="label">세리에A — 11라운드</span><span class="bar"></span></div>
+  <article class="card">
+    <span class="hanja" aria-hidden="true">守</span>
+    <div class="card-top"><span class="topic">세리에A 11R</span></div>
+    <h2>세리에A 일요일 — 인터 2-0 코모, 라치오는 나폴리와 1-1로 선두 지켰다</h2>
+    <div class="summary">
+      <p><strong>인터</strong>가 산시로에서 코모를 2-0으로 이겼다. 12분과 19분에 두 골이 나와 초반에 승부가 갈렸다. <strong>라치오</strong>는 나폴리 원정에서 프라테시의 28분 골로 앞서다 후반 3분 자책골로 1-1이 됐고, 11경기 무패(9승 2무)로 1위를 지켰다(스카이스포츠).</p>
+      <p>피오렌티나와 유벤투스는 2-2로 비겼다. 피오렌티나는 4분과 54분, 유벤투스는 32분과 66분에 골이 나왔다(스카이스포츠).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">월 새벽 2:00</span><span>인터 2-0 코모 · 12분·19분</span></li>
+      <li><span class="k">일 20:30</span><span>나폴리 1-1 라치오 · 프라테시 28분 · 자책골 48분</span></li>
+      <li><span class="k">월 새벽 4:45</span><span>피오렌티나 2-2 유벤투스</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>라치오가 승점 29점으로 1위, 인터가 28점, 로마가 27점이다. 선두부터 3위까지 승점 차가 2점이다.</p>
+    </div>
+    <a class="source" href="https://www.skysports.com/football/inter-milan-vs-como/7210055604357458232">스카이스포츠 — 인터 2-0 코모</a>
+    <a class="source" href="https://www.skysports.com/football/napoli-vs-lazio/5169729220872585232">스카이스포츠 — 나폴리 1-1 라치오</a>
+    <a class="source" href="https://www.skysports.com/football/fiorentina-vs-juventus/5986862335911140232">스카이스포츠 — 피오렌티나 2-2 유벤투스</a>
+    <span class="ref-note">킥오프는 11/6 브리프의 한국시간 변환 · 인터 득점자는 스카이 표기가 불확실해 쓰지 않음 · 로마–사수올로 3-0은 토요일 경기라 제외하고 순위표에만 반영 · 순위·승점은 스카이스포츠 세리에A 순위표(11/8 21:16 UK 갱신) (확인 2026-11-09)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">라치오 11경기 무패,<br>인터 2-0 코모</p>
+      <p class="cn-s">인터가 코모를 2-0으로 이겼고, 라치오는 나폴리와 1-1로 비겨 선두를 지켰어요. 선두와 3위 로마의 승점 차는 2점이에요.</p>
+      <p class="cn-scores">인터|2|0|코모 / 나폴리|1|1|라치오 / 피오렌티나|2|2|유벤투스</p>
+      <p class="cn-num">29점|선두 라치오의 승점</p>
+      <p class="cn-note">라치오 29점 · 인터 28점 · 로마 27점</p>
+    </div>
+  </article>
+  <div class="section-rule"><span class="label">코리안리거</span><span class="bar"></span></div>
+  <article class="card">
+    <span class="hanja" aria-hidden="true">韓</span>
+    <div class="card-top"><span class="topic">분데스 9R</span></div>
+    <h2>황희찬 선발 풀타임, 샬케 1-2 — 정우영은 하프타임 교체, 우니온 0-2</h2>
+    <div class="summary">
+      <p><strong>황희찬</strong>은 호펜하임 원정에서 선발 풀타임을 뛰었다. 슛 2개(유효슈팅 0)로 득점·도움은 없었다. 샬케는 전반 0-2로 끌려가다 전반 30분대 중반 주니어 아다무의 골로 따라붙었지만 1-2로 졌고, 승점 6점 17위다(포포투·미디어펜).</p>
+      <p><strong>정우영</strong>은 프라이부르크전 하프타임에 교체로 들어갔다. 우니온은 후반 56분 자책골, 67분 스즈키의 골로 0-2로 졌다. 정우영의 개인 활약은 기사에 없다(분데스리가 공식).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">월 새벽 3:30</span><span>호펜하임 2-1 샬케 · 아슬라니 10분 · 렘펄레 26분 · 아다무</span></li>
+      <li><span class="k">월 새벽 1:30</span><span>프라이부르크 2-0 우니온 · 자책골 56분 · 스즈키 67분</span></li>
+      <li><span class="k">순위</span><span>샬케 17위 승점 6 · 우니온 16위 승점 7</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>샬케는 17위로 강등권이고 우니온은 16위로 승강 플레이오프권이다. 두 팀 모두 한국 선수가 뛴 경기에서 졌다.</p>
+    </div>
+    <a class="source" href="https://www.fourfourtwo.co.kr/news/articleView.html?idxno=100509">포포투 — 호펜하임 2-1 샬케</a>
+    <a class="source" href="https://www.mediapen.com/news/view/1136075">미디어펜 — 황희찬 선발 풀타임</a>
+    <a class="source" href="https://www.bundesliga.com/en/bundesliga/news/sport-club-freiburg-union-berlin-match-report-highlights-matchday-9-39948">분데스리가 — 프라이부르크 2-0 우니온</a>
+    <span class="ref-note">킥오프는 11/6 브리프의 한국시간 변환 · 아다무 득점 분은 기사에 35·36분으로 갈려 '30분대 중반' · 황희찬 무득점 경기 수는 기사에 7~8경기로 갈려 숫자를 쓰지 않음 · 포포투의 샬케 승점 4는 스카이스포츠 순위표(6점)와 달라 순위표 값 사용 · 순위·승점은 스카이스포츠 분데스리가 순위표(11/8 20:09 UK 갱신) (확인 2026-11-09)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">황희찬 풀타임 선발,<br>샬케 1-2 패</p>
+      <p class="cn-s">샬케가 호펜하임 원정에서 1-2로 졌어요. 황희찬은 선발로 끝까지 뛰었지만 득점은 없었어요. 정우영의 우니온도 프라이부르크에 0-2로 졌어요.</p>
+      <p class="cn-score">호펜하임|2|1|샬케</p>
+      <p class="cn-num">2개|황희찬의 슛(유효슈팅 0)</p>
+      <p class="cn-note">샬케 17위 승점 6 · 우니온 16위 승점 7</p>
+    </div>
+  </article>
+  <div class="section-rule"><span class="label">K리그1 — 35라운드 일요일</span><span class="bar"></span></div>
+  <article class="card">
+    <span class="hanja" aria-hidden="true">決</span>
+    <div class="card-top"><span class="topic">35라운드</span></div>
+    <h2>서울, 울산에 1-2 — 우승 확정 뒤 4경기 무승, 부천은 2-2로 잔류 확정</h2>
+    <div class="summary">
+      <p>어제(일) K리그1 35라운드 4경기가 열렸다. 울산이 서울월드컵경기장에서 서울을 2-1로 이겼다. 이동경이 전반 35분, 이한도가 후반 30분(75분) 서울의 동점골, 교체로 들어간 야고가 후반 45분(90분) 결승골을 넣었다(헤럴드경제).</p>
+      <p>부천은 포항과 2-2로 비겼다. 0-2로 끌려가다 후반 40분(85분) 갈레고, 90분 박정인의 골로 따라붙어 승점 33점으로 K1 잔류를 확정했다. 대전은 인천을 2-0, 강원은 전북을 3-2로 이겼다(스타뉴스·헤럴드경제).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">서울 1-2 울산</span><span>이동경 35분 · 이한도 75분 · 야고 90분 (서울월드컵)</span></li>
+      <li><span class="k">부천 2-2 포항</span><span>패트릭 자책골 42분 · 주닝요 54분 · 갈레고 85분 · 박정인 90분</span></li>
+      <li><span class="k">그 밖</span><span>대전 2-0 인천 · 강원 3-2 전북 (스코어만 확인)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>서울(승점 67점)은 우승 확정 뒤 2무 2패로 4경기째 이기지 못했다. 부천은 승점 33점으로 K1 잔류를 일찍 확정했다.</p>
+    </div>
+    <a class="source" href="https://biz.heraldcorp.com/article/10929779">헤럴드경제 — 서울 1-2 울산</a>
+    <a class="source" href="https://www.starnewskorea.com/sports/2026/11/09/2026110903020814921">스타뉴스 — 부천 2-2 포항</a>
+    <span class="ref-note">킥오프 시각은 기사에 없어 적지 않음 · 대전–인천 득점자(디오구·이명재)와 강원–전북 득점자는 본문 미확인이라 쓰지 않음 · 울산·대전 순위·승점은 헤럴드 본문 문장이 숫자와 어긋나 쓰지 않음 · 한 기사에 김천 협약 종료 자동 강등 서술이 있으나 다른 기사로 대조하지 못해 제외 (확인 2026-11-09)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">서울 우승 뒤 4경기 무승,<br>울산에 1-2</p>
+      <p class="cn-s">서울이 울산에 1-2로 졌어요. 우승을 확정한 뒤 2무 2패로 4경기째 못 이겼어요. 부천은 0-2를 2-2로 만들어 잔류를 확정했어요.</p>
+      <p class="cn-scores">서울|1|2|울산 / 부천|2|2|포항 / 대전|2|0|인천 / 강원|3|2|전북</p>
+      <p class="cn-num">67점|우승 확정한 서울의 승점</p>
+      <p class="cn-note">부천 승점 33 · K1 잔류 확정</p>
+    </div>
+  </article>
+  <div class="section-rule"><span class="label">리그앙 — 10라운드</span><span class="bar"></span></div>
+  <article class="card">
+    <span class="hanja" aria-hidden="true">巡</span>
+    <div class="card-top"><span class="topic">리그앙 10R</span></div>
+    <h2>릴 2-1 렌, 마르세유 2-1 랑스 — 브레스트는 리옹을 2-0으로</h2>
+    <div class="summary">
+      <p>리그앙 일요일 경기에서 <strong>릴</strong>이 렌 원정에서 2-1로 이겼다. 디아우네(전반 24분)와 은고이(후반 68분)가 넣었고 렌은 디아가 전반 31분에 만회했다. <strong>마르세유</strong>는 랑스를 2-1로 이겼다. 구이리가 2분, 압달라가 82분에 넣었다(스카이스포츠).</p>
+      <p>브레스트는 리옹을 2-0으로 이겼다. 에쥬마가 전반 22분, 아조르크가 90+4분 페널티킥으로 넣었다(스카이스포츠).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">일 23:00</span><span>렌 1-2 릴 · 디아우네 24분 · 디아 31분 · 은고이 68분</span></li>
+      <li><span class="k">일</span><span>랑스 1-2 마르세유 · 구이리 2분 · 토뱅 20분 · 압달라 82분</span></li>
+      <li><span class="k">월 새벽 1:15</span><span>브레스트 2-0 리옹</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>PSG가 승점 23점으로 선두이고 릴이 21점, 파리FC가 20점이다. 마르세유는 18점으로 4위에 올랐다.</p>
+    </div>
+    <a class="source" href="https://www.skysports.com/football/rennes-vs-lille/7300285441812439232">스카이스포츠 — 렌 1-2 릴</a>
+    <a class="source" href="https://www.skysports.com/football/rc-lens-vs-marseille/5266360880857992232">스카이스포츠 — 랑스 1-2 마르세유</a>
+    <a class="source" href="https://www.skysports.com/football/brest-vs-lyon/5468341636073799232">스카이스포츠 — 브레스트 2-0 리옹</a>
+    <span class="ref-note">킥오프는 11/6 브리프의 한국시간 변환(그 밖 경기는 요일만) · 선수 이름은 스카이스포츠 표기를 옮겨 확정 표기가 아님 · 순위·승점은 스카이스포츠 리그앙 순위표(11/8 21:26 UK 갱신) · 이강인(AT마드리드)은 카드 1에서 다룸 · 설영우 이번 주말 출전은 확인 못 함 (확인 2026-11-09)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">릴·마르세유 나란히 2-1,<br>브레스트 2-0 리옹</p>
+      <p class="cn-s">릴이 렌 원정에서, 마르세유가 랑스 원정에서 2-1로 이겼어요. 브레스트는 리옹을 2-0으로 눌렀어요. PSG는 승점 23점으로 선두를 지키고 있어요.</p>
+      <p class="cn-scores">렌|1|2|릴 / 랑스|1|2|마르세유 / 브레스트|2|0|리옹</p>
+      <p class="cn-num">23점|선두 PSG의 승점</p>
+      <p class="cn-note">PSG 23점 · 릴 21점 · 파리FC 20점</p>
+    </div>
+  </article>
+
+  <div class="table-move" hidden data-league="EPL" data-zones="1-4:챔스|5:유로파|18-20:강등" data-round="10라운드 뒤">아스널|10|9|0|1|+10|27 / 브라이턴|10|7|1|2|+19|22 / 맨시티|10|7|0|3|+8|21 / 리버풀|10|5|3|2|+4|18 / 첼시|10|5|1|4|+3|16 / 에버턴|10|4|4|2|+2|16 / 본머스|10|4|3|3|+2|15 / 브렌트퍼드|10|3|5|2|+5|14 / 리즈|10|3|5|2|+2|14 / 애스턴 빌라|10|3|4|3|-3|13 / 토트넘|10|3|3|4|-1|12 / 뉴캐슬|10|3|3|4|-3|12 / 헐 시티|10|2|5|3|0|11 / 입스위치|10|3|2|5|-5|11 / 풀럼|10|2|4|4|-2|10 / 노팅엄|10|2|3|5|-4|9 / 코번트리|10|3|0|7|-9|9 / 맨유|10|1|5|4|-5|8 / 선덜랜드|10|2|2|6|-9|8 / 크리스털 팰리스|10|2|1|7|-14|7</div>
+  <div class="table-move" hidden data-league="라리가" data-zones="1-4:챔스|5:유로파|6:컨퍼런스|18-20:강등" data-round="12라운드 뒤">바르셀로나|12|11|0|1|+35|33 / 레알 마드리드|12|10|0|2|+21|30 / AT마드리드|12|9|1|2|+13|28 / 베티스|12|8|2|2|+5|26 / 소시에다드|12|7|1|4|+1|22 / 세비야|12|5|3|4|-2|18 / 아틀레틱|11|4|4|3|+4|16 / 비야레알|12|4|3|5|+2|15 / 데포르티보|12|3|6|3|+1|15 / 라싱 산탄데르|12|4|2|6|-13|14 / 셀타|12|2|7|3|0|13 / 알라베스|12|3|4|5|-2|13 / 에스파뇰|12|3|3|6|-1|12 / 라요|11|3|3|5|-6|12 / 헤타페|12|3|3|6|-10|12 / 오사수나|12|3|3|6|-11|12 / 레반테|12|2|5|5|-5|11 / 엘체|12|2|4|6|-6|10 / 발렌시아|12|2|3|7|-12|9 / 말라가|12|0|5|7|-14|5</div>
+  <div class="table-move" hidden data-league="분데스리가" data-zones="1-4:챔스|5:유로파|6:컨퍼런스|16:강등 플레이오프|17-18:강등" data-round="9라운드 뒤">바이에른|9|6|3|0|+20|21 / 도르트문트|9|6|3|0|+9|21 / 프라이부르크|9|6|1|2|+10|19 / 라이프치히|9|6|0|3|+14|18 / 레버쿠젠|9|5|1|3|+3|16 / 브레멘|9|4|3|2|+2|15 / 엘버스베르크|9|4|1|4|-1|13 / 슈투트가르트|9|4|0|5|0|12 / 호펜하임|9|4|0|5|-1|12 / 프랑크푸르트|9|3|3|3|-5|12 / 함부르크|9|4|0|5|-10|12 / 마인츠|9|3|1|5|-1|10 / 파더보른|9|2|4|3|-3|10 / 아우크스부르크|9|2|3|4|0|9 / 쾰른|9|2|3|4|-4|9 / 우니온 베를린|9|1|4|4|-14|7 / 샬케|9|1|3|5|-6|6 / 묀헨글라트바흐|9|1|1|7|-13|4</div>
+  <div class="table-move" hidden data-league="세리에A" data-zones="1-4:챔스|5:유로파|6:컨퍼런스|18-20:강등" data-round="11라운드 뒤">라치오|11|9|2|0|+16|29 / 인터|11|9|1|1|+15|28 / 로마|11|8|3|0|+21|27 / 밀란|11|7|3|1|+10|24 / 코모|11|7|2|2|+8|23 / 프로시노네|11|6|2|3|+9|20 / 유벤투스|11|5|3|3|+3|18 / 볼로냐|11|5|2|4|+2|17 / 칼리아리|11|5|1|5|-5|16 / 나폴리|11|4|3|4|+4|15 / 토리노|11|4|2|5|-2|14 / 아탈란타|11|4|2|5|-3|14 / 제노아|11|4|1|6|-5|13 / 레체|11|3|1|7|-10|10 / 피오렌티나|11|2|3|6|-8|9 / 파르마|11|2|2|7|-8|8 / 사수올로|11|2|2|7|-13|8 / 몬차|11|2|1|8|-8|7 / 베네치아|11|2|0|9|-13|6 / 우디네세|11|1|2|8|-13|5</div>
+  <div class="table-move" hidden data-league="리그앙" data-zones="1-3:챔스|4:챔스 예선|5:유로파|6:컨퍼런스|16:강등 플레이오프|17-18:강등" data-round="10라운드 뒤">PSG|10|7|2|1|+12|23 / 릴|10|6|3|1|+7|21 / 파리FC|10|6|2|2|+7|20 / 마르세유|10|6|0|4|+8|18 / 리옹|10|5|2|3|+6|17 / 니스|10|5|2|3|+3|17 / 모나코|10|4|4|2|+2|16 / 렌|10|5|1|4|0|16 / 브레스트|10|4|3|3|+6|15 / 로리앙|10|4|3|3|+1|15 / 랑스|10|4|1|5|+2|13 / 툴루즈|10|3|4|3|+1|13 / 스트라스부르|10|3|1|6|-4|10 / 오세르|10|3|1|6|-11|10 / 르망|10|1|5|4|-7|8 / 앙제|10|2|2|6|-10|8 / 트루아|10|2|2|6|-10|8 / 르아브르|10|0|2|8|-13|2</div>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 팩트체크 → 디테일 포인트 → 디자인 렌더링 → 검토<br>
+    2026년 11월 9일 월요일 축구 모닝 주말 결산 (11/8 일 ~ 11/9 월 새벽 경기) · 순위표는 스카이스포츠 기준이며, 토요일 경기는 어제 브리프에서 다뤄 순위표에만 반영<br>
+    ⏰ 모든 시각은 한국시간(KST)입니다. 승부 예측은 하지 않습니다.
+    <!-- tracker: 2026-11-09 football (주말 결산)
+         [순위 경쟁] EPL 10R: 아스널 27·브라이턴 22·맨시티 21·리버풀 18·첼시/에버턴 16 · 라리가 12R: 바르사 33·레알 30·AT 28 · 세리에A 11R: 라치오 29·인터 28·로마 27 · 분데스 9R: 바이에른 21·도르트문트 21·프라이부르크 19 · 리그앙 10R: PSG 23·릴 21·파리FC 20 · K1 35R: 서울 67(우승)·부천 33(잔류 확정)·광주 최하위
+         [한국 선수] 이강인 AT–바르사 선발 60분·무공격포인트 · 황희찬 호펜하임전 선발 풀타임 · 정우영 프라이부르크전 하프타임 교체 · 김민재·이재성 마인츠–바이에른(토) 출전 미확인 · 설영우·이강인(PSG 표기는 오류) 이번 주말 별도 확인 못 함
+         [오늘 다룬 경기] AT–바르사 1-2 · 맨유–빌라 4-4 · 팰리스–리버풀 1-3 · 브라이턴–브렌트퍼드 2-0 · 인터–코모 2-0 · 나폴리–라치오 1-1 · 피오렌티나–유벤투스 2-2 · 호펜하임–샬케 2-1 · 프라이부르크–우니온 2-0 · 서울–울산 1-2 · 부천–포항 2-2 · 대전–인천 2-0 · 강원–전북 3-2 · 릴·마르세유·브레스트·니스·로리앙·모나코 경기
+         [시각 변환] 11/6 브리프 변환 사용(AT–바르사 월 5:00는 SBS 한국시간)
+         [제외한 항목] 로마–사수올로(토) · 제노아–밀란·몬차–아탈란타·쾰른–레버쿠젠 등 득점자 미확인 · K2 수원 삼성 승격(본문 미확인) · 이벤트 픽 대상 확인 안 함
+         [다음 체크] 화요일 UCL 주간 여부 · 5대 리그 순위 변동 릴스 재료 포함(table-move 5개) · 순위표는 스카이스포츠 단일 출처
+         [리서치 도구] Firecrawl 0회. WebSearch 발견 → WebFetch 검증.
+    -->
+  </footer>
+
+</div></body>
+</html>
