@@ -2174,5 +2174,82 @@
    "ig_reels_video_view_total_time": 452467,
    "reels_skip_rate": 76
   }
+ },
+ "sports:18181242376442193": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-08T03:05:07+0000",
+  "snapshot_utc": "2026-11-09T06:05:13Z",
+  "age_h": 27.0,
+  "first_line": "[⚾ KBO] 한국시리즈 5차전 선발 — KT 대니엘 vs 삼성 원태인",
+  "metrics": {
+   "views": 128,
+   "reach": 107,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 2659,
+   "ig_reels_video_view_total_time": 289913,
+   "reels_skip_rate": 77.4
+  }
+ },
+ "sports:18114983659876777": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-08T01:04:24+0000",
+  "snapshot_utc": "2026-11-09T06:05:13Z",
+  "age_h": 29.0,
+  "first_line": "[🎮 LoL] 젠지 3:0 IG",
+  "metrics": {
+   "views": 2,
+   "reach": 1,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1940,
+   "ig_reels_video_view_total_time": 3880,
+   "reels_skip_rate": 100
+  }
+ },
+ "sports:18129039493942173": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-07T23:51:07+0000",
+  "snapshot_utc": "2026-11-09T06:05:13Z",
+  "age_h": 30.2,
+  "first_line": "[⚽ 축구 모닝] 맨시티 노팅엄 원정 1-3 리그 3연패 · 아스널 1-0 헐 선두",
+  "metrics": {
+   "views": 118,
+   "reach": 108,
+   "likes": 1,
+   "comments": 0,
+   "shares": 2,
+   "saved": 0,
+   "total_interactions": 3,
+   "ig_reels_avg_watch_time": 4174,
+   "ig_reels_video_view_total_time": 463359,
+   "reels_skip_rate": 69.2
+  }
+ },
+ "sports:17927676078201617": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-07T23:49:30+0000",
+  "snapshot_utc": "2026-11-09T06:05:13Z",
+  "age_h": 30.3,
+  "first_line": "[⚽ 축구 모닝] 맨시티 노팅엄 원정 1-3 리그 3연패 · 김민재 결장 · 레알 3-0 공동 선두 — 6장",
+  "metrics": {
+   "views": 3,
+   "reach": 1,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
