@@ -63,15 +63,16 @@ function movePage(sc, o) {
 .r.hl{background:#fff4d6;border-radius:14px;box-shadow:inset 0 0 0 3px #e3b341}.chip{display:inline-block;margin-left:14px;padding:2px 16px;border-radius:99px;background:#e3b341;color:#3b2a00;font-size:.62em;font-weight:900;vertical-align:2px}
 .bar{position:absolute;left:72px;right:72px;top:1745px;height:8px;border-radius:9px;background:#e1ddd2}
 .bar i{display:block;height:100%;width:${((o.i + 1) / o.n * 100).toFixed(1)}%;border-radius:9px;background:${o.ac}}
-.ft{position:absolute;left:72px;right:72px;top:1776px;font-size:25px;color:#55554f;line-height:1.45;display:flex;justify-content:space-between;align-items:flex-start}
-.ft b{color:#3d5a4c;font-size:29px}.lg{display:flex;gap:16px;font-size:22px;white-space:nowrap;flex-wrap:nowrap}.ft>span:first-child{min-width:0}.lg i{display:inline-block;width:16px;height:16px;border-radius:4px;margin-right:6px;vertical-align:-1px}</style></head>
+.ft{position:absolute;left:72px;right:72px;top:1770px;font-size:24px;color:#55554f;line-height:1.4}
+.ft .f1{display:flex;justify-content:space-between;align-items:center;gap:16px}.ft .f2{white-space:nowrap}
+.ft b{color:#3d5a4c;font-size:29px}.lg{display:flex;gap:6px 16px;font-size:22px;flex-wrap:wrap;justify-content:flex-end}.lg span{white-space:nowrap}.lg i{display:inline-block;width:16px;height:16px;border-radius:4px;margin-right:6px;vertical-align:-1px}</style></head>
 <body><div class="top"><span class="cat">${esc(o.cat)}</span><span class="lb">${esc(o.label)}</span><span class="dt">${esc(o.date)}</span></div>
 <div class="ttl">${esc(sc.title)}</div><div class="sub"><span>${esc(sc.sub)}</span><b id="ph">${esc(PH[0])}</b></div>
 <div class="box"></div>
 <div class="zs">${sc.zones.map(z => `<i style="top:${((z.lo - 1) * rh + rh * .18).toFixed(1)}px;height:${((z.hi - z.lo + 1) * rh - rh * .36).toFixed(1)}px;background:${z.c}"></i>`).join("")}</div>
 ${sc.rows.map((r, k) => `<div class="r${r.hl ? " hl" : ""}" id="r${k}"><span class="k">${r.f0 || r.from}</span><span>${esc(r.team)}${r.hl ? `<span class="chip">${esc(r.hl)}</span>` : ""}</span><span class="g">${r.g0}경기</span><span class="p"><span class="d"></span> <span class="v">${r.p0}</span></span></div>`).join("")}
 <div class="bar"><i></i></div>
-<div class="ft"><span><b>${esc(o.handle)}</b>${o.credit ? `<br>♪ ${esc(o.credit)}` : ""}${sc.note ? `<br>${esc(sc.note)}` : ""}</span><span class="lg">${sc.zones.filter((z, k, a) => a.findIndex(y => y.name === z.name) === k).map(z => `<span><i style="background:${z.c}"></i>${esc(z.name)}</span>`).join("")}</span></div>
+<div class="ft"><div class="f1"><b>${esc(o.handle)}</b><span class="lg">${sc.zones.filter((z, k, a) => a.findIndex(y => y.name === z.name) === k).map(z => `<span><i style="background:${z.c}"></i>${esc(z.name)}</span>`).join("")}</span></div><div class="f2">${esc(sc.note || "순위: 집계 매체 한 곳 기준 · 승점 동률은 득실순")}</div>${o.credit ? `<div class="f2">♪ ${esc(o.credit)}</div>` : ""}</div>
 <script>
 (() => {   // 장면마다 같은 탭에 다시 그리므로 전역 const 를 두지 않는다(두 번째 장면의 선언이 실패해 앞 장면 데이터가 남았다)
 const D=${data}, Y0=${top}, RH=${rh};

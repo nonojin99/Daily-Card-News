@@ -1,0 +1,3 @@
+[축구 모닝] 5대 리그 순위 변동 릴스 추가 요청 (라싱 ▲6·함부르크 ▲4·노팅엄 ▲3)
+크레디트 잘림 수정 후 재검수 PASS
+nonojin99.github.io/Daily-Card-News/app/
