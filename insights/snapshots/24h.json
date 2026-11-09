@@ -2291,5 +2291,82 @@
    "ig_reels_video_view_total_time": 260817,
    "reels_skip_rate": 82.4
   }
+ },
+ "main:18089101271305576": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-11-08T12:10:07+0000",
+  "snapshot_utc": "2026-11-09T16:07:13Z",
+  "age_h": 28.0,
+  "first_line": "[우주·과학] 블랙홀이 은하 질량의 약 3분의 2 — 빅뱅 7억 년 뒤 '작은 붉은 점' QSO1",
+  "metrics": {
+   "views": 138,
+   "reach": 127,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 3147,
+   "ig_reels_video_view_total_time": 415501,
+   "reels_skip_rate": 68.3
+  }
+ },
+ "sports:17963378861998483": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-08T14:42:51+0000",
+  "snapshot_utc": "2026-11-09T16:07:13Z",
+  "age_h": 25.4,
+  "first_line": "[🏟 오늘 결과] 결과판 4장 한 번에",
+  "metrics": {
+   "views": 113,
+   "reach": 105,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1243,
+   "ig_reels_video_view_total_time": 130529,
+   "reels_skip_rate": 94.3
+  }
+ },
+ "sports:18460563664120169": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-08T12:23:01+0000",
+  "snapshot_utc": "2026-11-09T16:07:13Z",
+  "age_h": 27.7,
+  "first_line": "[⚾ 야구 나이트] 삼성 12-1 KT, 12년 만의 한국시리즈 우승 · 강민호 프로 23년 차 첫 우승",
+  "metrics": {
+   "views": 2,
+   "reach": 1,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 9205,
+   "ig_reels_video_view_total_time": 27615,
+   "reels_skip_rate": 100
+  }
+ },
+ "sports:18123303607986177": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-08T12:21:23+0000",
+  "snapshot_utc": "2026-11-09T16:07:13Z",
+  "age_h": 27.8,
+  "first_line": "[⚾ 야구 나이트] 삼성 12년 만의 한국시리즈 우승 · 12-1 KT, 4승 1패",
+  "metrics": {
+   "views": 12,
+   "reach": 4,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
