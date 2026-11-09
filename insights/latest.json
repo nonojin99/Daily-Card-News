@@ -1,11 +1,49 @@
 {
- "collected_kst": "2026-11-08 16:37",
+ "collected_kst": "2026-11-09 17:16",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-08T07:37:29.029789Z",
+   "checked_at": "2026-11-09T08:15:49.321258Z",
    "media": [
+    {
+     "id": "18129628823296787",
+     "type": "FEED",
+     "timestamp": "2026-11-08T21:02:37+0000",
+     "permalink": "https://www.instagram.com/p/DffrR9lAZj-/",
+     "first_line": "[AI·테크] Claude 개인금융 베타 최대 2년치 거래내역 · Claude Code 설정 파일 1,122개에서 비밀정보 · AI 해킹 도구 ",
+     "metrics": {
+      "views": 9,
+      "reach": 3,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18089101271305576",
+     "type": "REELS",
+     "timestamp": "2026-11-08T12:10:07+0000",
+     "permalink": "https://www.instagram.com/reel/DfeuSnIgdJA/",
+     "first_line": "[우주·과학] 블랙홀이 은하 질량의 약 3분의 2 — 빅뱅 7억 년 뒤 '작은 붉은 점' QSO1",
+     "tag": "우주·과학",
+     "variant": "short",
+     "opening": "motion",
+     "metrics": {
+      "views": 137,
+      "reach": 126,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 3172,
+      "ig_reels_video_view_total_time": 409311,
+      "reels_skip_rate": 68.8
+     }
+    },
     {
      "id": "18103638458530277",
      "type": "FEED",
@@ -55,8 +93,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2280,
-      "ig_reels_video_view_total_time": 255420,
+      "ig_reels_avg_watch_time": 2268,
+      "ig_reels_video_view_total_time": 258643,
       "reels_skip_rate": 79.8
      }
     },
@@ -153,8 +191,8 @@
      "permalink": "https://www.instagram.com/p/DfOUvC-Dc4H/",
      "first_line": "[AI·테크] 엔비디아 루빈 GPU 메모리 대역폭 22→19.2 TB/s · 엔비디아, 네이버에 10억 달러 투자 · 구글 제미나이 4 카본 —",
      "metrics": {
-      "views": 15,
-      "reach": 4,
+      "views": 16,
+      "reach": 5,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -525,50 +563,204 @@
       "saved": 0,
       "total_interactions": 1
      }
-    },
-    {
-     "id": "18107232784976512",
-     "type": "FEED",
-     "timestamp": "2026-10-22T06:39:32+0000",
-     "permalink": "https://www.instagram.com/p/DeyW-d8FYQf/",
-     "first_line": "[🍜 푸드] 새벽 4시 찹쌀떡 오픈런 · 하루 150개 한정 — 10월 22일 푸드 브리프 7장",
-     "metrics": {
-      "views": 12,
-      "reach": 4,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1
-     }
-    },
-    {
-     "id": "18336531562276090",
-     "type": "FEED",
-     "timestamp": "2026-10-21T09:03:41+0000",
-     "permalink": "https://www.instagram.com/p/DewCq9sFb1t/",
-     "first_line": "[📺 OTT·게임] 〈닥터X〉 시청수 710만, 넷플릭스 비영어 쇼 2주 연속 1위 · 〈모던 워페어 4〉 23일 0시 출시 — 10월 21일 ",
-     "metrics": {
-      "views": 21,
-      "reach": 10,
-      "likes": 3,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 5
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 39
+   "posts": 42
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-08T07:37:40.221801Z",
+   "checked_at": "2026-11-09T08:16:01.661203Z",
    "media": [
+    {
+     "id": "18031382615866708",
+     "type": "REELS",
+     "timestamp": "2026-11-09T02:54:25+0000",
+     "permalink": "https://www.instagram.com/reel/DfgTfeeEi6n/",
+     "first_line": "[⚽ 축구 모닝] 라싱 산탄데르 ▲6 · 함부르크 ▲4 · 노팅엄 ▲3 — 5대 리그 금요일 대비 순위 변동",
+     "tag": "⚽ 축구 모닝",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 134,
+      "reach": 114,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 6888,
+      "ig_reels_video_view_total_time": 805945,
+      "reels_skip_rate": 51.3
+     }
+    },
+    {
+     "id": "18001401060044263",
+     "type": "REELS",
+     "timestamp": "2026-11-09T01:47:37+0000",
+     "permalink": "https://www.instagram.com/reel/DfgL2B8Elk4/",
+     "first_line": "[🎮 LoL] BLG 3:1 T1",
+     "tag": "🎮 LoL",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 1,
+      "reach": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 806,
+      "ig_reels_video_view_total_time": 1612,
+      "reels_skip_rate": 100
+     }
+    },
+    {
+     "id": "18170811508414439",
+     "type": "REELS",
+     "timestamp": "2026-11-08T23:51:10+0000",
+     "permalink": "https://www.instagram.com/reel/Dff-idYk7f4/",
+     "first_line": "[⚽ 축구 모닝] AT마드리드 1-2 바르사, 페르민 멀티골·이강인 60분 · 맨유 4-4 빌라 · 리버풀 3-1 팰리스",
+     "tag": "⚽ 축구 모닝",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 1,
+      "reach": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 10927,
+      "ig_reels_video_view_total_time": 21855,
+      "reels_skip_rate": 0
+     }
+    },
+    {
+     "id": "18139241758659430",
+     "type": "FEED",
+     "timestamp": "2026-11-08T23:49:42+0000",
+     "permalink": "https://www.instagram.com/p/Dff-YfJGVDp/",
+     "first_line": "[⚽ 축구 모닝] 바르사 AT마드리드 원정 2-1 역전 · 맨유 4-4 빌라 · 리버풀 3-1 팰리스 — 주말 결산 7장",
+     "metrics": {
+      "views": 0,
+      "reach": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18110453123239529",
+     "type": "REELS",
+     "timestamp": "2026-11-08T22:46:02+0000",
+     "permalink": "https://www.instagram.com/reel/Dff3D-fjmCx/",
+     "first_line": "[🏟 밤사이 결과] 결과판 4장 한 번에",
+     "tag": "🏟 밤사이 결과",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 128,
+      "reach": 114,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 3121,
+      "ig_reels_video_view_total_time": 359001,
+      "reels_skip_rate": 80.5
+     }
+    },
+    {
+     "id": "17963378861998483",
+     "type": "REELS",
+     "timestamp": "2026-11-08T14:42:51+0000",
+     "permalink": "https://www.instagram.com/reel/Dfe_xnZCAps/",
+     "first_line": "[🏟 오늘 결과] 결과판 4장 한 번에",
+     "tag": "🏟 오늘 결과",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 112,
+      "reach": 104,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 1210,
+      "ig_reels_video_view_total_time": 125942,
+      "reels_skip_rate": 95.2
+     }
+    },
+    {
+     "id": "18460563664120169",
+     "type": "REELS",
+     "timestamp": "2026-11-08T12:23:01+0000",
+     "permalink": "https://www.instagram.com/reel/DfevxHkEQA8/",
+     "first_line": "[⚾ 야구 나이트] 삼성 12-1 KT, 12년 만의 한국시리즈 우승 · 강민호 프로 23년 차 첫 우승",
+     "tag": "⚾ 야구 나이트",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 2,
+      "reach": 1,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 9205,
+      "ig_reels_video_view_total_time": 27615,
+      "reels_skip_rate": 100
+     }
+    },
+    {
+     "id": "18123303607986177",
+     "type": "FEED",
+     "timestamp": "2026-11-08T12:21:23+0000",
+     "permalink": "https://www.instagram.com/p/DfevnESkRnX/",
+     "first_line": "[⚾ 야구 나이트] 삼성 12년 만의 한국시리즈 우승 · 12-1 KT, 4승 1패",
+     "metrics": {
+      "views": 11,
+      "reach": 3,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18145801798517272",
+     "type": "REELS",
+     "timestamp": "2026-11-08T08:13:54+0000",
+     "permalink": "https://www.instagram.com/reel/DfeTQm7gS0S/",
+     "first_line": "[⚾ KBO] KT 1:12 삼성",
+     "tag": "⚾ KBO",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 131,
+      "reach": 107,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2781,
+      "ig_reels_video_view_total_time": 305914,
+      "reels_skip_rate": 77.6
+     }
+    },
     {
      "id": "17989557344879404",
      "type": "REELS",
@@ -579,16 +771,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 0,
-      "reach": 0,
+      "views": 127,
+      "reach": 110,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 0,
-      "ig_reels_video_view_total_time": 0,
-      "reels_skip_rate": 0
+      "ig_reels_avg_watch_time": 2392,
+      "ig_reels_video_view_total_time": 260817,
+      "reels_skip_rate": 82.4
      }
     },
     {
@@ -608,8 +800,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2687,
-      "ig_reels_video_view_total_time": 287536,
+      "ig_reels_avg_watch_time": 2659,
+      "ig_reels_video_view_total_time": 289913,
       "reels_skip_rate": 77.4
      }
     },
@@ -630,8 +822,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2873,
-      "ig_reels_video_view_total_time": 2873,
+      "ig_reels_avg_watch_time": 1940,
+      "ig_reels_video_view_total_time": 3880,
       "reels_skip_rate": 100
      }
     },
@@ -652,8 +844,8 @@
       "shares": 2,
       "saved": 0,
       "total_interactions": 3,
-      "ig_reels_avg_watch_time": 4134,
-      "ig_reels_video_view_total_time": 454839,
+      "ig_reels_avg_watch_time": 4174,
+      "ig_reels_video_view_total_time": 463359,
       "reels_skip_rate": 69.2
      }
     },
@@ -664,7 +856,7 @@
      "permalink": "https://www.instagram.com/p/DfdZkLzlRGU/",
      "first_line": "[⚽ 축구 모닝] 맨시티 노팅엄 원정 1-3 리그 3연패 · 김민재 결장 · 레알 3-0 공동 선두 — 6장",
      "metrics": {
-      "views": 1,
+      "views": 3,
       "reach": 1,
       "likes": 0,
       "comments": 0,
@@ -684,7 +876,7 @@
      "opening": "static",
      "metrics": {
       "views": 125,
-      "reach": 104,
+      "reach": 105,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -727,16 +919,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 128,
-      "reach": 109,
+      "views": 129,
+      "reach": 110,
       "likes": 3,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 3,
-      "ig_reels_avg_watch_time": 2543,
-      "ig_reels_video_view_total_time": 277255,
-      "reels_skip_rate": 76.9
+      "ig_reels_avg_watch_time": 2535,
+      "ig_reels_video_view_total_time": 278939,
+      "reels_skip_rate": 77.1
      }
     },
     {
@@ -793,16 +985,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 114,
-      "reach": 107,
+      "views": 115,
+      "reach": 108,
       "likes": 2,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 2,
-      "ig_reels_avg_watch_time": 2315,
-      "ig_reels_video_view_total_time": 254697,
-      "reels_skip_rate": 81.3
+      "ig_reels_avg_watch_time": 2307,
+      "ig_reels_video_view_total_time": 256163,
+      "reels_skip_rate": 81.5
      }
     },
     {
@@ -1006,205 +1198,13 @@
       "ig_reels_video_view_total_time": 771024,
       "reels_skip_rate": 56.2
      }
-    },
-    {
-     "id": "18360503692221148",
-     "type": "REELS",
-     "timestamp": "2026-11-04T23:50:45+0000",
-     "permalink": "https://www.instagram.com/reel/DfVrSg9j7ow/",
-     "first_line": "[⚽ 축구 모닝 · 챔스 결산] 황인범 투입 2분 만에 도움, 포르투 4-1 나폴리 · 코모 9-1 랑스",
-     "tag": "⚽ 축구 모닝 · 챔스 결산",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 110,
-      "reach": 103,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 7179,
-      "ig_reels_video_view_total_time": 725178,
-      "reels_skip_rate": 78
-     }
-    },
-    {
-     "id": "18352034404264699",
-     "type": "FEED",
-     "timestamp": "2026-11-04T23:49:06+0000",
-     "permalink": "https://www.instagram.com/p/DfVrInGjVRI/",
-     "first_line": "[⚽ 축구 모닝 · 챔스 결산] 황인범 투입 2분 만에 도움, 포르투 4-1 나폴리 · 코모 9-1 랑스 · 8~10위 승점·득실 동률",
-     "metrics": {
-      "views": 8,
-      "reach": 3,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
-    },
-    {
-     "id": "18242504152318445",
-     "type": "REELS",
-     "timestamp": "2026-11-04T14:45:13+0000",
-     "permalink": "https://www.instagram.com/reel/DfUs3_rDKvT/",
-     "first_line": "[🏟 오늘 결과] 결과판 2장 한 번에",
-     "tag": "🏟 오늘 결과",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 134,
-      "reach": 106,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 2,
-      "ig_reels_avg_watch_time": 3159,
-      "ig_reels_video_view_total_time": 334872,
-      "reels_skip_rate": 72.4
-     }
-    },
-    {
-     "id": "18109751771225745",
-     "type": "REELS",
-     "timestamp": "2026-11-04T14:10:08+0000",
-     "permalink": "https://www.instagram.com/reel/DfUo3UxmIdV/",
-     "first_line": "[⚾ KBO] 삼성 3:2 KT",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 142,
-      "reach": 113,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 2,
-      "ig_reels_avg_watch_time": 3367,
-      "ig_reels_video_view_total_time": 377187,
-      "reels_skip_rate": 73.2
-     }
-    },
-    {
-     "id": "18119530313106120",
-     "type": "REELS",
-     "timestamp": "2026-11-04T11:53:26+0000",
-     "permalink": "https://www.instagram.com/reel/DfUZOEDFRRk/",
-     "first_line": "[⚾ KBO] 한국시리즈 2차전 진행 중 — 삼성 1:1 KT",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 125,
-      "reach": 108,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1878,
-      "ig_reels_video_view_total_time": 201007,
-      "reels_skip_rate": 86
-     }
-    },
-    {
-     "id": "18119174132053731",
-     "type": "REELS",
-     "timestamp": "2026-11-04T07:39:05+0000",
-     "permalink": "https://www.instagram.com/reel/DfT8F9kCTxo/",
-     "first_line": "[⚾ KBO] 한국시리즈 2차전 선발 — 삼성 페덱 vs KT 고영표",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 119,
-      "reach": 103,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2416,
-      "ig_reels_video_view_total_time": 244065,
-      "reels_skip_rate": 80.2
-     }
-    },
-    {
-     "id": "18027761321938443",
-     "type": "REELS",
-     "timestamp": "2026-11-04T04:39:12+0000",
-     "permalink": "https://www.instagram.com/reel/DfTnhkVlFGH/",
-     "first_line": "[⚽ 축구 모닝] 바이에른 8위로 · 아틀레티코 22위로 — 챔스 화요일 경기 뒤 순위 변동 (한국시간 수 새벽 종료)",
-     "tag": "⚽ 축구 모닝",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 123,
-      "reach": 107,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 4378,
-      "ig_reels_video_view_total_time": 468458,
-      "reels_skip_rate": 68.9
-     }
-    },
-    {
-     "id": "18142340824729625",
-     "type": "REELS",
-     "timestamp": "2026-11-04T04:38:40+0000",
-     "permalink": "https://www.instagram.com/reel/DfTncjOE1na/",
-     "first_line": "[⚽ 축구 모닝 · 챔스 결산] 바이에른 2-0 아틀레티코, 이강인·김민재 교체 출전 · PSG 6-0 · 8위 직행선",
-     "tag": "⚽ 축구 모닝 · 챔스 결산",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 116,
-      "reach": 105,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2551,
-      "ig_reels_video_view_total_time": 270501,
-      "reels_skip_rate": 84.8
-     }
-    },
-    {
-     "id": "18125913208903225",
-     "type": "REELS",
-     "timestamp": "2026-11-03T22:05:18+0000",
-     "permalink": "https://www.instagram.com/reel/DfS6cWeDK1X/",
-     "first_line": "[⚽ 챔피언스리그] 바이에른 뮌헨 2:0 아틀레티코",
-     "tag": "⚽ 챔피언스리그",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 137,
-      "reach": 114,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1,
-      "ig_reels_avg_watch_time": 3465,
-      "ig_reels_video_view_total_time": 408906,
-      "reels_skip_rate": 74.6
-     }
     }
    ],
    "errors": [],
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 7,
-   "posts": 104
+   "posts": 113
   }
  ]
 }

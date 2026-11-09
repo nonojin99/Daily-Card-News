@@ -2251,5 +2251,45 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "sports:18145801798517272": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-08T08:13:54+0000",
+  "snapshot_utc": "2026-11-09T08:15:47Z",
+  "age_h": 24.0,
+  "first_line": "[⚾ KBO] KT 1:12 삼성",
+  "metrics": {
+   "views": 131,
+   "reach": 107,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 2781,
+   "ig_reels_video_view_total_time": 305914,
+   "reels_skip_rate": 77.6
+  }
+ },
+ "sports:17989557344879404": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-08T07:37:15+0000",
+  "snapshot_utc": "2026-11-09T08:15:47Z",
+  "age_h": 24.6,
+  "first_line": "[⚾ KBO] 한국시리즈 5차전 진행 중 — KT 1:11 삼성",
+  "metrics": {
+   "views": 127,
+   "reach": 110,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2392,
+   "ig_reels_video_view_total_time": 260817,
+   "reels_skip_rate": 82.4
+  }
  }
 }
