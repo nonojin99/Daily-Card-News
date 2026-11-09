@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="데일리 브리프 — 2026.11.10">
+<meta property="og:description" content="배달앱 과징금 6,319억 · 코스피 5,018.85 · 엔비디아 CEO 중국 연계 의혹 · 이란 "한국 개입 말라" · 특검법 다음 주 상정 · 인천공항 시스템 장애">
+<meta property="og:type" content="article">
+<title>Daily Brief — 2026.11.10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d5a4c; --accent-soft:#eef2ee;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+  /* ── 서울 날씨 한 줄 (2026-10-11 도입) ── */
+  .weather{margin:14px 0 0;padding:9px 14px;border-radius:10px;background:var(--accent-soft);font-size:14px;color:var(--ink);line-height:1.6}
+  .weather .wx-note{display:inline-block;margin-left:6px;font-size:11.5px;color:var(--faint)}
+  .weather .wx-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">Daily Brief · 데일리 브리프</div>
+    <h1>배달앱 과징금 6,319억 원, 코스피는 5,018.85로 마감</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 10일 화요일</span>
+      <span class="count">6 Picks · 분야별</span>
+    </div>
+    <p class="weather">⛅ 서울 · 최저 0° 최고 12° · 서울 비·눈 소식 없음, 아침 쌀쌀 <span class="wx-note">⚠ 변동 가능 · <a href="https://www.newspim.com/news/view/20261109001167">뉴스핌 11/9 17:30</a></span></p>
+    <p class="lede">공정위가 배달의민족과 쿠팡이츠에 합계 6,319억 원의 과징금을 잠정 부과한 것으로 보도됐습니다. 코스피는 9일 5,018.85로 마감해 5,000선을 지켰습니다. 엔비디아 젠슨 황 CEO의 중국 연계 의혹이 커지고, 이란은 한국에 호르무즈 개입 자제를 요구했습니다. 조작기소 특검법은 다음 주 국무회의에 오르며, 인천공항은 한 주 새 시스템 장애가 이어졌습니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 10일 화요일, 데일리 브리프입니다. 오늘은 여섯 가지 소식을 전해 드립니다.</p>
+    <p>배달의민족과 쿠팡이츠에 역대 최대 규모 과징금이 잠정 부과된 것으로 보도됐습니다. 배민 3,311억 원, 쿠팡이츠 3,008억 원으로 합계 6,319억 원입니다. 두 사업자의 점유율은 90%를 넘고, 최혜대우 요구로 수수료 경쟁을 막았다는 판단입니다. 쿠팡이츠의 와우매장 비중은 2023년 7월 약 13%에서 2025년 10월 94%로 커졌습니다. 금액은 잠정 수치라 달라질 수 있습니다. 한국경제 보도입니다.</p>
+    <p>코스피는 9일 5,018.85로 마감해 0.81퍼센트 내렸습니다. 지난달 말 종가와 비교하면 12.42퍼센트 낮은 수준입니다(편집부 계산). 외국인이 6,585억 원, 개인이 5,111억 원을 팔았고 기관이 7,196억 원을 샀습니다. 코스닥은 638.97로 0.82퍼센트 내렸고, 원달러 환율은 1,347.1원으로 마감했습니다.</p>
+    <p>엔비디아 젠슨 황 CEO가 중국 정보기관 연계가 의심되는 중국 기업인과의 관계를 인정했다고 YTN이 전했습니다. 그 기업인이 임원이던 싱가포르 회사가 엔비디아 AI 칩 약 2조 7천억 원어치를 구매했고, 미 정보당국은 기술 기밀 수집 시도로 의심한다고 합니다. 엔비디아 이사회 독립 위원회가 조사를 감독하고, 미 하원 공화당 상임위원장 3명은 18일 출석을 요구했습니다. 트럼프 대통령은 황 CEO를 명예로운 사람이라고 말했습니다.</p>
+    <p>이란 외무부 대변인은 최선의 도움은 호르무즈 문제에 개입하지 않는 것이라고 말했습니다. 한국은 청해부대 작전구역을 오만 남방 외해까지 넓히기로 했습니다. 한편 트럼프 대통령은 카타르 총리와 회담할 예정이었고, 카타르는 이틀에 나눠 봉쇄를 풀고 호르무즈를 다시 여는 중재안을 내놨습니다. 두 소식 모두 단일 매체 보도입니다.</p>
+    <p>조작기소 특검법은 10일이 아니라 다음 주 국무회의에 상정됩니다. 청와대가 9일 밝혔습니다. 수사 대상은 12개 사건이고 특검팀은 309명, 수사 기간은 최대 200일입니다. 뉴시스 보도입니다.</p>
+    <p>인천공항에서는 지난달 30일부터 이달 6일 사이 시스템 장애가 세 차례 있었습니다. 6일에는 14개 항공사에 영향을 줬지만 52분 만에 복구됐고 지연은 없었습니다. 공항 측은 해킹 가능성이 작다고 봤습니다.</p>
+    <p>끝으로 오늘 서울 날씨입니다. 아침 최저 0도, 낮 최고 12도이고, 서울 비·눈 소식은 없습니다.</p>
+    <p>이상으로 오늘의 데일리 브리프를 마칩니다. 자세한 내용과 출처는 카드에서 확인하세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">Economy — 플랫폼 규제</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">罰</span>
+    <div class="card-top"><span class="topic">플랫폼 · 공정위 제재</span></div>
+    <h2>배민 3,311억·쿠팡이츠 3,008억 — 배달앱 역대 최대 과징금, 점유율 90% 넘는 두 곳</h2>
+    <div class="summary">
+      <p>한국경제에 따르면 공정거래위원회가 배달의민족에 <strong>3,311억 원</strong>, 쿠팡이츠에 <strong>3,008억 원</strong>의 과징금을 잠정 부과했다. 합계는 <strong>6,319억 원</strong>이고 두 사업자 점유율은 90%를 넘는다. 공정위는 최혜대우 요구로 수수료 경쟁을 막았다고 판단했다.</p>
+      <p>쿠팡이츠 와우매장 비중은 약 13%(2023.7)에서 94%(2025.10)로, 배민클럽은 63%(2024.5)에서 80%(2025.1)로 커졌다. 배민 수수료는 6.8%에서 9.8%(2024.8)로 올랐고 쿠팡이츠는 9.8%를 유지했다. 5월 동의의결 신청 때 업체들이 총 3,600억 원(배민 3,000억·쿠팡 600억) 지원안을 냈지만 공정위는 받아들이지 않았다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">과징금(잠정)</span><span>배민 3,311억 + 쿠팡이츠 3,008억 = 6,319억 원</span></li>
+      <li><span class="k">점유율</span><span>두 사업자 합산 90% 초과</span></li>
+      <li><span class="k">입점 비중</span><span>쿠팡 와우매장 13%(2023.7)→94%(2025.10) · 배민클럽 63%(2024.5)→80%(2025.1)</span></li>
+      <li><span class="k">수수료</span><span>배민 6.8%→9.8%(2024.8) · 쿠팡이츠 9.8% 유지</span></li>
+      <li><span class="k">동의의결안</span><span>총 3,600억 원(배민 3,000억·쿠팡 600억) 제시 · 공정위 불수용(뉴시스)</span></li>
+      <li><span class="k">확인 한계</span><span>금액은 잠정 · 뉴시스는 '6000억대 예상'으로 표기 · 소상공인연합회는 과징금이 국고로 가 점주 몫이 없다고 주장 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>과징금 규모보다 오래 남는 건 수수료 구조다. 사업자 입점 조건이 어떻게 바뀌는지가 점주와 소비자 가격으로 이어진다. 지금 확정된 것은 잠정 금액까지다.</p>
+    </div>
+    <a class="source" href="https://www.hankyung.com/article/2026110947967">한국경제 — 배달앱 과징금</a>  <a class="source" href="https://www.newsis.com/view/NISX20261109_0003860898">뉴시스 — 동의의결·점주 반응</a>
+    <span class="ref-note">한국경제(11/9 12:09)·뉴시스(11/10 05:00) 두 본문으로 교차, 금액 표기는 한경 기준 (확인 2026-11-10)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">배달앱 두 곳에<br>역대 최대 과징금</p>
+      <p class="cn-s">공정위가 배민에 3,311억 원, 쿠팡이츠에 3,008억 원을 잠정 부과했다고 해요. 두 곳 점유율이 90%를 넘고 수수료 경쟁을 막았다고 봤어요.</p>
+      <p class="cn-num">6,319억 원|두 곳 과징금 합계(잠정)</p>
+      <p class="cn-img">A delivery rider's motorbike with an insulated box parked at a city curb at dusk, flat illustration, no text, no logos</p>
+      <p class="cn-note">쿠팡 와우매장 비중 13%→94% / 금액은 잠정</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Market — 코스피</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">試</span>
+    <div class="card-top"><span class="topic">증시 · 9일 마감</span></div>
+    <h2>코스피 9일 5,018.85(-0.81%) — 외국인 6,585억 원 순매도, 기관은 7,196억 원 순매수</h2>
+    <div class="summary">
+      <p>뉴스핌에 따르면 9일 코스피는 5,018.85로 마감해 <strong>40.84p(0.81%)</strong> 내렸다. 5,000선은 지켰고, 지난달 말 종가(5,730.74)와 비교하면 <strong>12.42%</strong> 낮다(편집부 계산). 코스닥은 638.97로 5.30p(0.82%) 내렸고 원/달러 환율은 1,347.1원으로 9.5원 내렸다.</p>
+      <p>코스피 수급은 외국인 6,585억 원 순매도, 개인 5,111억 원 순매도, 기관 7,196억 원 순매수였다. 삼성전자는 0.64%, SK하이닉스는 0.35% 올랐고 2차전지·바이오는 약했다. 뉴스1에 따르면 거래대금은 17조 2,599억 원이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">코스피(9일)</span><span>5,018.85 · -40.84p(-0.81%)</span></li>
+      <li><span class="k">코스닥(9일)</span><span>638.97 · -5.30p(-0.82%)</span></li>
+      <li><span class="k">환율</span><span>1,347.1원 · -9.5원</span></li>
+      <li><span class="k">수급(코스피)</span><span>외국인 -6,585억 · 개인 -5,111억 · 기관 +7,196억 원</span></li>
+      <li><span class="k">월간 낙폭</span><span>지난달 말 종가 5,730.74 대비 -12.42%(편집부 계산 · 어제 주간 -11.71%와 기준일이 달라 비교하지 않음)</span></li>
+      <li><span class="k">확인 한계</span><span>종가·수급은 뉴스핌, 거래대금은 뉴스1 단일 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>어제까지는 폭락의 크기가 이야기였다면, 오늘은 낙폭이 하루 -0.81%로 줄었다. 다만 5,000선 방어가 관건으로 남는다. 이 카드는 투자 권유가 아니다.</p>
+    </div>
+    <a class="source" href="https://www.newspim.com/news/view/20261109001082">뉴스핌 — 9일 마감시황</a>  <a class="source" href="https://www.news1.kr/finance/general-stock/6348101">뉴스1 — 거래대금·수급</a>
+    <span class="ref-note">뉴스핌(11/9 16:03)·뉴스1(11/9 17:28) · 11/9 브리프의 6일 마감·주간 낙폭 뒤 월요일 새 전개 (확인 2026-11-10)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">코스피 5,018.85,<br>5,000선은 지켰다</p>
+      <p class="cn-s">9일 코스피는 0.81% 내려 5,018.85로 마감했어요. 5,000선은 지켰지만, 외국인은 6,585억 원어치를 팔았고 기관은 샀어요.</p>
+      <p class="cn-num">-12.42%|지난달 말 종가 대비(편집부 계산)</p>
+      <p class="cn-note">외국인 6,585억 원 순매도 / 기관은 7,196억 원 순매수</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Tech — 엔비디아</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">疑</span>
+    <div class="card-top"><span class="topic">테크 · 지배구조 의혹</span></div>
+    <h2>엔비디아 젠슨 황, 중국 정보기관 연계 의심 기업인과의 관계 인정 — 이사회 조사, 하원 18일 출석 요구</h2>
+    <div class="summary">
+      <p>YTN에 따르면 젠슨 황 엔비디아 CEO는 중국 정보기관 연계가 의심되는 중국 기업인과의 관계를 인정하고 가족에게 실망을 줬다며 사생활 존중을 요청했다. 엔비디아 독립 이사회 위원회가 외부 변호사 자문으로 조사를 감독한다. 이 기업인이 임원이던 싱가포르 회사가 엔비디아 AI 칩 <strong>약 2조 7천억 원</strong>어치를 구매했고, 미 정보당국은 기술 기밀 수집 시도로 의심한다.</p>
+      <p>트럼프 대통령은 "그렇게 생각하지 않는다"며 황 CEO를 "명예로운 사람"이라 했다. 뉴스1에 따르면 미 하원 공화당 상임위원장 3명이 <strong>18일</strong> 출석(비공개 브리핑)을 요구했다. 한국에서는 9일 AI 데이 서울에 맞춘 황 CEO 딸의 방한 일정(리벨리온 방문, 부총리 면담)이 취소됐고, 업계는 "협력에 문제없지만 노출 기회를 잃었다"고 봤다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">쟁점</span><span>중국 정보기관 연계 의심 기업인과의 관계 인정 · 이사회 독립위가 조사 감독(YTN)</span></li>
+      <li><span class="k">칩 구매</span><span>해당 인물이 임원이던 싱가포르 회사가 AI 칩 약 2조 7천억 원어치 구매 · 미 정보당국은 기밀 수집 시도로 의심</span></li>
+      <li><span class="k">정치권</span><span>하원 공화당 상임위원장 3명, 18일 출석 요구 · 트럼프 "명예로운 사람"</span></li>
+      <li><span class="k">한국 영향</span><span>9일 딸 방한 일정 취소 · 업계 "협력 문제없다"(뉴스1)</span></li>
+      <li><span class="k">확인 한계</span><span>간첩 혐의가 확정된 것은 아님 — 정보당국 판단으로 보도된 내용 · 사생활 세부는 싣지 않음 · 칩 구매액은 YTN 단일 · 표현은 매체별로 다름 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>핵심은 개인 사생활이 아니라 지배구조와 국가안보 검증이다. 확인된 것은 관계 인정과 조사 감독, 하원의 출석 요구까지다. 의혹과 사실을 구분해서 읽어야 한다.</p>
+    </div>
+    <a class="source" href="https://www.ytn.co.kr/_ln/0104_202611092323482645">YTN — 황 CEO 입장·조사</a>  <a class="source" href="https://www.news1.kr/world/international-economy/6347293">뉴스1 — 하원 출석 요구</a>  <a class="source" href="https://www.news1.kr/it-science/internet-platform/6348116">뉴스1 — 한국 일정 취소</a>
+    <span class="ref-note">YTN(11/9 23:23)·뉴스1(11/9 09:50·18:00) · 뉴시스(11/10)는 '사내 서한으로 인정'으로 표기해 매체별 표기 차이 (확인 2026-11-10)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">엔비디아 CEO,<br>중국 연계 의혹 파문</p>
+      <p class="cn-s">젠슨 황 CEO가 중국 정보기관 연계가 의심되는 기업인과의 관계를 인정했어요. 이사회가 조사를 감독하고, 미 하원은 18일 출석을 요구했어요.</p>
+      <p class="cn-link">기업인이 임원이던 회사|AI 칩 2조 7천억 구매|엔비디아</p>
+      <p class="cn-note">의혹은 확정된 사실이 아님 / 정보당국 판단으로 보도</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">World — 이란·호르무즈</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">海</span>
+    <div class="card-top"><span class="topic">국제 · 이란 외무부</span></div>
+    <h2>이란, 한국에 호르무즈 개입 자제 요구 — 청해부대 작전구역 확대 직후, 카타르는 2일 단계 중재안 제시</h2>
+    <div class="summary">
+      <p>뉴시스에 따르면 이란 외무부 바가이 대변인은 9일 최선의 도움은 호르무즈 문제에 개입하지 않는 것이라고 말했고, 양국 우호가 60년 이상이라고 덧붙였다(중국 CGTN 보도 인용). 한국은 청해부대 작전구역을 아덴만에서 오만 남방 외해로 넓히고 해상초계기·폭발물처리·무인 소해 전력을 더하기로 했다.</p>
+      <p>뉴스핌에 따르면 트럼프 대통령은 9일(현지) 백악관에서 카타르 총리와 비공개 회담을 갖기로 했다. 카타르 중재안은 <strong>2일 단계</strong>로, 1일차에 봉쇄 해제·동결자금 일부·IAEA 초청, 2일차에 호르무즈 재개방·핵협상을 담는다. 트럼프는 협상이 깨지면 교량 38개 등 기반시설을 칠 수 있다고 경고했고, 미군은 최근 일주일 최소 2차례 제한 공습을 했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">이란 입장</span><span>9일 외무부 대변인: 최선의 도움은 호르무즈 개입을 하지 않는 것 · 우호 60년 이상(CGTN 인용)</span></li>
+      <li><span class="k">한국</span><span>청해부대 작전구역 아덴만 → 오만 남방 외해 확대(뉴시스)</span></li>
+      <li><span class="k">카타르 안</span><span>1일차 봉쇄 해제·동결자금 일부·IAEA 초청 → 2일차 호르무즈 재개방·핵협상(뉴스핌)</span></li>
+      <li><span class="k">군사 상황</span><span>미군 최근 일주일 최소 2차례 제한 공습 · 7일 상선 1척 운항불능</span></li>
+      <li><span class="k">확인 한계</span><span>이란 발언은 CGTN 재인용·뉴시스 단일, 카타르 안은 뉴스핌 단일 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>이란의 메시지는 한국의 파병·작전 확대에 대한 반응이고, 미국과 카타르의 협상은 별개의 흐름이다. 두 소식 모두 단일 매체 보도라 합의가 확정된 것은 아니다.</p>
+    </div>
+    <a class="source" href="https://www.newsis.com/view/NISX20261109_0003861122">뉴시스 — 이란 외무부 발언</a>  <a class="source" href="https://www.newspim.com/news/view/20261109001340">뉴스핌 — 미·카타르 회담</a>
+    <span class="ref-note">뉴시스(11/9 20:51)·뉴스핌(11/9 19:29) 각각 단일 본문 · 11/9 브리프 트럼프 재공습 발언의 후속 (확인 2026-11-10)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">이란, 한국에<br>호르무즈 개입 자제 요구</p>
+      <p class="cn-s">이란 외무부가 한국에 호르무즈 문제에 개입하지 않는 게 최선의 도움이라고 했어요. 카타르는 이틀에 나눠 푸는 중재안을 냈어요.</p>
+      <p class="cn-link">이란 외무부|최선의 도움은 개입하지 않는 것|한국(청해부대 확대)</p>
+      <p class="cn-note">카타르 2일 단계 중재안은 뉴스핌 단일 보도 / 합의 확정 아님</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Politics — 특검법</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">審</span>
+    <div class="card-top"><span class="topic">정치 · 국무회의 일정</span></div>
+    <h2>조작기소 특검법, 청와대 "다음 주 국무회의 상정" — 10일 안건에선 빠져, 수사 12개 사건·특검팀 309명</h2>
+    <div class="summary">
+      <p>뉴시스에 따르면 청와대는 9일 조작기소 특검법을 10일 국무회의가 아니라 <strong>다음 주</strong> 상정한다고 밝혔다. 법안은 6일 오후 국회에서 정부로 이송됐다.</p>
+      <p>법안은 12개 사건을 수사 대상으로 하고 특검팀은 <strong>309명</strong>, 수사 기간은 최대 200일이다. 원안에 있던 공소취소 조항은 수정안에서 삭제됐다. 어제 브리프의 예산 추계(약 380억 원)에 이은 후속 일정이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">일정</span><span>11/6 국회 이송 · 10일 국무회의에는 오르지 않음 · 다음 주 국무회의 상정</span></li>
+      <li><span class="k">수사 대상</span><span>12개 사건</span></li>
+      <li><span class="k">규모·기간</span><span>특검팀 309명 · 최대 200일</span></li>
+      <li><span class="k">수정</span><span>원안의 공소취소 조항 삭제</span></li>
+      <li><span class="k">확인 한계</span><span>뉴시스 단일 본문(뉴스핌 헤드라인은 같은 취지) · '다음 주' 정확한 날짜는 미확인 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Context · 맥락 읽기</span>
+      <p>국회를 통과한 법이 시행되려면 국무회의 상정과 공포 절차가 남아 있다. 정치적 평가가 아니라 일정과 규모만 옮겼다.</p>
+    </div>
+    <a class="source" href="https://www.newsis.com/view/NISX20261109_0003861106">뉴시스 — 국무회의 상정 일정</a>
+    <span class="ref-note">뉴시스(11/9 19:56) 단일 본문 · 11/9 브리프의 예산 추계 뒤 새 전개(상정 일정) (확인 2026-11-10)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">조작기소 특검법,<br>다음 주 국무회의 상정</p>
+      <p class="cn-s">청와대가 특검법을 10일이 아니라 다음 주 국무회의에 올리겠다고 했어요. 수사 대상은 12개 사건이고 특검팀은 309명이에요.</p>
+      <p class="cn-steps" data-now="2">11/6 국회 이송|10일 안건 아님|다음 주 상정</p>
+      <p class="cn-note">수사 최대 200일 / 공소취소 조항은 삭제</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Life — 공항·여행</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">障</span>
+    <div class="card-top"><span class="topic">항공 · 출국 수속</span></div>
+    <h2>인천공항 출국 시스템 장애 10/30~11/6 사이 3번 — 6일 14개 항공사 52분, 공항 "해킹 가능성 작다"</h2>
+    <div class="summary">
+      <p>뉴스핌에 따르면 인천공항에서 10월 30일부터 11월 6일 사이 출국 관련 시스템 장애가 세 차례 있었다. 10/30에는 ARINC 네트워크 장비 장애로 44개 항공사 통신이 불안정했고 중국 11개 항공사 체크인이 약 5시간 중단됐다. 11/3에는 법무부 사전승객정보(IPC) 시스템이 약 2시간 장애를 겪었다.</p>
+      <p>11/6에는 오전 6시 35분경 1·2터미널 14개 항공사가 영향을 받았고 7시 27분에 복구됐다(52분). 지연은 없었다. 공항 측은 해킹 가능성이 작은 것으로 본다고 했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">10/30</span><span>ARINC 네트워크 장비 장애 · 44개 항공사 통신 불안정 · 중국 11개 항공사 체크인 약 5시간 중단</span></li>
+      <li><span class="k">11/3</span><span>법무부 사전승객정보(IPC) 약 2시간 장애</span></li>
+      <li><span class="k">11/6</span><span>6:35경 T1·T2 14개 항공사 영향 · 7:27 복구(52분) · 지연 없음</span></li>
+      <li><span class="k">원인</span><span>공항 측 "해킹 가능성 작다" 설명 · 세 건의 원인이 같은지는 기사에 없음</span></li>
+      <li><span class="k">확인 한계</span><span>뉴스핌 단일 본문 · 제목의 '일주일 새'는 10/30~11/6(8일)이라 기간을 날짜로 표기 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">Marketing View · 마케터의 시선</span>
+      <p>여행 성수기를 앞두고 체크인 수속이 멈춘 경험은 크게 기억된다. 출발 전에 항공사 앱 공지와 온라인 체크인을 같이 확인해 두는 정도가 현실적인 대비다.</p>
+    </div>
+    <a class="source" href="https://www.newspim.com/news/view/20261109001331">뉴스핌 — 인천공항 장애</a>
+    <span class="ref-note">뉴스핌(11/9 19:20) 단일 본문 (확인 2026-11-10)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">인천공항 시스템 장애,<br>8일 새 세 차례</p>
+      <p class="cn-s">10월 30일부터 11월 6일 사이 인천공항 출국 시스템 장애가 세 번 있었어요. 6일에는 14개 항공사가 영향을 받았지만 지연은 없었어요.</p>
+      <p class="cn-num">52분|11월 6일 장애 복구까지 걸린 시간</p>
+      <p class="cn-img">An empty airport check-in hall with rows of counters and a luggage cart in soft morning light, flat illustration, no text, no logos</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 마케팅 인사이트 → 디자인 렌더링 → 검토<br>
+    큐레이션: 11/9 브리프(KS 우승·코스피 주간·특검 예산·트럼프 이란 발언·이스라엘·애플페이)와 겹치지 않는 새 전개만 포함 · 정치·국제·안보 카드는 '맥락 읽기' 라벨. 사생활 성격이 큰 세부, 단일 본문이 헤드라인뿐인 헤그세스 탄핵안, 미 대중 관세 예외 연장(단일·화제성 낮음), 앤스로픽 국내 계정 정보 유출(단일)은 제외했습니다.<br>
+    📊 도표: 카드 수치는 단일 시점이거나 기준이 서로 달라 큰 숫자·단계 그림만 사용했습니다. 검토한 카드는 1번(과징금)·2번(코스피)입니다.<br>
+    모든 수치는 보도 기준이며 변동될 수 있습니다.
+    <!-- tracker: 2026-11-10
+         [추적 중인 스토리 현재 상태]
+         배달앱: 공정위 잠정 과징금 배민 3,311억·쿠팡이츠 3,008억(합 6,319억), 점유율 90%+.
+         코스피: 11/9 5,018.85(-0.81%), 10월 말 종가 5,730.74 대비 -12.42%(편집부 계산), 외국인 -6,585억.
+         엔비디아: 황 CEO 중국 연계 의심 기업인 관계 인정, 이사회 조사 감독, 하원 18일 출석 요구, 한국 일정 취소.
+         이란: 이란 외무부 한국 개입 자제 요구(11/9), 카타르 2일 단계 중재안, 청해부대 작전구역 확대.
+         조작기소 특검: 10일 국무회의 아닌 다음 주 상정, 12개 사건·309명·최대 200일.
+         인천공항: 10/30·11/3·11/6 시스템 장애, 해킹 가능성 작다는 공항 측 설명.
+         [기존 추적 유지 — 새 전개 미반영] 삼성 KS 우승 · 예결위 820.9조 · 이스라엘 연정 · 인뱅 애플페이 · 미래에셋증권 해킹 · 마곡동 온수관 · 노총 집회 · 미중 부산합의.
+         [오늘 다룬 항목] ①배달앱 과징금 ②코스피 9일 ③엔비디아 황 CEO ④이란 호르무즈·카타르 ⑤특검법 상정 ⑥인천공항 장애
+         [제외] 헤그세스 탄핵안(헤드라인뿐) · 캠벨 발언(단일) · 미 대중 관세 예외 연장(단일) · 앤스로픽 정보 유출(단일) · 황우석·파리바게뜨·한샘·두산(본문 미검증)
+         [날씨] 서울 최저 0 최고 12, 비·눈 없음(뉴스핌 11/9 17:30).
+         [reel-scores] 화요일 메인은 릴스 없음. 요청 파일 손대지 않음(09:30 서브 플러스).
+         [리서치 도구] mcp__Firecrawl__* 호출 0회.
+    -->
+  </footer>
+
+</div></body>
+</html>
