@@ -2368,5 +2368,79 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:18129628823296787": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-08T21:02:37+0000",
+  "snapshot_utc": "2026-11-10T00:39:43Z",
+  "age_h": 27.6,
+  "first_line": "[AI·테크] Claude 개인금융 베타 최대 2년치 거래내역 · Claude Code 설정 파일 1,122개에서 비밀정보 · AI 해킹 도구 ",
+  "metrics": {
+   "views": 16,
+   "reach": 5,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18170811508414439": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-08T23:51:10+0000",
+  "snapshot_utc": "2026-11-10T00:39:43Z",
+  "age_h": 24.8,
+  "first_line": "[⚽ 축구 모닝] AT마드리드 1-2 바르사, 페르민 멀티골·이강인 60분 · 맨유 4-4 빌라 · 리버풀 3-1 팰리스",
+  "metrics": {
+   "views": 4,
+   "reach": 2,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 9115,
+   "ig_reels_video_view_total_time": 27346,
+   "reels_skip_rate": 0
+  }
+ },
+ "sports:18139241758659430": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-08T23:49:42+0000",
+  "snapshot_utc": "2026-11-10T00:39:43Z",
+  "age_h": 24.8,
+  "first_line": "[⚽ 축구 모닝] 바르사 AT마드리드 원정 2-1 역전 · 맨유 4-4 빌라 · 리버풀 3-1 팰리스 — 주말 결산 7장",
+  "metrics": {
+   "views": 0,
+   "reach": 0,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18110453123239529": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-08T22:46:02+0000",
+  "snapshot_utc": "2026-11-10T00:39:43Z",
+  "age_h": 25.9,
+  "first_line": "[🏟 밤사이 결과] 결과판 4장 한 번에",
+  "metrics": {
+   "views": 128,
+   "reach": 114,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 3121,
+   "ig_reels_video_view_total_time": 359001,
+   "reels_skip_rate": 80.5
+  }
  }
 }
