@@ -707,37 +707,45 @@ def main():
         print("score alert: off"); return
     if "--watch" in sys.argv:
         end = time.time() + 60 * float(sys.argv[sys.argv.index("--watch") + 1])
-        bad = 0
+        # 실패 기준(2026-11-10~): 한 번 삐끗했다고 6시간 회차 전체를 실패로 끝내지 않는다 — 가짜 실패 알림이 진짜 실패를 묻었다.
+        #   실패로 끝내는 경우 ① 게시에 실패한 결과판(종목:날짜)이 회차가 끝날 때까지 다시 올라가지 않았다 ② 마지막 3회 확인이 연달아 오류(지금도 고장).
+        bad, streak, unrecovered = 0, 0, set()
         while True:
             try:
-                bad += run_once()
+                for key, ok in run_once().items():
+                    if ok: unrecovered.discard(key)
+                    else: unrecovered.add(key); bad += 1
+                streak = 0
             except SystemExit as e:   # push 실패 등 — 다음 회차에 다시
-                print(f"::warning::{e}"); bad += 1
+                print(f"::warning::{e}"); bad += 1; streak += 1
             except Exception as e:  # noqa: BLE001
-                print(f"::warning::score alert round failed: {e}"); bad += 1
+                print(f"::warning::score alert round failed: {e}"); bad += 1; streak += 1
             if time.time() + 300 > end:
                 break
             time.sleep(300)
             subprocess.run(["git", "pull", "-q", "--rebase", "--autostash", "origin", "main"], cwd=ROOT)
-        if bad:
+        if unrecovered or streak >= 3:
+            print(f"::error::score alert: 복구 안 된 결과판 {sorted(unrecovered)} · 끝까지 이어진 오류 {streak}회")
             sys.exit(1)
+        if bad:
+            print(f"::warning::score alert: 일시 오류 {bad}건 — 같은 회차 안에서 복구돼 실패로 치지 않음")
         return
-    if run_once():
+    if not all(run_once().values()):
         sys.exit(1)
 
 
 def run_once():
-    """한 번 확인하고 새로 끝난 경기가 있으면 결과판을 게시. 실패한 종목 수를 돌려준다."""
+    """한 번 확인하고 새로 끝난 경기가 있으면 결과판을 게시. {"종목:날짜": 게시 성공 여부} 를 돌려준다."""
     boards = finished_new()
     if "--check" in sys.argv:
         print("score alert: " + (", ".join(f"{b['sport']} {b['date']} 새 종료 {len(b['new'])}" for b in boards) or "nothing new"))
         with open(os.environ.get("GITHUB_OUTPUT", os.devnull), "a") as f:
             f.write(f"has_new={1 if boards else 0}\n")
-        return 0
+        return {}
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     if not boards:
-        print(f"{kst():%H:%M} score alert: nothing new"); reels_tick(); slots_tick(); return 0
-    failed = []
+        print(f"{kst():%H:%M} score alert: nothing new"); reels_tick(); slots_tick(); return {}
+    res = {}
     sys.path.insert(0, os.path.join(ROOT, "tools"))
     from check_sports_data import validate   # 스포츠 데이터 검사(2026-10-25~) — 옮겨 적은 값이 이상하면 그 판은 올리지 않는다
     for bd in boards:
@@ -770,7 +778,7 @@ def run_once():
         except Exception as e:  # noqa: BLE001
             print(f"::error::{sport} story publish failed: {e}")
             pid, status = str(e)[:300], "failed"
-            failed.append(sport)
+        res[f"{sport}:{gdate}"] = status == "published"
         db = load_posted()
         for gid in bd["new"]:
             db["posted"][gid].update(status=status, result=pid)
@@ -788,7 +796,7 @@ def run_once():
                 print(f"::warning::sports reel make failed: {e}")
     reels_tick()
     slots_tick()
-    return len(failed)
+    return res
 
 
 if __name__ == "__main__":
