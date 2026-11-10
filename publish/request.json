@@ -10,20 +10,23 @@
   },
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-10_health-brief",
-   "caption": "captions/2026-11-10_health.txt",
+   "media": "cards/2026-11/2026-11-11_football-brief",
+   "caption": "captions/2026-11-11_football.txt",
    "dry_run": "false",
-   "is_ai": "true",
+   "is_ai": "false",
+   "account": "sports",
    "review": "required"
   },
   {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-10_money-brief",
-   "caption": "captions/2026-11-10_money.txt",
+   "kind": "reel",
+   "media": "reels/2026-11/2026-11-11_football.mp4",
+   "caption": "captions/2026-11-11_football_reel.txt",
    "dry_run": "false",
-   "is_ai": "true",
+   "is_ai": "false",
+   "account": "sports",
+   "ab": "short",
    "review": "required"
   }
  ],
- "note": "11/11 수 문화 코너 캐러셀 — card-visual-reviewer 실물 JPG PASS (2026-11-07 결정: 수·목·금 브리프는 각자 캐러셀로 게시). 같은 날 서브 플러스(OTT) 요청은 이 항목을 지우지 말고 뒤에 더한다. · 11/10 헬스·머니 서브 플러스 캐러셀(실물 JPG 검수 PASS, 머니는 사용자 승인)"
+ "note": "11/11 수 문화 코너 캐러셀(본계정, 실물 JPG PASS) + 축구 모닝 A매치 프리뷰 캐러셀·10초 릴스(@hannun.sports, card-visual-reviewer·reel-reviewer 실물 PASS). 같은 날 서브 플러스(OTT) 요청은 이 항목들을 지우지 말고 뒤에 더한다."
 }
