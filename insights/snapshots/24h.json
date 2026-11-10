@@ -2442,5 +2442,45 @@
    "ig_reels_video_view_total_time": 359001,
    "reels_skip_rate": 80.5
   }
+ },
+ "sports:18031382615866708": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-09T02:54:25+0000",
+  "snapshot_utc": "2026-11-10T08:19:17Z",
+  "age_h": 29.4,
+  "first_line": "[⚽ 축구 모닝] 라싱 산탄데르 ▲6 · 함부르크 ▲4 · 노팅엄 ▲3 — 5대 리그 금요일 대비 순위 변동",
+  "metrics": {
+   "views": 134,
+   "reach": 114,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 6880,
+   "ig_reels_video_view_total_time": 811888,
+   "reels_skip_rate": 51.3
+  }
+ },
+ "sports:18001401060044263": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-09T01:47:37+0000",
+  "snapshot_utc": "2026-11-10T08:19:17Z",
+  "age_h": 30.5,
+  "first_line": "[🎮 LoL] BLG 3:1 T1",
+  "metrics": {
+   "views": 4,
+   "reach": 4,
+   "likes": 2,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 2,
+   "ig_reels_avg_watch_time": 1781,
+   "ig_reels_video_view_total_time": 10689,
+   "reels_skip_rate": 100
+  }
  }
 }
