@@ -7,7 +7,23 @@
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-10_health-brief",
+   "caption": "captions/2026-11-10_health.txt",
+   "dry_run": "false",
+   "is_ai": "true",
+   "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-10_money-brief",
+   "caption": "captions/2026-11-10_money.txt",
+   "dry_run": "false",
+   "is_ai": "true",
+   "review": "required"
   }
  ],
- "note": "11/11 수 문화 코너 캐러셀 — card-visual-reviewer 실물 JPG PASS (2026-11-07 결정: 수·목·금 브리프는 각자 캐러셀로 게시). 같은 날 서브 플러스(OTT) 요청은 이 항목을 지우지 말고 뒤에 더한다."
+ "note": "11/11 수 문화 코너 캐러셀 — card-visual-reviewer 실물 JPG PASS (2026-11-07 결정: 수·목·금 브리프는 각자 캐러셀로 게시). 같은 날 서브 플러스(OTT) 요청은 이 항목을 지우지 말고 뒤에 더한다. · 11/10 헬스·머니 서브 플러스 캐러셀(실물 JPG 검수 PASS, 머니는 사용자 승인)"
 }

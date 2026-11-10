@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "0e5b8ea3ab6184a24b7cfe550fc42cde9f84f1e5",
+ "by": "agent",
+ "cards": 7,
+ "at": "2026-11-10T22:52:19Z",
+ "note": "card-visual-reviewer 구운 JPG 검수 PASS(에볼라 십자 FAIL→재생성 확인)"
+}
