@@ -2482,5 +2482,25 @@
    "ig_reels_video_view_total_time": 10689,
    "reels_skip_rate": 100
   }
+ },
+ "main:18359986495221901": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-11-09T12:10:43+0000",
+  "snapshot_utc": "2026-11-10T16:59:01Z",
+  "age_h": 28.8,
+  "first_line": "[AI·테크] Claude 개인금융 베타 최대 2년치 거래내역 · Claude Code 설정 파일 1,122개에서 비밀정보 · AI 해킹 도구 ",
+  "metrics": {
+   "views": 157,
+   "reach": 132,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 3184,
+   "ig_reels_video_view_total_time": 429897,
+   "reels_skip_rate": 75.8
+  }
  }
 }
