@@ -1,11 +1,33 @@
 {
- "collected_kst": "2026-11-09 17:16",
+ "collected_kst": "2026-11-10 17:34",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-09T08:15:49.321258Z",
+   "checked_at": "2026-11-10T08:34:22.768666Z",
    "media": [
+    {
+     "id": "18359986495221901",
+     "type": "REELS",
+     "timestamp": "2026-11-09T12:10:43+0000",
+     "permalink": "https://www.instagram.com/reel/DfhTMRmCQcJ/",
+     "first_line": "[AI·테크] Claude 개인금융 베타 최대 2년치 거래내역 · Claude Code 설정 파일 1,122개에서 비밀정보 · AI 해킹 도구 ",
+     "tag": "AI·테크",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 157,
+      "reach": 132,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 3199,
+      "ig_reels_video_view_total_time": 428698,
+      "reels_skip_rate": 75.8
+     }
+    },
     {
      "id": "18129628823296787",
      "type": "FEED",
@@ -13,8 +35,8 @@
      "permalink": "https://www.instagram.com/p/DffrR9lAZj-/",
      "first_line": "[AI·테크] Claude 개인금융 베타 최대 2년치 거래내역 · Claude Code 설정 파일 1,122개에서 비밀정보 · AI 해킹 도구 ",
      "metrics": {
-      "views": 9,
-      "reach": 3,
+      "views": 17,
+      "reach": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -32,16 +54,16 @@
      "variant": "short",
      "opening": "motion",
      "metrics": {
-      "views": 137,
-      "reach": 126,
+      "views": 138,
+      "reach": 127,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3172,
-      "ig_reels_video_view_total_time": 409311,
-      "reels_skip_rate": 68.8
+      "ig_reels_avg_watch_time": 3137,
+      "ig_reels_video_view_total_time": 417231,
+      "reels_skip_rate": 68.3
      }
     },
     {
@@ -51,8 +73,8 @@
      "permalink": "https://www.instagram.com/p/DfdHRs9FFWj/",
      "first_line": "[우주·과학] 블랙홀이 은하 질량의 약 3분의 2 — 별보다 먼저 생긴 블랙홀의 후손일까? 🔭 작은 붉은 점 QSO1",
      "metrics": {
-      "views": 2,
-      "reach": 1,
+      "views": 4,
+      "reach": 2,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -105,7 +127,7 @@
      "permalink": "https://www.instagram.com/p/DfTf4AhEVTX/",
      "first_line": "[📺 OTT·게임] 재혼 황후 오늘 디즈니+ 공개 · 꿀알바 넷플릭스 국내 1위 · 젤다 시간의 오카리나 5일 — 11월 4일 OTT·게임·웹툰",
      "metrics": {
-      "views": 13,
+      "views": 15,
       "reach": 5,
       "likes": 2,
       "comments": 0,
@@ -191,7 +213,7 @@
      "permalink": "https://www.instagram.com/p/DfOUvC-Dc4H/",
      "first_line": "[AI·테크] 엔비디아 루빈 GPU 메모리 대역폭 22→19.2 TB/s · 엔비디아, 네이버에 10억 달러 투자 · 구글 제미나이 4 카본 —",
      "metrics": {
-      "views": 16,
+      "views": 17,
       "reach": 5,
       "likes": 2,
       "comments": 0,
@@ -547,33 +569,17 @@
       "ig_reels_video_view_total_time": 285416,
       "reels_skip_rate": 87.7
      }
-    },
-    {
-     "id": "18430655506144337",
-     "type": "FEED",
-     "timestamp": "2026-10-22T20:59:43+0000",
-     "permalink": "https://www.instagram.com/p/Dez5aiIm1JL/",
-     "first_line": "[주말 뭐하지] 이번 주말 갈 만한 곳 — 태풍 참피 25일 최근접 전망, 남부·제주는 출발 전 공지부터 ☔",
-     "metrics": {
-      "views": 13,
-      "reach": 5,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 42
+   "posts": 43
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-09T08:16:01.661203Z",
+   "checked_at": "2026-11-10T08:34:32.312432Z",
    "media": [
     {
      "id": "18031382615866708",
@@ -592,8 +598,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 6888,
-      "ig_reels_video_view_total_time": 805945,
+      "ig_reels_avg_watch_time": 6880,
+      "ig_reels_video_view_total_time": 811888,
       "reels_skip_rate": 51.3
      }
     },
@@ -607,15 +613,15 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 1,
-      "reach": 1,
-      "likes": 0,
+      "views": 4,
+      "reach": 4,
+      "likes": 2,
       "comments": 0,
       "shares": 0,
       "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 806,
-      "ig_reels_video_view_total_time": 1612,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 1781,
+      "ig_reels_video_view_total_time": 10689,
       "reels_skip_rate": 100
      }
     },
@@ -629,16 +635,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 1,
-      "reach": 1,
+      "views": 5,
+      "reach": 3,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 10927,
-      "ig_reels_video_view_total_time": 21855,
-      "reels_skip_rate": 0
+      "ig_reels_avg_watch_time": 7052,
+      "ig_reels_video_view_total_time": 28208,
+      "reels_skip_rate": 33.3
      }
     },
     {
@@ -648,8 +654,8 @@
      "permalink": "https://www.instagram.com/p/Dff-YfJGVDp/",
      "first_line": "[⚽ 축구 모닝] 바르사 AT마드리드 원정 2-1 역전 · 맨유 4-4 빌라 · 리버풀 3-1 팰리스 — 주말 결산 7장",
      "metrics": {
-      "views": 0,
-      "reach": 0,
+      "views": 4,
+      "reach": 3,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -667,16 +673,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 128,
-      "reach": 114,
+      "views": 129,
+      "reach": 115,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 3121,
-      "ig_reels_video_view_total_time": 359001,
-      "reels_skip_rate": 80.5
+      "ig_reels_avg_watch_time": 3106,
+      "ig_reels_video_view_total_time": 360341,
+      "reels_skip_rate": 80.7
      }
     },
     {
@@ -689,16 +695,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 112,
-      "reach": 104,
+      "views": 114,
+      "reach": 106,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1210,
-      "ig_reels_video_view_total_time": 125942,
-      "reels_skip_rate": 95.2
+      "ig_reels_avg_watch_time": 1275,
+      "ig_reels_video_view_total_time": 135164,
+      "reels_skip_rate": 93.4
      }
     },
     {
@@ -730,8 +736,8 @@
      "permalink": "https://www.instagram.com/p/DfevnESkRnX/",
      "first_line": "[⚾ 야구 나이트] 삼성 12년 만의 한국시리즈 우승 · 12-1 KT, 4승 1패",
      "metrics": {
-      "views": 11,
-      "reach": 3,
+      "views": 14,
+      "reach": 4,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -749,16 +755,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 131,
-      "reach": 107,
+      "views": 132,
+      "reach": 108,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2781,
-      "ig_reels_video_view_total_time": 305914,
-      "reels_skip_rate": 77.6
+      "ig_reels_avg_watch_time": 2799,
+      "ig_reels_video_view_total_time": 310738,
+      "reels_skip_rate": 76.9
      }
     },
     {
@@ -771,16 +777,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 127,
-      "reach": 110,
+      "views": 128,
+      "reach": 111,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2392,
-      "ig_reels_video_view_total_time": 260817,
-      "reels_skip_rate": 82.4
+      "ig_reels_avg_watch_time": 2391,
+      "ig_reels_video_view_total_time": 263114,
+      "reels_skip_rate": 82.6
      }
     },
     {
@@ -837,16 +843,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 118,
-      "reach": 108,
+      "views": 119,
+      "reach": 109,
       "likes": 1,
       "comments": 0,
       "shares": 2,
       "saved": 0,
       "total_interactions": 3,
-      "ig_reels_avg_watch_time": 4174,
-      "ig_reels_video_view_total_time": 463359,
-      "reels_skip_rate": 69.2
+      "ig_reels_avg_watch_time": 4143,
+      "ig_reels_video_view_total_time": 464046,
+      "reels_skip_rate": 69.4
      }
     },
     {
@@ -856,8 +862,8 @@
      "permalink": "https://www.instagram.com/p/DfdZkLzlRGU/",
      "first_line": "[⚽ 축구 모닝] 맨시티 노팅엄 원정 1-3 리그 3연패 · 김민재 결장 · 레알 3-0 공동 선두 — 6장",
      "metrics": {
-      "views": 3,
-      "reach": 1,
+      "views": 5,
+      "reach": 2,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -897,16 +903,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 154,
-      "reach": 112,
+      "views": 157,
+      "reach": 114,
       "likes": 2,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 3,
-      "ig_reels_avg_watch_time": 3549,
-      "ig_reels_video_view_total_time": 404587,
-      "reels_skip_rate": 70.5
+      "ig_reels_avg_watch_time": 3501,
+      "ig_reels_video_view_total_time": 406149,
+      "reels_skip_rate": 71.1
      }
     },
     {
@@ -919,16 +925,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 129,
-      "reach": 110,
+      "views": 131,
+      "reach": 111,
       "likes": 3,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 3,
       "ig_reels_avg_watch_time": 2535,
-      "ig_reels_video_view_total_time": 278939,
-      "reels_skip_rate": 77.1
+      "ig_reels_video_view_total_time": 281471,
+      "reels_skip_rate": 77.3
      }
     },
     {
@@ -963,15 +969,15 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 2,
-      "reach": 1,
+      "views": 4,
+      "reach": 3,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2815,
-      "ig_reels_video_view_total_time": 8446,
+      "ig_reels_avg_watch_time": 2072,
+      "ig_reels_video_view_total_time": 10363,
       "reels_skip_rate": 100
      }
     },
@@ -1026,8 +1032,8 @@
      "permalink": "https://www.instagram.com/p/DfahtFGAQI5/",
      "first_line": "[⚾ 야구 나이트] 삼성 5-1 KT, 후라도 7이닝 1실점 · 한국시리즈 2승 1패",
      "metrics": {
-      "views": 0,
-      "reach": 0,
+      "views": 3,
+      "reach": 1,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -1086,8 +1092,8 @@
      "permalink": "https://www.instagram.com/p/DfYYoaKGrGs/",
      "first_line": "[⚽ 축구 모닝] 월 새벽 5시 아틀레티코–바르셀로나 1·2위 맞대결 + 5대 리그 1위~꼴찌 순위 — 7장",
      "metrics": {
-      "views": 5,
-      "reach": 1,
+      "views": 7,
+      "reach": 2,
       "likes": 0,
       "comments": 0,
       "shares": 0,
