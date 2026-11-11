@@ -26,7 +26,15 @@
    "account": "sports",
    "ab": "short",
    "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-11_ott-brief",
+   "caption": "captions/2026-11-11_ott.txt",
+   "dry_run": "false",
+   "is_ai": "true",
+   "review": "required"
   }
  ],
- "note": "11/11 수 문화 코너 캐러셀(본계정, 실물 JPG PASS) + 축구 모닝 A매치 프리뷰 캐러셀·10초 릴스(@hannun.sports, card-visual-reviewer·reel-reviewer 실물 PASS). 같은 날 서브 플러스(OTT) 요청은 이 항목들을 지우지 말고 뒤에 더한다."
+ "note": "11/11 수 문화 코너 캐러셀(본계정, 실물 JPG PASS) + 축구 모닝 A매치 프리뷰 캐러셀·10초 릴스(@hannun.sports, card-visual-reviewer·reel-reviewer 실물 PASS). 같은 날 서브 플러스(OTT) 요청은 이 항목들을 지우지 말고 뒤에 더한다. + 11/11 서브 플러스 OTT·게임 캐러셀(본계정, 실물 JPG 8장 PASS)을 뒤에 더함."
 }
