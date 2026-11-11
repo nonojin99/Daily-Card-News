@@ -1,8 +1,0 @@
-{
- "verdict": "PASS",
- "sha1": "b5d5e20727c01eb08d7fc81d4df3805b793f8ecf",
- "by": "agent",
- "cards": 6,
- "at": "2026-11-11T15:33:22Z",
- "note": "card-visual-reviewer 실물 JPG 6장 4축 PASS. Actions Build manifest #312 가 TTS 단계에서 멈춰 같은 스크립트(make_cards.js)로 세션에서 구움 — 사용자 '인스타 발행해줘' 요청"
-}
