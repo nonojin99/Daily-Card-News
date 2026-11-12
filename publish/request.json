@@ -15,7 +15,26 @@
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-13_football-brief",
+   "caption": "captions/2026-11-13_football.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "review": "required"
+  },
+  {
+   "kind": "reel",
+   "media": "reels/2026-11/2026-11-13_football.mp4",
+   "caption": "captions/2026-11-13_football_reel.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "ab": "short",
+   "review": "required"
   }
  ],
- "note": "11/13 금 여행 브리프 캐러셀(본계정, 2026-11-07 결정 — 수·목·금 브리프 각자 업로드) + 주말 뭐하지 하이라이트(주말 계획용 요약). card-visual-reviewer 실물 JPG 검수 PASS. 주말 묶음은 1차 검수에서 출처 장 넘침(사진 크레디트 줄)으로 FAIL → 문화 몫을 박민준 카드로 바꿔 다시 구운 뒤 재검수. 11/12 항목은 이미 지난 옛 항목이라 지움."
+ "note": "11/13 금 여행 브리프 캐러셀(본계정, 2026-11-07 결정 — 수·목·금 브리프 각자 업로드) + 주말 뭐하지 하이라이트(주말 계획용 요약). card-visual-reviewer 실물 JPG 검수 PASS. 주말 묶음은 1차 검수에서 출처 장 넘침(사진 크레디트 줄)으로 FAIL → 문화 몫을 박민준 카드로 바꿔 다시 구운 뒤 재검수. 11/12 항목은 이미 지난 옛 항목이라 지움. · 11/13 축구 모닝 리더보드(A매치 주간) 캐러셀 + ⚡ 리더보드 릴스(@hannun.sports, card-visual-reviewer·reel-reviewer 실물 PASS)"
 }
