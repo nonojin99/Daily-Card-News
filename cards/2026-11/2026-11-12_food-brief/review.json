@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "0dae4dc1d5fb4522b525f7abce19641bee6a877d",
+ "by": "agent",
+ "cards": 7,
+ "at": "2026-11-12T03:02:53Z",
+ "note": "card-visual-reviewer 실물 JPG 7장 PASS(AI 그림 5장 확인 — 글자·로고·인물 없음, 카드 1 한국식 상차림)"
+}
