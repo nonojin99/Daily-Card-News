@@ -10,6 +10,7 @@
    2) 오늘 더 이른 시간대 파일 중 아직 안 올라간 것(검수 대기였다가 승인됐거나, 예약 실행이 건너뛰어진 것)을 **최대 1건만** 따라잡는다
       — 한 시간대에 릴스가 몰리지 않게. 이미 올라간 캡션은 publish_ig.py 가 컨테이너를 만들기 전에 건너뛴다.
   SLOT 환경변수(워크플로가 예약 식으로 정함)가 없으면 지금 KST 기준 지난 가장 가까운 시간대. 새벽 4시 전이면 전날로 본다(예약 지연).
+  SLOT 이 있으면 지금이 그 시간대 시각 전일 때 전날로 본다(slot_day — 밀린 예약이 오늘 시간대를 선점하지 않게, 2026-11-12).
 
   2026-10-26~(사용자 요청 '올리는 시점·흐름이 중요'): 이 저장소의 예약 실행은 몇 시간씩 늦어(21:07 → 00:51) 시간대가 무너졌다.
   그래서 **주 경로는 결과 알림 이어 달리기**(score_alert.py --watch, 5분마다)가 부르는 tick() — 시간대가 되면 5분 안에 올린다.
@@ -45,6 +46,12 @@ def load_done():
         return {}
 
 
+def is_done(key):
+    """처리 기록이 있고, 그 기록이 시간대 시각 이후에 쓰인 것인가. 시간대보다 먼저 적힌 기록(선점)은 처리로 치지 않는다."""
+    rec = load_done().get(key)
+    return bool(rec) and rec.get("at_kst", "9").replace(":", "") >= f"{key[:10]} {key[11:]}"
+
+
 def mark_done(key, now, fail, waiting=()):
     d = load_done()
     d[key] = {"at_kst": now.strftime("%Y-%m-%d %H:%M"), "fail": bool(fail)}
@@ -67,6 +74,13 @@ def current(now):
     hm = now.strftime("%H%M")
     due = [s for s in SLOTS if s <= hm]
     return (now.strftime("%Y-%m-%d"), due[-1]) if due else (None, None)
+
+
+def slot_day(now, slot):
+    """예약 실행(SLOT 지정)의 게시 날짜. 예약은 제 시각보다 일찍 돌 수 없으므로, 지금이 그 시간대 시각 전이면 **어제 예약이 밀린 것**이다.
+    (2026-11-10~12 사고: 밀린 21:07 예약이 새벽 4~7시에 돌며 '오늘 2107'을 처리 완료로 적어, 그날 저녁 릴스가 사흘 연속 건너뛰어졌다.)"""
+    late = now.strftime("%H%M") < slot
+    return (now - datetime.timedelta(days=1) if late else now).strftime("%Y-%m-%d")
 
 
 def files_for(day, slot):
@@ -108,7 +122,7 @@ def tick():
     """이어 달리기 루프용(5분마다). 지금 시간대가 아직 처리되지 않았으면 처리하고 .done.json 을 고친다. 고친 파일 목록을 돌려준다."""
     now = kst_now()
     day, slot = current(now)
-    if not day or f"{day}_{slot}" in load_done():
+    if not day or is_done(f"{day}_{slot}"):
         return []
     fail, waiting = process(day, slot)
     mark_done(f"{day}_{slot}", now, fail, waiting)
@@ -121,11 +135,11 @@ def main():
     env_slot = os.environ.get("SLOT", "").strip()
     if env_slot in SLOTS:
         slot = env_slot
-        day = (now - datetime.timedelta(days=1) if now.hour < 4 else now).strftime("%Y-%m-%d")
+        day = slot_day(now, slot)
     if not day:
         print("오늘 첫 시간대 전 — 할 일 없음"); return
     key = f"{day}_{slot}"
-    if key in load_done() and os.environ.get("FORCE", "") != "1":
+    if is_done(key) and os.environ.get("FORCE", "") != "1":
         print(f"{key} 는 이어 달리기가 이미 처리함({load_done()[key]['at_kst']}) — 예비 실행은 건너뜀"); return
     fail, waiting = process(day, slot)
     mark_done(key, now, fail, waiting)

@@ -26,7 +26,7 @@ def main():
             if not files:
                 continue
             key, names = f"{day}_{slot}", ", ".join(os.path.basename(f) for f in files)
-            rec = done.get(key)
+            rec = done.get(key) if ps.is_done(key) else None   # 시간대보다 먼저 적힌 기록(선점)은 처리로 치지 않는다
             if rec is None:
                 problems.append(f"{key} ({int(age)}분 지남): 처리 기록 없음 — 이어 달리기가 끊겼을 수 있음 [{names}]")
             elif rec.get("fail"):
