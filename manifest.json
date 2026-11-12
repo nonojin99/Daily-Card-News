@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-12T21:00:48Z",
-  "count": 346,
+  "generated": "2026-11-12T23:52:00Z",
+  "count": 347,
   "files": [
     {
       "date": "2026-11-13",
@@ -19,6 +19,15 @@
       "day": "13",
       "type": "travel",
       "path": "2026-11-13_travel-brief.html"
+    },
+    {
+      "date": "2026-11-13",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "13",
+      "type": "football",
+      "path": "2026-11-13_football-brief.html"
     },
     {
       "date": "2026-11-12",
