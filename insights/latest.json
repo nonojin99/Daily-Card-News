@@ -1,11 +1,27 @@
 {
- "collected_kst": "2026-11-11 16:55",
+ "collected_kst": "2026-11-12 17:34",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-11T07:55:23.968722Z",
+   "checked_at": "2026-11-12T08:33:38.959166Z",
    "media": [
+    {
+     "id": "17954256525050600",
+     "type": "FEED",
+     "timestamp": "2026-11-12T02:46:03+0000",
+     "permalink": "https://www.instagram.com/p/DfoA8mJlbON/",
+     "first_line": "[주말 액티비티] 판매자 500여 명이 여의도공원에 · 백화점 3사 겨울 세일 · 영암 서킷은 1대 2만 원부터 — 11월 12일 액티비티 브리",
+     "metrics": {
+      "views": 12,
+      "reach": 4,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1
+     }
+    },
     {
      "id": "18222459373349106",
      "type": "FEED",
@@ -29,8 +45,8 @@
      "permalink": "https://www.instagram.com/p/DflB0JZESAf/",
      "first_line": "[💰 머니] 실손 11월 할인 · 26일 금통위 인상 관측 · 환율 1,340원대",
      "metrics": {
-      "views": 6,
-      "reach": 2,
+      "views": 8,
+      "reach": 3,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -45,8 +61,8 @@
      "permalink": "https://www.instagram.com/p/DflBnyjkS-A/",
      "first_line": "[🩺 헬스] 독감 44주 외래 1,000명당 22.8명 · 털진드기 밀도 150%↑ · 나이지리아 에볼라 검역",
      "metrics": {
-      "views": 16,
-      "reach": 2,
+      "views": 24,
+      "reach": 4,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -61,8 +77,8 @@
      "permalink": "https://www.instagram.com/p/Dfk0_MZAU3k/",
      "first_line": "[문화] 로트렉·발라동 110여 점이 세종미술관에 · 박민준 개인전은 무료 · 최수종·하희라의 연극 〈러브레터〉 — 11월 11일 문화 브리프 ",
      "metrics": {
-      "views": 10,
-      "reach": 3,
+      "views": 11,
+      "reach": 4,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -541,34 +557,34 @@
       "ig_reels_video_view_total_time": 275629,
       "reels_skip_rate": 75.7
      }
-    },
-    {
-     "id": "18108262103362029",
-     "type": "FEED",
-     "timestamp": "2026-10-26T01:38:25+0000",
-     "permalink": "https://www.instagram.com/p/De8HsaJDS97/",
-     "first_line": "[AI·테크] 앤트로픽 '클로드 듀엣' · 구글 클라우드에 OpenAI 모델 3종 · 영국 AI 바이오보안 1억 6,500만 파운드 — 10월 ",
-     "metrics": {
-      "views": 16,
-      "reach": 5,
-      "likes": 3,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 3
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 51
+   "posts": 53
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-11T07:55:35.237664Z",
+   "checked_at": "2026-11-12T08:33:51.486768Z",
    "media": [
+    {
+     "id": "18220456408348469",
+     "type": "FEED",
+     "timestamp": "2026-11-11T15:35:43+0000",
+     "permalink": "https://www.instagram.com/p/Dfm0PDQmtrO/",
+     "first_line": "[🎮 e스포츠] 롤드컵 결승 젠지 대 BLG · 15일(일) 오전 4시 뉴욕 · 국제대회 맞대결 2승 2패 — 11월 11일 4장",
+     "metrics": {
+      "views": 9,
+      "reach": 3,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1
+     }
+    },
     {
      "id": "18415966882092401",
      "type": "REELS",
@@ -579,16 +595,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 117,
-      "reach": 107,
+      "views": 118,
+      "reach": 108,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2872,
-      "ig_reels_video_view_total_time": 307309,
-      "reels_skip_rate": 74.5
+      "ig_reels_avg_watch_time": 2842,
+      "ig_reels_video_view_total_time": 312673,
+      "reels_skip_rate": 74.8
      }
     },
     {
@@ -598,8 +614,8 @@
      "permalink": "https://www.instagram.com/p/DflJN1SIzeh/",
      "first_line": "[⚽ 축구 모닝 · A매치 프리뷰] 한국–사우디 금 밤 11:30 · 한국–카타르 화 밤 11:00",
      "metrics": {
-      "views": 4,
-      "reach": 2,
+      "views": 10,
+      "reach": 3,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -624,8 +640,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 6794,
-      "ig_reels_video_view_total_time": 822149,
+      "ig_reels_avg_watch_time": 6761,
+      "ig_reels_video_view_total_time": 824940,
       "reels_skip_rate": 50.9
      }
     },
@@ -680,7 +696,7 @@
      "permalink": "https://www.instagram.com/p/Dff-YfJGVDp/",
      "first_line": "[⚽ 축구 모닝] 바르사 AT마드리드 원정 2-1 역전 · 맨유 4-4 빌라 · 리버풀 3-1 팰리스 — 주말 결산 7장",
      "metrics": {
-      "views": 6,
+      "views": 7,
       "reach": 3,
       "likes": 2,
       "comments": 0,
@@ -721,15 +737,15 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 115,
-      "reach": 107,
+      "views": 116,
+      "reach": 108,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1272,
-      "ig_reels_video_view_total_time": 136107,
+      "ig_reels_avg_watch_time": 1269,
+      "ig_reels_video_view_total_time": 137094,
       "reels_skip_rate": 93.5
      }
     },
@@ -743,15 +759,15 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 2,
+      "views": 3,
       "reach": 2,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 6997,
-      "ig_reels_video_view_total_time": 27990,
+      "ig_reels_avg_watch_time": 5829,
+      "ig_reels_video_view_total_time": 29148,
       "reels_skip_rate": 100
      }
     },
@@ -847,15 +863,15 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 2,
-      "reach": 1,
+      "views": 3,
+      "reach": 2,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1940,
-      "ig_reels_video_view_total_time": 3880,
+      "ig_reels_avg_watch_time": 1594,
+      "ig_reels_video_view_total_time": 4783,
       "reels_skip_rate": 100
      }
     },
@@ -869,16 +885,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 119,
-      "reach": 109,
+      "views": 120,
+      "reach": 110,
       "likes": 1,
       "comments": 0,
       "shares": 2,
       "saved": 0,
       "total_interactions": 3,
-      "ig_reels_avg_watch_time": 4143,
-      "ig_reels_video_view_total_time": 464046,
-      "reels_skip_rate": 69.4
+      "ig_reels_avg_watch_time": 4138,
+      "ig_reels_video_view_total_time": 467649,
+      "reels_skip_rate": 68.8
      }
     },
     {
@@ -907,16 +923,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 126,
-      "reach": 106,
+      "views": 127,
+      "reach": 107,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 4237,
-      "ig_reels_video_view_total_time": 453391,
-      "reels_skip_rate": 76.2
+      "ig_reels_avg_watch_time": 4204,
+      "ig_reels_video_view_total_time": 454131,
+      "reels_skip_rate": 76.4
      }
     },
     {
@@ -1058,7 +1074,7 @@
      "permalink": "https://www.instagram.com/p/DfahtFGAQI5/",
      "first_line": "[⚾ 야구 나이트] 삼성 5-1 KT, 후라도 7이닝 1실점 · 한국시리즈 2승 1패",
      "metrics": {
-      "views": 4,
+      "views": 6,
       "reach": 2,
       "likes": 0,
       "comments": 0,
@@ -1170,29 +1186,13 @@
       "ig_reels_video_view_total_time": 312904,
       "reels_skip_rate": 70.9
      }
-    },
-    {
-     "id": "18125963020714873",
-     "type": "FEED",
-     "timestamp": "2026-11-05T01:06:42+0000",
-     "permalink": "https://www.instagram.com/p/DfV0A-kEXat/",
-     "first_line": "[⚾ 야구 나이트] 삼성 3-2 KT, 연장 12회 끝에 한국시리즈 1승 1패 · 3차전 6일 대구",
-     "metrics": {
-      "views": 4,
-      "reach": 2,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
     }
    ],
    "errors": [],
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 7,
-   "posts": 115
+   "posts": 116
   }
  ]
 }
