@@ -2502,5 +2502,110 @@
    "ig_reels_video_view_total_time": 429897,
    "reels_skip_rate": 75.8
   }
+ },
+ "main:18222459373349106": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-11T01:04:15+0000",
+  "snapshot_utc": "2026-11-12T01:28:59Z",
+  "age_h": 24.4,
+  "first_line": "[📺 OTT·게임] 재혼 황후 오늘 오후 5시 5·6화 · 꿀알바 비영어 쇼 세계 1위(시청수 870만) · GTA 6 사전 다운로드 212GB",
+  "metrics": {
+   "views": 6,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "main:18007144683006339": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-10T22:55:54+0000",
+  "snapshot_utc": "2026-11-12T01:28:59Z",
+  "age_h": 26.6,
+  "first_line": "[💰 머니] 실손 11월 할인 · 26일 금통위 인상 관측 · 환율 1,340원대",
+  "metrics": {
+   "views": 8,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "main:18118943690321909": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-10T22:54:03+0000",
+  "snapshot_utc": "2026-11-12T01:28:59Z",
+  "age_h": 26.6,
+  "first_line": "[🩺 헬스] 독감 44주 외래 1,000명당 22.8명 · 털진드기 밀도 150%↑ · 나이지리아 에볼라 검역",
+  "metrics": {
+   "views": 24,
+   "reach": 4,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1
+  }
+ },
+ "main:18084552767398366": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-10T21:03:51+0000",
+  "snapshot_utc": "2026-11-12T01:28:59Z",
+  "age_h": 28.4,
+  "first_line": "[문화] 로트렉·발라동 110여 점이 세종미술관에 · 박민준 개인전은 무료 · 최수종·하희라의 연극 〈러브레터〉 — 11월 11일 문화 브리프 ",
+  "metrics": {
+   "views": 11,
+   "reach": 4,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1
+  }
+ },
+ "sports:18415966882092401": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-11T00:01:53+0000",
+  "snapshot_utc": "2026-11-12T01:28:59Z",
+  "age_h": 25.5,
+  "first_line": "[⚽ 축구 모닝 · A매치 프리뷰] 한국–사우디 금 밤 11:30 · 명단 26명, 손정범·신민하 첫 발탁",
+  "metrics": {
+   "views": 118,
+   "reach": 108,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2848,
+   "ig_reels_video_view_total_time": 310481,
+   "reels_skip_rate": 74.8
+  }
+ },
+ "sports:18420122329085260": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-11T00:00:25+0000",
+  "snapshot_utc": "2026-11-12T01:28:59Z",
+  "age_h": 25.5,
+  "first_line": "[⚽ 축구 모닝 · A매치 프리뷰] 한국–사우디 금 밤 11:30 · 한국–카타르 화 밤 11:00",
+  "metrics": {
+   "views": 5,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
