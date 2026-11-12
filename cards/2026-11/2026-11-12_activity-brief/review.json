@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "9c4d70649617b9e44a0144fb6e11691f647bc590",
+ "by": "agent",
+ "cards": 8,
+ "at": "2026-11-12T02:44:41Z",
+ "note": "card-visual-reviewer 실물 JPG 8장 PASS (카드 5 AI 그림 일본풍 FAIL → 장면 수정·재생성 뒤 PASS)"
+}
