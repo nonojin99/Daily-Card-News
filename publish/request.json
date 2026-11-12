@@ -2,29 +2,20 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-12_activity-brief",
-   "caption": "captions/2026-11-12_activity.txt",
+   "media": "cards/2026-11/2026-11-13_travel-brief",
+   "caption": "captions/2026-11-13_travel.txt",
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
   },
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-12_food-brief",
-   "caption": "captions/2026-11-12_food.txt",
+   "media": "cards/2026-11/2026-11-13_weekend",
+   "caption": "captions/2026-11-13_weekend.txt",
    "dry_run": "false",
    "is_ai": "true",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-12_esports-brief",
-   "caption": "captions/2026-11-12_esports.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
    "review": "required"
   }
  ],
- "note": "11/12 목 액티비티 브리프 캐러셀(본계정, 2026-11-07 결정 — 수·목·금 브리프 각자 업로드). card-visual-reviewer 실물 JPG 8장 PASS. 11/11 항목은 이미 게시된 옛 항목이라 지움. 같은 날 서브 플러스(푸드) 요청이 오면 이 항목을 지우지 말고 뒤에 더한다. + 11/12 서브 플러스 푸드 캐러셀(본계정, 실물 JPG 7장 PASS)을 뒤에 더함 — 앞 액티비티 항목은 같은 날 항목이라 남김. + 11/12 밤 e스포츠(롤드컵 결승 관전 포인트) 캐러셀(@hannun.sports, 실물 JPG 5장 PASS)을 뒤에 더함 — 앞 11/12 항목은 같은 날 항목이라 남김."
+ "note": "11/13 금 여행 브리프 캐러셀(본계정, 2026-11-07 결정 — 수·목·금 브리프 각자 업로드) + 주말 뭐하지 하이라이트(주말 계획용 요약). card-visual-reviewer 실물 JPG 검수 PASS. 주말 묶음은 1차 검수에서 출처 장 넘침(사진 크레디트 줄)으로 FAIL → 문화 몫을 박민준 카드로 바꿔 다시 구운 뒤 재검수. 11/12 항목은 이미 지난 옛 항목이라 지움."
 }

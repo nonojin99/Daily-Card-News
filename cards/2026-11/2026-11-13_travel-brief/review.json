@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "9c8a22adeb7562e8c706b3d24cfec14aeb2d9a66",
+ "by": "agent",
+ "cards": 7,
+ "at": "2026-11-12T20:59:44Z",
+ "note": "card-visual-reviewer 실물 JPG 7장 PASS(W: 캡션 일부 숫자는 브리프 본문 기준, 알바니아 카드 AI 그림은 일반 공항 장면)"
+}
