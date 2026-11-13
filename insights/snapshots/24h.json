@@ -2624,5 +2624,22 @@
    "saved": 0,
    "total_interactions": 1
   }
+ },
+ "main:17954256525050600": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-12T02:46:03+0000",
+  "snapshot_utc": "2026-11-13T07:49:46Z",
+  "age_h": 29.1,
+  "first_line": "[주말 액티비티] 판매자 500여 명이 여의도공원에 · 백화점 3사 겨울 세일 · 영암 서킷은 1대 2만 원부터 — 11월 12일 액티비티 브리",
+  "metrics": {
+   "views": 16,
+   "reach": 6,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1
+  }
  }
 }
