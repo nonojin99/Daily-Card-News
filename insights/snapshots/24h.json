@@ -2641,5 +2641,22 @@
    "saved": 0,
    "total_interactions": 1
   }
+ },
+ "sports:18118616219049303": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-12T14:55:34+0000",
+  "snapshot_utc": "2026-11-13T16:10:04Z",
+  "age_h": 25.2,
+  "first_line": "[🎮 e스포츠] 젠지 4강까지 10승 1패 · 승률 90.9% 역대 2위 · BLG, 한국 팀 상대 8승 1패 — 11월 12일 3장",
+  "metrics": {
+   "views": 2,
+   "reach": 1,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
