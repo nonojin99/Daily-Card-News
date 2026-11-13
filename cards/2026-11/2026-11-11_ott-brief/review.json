@@ -1,8 +1,0 @@
-{
- "verdict": "PASS",
- "sha1": "01cfefde2b15c0fc89eeb839ee698e663f79a8c4",
- "by": "agent",
- "cards": 8,
- "at": "2026-11-11T01:02:51Z",
- "note": "card-visual-reviewer 실물 JPG 8장 PASS(AI 그림 6장 확인 — 글자·로고·인물 없음)"
-}
