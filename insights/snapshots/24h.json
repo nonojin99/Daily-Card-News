@@ -2658,5 +2658,39 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:17992638870118731": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-12T21:06:07+0000",
+  "snapshot_utc": "2026-11-13T22:31:48Z",
+  "age_h": 25.4,
+  "first_line": "[주말 뭐하지] 주말 계획용 요약 — 수·목·금 브리프에서 이번 주말(11/14~15)에 쓸 카드만 모았어요 · 여의도공원 플리마켓 · 포항 해",
+  "metrics": {
+   "views": 17,
+   "reach": 5,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1
+  }
+ },
+ "main:18136336117748258": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-12T21:04:10+0000",
+  "snapshot_utc": "2026-11-13T22:31:48Z",
+  "age_h": 25.5,
+  "first_line": "[여행] 주말 비는 15일(일) 새벽까지 · 포항 해병대 1사단 14~15일 부대 개방 · 12월 유류할증료 16일께 발표 — 11월 13일 여",
+  "metrics": {
+   "views": 8,
+   "reach": 5,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
