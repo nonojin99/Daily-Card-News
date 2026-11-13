@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "cb01573003f91a868db8ecced600e9719e47b9ca",
+ "by": "agent",
+ "cards": 5,
+ "at": "2026-11-13T15:45:50Z",
+ "note": "card-visual-reviewer 실물 JPG 5장 4축 PASS · 캡션 3번 장소 표현 FAIL → 카드 제목으로 교체"
+}
