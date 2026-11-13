@@ -78,7 +78,7 @@
   .ig-lvon{fill:var(--accent)} .ig-lvoff{fill:#fff} .ig-lvt{font:500 13px var(--sans);fill:var(--muted)} .ig-lvt.on{fill:#fff;font-weight:700}
   .ig-sline{stroke:var(--accent);stroke-width:3} .ig-sline.off{stroke:var(--off)} .ig-ring{fill:none;stroke:var(--accent);stroke-width:2;opacity:.35}
   .ig-st{font:700 15px var(--sans);fill:var(--ink)} .ig-st.dim{fill:var(--faint)}
-  .ig-b1{fill:var(--s1)} .ig-b2{fill:var(--s2)} .ig-bl{font:500 13px var(--sans);fill:var(--muted)} .ig-bv{font:700 14px var(--sans);fill:var(--ink)}
+  .ig-b1{fill:var(--s1)} .ig-b2{fill:var(--s2)} .ig-b0{fill:#b9b6ab} .ig-bhl{fill:var(--accent)} .ig-bl{font:500 13px var(--sans);fill:var(--muted)} .ig-bv{font:700 14px var(--sans);fill:var(--ink)}
   .count{position:absolute;top:3.6cqw;right:3.6cqw;font-size:3cqw;font-weight:500;color:#fff;background:rgba(26,26,24,.62);padding:1.2cqw 2.8cqw;border-radius:99px;z-index:2}
   .badge{position:absolute;left:6cqw;top:calc(50% - 7cqw);width:14cqw;height:14cqw;border-radius:50%;background:var(--card);
     box-shadow:0 1.2cqw 3cqw rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:7cqw;color:var(--accent);z-index:2}
@@ -454,6 +454,13 @@ function infoOf(a, geo, year){
   //   cn-ticket "기한 후 신청 마감|11.30|받는 금액|95%"                      티켓(T4, 두 값)
   //   값은 모두 카드 본문·스펙 표에 있는 것만(check_cards 숫자 검사)
   const rg = parts(".cn-ring"), wf = parts(".cn-waffle"), tk = parts(".cn-ticket");
+  // 맞대결(2026-11-14 시안): <p class="cn-vs" data-unit="%">젠지|BLG / 바론:83:60 / 드래곤:67:62</p> — 두 팀 × 지표 1~4개, 가운데에서 양쪽으로 뻗는 막대. 지표는 같은 단위끼리만(축 하나)
+  const vsR = T(".cn-vs") ? T(".cn-vs").split(/\s+\/\s+/) : null;
+  const vs = vsR && vsR.length >= 2 ? {teams: vsR[0].split("|").map(clean), unit: cn.querySelector(".cn-vs").dataset.unit || "",
+    rows: vsR.slice(1, 5).map(x => { const m = x.match(/^(.*?)[:：]\s*([\d.,]+)\s*[:：]\s*([\d.,]+)/); return m ? {l: clean(m[1]), a: m[2], b: m[3]} : null; }).filter(Boolean)} : null;
+  // 막대 끝만 둥글게(기준선 쪽은 직각). dir 1 = 오른쪽으로, -1 = 왼쪽으로
+  const barP = (x, y, w, h, dir = 1) => { const r = Math.min(4, w, h / 2), e = x + dir * w;
+    return `M${x} ${y}H${(e - dir * r).toFixed(1)}Q${e.toFixed(1)} ${y} ${e.toFixed(1)} ${y + r}V${y + h - r}Q${e.toFixed(1)} ${y + h} ${(e - dir * r).toFixed(1)} ${y + h}H${x}Z`; };
   let g = "";
   const fsz = (v, base, min) => Math.max(min, Math.min(base, Math.floor(base * 6 / Math.max(6, v.length))));
   if(rg && rg.length >= 2 && isFinite(parseFloat(rg[0]))){
@@ -556,26 +563,60 @@ function infoOf(a, geo, year){
       (nums.length ? nums.map((n, i) => { const tw = nums.length === 1 ? Math.min(340, Math.max(164, n.v.length * 32 + 40)) : 164;
         return `<g transform="translate(${nums.length === 1 ? 200 - tw / 2 : 30 + i * 180} 132)"><rect width="${tw}" height="84" rx="12" class="ig-panel"/>
         <text x="18" y="46" class="ig-mid ac">${esc(n.v)}</text><text x="18" y="70" class="ig-k">${esc(n.l)}</text></g>`; }).join("") : lines(note, 200, 160, "ig-k"));
+  }else if(vs && vs.teams.length >= 2 && vs.rows.length){
+    const num = v => Number(v.replace(/,/g, "")), mx = Math.max(...vs.rows.flatMap(r => [num(r.a), num(r.b)])) || 1;
+    const n = vs.rows.length, rh = Math.min(62, (note ? 130 : 152) / n), H = 34 + n * rh, top = Math.max(30, (note ? 116 : 127) - H / 2), W = 84, bh = Math.min(20, rh - 14), vf = n <= 2 ? 26 : 22;
+    const u = vs.unit ? `<tspan style="font-size:13px;font-weight:700">${esc(vs.unit)}</tspan>` : "";
+    g = `<rect x="148" y="${top + 4}" width="10" height="10" rx="3" class="ig-b1"/><text x="142" y="${top + 14}" text-anchor="end" class="ig-mteam" style="font-size:17px">${esc(vs.teams[0])}</text>
+      <rect x="242" y="${top + 4}" width="10" height="10" rx="3" class="ig-b2"/><text x="258" y="${top + 14}" class="ig-mteam" style="font-size:17px">${esc(vs.teams[1])}</text>
+      <text x="200" y="${top + 13}" text-anchor="middle" class="ig-calh">vs</text>` +
+      vs.rows.map((r, i) => { const cy = top + 34 + rh * (i + .5), a = num(r.a), b = num(r.b), wa = W * a / mx, wb = W * b / mx;
+        const vt = (x, v, anc, win) => `<text x="${x.toFixed(1)}" y="${(cy + vf * .36).toFixed(1)}" text-anchor="${anc}" style="font:900 ${vf}px var(--sans);letter-spacing:-.02em;fill:${win ? "var(--ink)" : "var(--faint)"}">${esc(v)}${u}</text>`;
+        return `<path d="${barP(158, cy - bh / 2, wa, bh, -1)}" class="ig-b1"/><path d="${barP(242, cy - bh / 2, wb, bh, 1)}" class="ig-b2"/>
+          <text x="200" y="${(cy + 5).toFixed(1)}" text-anchor="middle" class="ig-k" style="font-weight:700;fill:var(--ink)">${esc(r.l)}</text>` +
+          vt(158 - wa - 7, r.a, "end", a >= b) + vt(242 + wb + 7, r.b, "start", b >= a); }).join("") +
+      (note ? `<text x="200" y="${Math.min(216, top + H + 22).toFixed(1)}" text-anchor="middle" class="ig-s" style="font-size:12px">${esc(note)}</text>` : "");
   }else if(st && st.length >= 2){
     const now = Math.max(1, Math.min(st.length, Number(cn.querySelector(".cn-steps").dataset.now || 1))) - 1;
     if(kr.length || world.length){
       g = mapL() + `<g transform="translate(266 30)">` + st.slice(0, 5).map((l, i) =>
         `<rect x="0" y="${i * 42}" width="120" height="34" rx="8" class="${i === now ? "ig-lvon" : "ig-lvoff"}"/><text x="12" y="${22 + i * 42}" class="ig-lvt${i === now ? " on" : ""}">${esc(l)}</text>`).join("") + `</g>`;
     }else{
+      // 2026-11-14: 모든 칸이 '12일 사임' 처럼 '때(숫자로 시작) + 일' 이면 점 위에 때, 아래에 일로 나눠 쓰고, cn-num 이 있으면 아래 절반에 크게 얹는다(빈 자리 없이)
       const n = Math.min(st.length, 5), xs = Array.from({length: n}, (_, i) => n === 1 ? 200 : 60 + 280 * i / (n - 1));
-      g = `<line x1="${xs[0]}" x2="${xs[now]}" y1="104" y2="104" class="ig-sline"/><line x1="${xs[now]}" x2="${xs[n - 1]}" y1="104" y2="104" class="ig-sline off"/>` +
-        xs.map((x, i) => `${i === now ? `<circle cx="${x}" cy="104" r="15" class="ig-ring"/>` : ""}<circle cx="${x}" cy="104" r="9" class="${i <= now ? "ig-son" : "ig-soff"}"/>
-          <text x="${x}" y="80" text-anchor="middle" class="ig-st${i <= now ? "" : " dim"}">${esc(st[i])}</text>`).join("") + lines(note, 200, 170, "ig-k");
+      const sp = st.slice(0, n).map(l => l.match(/^((?:\d[\d\/.:~-]*(?:일|월|시|분|년|주|차|강)?|오늘|내일|어제))\s+(.+)$/)), split = sp.every(Boolean), N0 = nums[0];
+      const ly = N0 ? 86 : split ? 100 : 104;
+      g = `<line x1="${xs[0]}" x2="${xs[now]}" y1="${ly}" y2="${ly}" class="ig-sline"/><line x1="${xs[now]}" x2="${xs[n - 1]}" y1="${ly}" y2="${ly}" class="ig-sline off"/>` +
+        xs.map((x, i) => `${i === now ? `<circle cx="${x}" cy="${ly}" r="15" class="ig-ring"/>` : ""}<circle cx="${x}" cy="${ly}" r="9" class="${i <= now ? "ig-son" : "ig-soff"}"/>` +
+          (split ? `<text x="${x}" y="${ly - 24}" text-anchor="middle" class="ig-st" style="${i === now ? "font-weight:900;font-size:17px" : i < now ? "" : "fill:var(--muted)"}">${esc(sp[i][1])}</text>
+            <text x="${x}" y="${ly + 32}" text-anchor="middle" class="ig-s" style="${i === now ? "font-weight:700;fill:var(--ink)" : ""}">${esc(sp[i][2])}</text>`
+          : `<text x="${x}" y="${ly - 24}" text-anchor="middle" class="ig-st${i <= now ? "" : " dim"}">${esc(st[i])}</text>`)).join("") +
+        (N0 ? `<line x1="60" x2="340" y1="${ly + 50}" y2="${ly + 50}" class="ig-line"/>
+            <text x="200" y="${ly + 94}" text-anchor="middle" class="ig-mid" style="font-size:${fsz(N0.v, 40, 26)}px">${esc(N0.v)}</text><text x="200" y="${ly + 114}" text-anchor="middle" class="ig-k">${esc(N0.l)}</text>
+            ${note ? `<text x="200" y="${ly + 132}" text-anchor="middle" class="ig-s" style="font-size:12px;fill:var(--faint)">${esc(note.split(/\s+\/\s+/).join(" · "))}</text>` : ""}`
+          : lines(note, 200, split ? 176 : 170, "ig-k"));
     }
   }else if(br && br.length >= 2){
     const rows = br.slice(0, 4).map(x => { const m = x.match(/^(.*?)[:：]\s*([\d.,]+)/); return m ? {l: clean(m[1]), v: Number(m[2].replace(/,/g, ""))} : null; }).filter(Boolean);
     const mx = Math.max(...rows.map(r => r.v)), step = Math.pow(10, Math.floor(Math.log10(mx))), axis = Math.ceil(mx * 1.05 / step) * step;
-    const top = nums[0] ? 150 : 60;
-    g = (nums[0] ? heroT(30, 112, nums[0].v) + `<text x="34" y="138" class="ig-k">${esc(nums[0].l)}</text>` : "") +
-      rows.map((r, i) => { const w = 220 * r.v / axis, y = top + i * 30;
-        return `<rect x="110" y="${y}" width="${w.toFixed(1)}" height="18" rx="4" class="${i ? "ig-b2" : "ig-b1"}"/><text x="102" y="${y + 14}" text-anchor="end" class="ig-bl">${esc(r.l)}</text>
-          <text x="${(118 + w).toFixed(1)}" y="${y + 14}" class="ig-bv">${r.v.toLocaleString("ko-KR")}</text>`; }).join("") +
-      (note ? `<text x="30" y="${top + rows.length * 30 + 14}" class="ig-s">${esc(note)}</text>` : "");
+    // 2026-11-14: 강조 한 줄(카드 주인공)만 액센트, 나머지는 회색. data-hl="2" 로 몇째 줄인지(기본 1). data-unit="%" 면 값 뒤에 단위
+    const bEl = cn.querySelector(".cn-bars"), hl = Math.max(1, Math.min(rows.length, parseInt(bEl.dataset.hl || "1", 10) || 1)) - 1, unit = bEl.dataset.unit || "";
+    if(nums[0]){
+      const top = 150;
+      g = heroT(30, 112, nums[0].v) + `<text x="34" y="138" class="ig-k">${esc(nums[0].l)}</text>` +
+        rows.map((r, i) => { const w = 220 * r.v / axis, y = top + i * 30;
+          return `<path d="${barP(110, y, w, 18)}" class="${i === hl ? "ig-bhl" : "ig-b0"}"/><text x="102" y="${y + 14}" text-anchor="end" class="ig-bl">${esc(r.l)}</text>
+            <text x="${(118 + w).toFixed(1)}" y="${y + 14}" class="ig-bv">${r.v.toLocaleString("ko-KR")}${esc(unit)}</text>`; }).join("") +
+        (note ? `<text x="30" y="${top + rows.length * 30 + 14}" class="ig-s">${esc(note)}</text>` : "");
+    }else{
+      // 큰 숫자가 없으면 줄마다 '이름 ······ 값' + 그 아래 가는 막대로 그림 자리를 다 쓴다(위에 몰리고 아래가 비던 문제)
+      const n = rows.length, rh = Math.min(54, (note ? 150 : 176) / n), H = n * rh, top = Math.max(30, (note ? 112 : 125) - H / 2);
+      g = rows.map((r, i) => { const y = top + i * rh, on = i === hl;
+        return `<text x="30" y="${(y + 19).toFixed(1)}" style="font:${on ? 700 : 500} 15px var(--sans);fill:${on ? "var(--ink)" : "var(--muted)"}">${esc(r.l)}</text>
+          <text x="370" y="${(y + 20).toFixed(1)}" text-anchor="end" style="font:900 ${on ? 26 : 21}px var(--sans);letter-spacing:-.02em;fill:${on ? "var(--ink)" : "var(--muted)"}">${r.v.toLocaleString("ko-KR")}${unit ? `<tspan style="font-size:13px;font-weight:700">${esc(unit)}</tspan>` : ""}</text>
+          <path d="${barP(30, +(y + 27).toFixed(1), 340 * r.v / axis, 11)}" class="${on ? "ig-bhl" : "ig-b0"}"/>`; }).join("") +
+        (note ? `<text x="30" y="${Math.min(216, top + H + 20).toFixed(1)}" class="ig-s" style="font-size:12px">${esc(note)}</text>` : "");
+    }
   }else if((kr.length || world.length) && nums.length >= 2){
     g = mapL() + `<g transform="translate(262 64)">` + nums.map((n, i) =>
       `<text x="0" y="${34 + i * 70}" class="ig-big">${esc(n.v)}</text><text x="0" y="${54 + i * 70}" class="ig-s">${esc(n.l)}</text>`).join("")
@@ -600,7 +641,7 @@ function infoOf(a, geo, year){
   }else if(kr.length || world.length){
     g = mapL() + lines(note, 330, 120, "ig-k");
   }
-  return g ? `<svg viewBox="0 0 400 250" role="img" aria-label="${esc([T(".cn-ring"), T(".cn-waffle"), T(".cn-ticket"), T(".cn-fixtures"), T(".cn-score"), T(".cn-link"), T(".cn-shift"), T(".cn-steps"), T(".cn-bars"), T(".cn-place"), T(".cn-when"), ...nums.map(n => n.v + " " + n.l), note].filter(Boolean).join(", "))}">${g}</svg>` : null;
+  return g ? `<svg viewBox="0 0 400 250" role="img" aria-label="${esc([T(".cn-ring"), T(".cn-waffle"), T(".cn-ticket"), T(".cn-fixtures"), T(".cn-score"), T(".cn-link"), T(".cn-shift"), T(".cn-vs"), T(".cn-steps"), T(".cn-bars"), T(".cn-place"), T(".cn-when"), ...nums.map(n => n.v + " " + n.l), note].filter(Boolean).join(", "))}">${g}</svg>` : null;
 }
 function visualOf(a, geo, year){
   // 우선순위(2026-10-21 사용자 결정): ① 라이선스 확인된 실제 이미지 ② AI 일러스트 ③ 도표·개념도 ④ 정보 그림 ⑤ 정보 시트
@@ -645,7 +686,7 @@ const NUM_RE = /(?:[−-]\s?)?\d[\d,.]*\s?(?:%p|%|도|명|억\s?달러|조\s?원
 // 짧은 제목(.cn-t, 없으면 h2 의 " — " 앞)에서만 찾는다 — 부제의 "2년여 만" 같은 수식어를 집지 않게
 const titleNum = a => (clean(a.querySelector(".cn .cn-t")?.textContent || (a.querySelector("h2")?.textContent || "").split(/\s[—–]\s/)[0]).match(NUM_RE) || [])[0] || "";
 const sensitive = a => /Context|맥락/.test(a.querySelector(".insight .tag")?.textContent || "");
-const hasNumberVisual = a => !!titleNum(a) || !!a.querySelector("figure.chart, .cn svg.cn-v, .cn .cn-num, .cn .cn-score, .cn .cn-bars, .cn .cn-link, .cn .cn-shift");
+const hasNumberVisual = a => !!titleNum(a) || !!a.querySelector("figure.chart, .cn svg.cn-v, .cn .cn-num, .cn .cn-score, .cn .cn-bars, .cn .cn-vs, .cn .cn-link, .cn .cn-shift");
 async function loadBrief(file){
   const res = await fetch("../" + file, {cache: "no-cache"});
   if(!res.ok) return null;
@@ -686,7 +727,7 @@ async function zipStore(files){
       const srcs = series.src(MD);
       briefs = (await Promise.all(srcs.map(([d, t]) => loadBrief(`${d}_${t}-brief.html`)))).filter(Boolean);
       if(MIX === "week7"){
-        const rich = a => !!a.querySelector("figure.chart, .cn svg.cn-v, .cn .cn-num, .cn .cn-score, .cn .cn-bars, .cn .cn-link, .cn .cn-shift");
+        const rich = a => !!a.querySelector("figure.chart, .cn svg.cn-v, .cn .cn-num, .cn .cn-score, .cn .cn-bars, .cn .cn-vs, .cn .cn-link, .cn .cn-shift");
         const cand = briefs.map(b => b.arts.filter(a => !sensitive(a) && hasNumberVisual(a)).sort((p, q) => rich(q) - rich(p)).map(a => ({a, b})));
         // 날마다 하나씩, 그다음 남은 후보로 7장까지 — 같은 분야는 2장까지만(증시가 몰리는 주 방지)
         const topicOf = x => clean(x.a.querySelector(".topic")?.textContent).split("·")[0].trim();
