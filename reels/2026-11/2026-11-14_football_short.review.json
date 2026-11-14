@@ -1,0 +1,7 @@
+{
+ "verdict": "PASS",
+ "sha1": "0cc8f28258a2d8ce4628cceabd5099640d2a3f73",
+ "by": "agent",
+ "at": "2026-11-14T01:09:04Z",
+ "note": "reel-reviewer PASS(9.17초, 카드1 스코어 → 카드2 득점 흐름) · 재구움 뒤 카드1·2 동일 확인"
+}
