@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="축구 모닝 · A매치 결과 — 2026.11.14">
+<meta property="og:description" content="한국 2-3 사우디 — 사우디전 21년 만의 패배·42년 만의 3실점 · 네덜란드 7-0 그리스 · 세르비아 1-3 독일 — 시각은 한국시간">
+<meta property="og:type" content="article">
+<title>Football Morning — 2026.11.14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#2f6b45; --accent-soft:#e9f1ec;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">Football Morning · 축구 모닝 · A매치 결과</div>
+    <h1>한국, 사우디에 2-3 패 — 사우디전 21년 만의 패배·42년 만의 3실점</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 14일 토요일</span>
+      <span class="count">6 Picks · 11월 A매치 주간(11/13~11/18)</span>
+    </div>
+    <p class="lede">한국 대표팀이 13일(금) 밤 카타르에서 치른 평가전에서 사우디아라비아에 2-3으로 졌습니다. 전반 추가시간부터 후반 14분까지 세 골을 내줬고, 오현규와 이재성이 한 골씩 만회했습니다. 유럽에서는 네이션스리그 리그 A 2조 5차전에서 네덜란드가 그리스를 7-0으로 꺾었고, 독일은 세르비아 원정에서 3-1로 이겼습니다. 유럽 5대 리그와 K리그는 A매치 휴식기라 경기가 없었습니다. 시각은 모두 한국시간입니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 14일 토요일, 축구 모닝입니다.</p>
+    <p>한국이 사우디아라비아에 2대 3으로 졌습니다. 사우디전 패배는 2005년 이후 21년 만이고, 사우디에 세 골을 내준 건 1984년 이후 42년 만입니다. 경기는 어젯밤 11시 30분, 카타르 도하에서 열린 평가전이었습니다.</p>
+    <p>실점은 짧은 시간에 몰렸습니다. 전반 추가시간 골키퍼 김승규가 미끄러진 틈에 첫 골을 내줬고, 후반 2분 오현규가 설영우의 크로스로 동점을 만들었지만, 후반 11분과 14분 연달아 실점했습니다. 교체로 들어온 이재성이 후반 23분 황희찬의 패스를 받아 한 골을 따라붙었습니다.</p>
+    <p>기록에서는 한국이 앞섰습니다. 슈팅은 15대 8, 유효슈팅은 6대 5, 빅찬스는 4대 2였습니다. 손흥민은 풀타임을 뛰었지만 골을 넣지 못해 A매치 60호 골은 다음 경기로 미뤘고, 이강인의 슈팅 두 개는 모두 골키퍼에게 막혔습니다. 한국은 4-4-2로 나섰고, 손흥민과 오현규가 최전방, 김민재와 이한범이 중앙 수비를 맡았습니다.</p>
+    <p>로베르트 모레노 임시 감독은 경기 뒤 실망스러운 결과라며, 실수로 상대에게 여러 차례 기회를 내줬다고 말했습니다. 다음 경기는 17일 화요일 밤 11시, 같은 경기장에서 열리는 카타르전이고, 모레노 감독이 평가받는 여섯 경기 가운데 마지막 경기입니다. 모레노 감독의 계약은 이번 11월 A매치까지입니다.</p>
+    <p>유럽에서는 네덜란드가 그리스를 7대 0으로 이겼습니다. 레인더르스가 전반에만 세 골을 넣었습니다. 독일은 세르비아 원정에서 상대 자책골과 비르츠, 그루다의 골로 3대 1로 이겼고, 세르비아는 후반 두 명이 퇴장당해 아홉 명으로 경기를 마쳤습니다.</p>
+    <p>그래서 2조는 네덜란드 11점, 독일과 그리스 8점입니다. 조 2위까지 8강에 오르고, 마지막 6차전은 화요일 새벽 4시 45분 베를린에서 열리는 독일과 네덜란드의 맞대결입니다. 독일이 이기면 그리스는 결과와 상관없이 탈락하고, 네덜란드는 비기기만 해도 독일보다 승점이 앞섭니다.</p>
+    <p>지금까지 A매치 결과, 축구 모닝이었습니다.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">한국 대표팀 — 사우디전</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">敗</span>
+    <div class="card-top"><span class="topic">평가전 · 도하</span></div>
+    <h2>한국 2-3 사우디아라비아 — 사우디전 패배는 21년 만, 3실점은 42년 만</h2>
+    <div class="summary">
+      <p><strong>한국 대표팀</strong>이 13일(금) 밤 11시 30분 카타르 도하 자심 빈 하마드 스타디움에서 열린 평가전에서 <strong>사우디아라비아</strong>에 2-3으로 졌다(스포츠경향·SPOTV).</p>
+      <p>한국이 사우디에 진 것은 2005년 이후 21년 만이고, 사우디에 세 골을 내준 것은 1984년 이후 42년 만이다(스포츠경향·SPOTV).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">결과</span><span>한국 2-3 사우디아라비아 · 11/13(금) 밤 11:30 · 자심 빈 하마드 스타디움(도하)</span></li>
+      <li><span class="k">한국 골</span><span>오현규(후반 2분) · 이재성(후반 23분)</span></li>
+      <li><span class="k">기록</span><span>사우디전 패배 2005년 이후 21년 만 · 사우디전 3실점 1984년 이후 42년 만</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>사우디 홈이 아니라 제3국 카타르에서 치른 경기였다. 나흘 뒤 카타르전은 상대의 안방 경기다.</p>
+    </div>
+    <a class="source" href="https://sports.khan.co.kr/article/202611140145003/">스포츠경향 — 한국, 사우디에 2-3 패</a> <a class="source" href="https://www.spotvnews.co.kr/news/articleView.html?idxno=1019746">SPOTV — 사우디전 21년 만의 패배</a>
+    <span class="ref-note">스코어·기록(21년·42년)은 스포츠경향·SPOTV 본문 일치 · 킥오프는 기사 한국시간 표기 그대로 (확인 2026-11-14)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">한국, 사우디에<br>2-3으로 졌다</p>
+      <p class="cn-s">카타르에서 열린 평가전에서 오현규·이재성이 골을 넣었지만 졌어요. 사우디전 패배는 2005년 이후 21년 만, 사우디에 세 골을 내준 건 1984년 이후 42년 만이에요.</p>
+      <p class="cn-score">한국|2|3|사우디</p>
+      <p class="cn-note">11/13 밤 11:30 · 카타르 도하 · 평가전</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">失</span>
+    <div class="card-top"><span class="topic">득점 흐름</span></div>
+    <h2>전반 추가시간부터 후반 14분까지 3실점 — 오현규·이재성이 한 골씩 만회</h2>
+    <div class="summary">
+      <p>전반 45+1분 김승규 골키퍼가 미끄러진 틈에 <strong>마르완 알사하피</strong>가 선제골을 넣었다. 후반 2분 <strong>오현규</strong>가 설영우의 크로스로 동점을 만들었다. 이어 후반 11분 모하메드 칸노의 슈팅이 골대를 맞고 들어갔고, 후반 14분 압둘라 알아마리가 코너킥을 머리로 넣었다(한국일보).</p>
+      <p>교체로 들어온 <strong>이재성</strong>이 후반 23분 황희찬의 패스를 받아 왼발로 한 골을 따라붙었다(한국일보·SPOTV).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">전반 45+1분(46분)</span><span>알사하피 (0-1)</span></li>
+      <li><span class="k">후반 2분(47분)</span><span>오현규 · 도움 설영우 (1-1)</span></li>
+      <li><span class="k">후반 11분(56분)</span><span>칸노 (1-2)</span></li>
+      <li><span class="k">후반 14분(59분)</span><span>알아마리 · 코너킥 헤더 (1-3)</span></li>
+      <li><span class="k">후반 23분(68분)</span><span>이재성 · 도움 황희찬 (2-3)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>세 골 가운데 두 골이 후반 11분과 14분, 3분 사이에 나왔다. 동점을 만든 지 9분 만에 다시 끌려갔다.</p>
+    </div>
+    <a class="source" href="https://www.hankooki.com/news/articleView.html?idxno=348476">한국일보 — 사우디전 득점 경과</a> <a class="source" href="https://www.spotvnews.co.kr/news/articleView.html?idxno=1019746">SPOTV — 이재성 만회골</a>
+    <span class="ref-note">칸노 골은 한국일보·베스트일레븐 후반 11분, 스포츠경향 후반 12분 — 매체별 표기 불일치, 두 매체 쪽을 씀 · 이재성 골은 3개 매체 후반 23분, SPOTV 후반 24분 (확인 2026-11-14)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">전반 추가시간부터<br>후반 14분까지 3실점</p>
+      <p class="cn-s">전반 추가시간 첫 골을 내준 뒤 후반 2분 오현규가 동점을 만들었지만, 9분 만인 후반 11분과 14분에 연달아 실점했어요. 후반 23분 이재성이 한 골을 따라붙었어요.</p>
+      <p class="cn-steps" data-now="4">46분 실점|47분 오현규|56분 실점|59분 실점|68분 이재성</p>
+      <p class="cn-num">9분|동점 뒤 다시 끌려가기까지</p>
+      <p class="cn-note">경기 시간 기준 · 후반 N분 = 45+N분(47·56·59·68분) · 전반 45+1분 = 46분</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">射</span>
+    <div class="card-top"><span class="topic">경기 기록</span></div>
+    <h2>슈팅 15-8로 앞서고도 졌다 — 손흥민 풀타임 무득점, 60호 골은 다음으로</h2>
+    <div class="summary">
+      <p>한국은 슈팅 15-8, 유효슈팅 6-5, 빅찬스 4-2로 사우디보다 많은 기회를 만들었지만 결과는 2-3 패배였다(스포츠경향).</p>
+      <p><strong>손흥민</strong>은 선발로 나와 풀타임을 뛰었지만 골을 넣지 못해 A매치 60호 골은 다음 경기로 미뤘다. <strong>이강인</strong>의 슈팅 두 개는 모두 골키퍼에게 막혔다(풀타임: 베스트일레븐 · 이강인 슈팅: 스포츠경향).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">슈팅</span><span>한국 15 – 8 사우디 · 유효슈팅 6 – 5</span></li>
+      <li><span class="k">빅찬스</span><span>한국 4 – 2 사우디</span></li>
+      <li><span class="k">선발</span><span>김승규 / 조현택·김민재·이한범·설영우 / 황희찬·이강인·황인범·박진섭 / 손흥민·오현규 (4-4-2)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>사우디는 슈팅 8개 가운데 유효슈팅 5개로 세 골을 넣었다. 한국은 유효슈팅 6개로 두 골이었다.</p>
+    </div>
+    <a class="source" href="https://sports.khan.co.kr/article/202611140145003/">스포츠경향 — 사우디전 경기 기록</a> <a class="source" href="https://www.besteleven.com/news/articleView.html?idxno=314038">베스트일레븐 — 손흥민 풀타임</a>
+    <span class="ref-note">슈팅·유효슈팅·빅찬스는 스포츠경향 본문 한 곳 · 경기 전체 점유율은 찾지 못해 쓰지 않음 · 선발은 스포츠경향·한국일보 일치 · 경기 전 손흥민 A매치 59골(위키트리 11/13) → 60호 골 미달성 (확인 2026-11-14)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">슈팅 15-8,<br>결과는 2-3 패</p>
+      <p class="cn-s">한국이 슈팅·유효슈팅·빅찬스 모두 앞섰지만 결정력에서 밀렸어요. 손흥민은 풀타임을 뛰었지만 A매치 60호 골은 다음 경기로 미뤘어요.</p>
+      <p class="cn-vs" data-unit="개">한국|사우디 / 슈팅:15:8 / 유효슈팅:6:5 / 빅찬스:4:2</p>
+      <p class="cn-note">출처: 스포츠경향 경기 기록</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">監</span>
+    <div class="card-top"><span class="topic">모레노 감독</span></div>
+    <h2>모레노 "무승부가 공정했을 결과" — 다음은 17일(화) 밤 11:00 카타르전</h2>
+    <div class="summary">
+      <p><strong>로베르트 모레노</strong> 임시 감독은 경기 뒤 "실망스러운 결과"라며 "무승부가 공정한 결과였을 것이라고 생각한다. 하지만 우리는 상대에게 여러 차례 실수로 기회를 내줬다"고 말했다. "손흥민을 계속 기용한 것은 올바른 결정이었다"며 "이제 화요일 경기에 집중할 것"이라고 했다(베스트일레븐, 사우디 매체 아샤르크 알아우사트 인용).</p>
+      <p>한국은 17일(화) 밤 11시 같은 경기장에서 <strong>카타르</strong>와 11월 두 번째 평가전을 치른다(베스트일레븐). 모레노 감독은 계약 만료가 다가온 가운데 아시안컵 연기라는 악재도 겹쳤다(한국일보).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">다음 경기</span><span>11/17(화) 밤 11:00 카타르 – 한국 · 자심 빈 하마드 스타디움</span></li>
+      <li><span class="k">감독</span><span>로베르트 모레노 임시 감독 · 11월 A매치를 끝으로 계약 만료(한국일보)</span></li>
+      <li><span class="k">⚠ 변동 가능</span><span>킥오프는 바뀔 수 있음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>카타르전은 모레노 감독이 평가받는 여섯 경기 가운데 마지막 경기다.</p>
+    </div>
+    <a class="source" href="https://www.besteleven.com/news/articleView.html?idxno=314038">베스트일레븐 — 모레노 감독 경기 뒤 발언</a> <a class="source" href="https://hankooki.com/news/articleView.html?idxno=348483">한국일보 — 모레노 감독의 남은 과제</a>
+    <span class="ref-note">감독 발언은 베스트일레븐이 아샤르크 알아우사트를 인용한 것 · 계약 만료는 한국일보 · 평가 6경기는 한국일보·11/11 브리프(세계일보 11/10) · 카타르전 킥오프는 11/11 브리프 대조(현지 17:00, +6시간) (확인 2026-11-14)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">다음은 카타르,<br>화요일 밤 11시</p>
+      <p class="cn-s">한국 모레노 임시 감독은 "무승부가 공정했을 결과"라며 실수로 상대에게 기회를 내줬다고 했어요. 카타르전은 그가 평가받는 6경기 중 마지막 경기예요.</p>
+      <p class="cn-fixtures">카타르|화 밤 11:00|한국</p>
+      <p class="cn-note">11/17 · 자심 빈 하마드 스타디움(도하)</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">유럽 — 네이션스리그 리그 A 2조 5차전</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">蘭</span>
+    <div class="card-top"><span class="topic">네이션스리그</span></div>
+    <h2>네덜란드 7-0 그리스, 레인더르스 해트트릭 — 독일은 9명 세르비아에 3-1</h2>
+    <div class="summary">
+      <p>리그 A 2조 5차전에서 <strong>네덜란드</strong>가 14일(토) 새벽 4시 45분 암스테르담에서 그리스를 7-0으로 꺾었다. 레인더르스가 전반에만 세 골(12·18·33분)을 넣었고, 팀버가 두 골, 서머빌·말런이 한 골씩 보탰다(그리크시티타임스).</p>
+      <p><strong>독일</strong>은 베오그라드에서 세르비아를 3-1로 이겼다. 상대 자책골과 비르츠·그루다의 골로 앞섰고, 세르비아는 76분 드라고예비치, 89분 지브코비치가 퇴장당해 9명으로 끝냈다(SB네이션).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">네덜란드 7-0</span><span>그리스 · 서머빌 6분, 레인더르스 12·18·33분, 팀버 40·59분, 말런 62분</span></li>
+      <li><span class="k">세르비아 1-3</span><span>독일 · 바비치 자책골 3분, 비르츠 14분, 그루다 50분 / 바비치 56분</span></li>
+      <li><span class="k">퇴장</span><span>세르비아 드라고예비치 76분 · 지브코비치 89분(경고 누적)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>4차전까지 네덜란드와 승점 8점으로 같았던 그리스가 이 경기로 독일과 같은 8점이 돼 2위 자리를 다투게 됐다.</p>
+    </div>
+    <a class="source" href="https://greekcitytimes.com/2026/11/14/netherlands-humiliate-greece-with-7-0-nations-league-defeat">그리크시티타임스 — 네덜란드 7-0 그리스</a> <a class="source" href="https://sports.yahoo.com/articles/recap-serbia-1-3-germany-221412883.html">SB네이션(야후) — 세르비아 1-3 독일</a>
+    <span class="ref-note">네덜란드 골 시각은 그리크시티타임스 기준, VAVEL 문자중계는 일부 분이 다름(10·39·61분) — 매체별 표기 불일치 · 킥오프는 UEFA 20:45 CET → +8시간 (확인 2026-11-14)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">네덜란드 7-0,<br>레인더르스 해트트릭</p>
+      <p class="cn-s">네이션스리그 2조 5차전에서 네덜란드가 그리스를 7골 차로 이겼어요. 독일은 두 명이 퇴장당한 세르비아를 원정에서 3-1로 꺾었어요.</p>
+      <p class="cn-scores">#네이션스리그 A 2조 5차전|승점 / 네덜란드|7|0|그리스|승점 11 / 세르비아|1|3|독일|승점 8</p>
+      <p class="cn-note">14일(토) 새벽 4:45 · 한국시간</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">組</span>
+    <div class="card-top"><span class="topic">8강 경쟁</span></div>
+    <h2>2조 네덜란드 11점, 독일·그리스 8점 — 화 새벽 4:45 독일–네덜란드가 결정전</h2>
+    <div class="summary">
+      <p>5차전 뒤 리그 A 2조는 <strong>네덜란드 11점</strong>, 독일·그리스 8점, 세르비아 0점(5전 전패)이다. AP는 독일이 선두 네덜란드에 3점 뒤졌다고 했고, AFP는 네덜란드가 그리스·독일에 3점 앞섰다고 전했다. 조 2위까지 8강에 오르고, 승점이 같으면 승자승으로 가린다(AP).</p>
+      <p>마지막 6차전은 17일(화) 새벽 4시 45분 베를린에서 <strong>독일–네덜란드</strong>, 같은 시각 볼로스에서 그리스–세르비아다. 독일이 네덜란드를 이기면 그리스는 결과와 상관없이 탈락한다(그리크시티타임스).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">순위</span><span>네덜란드 11 · 독일 8 · 그리스 8(동점) · 세르비아 0</span></li>
+      <li><span class="k">8강</span><span>조 2위까지 · 동점이면 승자승 · 확정 팀은 아직 없음</span></li>
+      <li><span class="k">화 새벽 4:45</span><span>11/17 독일 – 네덜란드(베를린) · 그리스 – 세르비아(볼로스)</span></li>
+      <li><span class="k">⚠ 변동 가능</span><span>킥오프는 바뀔 수 있음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">⚽ 알고 보면 달라지는 것</span>
+      <p>네덜란드는 독일 원정에서 비기기만 해도 독일보다 승점이 앞선다. 독일은 이겨야 네덜란드를 넘을 수 있다.</p>
+    </div>
+    <a class="source" href="https://www.foxsports.com/articles/soccer/xavis-netherlands-routs-greece-70-in-nations-league-and-klopps-germany-also-wins">AP(폭스스포츠) — 2조 5차전과 순위</a> <a class="source" href="https://www.france24.com/en/live-news/20261113-reijnders-hat-trick-fuels-dutch-rout-of-greece-in-nations-league">AFP(프랑스24) — 네덜란드 3점 차 선두</a>
+    <span class="ref-note">승점은 4차전 뒤(네덜란드 8·그리스 8·독일 5·세르비아 0, 11/11 브리프)에 5차전 결과를 더한 값 — AP '3점 뒤'·AFP '3점 앞섬'과 일치 · UEFA 공식 순위표는 열지 못함 · 6차전 킥오프는 11/11 브리프(UEFA 20:45 CET → +8시간) (확인 2026-11-14)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">2조 선두 네덜란드,<br>독일·그리스 8점</p>
+      <p class="cn-s">조 2위까지 8강에 올라요. 독일과 그리스가 8점으로 같고, 17일(화) 새벽 4:45 베를린에서 열리는 독일–네덜란드 맞대결에서 갈려요.</p>
+      <p class="cn-bars" data-hl="1" data-unit="점">네덜란드:11|독일:8|그리스:8|세르비아:0</p>
+      <p class="cn-note">5차전 뒤 승점 · 2위까지 8강</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 팩트체크 → 디테일 포인트 → 디자인 렌더링 → 검토<br>
+    2026년 11월 14일 토요일 축구 모닝 A매치 결과 (11/13 금 밤 ~ 11/14 토 새벽 경기) · 유럽 5대 리그·K리그 경기는 없음(A매치 휴식기)<br>
+    ⏰ 모든 시각은 한국시간(KST)입니다. 승부 예측은 하지 않습니다.
+    <!-- tracker: 2026-11-14 football (A매치 결과)
+         [순위 경쟁] 네이션스리그 리그 A 2조 5차전 뒤: 네덜란드 11·독일 8·그리스 8·세르비아 0 (4차전 승점 + 결과, AP·AFP 서술과 일치, 독일 경기 상보는 SB네이션, UEFA 공식 표 미열람) · 6차전 화 새벽 4:45 독일–네덜란드·그리스–세르비아
+         [한국 선수] 사우디전 선발 손흥민·이강인·김민재·황희찬·황인범·오현규 · 이재성 교체 득점 · 손흥민 풀타임 무득점(60호 골 다음으로) · 손정범·신민하 출전 확인 못 함 · 부상 보도 없음
+         [오늘 다룬 경기] 한국 2-3 사우디(금 밤 11:30) · 네덜란드 7-0 그리스 · 세르비아 1-3 독일(토 새벽 4:45)
+         [시각 변환] 한국 경기는 기사 한국시간 · CET +8h(UEFA 20:45)
+         [제외한 항목] 스위스 0-0 슬로베니아·스코틀랜드 2-1 북마케도니아(B조, 득점자 미확인) · 아르헨티나 결과(기사 못 찾음) · 경기 전체 점유율(미확인) · 모레노 감독 통산 전적(본문 미확인) · K리그(휴식기, 다음 경기 11/21~22) · 이벤트 픽 대상 없음(WTA 파이널스 준결승 11/15 새벽·결승 11/16 새벽, 더 안니카 최종 R 11/15, UFC 334 11/15 오전, ATP 파이널스 11/15 개막)
+         [다음 체크] 11/17(화) 새벽 독일–네덜란드 결과(11/17 아침) · 11/17(화) 밤 카타르–한국 결과(11/18 수 아침) · 브라질–일본(토 저녁 7:15) 결과 · 손흥민 60호 골
+         [리서치 도구] Firecrawl 0회. WebSearch 발견 → WebFetch 본문 검증.
+    -->
+  </footer>
+
+</div></body>
+</html>
