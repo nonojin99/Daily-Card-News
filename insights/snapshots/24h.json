@@ -2729,5 +2729,39 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "sports:18396566482200729": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-13T15:49:04+0000",
+  "snapshot_utc": "2026-11-14T16:59:20Z",
+  "age_h": 25.2,
+  "first_line": "[🎮 e스포츠] 바론 확보율 젠지 83% 대 BLG 60% · 5세트면 챔피언 40개 금지 · 17일 LCK FA 시장 — 11월 13일 3장",
+  "metrics": {
+   "views": 10,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18111667274628883": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-13T15:47:27+0000",
+  "snapshot_utc": "2026-11-14T16:59:20Z",
+  "age_h": 25.2,
+  "first_line": "[⚾ 야구 나이트] FA 자격 28명 공시 · 구자욱·원태인 A등급 · 오스틴 200만 달러",
+  "metrics": {
+   "views": 8,
+   "reach": 2,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
