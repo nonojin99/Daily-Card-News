@@ -2692,5 +2692,42 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "sports:18413069122092884": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-12T23:57:33+0000",
+  "snapshot_utc": "2026-11-14T03:04:47Z",
+  "age_h": 27.1,
+  "first_line": "[⚽ 축구 모닝 · 리더보드] 사우디–한국 오늘 밤 11:30 · 아스널 27점 5점 차 선두 · 바이에른·도르트문트 21점 동률",
+  "metrics": {
+   "views": 107,
+   "reach": 100,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1890,
+   "ig_reels_video_view_total_time": 189094,
+   "reels_skip_rate": 88.8
+  }
+ },
+ "sports:17916870375520052": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-12T23:55:54+0000",
+  "snapshot_utc": "2026-11-14T03:04:47Z",
+  "age_h": 27.1,
+  "first_line": "[⚽ 축구 모닝 · 리더보드] 한국 오늘 밤 11:30 사우디전 + A매치 휴식기 5대 리그 1위~꼴찌 순위 — 7장",
+  "metrics": {
+   "views": 3,
+   "reach": 2,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
