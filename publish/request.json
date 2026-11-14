@@ -2,57 +2,12 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-13_travel-brief",
-   "caption": "captions/2026-11-13_travel.txt",
-   "dry_run": "false",
-   "is_ai": "true",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-13_weekend",
-   "caption": "captions/2026-11-13_weekend.txt",
-   "dry_run": "false",
-   "is_ai": "true",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-13_football-brief",
-   "caption": "captions/2026-11-13_football.txt",
+   "media": "cards/2026-11/2026-11-14_week7",
+   "caption": "captions/2026-11-14_week7.txt",
    "dry_run": "false",
    "is_ai": "false",
-   "account": "sports",
-   "review": "required"
-  },
-  {
-   "kind": "reel",
-   "media": "reels/2026-11/2026-11-13_football.mp4",
-   "caption": "captions/2026-11-13_football_reel.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "ab": "short",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-13_baseball-brief",
-   "caption": "captions/2026-11-13_baseball.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-13_esports-brief",
-   "caption": "captions/2026-11-13_esports.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
    "review": "required"
   }
  ],
- "note": "11/13 금 여행 브리프 캐러셀(본계정, 2026-11-07 결정 — 수·목·금 브리프 각자 업로드) + 주말 뭐하지 하이라이트(주말 계획용 요약). card-visual-reviewer 실물 JPG 검수 PASS. 주말 묶음은 1차 검수에서 출처 장 넘침(사진 크레디트 줄)으로 FAIL → 문화 몫을 박민준 카드로 바꿔 다시 구운 뒤 재검수. 11/12 항목은 이미 지난 옛 항목이라 지움. · 11/13 축구 모닝 리더보드(A매치 주간) 캐러셀 + ⚡ 리더보드 릴스(@hannun.sports, card-visual-reviewer·reel-reviewer 실물 PASS) · 11/13 야구 나이트 스토브리그(FA 자격 28명)·e스포츠(결승 D-2) 캐러셀(@hannun.sports, card-visual-reviewer 실물 PASS)"
+ "note": "11/14 토 이번 주 숫자 캐러셀(@hannun.brief, 11/9~11/13 메인 7장). card-visual-reviewer 실물 JPG 검수: 1차 08(젠슨 황) 타임라인 '26일 전 출석' 오독 FAIL → 11/13 원 카드 정정·재구움 → 재검수 PASS. 11/13 항목은 지난 옛 항목이라 지움."
 }

@@ -1,0 +1,3 @@
+[06:00 메인 보정] 이번 주 숫자 캐러셀 게시 요청
+11/9~13 메인 7장, 검수 1차 FAIL(젠슨 황 타임라인 문구) 정정 후 PASS
+nonojin99.github.io/Daily-Card-News/app/

@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "043bfca86d1c80f93516ca3af69b180d1f9cf537",
+ "by": "agent",
+ "cards": 9,
+ "at": "2026-11-14T00:54:24Z",
+ "note": "card-visual-reviewer 실물 JPG PASS (1차 08 타임라인 FAIL → 11/13 원 카드 정정·재구움 후 재검수 PASS)"
+}
