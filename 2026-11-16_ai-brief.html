@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="AI 브리프 — 2026.11.16">
+<meta property="og:description" content="10월 ICT 수출 703억 5천만 달러(+202%) · Claude Fable 5.2 출력 40달러 · 챗GPT 월렛 · 메타 이탈리아 과징금 8억 500만 유로 · Fireworks 해킹 우버 유출 · 오우라 AI 진료 인수">
+<meta property="og:type" content="article">
+<title>AI Brief — 2026.11.16</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#2a6b7c; --accent-soft:#e9f0f2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">AI Brief · AI·테크 서브</div>
+    <h1>ICT 수출 1년 새 3배 — Fable 5.2 값 내리고, AI가 결제까지 한다</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 16일 월요일</span>
+      <span class="count">6 Picks · AI·테크</span>
+    </div>
+    <p class="lede">10월 ICT 수출이 703억 5천만 달러로 1년 전보다 202% 늘었습니다. Anthropic은 출력 단가를 낮춘 Claude Fable 5.2를 냈고, 오픈AI는 AI 에이전트가 카드로 결제하는 챗GPT 월렛을 공개했습니다. 이탈리아는 메타에 8억 500만 유로 과징금을 매겼고, AI 모델 호스팅사 해킹이 우버 운전자 정보 유출로 번졌습니다. 반지 회사 오우라는 AI 진료 회사를 샀습니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 16일 월요일, AI 브리프입니다. 지난 한 주 쌓인 테크 소식 여섯 가지를 전해 드립니다.</p>
+    <p>10월 ICT 수출이 1년 전의 세 배가 됐습니다. 703억 5천만 달러로 202퍼센트 늘어, 월간 증가율이 처음 200퍼센트를 넘었습니다. 반도체가 그중 80퍼센트를 차지했고, 메모리는 360퍼센트 늘었습니다. 다만 중소·중견기업 ICT 수출은 10.3퍼센트 증가에 그쳤습니다.</p>
+    <p>Anthropic이 Claude Fable 5.2와 Mythos 5.2를 공개했습니다. Fable 5.2의 값은 100만 토큰당 입력 8달러, 출력 40달러이고, 테스터 측정으로 출력 속도는 이전 5.1보다 최대 30퍼센트 빨라졌습니다. 회사 측정으로 코딩 시험 FrontierSWE v2에서 69.9퍼센트를 기록했습니다. 사이버·생물 분류기가 막은 질문에는 예전 Opus 모델이 대신 답합니다.</p>
+    <p>오픈AI가 AI 에이전트가 쓰는 챗GPT 월렛을 공개했습니다. 비자, 마스터카드, 아메리칸익스프레스 카드를 등록하면 실제 카드번호 대신 토큰으로 결제하고, 살 때마다 지문이나 얼굴로 승인합니다. 미국의 만 18세 이상 프로 구독자부터입니다. 같은 주 유나이티드항공은 AI 에이전트를 통한 항공권 예약을 막겠다고 밝혔습니다.</p>
+    <p>이탈리아 개인정보보호 당국이 메타에 8억 500만 유로의 과징금을 매겼습니다. 페이스북 앱이 동의 없이 안드로이드 사진첩에 접근했다는 판단입니다. 메타는 60일 안에 별도 동의 절차를 두고 기본값을 꺼야 하며, 항소할 방침입니다.</p>
+    <p>AI 모델 호스팅 회사 파이어웍스가 해킹당한 여파로 우버 운전자들의 면허 정보가 유출됐습니다. 테크크런치에 따르면 사우스캐롤라이나에서만 3,430명입니다. 파이어웍스의 고객은 1만 곳이 넘고, 노션도 연결을 끊었습니다.</p>
+    <p>마지막으로, 스마트 반지 회사 오우라가 AI 1차 진료 회사 카운슬 헬스를 현금 6억 2,500만 달러에 사기로 했습니다. 카운슬은 반지를 쓰지 않는 사람에게도 진료를 계속 제공합니다.</p>
+    <p>지금까지 11월 16일 AI 브리프였습니다. 자세한 내용과 출처는 카드뉴스에서 확인하세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">Chip — 수출</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">輸</span>
+    <div class="card-top"><span class="topic">반도체 · 메모리</span></div>
+    <h2>10월 ICT 수출 703억 5천만 달러, 1년 새 202% 증가 — 월간 증가율 처음 200% 넘어, 반도체가 80.3%</h2>
+    <div class="summary">
+      <p>과학기술정보통신부와 산업통상부는 15일 10월 ICT 수출이 <strong>703억 5,000만 달러</strong>로 1년 전(232억 9,000만 달러)보다 202.0% 늘어 약 3배가 됐다고 발표했다(ZDNet Korea). 10월 기준 역대 최대이고 월간 증가율로는 사상 최고다. 증가율은 8월 162.6%, 9월 195.8%에 이어 커졌다. 금액은 9월(751억 4,000만 달러)이 더 컸다.</p>
+      <p>반도체가 564억 7,000만 달러(+259.4%)로 ICT 수출의 80.3%다. 메모리는 501억 4,000만 달러로 360.5% 늘었다(뉴스1). SSD는 584.3%, 대미 ICT 수출은 522.4% 늘었다. 반면 중소·중견기업 ICT 수출은 56억 1,000만 달러로 10.3% 증가에 그쳤다(ZDNet Korea).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">ICT 수출(10월)</span><span>703억 5,000만 달러 · +202.0% · 1년 전 232억 9,000만 달러</span></li>
+      <li><span class="k">증가율 추이</span><span>8월 162.6% · 9월 195.8% · 10월 202.0%</span></li>
+      <li><span class="k">반도체</span><span>564억 7,000만 달러 · +259.4% · ICT의 80.3% · 메모리 501억 4,000만 달러(+360.5%)</span></li>
+      <li><span class="k">그 밖</span><span>SSD 56억 4,000만 달러(+584.3%) · 대미 155억 6,000만 달러(+522.4%)</span></li>
+      <li><span class="k">중소·중견</span><span>56억 1,000만 달러 · +10.3%</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>전체가 세 배가 되는 동안 중소·중견기업 수출은 10% 남짓 늘었다. 호황이 대기업 메모리에 몰려 있다는 뜻이다. '역대 최대'라는 말 뒤에서 누가 얼마나 벌었는지를 나눠 봐야 한다.</p>
+    </div>
+    <a class="source" href="https://zdnet.co.kr/view/?no=20261115004601">ZDNet Korea — 10월 ICT 수출</a>  <a class="source" href="https://www.news1.kr/economy/idustry-trade/6354285">뉴스1 — 메모리 수출</a>  <a class="source" href="https://www.newspim.com/news/view/20261114000094">뉴스핌 — ICT 수출 202%</a>
+    <span class="ref-note">ZDNet Korea(11/15 11:00)·뉴스1(11/15 11:00)·뉴스핌 · 총액·증가율은 세 매체 일치, 추이·중소중견·SSD·대미는 ZDNet Korea, 메모리는 뉴스1 기준 (확인 2026-11-16)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">ICT 수출 1년 새 3배,<br>증가율 처음 200% 넘어</p>
+      <p class="cn-s">10월 ICT 수출이 703억 5천만 달러로 202% 늘었어요. 반도체가 80.3%를 차지했지만 중소·중견기업 수출은 10.3% 증가에 그쳤어요.</p>
+      <p class="cn-bars" data-hl="3" data-unit="%">8월:162.6|9월:195.8|10월:202.0</p>
+      <p class="cn-note">ICT 수출 증가율(1년 전 대비) · 반도체가 80.3%</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Model — 새 모델</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">價</span>
+    <div class="card-top"><span class="topic">모델 · 5.2 버전</span></div>
+    <h2>Anthropic 'Claude Fable 5.2' 공개 — 100만 토큰당 출력 40달러, 출력 속도 최대 30% 향상</h2>
+    <div class="summary">
+      <p>Anthropic이 9일(미국) Claude Fable 5.2와 Mythos 5.2를 공개했다. 둘은 같은 기반 모델이고 안전장치와 이용 범위가 다르다. Fable은 모든 이용자에게, Mythos는 사이버보안·생명과학 분야 검증 기관에만 제공된다(Anthropic). 값은 100만 토큰당 입력 8달러, <strong>출력 40달러</strong>이고, 패스트 모드는 16달러·80달러에 생성 속도가 최대 2.5배다. 테스터 측정으로 출력 속도는 5.1보다 최대 30% 빠르다. 5.1은 입력 10달러·출력 50달러였다(Implicator).</p>
+      <p>회사 자체 측정으로 Opus 5.5와 비교하면 FrontierSWE v2 69.9% 대 62.3%, OSWorld 2.1 89.3% 대 87.2%, HLE(도구 허용) 74.2% 대 67.7%다. Fable의 분류기가 막은 질문은 예전 모델(사이버는 Opus 4.8, 생물은 Opus 5)이 대신 답하며, 차단은 5.1보다 약 55% 줄었다. SD Times는 Anthropic이 대부분의 코딩·지식 작업에는 여전히 Opus 5.5를 권한다고 전했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">공개</span><span>9일(미국) · Fable 5.2(모든 이용자) · Mythos 5.2(검증 기관)</span></li>
+      <li><span class="k">값(100만 토큰)</span><span>입력 8달러 · 출력 40달러 · 패스트 모드 16달러·80달러(최대 2.5배 빠름) · 5.1은 10달러·50달러</span></li>
+      <li><span class="k">속도</span><span>출력 속도 5.1 대비 최대 30% 향상</span></li>
+      <li><span class="k">벤치마크(대 Opus 5.5)</span><span>코딩 FrontierSWE v2: 69.9% 대 62.3% · PC 조작 OSWorld 2.1: 89.3% 대 87.2% · 도구 사용 HLE: 74.2% 대 67.7%</span></li>
+      <li><span class="k">안전장치</span><span>분류기 차단 질문은 예전 Opus가 대신 답변 · 차단 약 55% 감소</span></li>
+      <li><span class="k">확인 한계</span><span>벤치마크·안전장치는 회사 자체 발표 · 5.1 값은 Implicator 기준 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>막힌 질문을 아예 거절하지 않고 이전 모델로 넘겨 답하는 구조다. 이용자는 답을 받지만, 어떤 모델이 답했는지는 같지 않을 수 있다. 값이 내려가도 회사가 일반 코딩에는 여전히 Opus 5.5를 권한다는 점은 함께 봐야 한다.</p>
+    </div>
+    <a class="source" href="https://www.anthropic.com/claude-fable-and-mythos-5-2">Anthropic — Fable·Mythos 5.2</a>  <a class="source" href="https://sdtimes.com/ai/anthropic-introduces-claude-fable-5-2-mythos-5-2/">SD Times — 5.2 공개</a>  <a class="source" href="https://www.implicator.ai/anthropic-fable-5-1-same-price-cache-reads-cut/">Implicator — 5.1 값</a>
+    <span class="ref-note">Anthropic(11/9, 11/11 수정)·SD Times(11/9)·Implicator(2026-09-01) · 값·속도는 Anthropic·SD Times 일치, 벤치마크·분류기는 Anthropic 발표, Opus 5.5 권장은 SD Times 기준 (확인 2026-11-16)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">Claude Fable 5.2,<br>출력 값 50→40달러</p>
+      <p class="cn-s">Anthropic이 Claude Fable 5.2를 공개했어요. 100만 토큰당 출력 값이 40달러로 내려갔고 출력 속도는 최대 30% 빨라졌어요.</p>
+      <p class="cn-vs" data-unit="%">Fable 5.2|Opus 5.5 / 코딩:69.9:62.3 / 도구 사용:74.2:67.7 / PC 조작:89.3:87.2</p>
+      <p class="cn-note">회사 자체 측정 · 일반 코딩은 Opus 5.5 권장(SD Times)</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Agent — 결제</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">財</span>
+    <div class="card-top"><span class="topic">에이전트 · 결제</span></div>
+    <h2>오픈AI '챗GPT 월렛' — AI 에이전트가 카드 3사로 결제, 같은 주 유나이티드항공은 AI 예약 제한 예고</h2>
+    <div class="summary">
+      <p>오픈AI가 13일(현지) AI 에이전트와 연동되는 <strong>챗GPT 월렛</strong>을 공개했다. 협력 카드사는 비자·마스터카드·아메리칸익스프레스 3곳이고, 대상은 미국의 만 18세 이상 프로 구독자다(아주경제). 카드는 한 번만 등록하고, 결제망이 실제 카드번호 대신 토큰을 발급해 판매처와 AI는 카드번호를 받지 않는다. 구매마다 지문·얼굴 인증으로 승인한다(ZDNet Korea).</p>
+      <p>앞으로는 미리 정한 한도·품목·기간 안에서 건별 승인 없이 결제하는 기능을 넣을 예정이다. 반대로 유나이티드항공은 12일 제3자 AI 에이전트를 통한 항공권 예약·관리를 제한하겠다고 밝혔다. 로그인 정보 공유에 따른 보안 위험과, 탑승 수속·금지물품 확인을 사람이 직접 해야 한다는 연방 규정을 이유로 들었다(TechCrunch).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">공개</span><span>13일(현지) · 챗GPT 월렛</span></li>
+      <li><span class="k">카드사</span><span>비자 · 마스터카드 · 아메리칸익스프레스(3곳)</span></li>
+      <li><span class="k">대상</span><span>미국 만 18세 이상 프로 구독자 · 순차 제공</span></li>
+      <li><span class="k">방식</span><span>카드번호 대신 토큰 · 구매마다 생체 인증 · 한도 안 자동 결제는 예정</span></li>
+      <li><span class="k">반대 흐름</span><span>유나이티드항공 12일 AI 에이전트 예약 제한 발표(보안·연방 규정)</span></li>
+      <li><span class="k">확인 한계</span><span>월렛 세부는 국내 매체 보도 기준 · 오픈AI 공식 발표 원문 미열람 ⚠ 변동 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>AI가 '결제할 수 있게' 된 바로 그 주에 대형 항공사는 'AI 예약 제한'을 예고했다. 결제는 카드사가 토큰으로 막을 수 있지만, 사람이 직접 해야 하는 절차는 규정이 막는다. AI 쇼핑이 퍼지는 속도는 기술보다 이런 규칙이 정한다.</p>
+    </div>
+    <a class="source" href="https://www.ajunews.com/view/20261114095611037">아주경제 — 챗GPT 월렛</a>  <a class="source" href="https://zdnet.co.kr/view/?no=20261115102351">ZDNet Korea — 결제 방식</a>  <a class="source" href="https://techcrunch.com/2026/11/12/united-airlines-blocks-ai-agents-from-booking-flights-citing-cybersecurity-risks/">TechCrunch — 유나이티드 AI 예약 제한</a>
+    <span class="ref-note">아주경제(11/14 10:01)·ZDNet Korea(11/15 12:11)·TechCrunch(11/12 09:17 PST) · 카드사·대상은 아주경제·ZDNet Korea 일치, 토큰·예정 기능은 ZDNet Korea, 유나이티드는 TechCrunch 기준 (확인 2026-11-16)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">AI가 카드로 결제한다,<br>'챗GPT 월렛' 공개</p>
+      <p class="cn-s">오픈AI가 AI가 카드로 결제하는 챗GPT 월렛을 냈어요. 카드번호 대신 토큰을 쓰고 살 때마다 생체 인증해요. 같은 주 유나이티드항공은 AI 예약을 막겠다고 했어요.</p>
+      <p class="cn-link">챗GPT 월렛|토큰 결제 · 생체 승인|비자·마스터·아멕스</p>
+      <p class="cn-num">3곳|협력 카드사</p>
+      <p class="cn-note">같은 주 유나이티드항공은 AI 예약 제한 예고</p>
+      <p class="cn-img">An abstract shopping cart made of soft glowing lines beside a payment card shape and a fingerprint symbol, conceptual illustration, no text, no logos, no people</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Policy — 개인정보</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">罰</span>
+    <div class="card-top"><span class="topic">규제 · 이탈리아</span></div>
+    <h2>이탈리아, 메타에 과징금 8억 500만 유로 — 페이스북 앱이 안드로이드 사진첩에 동의 없이 접근, 60일 안에 기본값 꺼야</h2>
+    <div class="summary">
+      <p>이탈리아 개인정보보호 당국이 14일(현지) 메타에 <strong>8억 500만 유로</strong>(약 1조 1,890억 원) 과징금을 부과했다. 페이스북 앱이 동의 없이 안드로이드 스마트폰의 사진·동영상·메타데이터에 접근했고 이를 충분히 알리지 않았다는 판단이다. 영향받은 이용자는 약 2,000만 명으로 추산되고, 과징금은 메타 전체 매출의 약 0.47%다(ZDNet Korea).</p>
+      <p>당국은 60일 안에 '갤러리 추천' 기능에 별도 동의 절차를 두고, 이용자가 직접 켜기 전까지 기본값을 꺼 두라고 명령했다. 메타는 당국 판단에 동의하지 않고 과징금이 과도하다며 항소할 계획이다(ZDNet Korea·뉴스1).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">과징금</span><span>8억 500만 유로 · 약 1조 1,890억 원(ZDNet Korea 환산) · 메타 매출의 약 0.47%</span></li>
+      <li><span class="k">사유</span><span>안드로이드 사진·동영상·메타데이터 무단 접근 · 고지 부족</span></li>
+      <li><span class="k">영향</span><span>이용자 약 2,000만 명(추산)</span></li>
+      <li><span class="k">시정 명령</span><span>60일 안에 별도 동의 · 기본값 꺼짐</span></li>
+      <li><span class="k">메타</span><span>항소 방침</span></li>
+      <li><span class="k">확인 한계</span><span>원화 환산액은 매체마다 다름 · 당국 성명 원문 미열람</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>문제가 된 것은 기능 자체보다 '처음부터 켜져 있던' 기본값이다. 당국이 요구한 것도 별도 동의와 기본 꺼짐이다. 사진첩을 읽는 AI 추천 기능이 늘수록 '기본값을 어떻게 두느냐'가 규제의 핵심이 된다.</p>
+    </div>
+    <a class="source" href="https://zdnet.co.kr/view/?no=20261115110940">ZDNet Korea — 메타 과징금</a>  <a class="source" href="https://www.news1.kr/world/usa-canada/6354376">뉴스1 — 메타 항소 방침</a>
+    <span class="ref-note">ZDNet Korea(11/15 12:20)·뉴스1(11/15 13:47) · 과징금은 두 매체 일치, 이용자 수·매출 비중·시정 명령은 ZDNet Korea(외신 인용) 기준 (확인 2026-11-16)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">메타 과징금 8억여 유로,<br>사진첩 무단 접근</p>
+      <p class="cn-s">이탈리아가 페이스북 앱의 안드로이드 사진첩 무단 접근에 과징금을 매겼어요. 메타는 60일 안에 기본값을 꺼야 하고 항소할 방침이에요.</p>
+      <p class="cn-num">약 2,000만 명|영향받은 이용자(추산)</p>
+      <p class="cn-shift">기본값 켜짐|60일 안에|별도 동의 · 기본 꺼짐</p>
+      <p class="cn-img">A smartphone lying on a table with an abstract grid of blurred photo tiles and a small toggle switch set to off beside it, conceptual illustration, no text, no logos, no people</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Security — 공급망</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">漏</span>
+    <div class="card-top"><span class="topic">보안 · AI 공급망</span></div>
+    <h2>AI 모델 호스팅사 파이어웍스 해킹, 우버 운전자 면허 정보 유출로 — 사우스캐롤라이나에서만 3,430명</h2>
+    <div class="summary">
+      <p>TechCrunch에 따르면 우버가 미국 여러 주 법무장관에게 운전자 개인정보·운전면허 정보 유출을 신고하고 통지를 시작했다. 신고된 피해는 사우스캐롤라이나 <strong>3,430명</strong>, 매사추세츠 2,567명, 로드아일랜드 1,873명이며 전체 규모는 공개하지 않았다. 개발자에게 공개 AI 모델을 제공하는 Fireworks AI가 뚫리면서 털린 자격증명으로 우버 데이터에 접근한 것이다. 우버는 10월 9일 통보받았다.</p>
+      <p>The Record에 따르면 Fireworks AI는 10월 6일 침해를 발견했고, 10월 23~24일 2차 침입도 있었다. 고객은 1만 곳 이상이고, 노션은 11월 2일 통보를 받고 연결을 끊었다. TechCrunch는 공격 조직이 AI 서비스 접근 토큰을 훔쳐 파는 집단이라고 전했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">우버 피해(신고)</span><span>사우스캐롤라이나 3,430명 · 매사추세츠 2,567명 · 로드아일랜드 1,873명 · 전체 미공개</span></li>
+      <li><span class="k">유출 정보</span><span>운전자 개인정보 · 운전면허 정보</span></li>
+      <li><span class="k">경과</span><span>10/6 Fireworks 침해 발견 · 10/9 우버 통보 · 10/23~24 2차 침입 · 11/2 노션 통보</span></li>
+      <li><span class="k">Fireworks AI</span><span>고객 1만 곳 이상</span></li>
+      <li><span class="k">확인 한계</span><span>우버 피해 수는 TechCrunch 단일 · 공격 조직 이름 미공개</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>우버가 직접 뚫린 것이 아니라 AI 모델을 빌려 쓰던 회사가 뚫렸다. AI 기능을 붙일수록 데이터가 지나가는 하청 업체가 늘어난다. 내 서비스가 어떤 AI 업체와 연결돼 있는지가 이제 보안 점검 목록에 들어간다.</p>
+    </div>
+    <a class="source" href="https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/">TechCrunch — 우버 운전자 정보 유출</a>  <a class="source" href="https://therecord.media/ai-company-fireworks-says-hackers-stole-data-in-oct-attacks">The Record — Fireworks AI 침해</a>
+    <span class="ref-note">TechCrunch(11/13 06:57 PST)·The Record(11/10) · 우버 피해는 TechCrunch 단일, Fireworks 경과·고객 수·노션은 The Record 기준 (확인 2026-11-16)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">AI 협력사가 뚫려<br>우버 운전자 정보 유출</p>
+      <p class="cn-s">AI 모델 호스팅사 Fireworks AI가 해킹당해 우버 운전자 면허 정보까지 새어 나갔어요. Fireworks의 고객은 1만 곳이 넘어요.</p>
+      <p class="cn-steps" data-now="4">10/6 침해 발견|10/9 우버 통보|10/23 2차 침입|11/2 노션 통보</p>
+      <p class="cn-note">신고 피해 사우스캐롤라이나 3,430명 · 매사추세츠 2,567명</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Deal — 헬스케어</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">醫</span>
+    <div class="card-top"><span class="topic">인수 · 웨어러블</span></div>
+    <h2>오우라, AI 1차 진료 '카운슬 헬스' 인수 — 현금 6억 2,500만 달러, 반지 안 쓰는 사람 진료도 유지</h2>
+    <div class="summary">
+      <p>스마트 반지 회사 오우라가 10일(현지) AI 1차 진료 업체 카운슬 헬스를 <strong>현금 6억 2,500만 달러</strong>에 인수하는 최종 계약을 맺었다(ZDNet Korea·Healthcare Dive). 연내 완료가 목표다. 카운슬 헬스는 의료 AI와 소속 의사를 결합해 대부분의 요청을 몇 분 안에 처리하고, 필요하면 진단·처방·전문의 의뢰까지 한다. 두 회사는 2026년 5월부터 제휴해 왔다.</p>
+      <p>카운슬은 보험사·병원과의 협력으로 오우라 반지를 쓰지 않는 사람에게도 진료를 계속 제공한다(ZDNet Korea). 회원은 600만 명 이상이고, 9월 30일로 끝난 분기 매출은 5억 3,300만 달러로 153% 늘었다(감사 전 잠정치, ZDNet Korea).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">인수</span><span>카운슬 헬스 · 현금 6억 2,500만 달러 · 10일(현지) 계약 · 연내 완료 목표</span></li>
+      <li><span class="k">카운슬 헬스</span><span>의료 AI + 소속 의사 · 진단·처방·전문의 의뢰 · 2026년 5월부터 제휴</span></li>
+      <li><span class="k">오우라</span><span>회원 600만 명 이상 · 분기 매출 5억 3,300만 달러(+153%, 잠정치)</span></li>
+      <li><span class="k">확인 한계</span><span>실적은 ZDNet Korea 기준(감사 전) · 카운슬 투자 유치액은 매체별로 달라 싣지 않음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>반지 회사가 반지 밖 진료까지 품는다는 것은 기기보다 '건강 서비스'에 무게를 싣는다는 뜻이다. 몸 데이터를 모으는 기기와 그 데이터로 처방까지 하는 AI가 한 회사에 묶인다. 한국 출시 계획은 기사에 없다.</p>
+    </div>
+    <a class="source" href="https://zdnet.co.kr/view/?no=20261112165615">ZDNet Korea — 오우라 인수</a>  <a class="source" href="https://www.healthcaredive.com/news/oura-makes-bet-on-ai-in-healthcare-with-625m-counsel-health-buy/874401/">Healthcare Dive — 6억 2,500만 달러 인수</a>
+    <span class="ref-note">ZDNet Korea(11/12 16:56)·Healthcare Dive · 인수가·현금은 두 매체, 회원·실적·서비스 설명은 ZDNet Korea 기준 (확인 2026-11-16)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">반지 회사 오우라,<br>AI 진료 회사 샀다</p>
+      <p class="cn-s">오우라가 AI 1차 진료 업체 카운슬 헬스를 현금 6억 2,500만 달러에 인수해요. 반지를 쓰지 않는 사람 진료도 계속돼요.</p>
+      <p class="cn-num">6억 2,500만 달러|현금 인수가</p>
+      <p class="cn-note">회원 600만 명+ · 분기 매출 +153%(잠정치)</p>
+      <p class="cn-img">A minimal smart ring resting beside a softly glowing abstract chat bubble and a stethoscope on a pale desk, conceptual illustration, no text, no logos, no people</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 디테일 포인트 → 디자인 렌더링 → 검토<br>
+    큐레이션: 11/9 AI 브리프 이후 한 주를 반도체·모델·에이전트·규제·보안·인수로 고르게 골랐습니다. 세무사 AI 부정행위와 젠슨 황 복귀 청원은 오늘 메인에서 다뤄 뺐고, 앤트로픽 상장(공모가 미확정), 북한 추정 조직 PHP2Shell 표적 명단(단일 출처·이전 다룸), LG유플러스 토큰 사업(회사 자체 수치), 오픈AI 로보틱스 팀 해체설(확인 불가)은 제외했습니다.<br>
+    📊 도표: 1번은 증가율 추이 막대(10월 강조), 2번은 Opus 5.5와의 맞대결 막대(같은 % 단위), 5번은 침해 경과 타임라인으로 그렸습니다.<br>
+    모든 수치는 보도·회사 발표 기준이며 변동될 수 있습니다.
+    <!-- tracker: 2026-11-16 ai-brief
+         [추적 중인 스토리 현재 상태]
+         ICT 수출: 10월 703.5억 달러(+202.0%), 반도체 564.7억(80.3%), 중소중견 +10.3%. → 11월 수출.
+         Claude Fable/Mythos 5.2: 11/9 공개, 출력 40달러, 분류기 차단 시 이전 Opus 응답.
+         챗GPT 월렛: 11/13 공개(국내 매체 기준, 공식 원문 미열람) · 유나이티드 AI 예약 제한 발표 11/12.
+         메타 이탈리아 과징금 8억 500만 유로, 항소 방침, 60일 시정.
+         Fireworks AI 침해 → 우버 운전자 정보(신고 주별), 노션 연결 차단.
+         오우라-카운슬 헬스 6억 2,500만 달러, 연내 완료 목표.
+         [기존 추적 — 새 전개 미반영] Claude 개인금융 · Claude Code 비밀 노출 · Artex · 마이크로칩 납기 · AI 전력 확보 · 루빈 · 네이버 투자.
+         [오늘 다룬 항목] ①10월 ICT 수출 ②Claude Fable 5.2 ③챗GPT 월렛 ④메타 이탈리아 과징금 ⑤Fireworks·우버 유출 ⑥오우라 인수
+         [제외한 항목] 세무사 AI 부정행위·젠슨 황 청원(오늘 메인) · 앤트로픽 상장(가격 미확정) · PHP2Shell(단일) · LG유플러스 토큰(자체 수치) · 최태원 AI 플라이휠(숫자 없음) · 오픈AI 로보틱스 해체설(확인 불가) · 코인원 수탁사 해킹(본문 미확인)
+         [reel-scores] 코너 릴스 = 짧은판(카드 1~3). 깊게 파는 릴스는 deep-reel 수습(기획표 사용자 확인 필요)이라 무인 루틴에서 만들지 않음.
+         [리서치 도구] mcp__Firecrawl__* 호출 0회.
+    -->
+  </footer>
+
+</div></body>
+</html>
