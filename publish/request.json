@@ -7,7 +7,35 @@
    "dry_run": "false",
    "is_ai": "false",
    "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-16_football-brief",
+   "caption": "captions/2026-11-16_football.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "review": "required"
+  },
+  {
+   "kind": "reel",
+   "media": "reels/2026-11/2026-11-16_football.mp4",
+   "caption": "captions/2026-11-16_football_reel.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "ab": "short",
+   "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-16_event-brief",
+   "caption": "captions/2026-11-16_event.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "review": "required"
   }
  ],
- "note": "11/16 월 AI·테크 캐러셀(@hannun.brief, 표지+6장+출처). card-visual-reviewer 실물 JPG PASS. 11/14 옛 항목은 지움. 코너 릴스는 publish/evening/2026-11-16_ai.json(21:07)."
+ "note": "11/16 월 AI·테크 캐러셀(@hannun.brief, 표지+6장+출처). card-visual-reviewer 실물 JPG PASS. 11/14 옛 항목은 지움. 코너 릴스는 publish/evening/2026-11-16_ai.json(21:07). · 11/16 축구 모닝 A매치 결과 캐러셀 + 결산판 릴스, 이벤트 픽(LPGA 더 안니카) 캐러셀(@hannun.sports, card-visual-reviewer·reel-reviewer 실물 PASS). 순위 변동 릴스는 리그 휴식기라 없음."
 }
