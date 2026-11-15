@@ -1,10 +1,10 @@
 {
- "collected_kst": "2026-11-14 16:45",
+ "collected_kst": "2026-11-15 17:01",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-14T07:44:41.703756Z",
+   "checked_at": "2026-11-15T08:01:01.305509Z",
    "media": [
     {
      "id": "17932791195422983",
@@ -13,13 +13,13 @@
      "permalink": "https://www.instagram.com/p/Dfs9-Z_mIwk/",
      "first_line": "[이번 주 숫자] 11/9~11/13, 한 주를 숫자 7개로 — 삼성 12년 만의 KS 우승, 배달앱 과징금 6,319억 원, 코스피 5,375",
      "metrics": {
-      "views": 5,
-      "reach": 2,
-      "likes": 0,
+      "views": 7,
+      "reach": 3,
+      "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
-      "total_interactions": 0
+      "total_interactions": 1
      }
     },
     {
@@ -77,8 +77,8 @@
      "permalink": "https://www.instagram.com/p/DflQgM1msUC/",
      "first_line": "[📺 OTT·게임] 재혼 황후 오늘 오후 5시 5·6화 · 꿀알바 비영어 쇼 세계 1위(시청수 870만) · GTA 6 사전 다운로드 212GB",
      "metrics": {
-      "views": 12,
-      "reach": 4,
+      "views": 14,
+      "reach": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -109,8 +109,8 @@
      "permalink": "https://www.instagram.com/p/DflBnyjkS-A/",
      "first_line": "[🩺 헬스] 독감 44주 외래 1,000명당 22.8명 · 털진드기 밀도 150%↑ · 나이지리아 에볼라 검역",
      "metrics": {
-      "views": 24,
-      "reach": 4,
+      "views": 25,
+      "reach": 5,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -201,7 +201,7 @@
      "permalink": "https://www.instagram.com/p/DfdHRs9FFWj/",
      "first_line": "[우주·과학] 블랙홀이 은하 질량의 약 3분의 2 — 별보다 먼저 생긴 블랙홀의 후손일까? 🔭 작은 붉은 점 QSO1",
      "metrics": {
-      "views": 6,
+      "views": 11,
       "reach": 3,
       "likes": 0,
       "comments": 0,
@@ -549,8 +549,30 @@
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-14T07:45:00.639124Z",
+   "checked_at": "2026-11-15T08:01:11.750777Z",
    "media": [
+    {
+     "id": "18101200235387430",
+     "type": "REELS",
+     "timestamp": "2026-11-15T00:13:29+0000",
+     "permalink": "https://www.instagram.com/reel/Dfvd3D6DnXv/",
+     "first_line": "[🎮 LoL] 젠지 1:3 BLG",
+     "tag": "🎮 LoL",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 2,
+      "reach": 2,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2277,
+      "ig_reels_video_view_total_time": 4555,
+      "reels_skip_rate": 100
+     }
+    },
     {
      "id": "18123345509077164",
      "type": "REELS",
@@ -561,16 +583,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 127,
-      "reach": 103,
+      "views": 128,
+      "reach": 104,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3929,
-      "ig_reels_video_view_total_time": 400763,
-      "reels_skip_rate": 70.6
+      "ig_reels_avg_watch_time": 4020,
+      "ig_reels_video_view_total_time": 418169,
+      "reels_skip_rate": 70.9
      }
     },
     {
@@ -580,8 +602,8 @@
      "permalink": "https://www.instagram.com/p/Dfs_oSXERON/",
      "first_line": "[⚽ 축구 모닝 · A매치 결과] 한국 2-3 사우디 — 21년 만의 사우디전 패배 · 네덜란드 7-0 그리스",
      "metrics": {
-      "views": 0,
-      "reach": 0,
+      "views": 4,
+      "reach": 1,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -666,8 +688,8 @@
      "permalink": "https://www.instagram.com/p/DfpUb8NFE3X/",
      "first_line": "[🎮 e스포츠] 젠지 4강까지 10승 1패 · 승률 90.9% 역대 2위 · BLG, 한국 팀 상대 8승 1패 — 11월 12일 3장",
      "metrics": {
-      "views": 2,
-      "reach": 1,
+      "views": 3,
+      "reach": 2,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -1128,35 +1150,13 @@
       "ig_reels_video_view_total_time": 12113,
       "reels_skip_rate": 100
      }
-    },
-    {
-     "id": "17912514300305058",
-     "type": "REELS",
-     "timestamp": "2026-11-06T22:45:31+0000",
-     "permalink": "https://www.instagram.com/reel/DfataoeEdOE/",
-     "first_line": "[🏟 밤사이 결과] 결과판 4장 한 번에",
-     "tag": "🏟 밤사이 결과",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 116,
-      "reach": 109,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 2,
-      "ig_reels_avg_watch_time": 2302,
-      "ig_reels_video_view_total_time": 257887,
-      "reels_skip_rate": 81.7
-     }
     }
    ],
    "errors": [],
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 7,
-   "posts": 123
+   "posts": 124
   }
  ]
 }
