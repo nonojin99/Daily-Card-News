@@ -2,31 +2,12 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-14_week7",
-   "caption": "captions/2026-11-14_week7.txt",
+   "media": "cards/2026-11/2026-11-16_ai-brief",
+   "caption": "captions/2026-11-16_ai.txt",
    "dry_run": "false",
    "is_ai": "false",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-14_football-brief",
-   "caption": "captions/2026-11-14_football.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "review": "required"
-  },
-  {
-   "kind": "reel",
-   "media": "reels/2026-11/2026-11-14_football.mp4",
-   "caption": "captions/2026-11-14_football_reel.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "ab": "short",
    "review": "required"
   }
  ],
- "note": "11/14 토 이번 주 숫자 캐러셀(@hannun.brief, 11/9~11/13 메인 7장). card-visual-reviewer 실물 JPG 검수: 1차 08(젠슨 황) 타임라인 '26일 전 출석' 오독 FAIL → 11/13 원 카드 정정·재구움 → 재검수 PASS. 11/13 항목은 지난 옛 항목이라 지움. · 11/14 축구 모닝 A매치 결과 캐러셀 + ⚡ 10초판 릴스(@hannun.sports, card-visual-reviewer·reel-reviewer 실물 PASS)"
+ "note": "11/16 월 AI·테크 캐러셀(@hannun.brief, 표지+6장+출처). card-visual-reviewer 실물 JPG PASS. 11/14 옛 항목은 지움. 코너 릴스는 publish/evening/2026-11-16_ai.json(21:07)."
 }
