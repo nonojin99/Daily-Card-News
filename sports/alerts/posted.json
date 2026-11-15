@@ -1912,6 +1912,11 @@
    "status": "published",
    "at_kst": "2026-11-15 09:49",
    "result": "18100346294664716"
+  },
+  "ufc:401922642": {
+   "image": "sports/alerts/2026-11/2026-11-15_ufc_1052.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-15 10:52"
   }
  },
  "boards": {
