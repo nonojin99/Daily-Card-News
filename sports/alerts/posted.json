@@ -1951,8 +1951,9 @@
   },
   "ufc:401913646": {
    "image": "sports/alerts/2026-11/2026-11-15_ufc_1456.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-15 14:56"
+   "status": "published",
+   "at_kst": "2026-11-15 14:56",
+   "result": "18103284845664492"
   }
  },
  "boards": {
@@ -2253,8 +2254,8 @@
    "final": true
   },
   "ufc:2026-11-15": {
-   "last": 1794719139.2487524,
-   "final": false
+   "last": 1794722295.5938082,
+   "final": true
   }
  }
 }
