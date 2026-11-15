@@ -2763,5 +2763,59 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:17932791195422983": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-14T00:56:06+0000",
+  "snapshot_utc": "2026-11-15T01:46:47Z",
+  "age_h": 24.8,
+  "first_line": "[이번 주 숫자] 11/9~11/13, 한 주를 숫자 7개로 — 삼성 12년 만의 KS 우승, 배달앱 과징금 6,319억 원, 코스피 5,375",
+  "metrics": {
+   "views": 7,
+   "reach": 3,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1
+  }
+ },
+ "sports:18123345509077164": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-14T01:12:49+0000",
+  "snapshot_utc": "2026-11-15T01:46:47Z",
+  "age_h": 24.6,
+  "first_line": "[⚽ 축구 모닝 · A매치 결과] 한국 2-3 사우디 · 사우디전 21년 만의 패배 · 3실점은 42년 만",
+  "metrics": {
+   "views": 128,
+   "reach": 104,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 4020,
+   "ig_reels_video_view_total_time": 418169,
+   "reels_skip_rate": 70.9
+  }
+ },
+ "sports:18115714705874878": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-14T01:10:45+0000",
+  "snapshot_utc": "2026-11-15T01:46:47Z",
+  "age_h": 24.6,
+  "first_line": "[⚽ 축구 모닝 · A매치 결과] 한국 2-3 사우디 — 21년 만의 사우디전 패배 · 네덜란드 7-0 그리스",
+  "metrics": {
+   "views": 4,
+   "reach": 1,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
