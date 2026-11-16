@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-16T20:51:46Z",
-  "count": 357,
+  "generated": "2026-11-16T23:48:17Z",
+  "count": 358,
   "files": [
     {
       "date": "2026-11-17",
@@ -12,6 +12,15 @@
       "path": "2026-11-17_daily-brief.html"
     },
     {
+      "date": "2026-11-17",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "17",
+      "type": "football",
+      "path": "2026-11-17_football-brief.html"
+    },
+    {
       "date": "2026-11-16",
       "month": "2026-11",
       "year": "2026",
@@ -19,6 +28,15 @@
       "day": "16",
       "type": "daily",
       "path": "2026-11-16_daily-brief.html"
+    },
+    {
+      "date": "2026-11-16",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "16",
+      "type": "esports",
+      "path": "2026-11-16_esports-brief.html"
     },
     {
       "date": "2026-11-16",
@@ -37,15 +55,6 @@
       "day": "16",
       "type": "event",
       "path": "2026-11-16_event-brief.html"
-    },
-    {
-      "date": "2026-11-16",
-      "month": "2026-11",
-      "year": "2026",
-      "mon": "11",
-      "day": "16",
-      "type": "esports",
-      "path": "2026-11-16_esports-brief.html"
     },
     {
       "date": "2026-11-16",
@@ -89,8 +98,8 @@
       "year": "2026",
       "mon": "11",
       "day": "13",
-      "type": "travel",
-      "path": "2026-11-13_travel-brief.html"
+      "type": "football",
+      "path": "2026-11-13_football-brief.html"
     },
     {
       "date": "2026-11-13",
@@ -116,8 +125,8 @@
       "year": "2026",
       "mon": "11",
       "day": "13",
-      "type": "football",
-      "path": "2026-11-13_football-brief.html"
+      "type": "travel",
+      "path": "2026-11-13_travel-brief.html"
     },
     {
       "date": "2026-11-12",
@@ -127,15 +136,6 @@
       "day": "12",
       "type": "daily",
       "path": "2026-11-12_daily-brief.html"
-    },
-    {
-      "date": "2026-11-12",
-      "month": "2026-11",
-      "year": "2026",
-      "mon": "11",
-      "day": "12",
-      "type": "esports",
-      "path": "2026-11-12_esports-brief.html"
     },
     {
       "date": "2026-11-12",
@@ -156,6 +156,15 @@
       "path": "2026-11-12_activity-brief.html"
     },
     {
+      "date": "2026-11-12",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "12",
+      "type": "esports",
+      "path": "2026-11-12_esports-brief.html"
+    },
+    {
       "date": "2026-11-11",
       "month": "2026-11",
       "year": "2026",
@@ -163,24 +172,6 @@
       "day": "11",
       "type": "daily",
       "path": "2026-11-11_daily-brief.html"
-    },
-    {
-      "date": "2026-11-11",
-      "month": "2026-11",
-      "year": "2026",
-      "mon": "11",
-      "day": "11",
-      "type": "football",
-      "path": "2026-11-11_football-brief.html"
-    },
-    {
-      "date": "2026-11-11",
-      "month": "2026-11",
-      "year": "2026",
-      "mon": "11",
-      "day": "11",
-      "type": "esports",
-      "path": "2026-11-11_esports-brief.html"
     },
     {
       "date": "2026-11-11",
@@ -201,6 +192,24 @@
       "path": "2026-11-11_ott-brief.html"
     },
     {
+      "date": "2026-11-11",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "11",
+      "type": "esports",
+      "path": "2026-11-11_esports-brief.html"
+    },
+    {
+      "date": "2026-11-11",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "11",
+      "type": "football",
+      "path": "2026-11-11_football-brief.html"
+    },
+    {
       "date": "2026-11-10",
       "month": "2026-11",
       "year": "2026",
@@ -215,8 +224,8 @@
       "year": "2026",
       "mon": "11",
       "day": "10",
-      "type": "baseball",
-      "path": "2026-11-10_baseball-brief.html"
+      "type": "health",
+      "path": "2026-11-10_health-brief.html"
     },
     {
       "date": "2026-11-10",
@@ -233,8 +242,8 @@
       "year": "2026",
       "mon": "11",
       "day": "10",
-      "type": "health",
-      "path": "2026-11-10_health-brief.html"
+      "type": "baseball",
+      "path": "2026-11-10_baseball-brief.html"
     },
     {
       "date": "2026-11-09",
@@ -278,8 +287,8 @@
       "year": "2026",
       "mon": "11",
       "day": "08",
-      "type": "football",
-      "path": "2026-11-08_football-brief.html"
+      "type": "baseball",
+      "path": "2026-11-08_baseball-brief.html"
     },
     {
       "date": "2026-11-08",
@@ -287,8 +296,8 @@
       "year": "2026",
       "mon": "11",
       "day": "08",
-      "type": "baseball",
-      "path": "2026-11-08_baseball-brief.html"
+      "type": "football",
+      "path": "2026-11-08_football-brief.html"
     },
     {
       "date": "2026-11-08",
@@ -368,6 +377,15 @@
       "year": "2026",
       "mon": "11",
       "day": "05",
+      "type": "food",
+      "path": "2026-11-05_food-brief.html"
+    },
+    {
+      "date": "2026-11-05",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "05",
       "type": "activity",
       "path": "2026-11-05_activity-brief.html"
     },
@@ -379,15 +397,6 @@
       "day": "05",
       "type": "football",
       "path": "2026-11-05_football-brief.html"
-    },
-    {
-      "date": "2026-11-05",
-      "month": "2026-11",
-      "year": "2026",
-      "mon": "11",
-      "day": "05",
-      "type": "food",
-      "path": "2026-11-05_food-brief.html"
     },
     {
       "date": "2026-11-04",
@@ -404,15 +413,6 @@
       "year": "2026",
       "mon": "11",
       "day": "04",
-      "type": "culture",
-      "path": "2026-11-04_culture-brief.html"
-    },
-    {
-      "date": "2026-11-04",
-      "month": "2026-11",
-      "year": "2026",
-      "mon": "11",
-      "day": "04",
       "type": "ott",
       "path": "2026-11-04_ott-brief.html"
     },
@@ -422,8 +422,8 @@
       "year": "2026",
       "mon": "11",
       "day": "04",
-      "type": "baseball",
-      "path": "2026-11-04_baseball-brief.html"
+      "type": "culture",
+      "path": "2026-11-04_culture-brief.html"
     },
     {
       "date": "2026-11-04",
@@ -433,6 +433,15 @@
       "day": "04",
       "type": "football",
       "path": "2026-11-04_football-brief.html"
+    },
+    {
+      "date": "2026-11-04",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "04",
+      "type": "baseball",
+      "path": "2026-11-04_baseball-brief.html"
     },
     {
       "date": "2026-11-03",
@@ -449,15 +458,6 @@
       "year": "2026",
       "mon": "11",
       "day": "03",
-      "type": "baseball",
-      "path": "2026-11-03_baseball-brief.html"
-    },
-    {
-      "date": "2026-11-03",
-      "month": "2026-11",
-      "year": "2026",
-      "mon": "11",
-      "day": "03",
       "type": "health",
       "path": "2026-11-03_health-brief.html"
     },
@@ -467,8 +467,8 @@
       "year": "2026",
       "mon": "11",
       "day": "03",
-      "type": "football",
-      "path": "2026-11-03_football-brief.html"
+      "type": "baseball",
+      "path": "2026-11-03_baseball-brief.html"
     },
     {
       "date": "2026-11-03",
@@ -478,6 +478,15 @@
       "day": "03",
       "type": "money",
       "path": "2026-11-03_money-brief.html"
+    },
+    {
+      "date": "2026-11-03",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "03",
+      "type": "football",
+      "path": "2026-11-03_football-brief.html"
     },
     {
       "date": "2026-11-02",
@@ -530,8 +539,8 @@
       "year": "2026",
       "mon": "11",
       "day": "01",
-      "type": "football",
-      "path": "2026-11-01_football-brief.html"
+      "type": "baseball",
+      "path": "2026-11-01_baseball-brief.html"
     },
     {
       "date": "2026-11-01",
@@ -539,8 +548,8 @@
       "year": "2026",
       "mon": "11",
       "day": "01",
-      "type": "baseball",
-      "path": "2026-11-01_baseball-brief.html"
+      "type": "football",
+      "path": "2026-11-01_football-brief.html"
     },
     {
       "date": "2026-10-31",
@@ -575,8 +584,8 @@
       "year": "2026",
       "mon": "10",
       "day": "30",
-      "type": "travel",
-      "path": "2026-10-30_travel-brief.html"
+      "type": "baseball",
+      "path": "2026-10-30_baseball-brief.html"
     },
     {
       "date": "2026-10-30",
@@ -593,8 +602,8 @@
       "year": "2026",
       "mon": "10",
       "day": "30",
-      "type": "baseball",
-      "path": "2026-10-30_baseball-brief.html"
+      "type": "travel",
+      "path": "2026-10-30_travel-brief.html"
     },
     {
       "date": "2026-10-29",
@@ -629,8 +638,8 @@
       "year": "2026",
       "mon": "10",
       "day": "29",
-      "type": "activity",
-      "path": "2026-10-29_activity-brief.html"
+      "type": "football",
+      "path": "2026-10-29_football-brief.html"
     },
     {
       "date": "2026-10-29",
@@ -638,8 +647,8 @@
       "year": "2026",
       "mon": "10",
       "day": "29",
-      "type": "football",
-      "path": "2026-10-29_football-brief.html"
+      "type": "activity",
+      "path": "2026-10-29_activity-brief.html"
     },
     {
       "date": "2026-10-28",
@@ -674,15 +683,6 @@
       "year": "2026",
       "mon": "10",
       "day": "27",
-      "type": "money",
-      "path": "2026-10-27_money-brief.html"
-    },
-    {
-      "date": "2026-10-27",
-      "month": "2026-10",
-      "year": "2026",
-      "mon": "10",
-      "day": "27",
       "type": "health",
       "path": "2026-10-27_health-brief.html"
     },
@@ -692,8 +692,8 @@
       "year": "2026",
       "mon": "10",
       "day": "27",
-      "type": "baseball",
-      "path": "2026-10-27_baseball-brief.html"
+      "type": "esports",
+      "path": "2026-10-27_esports-brief.html"
     },
     {
       "date": "2026-10-27",
@@ -701,8 +701,17 @@
       "year": "2026",
       "mon": "10",
       "day": "27",
-      "type": "esports",
-      "path": "2026-10-27_esports-brief.html"
+      "type": "money",
+      "path": "2026-10-27_money-brief.html"
+    },
+    {
+      "date": "2026-10-27",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "27",
+      "type": "baseball",
+      "path": "2026-10-27_baseball-brief.html"
     },
     {
       "date": "2026-10-26",
@@ -719,8 +728,8 @@
       "year": "2026",
       "mon": "10",
       "day": "26",
-      "type": "event",
-      "path": "2026-10-26_event-brief.html"
+      "type": "football",
+      "path": "2026-10-26_football-brief.html"
     },
     {
       "date": "2026-10-26",
@@ -728,8 +737,8 @@
       "year": "2026",
       "mon": "10",
       "day": "26",
-      "type": "ai",
-      "path": "2026-10-26_ai-brief.html"
+      "type": "event",
+      "path": "2026-10-26_event-brief.html"
     },
     {
       "date": "2026-10-26",
@@ -746,8 +755,8 @@
       "year": "2026",
       "mon": "10",
       "day": "26",
-      "type": "football",
-      "path": "2026-10-26_football-brief.html"
+      "type": "ai",
+      "path": "2026-10-26_ai-brief.html"
     },
     {
       "date": "2026-10-26",
@@ -773,15 +782,6 @@
       "year": "2026",
       "mon": "10",
       "day": "25",
-      "type": "football",
-      "path": "2026-10-25_football-brief.html"
-    },
-    {
-      "date": "2026-10-25",
-      "month": "2026-10",
-      "year": "2026",
-      "mon": "10",
-      "day": "25",
       "type": "baseball",
       "path": "2026-10-25_baseball-brief.html"
     },
@@ -793,6 +793,15 @@
       "day": "25",
       "type": "science",
       "path": "2026-10-25_science-brief.html"
+    },
+    {
+      "date": "2026-10-25",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "25",
+      "type": "football",
+      "path": "2026-10-25_football-brief.html"
     },
     {
       "date": "2026-10-24",
@@ -809,8 +818,8 @@
       "year": "2026",
       "mon": "10",
       "day": "24",
-      "type": "football",
-      "path": "2026-10-24_football-brief.html"
+      "type": "baseball",
+      "path": "2026-10-24_baseball-brief.html"
     },
     {
       "date": "2026-10-24",
@@ -818,8 +827,8 @@
       "year": "2026",
       "mon": "10",
       "day": "24",
-      "type": "baseball",
-      "path": "2026-10-24_baseball-brief.html"
+      "type": "football",
+      "path": "2026-10-24_football-brief.html"
     },
     {
       "date": "2026-10-24",
@@ -845,15 +854,6 @@
       "year": "2026",
       "mon": "10",
       "day": "23",
-      "type": "travel",
-      "path": "2026-10-23_travel-brief.html"
-    },
-    {
-      "date": "2026-10-23",
-      "month": "2026-10",
-      "year": "2026",
-      "mon": "10",
-      "day": "23",
       "type": "football",
       "path": "2026-10-23_football-brief.html"
     },
@@ -865,6 +865,15 @@
       "day": "23",
       "type": "baseball",
       "path": "2026-10-23_baseball-brief.html"
+    },
+    {
+      "date": "2026-10-23",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "23",
+      "type": "travel",
+      "path": "2026-10-23_travel-brief.html"
     },
     {
       "date": "2026-10-22",
@@ -881,8 +890,8 @@
       "year": "2026",
       "mon": "10",
       "day": "22",
-      "type": "football",
-      "path": "2026-10-22_football-brief.html"
+      "type": "event",
+      "path": "2026-10-22_event-brief.html"
     },
     {
       "date": "2026-10-22",
@@ -908,8 +917,8 @@
       "year": "2026",
       "mon": "10",
       "day": "22",
-      "type": "event",
-      "path": "2026-10-22_event-brief.html"
+      "type": "football",
+      "path": "2026-10-22_football-brief.html"
     },
     {
       "date": "2026-10-21",
@@ -919,24 +928,6 @@
       "day": "21",
       "type": "daily",
       "path": "2026-10-21_daily-brief.html"
-    },
-    {
-      "date": "2026-10-21",
-      "month": "2026-10",
-      "year": "2026",
-      "mon": "10",
-      "day": "21",
-      "type": "esports",
-      "path": "2026-10-21_esports-brief.html"
-    },
-    {
-      "date": "2026-10-21",
-      "month": "2026-10",
-      "year": "2026",
-      "mon": "10",
-      "day": "21",
-      "type": "baseball",
-      "path": "2026-10-21_baseball-brief.html"
     },
     {
       "date": "2026-10-21",
@@ -955,6 +946,24 @@
       "day": "21",
       "type": "culture",
       "path": "2026-10-21_culture-brief.html"
+    },
+    {
+      "date": "2026-10-21",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "21",
+      "type": "baseball",
+      "path": "2026-10-21_baseball-brief.html"
+    },
+    {
+      "date": "2026-10-21",
+      "month": "2026-10",
+      "year": "2026",
+      "mon": "10",
+      "day": "21",
+      "type": "esports",
+      "path": "2026-10-21_esports-brief.html"
     },
     {
       "date": "2026-10-20",
@@ -989,8 +998,9 @@
       "year": "2026",
       "mon": "10",
       "day": "19",
-      "type": "ai",
-      "path": "2026-10-19_ai-brief.html"
+      "type": "foundry",
+      "issue": 19,
+      "path": "파운드리_주간_19_20261019.html"
     },
     {
       "date": "2026-10-19",
@@ -998,9 +1008,8 @@
       "year": "2026",
       "mon": "10",
       "day": "19",
-      "type": "foundry",
-      "issue": 19,
-      "path": "파운드리_주간_19_20261019.html"
+      "type": "ai",
+      "path": "2026-10-19_ai-brief.html"
     },
     {
       "date": "2026-10-18",
@@ -1125,8 +1134,9 @@
       "year": "2026",
       "mon": "10",
       "day": "12",
-      "type": "ai",
-      "path": "2026-10-12_ai-brief.html"
+      "type": "foundry",
+      "issue": 18,
+      "path": "파운드리_주간_18_20261012.html"
     },
     {
       "date": "2026-10-12",
@@ -1134,9 +1144,8 @@
       "year": "2026",
       "mon": "10",
       "day": "12",
-      "type": "foundry",
-      "issue": 18,
-      "path": "파운드리_주간_18_20261012.html"
+      "type": "ai",
+      "path": "2026-10-12_ai-brief.html"
     },
     {
       "date": "2026-10-11",
@@ -1261,8 +1270,9 @@
       "year": "2026",
       "mon": "10",
       "day": "05",
-      "type": "ai",
-      "path": "2026-10-05_ai-brief.html"
+      "type": "foundry",
+      "issue": 17,
+      "path": "파운드리_주간_17_20261005.html"
     },
     {
       "date": "2026-10-05",
@@ -1270,9 +1280,8 @@
       "year": "2026",
       "mon": "10",
       "day": "05",
-      "type": "foundry",
-      "issue": 17,
-      "path": "파운드리_주간_17_20261005.html"
+      "type": "ai",
+      "path": "2026-10-05_ai-brief.html"
     },
     {
       "date": "2026-10-04",
@@ -1533,9 +1542,8 @@
       "year": "2026",
       "mon": "09",
       "day": "21",
-      "type": "foundry",
-      "issue": 15,
-      "path": "파운드리_주간_15_20260921.html"
+      "type": "ai",
+      "path": "2026-09-21_ai-brief.html"
     },
     {
       "date": "2026-09-21",
@@ -1543,8 +1551,9 @@
       "year": "2026",
       "mon": "09",
       "day": "21",
-      "type": "ai",
-      "path": "2026-09-21_ai-brief.html"
+      "type": "foundry",
+      "issue": 15,
+      "path": "파운드리_주간_15_20260921.html"
     },
     {
       "date": "2026-09-20",
@@ -1805,9 +1814,8 @@
       "year": "2026",
       "mon": "09",
       "day": "07",
-      "type": "foundry",
-      "issue": 13,
-      "path": "파운드리_주간_13_20260907.html"
+      "type": "ai",
+      "path": "2026-09-07_ai-brief.html"
     },
     {
       "date": "2026-09-07",
@@ -1815,8 +1823,9 @@
       "year": "2026",
       "mon": "09",
       "day": "07",
-      "type": "ai",
-      "path": "2026-09-07_ai-brief.html"
+      "type": "foundry",
+      "issue": 13,
+      "path": "파운드리_주간_13_20260907.html"
     },
     {
       "date": "2026-09-06",
@@ -1941,8 +1950,9 @@
       "year": "2026",
       "mon": "08",
       "day": "31",
-      "type": "ai",
-      "path": "2026-08-31_ai-brief.html"
+      "type": "foundry",
+      "issue": 10,
+      "path": "파운드리_주간_10_20260831.html"
     },
     {
       "date": "2026-08-31",
@@ -1950,9 +1960,8 @@
       "year": "2026",
       "mon": "08",
       "day": "31",
-      "type": "foundry",
-      "issue": 10,
-      "path": "파운드리_주간_10_20260831.html"
+      "type": "ai",
+      "path": "2026-08-31_ai-brief.html"
     },
     {
       "date": "2026-08-30",
@@ -2213,9 +2222,8 @@
       "year": "2026",
       "mon": "08",
       "day": "17",
-      "type": "foundry",
-      "issue": 10,
-      "path": "파운드리_주간_10_20260817.html"
+      "type": "ai",
+      "path": "2026-08-17_ai-brief.html"
     },
     {
       "date": "2026-08-17",
@@ -2223,8 +2231,9 @@
       "year": "2026",
       "mon": "08",
       "day": "17",
-      "type": "ai",
-      "path": "2026-08-17_ai-brief.html"
+      "type": "foundry",
+      "issue": 10,
+      "path": "파운드리_주간_10_20260817.html"
     },
     {
       "date": "2026-08-16",
