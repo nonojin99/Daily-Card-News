@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-15T23:56:13Z",
-  "count": 355,
+  "generated": "2026-11-16T14:45:53Z",
+  "count": 356,
   "files": [
     {
       "date": "2026-11-16",
@@ -28,6 +28,15 @@
       "day": "16",
       "type": "event",
       "path": "2026-11-16_event-brief.html"
+    },
+    {
+      "date": "2026-11-16",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "16",
+      "type": "esports",
+      "path": "2026-11-16_esports-brief.html"
     },
     {
       "date": "2026-11-16",
