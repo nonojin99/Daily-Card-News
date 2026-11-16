@@ -2837,5 +2837,25 @@
    "ig_reels_video_view_total_time": 9528,
    "reels_skip_rate": 100
   }
+ },
+ "sports:18162860476499379": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-15T14:46:51+0000",
+  "snapshot_utc": "2026-11-16T20:20:11Z",
+  "age_h": 29.6,
+  "first_line": "[🏟 오늘 결과] 결과판 2장 한 번에",
+  "metrics": {
+   "views": 121,
+   "reach": 108,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2144,
+   "ig_reels_video_view_total_time": 231579,
+   "reels_skip_rate": 87
+  }
  }
 }
