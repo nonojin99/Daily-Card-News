@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "bc71931863f5b7f660d8cea7f051dd9291132df3",
+ "by": "agent",
+ "cards": 5,
+ "at": "2026-11-16T14:46:58Z",
+ "note": "card-visual-reviewer 구운 JPG 실물 PASS(5장, 캡션 순서 일치·해시태그 5개)"
+}
