@@ -1,11 +1,65 @@
 {
- "collected_kst": "2026-11-16 17:10",
+ "collected_kst": "2026-11-17 18:26",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-16T08:10:27.393552Z",
+   "checked_at": "2026-11-17T09:26:01.869518Z",
    "media": [
+    {
+     "id": "18136760104675169",
+     "type": "FEED",
+     "timestamp": "2026-11-17T03:59:51+0000",
+     "permalink": "https://www.instagram.com/p/Df1BXpKEQ5d/",
+     "first_line": "[🩺 헬스] 독감 45주 외래 1,000명당 28.9명 · 7~12세 73.5명 · '공부 잘하는 약' 불법 판매 571건",
+     "metrics": {
+      "views": 9,
+      "reach": 4,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18111209305946556",
+     "type": "FEED",
+     "timestamp": "2026-11-17T03:57:56+0000",
+     "permalink": "https://www.instagram.com/p/Df1BKvmEdx9/",
+     "first_line": "[💰 머니] 유류세 인하 1월 31일까지 · 저축은행 4%대 예금 154개 · 가계대출 1,200조",
+     "metrics": {
+      "views": 14,
+      "reach": 4,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18102579569546575",
+     "type": "REELS",
+     "timestamp": "2026-11-16T12:12:30+0000",
+     "permalink": "https://www.instagram.com/reel/DfzU67kDTJo/",
+     "first_line": "[AI·테크] ICT 수출 703억 5천만 달러, 1년 새 202% · Claude Fable 5.2 출력 40달러 · AI가 카드로 결제하는 ",
+     "tag": "AI·테크",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 123,
+      "reach": 109,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 3521,
+      "ig_reels_video_view_total_time": 390884,
+      "reels_skip_rate": 89.1
+     }
+    },
     {
      "id": "17913745377590713",
      "type": "FEED",
@@ -13,7 +67,7 @@
      "permalink": "https://www.instagram.com/p/Dfx9UVZlMb4/",
      "first_line": "[AI·테크] 10월 ICT 수출 703억 5천만 달러(+202%) · Claude Fable 5.2 출력 40달러 · 챗GPT 월렛 — 11월",
      "metrics": {
-      "views": 11,
+      "views": 12,
       "reach": 4,
       "likes": 0,
       "comments": 0,
@@ -93,7 +147,7 @@
      "permalink": "https://www.instagram.com/p/DflQgM1msUC/",
      "first_line": "[📺 OTT·게임] 재혼 황후 오늘 오후 5시 5·6화 · 꿀알바 비영어 쇼 세계 1위(시청수 870만) · GTA 6 사전 다운로드 212GB",
      "metrics": {
-      "views": 16,
+      "views": 17,
       "reach": 7,
       "likes": 0,
       "comments": 0,
@@ -198,16 +252,16 @@
      "variant": "short",
      "opening": "motion",
      "metrics": {
-      "views": 139,
-      "reach": 128,
+      "views": 140,
+      "reach": 129,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3101,
-      "ig_reels_video_view_total_time": 418738,
-      "reels_skip_rate": 68.5
+      "ig_reels_avg_watch_time": 3103,
+      "ig_reels_video_view_total_time": 422035,
+      "reels_skip_rate": 68
      }
     },
     {
@@ -479,72 +533,72 @@
       "saved": 0,
       "total_interactions": 0
      }
-    },
-    {
-     "id": "17876313735637681",
-     "type": "REELS",
-     "timestamp": "2026-10-28T09:41:09+0000",
-     "permalink": "https://www.instagram.com/reel/DfCIf8sjlJF/",
-     "first_line": "[📺 OTT·게임] GTA 6 D-22 · 13년 만의 신작 · 지도 GTA 5의 약 2배",
-     "tag": "📺 OTT·게임",
-     "variant": "narrated",
-     "opening": "static",
-     "metrics": {
-      "views": 136,
-      "reach": 115,
-      "likes": 4,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 4,
-      "ig_reels_avg_watch_time": 4042,
-      "ig_reels_video_view_total_time": 477037,
-      "reels_skip_rate": 69
-     }
-    },
-    {
-     "id": "17995073592027847",
-     "type": "FEED",
-     "timestamp": "2026-10-28T01:28:36+0000",
-     "permalink": "https://www.instagram.com/p/DfBQLpcDB1N/",
-     "first_line": "[📺 OTT·게임] GTA 6 한국 89,800원 · 꿀알바 30일 공개 · 재혼 황후 11월 4일",
-     "metrics": {
-      "views": 13,
-      "reach": 4,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1
-     }
-    },
-    {
-     "id": "17881560333547640",
-     "type": "FEED",
-     "timestamp": "2026-10-27T15:24:39+0000",
-     "permalink": "https://www.instagram.com/p/DfALC7LEQio/",
-     "first_line": "[🩺 헬스] 독감 21.6명, 유행 기준 위 · 들기름 벤조피렌 회수 · 걸음 수와 치매 연구",
-     "metrics": {
-      "views": 7,
-      "reach": 4,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 60
+   "posts": 63
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-16T08:10:42.782541Z",
+   "checked_at": "2026-11-17T09:26:20.397449Z",
    "media": [
+    {
+     "id": "18456014554121416",
+     "type": "REELS",
+     "timestamp": "2026-11-16T23:53:11+0000",
+     "permalink": "https://www.instagram.com/reel/Df0lHWgDWLM/",
+     "first_line": "[⚽ 축구 모닝 · A매치 결과] 독일 5-0 네덜란드 · 비르츠 2골 · 세 팀 11점 동률, 그리스 8강 탈락",
+     "tag": "⚽ 축구 모닝 · A매치 결과",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 119,
+      "reach": 104,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2760,
+      "ig_reels_video_view_total_time": 276061,
+      "reels_skip_rate": 82
+     }
+    },
+    {
+     "id": "17956953216299659",
+     "type": "FEED",
+     "timestamp": "2026-11-16T23:51:33+0000",
+     "permalink": "https://www.instagram.com/p/Df0k9CDlEEk/",
+     "first_line": "[⚽ 축구 모닝 · A매치 결과] 독일 5-0 네덜란드 — 세 팀 11점 동률 속 2조 1위로 8강 · 그리스는 1-0 이기고도 8강 탈락",
+     "metrics": {
+      "views": 4,
+      "reach": 2,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18497474884106113",
+     "type": "FEED",
+     "timestamp": "2026-11-16T14:50:26+0000",
+     "permalink": "https://www.instagram.com/p/DfznByREb2S/",
+     "first_line": "[🎮 e스포츠] BLG 3-1 젠지 · LCK 4연속 우승 마감 · LPL 5년 만에 롤드컵 정상 — 11월 16일 3장",
+     "metrics": {
+      "views": 9,
+      "reach": 3,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
     {
      "id": "18120444100998239",
      "type": "FEED",
@@ -552,8 +606,8 @@
      "permalink": "https://www.instagram.com/p/DfyBYaUmpyA/",
      "first_line": "[🏆 이벤트 픽] 최혜진, 더 안니카 14언더파 단독 2위 · LPGA 통산 10번째 준우승 · 린디 덩컨 222번째 출전 만의 첫 우승 — 4",
      "metrics": {
-      "views": 6,
-      "reach": 2,
+      "views": 11,
+      "reach": 4,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -571,16 +625,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 118,
-      "reach": 103,
+      "views": 120,
+      "reach": 104,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3709,
-      "ig_reels_video_view_total_time": 378401,
-      "reels_skip_rate": 75.5
+      "ig_reels_avg_watch_time": 3684,
+      "ig_reels_video_view_total_time": 383153,
+      "reels_skip_rate": 75.7
      }
     },
     {
@@ -590,8 +644,8 @@
      "permalink": "https://www.instagram.com/p/DfyBF3yGgxw/",
      "first_line": "[⚽ 축구 모닝 · A매치 결과] 잉글랜드, 스페인 원정 3-2 — 스페인 43경기 무패 끝 · 벨기에 4-1 이탈리아",
      "metrics": {
-      "views": 2,
-      "reach": 1,
+      "views": 10,
+      "reach": 3,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -609,16 +663,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 120,
-      "reach": 107,
+      "views": 124,
+      "reach": 109,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2149,
-      "ig_reels_video_view_total_time": 229979,
-      "reels_skip_rate": 86.9
+      "ig_reels_avg_watch_time": 2117,
+      "ig_reels_video_view_total_time": 237153,
+      "reels_skip_rate": 87.4
      }
     },
     {
@@ -672,8 +726,8 @@
      "permalink": "https://www.instagram.com/p/Dfs_oSXERON/",
      "first_line": "[⚽ 축구 모닝 · A매치 결과] 한국 2-3 사우디 — 21년 만의 사우디전 패배 · 네덜란드 7-0 그리스",
      "metrics": {
-      "views": 6,
-      "reach": 2,
+      "views": 7,
+      "reach": 3,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -704,7 +758,7 @@
      "permalink": "https://www.instagram.com/p/Dfr_K3UkS62/",
      "first_line": "[⚾ 야구 나이트] FA 자격 28명 공시 · 구자욱·원태인 A등급 · 오스틴 200만 달러",
      "metrics": {
-      "views": 9,
+      "views": 10,
       "reach": 3,
       "likes": 0,
       "comments": 0,
@@ -774,7 +828,7 @@
      "permalink": "https://www.instagram.com/p/Dfm0PDQmtrO/",
      "first_line": "[🎮 e스포츠] 롤드컵 결승 젠지 대 BLG · 15일(일) 오전 4시 뉴욕 · 국제대회 맞대결 2승 2패 — 11월 11일 4장",
      "metrics": {
-      "views": 10,
+      "views": 12,
       "reach": 5,
       "likes": 1,
       "comments": 0,
@@ -812,7 +866,7 @@
      "permalink": "https://www.instagram.com/p/DflJN1SIzeh/",
      "first_line": "[⚽ 축구 모닝 · A매치 프리뷰] 한국–사우디 금 밤 11:30 · 한국–카타르 화 밤 11:00",
      "metrics": {
-      "views": 12,
+      "views": 13,
       "reach": 4,
       "likes": 0,
       "comments": 0,
@@ -995,16 +1049,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 132,
-      "reach": 108,
+      "views": 135,
+      "reach": 109,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2807,
-      "ig_reels_video_view_total_time": 314495,
-      "reels_skip_rate": 76.9
+      "ig_reels_avg_watch_time": 2801,
+      "ig_reels_video_view_total_time": 316522,
+      "reels_skip_rate": 77.1
      }
     },
     {
@@ -1072,73 +1126,13 @@
       "ig_reels_video_view_total_time": 4783,
       "reels_skip_rate": 100
      }
-    },
-    {
-     "id": "18129039493942173",
-     "type": "REELS",
-     "timestamp": "2026-11-07T23:51:07+0000",
-     "permalink": "https://www.instagram.com/reel/DfdZt-hgSVD/",
-     "first_line": "[⚽ 축구 모닝] 맨시티 노팅엄 원정 1-3 리그 3연패 · 아스널 1-0 헐 선두",
-     "tag": "⚽ 축구 모닝",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 121,
-      "reach": 111,
-      "likes": 1,
-      "comments": 0,
-      "shares": 2,
-      "saved": 0,
-      "total_interactions": 3,
-      "ig_reels_avg_watch_time": 4115,
-      "ig_reels_video_view_total_time": 469149,
-      "reels_skip_rate": 69.1
-     }
-    },
-    {
-     "id": "17927676078201617",
-     "type": "FEED",
-     "timestamp": "2026-11-07T23:49:30+0000",
-     "permalink": "https://www.instagram.com/p/DfdZkLzlRGU/",
-     "first_line": "[⚽ 축구 모닝] 맨시티 노팅엄 원정 1-3 리그 3연패 · 김민재 결장 · 레알 3-0 공동 선두 — 6장",
-     "metrics": {
-      "views": 8,
-      "reach": 3,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
-    },
-    {
-     "id": "18110292362252904",
-     "type": "REELS",
-     "timestamp": "2026-11-07T22:45:33+0000",
-     "permalink": "https://www.instagram.com/reel/DfdSPEVASqA/",
-     "first_line": "[🏟 밤사이 결과] 결과판 4장 한 번에",
-     "tag": "🏟 밤사이 결과",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 127,
-      "reach": 107,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 4204,
-      "ig_reels_video_view_total_time": 454131,
-      "reels_skip_rate": 76.4
-     }
     }
    ],
    "errors": [],
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 7,
-   "posts": 128
+   "posts": 131
   }
  ]
 }
