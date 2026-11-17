@@ -2928,5 +2928,25 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:18102579569546575": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-11-16T12:12:30+0000",
+  "snapshot_utc": "2026-11-17T13:08:58Z",
+  "age_h": 24.9,
+  "first_line": "[AI·테크] ICT 수출 703억 5천만 달러, 1년 새 202% · Claude Fable 5.2 출력 40달러 · AI가 카드로 결제하는 ",
+  "metrics": {
+   "views": 123,
+   "reach": 109,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 3521,
+   "ig_reels_video_view_total_time": 390884,
+   "reels_skip_rate": 89.1
+  }
  }
 }
