@@ -2857,5 +2857,76 @@
    "ig_reels_video_view_total_time": 231579,
    "reels_skip_rate": 87
   }
+ },
+ "main:17913745377590713": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-15T23:26:43+0000",
+  "snapshot_utc": "2026-11-17T03:43:25Z",
+  "age_h": 28.3,
+  "first_line": "[AI·테크] 10월 ICT 수출 703억 5천만 달러(+202%) · Claude Fable 5.2 출력 40달러 · 챗GPT 월렛 — 11월",
+  "metrics": {
+   "views": 12,
+   "reach": 4,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18120444100998239": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-16T00:02:13+0000",
+  "snapshot_utc": "2026-11-17T03:43:25Z",
+  "age_h": 27.7,
+  "first_line": "[🏆 이벤트 픽] 최혜진, 더 안니카 14언더파 단독 2위 · LPGA 통산 10번째 준우승 · 린디 덩컨 222번째 출전 만의 첫 우승 — 4",
+  "metrics": {
+   "views": 10,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18174115966478475": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-16T00:01:31+0000",
+  "snapshot_utc": "2026-11-17T03:43:25Z",
+  "age_h": 27.7,
+  "first_line": "[⚽ 축구 모닝 · A매치 결과] 잉글랜드 3-2 스페인 원정승 · 스페인 43경기 무패 끝 · 벨기에 4-1, 이탈리아 8강 탈락",
+  "metrics": {
+   "views": 120,
+   "reach": 104,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 3684,
+   "ig_reels_video_view_total_time": 383153,
+   "reels_skip_rate": 75.7
+  }
+ },
+ "sports:18094723742656098": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-15T23:59:42+0000",
+  "snapshot_utc": "2026-11-17T03:43:25Z",
+  "age_h": 27.7,
+  "first_line": "[⚽ 축구 모닝 · A매치 결과] 잉글랜드, 스페인 원정 3-2 — 스페인 43경기 무패 끝 · 벨기에 4-1 이탈리아",
+  "metrics": {
+   "views": 8,
+   "reach": 2,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
