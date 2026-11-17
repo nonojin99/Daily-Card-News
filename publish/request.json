@@ -2,39 +2,12 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-17_football-brief",
-   "caption": "captions/2026-11-17_football.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "review": "required"
-  },
-  {
-   "kind": "reel",
-   "media": "reels/2026-11/2026-11-17_football.mp4",
-   "caption": "captions/2026-11-17_football_reel.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "ab": "short",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-17_money-brief",
-   "caption": "captions/2026-11-17_money.txt",
-   "dry_run": "false",
-   "is_ai": "true",
-   "review": "human"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-17_health-brief",
-   "caption": "captions/2026-11-17_health.txt",
+   "media": "cards/2026-11/2026-11-18_culture-brief",
+   "caption": "captions/2026-11-18_culture.txt",
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
   }
  ],
- "note": "11/17 화 서브 플러스 머니·헬스 캐러셀 — 사용자 이미지 확인 후 게시 지시(11/17), card-visual-reviewer 실물 JPG PASS. 같은 날 축구 모닝 항목(@hannun.sports)은 그대로 둠."
+ "note": "11/18 수 문화 코너 캐러셀 — card-visual-reviewer 실물 JPG PASS (2026-11-07 결정: 수·목·금 브리프는 각자 캐러셀로 게시). 같은 날 서브 플러스(OTT) 요청은 이 항목을 지우지 말고 뒤에 더한다."
 }
