@@ -2948,5 +2948,22 @@
    "ig_reels_video_view_total_time": 390884,
    "reels_skip_rate": 89.1
   }
+ },
+ "sports:18497474884106113": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-16T14:50:26+0000",
+  "snapshot_utc": "2026-11-17T22:12:39Z",
+  "age_h": 31.4,
+  "first_line": "[🎮 e스포츠] BLG 3-1 젠지 · LCK 4연속 우승 마감 · LPL 5년 만에 롤드컵 정상 — 11월 16일 3장",
+  "metrics": {
+   "views": 9,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
