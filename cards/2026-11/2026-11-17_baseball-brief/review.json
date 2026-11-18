@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "bb96d46894db55329bee4a8b84e06ac8cb2afeca",
+ "by": "agent",
+ "cards": 7,
+ "at": "2026-11-18T13:45:39Z",
+ "note": "card-visual-reviewer 구운 JPG 실물 PASS(7장, 캡션 순서 일치·해시태그 5개, WARN 2 — 카드3 14일 근거·카드1 note)"
+}
