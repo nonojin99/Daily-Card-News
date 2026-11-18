@@ -25,7 +25,16 @@
    "is_ai": "false",
    "account": "sports",
    "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-18_esports-brief",
+   "caption": "captions/2026-11-18_esports.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "account": "sports",
+   "review": "required"
   }
  ],
- "note": "11/18 수 문화 코너 캐러셀 — card-visual-reviewer 실물 JPG PASS (2026-11-07 결정: 수·목·금 브리프는 각자 캐러셀로 게시). 같은 날 서브 플러스(OTT) 요청은 이 항목을 지우지 말고 뒤에 더한다. | 11/17 야구 나이트·e스포츠 캐러셀(@hannun.sports) — 루틴 지연으로 11/18 밤 요청, card-visual-reviewer 실물 JPG PASS."
+ "note": "11/18 수 문화 코너 캐러셀 — card-visual-reviewer 실물 JPG PASS (2026-11-07 결정: 수·목·금 브리프는 각자 캐러셀로 게시). 같은 날 서브 플러스(OTT) 요청은 이 항목을 지우지 말고 뒤에 더한다. | 11/17 야구 나이트·e스포츠 캐러셀(@hannun.sports) — 루틴 지연으로 11/18 밤 요청, card-visual-reviewer 실물 JPG PASS. | 11/18 e스포츠 캐러셀(@hannun.sports) — card-visual-reviewer 실물 JPG PASS. 야구는 비시즌 수요일 발행 없음."
 }
