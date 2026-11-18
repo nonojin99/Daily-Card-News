@@ -3036,5 +3036,45 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:17922809229461390": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-11-17T12:14:35+0000",
+  "snapshot_utc": "2026-11-18T13:49:54Z",
+  "age_h": 25.6,
+  "first_line": "[💰 머니] 유류세 인하 1/31까지 · 저축은행 4%대 예금 154개 · 가계대출 1,200조 💰",
+  "metrics": {
+   "views": 116,
+   "reach": 104,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1674,
+   "ig_reels_video_view_total_time": 174175,
+   "reels_skip_rate": 91.3
+  }
+ },
+ "main:17959872117289257": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-11-17T12:13:11+0000",
+  "snapshot_utc": "2026-11-18T13:49:54Z",
+  "age_h": 25.6,
+  "first_line": "[🩺 헬스] 독감 외래 1,000명당 28.9명 · '공부 잘하는 약' 불법 판매 571건 · 근육량과 알츠하이머 🩺",
+  "metrics": {
+   "views": 112,
+   "reach": 105,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1473,
+   "ig_reels_video_view_total_time": 154679,
+   "reels_skip_rate": 94.2
+  }
  }
 }
