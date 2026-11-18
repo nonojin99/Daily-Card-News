@@ -2965,5 +2965,76 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:18136760104675169": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-17T03:59:51+0000",
+  "snapshot_utc": "2026-11-18T04:10:45Z",
+  "age_h": 24.2,
+  "first_line": "[🩺 헬스] 독감 45주 외래 1,000명당 28.9명 · 7~12세 73.5명 · '공부 잘하는 약' 불법 판매 571건",
+  "metrics": {
+   "views": 12,
+   "reach": 5,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "main:18111209305946556": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-17T03:57:56+0000",
+  "snapshot_utc": "2026-11-18T04:10:45Z",
+  "age_h": 24.2,
+  "first_line": "[💰 머니] 유류세 인하 1월 31일까지 · 저축은행 4%대 예금 154개 · 가계대출 1,200조",
+  "metrics": {
+   "views": 15,
+   "reach": 5,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18456014554121416": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-16T23:53:11+0000",
+  "snapshot_utc": "2026-11-18T04:10:45Z",
+  "age_h": 28.3,
+  "first_line": "[⚽ 축구 모닝 · A매치 결과] 독일 5-0 네덜란드 · 비르츠 2골 · 세 팀 11점 동률, 그리스 8강 탈락",
+  "metrics": {
+   "views": 121,
+   "reach": 106,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 2725,
+   "ig_reels_video_view_total_time": 277975,
+   "reels_skip_rate": 82.4
+  }
+ },
+ "sports:17956953216299659": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-16T23:51:33+0000",
+  "snapshot_utc": "2026-11-18T04:10:45Z",
+  "age_h": 28.3,
+  "first_line": "[⚽ 축구 모닝 · A매치 결과] 독일 5-0 네덜란드 — 세 팀 11점 동률 속 2조 1위로 8강 · 그리스는 1-0 이기고도 8강 탈락",
+  "metrics": {
+   "views": 5,
+   "reach": 2,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
