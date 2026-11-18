@@ -3076,5 +3076,22 @@
    "ig_reels_video_view_total_time": 154679,
    "reels_skip_rate": 94.2
   }
+ },
+ "main:17961823671011946": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-17T21:03:58+0000",
+  "snapshot_utc": "2026-11-18T21:50:16Z",
+  "age_h": 24.8,
+  "first_line": "[문화] 아르헤리치·뒤트와 한국 첫 한 무대 · 오키프 회화 16점 과천에 · 김윤석·구교환 〈폭설〉 — 11월 18일 문화 브리프 6장",
+  "metrics": {
+   "views": 22,
+   "reach": 4,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
