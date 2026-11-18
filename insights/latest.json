@@ -1,11 +1,71 @@
 {
- "collected_kst": "2026-11-17 18:26",
+ "collected_kst": "2026-11-18 17:44",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-17T09:26:01.869518Z",
+   "checked_at": "2026-11-18T08:43:48.243264Z",
    "media": [
+    {
+     "id": "17961823671011946",
+     "type": "FEED",
+     "timestamp": "2026-11-17T21:03:58+0000",
+     "permalink": "https://www.instagram.com/p/Df22kj6Gsbj/",
+     "first_line": "[문화] 아르헤리치·뒤트와 한국 첫 한 무대 · 오키프 회화 16점 과천에 · 김윤석·구교환 〈폭설〉 — 11월 18일 문화 브리프 6장",
+     "metrics": {
+      "views": 12,
+      "reach": 3,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "17922809229461390",
+     "type": "REELS",
+     "timestamp": "2026-11-17T12:14:35+0000",
+     "permalink": "https://www.instagram.com/reel/Df15-DEDERu/",
+     "first_line": "[💰 머니] 유류세 인하 1/31까지 · 저축은행 4%대 예금 154개 · 가계대출 1,200조 💰",
+     "tag": "💰 머니",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 116,
+      "reach": 104,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 1674,
+      "ig_reels_video_view_total_time": 174175,
+      "reels_skip_rate": 91.3
+     }
+    },
+    {
+     "id": "17959872117289257",
+     "type": "REELS",
+     "timestamp": "2026-11-17T12:13:11+0000",
+     "permalink": "https://www.instagram.com/reel/Df150knDCpG/",
+     "first_line": "[🩺 헬스] 독감 외래 1,000명당 28.9명 · '공부 잘하는 약' 불법 판매 571건 · 근육량과 알츠하이머 🩺",
+     "tag": "🩺 헬스",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 112,
+      "reach": 105,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 1473,
+      "ig_reels_video_view_total_time": 154679,
+      "reels_skip_rate": 94.2
+     }
+    },
     {
      "id": "18136760104675169",
      "type": "FEED",
@@ -13,8 +73,8 @@
      "permalink": "https://www.instagram.com/p/Df1BXpKEQ5d/",
      "first_line": "[🩺 헬스] 독감 45주 외래 1,000명당 28.9명 · 7~12세 73.5명 · '공부 잘하는 약' 불법 판매 571건",
      "metrics": {
-      "views": 9,
-      "reach": 4,
+      "views": 12,
+      "reach": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -29,8 +89,8 @@
      "permalink": "https://www.instagram.com/p/Df1BKvmEdx9/",
      "first_line": "[💰 머니] 유류세 인하 1월 31일까지 · 저축은행 4%대 예금 154개 · 가계대출 1,200조",
      "metrics": {
-      "views": 14,
-      "reach": 4,
+      "views": 15,
+      "reach": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -179,7 +239,7 @@
      "permalink": "https://www.instagram.com/p/DflBnyjkS-A/",
      "first_line": "[🩺 헬스] 독감 44주 외래 1,000명당 22.8명 · 털진드기 밀도 150%↑ · 나이지리아 에볼라 검역",
      "metrics": {
-      "views": 30,
+      "views": 34,
       "reach": 6,
       "likes": 1,
       "comments": 0,
@@ -214,16 +274,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 157,
-      "reach": 132,
+      "views": 158,
+      "reach": 133,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3184,
-      "ig_reels_video_view_total_time": 429897,
-      "reels_skip_rate": 75.8
+      "ig_reels_avg_watch_time": 3189,
+      "ig_reels_video_view_total_time": 433775,
+      "reels_skip_rate": 75.2
      }
     },
     {
@@ -479,71 +539,17 @@
       "ig_reels_video_view_total_time": 244911,
       "reels_skip_rate": 87.3
      }
-    },
-    {
-     "id": "18172009675407814",
-     "type": "FEED",
-     "timestamp": "2026-10-29T20:57:59+0000",
-     "permalink": "https://www.instagram.com/p/DfF6yCGma43/",
-     "first_line": "[주말 뭐하지] 이번 주말 갈 만한 곳 — 한강 드론 2,000대·여수 불꽃축제·부산 고등어 맨손 잡기",
-     "metrics": {
-      "views": 10,
-      "reach": 4,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
-    },
-    {
-     "id": "18131743181510154",
-     "type": "REELS",
-     "timestamp": "2026-10-29T12:09:36+0000",
-     "permalink": "https://www.instagram.com/reel/DfE-SIvDbYN/",
-     "first_line": "[🍜 푸드] 피자설기 하루 6,000개 · 시경 픽 비빔밥 50만 개 · 군고구마는 호빵의 3배",
-     "tag": "🍜 푸드",
-     "variant": "short",
-     "opening": "motion",
-     "metrics": {
-      "views": 134,
-      "reach": 120,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3638,
-      "ig_reels_video_view_total_time": 443859,
-      "reels_skip_rate": 65.5
-     }
-    },
-    {
-     "id": "18189231928364614",
-     "type": "FEED",
-     "timestamp": "2026-10-29T10:47:31+0000",
-     "permalink": "https://www.instagram.com/p/DfE08OZoBtr/",
-     "first_line": "[🍜 푸드] 피자설기 하루 6,000개 · 군고구마는 호빵의 3배",
-     "metrics": {
-      "views": 11,
-      "reach": 4,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 63
+   "posts": 67
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-17T09:26:20.397449Z",
+   "checked_at": "2026-11-18T08:44:00.123533Z",
    "media": [
     {
      "id": "18456014554121416",
@@ -555,16 +561,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 119,
-      "reach": 104,
+      "views": 121,
+      "reach": 106,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2760,
-      "ig_reels_video_view_total_time": 276061,
-      "reels_skip_rate": 82
+      "ig_reels_avg_watch_time": 2725,
+      "ig_reels_video_view_total_time": 277975,
+      "reels_skip_rate": 82.4
      }
     },
     {
@@ -574,8 +580,8 @@
      "permalink": "https://www.instagram.com/p/Df0k9CDlEEk/",
      "first_line": "[⚽ 축구 모닝 · A매치 결과] 독일 5-0 네덜란드 — 세 팀 11점 동률 속 2조 1위로 8강 · 그리스는 1-0 이기고도 8강 탈락",
      "metrics": {
-      "views": 4,
-      "reach": 2,
+      "views": 6,
+      "reach": 3,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -625,16 +631,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 120,
-      "reach": 104,
+      "views": 121,
+      "reach": 105,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3684,
-      "ig_reels_video_view_total_time": 383153,
-      "reels_skip_rate": 75.7
+      "ig_reels_avg_watch_time": 3655,
+      "ig_reels_video_view_total_time": 383859,
+      "reels_skip_rate": 76
      }
     },
     {
@@ -670,8 +676,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2117,
-      "ig_reels_video_view_total_time": 237153,
+      "ig_reels_avg_watch_time": 2098,
+      "ig_reels_video_view_total_time": 237154,
       "reels_skip_rate": 87.4
      }
     },
@@ -692,8 +698,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2939,
-      "ig_reels_video_view_total_time": 11758,
+      "ig_reels_avg_watch_time": 2575,
+      "ig_reels_video_view_total_time": 12879,
       "reels_skip_rate": 100
      }
     },
@@ -812,8 +818,8 @@
      "permalink": "https://www.instagram.com/p/DfpUb8NFE3X/",
      "first_line": "[🎮 e스포츠] 젠지 4강까지 10승 1패 · 승률 90.9% 역대 2위 · BLG, 한국 팀 상대 8승 1패 — 11월 12일 3장",
      "metrics": {
-      "views": 3,
-      "reach": 2,
+      "views": 5,
+      "reach": 3,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -1011,15 +1017,15 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 3,
-      "reach": 2,
+      "views": 4,
+      "reach": 3,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 5829,
-      "ig_reels_video_view_total_time": 29148,
+      "ig_reels_avg_watch_time": 5014,
+      "ig_reels_video_view_total_time": 30088,
       "reels_skip_rate": 100
      }
     },
@@ -1071,16 +1077,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 128,
-      "reach": 111,
+      "views": 129,
+      "reach": 112,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2391,
-      "ig_reels_video_view_total_time": 263114,
-      "reels_skip_rate": 82.6
+      "ig_reels_avg_watch_time": 2378,
+      "ig_reels_video_view_total_time": 264019,
+      "reels_skip_rate": 82.7
      }
     },
     {
@@ -1093,16 +1099,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 129,
-      "reach": 108,
+      "views": 130,
+      "reach": 109,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2641,
-      "ig_reels_video_view_total_time": 290526,
-      "reels_skip_rate": 77.6
+      "ig_reels_avg_watch_time": 2624,
+      "ig_reels_video_view_total_time": 291324,
+      "reels_skip_rate": 77.8
      }
     },
     {
@@ -1115,15 +1121,15 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 3,
-      "reach": 2,
+      "views": 4,
+      "reach": 3,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1594,
-      "ig_reels_video_view_total_time": 4783,
+      "ig_reels_avg_watch_time": 1394,
+      "ig_reels_video_view_total_time": 5576,
       "reels_skip_rate": 100
      }
     }
