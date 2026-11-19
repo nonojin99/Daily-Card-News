@@ -2,48 +2,12 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-19_activity-brief",
-   "caption": "captions/2026-11-19_activity.txt",
+   "media": "cards/2026-11/2026-11-20_travel-brief",
+   "caption": "captions/2026-11-20_travel.txt",
    "dry_run": "false",
    "is_ai": "true",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-19_football-brief",
-   "caption": "captions/2026-11-19_football.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "review": "required"
-  },
-  {
-   "kind": "reel",
-   "media": "reels/2026-11/2026-11-19_football.mp4",
-   "caption": "captions/2026-11-19_football_reel.txt",
-   "ab": "short",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-19_food-brief",
-   "caption": "captions/2026-11-19_food.txt",
-   "dry_run": "false",
-   "is_ai": "true",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-19_esports-brief",
-   "caption": "captions/2026-11-19_esports.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
    "review": "required"
   }
  ],
- "note": "11/19 목 액티비티 코너 캐러셀 — card-visual-reviewer 실물 JPG 검수 (2026-11-07 결정: 수·목·금 브리프는 각자 캐러셀로 게시). 11/18 항목(문화·야구·e스포츠)은 지난 날짜라 지움. 같은 날 서브 플러스(푸드) 요청은 이 항목을 지우지 말고 뒤에 더한다. | 11/19 목 축구 모닝 A매치 결과 캐러셀 + 10초판 릴스(@hannun.sports, card-visual-reviewer JPG·reel-reviewer PASS) 추가. 이벤트 픽 대상 없음. | 11/19 목 푸드 캐러셀(서브 플러스, card-visual-reviewer 실물 JPG PASS) 추가 — 같은 날 액티비티·축구 항목은 그대로 둠. | 11/19 e스포츠 캐러셀(@hannun.sports) — card-visual-reviewer 실물 JPG PASS. 야구는 비시즌 목요일 발행 없음."
+ "note": "11/20 금 여행 브리프 캐러셀(본계정, 2026-11-07 결정 — 수·목·금 브리프 각자 업로드). card-visual-reviewer 실물 JPG 7장 PASS(1차 검수에서 안산 AI 그림 궁궐 문루 FAIL → 재생성 뒤 PASS). 주말 뭐하지 하이라이트는 검수 뒤 이어서 추가. 11/19 항목은 지난 날짜라 지움."
 }
