@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "13be66c4bd735ca5343701a18cf823c67e423869",
+ "by": "agent",
+ "cards": 6,
+ "at": "2026-11-19T14:52:08Z",
+ "note": "card-visual-reviewer 실물 JPG PASS (FAIL 0, WARN 4)"
+}
