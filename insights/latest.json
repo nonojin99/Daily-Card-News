@@ -1,11 +1,27 @@
 {
- "collected_kst": "2026-11-18 17:44",
+ "collected_kst": "2026-11-19 17:59",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-18T08:43:48.243264Z",
+   "checked_at": "2026-11-19T08:59:05.169831Z",
    "media": [
+    {
+     "id": "18120198857095835",
+     "type": "FEED",
+     "timestamp": "2026-11-18T21:09:36+0000",
+     "permalink": "https://www.instagram.com/p/Df5cAjtiUR8/",
+     "first_line": "[주말 액티비티] 잠실 크리스마스 마켓 1/3까지 · 놀이공원 수험생 할인 · 묵호항 토요일 드론쇼 — 11월 19일 액티비티 브리프 6장",
+     "metrics": {
+      "views": 7,
+      "reach": 3,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
     {
      "id": "17961823671011946",
      "type": "FEED",
@@ -13,8 +29,8 @@
      "permalink": "https://www.instagram.com/p/Df22kj6Gsbj/",
      "first_line": "[문화] 아르헤리치·뒤트와 한국 첫 한 무대 · 오키프 회화 16점 과천에 · 김윤석·구교환 〈폭설〉 — 11월 18일 문화 브리프 6장",
      "metrics": {
-      "views": 12,
-      "reach": 3,
+      "views": 22,
+      "reach": 4,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -517,40 +533,104 @@
       "saved": 0,
       "total_interactions": 0
      }
-    },
-    {
-     "id": "18129826966808045",
-     "type": "REELS",
-     "timestamp": "2026-10-30T12:12:17+0000",
-     "permalink": "https://www.instagram.com/reel/DfHjYcsDu3N/",
-     "first_line": "[주말 뭐하지] 한강에 드론 2,000대 · 정동야행 34곳 야간 개방 · 여수 불꽃축제 31일 19시",
-     "tag": "주말 뭐하지",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 117,
-      "reach": 106,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2310,
-      "ig_reels_video_view_total_time": 244911,
-      "reels_skip_rate": 87.3
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 67
+   "posts": 69
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-18T08:44:00.123533Z",
+   "checked_at": "2026-11-19T08:59:16.899880Z",
    "media": [
+    {
+     "id": "18148930165574091",
+     "type": "REELS",
+     "timestamp": "2026-11-18T23:49:44+0000",
+     "permalink": "https://www.instagram.com/reel/Df5uTaCCNzO/",
+     "first_line": "[⚽ 축구 모닝 · A매치 결과] 한국 1-0 카타르 · 오세훈 43분 헤더 · 손흥민 60호 골은 내년으로",
+     "tag": "⚽ 축구 모닝 · A매치 결과",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 121,
+      "reach": 107,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2522,
+      "ig_reels_video_view_total_time": 269867,
+      "reels_skip_rate": 80.4
+     }
+    },
+    {
+     "id": "17926788189453244",
+     "type": "FEED",
+     "timestamp": "2026-11-18T23:47:40+0000",
+     "permalink": "https://www.instagram.com/p/Df5uHkEkXLn/",
+     "first_line": "[⚽ 축구 모닝 · A매치 결과] 한국 1-0 카타르 — 오세훈 43분 헤더로 올해 마지막 A매치 승리 · 노르웨이 3-2 역전으로 네이션스리그",
+     "metrics": {
+      "views": 5,
+      "reach": 2,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18155763487532582",
+     "type": "FEED",
+     "timestamp": "2026-11-18T14:53:46+0000",
+     "permalink": "https://www.instagram.com/p/Df4xBL5kZkv/",
+     "first_line": "[🎮 e스포츠] 킹겐 2028년까지 농심 잔류 · 유칼 7년 만에 DN 수퍼스로 · 빈센조 BNK · 세탭 브리온 — LCK FA 둘째 날 3장",
+     "metrics": {
+      "views": 5,
+      "reach": 2,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18035084399855485",
+     "type": "FEED",
+     "timestamp": "2026-11-18T13:48:54+0000",
+     "permalink": "https://www.instagram.com/p/Df4pk3CoB_S/",
+     "first_line": "[🎮 e스포츠] LCK FA 첫날 · 젠지 기인·캐니언 계약 종료 · 커즈 DN 수퍼스행 · 키움 DRX 1군 6명 결별 — 11월 17일 4장",
+     "metrics": {
+      "views": 2,
+      "reach": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18121737457788313",
+     "type": "FEED",
+     "timestamp": "2026-11-18T13:47:05+0000",
+     "permalink": "https://www.instagram.com/p/Df4pYuGIC9a/",
+     "first_line": "[⚾ 야구 나이트] FA 시장 개장 · 양의지 두산 2년 최대 55억 · 승인 22명 · APBC 1-5 준우승",
+     "metrics": {
+      "views": 0,
+      "reach": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
     {
      "id": "18456014554121416",
      "type": "REELS",
@@ -580,7 +660,7 @@
      "permalink": "https://www.instagram.com/p/Df0k9CDlEEk/",
      "first_line": "[⚽ 축구 모닝 · A매치 결과] 독일 5-0 네덜란드 — 세 팀 11점 동률 속 2조 1위로 8강 · 그리스는 1-0 이기고도 8강 탈락",
      "metrics": {
-      "views": 6,
+      "views": 7,
       "reach": 3,
       "likes": 0,
       "comments": 0,
@@ -1017,120 +1097,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 4,
-      "reach": 3,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1,
-      "ig_reels_avg_watch_time": 5014,
-      "ig_reels_video_view_total_time": 30088,
-      "reels_skip_rate": 100
-     }
-    },
-    {
-     "id": "18123303607986177",
-     "type": "FEED",
-     "timestamp": "2026-11-08T12:21:23+0000",
-     "permalink": "https://www.instagram.com/p/DfevnESkRnX/",
-     "first_line": "[⚾ 야구 나이트] 삼성 12년 만의 한국시리즈 우승 · 12-1 KT, 4승 1패",
-     "metrics": {
-      "views": 14,
+      "views": 7,
       "reach": 4,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
-    },
-    {
-     "id": "18145801798517272",
-     "type": "REELS",
-     "timestamp": "2026-11-08T08:13:54+0000",
-     "permalink": "https://www.instagram.com/reel/DfeTQm7gS0S/",
-     "first_line": "[⚾ KBO] KT 1:12 삼성",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 135,
-      "reach": 109,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2801,
-      "ig_reels_video_view_total_time": 316522,
-      "reels_skip_rate": 77.1
-     }
-    },
-    {
-     "id": "17989557344879404",
-     "type": "REELS",
-     "timestamp": "2026-11-08T07:37:15+0000",
-     "permalink": "https://www.instagram.com/reel/DfePFTYjTFF/",
-     "first_line": "[⚾ KBO] 한국시리즈 5차전 진행 중 — KT 1:11 삼성",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 129,
-      "reach": 112,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2378,
-      "ig_reels_video_view_total_time": 264019,
-      "reels_skip_rate": 82.7
-     }
-    },
-    {
-     "id": "18181242376442193",
-     "type": "REELS",
-     "timestamp": "2026-11-08T03:05:07+0000",
-     "permalink": "https://www.instagram.com/reel/Dfdv7K7ihAv/",
-     "first_line": "[⚾ KBO] 한국시리즈 5차전 선발 — KT 대니엘 vs 삼성 원태인",
-     "tag": "⚾ KBO",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 130,
-      "reach": 109,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2624,
-      "ig_reels_video_view_total_time": 291324,
-      "reels_skip_rate": 77.8
-     }
-    },
-    {
-     "id": "18114983659876777",
-     "type": "REELS",
-     "timestamp": "2026-11-08T01:04:24+0000",
-     "permalink": "https://www.instagram.com/reel/DfdiGr3kT4K/",
-     "first_line": "[🎮 LoL] 젠지 3:0 IG",
-     "tag": "🎮 LoL",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 4,
-      "reach": 3,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1394,
-      "ig_reels_video_view_total_time": 5576,
-      "reels_skip_rate": 100
+      "ig_reels_avg_watch_time": 6666,
+      "ig_reels_video_view_total_time": 46668,
+      "reels_skip_rate": 75
      }
     }
    ],
@@ -1138,7 +1114,7 @@
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 7,
-   "posts": 131
+   "posts": 136
   }
  ]
 }
