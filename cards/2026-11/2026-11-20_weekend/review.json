@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "a5f758985d01f2ad14ccf263ff5d2212cb88e1f3",
+ "by": "agent",
+ "cards": 10,
+ "at": "2026-11-19T21:17:35Z",
+ "note": "card-visual-reviewer 실물 JPG 검수 3회(출처 장 넘침·마감일 첫머리 FAIL 수정). 마지막 수정은 05(놀이공원 cn-s)뿐 — 로컬 렌더 재검토 PASS, 구운 05·10 을 작성 세션이 대조"
+}

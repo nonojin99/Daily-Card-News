@@ -7,7 +7,15 @@
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-20_weekend",
+   "caption": "captions/2026-11-20_weekend.txt",
+   "dry_run": "false",
+   "is_ai": "true",
+   "review": "required"
   }
  ],
- "note": "11/20 금 여행 브리프 캐러셀(본계정, 2026-11-07 결정 — 수·목·금 브리프 각자 업로드). card-visual-reviewer 실물 JPG 7장 PASS(1차 검수에서 안산 AI 그림 궁궐 문루 FAIL → 재생성 뒤 PASS). 주말 뭐하지 하이라이트는 검수 뒤 이어서 추가. 11/19 항목은 지난 날짜라 지움."
+ "note": "11/20 금 여행 브리프 캐러셀(본계정, 2026-11-07 결정 — 수·목·금 브리프 각자 업로드). card-visual-reviewer 실물 JPG 7장 PASS(1차 검수에서 안산 AI 그림 궁궐 문루 FAIL → 재생성 뒤 PASS). 주말 뭐하지 하이라이트는 검수 뒤 이어서 추가. 11/19 항목은 지난 날짜라 지움. | 주말 뭐하지 하이라이트(주말 계획용 요약, 8장) 추가 — 검수 FAIL(출처 장 넘침·마감형 카드 날짜) 고친 뒤 PASS. 여행 항목은 같은 날 항목이라 남김."
 }
