@@ -3093,5 +3093,73 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:18120198857095835": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-18T21:09:36+0000",
+  "snapshot_utc": "2026-11-19T21:24:31Z",
+  "age_h": 24.2,
+  "first_line": "[주말 액티비티] 잠실 크리스마스 마켓 1/3까지 · 놀이공원 수험생 할인 · 묵호항 토요일 드론쇼 — 11월 19일 액티비티 브리프 6장",
+  "metrics": {
+   "views": 9,
+   "reach": 4,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18155763487532582": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-18T14:53:46+0000",
+  "snapshot_utc": "2026-11-19T21:24:31Z",
+  "age_h": 30.5,
+  "first_line": "[🎮 e스포츠] 킹겐 2028년까지 농심 잔류 · 유칼 7년 만에 DN 수퍼스로 · 빈센조 BNK · 세탭 브리온 — LCK FA 둘째 날 3장",
+  "metrics": {
+   "views": 7,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18035084399855485": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-18T13:48:54+0000",
+  "snapshot_utc": "2026-11-19T21:24:31Z",
+  "age_h": 31.6,
+  "first_line": "[🎮 e스포츠] LCK FA 첫날 · 젠지 기인·캐니언 계약 종료 · 커즈 DN 수퍼스행 · 키움 DRX 1군 6명 결별 — 11월 17일 4장",
+  "metrics": {
+   "views": 7,
+   "reach": 2,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18121737457788313": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-18T13:47:05+0000",
+  "snapshot_utc": "2026-11-19T21:24:31Z",
+  "age_h": 31.6,
+  "first_line": "[⚾ 야구 나이트] FA 시장 개장 · 양의지 두산 2년 최대 55억 · 승인 22명 · APBC 1-5 준우승",
+  "metrics": {
+   "views": 6,
+   "reach": 2,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
