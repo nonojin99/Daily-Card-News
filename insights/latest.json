@@ -1,11 +1,59 @@
 {
- "collected_kst": "2026-11-19 17:59",
+ "collected_kst": "2026-11-20 17:46",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-19T08:59:05.169831Z",
+   "checked_at": "2026-11-20T08:46:24.437298Z",
    "media": [
+    {
+     "id": "18347523508260374",
+     "type": "FEED",
+     "timestamp": "2026-11-19T21:19:28+0000",
+     "permalink": "https://www.instagram.com/p/Df8B7yigdFg/",
+     "first_line": "[주말 뭐하지] 주말 계획용 요약 — 수·목·금 브리프에서 이번 주말(11/21~22)에 쓸 카드만 모았어요 · 묵호항 토요일 드론쇼 · 모나용",
+     "metrics": {
+      "views": 8,
+      "reach": 3,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18015328481766802",
+     "type": "FEED",
+     "timestamp": "2026-11-19T21:12:33+0000",
+     "permalink": "https://www.instagram.com/p/Df8BKRfmyHU/",
+     "first_line": "[여행] 포항 영일대 21일(토) 밤 국제불꽃쇼 · 주말 서울 아침 영하 5도 · 12월 국제선 유류할증료 27→25단계 — 11월 20일 여행",
+     "metrics": {
+      "views": 2,
+      "reach": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18036469391884237",
+     "type": "FEED",
+     "timestamp": "2026-11-19T11:07:46+0000",
+     "permalink": "https://www.instagram.com/p/Df678wOEd0q/",
+     "first_line": "[🍜 푸드] 광화문 빵 축제 줄 700m · 수험생 샤브 1만 3,900원 · 도미노 포장 반값",
+     "metrics": {
+      "views": 10,
+      "reach": 3,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
     {
      "id": "18120198857095835",
      "type": "FEED",
@@ -13,8 +61,8 @@
      "permalink": "https://www.instagram.com/p/Df5cAjtiUR8/",
      "first_line": "[주말 액티비티] 잠실 크리스마스 마켓 1/3까지 · 놀이공원 수험생 할인 · 묵호항 토요일 드론쇼 — 11월 19일 액티비티 브리프 6장",
      "metrics": {
-      "views": 7,
-      "reach": 3,
+      "views": 9,
+      "reach": 4,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -124,16 +172,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 123,
-      "reach": 109,
+      "views": 124,
+      "reach": 110,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3521,
-      "ig_reels_video_view_total_time": 390884,
-      "reels_skip_rate": 89.1
+      "ig_reels_avg_watch_time": 3499,
+      "ig_reels_video_view_total_time": 391981,
+      "reels_skip_rate": 89.2
      }
     },
     {
@@ -479,72 +527,34 @@
       "ig_reels_video_view_total_time": 464925,
       "reels_skip_rate": 71.7
      }
-    },
-    {
-     "id": "18403560574205884",
-     "type": "FEED",
-     "timestamp": "2026-11-02T03:18:41+0000",
-     "permalink": "https://www.instagram.com/p/DfOUvC-Dc4H/",
-     "first_line": "[AI·테크] 엔비디아 루빈 GPU 메모리 대역폭 22→19.2 TB/s · 엔비디아, 네이버에 10억 달러 투자 · 구글 제미나이 4 카본 —",
-     "metrics": {
-      "views": 17,
-      "reach": 5,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 2
-     }
-    },
-    {
-     "id": "17955478299320430",
-     "type": "REELS",
-     "timestamp": "2026-11-01T01:23:40+0000",
-     "permalink": "https://www.instagram.com/reel/DfLixZgAF2S/",
-     "first_line": "[우주·과학] 가스 원반 백색왜성 21개는 봉우리 2개, 이 별만 4개 — 고리가 두 겹?",
-     "tag": "우주·과학",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 123,
-      "reach": 107,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2843,
-      "ig_reels_video_view_total_time": 321280,
-      "reels_skip_rate": 67.3
-     }
-    },
-    {
-     "id": "18075671999777332",
-     "type": "FEED",
-     "timestamp": "2026-11-01T00:26:45+0000",
-     "permalink": "https://www.instagram.com/p/DfLcQz1mUtK/",
-     "first_line": "[우주·과학] 죽은 별 둘레의 가스 고리가 두 겹? 봉우리가 4개인 신호 🔭 백색왜성 WD J1328−1450",
-     "metrics": {
-      "views": 13,
-      "reach": 3,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 69
+   "posts": 75
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-19T08:59:16.899880Z",
+   "checked_at": "2026-11-20T08:46:34.622151Z",
    "media": [
+    {
+     "id": "18039096011659309",
+     "type": "FEED",
+     "timestamp": "2026-11-19T14:54:47+0000",
+     "permalink": "https://www.instagram.com/p/Df7V6ObEW1A/",
+     "first_line": "[🎮 e스포츠] 전역한 데프트 농심 입단 · 한화생명 제우스·카나비와 결별 · T1 도란과 이별 · DK 쇼메이커 재계약 — LCK FA 셋째 ",
+     "metrics": {
+      "views": 3,
+      "reach": 2,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
     {
      "id": "18148930165574091",
      "type": "REELS",
@@ -555,16 +565,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 121,
-      "reach": 107,
+      "views": 127,
+      "reach": 109,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2522,
-      "ig_reels_video_view_total_time": 269867,
-      "reels_skip_rate": 80.4
+      "ig_reels_avg_watch_time": 2662,
+      "ig_reels_video_view_total_time": 292924,
+      "reels_skip_rate": 80
      }
     },
     {
@@ -574,8 +584,8 @@
      "permalink": "https://www.instagram.com/p/Df5uHkEkXLn/",
      "first_line": "[⚽ 축구 모닝 · A매치 결과] 한국 1-0 카타르 — 오세훈 43분 헤더로 올해 마지막 A매치 승리 · 노르웨이 3-2 역전으로 네이션스리그",
      "metrics": {
-      "views": 5,
-      "reach": 2,
+      "views": 8,
+      "reach": 4,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -590,8 +600,8 @@
      "permalink": "https://www.instagram.com/p/Df4xBL5kZkv/",
      "first_line": "[🎮 e스포츠] 킹겐 2028년까지 농심 잔류 · 유칼 7년 만에 DN 수퍼스로 · 빈센조 BNK · 세탭 브리온 — LCK FA 둘째 날 3장",
      "metrics": {
-      "views": 5,
-      "reach": 2,
+      "views": 7,
+      "reach": 3,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -606,8 +616,8 @@
      "permalink": "https://www.instagram.com/p/Df4pk3CoB_S/",
      "first_line": "[🎮 e스포츠] LCK FA 첫날 · 젠지 기인·캐니언 계약 종료 · 커즈 DN 수퍼스행 · 키움 DRX 1군 6명 결별 — 11월 17일 4장",
      "metrics": {
-      "views": 2,
-      "reach": 1,
+      "views": 7,
+      "reach": 2,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -622,8 +632,8 @@
      "permalink": "https://www.instagram.com/p/Df4pYuGIC9a/",
      "first_line": "[⚾ 야구 나이트] FA 시장 개장 · 양의지 두산 2년 최대 55억 · 승인 22명 · APBC 1-5 준우승",
      "metrics": {
-      "views": 0,
-      "reach": 0,
+      "views": 6,
+      "reach": 2,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -641,16 +651,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 121,
-      "reach": 106,
+      "views": 122,
+      "reach": 107,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2725,
-      "ig_reels_video_view_total_time": 277975,
-      "reels_skip_rate": 82.4
+      "ig_reels_avg_watch_time": 2731,
+      "ig_reels_video_view_total_time": 281359,
+      "reels_skip_rate": 82.5
      }
     },
     {
@@ -1086,35 +1096,13 @@
       "ig_reels_video_view_total_time": 137094,
       "reels_skip_rate": 93.5
      }
-    },
-    {
-     "id": "18460563664120169",
-     "type": "REELS",
-     "timestamp": "2026-11-08T12:23:01+0000",
-     "permalink": "https://www.instagram.com/reel/DfevxHkEQA8/",
-     "first_line": "[⚾ 야구 나이트] 삼성 12-1 KT, 12년 만의 한국시리즈 우승 · 강민호 프로 23년 차 첫 우승",
-     "tag": "⚾ 야구 나이트",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 7,
-      "reach": 4,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1,
-      "ig_reels_avg_watch_time": 6666,
-      "ig_reels_video_view_total_time": 46668,
-      "reels_skip_rate": 75
-     }
     }
    ],
    "errors": [],
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 7,
-   "posts": 136
+   "posts": 137
   }
  ]
 }
