@@ -3161,5 +3161,42 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "sports:18148930165574091": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-18T23:49:44+0000",
+  "snapshot_utc": "2026-11-20T03:01:02Z",
+  "age_h": 27.2,
+  "first_line": "[⚽ 축구 모닝 · A매치 결과] 한국 1-0 카타르 · 오세훈 43분 헤더 · 손흥민 60호 골은 내년으로",
+  "metrics": {
+   "views": 127,
+   "reach": 108,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2674,
+   "ig_reels_video_view_total_time": 291486,
+   "reels_skip_rate": 79.1
+  }
+ },
+ "sports:17926788189453244": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-18T23:47:40+0000",
+  "snapshot_utc": "2026-11-20T03:01:02Z",
+  "age_h": 27.2,
+  "first_line": "[⚽ 축구 모닝 · A매치 결과] 한국 1-0 카타르 — 오세훈 43분 헤더로 올해 마지막 A매치 승리 · 노르웨이 3-2 역전으로 네이션스리그",
+  "metrics": {
+   "views": 8,
+   "reach": 4,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
