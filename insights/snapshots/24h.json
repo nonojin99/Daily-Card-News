@@ -3215,5 +3215,22 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "sports:18039096011659309": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-19T14:54:47+0000",
+  "snapshot_utc": "2026-11-20T20:00:11Z",
+  "age_h": 29.1,
+  "first_line": "[🎮 e스포츠] 전역한 데프트 농심 입단 · 한화생명 제우스·카나비와 결별 · T1 도란과 이별 · DK 쇼메이커 재계약 — LCK FA 셋째 ",
+  "metrics": {
+   "views": 4,
+   "reach": 2,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
