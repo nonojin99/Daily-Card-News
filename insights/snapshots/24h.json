@@ -3198,5 +3198,22 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:18036469391884237": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-19T11:07:46+0000",
+  "snapshot_utc": "2026-11-20T11:23:42Z",
+  "age_h": 24.3,
+  "first_line": "[🍜 푸드] 광화문 빵 축제 줄 700m · 수험생 샤브 1만 3,900원 · 도미노 포장 반값",
+  "metrics": {
+   "views": 11,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
