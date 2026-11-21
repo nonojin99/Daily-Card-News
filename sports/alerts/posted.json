@@ -2026,6 +2026,16 @@
    "status": "published",
    "at_kst": "2026-11-22 02:13",
    "result": "17917188597556391"
+  },
+  "ger.1:401884732": {
+   "image": "sports/alerts/2026-11/2026-11-21_ger-1_0230.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-22 02:30"
+  },
+  "ger.1:401884734": {
+   "image": "sports/alerts/2026-11/2026-11-21_ger-1_0230.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-22 02:30"
   }
  },
  "boards": {
