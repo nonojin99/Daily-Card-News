@@ -2029,13 +2029,15 @@
   },
   "ger.1:401884732": {
    "image": "sports/alerts/2026-11/2026-11-21_ger-1_0230.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-22 02:30"
+   "status": "published",
+   "at_kst": "2026-11-22 02:30",
+   "result": "17997837336100640"
   },
   "ger.1:401884734": {
    "image": "sports/alerts/2026-11/2026-11-21_ger-1_0230.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-22 02:30"
+   "status": "published",
+   "at_kst": "2026-11-22 02:30",
+   "result": "17997837336100640"
   }
  },
  "boards": {
@@ -2360,7 +2362,7 @@
    "final": false
   },
   "ger.1:2026-11-21": {
-   "last": 1795278419.5834088,
+   "last": 1795282343.9132414,
    "final": false
   },
   "ufc:2026-11-22": {
