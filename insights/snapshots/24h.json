@@ -3232,5 +3232,39 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:18347523508260374": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-19T21:19:28+0000",
+  "snapshot_utc": "2026-11-21T01:24:36Z",
+  "age_h": 28.1,
+  "first_line": "[주말 뭐하지] 주말 계획용 요약 — 수·목·금 브리프에서 이번 주말(11/21~22)에 쓸 카드만 모았어요 · 묵호항 토요일 드론쇼 · 모나용",
+  "metrics": {
+   "views": 13,
+   "reach": 4,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "main:18015328481766802": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-19T21:12:33+0000",
+  "snapshot_utc": "2026-11-21T01:24:36Z",
+  "age_h": 28.2,
+  "first_line": "[여행] 포항 영일대 21일(토) 밤 국제불꽃쇼 · 주말 서울 아침 영하 5도 · 12월 국제선 유류할증료 27→25단계 — 11월 20일 여행",
+  "metrics": {
+   "views": 15,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
