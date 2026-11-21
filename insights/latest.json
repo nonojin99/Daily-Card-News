@@ -1,10 +1,10 @@
 {
- "collected_kst": "2026-11-20 17:46",
+ "collected_kst": "2026-11-21 17:28",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-20T08:46:24.437298Z",
+   "checked_at": "2026-11-21T08:28:05.600375Z",
    "media": [
     {
      "id": "18347523508260374",
@@ -13,8 +13,8 @@
      "permalink": "https://www.instagram.com/p/Df8B7yigdFg/",
      "first_line": "[주말 뭐하지] 주말 계획용 요약 — 수·목·금 브리프에서 이번 주말(11/21~22)에 쓸 카드만 모았어요 · 묵호항 토요일 드론쇼 · 모나용",
      "metrics": {
-      "views": 8,
-      "reach": 3,
+      "views": 13,
+      "reach": 4,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -29,8 +29,8 @@
      "permalink": "https://www.instagram.com/p/Df8BKRfmyHU/",
      "first_line": "[여행] 포항 영일대 21일(토) 밤 국제불꽃쇼 · 주말 서울 아침 영하 5도 · 12월 국제선 유류할증료 27→25단계 — 11월 20일 여행",
      "metrics": {
-      "views": 2,
-      "reach": 1,
+      "views": 15,
+      "reach": 3,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -45,7 +45,7 @@
      "permalink": "https://www.instagram.com/p/Df678wOEd0q/",
      "first_line": "[🍜 푸드] 광화문 빵 축제 줄 700m · 수험생 샤브 1만 3,900원 · 도미노 포장 반값",
      "metrics": {
-      "views": 10,
+      "views": 13,
       "reach": 3,
       "likes": 0,
       "comments": 0,
@@ -61,8 +61,8 @@
      "permalink": "https://www.instagram.com/p/Df5cAjtiUR8/",
      "first_line": "[주말 액티비티] 잠실 크리스마스 마켓 1/3까지 · 놀이공원 수험생 할인 · 묵호항 토요일 드론쇼 — 11월 19일 액티비티 브리프 6장",
      "metrics": {
-      "views": 9,
-      "reach": 4,
+      "views": 10,
+      "reach": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -537,8 +537,30 @@
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-20T08:46:34.622151Z",
+   "checked_at": "2026-11-21T08:28:15.084105Z",
    "media": [
+    {
+     "id": "18028916375873955",
+     "type": "REELS",
+     "timestamp": "2026-11-20T22:47:08+0000",
+     "permalink": "https://www.instagram.com/reel/Df-wvmrk4Gc/",
+     "first_line": "[🏟 밤사이 결과] 결과판 2장 한 번에",
+     "tag": "🏟 밤사이 결과",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 146,
+      "reach": 123,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2935,
+      "ig_reels_video_view_total_time": 349273,
+      "reels_skip_rate": 79.2
+     }
+    },
     {
      "id": "18039096011659309",
      "type": "FEED",
@@ -546,7 +568,7 @@
      "permalink": "https://www.instagram.com/p/Df7V6ObEW1A/",
      "first_line": "[🎮 e스포츠] 전역한 데프트 농심 입단 · 한화생명 제우스·카나비와 결별 · T1 도란과 이별 · DK 쇼메이커 재계약 — LCK FA 셋째 ",
      "metrics": {
-      "views": 3,
+      "views": 4,
       "reach": 2,
       "likes": 0,
       "comments": 0,
@@ -584,7 +606,7 @@
      "permalink": "https://www.instagram.com/p/Df5uHkEkXLn/",
      "first_line": "[⚽ 축구 모닝 · A매치 결과] 한국 1-0 카타르 — 오세훈 43분 헤더로 올해 마지막 A매치 승리 · 노르웨이 3-2 역전으로 네이션스리그",
      "metrics": {
-      "views": 8,
+      "views": 11,
       "reach": 4,
       "likes": 0,
       "comments": 0,
@@ -1074,35 +1096,13 @@
       "ig_reels_video_view_total_time": 367413,
       "reels_skip_rate": 80.2
      }
-    },
-    {
-     "id": "17963378861998483",
-     "type": "REELS",
-     "timestamp": "2026-11-08T14:42:51+0000",
-     "permalink": "https://www.instagram.com/reel/Dfe_xnZCAps/",
-     "first_line": "[🏟 오늘 결과] 결과판 4장 한 번에",
-     "tag": "🏟 오늘 결과",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 116,
-      "reach": 108,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1269,
-      "ig_reels_video_view_total_time": 137094,
-      "reels_skip_rate": 93.5
-     }
     }
    ],
    "errors": [],
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 7,
-   "posts": 137
+   "posts": 138
   }
  ]
 }
