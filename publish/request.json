@@ -2,20 +2,23 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-20_travel-brief",
-   "caption": "captions/2026-11-20_travel.txt",
+   "media": "cards/2026-11/2026-11-22_football-brief",
+   "caption": "captions/2026-11-22_football.txt",
    "dry_run": "false",
-   "is_ai": "true",
+   "is_ai": "false",
+   "account": "sports",
    "review": "required"
   },
   {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-20_weekend",
-   "caption": "captions/2026-11-20_weekend.txt",
+   "kind": "reel",
+   "media": "reels/2026-11/2026-11-22_football.mp4",
+   "caption": "captions/2026-11-22_football_reel.txt",
    "dry_run": "false",
-   "is_ai": "true",
+   "is_ai": "false",
+   "account": "sports",
+   "ab": "short",
    "review": "required"
   }
  ],
- "note": "11/20 금 여행 브리프 캐러셀(본계정, 2026-11-07 결정 — 수·목·금 브리프 각자 업로드). card-visual-reviewer 실물 JPG 7장 PASS(1차 검수에서 안산 AI 그림 궁궐 문루 FAIL → 재생성 뒤 PASS). 주말 뭐하지 하이라이트는 검수 뒤 이어서 추가. 11/19 항목은 지난 날짜라 지움. | 주말 뭐하지 하이라이트(주말 계획용 요약, 8장) 추가 — 검수 FAIL(출처 장 넘침·마감형 카드 날짜) 고친 뒤 PASS. 여행 항목은 같은 날 항목이라 남김."
+ "note": "11/22 축구 모닝 캐러셀 + 10초판 릴스(스포츠 계정, 09:00 즉시 게시 규칙). card-visual-reviewer 실물 JPG PASS(1차 FAIL: 순위 칩 오독 → 팀 이름 붙여 재굽기 뒤 PASS), reel-reviewer PASS. 11/20 항목은 지난 날짜라 지움."
 }
