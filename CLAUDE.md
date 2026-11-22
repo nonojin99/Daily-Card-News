@@ -55,9 +55,12 @@ README 는 형식·도구 사용법을 찾아보는 매뉴얼이고, 지난 결�
 1. **준비**: `TZ=Asia/Seoul date '+%Y-%m-%d %A'` → 어제 메인 브리프 tracker(파일 끝 `<!-- tracker -->`)와 최근 3~4일 `<h2>`, 지난주 같은 요일 서브 브리프를 읽는다.
 2. **리서치**: 서브에이전트 2개를 동시에(메인·서브). WebSearch 로 찾고 **기사 본문 URL 을 열어** 숫자·고유명사·날짜·발행일시를 확인한다. 자세한 건 3절.
 3. **작성**: 어제 브리프의 `<style>` 과 구조만 복사하고 액센트 두 줄을 바꾼다. 카드마다 `.cn` 블록, 낭독 원고, 메인은 서울 날씨 한 줄. 4절.
-4. **브리프 검토**: `brief-fact-checker` 에이전트가 README 체크리스트 1~16 을 PASS/FAIL. FAIL 은 고치고, 애매하면 항목을 뺀다.
+4. **브리프 검토**: `brief-fact-checker` 에이전트가 README 체크리스트 1~16 을 PASS/FAIL('오류를 찾는 것이 목적'). 모든 `a.source` 를 열어 문장 단위 대조, 핵심 수치 교차 확인, 숫자·스펙 표 계산, 발행일시 최신성, 요일, 도표 비례, 이미지 크레디트, 원고 분량, 날씨 기사 대조. FAIL 은 고치고, 애매하면 항목을 뺀다(날씨가 애매하면 날씨 한 줄과 원고 날씨 문단을 함께 뺀다).
 5. **카드 검토 2단계**(메인·서브 모두): 5절. 통과 기록이 없으면 push 관문이 막는다.
-6. **발행**: 오늘 브리프 HTML 만 add → `git pull --rebase origin main` → `git push origin HEAD:main`. 막히면 Drive 발행함(README '발행 경로').
+6. **발행**(목표 07:00 KST 전): 오늘 브리프 HTML 만 add → 커밋 메시지 `YYYY-MM-DD daily + {type} brief`(+ 시스템이 주는 attribution 줄) → `git pull --rebase origin main` → `git push origin HEAD:main`(실패하면 rebase 후 한 번만 재시도) → `git ls-remote origin main` 이 방금 커밋과 같은지 확인. push 가 되면 Drive 에 올리지 않는다.
+   - **push 가 403·인증 실패로 막히면 Drive 발행함**: Google Drive `create_file`(ToolSearch 로 로드) — `title` = 파일명, `parentId` = `17ob52bA_haqqQD3l09UmxE1sLOVwezAj`, `textContent` = 디스크의 최종 파일 그대로, `contentMimeType` = `text/html`, `disableConversionToGoogleType` = true. 결과 `fileSize` 가 `wc -c` 와 다르면 같은 이름으로 한 번 더. Actions 가 06:00~09:45 사이 15분마다 가져간다. 보고에 'Drive 경로 사용'.
+   - 둘 다 실패하면 두 HTML 을 SendUserFile 로 보내고 PushNotification 으로 알린다.
+   - 어느 경우든 두 HTML 을 SendUserFile 로도 보낸다(미리보기).
 7. **인스타**(게시하는 날): 6절의 실물 검수 → 승인 기록 + 캡션 + `publish/request.json` 을 한 커밋으로.
 8. **알림·보고**: 7절.
 
@@ -67,7 +70,11 @@ README 는 형식·도구 사용법을 찾아보는 매뉴얼이고, 지난 결�
 - **Firecrawl(`mcp__Firecrawl__*`) 호출 금지.**
 - WebFetch 403(시도 금지): yna.co.kr · mk.co.kr · donga.com · chosun.com · hani.co.kr · news.kbs.co.kr · imnews.imbc.com · naver.com · olympics.com
 - 잘 되는 곳: khan.co.kr · hankookilbo.com · seoul.co.kr · fnnews.com · ytn.co.kr · news1.kr · newsis.com · nocutnews.co.kr · sedaily.com · hankyung.com · edaily.co.kr · newspim.com · ajunews.com · zdnet.co.kr · apnews.com · aljazeera.com · cbsnews.com · techcrunch.com · phys.org · esawebb.org · esahubble.org
-- 발견은 언론사 섹션 첫 화면을 여는 쪽이 검색보다 낫다(검색은 옛 기사가 섞인다).
+- 발견은 언론사 섹션 첫 화면(khan.co.kr·hankookilbo.com·ytn.co.kr·news1.kr 등)을 여는 쪽이 검색보다 낫다(검색은 옛 기사가 섞인다). 주제별로 나눠 찾는다(증시·경제 / 정치 / 사회·사건 / 국제 / 산업·IT).
+- **검색 결과 제목·스니펫만 보고 카드를 쓰지 않는다.** 인용 출처는 주요 언론사 기사 본문 URL 로 고르고, 막힌 매체 기사는 같은 사건을 다룬 다른 매체 본문으로 대체한다.
+- 기사 발행일시를 확인한다. 취재 창구(전날 저녁~오늘 아침) 밖이면 새 전개가 아닌 한 넣지 않는다.
+- 기관 정보(전시·공연 기간, 관람료 등)가 확인되지 않으면 추측하지 말고 '공식 홈페이지 확인 권장'.
+- 리서치 에이전트 분량: **메인 = 화제성 우선 4~7개**(밀도가 낮으면 억지로 채우지 않는다) + 서울 날씨 기사 · **서브 = 분야를 고르게 5~7개**, 항목마다 '알고 보면 달라지는' 디테일 포인트. 에이전트에게 어제·지난주 다룬 항목을 넘기고, 항목마다 기사 발행일시·확인 날짜·사실별 URL 을 받는다.
 - **귀속 기준은 '그 링크 본문에 그 문장이 있는가'다.** 인용문·괄호 속 매체 이름은 문장 단위로 대조한다. 링크가 없는 매체에 귀속하지 않는다(2026-11-22 FAIL 2건).
 - 수치는 두 매체로 교차 확인, 어긋나면 빼거나 '매체별 표기 불일치'. 단일 출처 카드는 ref-note 에 밝힌다.
 - 절차 표기를 정확히: 심의≠의결, 사의 표명≠사표 수리, 1심≠확정, '할 계획'≠'했다', '예정'≠'완료'.
@@ -80,6 +87,7 @@ README 는 형식·도구 사용법을 찾아보는 매뉴얼이고, 지난 결�
 
 ### 구조
 - header(kicker·h1·date·count·lede) → `</header>` 바로 뒤 낭독 원고 → `.section-rule` → `.card`(hanja·topic·h2·summary·spec/timeline·insight·source·ref-note·`.cn`) → footer(tracker).
+- OG 태그(`og:title`·`og:description`)와 `<title>` 을 오늘 날짜·내용으로 바꾼다. 앱(`app/`)이 h1·`.lede`·`.count`·`.weather`·`.audio-player` 를 읽으므로 구조를 바꾸지 않는다.
 - 인사이트 태그: 메인 `Marketing View · 마케터의 시선`, 재난·참사·성범죄·전쟁·사법·정치 사건은 `Context · 맥락 읽기`, 서브 `🔭/🎨/… 알고 보면 달라지는 것`.
 - **복사하지 말 것**: `<div class="audio-player">`·`<img class="cn-gen">`(둘 다 Actions 가 넣는다), 어제 날짜·제목·og 태그·tracker. 복사 뒤 `grep -c 'cn-gen\|audio-player'` 는 CSS 3줄만 나와야 한다.
 
@@ -92,6 +100,7 @@ README 는 형식·도구 사용법을 찾아보는 매뉴얼이고, 지난 결�
   - `cn-steps` 는 모든 칸을 '때 + 일'(`22일 사의|…`)로 쓰면 위아래로 나뉜다. 아래가 비면 `cn-note`(제목에 없는 정보)를 둔다.
   - 그림이 큰 숫자 + 막대처럼 **바로 앞 카드와 같은 구도**면 하나를 바꾼다.
   - 하락률을 양수 막대로 그릴 땐 `cn-note` 에 '하락률(%)'을 적는다.
+- 브리프 본문에 인라인 SVG 도표(`figure.chart`)를 넣을 때는 README '시각화'(계열색 `--s1:#2f6d9e`/`--s2:#c06a24` 고정, 스테퍼는 액센트+회색, 이중축 금지, 좌표는 수치에서 계산, 본문·스펙 표에 없는 값 금지). 비교 가능한 수치가 2개 이상인 카드가 있는데 도표가 0개면 footer 📊 줄에 검토한 카드와 생략 이유를 쓴다.
 - 3회 검토해도 FAIL 인 카드는 그림 재료를 빼고 기록·보고에 적는다.
 
 ### 그림 우선순위 (사용자 지정 최우선 항목)
@@ -107,10 +116,10 @@ README 는 형식·도구 사용법을 찾아보는 매뉴얼이고, 지난 결�
 - 모든 사실·숫자는 카드에 있는 것만. 반올림만, 엇갈리는 수치는 '30여 명'. 단일 출처 수치에만 "○○에 따르면". 시간 순서를 바꿔 인과처럼 들리게 하지 않는다.
 
 ### 서울 날씨 한 줄(메인)
-- 오늘 아침(또는 전날 저녁) 날씨 기사 본문의 **서울** 최저·최고·강수 시간대. 형식 `☀/⛅/☂ 서울 · 최저 N° 최고 N° · …` + `⚠ 변동 가능` + 출처 링크. 서울 값이 없거나 매체가 엇갈리면 넣지 않고 footer 에 이유를 쓴다(원고의 날씨 문단도 함께 뺀다).
+- 오늘 아침(또는 전날 저녁) 날씨 기사 본문의 **서울** 최저·최고·강수 시간대. 형식 `☀/⛅/☂ 서울 · 최저 N° 최고 N° · 비 소식(시간대)` + 비가 있으면 **"우산 챙기세요"** + `⚠ 변동 가능` + 출처 링크(매체·발행 시각). `.masthead-meta` 와 `.lede` 사이에 둔다. 기사에 없는 값(강수확률 등)은 넣지 않는다. 서울 값이 없거나 매체가 엇갈리면 넣지 않고 footer 에 이유를 쓴다(원고의 날씨 문단도 함께 뺀다).
 
 ### tracker (파일 끝 주석)
-①추적 중인 스토리 현재 상태 ②오늘 다룬 항목 ③제외한 항목과 이유 ④이미지 시도 기록 ⑤`reel-opening: 읽는정보|장면` ⑥`mcp__Firecrawl__* 0회`.
+검토 뒤 본문을 고쳤으면 tracker 요약도 같게 맞춘다. ①추적 중인 스토리 현재 상태 ②오늘 다룬 항목 ③제외한 항목과 이유 ④이미지 시도 기록 ⑤`reel-opening: 읽는정보|장면` ⑥`mcp__Firecrawl__* 0회`.
 
 ### 주말 뭐하지 재료(수·목·금)
 - 이번 주말에 쓸모 있는 카드에 `<article class="card" data-weekend="pick">`(문화 2·액티비티 4·여행 2까지). 문화·액티비티·여행 카드는 그림이 사진·AI 여도 `cn-when` 을 남긴다.
