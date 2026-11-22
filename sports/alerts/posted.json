@@ -2191,8 +2191,9 @@
   },
   "ger.1:401884730": {
    "image": "sports/alerts/2026-11/2026-11-22_ger-1_0333.jpg",
-   "status": "pending",
-   "at_kst": "2026-11-23 03:33"
+   "status": "published",
+   "at_kst": "2026-11-23 03:33",
+   "result": "18128997482303274"
   }
  },
  "boards": {
@@ -2537,8 +2538,8 @@
    "final": true
   },
   "ger.1:2026-11-22": {
-   "last": 1795365131.201983,
-   "final": false
+   "last": 1795372510.0703492,
+   "final": true
   }
  }
 }
