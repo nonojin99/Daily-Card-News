@@ -18,7 +18,24 @@
    "account": "sports",
    "ab": "short",
    "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-22_science-brief",
+   "caption": "captions/2026-11-22_science.txt",
+   "dry_run": "false",
+   "is_ai": "false",
+   "review": "required"
+  },
+  {
+   "kind": "reel",
+   "media": "reels/2026-11/2026-11-22_science.mp4",
+   "caption": "captions/2026-11-22_science_reel.txt",
+   "dry_run": "false",
+   "is_ai": "true",
+   "ab": "short",
+   "review": "required"
   }
  ],
- "note": "11/22 축구 모닝 캐러셀 + 10초판 릴스(스포츠 계정, 09:00 즉시 게시 규칙). card-visual-reviewer 실물 JPG PASS(1차 FAIL: 순위 칩 오독 → 팀 이름 붙여 재굽기 뒤 PASS), reel-reviewer PASS. 11/20 항목은 지난 날짜라 지움."
+ "note": "11/22 축구 모닝(스포츠, 게시 완료분 유지) + 11/22 일요일 과학 캐러셀·짧은판 릴스(본계정). 06:00 루틴이 돌지 않아 밤 재실행 — 21:07 저녁 슬롯이 지나 릴스도 검수 통과 즉시 request.json 으로. card-visual-reviewer 실물 JPG PASS(2차), reel-reviewer PASS."
 }
