@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="우주·과학 브리프 — 2026.11.22">
+<meta property="og:description" content="안드로메다의 쌍성 '바오' — 해 0.7배 별이 해 7배 초거성 안으로 7년 만에 빨려 들어가 합쳐진 과정을 폭발 전부터 기록한 Nature 논문(11/18)">
+<meta property="og:type" content="article">
+<title>Science Brief — 2026.11.22</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#3d4a7c; --accent-soft:#eceef5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  .photo{margin:4px 0 18px}
+  .photo img{display:block;width:100%;height:auto;min-height:140px;border-radius:10px;
+        background:#0d1020;color:#8f96b3;font-size:12px}
+  .photo figcaption{padding:10px 2px 0;font-size:12.5px;color:var(--muted);line-height:1.55}
+  .photo .credit{display:block;margin-top:5px;font-size:11px;color:var(--faint)}
+  .photo .credit a{color:inherit;text-decoration:underline;text-underline-offset:2px;
+        text-decoration-color:var(--line)}
+
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+</style>
+</head>
+<body><div class="wrap">
+
+
+  <header>
+    <div class="kicker">Long-read · 우주·과학</div>
+    <h1>별이 별을 삼킨 7년 — 안드로메다의 '바오', 폭발 전부터 이어 붙인 기록</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 22일 일요일</span>
+      <span class="count">One Topic · 롱리드</span>
+    </div>
+    <p class="lede">안드로메다은하의 쌍성 <strong>AT 2025abao</strong>, 별명 '바오'에서 해의 약 0.7배인 작은 별이 해의 약 7배인 부푼 초거성 안으로 파고들어 합쳐졌습니다. NASA는 11월 18일 이를 이런 종류의 '첫 사례'라고 발표했고, 연구팀은 여러 망원경 자료로 두 별이 한 겹의 기체를 나눠 쓰는 '공통 외피' 진화가 얼마나 효율적인지 쟀습니다. 논문은 같은 날 Nature에 실렸습니다. 2023년의 이상 변광부터 2025년 10월의 폭발, 47일 뒤 제임스 웹의 관측까지 다섯 장에 걸쳐 따라가 봅니다. 병합은 연구진의 해석이고, 먼지에 가려 남은 별은 아직 보이지 않는다는 점도 함께 적었습니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 22일 일요일, 우주·과학 브리프입니다. 오늘은 안드로메다은하에서 별 하나가 다른 별 안으로 빨려 들어간 7년의 기록입니다.</p>
+    <p>2023년 2월, 안드로메다의 한 별이 수상하게 깜박이기 시작했습니다. 적외선 탐사 위성 니오와이즈가 이상 변광을 잡았고, 2024년 9월에는 윈터 망원경이 밝아지는 빛과 먼지를 봤습니다. 2025년 7월에는 가시광은 어두워지는데 적외선은 밝아졌고, 2025년 10월 17일 ZTF가 폭발을 잡았습니다. 같은 해 12월 24일에는 제임스 웹 우주망원경이 관측했습니다. 사실 같은 연구팀은 폭발 전인 2025년 5월에 이미 이 별을 다룬 논문을 냈습니다. 2018년부터 2021년 사이에 0.5등급쯤 밝아졌고, 그 뒤 약 1,000일 동안 1등급 더 밝아졌다는 기록입니다.</p>
+    <p>무대는 우리 이웃 안드로메다은하입니다. 이 사건의 이름은 AT 2025abao, 연구진의 별명은 바오입니다. 논문은 11월 18일 네이처에 실렸고, 제1저자는 컬럼비아대의 비라즈 카람벨카르입니다. NASA는 해보다 조금 가벼운 별이 부푼 거인 안으로 파고든 첫 사례라고 소개했고, 연구팀은 이 자료로 두 별이 한 겹의 기체를 나눠 쓰는 공통 외피 과정이 얼마나 효율적인지 쟀습니다.</p>
+    <p>두 별의 몸집 차이는 큽니다. 큰 바오는 폭발 전 해의 약 7배 질량에, 반지름은 해의 350배, 밝기는 해의 1만 8천 배였습니다. 작은 바오는 해의 약 0.7배로, 이 별의 질량이 추정된 것은 이번이 처음입니다. 2025년 논문은 원래 별을 해의 7배 안팎, 표면 온도 약 3,500켈빈의 늙어 가는 별로 봤습니다. 거인의 반지름만 놓고 보면, 해 자리에 두었을 때 지구 궤도를 훌쩍 넘어 화성 궤도 언저리까지 닿는 크기입니다. 작은 별은 그 거인 안으로 나선을 그리며 파고들었습니다.</p>
+    <p>제임스 웹은 폭발이 가장 밝았던 때부터 47일 뒤에 이 별을 봤습니다. 긴급 관측 시간을 받아서였고, 비슷한 사건 가운데 가장 이른 후속 관측이었습니다. 중적외선 자료는 거인이 수백 년 동안 내뿜은 먼지를 따라갑니다. 다만 그 먼지가 남은 별을 가리고 있어, 지금 무엇이 남았는지는 직접 보이지 않습니다. 사이언스뉴스는 이 계가 안정되기까지 수년, 길게는 수십 년이 걸릴 수 있다고 전했습니다. 가시광으로는 어두워지는데 적외선으로는 밝아지는 것이 먼지의 신호입니다. 먼지는 별빛을 가리지만, 데워진 먼지 스스로 적외선으로 빛나기 때문입니다.</p>
+    <p>놀라운 것은 속도입니다. 두 별이 닿은 뒤 일곱 바퀴, 약 7년 만에 합쳐졌습니다. 지금까지 알려진 작은 별끼리의 병합은 수천 바퀴가 걸렸습니다. 사이뉴스에 따르면 밖으로 날아간 물질은 해의 0.1에서 0.2배 정도입니다. 사이언스뉴스에 따르면 거인 바깥 기체의 약 10분의 1만 빠져나갔고, 폭발 에너지로 보아 작은 별은 거인의 중심핵까지 파고든 것으로 보입니다. 기존 모형이 에너지가 퍼지는 방식을 다 담지 못할 수 있다는 뜻입니다.</p>
+    <p>이런 폭발을 붉은 신성이라고 부릅니다. 다른 연구팀은 바오를 안드로메다에서 네 번째로 확인된 붉은 신성으로 분류했습니다. 가장 밝을 때 15.1등급이었고, 붉은 빛에서 70일 동안 밝기가 유지됐습니다. 비교 대상인 외뿔소자리 V838은 2002년에 갑자기 해의 약 60만 배 밝기로 빛났고, 두 별이 부딪쳤다는 설명은 아직 가설로 남아 있습니다.</p>
+    <p>정리하면, 확인된 것은 7년에 걸친 밝기 변화와 폭발, 그리고 두 별의 몸집입니다. 병합은 그 자료를 가장 잘 설명하는 연구진의 해석이고, 열려 있는 것은 먼지 뒤에 남은 별의 정체입니다. 바오는 폭발 전 단계부터 기록된 드문 사례라, 같은 계열 폭발의 원인을 가려 낼 기준이 될 수 있습니다.</p>
+    <p>이상 우주·과학 브리프였습니다. 좋은 한 주 보내세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">Record — 7년의 기록</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">錄</span>
+    <div class="card-top"><span class="topic">망원경 릴레이</span></div>
+    <h2>2023년 이상 변광부터 2025년 폭발까지 — 별이 별을 삼킨 7년을 여러 망원경이 이어 기록했다</h2>
+    <div class="summary">
+      <p>NASA에 따르면 이 별은 2018년 이전까지 밝기가 일정했다. 2023년 2월 적외선 위성 NEOWISE가 이상 변광을 잡았고, 2024년 9월 WINTER가 밝아지는 빛과 먼지를 봤다. 2025년 7월 SPHEREx 자료에서는 가시광은 어두워지고 적외선은 밝아졌다. 2025년 10월 17일 ZTF가 폭발을 잡았고, 11월 Swift·Gemini North가 뒤를 이었으며, <strong>12월 24일</strong> 제임스 웹이 관측했다.</p>
+      <p>폭발 전에 이미 징후가 보고돼 있었다. 같은 연구팀은 2025년 5월 arXiv 논문에서 이 별이 공통 외피 진화를 시작했을 가능성을 제기하며, 이 별이 2018~2021년 약 0.5등급 밝아지고, 그 뒤 약 1,000일 동안 1등급 더 밝아졌다고 보고했다. 두 별이 닿은 뒤 합쳐지기까지는 약 <strong>7년</strong>이 걸린 것으로 분석됐다. NASA는 이를 해보다 조금 가벼운 별이 부푼 초거성 안으로 파고들어 합쳐진 '첫 사례'라고 발표했고, 연구팀은 이 자료로 한 별이 부풀어 동반성을 감싸면서 두 별이 한 겹의 기체를 나눠 쓰는 '공통 외피' 진화가 얼마나 효율적인지 쟀다.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="when">~2018년</span><span>밝기 일정(NASA) · 18년부터 21년까지 약 0.5등급 증광(arXiv)</span></li>
+      <li><span class="when">23년 2월</span><span>NEOWISE 이상 변광</span></li>
+      <li><span class="when">24년 9월</span><span>WINTER 증광·먼지</span></li>
+      <li><span class="when">25년 7월</span><span>SPHEREx 가시광 감소·적외선 증가</span></li>
+      <li><span class="when">25년 10월</span><span>17일 ZTF 폭발 포착 · 11월 Swift·Gemini North</span></li>
+      <li><span class="when">25년 12월</span><span>24일 제임스 웹 관측</span></li>
+      <li><span class="when">의미</span><span>해보다 가벼운 별이 초거성 안으로 파고든 첫 사례 · 공통 외피 효율 측정(NASA)</span></li>
+      <li><span class="when">폭발 전 논문</span><span>2025-05 arXiv · 2018~2021년 약 0.5등급 상승, 이후 약 1,000일 1등급 증광</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>'병합 순간'을 한 장의 사진으로 찍은 것이 아니다. 7년 동안 서로 다른 망원경이 남긴 밝기·색 기록을 이어 붙여 무슨 일이 있었는지 재구성한 결과다.</p>
+    </div>
+    <a class="source" href="https://science.nasa.gov/missions/webb/nasa-data-clinches-first-of-its-kind-stellar-merger/">NASA — 관측 연대기</a>  <a class="source" href="https://arxiv.org/abs/2505.09691">arXiv — 폭발 전 논문 2505.09691</a>
+    <span class="ref-note">NASA(2026-11-18, 11-19 갱신)·arXiv:2505.09691(2025-05-14, 같은 연구팀) · 7년은 '접촉 뒤 약 7궤도(약 7년)'(sci.news) 기준 · 연대기 날짜는 NASA 단일 (확인 2026-11-22)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">별이 별을 삼킨 7년,<br>폭발 전부터 기록됐다</p>
+      <p class="cn-s">안드로메다의 한 별이 2023년 수상하게 깜박였어요. 2025년 10월 폭발했고, 12월 24일 제임스 웹이 봤어요. 여러 망원경이 이어 달렸어요.</p>
+      <p class="cn-steps" data-now="4">18년 증광|23년 2월 변광|25년 10월 폭발|25년 12월 웹</p>
+      <p class="cn-num">1,000일|폭발 전 1등급 더 밝아진 기간</p>
+      <p class="cn-over">1,000일|폭발 전 1등급 더 밝아진 기간</p>
+      <p class="cn-img">Several different telescopes, some on the ground and some in orbit, all pointing toward one reddish star inside a distant spiral galaxy, the star shown brightening in stages, conceptual schematic, not a real photograph, no text</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Size — 거인과 동반성</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">星</span>
+    <div class="card-top"><span class="topic">큰 바오 · 작은 바오</span></div>
+    <h2>해의 7배 거인과 해의 0.7배 동반성 — 반지름 350배, 밝기 1만 8천 배인 별의 대기 속으로</h2>
+    <div class="summary">
+      <p>NASA에 따르면 '큰 바오'는 폭발 전 해의 약 <strong>7배</strong> 질량에 반지름은 해의 <strong>350배</strong>, 밝기는 해의 1만 8,000배인 초거성이었다. '작은 바오'는 해의 약 <strong>0.7배</strong>로, 이 별의 질량이 추정된 것은 이번이 처음이다.</p>
+      <p>같은 팀의 2025년 논문은 폭발 전 별을 해의 7±2배 질량, 표면 온도 약 3,500K의 초기 점근거성가지(AGB) 별로 봤다. phys.org(NASA 보도자료)에 따르면 해보다 조금 가벼운 작은 바오가 부푼 큰 바오 안으로 나선을 그리며 파고들었다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">큰 바오</span><span>질량 해의 약 7배 · 반지름 350배 · 밝기 1만 8,000배(NASA)</span></li>
+      <li><span class="k">작은 바오</span><span>질량 해의 약 0.7배 · 첫 질량 추정(NASA)</span></li>
+      <li><span class="k">폭발 전 추정</span><span>7±2 태양질량 · 표면 약 3,500K · 초기 AGB 별(arXiv 2025-05)</span></li>
+      <li><span class="k">확인 한계</span><span>반지름·밝기는 단위가 달라 그림에 넣지 않음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>반지름 350배는 해 자리에 놓으면 지구 궤도를 훌쩍 넘어 화성 궤도 언저리까지 닿는 크기다(해 반지름 약 70만 km × 350 ≈ 2억 4천만 km, 지구 궤도 반지름 약 1억 5천만 km, 화성 궤도 약 2억 3천만 km — 일반 값으로 계산).</p>
+    </div>
+    <a class="source" href="https://phys.org/news/2026-11-webb-kind-merger-supergiant-smaller.html">phys.org — 두 별의 질량·반지름</a>  <a class="source" href="https://arxiv.org/abs/2505.09691">arXiv — 폭발 전 별의 추정</a>
+    <span class="ref-note">phys.org(2026-11-18, NASA 보도자료 전재 — NASA 원문과 수치 일치)·arXiv:2505.09691(2025-05-14) · 지구·화성 궤도 비교는 해 반지름·궤도 반지름 일반 값으로 계산 (확인 2026-11-22)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">지구 궤도 넘게 부푼 거인,<br>그 속으로 파고든 작은 별</p>
+      <p class="cn-s">큰 바오는 해의 약 7배 질량에 반지름이 해의 350배였어요. 작은 바오는 해의 약 0.7배로, 질량이 추정된 건 이번이 처음이에요.</p>
+      <p class="cn-vs" data-unit="배">큰 바오|작은 바오 / 질량(해=1):7:0.7</p>
+      <p class="cn-num">350배|큰 바오의 반지름(해 대비)</p>
+      <p class="cn-img">A huge swollen red supergiant star with a faint diffuse outer atmosphere and a much smaller yellow star orbiting just inside the edge of that atmosphere, conceptual schematic, not a real photograph, no text</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Webb — 47일 뒤</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">塵</span>
+    <div class="card-top"><span class="topic">중적외선</span></div>
+    <h2>폭발 정점 47일 뒤 웹이 봤다 — 거인이 수백 년 내뿜은 먼지, 남은 별은 아직 가려져 있다</h2>
+    <div class="summary">
+      <p>phys.org(NASA 보도자료)에 따르면 제임스 웹은 폭발이 가장 밝았던 때부터 <strong>47일</strong> 뒤인 2025년 12월 24일, 긴급 '감독 재량 시간(DDT)' 프로그램으로 이 별을 관측했다. 비슷한 사건 가운데 가장 이른 후속 관측이다. 중적외선 자료는 거인이 수백 년 동안 내뿜은 먼지를 추적한다.</p>
+      <p>Science News는 그 먼지가 남은 천체를 가리고 있어 지금 무엇이 남았는지는 직접 보이지 않으며, 이 계가 안정되기까지 수년, 길게는 수십 년이 걸릴 수 있다고 전했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">관측</span><span>2025-12-24 · 폭발 정점 47일 뒤 · 감독 재량 시간(DDT)</span></li>
+      <li><span class="k">기록</span><span>비슷한 사건 가운데 가장 이른 후속 관측</span></li>
+      <li><span class="k">본 것</span><span>중적외선 — 거인이 수백 년 동안 내뿜은 먼지</span></li>
+      <li><span class="k">남은 질문</span><span>먼지 뒤 남은 천체 미확인 · 계가 안정되기까지 수년~수십 년(Science News)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>가시광으로는 어두워지는데 적외선으로는 밝아지는 것이 먼지의 신호다. 먼지는 별빛을 가리지만, 데워진 먼지 스스로 적외선으로 빛난다. 그래서 웹의 중적외선 눈이 필요했다.</p>
+    </div>
+    <a class="source" href="https://phys.org/news/2026-11-webb-kind-merger-supergiant-smaller.html">phys.org — 웹 47일 뒤 관측</a>  <a class="source" href="https://sciencenews.org/article/stars-andromeda-galaxy-merge-little-bao">Science News — 남은 별은 가려져</a>
+    <span class="ref-note">phys.org(2026-11-18, NASA 보도자료 전재)·Science News(2026-11-18) · 가시광·적외선 해석은 일반 해설 (확인 2026-11-22)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">폭발 47일 뒤 웹이 본 건<br>수백 년 쌓인 먼지</p>
+      <p class="cn-s">폭발 정점 47일 뒤의 관측으로, 비슷한 사건 중 가장 일렀어요. 먼지가 남은 별을 가려 정체는 아직 몰라요. 그림은 AI 개념도예요.</p>
+      <p class="cn-num">수년~수십 년|계가 안정되기까지</p>
+      <p class="cn-img">A large red giant star almost hidden inside a thick expanding shell of dark dust, the dust glowing faint orange at its edges, dust flowing outward in two lobes, deep space background, conceptual schematic, not a real photograph, no text</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Speed — 일곱 바퀴</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">合</span>
+    <div class="card-top"><span class="topic">공통 외피</span></div>
+    <h2>보통은 수천 바퀴, 바오는 일곱 바퀴 만에 — 작은 별이 거인의 중심핵까지 파고든 것으로 보인다</h2>
+    <div class="summary">
+      <p>sci.news에 따르면 논문 "An inspiral of a star inside a common envelope with its giant companion"은 11월 18일 Nature(659권 628~633쪽)에 실렸고, 제1저자는 컬럼비아대 Viraj Karambelkar다. 두 별은 닿은 뒤 약 <strong>7궤도(약 7년)</strong> 만에 합쳐졌다. 지금까지 알려진 작은 별끼리의 병합은 수천 궤도가 걸렸다. 밖으로 날아간 물질은 해의 0.1~0.2배로 추정되며, 연구진은 기존 모형이 에너지가 다시 퍼지는 방식을 다 담지 못할 수 있다고 봤다.</p>
+      <p>Science News에 따르면 거인 바깥 기체의 약 <strong>10분의 1</strong>만 빠져나간 것으로 추정되고, 폭발 에너지로 보아 작은 별은 거인의 중심핵까지 도달한 것으로 보인다. 외피를 벗겨 내고 쌍성으로 살아남은 것이 아니라 합쳐졌다는 해석이다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">논문</span><span>Nature 659권 628~633쪽 · 2026-11-18 · 제1저자 Viraj Karambelkar(컬럼비아대) · 본문은 읽지 못함</span></li>
+      <li><span class="k">걸린 시간</span><span>접촉 뒤 약 7궤도(약 7년) · 알려진 작은 별 병합은 수천 궤도(sci.news)</span></li>
+      <li><span class="k">날아간 물질</span><span>해의 0.1~0.2배(sci.news 단일)</span></li>
+      <li><span class="k">빠져나간 외피</span><span>거인 바깥 기체의 약 10분의 1(Science News 단일)</span></li>
+      <li><span class="k">결말</span><span>작은 별이 중심핵까지 도달 — 병합(연구진 해석)</span></li>
+      <li><span class="k">확인 한계</span><span>공통 외피 효율의 수치는 원문에서 확인 못 해 싣지 않음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>sci.news는 공통 외피 단계에서 에너지가 다시 퍼지는 방식을 기존 모형이 다 담지 못할 수 있다고 전했다. 외피를 벗겨 내고 쌍성으로 살아남는지, 합쳐지는지에 따라 나중에 생길 천체가 달라진다(일반 해설).</p>
+    </div>
+    <a class="source" href="https://www.sci.news/astronomy/webb-star-merger-andromeda-galaxy-15207.html">sci.news — 7궤도·방출 질량</a>  <a class="source" href="https://sciencenews.org/article/stars-andromeda-galaxy-merge-little-bao">Science News — 외피 10분의 1</a>
+    <span class="ref-note">sci.news(2026-11-18)·Science News(2026-11-18) · 0.1~0.2배와 10분의 1은 각각 단일 매체 · 병합은 연구진의 해석이며 추가 관측으로 확인이 필요하다고 두 매체 모두 씀 (확인 2026-11-22)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">수천 바퀴 대신<br>일곱 바퀴 만에 병합</p>
+      <p class="cn-s">알려진 작은 별끼리의 병합은 수천 궤도가 걸렸어요. 바오는 약 7궤도 만에 합쳐졌고, 바깥 기체는 약 10분의 1만 빠져나갔어요. 그림은 AI 개념도예요.</p>
+      <p class="cn-num">10분의 1|빠져나간 거인 바깥 기체</p>
+      <p class="cn-over">10분의 1|빠져나간 거인 바깥 기체</p>
+      <p class="cn-img">A small bright star spiraling inward along a tightening spiral path inside the faint glowing outer envelope of a huge red giant star toward its dense core, conceptual schematic, not a real photograph, no text</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Kin — 붉은 신성</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">紅</span>
+    <div class="card-top"><span class="topic">광도 붉은 신성</span></div>
+    <h2>안드로메다의 네 번째 '붉은 신성' — 2002년 외뿔소자리 V838과 같은 계열로 분류됐다</h2>
+    <figure class="photo" data-card-cap="비슷한 사례 V838 Mon의 빛의 메아리(바오 아님)">
+      <img src="https://cdn.esahubble.org/archives/images/screen/heic0617c.jpg"
+           data-remote="https://cdn.esahubble.org/archives/images/screen/heic0617c.jpg"
+           loading="lazy" alt="허블이 찍은 V838 Monocerotis 주변의 빛의 메아리. 가운데 붉은 별을 둘러싼 소용돌이 모양의 먼지 구름이 빛난다">
+      <figcaption>
+        <strong>Spectacular view of V838 Monocerotis light echo</strong> — <b>바오와 무관한 비슷한 사례</b>다. 2002년 갑자기 밝아진 외뿔소자리 V838 주변 먼지에 그 빛이 늦게 닿아 비치는 '빛의 메아리'를 허블이 2006년 9월에 찍었다. 2006년 10월 26일 공개.
+        <span class="credit">이미지: <a href="https://esahubble.org/images/heic0617c/">NASA, ESA and H. Bond (STScI)</a> ·
+          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span>
+      </figcaption>
+    </figure>
+    <div class="summary">
+      <p>다른 연구팀(Reguitti 외, A&amp;A 709권)은 AT 2025abao를 안드로메다에서 <strong>네 번째</strong>로 확인된 광도 붉은 신성(LRN)으로 분류했다. 가장 밝을 때 g밴드 15.1등급이었고, 붉은 빛에서 70일 동안 밝기가 유지됐다. 연구진은 V838 Mon 등과 비교했다.</p>
+      <p>ESA/Hubble에 따르면 V838 Mon은 2002년 갑자기 밝아져 해의 약 60만 배 밝기에 이르렀다. 원인은 분명하지 않고 두 별의 충돌은 가설로 거론된다. 지구에서 약 2만 광년 떨어져 있다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">분류</span><span>안드로메다(M31)의 네 번째 광도 붉은 신성(A&amp;A 709, A25)</span></li>
+      <li><span class="k">밝기</span><span>정점 g = 15.1등급 · 붉은 빛에서 70일 유지</span></li>
+      <li><span class="k">비교 사례</span><span>V838 Mon — 2002년 증광, 해의 약 60만 배 · 약 2만 광년 · 충돌은 가설</span></li>
+      <li><span class="k">사진</span><span>V838 Mon 빛의 메아리(허블 2006-09 촬영, 10-26 공개) · 바오 아님</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🔭 알고 보면 달라지는 것</span>
+      <p>V838 Mon은 2002년 갑자기 밝아진 뒤에야 주목받았다. 바오는 폭발 '전' 단계부터 기록된 드문 사례라, 같은 계열 폭발의 원인을 가려 낼 기준이 될 수 있다.</p>
+    </div>
+    <a class="source" href="https://arxiv.org/abs/2602.13678">arXiv — 네 번째 붉은 신성 2602.13678</a>  <a class="source" href="https://esahubble.org/news/heic0617/">ESA/Hubble — V838 Mon 보도자료</a>
+    <span class="ref-note">arXiv:2602.13678(v1 2026-02-14, v3 2026-04-01, A&amp;A 709 A25, 다른 팀)·ESA/Hubble heic0617(2006-10-26) · 사진 크레디트는 이미지 페이지 heic0617c 원문 · 라이선스는 esahubble.org/copyright (확인 2026-11-22)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">안드로메다에서<br>네 번째 붉은 신성</p>
+      <p class="cn-s">다른 연구팀은 바오를 안드로메다의 네 번째 광도 붉은 신성으로 분류했어요. 사진은 비슷한 사례인 V838 Mon이고, 바오가 아니에요.</p>
+      <p class="cn-num">70일|붉은 빛에서 밝기 유지</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 마케팅 인사이트 → 디자인 렌더링 → 검토<br>
+    큐레이션: 11/8(작은 붉은 점 QSO1)·11/1(백색왜성 이중 원반)·10/25(AT 2026abck) 등 최근 회차와 겹치지 않는 이번 주 소식(NASA·Nature 11/18)입니다. 병합은 연구진의 해석이고 남은 천체는 아직 보이지 않는다는 점을 카드 3·4에 밝혔습니다.<br>
+    📊 도표: 1번은 관측 연대 단계, 2번은 두 별 질량 맞대결(반지름·밝기는 단위가 달라 본문에만)입니다. 5번은 ESA/Hubble 실제 사진(바오와 무관한 비슷한 사례), 1~4번은 AI 개념도를 더했습니다. 안드로메다 파노라마(heic2501a)도 넣었지만 출처 장이 넘쳐 카드를 5장으로 줄이며 뺐습니다. 바오를 찍은 NASA 이미지는 크레디트가 길고 라이선스 문구가 없어 쓰지 않았습니다.<br>
+    모든 수치는 보도 기준이며 변동될 수 있습니다.
+    <!-- tracker: 2026-11-22
+         [오늘 다룬 주제] 안드로메다 쌍성 AT 2025abao '바오' — 공통 외피 속 병합. Karambelkar 외, "An inspiral of a star inside a common envelope with its giant companion", Nature 659, 628–633 (2026-11-18), DOI 10.1038/s41586-026-11221-z. NASA 발표 2026-11-18(11-19 갱신).
+         핵심: 큰 바오 ~7 M☉·반지름 350배·밝기 18,000배, 작은 바오 ~0.7 M☉(첫 추정). 접촉 뒤 ~7궤도(~7년) 병합, 알려진 작은 별 병합은 수천 궤도. 방출 0.1~0.2 M☉(sci.news 단일), 외피 ~1/10 탈출(Science News 단일). 연대기: 2023-02 NEOWISE → 2024-09 WINTER → 2025-07 SPHEREx → 2025-10-17 ZTF → 2025-11 Swift·Gemini N → 2025-12-24 Webb(정점 47일 뒤, DDT). 폭발 전 논문 arXiv 2505.09691. 다른 팀 arXiv 2602.13678(A&A 709 A25) M31 네 번째 LRN, g=15.1, 70일 정체.
+         [지난 회차와 중복 회피] 11/8 QSO1·원시 블랙홀, 11/1 백색왜성 이중 원반, 10/25 AT 2026abck, 10/18 WASP-17b, 10/11 FRB 20240304B, 10/4 잔해 원반, 9/27 베수비오, 9/20 디키노돈트, 9/13 데니소바인, 9/6 토성 십각형, 8/30 로먼, 8/23 블랙홀별, 8/16 3I/ATLAS. (11/15 과학 브리프는 발행되지 않음)
+         [탈락 후보] 퀘이사 쌍 J1602+4228AB(11/10, 창 경계·11/8과 가까움) · 작은 붉은 점 시뮬레이션(11/8 중복) · Webb 디지털 트윈(창 밖) · 모항성보다 오래된 얼음(본문 미확인).
+         [이미지] heic2501a(Credit 'NASA, ESA, B. Williams (University of Washington)')는 출처 장 넘침으로 제외, 카드 5 heic0617c(2006-10-26, Credit 'NASA, ESA and H. Bond (STScI)', 바오와 무관한 비슷한 사례). NASA 'AT 2025abao in the Andromeda Galaxy' 이미지는 크레디트가 길고 라이선스 문구 없어 제외. 카드 1~4 cn-img(AI 개념도). esawebb/esahubble 11/15~22 새 보도자료 없음.
+         [확인 못 해 제외] 공통 외피 효율 수치 · 웹 중적외선 관측 시간 · 안드로메다 거리(사진 페이지 안에서 표기 불일치) · Nature 본문.
+         [출처 분산] ①NASA·arXiv2505 ②phys.org·arXiv2505 ③phys.org·ScienceNews ④sci.news·ScienceNews ⑤arXiv2602·heic0617 — 각 URL 최대 2카드.
+         [reel-opening] 장면(카드 1은 AI 개념도가 타임라인보다 먼저 그려짐 — 그림 우선순위 유지, cn-over 1,000일)
+         [리서치 도구] mcp__Firecrawl__* 0회.
+    -->
+  </footer>
+
+</div></body>
+</html>
