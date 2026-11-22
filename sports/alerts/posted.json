@@ -2152,6 +2152,16 @@
    "status": "published",
    "at_kst": "2026-11-23 00:03",
    "result": "17931968406425539"
+  },
+  "ita.1:401875047": {
+   "image": "sports/alerts/2026-11/2026-11-22_ita-1_0055.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-23 00:55"
+  },
+  "ita.1:401874960": {
+   "image": "sports/alerts/2026-11/2026-11-22_ita-1_0055.jpg",
+   "status": "pending",
+   "at_kst": "2026-11-23 00:55"
   }
  },
  "boards": {
