@@ -1,10 +1,10 @@
 {
- "collected_kst": "2026-11-21 17:28",
+ "collected_kst": "2026-11-22 17:21",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-21T08:28:05.600375Z",
+   "checked_at": "2026-11-22T08:20:42.069441Z",
    "media": [
     {
      "id": "18347523508260374",
@@ -96,16 +96,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 116,
-      "reach": 104,
+      "views": 121,
+      "reach": 105,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1674,
-      "ig_reels_video_view_total_time": 174175,
-      "reels_skip_rate": 91.3
+      "ig_reels_avg_watch_time": 1751,
+      "ig_reels_video_view_total_time": 183957,
+      "reels_skip_rate": 90.5
      }
     },
     {
@@ -191,8 +191,8 @@
      "permalink": "https://www.instagram.com/p/Dfx9UVZlMb4/",
      "first_line": "[AI·테크] 10월 ICT 수출 703억 5천만 달러(+202%) · Claude Fable 5.2 출력 40달러 · 챗GPT 월렛 — 11월",
      "metrics": {
-      "views": 12,
-      "reach": 4,
+      "views": 14,
+      "reach": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -537,8 +537,52 @@
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-21T08:28:15.084105Z",
+   "checked_at": "2026-11-22T08:20:55.258302Z",
    "media": [
+    {
+     "id": "18165510397496285",
+     "type": "REELS",
+     "timestamp": "2026-11-21T23:58:39+0000",
+     "permalink": "https://www.instagram.com/reel/DgBdthoiFy1/",
+     "first_line": "[⚽ 축구 모닝] 첼시 안방 1-4 리즈 · 아스널 뉴캐슬 원정 2-2",
+     "tag": "⚽ 축구 모닝",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 119,
+      "reach": 112,
+      "likes": 0,
+      "comments": 0,
+      "shares": 1,
+      "saved": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2407,
+      "ig_reels_video_view_total_time": 269689,
+      "reels_skip_rate": 77.5
+     }
+    },
+    {
+     "id": "18078903326468626",
+     "type": "REELS",
+     "timestamp": "2026-11-21T22:46:47+0000",
+     "permalink": "https://www.instagram.com/reel/DgBVgPQnBVu/",
+     "first_line": "[🏟 밤사이 결과] 결과판 5장 한 번에",
+     "tag": "🏟 밤사이 결과",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 120,
+      "reach": 112,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 3279,
+      "ig_reels_video_view_total_time": 364031,
+      "reels_skip_rate": 71.8
+     }
+    },
     {
      "id": "18028916375873955",
      "type": "REELS",
@@ -550,15 +594,15 @@
      "opening": "static",
      "metrics": {
       "views": 146,
-      "reach": 123,
+      "reach": 124,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2935,
-      "ig_reels_video_view_total_time": 349273,
-      "reels_skip_rate": 79.2
+      "ig_reels_avg_watch_time": 2955,
+      "ig_reels_video_view_total_time": 357565,
+      "reels_skip_rate": 80
      }
     },
     {
@@ -1047,54 +1091,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 5,
-      "reach": 3,
+      "views": 6,
+      "reach": 4,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 5902,
-      "ig_reels_video_view_total_time": 29513,
-      "reels_skip_rate": 33.3
-     }
-    },
-    {
-     "id": "18139241758659430",
-     "type": "FEED",
-     "timestamp": "2026-11-08T23:49:42+0000",
-     "permalink": "https://www.instagram.com/p/Dff-YfJGVDp/",
-     "first_line": "[⚽ 축구 모닝] 바르사 AT마드리드 원정 2-1 역전 · 맨유 4-4 빌라 · 리버풀 3-1 팰리스 — 주말 결산 7장",
-     "metrics": {
-      "views": 7,
-      "reach": 3,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 2
-     }
-    },
-    {
-     "id": "18110453123239529",
-     "type": "REELS",
-     "timestamp": "2026-11-08T22:46:02+0000",
-     "permalink": "https://www.instagram.com/reel/Dff3D-fjmCx/",
-     "first_line": "[🏟 밤사이 결과] 결과판 4장 한 번에",
-     "tag": "🏟 밤사이 결과",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 131,
-      "reach": 117,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 2,
-      "ig_reels_avg_watch_time": 3087,
-      "ig_reels_video_view_total_time": 367413,
-      "reels_skip_rate": 80.2
+      "ig_reels_avg_watch_time": 5542,
+      "ig_reels_video_view_total_time": 33255,
+      "reels_skip_rate": 25
      }
     }
    ],
@@ -1102,7 +1108,7 @@
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 7,
-   "posts": 138
+   "posts": 140
   }
  ]
 }
