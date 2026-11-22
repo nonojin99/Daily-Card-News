@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="AI 브리프 — 2026.11.23">
+<meta property="og:description" content="리만 가설 증명 주장, Lean 검산 통과 · HBM4 Gb당 내년 최대 5.5달러 · 손정의 SK하이닉스 인수 타진 뒤 중단 · 제미나이 맥 컴퓨터 사용 · AI 해킹 도구 아르텍스">
+<meta property="og:type" content="article">
+<title>AI Brief — 2026.11.23</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#2a6b7c; --accent-soft:#e9f0f2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+</style>
+</head>
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">AI Brief · AI·테크 서브</div>
+    <h1>리만 가설 'AI 증명' 주장, 기계 검산은 통과 — HBM 값은 오르고, 손정의는 하이닉스 인수를 저울질했다</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 23일 월요일</span>
+      <span class="count">5 Picks · AI·테크</span>
+    </div>
+    <p class="lede">앤트로픽 소속 수학자가 클로드와 함께 리만 가설 증명을 찾았다고 밝혔고, 증명 코드는 형식 검증 언어 Lean으로 컴파일됐습니다. 다만 사람이 읽을 설명은 아직 없습니다. 트렌드포스는 HBM4 값이 내년 기가비트당 최대 5.5달러까지 오른다고 봤고, 손정의 회장은 SK하이닉스 인수 자금을 알아봤지만 소프트뱅크는 지금은 적극 검토하지 않는다고 밝혔습니다. 구글 제미나이는 맥을 대신 조작하기 시작했고, FBI는 AI 해킹 도구 '아르텍스'를 경고했습니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 23일 월요일, AI 브리프입니다. 지난 한 주 쌓인 테크 소식 다섯 가지를 전해 드립니다.</p>
+    <p>1859년에 나온 수학 난제, 리만 가설을 AI와 함께 풀었다는 주장이 나왔습니다. 앤트로픽 소속 수학자 레벤트 알푀게는 클로드와 함께 증명을 찾았다며 성명과 코드를 공개했습니다. 이 증명은 형식 검증 언어 Lean으로 컴파일됐고, MIT의 앤드루 서덜랜드도 따로 확인했습니다. 다만 사람이 읽고 이해할 설명은 아직 없다고 알푀게 스스로 밝혔습니다. 같은 날 스탠퍼드에서는 AI 없이 쓴 일반화된 리만 가설 증명 초안도 공개됐습니다.</p>
+    <p>고대역폭메모리 값이 더 오릅니다. 시장조사업체 트렌드포스는 HBM4의 기가비트당 가격이 올해 2.05달러 이상에서 내년 3달러에서 5.5달러로 오를 것으로 봤습니다. 상단이면 2.7배, 하단이면 1.5배쯤입니다. HBM 전체 평균값은 1.67달러에서 3.7달러로 122퍼센트 오를 전망입니다. 엔비디아의 HBM 수요 비중은 55퍼센트에서 42퍼센트로 줄고, 구글은 22퍼센트에서 31퍼센트로 늘어납니다.</p>
+    <p>손정의 소프트뱅크 회장이 SK하이닉스 인수 자금을 알아봤다는 보도가 나왔습니다. 미국 매체 디인포메이션에 따르면 논의된 인수 규모는 1조 달러, 우리 돈 약 1,350조 원입니다. SK하이닉스 시가총액 약 787조 원의 1.7배쯤입니다. 소프트뱅크는 더 이상 적극적으로 검토하지 않는다고 밝혔습니다.</p>
+    <p>구글이 맥용 제미나이 앱에 컴퓨터 사용 기능을 넣었습니다. 앱을 조작하고 파일을 정리하고 양식을 채우는 일을, 사용자 화면이 아닌 뒤쪽 창에서 대신 합니다. 로그인과 결제 앞에서는 멈춥니다. 지금은 미국의 영어 사용자, 유료 구독자만 쓸 수 있습니다.</p>
+    <p>마지막으로, FBI가 AI 해킹 도구 아르텍스를 경고했습니다. 일부 공격은 표적을 고르고 침입하기까지 세 시간이 채 걸리지 않았습니다. 테크크런치에 따르면 한국 금융기관 공격에서도 최소 6만 8,000명의 정보가 털렸습니다. 개발자가 공개를 거뒀지만 복제본과 변종이 50종 이상 돌고 있습니다.</p>
+    <p>지금까지 11월 23일 AI 브리프였습니다. 자세한 내용과 출처는 카드뉴스에서 확인하세요.</p>
+  </details>
+
+  <div class="section-rule"><span class="label">Research — 수학</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">證</span>
+    <div class="card-top"><span class="topic">형식 검증</span></div>
+    <h2>167년 된 리만 가설, '클로드와 함께 찾은 증명' 주장 — Lean 컴파일은 확인, 사람이 읽을 설명은 아직</h2>
+    <div class="summary">
+      <p>앤트로픽 소속 수학자 레벤트 알푀게(Levent Alpöge)는 20일(현지) 자기 웹사이트에 성명과 Lean 코드를 올리고 "클로드와 함께 리만 가설의 증명을 발견했다고 믿는다"고 밝혔다(사이언티픽 아메리칸). 증명은 형식 검증 언어 <strong>Lean</strong>으로 컴파일되며, MIT의 앤드루 서덜랜드가 독립적으로 컴파일을 확인하고 "역사적 순간"이라고 했다(사이언티픽 아메리칸). 온라인 토론 참여자들도 컴파일을 확인했다(테크크런치).</p>
+      <p>알푀게는 사람이 이해할 수 있는 설명은 아직 없다고 인정하고, 이를 만들겠다고 했다(테크크런치). 스탠퍼드 라비 바킬 교수는 20일 박사후연구원 알레산드로 마술로가 12년 동안 AI 없이 쓴 '일반화된 리만 가설' 증명 초안을 공개했는데, 아직 Lean으로 옮기지 않아 맞는지 말하기 이르다(테크크런치). 리만 가설은 1859년 제기됐고 클레이 수학연구소 현상금은 100만 달러다(사이언티픽 아메리칸).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">주장</span><span>알푀게(앤트로픽) — 클로드와 함께 증명 발견 · 성명·Lean 코드 공개(20일)</span></li>
+      <li><span class="k">검증 상태</span><span>Lean 컴파일 확인(서덜랜드·토론 참여자) · 사람용 설명 없음 · 학계 인정 전</span></li>
+      <li><span class="k">같은 날</span><span>스탠퍼드 마술로 일반화 리만 가설 증명 초안(AI 없이, 12년) · Lean 미변환</span></li>
+      <li><span class="k">문제</span><span>1859년 제기 · 클레이 현상금 100만 달러(지급 여부 기사에 없음)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>Lean은 논리 단계가 하나하나 맞는지만 기계로 확인한다. 그래서 이번엔 '증명이 맞다'와 '사람이 이해했다'가 따로 갈라졌다. '증명 완료·공인'이 아니라 '증명 주장 + 기계 검산 통과' 단계다.</p>
+    </div>
+    <a class="source" href="https://www.scientificamerican.com/article/anthropic-mathematician-claims-to-prove-riemann-hypothesis-most-famous-problem-in-all-of-math/">Scientific American — 알푀게 주장</a>  <a class="source" href="https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/">TechCrunch — AI와 사람의 증명</a>
+    <span class="ref-note">사이언티픽 아메리칸(11/20, 11/21 수정)·테크크런치(11/20 11:32 PST) · Lean 컴파일 확인은 두 매체 일치 · 현상금은 사이언티픽 아메리칸 단일 출처 (확인 2026-11-23)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">리만 가설 증명 주장,<br>기계 검산은 통과</p>
+      <p class="cn-s">앤트로픽 수학자가 클로드와 함께 찾은 증명이 Lean으로 컴파일됐어요. 다만 사람이 읽을 설명은 아직 없어요. 같은 날 AI 없이 쓴 '일반화된' 리만 가설 증명 초안도 나왔어요.</p>
+      <p class="cn-img">Rows of small glowing dots aligned along a single straight vertical line in a dark space, with translucent stacked blocks rising like a staircase beside them, abstract conceptual illustration, no text, no letters, no numbers, no logos, no people</p>
+      <p class="cn-num">100만 달러|클레이 연구소가 건 현상금</p>
+      <p class="cn-note">1859년 제기 · 학계 인정은 아직</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Chip — 메모리</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">價</span>
+    <div class="card-top"><span class="topic">트렌드포스</span></div>
+    <h2>HBM4 기가비트당 값, 올해 2.05달러 → 내년 3~5.5달러 — HBM 수요 속 엔비디아 비중은 55%→42%, 구글은 31%로</h2>
+    <div class="summary">
+      <p>대만 시장조사업체 트렌드포스는 18일 서울 코엑스 '2026 로드쇼 코리아'에서 HBM4의 기가비트(Gb)당 가격이 올해 2.05달러 이상에서 내년 <strong>3~5.5달러</strong>로, 전년 대비 100% 이상 오를 것으로 내다봤다. 차세대 HBM4E는 5달러 이상이 논의되고 있다(ZDNet Korea).</p>
+      <p>같은 발표에서 HBM 전체 평균 판매가(Gb당)는 올해 1.67달러에서 내년 3.70달러로 122% 오를 전망이다. 내년 출하 비중은 HBM4 51%, HBM3E는 69%에서 40%로 준다. HBM 수요 비중은 엔비디아가 55%에서 42%로 줄고 구글이 22%에서 31%로 는다(헤럴드경제).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">HBM4 단가</span><span>올해 2.05달러 이상 → 내년 3~5.5달러/Gb(약 1.5~2.7배) · HBM4E 5달러 이상 논의</span></li>
+      <li><span class="k">HBM 평균 단가</span><span>1.67 → 3.70달러/Gb(+122%)</span></li>
+      <li><span class="k">출하 비중(내년)</span><span>HBM4 51% · HBM3E 69%→40%</span></li>
+      <li><span class="k">수요 비중</span><span>엔비디아 55%→42% · 구글 22%→31%</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>'두 배'는 범위의 가운데쯤이다. 2.05달러 대비 3달러면 50%도 안 오르고, 5.5달러면 2.7배다. 또 최대 고객 엔비디아의 비중이 줄고 구글이 커진다는 전망은, 엔비디아 주가와 메모리 호황이 따로 갈 수 있다는 근거가 된다.</p>
+    </div>
+    <a class="source" href="https://zdnet.co.kr/view/?no=20261118120439">ZDNet Korea — HBM4 단가</a>  <a class="source" href="https://biz.heraldcorp.com/article/10941511">헤럴드경제 — HBM 평균가·수요</a>
+    <span class="ref-note">ZDNet Korea(11/18 13:30)·헤럴드경제(11/18 15:35) · 두 매체는 서로 다른 지표(HBM4 단가 / HBM 전체 평균 단가)를 써 구분해 실음 · 배수는 편집 계산 (확인 2026-11-23)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">HBM4 값 내년<br>최대 2.7배 오른다</p>
+      <p class="cn-s">트렌드포스는 HBM4 값이 Gb당 2.05달러 이상에서 내년 3~5.5달러로 오른다고 봤어요. 최대 고객 엔비디아의 수요 비중은 55%에서 42%로 줄 전망이에요.</p>
+      <p class="cn-img">Thin translucent silicon layers stacked into a tall tower, with slender golden pillars running vertically through every layer, abstract semiconductor concept illustration, no text, no logos, no people</p>
+      <p class="cn-bars" data-hl="2" data-unit="달러/Gb">올해 HBM 전체 평균:1.67|내년 HBM 전체 평균:3.70</p>
+      <p class="cn-note">HBM4가 아닌 HBM 전체 평균 판매가(Gb당) · +122%</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Deal — 인수</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">買</span>
+    <div class="card-top"><span class="topic">소프트뱅크</span></div>
+    <h2>손정의, SK하이닉스 '1조 달러 인수' 자금 타진 — 소프트뱅크 "더 이상 적극 검토하지 않는다"</h2>
+    <div class="summary">
+      <p>미국 매체 디인포메이션은 20일(현지) 복수 관계자를 인용해 손정의 소프트뱅크 회장이 SK하이닉스 인수 자금 조달 가능성을 알아보려 월가 금융기관들과 접촉했고, 논의된 인수 규모는 <strong>1조 달러(약 1,350조 원)</strong>였다고 보도했다(ZDNet Korea). 소프트뱅크 대변인은 "다양한 기회를 검토하고 있으나, 해당 사안은 더 이상 적극적으로 검토하고 있지 않다"고 했다(ZDNet Korea).</p>
+      <p>1조 달러는 SK하이닉스의 약 한 달 전 시가총액에 인수 프리미엄 40%를 더한 값에 가깝다. SK하이닉스 시총은 20일 종가 기준 약 787조 원으로, 인수 규모가 약 550조 원 많다(경향신문 계산). 시총은 6월 2,000조 원을 넘기도 했다(ZDNet Korea).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">보도</span><span>디인포메이션(20일 현지) — 손 회장, 월가와 인수 자금 조달 타진</span></li>
+      <li><span class="k">규모</span><span>1조 달러(약 1,350조 원) · 한 달 전 시총 + 프리미엄 40% 수준</span></li>
+      <li><span class="k">SK하이닉스 시총</span><span>약 787조 원(20일 종가, 지디넷은 약 786조 원) · 6월 2,000조 원 이상</span></li>
+      <li><span class="k">회사 입장</span><span>소프트뱅크 "더 이상 적극 검토하지 않는다"</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>'인수 제안'이 아니라 '자금을 알아봤다가 보류한 구상'이다. 1조 달러는 한 달 전 시총에 프리미엄 40%를 얹은 수준이라고 디인포메이션은 전했다(경향신문). 6월 고점 2,000조 원과 비교하면 훨씬 작은 숫자다.</p>
+    </div>
+    <a class="source" href="https://zdnet.co.kr/view/?no=20261121174004">ZDNet Korea — 손정의 인수 타진</a>  <a class="source" href="https://www.khan.co.kr/article/202611211309001">경향신문 — 시총 대비 규모</a>  <a class="source" href="https://www.news1.kr/world/usa-canada/6361577">뉴스1 — 소프트뱅크 입장</a>
+    <span class="ref-note">경향신문(11/21 13:09)·ZDNet Korea(11/21 17:55)·뉴스1(11/21 16:49) · 1조 달러는 세 매체 일치 · 원 환산·550조 원은 경향 기준 (확인 2026-11-23)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">손정의, 하이닉스 통째<br>인수 타진 뒤 보류</p>
+      <p class="cn-s">손정의 회장이 SK하이닉스 인수 자금을 월가에 알아봤다는 보도가 나왔어요. 소프트뱅크는 더 이상 적극 검토하지 않는다고 밝혔어요.</p>
+      <p class="cn-img">A large balance scale with a single round silicon wafer on one pan and a tall stack of gold coins on the other, the scale frozen mid-tilt, abstract conceptual illustration, no text, no logos, no people</p>
+      <p class="cn-num">약 1,350조 원|논의된 인수 규모(1조 달러)</p>
+      <p class="cn-note">20일 시총 약 787조 원 · 소프트뱅크 '적극 검토 안 함'</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Agent — 컴퓨터 사용</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">代</span>
+    <div class="card-top"><span class="topic">구글 맥 앱</span></div>
+    <h2>구글 제미나이, 맥을 대신 조작한다 — 사용자 화면 대신 뒤쪽 창에서, 로그인·결제 앞에선 멈춤</h2>
+    <div class="summary">
+      <p>구글이 19일(현지) macOS용 제미나이 앱에 '컴퓨터 사용' 기능을 넣었다. 맥 앱 조작, 파일 정리, 양식 작성 같은 여러 단계 작업을 대신한다. 대상은 Google AI Plus·Pro·Ultra 구독자이고 처음엔 <strong>미국·영어</strong>만 된다. 다른 시장 확대 시점은 밝히지 않았다(테크크런치).</p>
+      <p>작업은 별도의 백그라운드 창에서 돌고 채팅 안 미리보기로 보이며, 사용자의 화면과 커서는 그대로 둔다. 프롬프트에 '@Computer use'를 붙이면 실행되고 쓸 앱은 사용자가 고른다. 로그인·결제 때는 멈추고 민감한 동작은 확인을 받는다(9to5Google). 테크크런치는 오픈AI·앤트로픽·메타가 이미 비슷한 기능을 내놓아 구글이 "조금 늦었다"고 평했다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">기능</span><span>맥 앱 조작 · 파일 정리 · 양식 작성 등 여러 단계 작업</span></li>
+      <li><span class="k">대상</span><span>Google AI Plus·Pro·Ultra · 미국 영어 · 순차 배포</span></li>
+      <li><span class="k">방식</span><span>'@Computer use' 입력 → 백그라운드 창 실행 · 채팅 안 미리보기</span></li>
+      <li><span class="k">안전장치</span><span>로그인·결제 때 멈춤 · 민감 동작 확인 · 일시정지·중지 가능</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>핵심 설계는 '내 커서를 빼앗지 않는 뒤쪽 창'과 '결제 앞에서 멈춤'이다. 에이전트 경쟁이 기능보다 권한을 어디까지 줄지로 옮겨 가고 있다. 한국 사용자는 아직 쓸 수 없다.</p>
+    </div>
+    <a class="source" href="https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/">TechCrunch — 제미나이 맥 컴퓨터 사용</a>  <a class="source" href="https://9to5google.com/2026/11/19/gemini-mac-computer-use/">9to5Google — 작동 방식</a>
+    <span class="ref-note">테크크런치(11/19 10:09 PST)·9to5Google(11/19 10:55 PT) · 미국 영어·유료 요금제 대상은 두 매체 일치 · 가격은 매체 표기가 엇갈려 뺌 (확인 2026-11-23)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">제미나이가 내 맥을<br>뒤쪽 창에서 대신 조작</p>
+      <p class="cn-s">맥용 제미나이가 앱을 다루고 파일을 정리해 줘요. 사용자 화면은 그대로 두고, 로그인·결제 앞에서는 멈춰요. 지금은 미국 영어 사용자만 써요.</p>
+      <p class="cn-img">A generic laptop with no brand marks on a quiet desk with an empty main screen, while a small translucent window in one corner shows folders and documents neatly sorting themselves, soft light, abstract conceptual illustration, no text, no logos, no people</p>
+      <p class="cn-steps">명령 입력|뒤쪽 창 실행|로그인·결제 땐 멈춤</p>
+      <p class="cn-note">민감 동작은 사용자 확인 · AI Plus·Pro·Ultra 대상</p>
+    </div>
+  </article>
+
+  <div class="section-rule"><span class="label">Security — AI 해킹</span><span class="bar"></span></div>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">侵</span>
+    <div class="card-top"><span class="topic">FBI 경보</span></div>
+    <h2>FBI, AI 침투 도구 '아르텍스' 경보 — 일부 공격은 표적 선정부터 침입까지 3시간 미만, 한국 금융기관도 피해</h2>
+    <div class="summary">
+      <p>FBI는 13일 플래시 경보를 내고, 아르텍스(Artex)와 연계된 일부 공격이 표적 선정부터 침해까지 <strong>3시간이 채 걸리지 않았다</strong>고 밝혔다(테크크런치·이데일리). 금융·정부·기술·국방·통신·로펌이 표적이었다. 한국 금융기관 공격으로 최소 6만 8,000명의 개인정보가 털렸고, 약한 방어와 다중인증 부재가 원인으로 꼽혔다(테크크런치).</p>
+      <p>아르텍스는 7월 깃허브에 오픈소스로 공개된 AI 침투 테스트 도구로, 개발자가 지난달 비공개로 바꿨지만 복제본·변종이 최소 50종 돌고 있다(이데일리). 자체 모델 없이 상용·오픈소스 AI 모델에 연결해 쓴다(테크크런치). EU 집행위원회는 10월 22일 이후 여러 차례 사이버 공격을 받았다고 인정했지만, 아르텍스가 쓰였는지는 알려지지 않았다(이데일리).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">경보</span><span>FBI 플래시 경보(13일) · 일부 침입 3시간 미만</span></li>
+      <li><span class="k">표적</span><span>금융·정부·기술·국방·통신·로펌</span></li>
+      <li><span class="k">한국</span><span>금융기관 공격 · 최소 6만 8,000명 개인정보(테크크런치 기준)</span></li>
+      <li><span class="k">도구</span><span>7월 깃허브 공개 → 지난달 비공개 전환 · 복제·변종 50종 이상</span></li>
+      <li><span class="k">확인 한계</span><span>EU 집행위 공격에 아르텍스가 쓰였는지는 확인되지 않음</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🤖 알고 보면 달라지는 것</span>
+      <p>소스를 닫아도 끝나지 않았다. 이미 퍼진 옛 공개판과 변종이 계속 돌고, 도구는 시중 AI 모델에 붙여 쓰는 방식이라 막을 지점이 모델이 아니라 방어 쪽에 남는다. 한국 피해의 원인으로 다중인증 부재가 꼽힌 이유다.</p>
+    </div>
+    <a class="source" href="https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/">TechCrunch — FBI 경보</a>  <a class="source" href="https://edaily.co.kr/News/Read?mediaCodeNo=257&amp;newsId=02437046645647688">이데일리 — 변종·EU 집행위</a>
+    <span class="ref-note">테크크런치(11/16 09:36 PST)·이데일리(11/20 10:12) · 3시간 미만은 두 매체 일치 · 한국 피해 인원은 테크크런치 단일 출처 · EU 집행위 관련성은 이데일리 '알려지지 않음' (확인 2026-11-23)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">AI 해킹 도구 경보,<br>한국 금융기관도 피해</p>
+      <p class="cn-s">FBI가 AI 침투 도구 아르텍스를 경고했어요. 한국 금융기관 공격으로 최소 6만 8,000명의 정보가 나갔어요. 공개를 거둬도 변종이 계속 돌아요.</p>
+      <p class="cn-steps" data-now="3">7월 깃허브 공개|지난달 비공개 전환|13일 FBI 경보</p>
+      <p class="cn-num">50종 이상|돌고 있는 복제·변종</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 디테일 포인트 → 디자인 렌더링 → 검토<br>
+    큐레이션: 11/16 AI 브리프 이후 한 주를 연구·반도체·투자·에이전트·보안으로 고르게 골랐습니다. 엔비디아 SEC 조사·시총 급감(조사·사법 성격의 맥락 읽기 카드라 코너 캐러셀에서 빼고, 오늘 메인의 엔비디아 칩 밀반입 보도와도 겹쳐 제외), 메타 AI 에이전트 '뮤즈' 데이터 혼선(로이터 단일 출처·유출인지 환각인지 미확인), 앤트로픽 창업자 지분 현금화(상장은 메인에서 다룸), 시그널 스크린샷 제한(발표일 불명확), 국회 AI 글래스 토론회(예정 행사), 애플 맥 에이전트설(추측 수준)은 제외했습니다.<br>
+    📊 도표: 2번은 HBM 전체 평균 단가 올해·내년 막대로 그렸습니다. 3번은 인수 규모와 시총(같은 조 원 단위)을 검토했지만 2번과 같은 막대 구도가 이어져 큰 숫자로 바꿨고, 4번은 작동 순서, 5번은 도구 확산 경과로 대신했습니다.<br>
+    모든 수치는 보도·회사 발표 기준이며 변동될 수 있습니다.
+    <!-- tracker: 2026-11-23 ai-brief
+         [추적 중인 스토리 현재 상태]
+         리만 가설: 11/20 알푀게(앤트로픽) 증명 주장·Lean 컴파일 확인(서덜랜드), 사람용 설명 없음 · 스탠퍼드 마술로 초안(Lean 미변환). → 학계 검토·설명문 공개.
+         HBM 가격: 트렌드포스 HBM4 2.05→3~5.5달러/Gb, 평균 1.67→3.70(+122%), 엔비디아 수요 55→42%·구글 22→31%.
+         소프트뱅크-SK하이닉스: 디인포메이션 1조 달러 인수 자금 타진 보도, 소프트뱅크 '적극 검토 안 함'.
+         제미나이 맥 컴퓨터 사용: 11/19 미국 영어·유료 3요금제. → 한국 확대 시점.
+         아르텍스: FBI 11/13 경보, 한국 금융 6.8만 명(TC), 변종 50종+, EU 집행위 관련성 불일치.
+         엔비디아(미게재): 6일→20일 -32.7%(ZDNet), SEC 조사 보도(WSJ 17일·로이터 20일), 캘리포니아 소환장 19일. → SEC·주가.
+         [기존 추적 — 새 전개 미반영] ICT 수출(11월분) · Claude Fable 5.2 · 챗GPT 월렛 · 메타 이탈리아 과징금 · Fireworks 유출 · 오우라 인수.
+         [오늘 다룬 항목] ①리만 가설 AI 증명 주장 ②HBM4 가격 전망 ③손정의 SK하이닉스 인수 타진 ④제미나이 맥 컴퓨터 사용 ⑤아르텍스 FBI 경보
+         [제외한 항목] 엔비디아 SEC 조사(맥락 읽기 카드 → 캐러셀 규칙·메인과 겹침, 카드 검토 F4 뒤 삭제) · 메타 뮤즈 데이터 혼선(로이터 단일·미확인) · 앤트로픽 창업자 현금화(본문 미열람·상장 기다룸) · 시그널 스크린샷 제한(발표일 불명확) · AI 글래스 토론회(예정) · 애플 맥 에이전트설(추측) · 리만 '25만 쪽'(블로그만)
+         [이미지 시도] AI 그림 cn-img 4장(1·2·3·4번, 대체 그림 함께) · 5번 보안사고 카드는 AI 금지 → 단계+큰 숫자 · 실제 사진 없음(라이선스 분명한 사진 없음)
+         [reel-opening] 읽는정보 — 카드 1~3 중 2·3번이 막대(숫자 그림) 카드
+         [reel-scores] 코너 릴스 = 짧은판(카드 1~3). 깊게 파는 릴스는 deep-reel 수습 중이라 무인 루틴에서 만들지 않음.
+         [리서치 도구] mcp__Firecrawl__* 호출 0회.
+    -->
+  </footer>
+
+</div></body>
+</html>
