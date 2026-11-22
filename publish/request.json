@@ -2,40 +2,12 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-22_football-brief",
-   "caption": "captions/2026-11-22_football.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "review": "required"
-  },
-  {
-   "kind": "reel",
-   "media": "reels/2026-11/2026-11-22_football.mp4",
-   "caption": "captions/2026-11-22_football_reel.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "account": "sports",
-   "ab": "short",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-22_science-brief",
-   "caption": "captions/2026-11-22_science.txt",
-   "dry_run": "false",
-   "is_ai": "false",
-   "review": "required"
-  },
-  {
-   "kind": "reel",
-   "media": "reels/2026-11/2026-11-22_science.mp4",
-   "caption": "captions/2026-11-22_science_reel.txt",
+   "media": "cards/2026-11/2026-11-23_ai-brief",
+   "caption": "captions/2026-11-23_ai.txt",
    "dry_run": "false",
    "is_ai": "true",
-   "ab": "short",
    "review": "required"
   }
  ],
- "note": "11/22 축구 모닝(스포츠, 게시 완료분 유지) + 11/22 일요일 과학 캐러셀·짧은판 릴스(본계정). 06:00 루틴이 돌지 않아 밤 재실행 — 21:07 저녁 슬롯이 지나 릴스도 검수 통과 즉시 request.json 으로. card-visual-reviewer 실물 JPG PASS(2차), reel-reviewer PASS."
+ "note": "11/23 월 AI·테크 캐러셀 7장(본계정). card-visual-reviewer 실물 JPG PASS(2회차 — 1회차 카드3 AI 그림 금화 문양 FAIL → 다시 그림). 릴스는 publish/evening/2026-11-23_ai.json(21:07). 11/22 항목은 지난 날짜라 정리."
 }
