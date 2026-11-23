@@ -3286,5 +3286,45 @@
    "ig_reels_video_view_total_time": 357565,
    "reels_skip_rate": 80
   }
+ },
+ "sports:18165510397496285": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-21T23:58:39+0000",
+  "snapshot_utc": "2026-11-23T00:46:11Z",
+  "age_h": 24.8,
+  "first_line": "[⚽ 축구 모닝] 첼시 안방 1-4 리즈 · 아스널 뉴캐슬 원정 2-2",
+  "metrics": {
+   "views": 120,
+   "reach": 113,
+   "likes": 0,
+   "comments": 0,
+   "shares": 1,
+   "saved": 0,
+   "total_interactions": 1,
+   "ig_reels_avg_watch_time": 2396,
+   "ig_reels_video_view_total_time": 270768,
+   "reels_skip_rate": 77.7
+  }
+ },
+ "sports:18078903326468626": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-21T22:46:47+0000",
+  "snapshot_utc": "2026-11-23T00:46:11Z",
+  "age_h": 26.0,
+  "first_line": "[🏟 밤사이 결과] 결과판 5장 한 번에",
+  "metrics": {
+   "views": 121,
+   "reach": 113,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 3256,
+   "ig_reels_video_view_total_time": 364760,
+   "reels_skip_rate": 72.1
+  }
  }
 }
