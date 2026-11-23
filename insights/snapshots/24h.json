@@ -3326,5 +3326,76 @@
    "ig_reels_video_view_total_time": 364760,
    "reels_skip_rate": 72.1
   }
+ },
+ "main:18232097392338564": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-22T21:04:50+0000",
+  "snapshot_utc": "2026-11-23T21:14:07Z",
+  "age_h": 24.2,
+  "first_line": "[AI·테크] 리만 가설 'AI 증명' 주장, Lean 검산 통과 · HBM4 Gb당 내년 3~5.5달러 · 손정의 SK하이닉스 1조 달러 인수",
+  "metrics": {
+   "views": 12,
+   "reach": 4,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "main:18053364569818624": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-11-22T13:20:15+0000",
+  "snapshot_utc": "2026-11-23T21:14:07Z",
+  "age_h": 31.9,
+  "first_line": "[우주·과학] 해의 0.7배 별이, 질량 해의 7배 초거성 속으로, 약 7궤도 만에 병합 — 안드로메다 '바오'",
+  "metrics": {
+   "views": 123,
+   "reach": 109,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 2878,
+   "ig_reels_video_view_total_time": 316597,
+   "reels_skip_rate": 78
+  }
+ },
+ "main:18106652234537816": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-22T13:19:36+0000",
+  "snapshot_utc": "2026-11-23T21:14:07Z",
+  "age_h": 31.9,
+  "first_line": "[우주·과학] 해의 0.7배 별이, 질량 해의 7배 초거성 안으로 — 7궤도(약 7년) 만에 합쳐진 안드로메다 '바오' 🔭",
+  "metrics": {
+   "views": 12,
+   "reach": 5,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "sports:18118988720330743": {
+  "account": "sports",
+  "type": "FEED",
+  "posted_utc": "2026-11-22T13:18:58+0000",
+  "snapshot_utc": "2026-11-23T21:14:07Z",
+  "age_h": 31.9,
+  "first_line": "[⚽ 축구 모닝] 첼시 안방 1-4, 리즈 1999년 이후 첫 첼시 원정 승리 · 아스널 2-2 · 황희찬 66분 — 6장",
+  "metrics": {
+   "views": 11,
+   "reach": 5,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
