@@ -1,11 +1,65 @@
 {
- "collected_kst": "2026-11-22 17:21",
+ "collected_kst": "2026-11-23 18:20",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-22T08:20:42.069441Z",
+   "checked_at": "2026-11-23T09:20:38.006592Z",
    "media": [
+    {
+     "id": "18232097392338564",
+     "type": "FEED",
+     "timestamp": "2026-11-22T21:04:50+0000",
+     "permalink": "https://www.instagram.com/p/DgDupOvG8TA/",
+     "first_line": "[AI·테크] 리만 가설 'AI 증명' 주장, Lean 검산 통과 · HBM4 Gb당 내년 3~5.5달러 · 손정의 SK하이닉스 1조 달러 인수",
+     "metrics": {
+      "views": 9,
+      "reach": 3,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18053364569818624",
+     "type": "REELS",
+     "timestamp": "2026-11-22T13:20:15+0000",
+     "permalink": "https://www.instagram.com/reel/DgC5cktierA/",
+     "first_line": "[우주·과학] 해의 0.7배 별이, 질량 해의 7배 초거성 속으로, 약 7궤도 만에 병합 — 안드로메다 '바오'",
+     "tag": "우주·과학",
+     "variant": "short",
+     "opening": "static",
+     "metrics": {
+      "views": 122,
+      "reach": 108,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2886,
+      "ig_reels_video_view_total_time": 314632,
+      "reels_skip_rate": 77.8
+     }
+    },
+    {
+     "id": "18106652234537816",
+     "type": "FEED",
+     "timestamp": "2026-11-22T13:19:36+0000",
+     "permalink": "https://www.instagram.com/p/DgC5a6UkbbJ/",
+     "first_line": "[우주·과학] 해의 0.7배 별이, 질량 해의 7배 초거성 안으로 — 7궤도(약 7년) 만에 합쳐진 안드로메다 '바오' 🔭",
+     "metrics": {
+      "views": 9,
+      "reach": 4,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
     {
      "id": "18347523508260374",
      "type": "FEED",
@@ -137,8 +191,8 @@
      "permalink": "https://www.instagram.com/p/Df1BXpKEQ5d/",
      "first_line": "[🩺 헬스] 독감 45주 외래 1,000명당 28.9명 · 7~12세 73.5명 · '공부 잘하는 약' 불법 판매 571건",
      "metrics": {
-      "views": 12,
-      "reach": 5,
+      "views": 13,
+      "reach": 6,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -153,8 +207,8 @@
      "permalink": "https://www.instagram.com/p/Df1BKvmEdx9/",
      "first_line": "[💰 머니] 유류세 인하 1월 31일까지 · 저축은행 4%대 예금 154개 · 가계대출 1,200조",
      "metrics": {
-      "views": 15,
-      "reach": 5,
+      "views": 17,
+      "reach": 6,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -473,32 +527,49 @@
       "saved": 0,
       "total_interactions": 2
      }
-    },
+    }
+   ],
+   "errors": [],
+   "username": "hannun.brief",
+   "account_type": "MEDIA_CREATOR",
+   "followers": 8,
+   "posts": 80
+  },
+  {
+   "account": "sports",
+   "checked_at": "2026-11-23T09:20:46.895728Z",
+   "media": [
     {
-     "id": "17867500746679847",
-     "type": "FEED",
-     "timestamp": "2026-11-03T10:35:09+0000",
-     "permalink": "https://www.instagram.com/p/DfRrermFYvM/",
-     "first_line": "[🩺 헬스] 독감 43주 외래 1,000명당 19.2명 · 쯔쯔가무시 철 · 12월부터 산정특례 본인부담 7%",
+     "id": "18159099655528996",
+     "type": "REELS",
+     "timestamp": "2026-11-22T22:44:08+0000",
+     "permalink": "https://www.instagram.com/reel/DgD5-iZCmWz/",
+     "first_line": "[🏟 밤사이 결과] 결과판 4장 한 번에",
+     "tag": "🏟 밤사이 결과",
+     "variant": "short",
+     "opening": "static",
      "metrics": {
-      "views": 17,
-      "reach": 7,
-      "likes": 2,
+      "views": 123,
+      "reach": 108,
+      "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
-      "total_interactions": 2
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 3852,
+      "ig_reels_video_view_total_time": 412167,
+      "reels_skip_rate": 64.5
      }
     },
     {
-     "id": "18099623168107968",
+     "id": "18118988720330743",
      "type": "FEED",
-     "timestamp": "2026-11-03T08:42:24+0000",
-     "permalink": "https://www.instagram.com/p/DfRekstFlUE/",
-     "first_line": "[💰 머니] 10월 물가 2.8%↑ · 유류세 인하 11월 30일까지 · 주담대 고정금리 5.11%",
+     "timestamp": "2026-11-22T13:18:58+0000",
+     "permalink": "https://www.instagram.com/p/DgC5VBdEXkX/",
+     "first_line": "[⚽ 축구 모닝] 첼시 안방 1-4, 리즈 1999년 이후 첫 첼시 원정 승리 · 아스널 2-2 · 황희찬 66분 — 6장",
      "metrics": {
-      "views": 18,
-      "reach": 7,
+      "views": 11,
+      "reach": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -506,39 +577,6 @@
       "total_interactions": 0
      }
     },
-    {
-     "id": "17960272221016261",
-     "type": "REELS",
-     "timestamp": "2026-11-02T12:07:33+0000",
-     "permalink": "https://www.instagram.com/reel/DfPRPpBDJJq/",
-     "first_line": "[AI·테크] 엔비디아 루빈 GPU 메모리 대역폭 22→19.2 TB/s · 네이버에 10억 달러 투자 · 구글 제미나이 4 카본 88.2%",
-     "tag": "AI·테크",
-     "variant": "short",
-     "opening": "motion",
-     "metrics": {
-      "views": 161,
-      "reach": 138,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1,
-      "ig_reels_avg_watch_time": 3297,
-      "ig_reels_video_view_total_time": 464925,
-      "reels_skip_rate": 71.7
-     }
-    }
-   ],
-   "errors": [],
-   "username": "hannun.brief",
-   "account_type": "MEDIA_CREATOR",
-   "followers": 8,
-   "posts": 75
-  },
-  {
-   "account": "sports",
-   "checked_at": "2026-11-22T08:20:55.258302Z",
-   "media": [
     {
      "id": "18165510397496285",
      "type": "REELS",
@@ -549,16 +587,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 119,
-      "reach": 112,
+      "views": 121,
+      "reach": 114,
       "likes": 0,
       "comments": 0,
       "shares": 1,
       "saved": 0,
       "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2407,
-      "ig_reels_video_view_total_time": 269689,
-      "reels_skip_rate": 77.5
+      "ig_reels_avg_watch_time": 2388,
+      "ig_reels_video_view_total_time": 272284,
+      "reels_skip_rate": 77.9
      }
     },
     {
@@ -571,16 +609,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 120,
-      "reach": 112,
+      "views": 122,
+      "reach": 114,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3279,
-      "ig_reels_video_view_total_time": 364031,
-      "reels_skip_rate": 71.8
+      "ig_reels_avg_watch_time": 3244,
+      "ig_reels_video_view_total_time": 366631,
+      "reels_skip_rate": 72.3
      }
     },
     {
@@ -1058,57 +1096,13 @@
       "ig_reels_video_view_total_time": 830096,
       "reels_skip_rate": 50.4
      }
-    },
-    {
-     "id": "18001401060044263",
-     "type": "REELS",
-     "timestamp": "2026-11-09T01:47:37+0000",
-     "permalink": "https://www.instagram.com/reel/DfgL2B8Elk4/",
-     "first_line": "[🎮 LoL] BLG 3:1 T1",
-     "tag": "🎮 LoL",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 5,
-      "reach": 5,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 2,
-      "ig_reels_avg_watch_time": 1856,
-      "ig_reels_video_view_total_time": 14854,
-      "reels_skip_rate": 100
-     }
-    },
-    {
-     "id": "18170811508414439",
-     "type": "REELS",
-     "timestamp": "2026-11-08T23:51:10+0000",
-     "permalink": "https://www.instagram.com/reel/Dff-idYk7f4/",
-     "first_line": "[⚽ 축구 모닝] AT마드리드 1-2 바르사, 페르민 멀티골·이강인 60분 · 맨유 4-4 빌라 · 리버풀 3-1 팰리스",
-     "tag": "⚽ 축구 모닝",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 6,
-      "reach": 4,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 5542,
-      "ig_reels_video_view_total_time": 33255,
-      "reels_skip_rate": 25
-     }
     }
    ],
    "errors": [],
    "username": "hannun.sports",
    "account_type": "MEDIA_CREATOR",
    "followers": 7,
-   "posts": 140
+   "posts": 142
   }
  ]
 }
