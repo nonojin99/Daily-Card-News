@@ -3417,5 +3417,25 @@
    "ig_reels_video_view_total_time": 412167,
    "reels_skip_rate": 64.5
   }
+ },
+ "main:18012771785778923": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-11-23T12:09:03+0000",
+  "snapshot_utc": "2026-11-24T17:30:51Z",
+  "age_h": 29.4,
+  "first_line": "[AI·테크] 리만 가설 'AI 증명' 주장, 기계 검산 통과 · HBM4 값 내년 최대 2.7배 · 손정의 SK하이닉스 인수 타진 뒤 보류",
+  "metrics": {
+   "views": 78,
+   "reach": 70,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 3822,
+   "ig_reels_video_view_total_time": 271392,
+   "reels_skip_rate": 75.7
+  }
  }
 }
