@@ -1,11 +1,65 @@
 {
- "collected_kst": "2026-11-23 18:20",
+ "collected_kst": "2026-11-24 20:14",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-23T09:20:38.006592Z",
+   "checked_at": "2026-11-24T11:14:35.096150Z",
    "media": [
+    {
+     "id": "18129454819857867",
+     "type": "FEED",
+     "timestamp": "2026-11-24T02:45:57+0000",
+     "permalink": "https://www.instagram.com/p/DgG6ejtjLRf/",
+     "first_line": "[🩺 헬스] 독감 입원 한 주 새 639명→926명 · 경남 창원 콜레라 10년 만 · 항생제 44.2%는 가축",
+     "metrics": {
+      "views": 4,
+      "reach": 2,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18136157407827494",
+     "type": "FEED",
+     "timestamp": "2026-11-24T02:45:09+0000",
+     "permalink": "https://www.instagram.com/p/DgG6Z41DMjN/",
+     "first_line": "[💰 머니] 26일 금통위 3.25% 인상 전망 · 환율 장중 1,351.6원 · 은행 약관 73개 조항 시정 요청",
+     "metrics": {
+      "views": 7,
+      "reach": 3,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18012771785778923",
+     "type": "REELS",
+     "timestamp": "2026-11-23T12:09:03+0000",
+     "permalink": "https://www.instagram.com/reel/DgFWGs7j0LG/",
+     "first_line": "[AI·테크] 리만 가설 'AI 증명' 주장, 기계 검산 통과 · HBM4 값 내년 최대 2.7배 · 손정의 SK하이닉스 인수 타진 뒤 보류",
+     "tag": "AI·테크",
+     "variant": "short",
+     "opening": "motion",
+     "metrics": {
+      "views": 78,
+      "reach": 70,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 3822,
+      "ig_reels_video_view_total_time": 271392,
+      "reels_skip_rate": 75.7
+     }
+    },
     {
      "id": "18232097392338564",
      "type": "FEED",
@@ -13,8 +67,8 @@
      "permalink": "https://www.instagram.com/p/DgDupOvG8TA/",
      "first_line": "[AI·테크] 리만 가설 'AI 증명' 주장, Lean 검산 통과 · HBM4 Gb당 내년 3~5.5달러 · 손정의 SK하이닉스 1조 달러 인수",
      "metrics": {
-      "views": 9,
-      "reach": 3,
+      "views": 12,
+      "reach": 4,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -32,16 +86,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 122,
-      "reach": 108,
+      "views": 123,
+      "reach": 109,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2886,
-      "ig_reels_video_view_total_time": 314632,
-      "reels_skip_rate": 77.8
+      "ig_reels_avg_watch_time": 2878,
+      "ig_reels_video_view_total_time": 316597,
+      "reels_skip_rate": 78
      }
     },
     {
@@ -51,8 +105,8 @@
      "permalink": "https://www.instagram.com/p/DgC5a6UkbbJ/",
      "first_line": "[우주·과학] 해의 0.7배 별이, 질량 해의 7배 초거성 안으로 — 7궤도(약 7년) 만에 합쳐진 안드로메다 '바오' 🔭",
      "metrics": {
-      "views": 9,
-      "reach": 4,
+      "views": 12,
+      "reach": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -191,7 +245,7 @@
      "permalink": "https://www.instagram.com/p/Df1BXpKEQ5d/",
      "first_line": "[🩺 헬스] 독감 45주 외래 1,000명당 28.9명 · 7~12세 73.5명 · '공부 잘하는 약' 불법 판매 571건",
      "metrics": {
-      "views": 13,
+      "views": 14,
       "reach": 6,
       "likes": 0,
       "comments": 0,
@@ -473,71 +527,17 @@
       "saved": 0,
       "total_interactions": 0
      }
-    },
-    {
-     "id": "18010403445004931",
-     "type": "REELS",
-     "timestamp": "2026-11-05T08:34:56+0000",
-     "permalink": "https://www.instagram.com/reel/DfWnR6MkZaU/",
-     "first_line": "[📺 OTT·게임] 재혼 황후 11/4 공개 · 꿀알바 국내 1위 · 젤다 11/5 출시",
-     "tag": "📺 OTT·게임",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 109,
-      "reach": 105,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1,
-      "ig_reels_avg_watch_time": 2268,
-      "ig_reels_video_view_total_time": 258643,
-      "reels_skip_rate": 79.8
-     }
-    },
-    {
-     "id": "18196012519399553",
-     "type": "FEED",
-     "timestamp": "2026-11-04T03:32:15+0000",
-     "permalink": "https://www.instagram.com/p/DfTf4AhEVTX/",
-     "first_line": "[📺 OTT·게임] 재혼 황후 오늘 디즈니+ 공개 · 꿀알바 넷플릭스 국내 1위 · 젤다 시간의 오카리나 5일 — 11월 4일 OTT·게임·웹툰",
-     "metrics": {
-      "views": 15,
-      "reach": 5,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 2
-     }
-    },
-    {
-     "id": "17978371362171479",
-     "type": "FEED",
-     "timestamp": "2026-11-04T01:13:33+0000",
-     "permalink": "https://www.instagram.com/p/DfTQAI7jfVN/",
-     "first_line": "[문화] 서울에서 세계 첫선 뮤지컬 워더링하이츠 · 안창홍 개인전 오늘 개막 · 최종면접 오늘 개봉 — 11월 4일 문화 브리프 6장",
-     "metrics": {
-      "views": 15,
-      "reach": 5,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 2
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 80
+   "posts": 85
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-23T09:20:46.895728Z",
+   "checked_at": "2026-11-24T11:14:44.887410Z",
    "media": [
     {
      "id": "18159099655528996",
@@ -568,8 +568,8 @@
      "permalink": "https://www.instagram.com/p/DgC5VBdEXkX/",
      "first_line": "[⚽ 축구 모닝] 첼시 안방 1-4, 리즈 1999년 이후 첫 첼시 원정 승리 · 아스널 2-2 · 황희찬 66분 — 6장",
      "metrics": {
-      "views": 11,
-      "reach": 5,
+      "views": 12,
+      "reach": 6,
       "likes": 0,
       "comments": 0,
       "shares": 0,
