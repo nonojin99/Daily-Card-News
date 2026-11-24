@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="헬스 브리프 — 2026.11.24">
+<meta property="og:description" content="독감 입원 926명 · 콜레라 국내발생 추정 10년 만 · 항생제 1,897톤 중 가축 44.2% · 요양시설 손위생 80% vs 12% · 겨울 노로바이러스">
+<meta property="og:type" content="article">
+<title>Health Brief — 2026.11.24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@600;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#1a1a18; --muted:#6b6b66; --faint:#9a9a94;
+    --line:#e6e4dd; --bg:#faf9f6; --card:#ffffff;
+    --accent:#b5485a; --accent-soft:#f8eaed;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;padding:0 20px}
+  .wrap{max-width:760px;margin:0 auto;padding:64px 0 96px}
+  header{border-bottom:1.5px solid var(--ink);padding-bottom:20px;margin-bottom:8px}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Noto Serif KR','Newsreader',serif;font-weight:500;font-size:clamp(38px,8vw,60px);line-height:1.02;letter-spacing:-.02em}
+  .masthead-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;flex-wrap:wrap;gap:8px}
+  .date{font-family:'Noto Serif KR','Newsreader',serif;font-size:19px;color:var(--muted)}
+  .count{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .lede{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--muted);margin-top:22px;font-style:italic}
+  .section-rule{display:flex;align-items:center;gap:14px;margin:52px 0 22px}
+  .section-rule .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;white-space:nowrap}
+  .section-rule .bar{flex:1;height:1px;background:var(--line)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:16px;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+  .card:hover{border-color:#cfcdc4;transform:translateY(-1px)}
+  .hanja{position:absolute;top:-14px;right:2px;font-family:'Noto Serif KR',serif;font-size:100px;font-weight:900;color:var(--accent);opacity:.055;line-height:1;pointer-events:none;user-select:none}
+  .card-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .topic{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:20px}
+  .card h2{font-family:'Noto Serif KR','Newsreader',serif;font-weight:600;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .summary{font-size:15.5px;color:#33332f;margin-bottom:16px}
+  .summary p + p{margin-top:11px}
+  .spec{list-style:none;margin:6px 0 14px;padding:0;border-top:1px solid var(--line)}
+  .spec li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .spec .k{flex:0 0 118px;font-weight:600;color:var(--accent)}
+  .timeline{list-style:none;margin:4px 0 16px;padding:0;border-top:1px solid var(--line)}
+  .timeline li{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;color:#33332f}
+  .timeline .when{flex:0 0 100px;font-weight:600;color:var(--accent)}
+  .insight{border-left:2.5px solid var(--accent);padding:11px 0 11px 16px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent-soft),transparent);border-radius:0 8px 8px 0}
+  .insight .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:3px}
+  .insight p{font-size:14px;color:#2c2c28;line-height:1.5}
+  .source{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .source:hover{color:var(--accent);border-color:var(--accent)}
+  .source::after{content:"↗";font-size:11px}
+  .ref-note{display:inline-block;font-size:11px;color:var(--faint);margin-left:10px;font-style:italic}
+  .correction{background:#fbf3e2;border:1px solid #e8d9b5;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#7a5a1a;line-height:1.6}
+  .correction strong{color:#6a4d12}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.7}
+  footer .pipe{color:var(--accent);font-weight:600}
+  @media (max-width:520px){.wrap{padding:44px 0 72px}.card{padding:22px 20px}.spec .k{flex:0 0 96px}.timeline .when{flex:0 0 86px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 시각화 (2026-10-01 도입) ──────────────────────────────────────────
+     [계열색] 브리프 액센트와 분리한다. 액센트 #3d5a4c 는 채도 0.042 라
+     데이터 색으로 쓰면 회색으로 읽혀 계열 구분이 안 된다(팔레트 검증 FAIL).
+     아래 2색은 흰 카드면 기준 전 항목 PASS — 명도대역 · 채도하한 ·
+     색각분리 protan ΔE 18.9 / tritan 26.2 · 정상시야 ΔE 25.3 · 대비 3:1↑.
+     [상태색] 스테퍼는 계열색을 쓰지 않는다. 계열색을 상태 표시에 재사용하면
+     "주황 = 전년동월비"와 "주황 = 현재 단계"가 한 브리프 안에서 충돌한다.
+     상태는 액센트 + 회색(강조/비강조)으로만 표현한다. */
+  .chart{--s1:#2f6d9e;--s2:#c06a24;--cv-hair:#e6e4dd;--cv-rule:#b9b7ad;--cv-off:#cfcdc4;
+         margin:2px 0 18px}
+  .chart figcaption{font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        font-weight:600;color:var(--faint);margin-bottom:9px}
+  .cv{width:100%;height:auto;display:block;overflow:visible}
+  .cv-bar{fill:var(--s1)}
+  .cv-bar.cv-s1,.cv-dot.cv-s1{fill:var(--s1)}
+  .cv-bar.cv-s2,.cv-dot.cv-s2{fill:var(--s2)}
+  .cv-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .cv-line.cv-s1{stroke:var(--s1)} .cv-line.cv-s2{stroke:var(--s2)}
+  .cv-dot{stroke:var(--card);stroke-width:2}          /* 면색 링 — 겹칠 때 분리 */
+  .cv-grid,.cv-axis{stroke:var(--cv-hair);stroke-width:1}
+  .cv-zero,.cv-base{stroke:var(--cv-rule);stroke-width:1}
+  .cv-t,.cv-ax{font-family:'Inter',sans-serif;font-size:11px;fill:var(--faint)}
+  .cv-ax{font-variant-numeric:tabular-nums}
+  .cv-cat{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;fill:var(--muted)}
+  .cv-val{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:600;fill:#33332f;
+        font-variant-numeric:tabular-nums}            /* 값은 텍스트 토큰 — 계열색 금지 */
+  .cv-mid{text-anchor:middle}
+  .cv-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+  .cv-legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .cv-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  .cv-legend .k1 i{background:var(--s1)} .cv-legend .k2 i{background:var(--s2)}
+  .cv-note{font-size:11.5px;color:var(--faint);margin-top:9px;font-style:italic;line-height:1.55}
+  /* 스테퍼 — 상태는 액센트/회색만 */
+  .cv-stepdot{stroke:var(--card);stroke-width:2}
+  .cv-st-done,.cv-st-now{fill:var(--accent)}
+  .cv-st-next{fill:var(--cv-off)}
+  .cv-step-done{stroke:var(--accent);stroke-width:2}
+  .cv-steplab-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:.32}
+  .cv-st-done-t,.cv-st-now-t{fill:#33332f} .cv-st-next-t{fill:var(--faint)}
+  /* SVG 텍스트는 viewBox 와 함께 축소된다. 좁은 화면에서는 user unit 을 키워
+     화면상 크기를 유지한다(390px 뷰포트에서 축척 약 0.48). */
+  @media (max-width:560px){
+    .cv-t,.cv-ax{font-size:20px} .cv-cat{font-size:21px} .cv-val{font-size:22px}
+  }
+  /* ── 오디오 (2026-10-11 도입) — 낭독 원고는 <details>, 재생기는 Actions 가 삽입. JS 없음 ── */
+  .audio-player{display:flex;flex-direction:column;gap:8px;margin:14px 0 14px}
+  .audio-player .label{font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--accent)}
+  .audio-player audio{width:100%;height:40px}
+  .audio-script{margin:0 0 6px;border:1px solid var(--line);border-radius:10px;padding:10px 16px;background:var(--card)}
+  .audio-script summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .audio-script p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+  /* ── 서울 날씨 한 줄 (2026-10-11 도입) ── */
+  .weather{margin:14px 0 0;padding:9px 14px;border-radius:10px;background:var(--accent-soft);font-size:14px;color:var(--ink);line-height:1.6}
+  .weather .wx-note{display:inline-block;margin-left:6px;font-size:11.5px;color:var(--faint)}
+  .weather .wx-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+</style>
+
+<body><div class="wrap">
+
+  <header>
+    <div class="kicker">Health Brief · 헬스 브리프</div>
+    <h1>독감 입원 926명 · 콜레라 10년 만 · 항생제 44%는 가축 · 요양시설 손위생 · 겨울 노로</h1>
+    <div class="masthead-meta">
+      <span class="date">2026년 11월 24일 화요일 · 헬스 브리프</span>
+      <span class="count">5 Picks · 감염병 2 · 항생제 1 · 연구 1 · 식중독 1</span>
+    </div>
+    <p class="lede">독감으로 입원한 환자가 한 주 새 639명에서 926명으로 늘었고, 경남 창원에서는 10년 만에 국내발생으로 추정되는 콜레라 환자가 나왔습니다. 12개 기관이 함께 낸 항생제 통합보고서, 요양시설 손위생 연구, 겨울철 노로바이러스 수칙까지 이번 주 건강 소식을 모았습니다.</p>
+  </header>
+
+  <details class="audio-script">
+    <summary>🎧 낭독 원고 보기</summary>
+    <p>11월 24일 화요일, 헬스 브리프입니다.</p>
+    <p>독감으로 입원한 환자가 한 주 만에 639명에서 926명으로 늘었습니다. 46주차 외래 의사환자는 1,000명당 37.0명으로 4주 연속 늘었고, 7~12세가 98.9명으로 가장 많습니다. 그런데 입원환자의 65.4%는 외래 분율이 가장 낮은 65세 이상이었습니다. 많이 걸리는 나이와 입원하는 나이가 다릅니다. 65세 이상 접종률은 74.8%입니다.</p>
+    <p>경남 창원에서 국내에서 걸린 것으로 추정되는 콜레라 환자 1명이 확인됐습니다. 국내발생은 2016년 이후 10년 만입니다. 첫 검사는 음성이었지만 항생제를 쓰기 전 받아 둔 검체로 다시 검사해 양성이 나왔습니다. 환자는 퇴원했고, 감염원은 역학조사 중입니다. 손은 비누로 30초 이상 씻고, 음식은 익혀 드세요.</p>
+    <p>2024년 국내 항생제 사용·판매량은 약 1,897톤이었습니다. 가축이 44.2%로 사람 35.0%보다 많았고, 수산·가축·작물·사람 모든 분야에서 전년보다 늘었습니다. 사람에게 쓴 항생제 가운데 내성 위험이 낮은 접근 항생제 비율은 36%로, 유엔 목표 70%에 못 미칩니다.</p>
+    <p>서울 노인요양시설 17곳을 관찰한 연구에서 손위생 교육을 받은 종사자의 수행률은 80%, 받지 않은 종사자는 12%였습니다. 다만 교육 뒤 올랐던 수행률은 이듬해 다시 떨어졌습니다. 시설 수가 적은 관찰 연구라 효과를 단정할 수는 없습니다.</p>
+    <p>노로바이러스 식중독은 최근 5년 273건 가운데 143건이 12월부터 2월 사이에 났습니다. 가열조리용 굴은 중심 온도 85도에서 1분 이상 익혀 드시고, 구토나 설사를 했다면 나은 뒤에도 2~3일은 음식을 만들지 마세요.</p>
+    <p>이상 헬스 브리프였습니다. 진단·처방이 아니며, 증상이 있으면 의료진과 상담하세요.</p>
+  </details>
+
+<div class="section-rule"><span class="label">감염병 — 이번 주 숫자</span><span class="bar"></span></div>
+  <article class="card">
+    <span class="hanja" aria-hidden="true">感</span>
+    <div class="card-top"><span class="topic">독감 46주</span></div>
+    <h2>독감 입원환자 한 주 새 639명→926명 — 46주 외래 1,000명당 37.0명, 입원은 65세 이상이 65.4%</h2>
+    <div class="summary">
+      <p>질병관리청(11월 20일)에 따르면 46주차(11월 8~14일) 독감 의사환자 분율은 외래 1,000명당 <strong>37.0명</strong>으로 42주 17.7명 이후 4주 연속 늘었다. 표본 병원 223곳의 입원환자는 45주 639명에서 46주 <strong>926명</strong>으로 늘었고, 전년 같은 주(490명)보다 많다. 46주 입원환자 가운데 65세 이상이 606명(65.4%)이다.</p>
+      <p>연령별 외래 분율은 7~12세 98.9명, 13~18세 64.5명, 1~6세 46.6명 순이고 65세 이상은 12.5명이다. 유행 바이러스는 A(H1N1)pdm09다. 접종률은 11월 19일 18시 기준 65세 이상 74.8%, 생후 6개월~14세 59.8%다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">외래 분율</span><span>42주 17.7 → 43주 19.2 → 44주 22.8 → 45주 28.9 → 46주 37.0명(1,000명당)</span></li>
+      <li><span class="k">입원환자</span><span>43주 389 → 44주 460 → 45주 639 → 46주 926명(표본 223곳, 한 주 +287명) · 전년 같은 주 490명</span></li>
+      <li><span class="k">입원 중 고령</span><span>65세 이상 606명(65.4%)</span></li>
+      <li><span class="k">연령별 외래</span><span>7~12세 98.9 · 13~18세 64.5 · 1~6세 46.6 · 65세 이상 12.5명</span></li>
+      <li><span class="k">접종률</span><span>65세 이상 74.8% · 생후 6개월~14세 59.8%(11/19 18시)</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🩺 알고 보면 달라지는 것</span>
+      <p>외래에서 가장 많이 걸리는 나이는 7~12세지만, 입원환자의 3분의 2는 외래 분율이 가장 낮은 65세 이상이다. 같은 기간 인플루엔자 양성 사망 신고 44건은 사망 전 30일 안에 확진된 사람을 센 것이라 '독감으로 숨진 수'와 같지 않다. 진단·처방이 아니며, 증상이 있으면 의료진과 상담하세요.</p>
+    </div>
+    <a class="source" href="https://www.kdca.go.kr/bbs/kdca/42/313513/artclView.do">질병청 11/20 — 46주 독감</a> <a class="source" href="https://www.bosa.co.kr/news/articleView.html?idxno=3016965">의학신문 11/20 — 입원·사망 신고</a>
+    <span class="ref-note">분율·입원환자·65세 이상 606명(65.4%)·연령별·접종률은 질병청 11/20 보도자료와 의학신문(11/20 14:01) 일치 · 사망 신고 44건의 '30일 안 확진' 기준은 의학신문 본문 · 접종 효과 수치는 두 보도자료(11/20·11/23) 표기가 달라 뺌 (확인 2026-11-24)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">독감 입원환자,<br>한 주 새 287명 늘어</p>
+      <p class="cn-s">46주 독감 입원환자가 926명으로 전주 639명보다 늘었어요. 외래는 7~12세가 가장 많지만, 입원환자는 65세 이상이 65.4%예요.</p>
+      <p class="cn-bars" data-hl="4" data-unit="명">43주:389|44주:460|45주:639|46주:926</p>
+      <p class="cn-note">표본 병원 223곳 입원환자 / 46주 = 11월 8~14일</p>
+      <p class="cn-img">A quiet hospital corridor with an empty wheelchair near a window and a blanket folded on a chair, soft winter morning light, flat illustration, no people, no text, no numbers, no logos</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">疫</span>
+    <div class="card-top"><span class="topic">경남 창원</span></div>
+    <h2>콜레라 국내발생 추정 환자 1명 — 2016년 이후 10년 만, 첫 검사 음성 뒤 재검사로 확인</h2>
+    <div class="summary">
+      <p>질병관리청(11월 20일)은 11월 19일 경남 창원에서 국내에서 감염된 것으로 추정되는 콜레라 환자 <strong>1명</strong>을 확인했다고 밝혔다. 국내발생 콜레라는 2016년(3명) 이후 <strong>10년 만</strong>이다. 환자는 최근 2개월 해외여행 이력이 없고, 감염원은 역학조사 중이다.</p>
+      <p>질병청과 아시아경제(11월 20일)에 따르면 환자는 11월 6일 구토·설사로 응급실을 찾았다. 첫 검사는 음성이었지만, 항생제를 쓰기 전 받아 둔 검체로 다시 검사해 11월 18일 경남보건환경연구원에서 양성이 나왔고 19일 독소형 'O1 오가와형'으로 확인됐다. 환자는 11월 17일 퇴원했고, 추적검사에서 연속 2회 음성이 나올 때까지 격리한다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">확인</span><span>11/19 · 경남 창원 · 국내발생 추정 1명</span></li>
+      <li><span class="k">이전 국내발생</span><span>2016년 3명 이후 10년 만</span></li>
+      <li><span class="k">경과</span><span>11/6 응급실 → 첫 검사 음성 → 11/17 퇴원 → 11/18 재검사 양성 → 11/19 O1 오가와형 확인</span></li>
+      <li><span class="k">감염원</span><span>미확인 · 역학조사 중(해외여행 이력 없음)</span></li>
+      <li><span class="k">예방수칙</span><span>비누로 30초 이상 손 씻기 · 익혀 먹기 · 물 끓여 마시기 · 설사 중 조리 금지</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🩺 알고 보면 달라지는 것</span>
+      <p>아시아경제에 따르면 질병청은 2005년부터 바다 환경을 감시해 왔지만 독소를 만드는 병원성 콜레라균이 국내 해양에서 나온 적은 없다. 그래서 감염원이 아직 '미확인'이다. 해산물·육류·채소는 도마를 나눠 쓰고 익혀 먹는 기본 수칙이 지금 가장 확실한 예방법이다.</p>
+    </div>
+    <a class="source" href="https://www.kdca.go.kr/bbs/kdca/42/313518/artclView.do">질병청 11/20 — 콜레라 환자 확인</a> <a class="source" href="https://view.asiae.co.kr/article/2026112014390816167">아시아경제 11/20 — 경과·해양 감시</a>
+    <span class="ref-note">확인일·10년 만(2016년 3명)·해외여행 이력·퇴원·격리·예방수칙은 질병청과 아시아경제(11/20 14:39) 일치 · 경과(11/6·11/18·11/19)는 질병청·아시아경제 일치 · 경남보건환경연구원은 질병청 · 해양 감시는 아시아경제 · 첫 검사 날짜는 매체마다 기준(검사일·결과일)이 달라 뺌 · 환자 나이·성별 비공개 · 사건 성격이라 AI 그림 쓰지 않음 (확인 2026-11-24)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">10년 만의 국내 콜레라,<br>감염원은 아직 몰라</p>
+      <p class="cn-s">11월 19일 경남 창원에서 국내 감염으로 추정되는 콜레라 환자가 확인됐어요. 첫 검사는 음성이었고, 남겨 둔 검체로 재검사해 찾았어요.</p>
+      <p class="cn-steps" data-now="4">6일 응급실|17일 퇴원|18일 재검 양성|19일 O1형 확인</p>
+      <p class="cn-num">2016년|직전 국내발생(3명)</p>
+    </div>
+  </article>
+
+<div class="section-rule"><span class="label">항생제·연구 — 알고 쓰면 달라지는 것</span><span class="bar"></span></div>
+  <article class="card">
+    <span class="hanja" aria-hidden="true">藥</span>
+    <div class="card-top"><span class="topic">항생제 보고서</span></div>
+    <h2>항생제 한 해 1,897톤, 가축이 44.2%로 사람(35.0%)보다 많아 — 사람 쓰는 '접근 항생제'는 36%, 유엔 목표 70%</h2>
+    <div class="summary">
+      <p>질병관리청 등 12개 기관이 참여해 11월 23일 낸 「2024 국가 항생제 사용량 및 내성률 다부문 통합보고서」에 따르면 2024년 국내 항생제 사용·판매량은 약 <strong>1,897톤</strong>이다. 가축이 44.2%로 가장 많고 사람이 35.0%다. 전년보다 수산 12.0%, 가축 10.5%, 작물 3.2%, 사람 2.0% 늘어 모든 분야에서 증가했다.</p>
+      <p>사람에게 쓴 항생제 가운데 WHO가 내성 위험이 낮다고 분류한 '접근(Access)' 항생제는 <strong>36%</strong>로, 유엔 목표(2030년까지 70% 이상)에 못 미친다. 사람 혈액 분리균의 내성률은 황색포도알균 메티실린 41.5%, 대장균 3세대 세팔로스포린 39.1%다. 낙동강 유역 가축분뇨처리시설 인근 하천 하류 대장균은 주요 항생제 내성률이 80% 이상이었다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">총량</span><span>약 1,897톤(2024년 사용·판매량)</span></li>
+      <li><span class="k">분야별 비중</span><span>가축 44.2% · 사람 35.0%</span></li>
+      <li><span class="k">전년 대비</span><span>수산 +12.0% · 가축 +10.5% · 작물 +3.2% · 사람 +2.0%</span></li>
+      <li><span class="k">접근 항생제</span><span>사람 사용 중 36% · 유엔 목표 2030년 70% 이상</span></li>
+      <li><span class="k">사람 내성률</span><span>황색포도알균 메티실린 41.5% · 대장균 3세대 세팔로스포린 39.1%</span></li>
+      <li><span class="k">하천</span><span>가축분뇨처리시설 인근 하류 대장균 내성률 80% 이상</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🩺 알고 보면 달라지는 것</span>
+      <p>항생제는 사람보다 가축에 더 많이 쓰이고, 내성균은 사람·동물·하천에서 함께 나온다. 이번 보고서는 처음으로 농약 항생제와 가축분뇨처리시설 주변 하천까지 조사했다. 진단·처방이 아니며, 증상이 있으면 의료진과 상담하세요.</p>
+    </div>
+    <a class="source" href="https://www.kdca.go.kr/bbs/kdca/42/313522/artclView.do">질병청 11/23 — 통합보고서</a> <a class="source" href="https://www.medical-tribune.co.kr/news/articleView.html?idxno=215995">메디칼트리뷴 11/23 — 분야별·내성률</a>
+    <span class="ref-note">1,897톤·44.2%/35.0%·증가율·36%/70%·내성률·하천 80%는 질병청 보도자료와 메디칼트리뷴(11/23 10:36) 일치 · 분야별 톤 수는 본문에서 확인하지 못해 뺌 · 44.2%는 매체에 따라 '사용량'·'판매량'으로 달리 써 '사용·판매량'으로 적음 (확인 2026-11-24)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">항생제 가장 많이 쓰는 곳,<br>사람 아닌 가축</p>
+      <p class="cn-s">2024년 국내 항생제 사용·판매량 가운데 가축이 44.2%로 사람 35.0%보다 많았어요. 사람에게 쓴 '접근 항생제'는 36%로 유엔 목표 70%에 못 미쳐요.</p>
+      <p class="cn-ring">36|36%|사람에게 쓴 '접근 항생제' 비율|유엔 목표 2030년 70% 이상</p>
+      <p class="cn-img">Rolling green farmland with a row of low livestock barns beside a calm river under a clear sky, flat illustration, no people, no animals in close-up, no text, no numbers, no logos</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="hanja" aria-hidden="true">手</span>
+    <div class="card-top"><span class="topic">요양시설 연구</span></div>
+    <h2>요양시설 손위생, 교육받은 종사자 80% vs 안 받은 종사자 12% — 17개 시설 관찰 연구, 교육 뒤 오른 수행률은 이듬해 다시 떨어져</h2>
+    <div class="summary">
+      <p>이데일리(11월 19일)에 따르면 보라매병원 연구팀은 2024~2025년 서울 송파·관악·동작구 노인요양시설을 대상으로 WHO '손위생 5가지 시점' 기준 수행 여부를 연 2회 직접 관찰했다. 2025년 참여한 <strong>17곳</strong> 가운데 13곳이 교육을 받았고, 결과는 감염병 학술지 Infection &amp; Chemotherapy에 실렸다.</p>
+      <p>손위생 수행률 중앙값은 교육받은 종사자 <strong>80.0%</strong>, 받지 않은 종사자 12.0%였다(이데일리·뉴스1). 가장 낮은 시점은 '입소자 접촉 전'이었고, 2년 연속 참여한 시설은 교육 뒤 올랐던 수행률이 이듬해 다시 떨어졌다.</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">대상</span><span>서울 송파·관악·동작구 노인요양시설(2024~2025)</span></li>
+      <li><span class="k">규모</span><span>2025년 17곳 참여 · 13곳 교육</span></li>
+      <li><span class="k">설계</span><span>관찰 연구 · WHO 5가지 시점 직접 관찰 연 2회</span></li>
+      <li><span class="k">수행률 중앙값</span><span>교육받은 종사자 80.0% · 안 받은 종사자 12.0%</span></li>
+      <li><span class="k">한계</span><span>시설 수가 적음 · 서로 다른 두 집단 비교 · 입소자 감염 감소는 이 기사에서 확인 안 됨</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🩺 알고 보면 달라지는 것</span>
+      <p>12%에서 80%로 같은 사람이 바뀐 것이 아니라 교육받은 종사자와 받지 않은 종사자를 비교한 값이다. 교육 뒤 올랐던 수행률이 1년 만에 다시 떨어졌다는 점이 눈에 띈다. 요양시설에 가족이 있다면 면회 전후 손 씻기를 함께 지키는 것도 도움이 된다.</p>
+    </div>
+    <a class="source" href="https://edaily.co.kr/News/Read?mediaCodeNo=257&amp;newsId=02059846645647360">이데일리 11/19 — 연구 설계·결과</a> <a class="source" href="https://news1.kr/bio/welfare-medical/6362307">뉴스1 11/23 — 80%·12%</a>
+    <span class="ref-note">80.0%·12.0%·이듬해 하락은 이데일리(11/19 09:11)·뉴스1(11/23) 일치 · 17곳·13곳·학술지·3개 구·연 2회 관찰은 이데일리 단일 출처 · 종사자 수는 기사에 없음 (확인 2026-11-24)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">요양시설 손위생,<br>교육받은 쪽이 더 지켰다</p>
+      <p class="cn-s">서울 요양시설 17곳을 관찰했더니 교육받은 종사자의 손위생 수행률은 80%, 안 받은 종사자는 12%였어요. 관찰 연구라 효과를 단정할 수는 없어요.</p>
+      <p class="cn-vs" data-unit="%">교육받은 종사자|안 받은 종사자 / 수행률:80:12</p>
+      <p class="cn-note">수행률 중앙값 · 교육 뒤 오른 수행률, 이듬해 다시 떨어짐</p>
+      <p class="cn-img">A clean sink with a soap dispenser and a neatly folded hand towel in a bright care facility washroom, soft daylight, flat illustration, no people, no text, no numbers, no logos</p>
+    </div>
+  </article>
+
+<div class="section-rule"><span class="label">겨울 식중독 — 지금부터</span><span class="bar"></span></div>
+  <article class="card">
+    <span class="hanja" aria-hidden="true">冬</span>
+    <div class="card-top"><span class="topic">식약처 당부</span></div>
+    <h2>노로바이러스 식중독 절반이 12~2월 — 최근 5년 273건 중 143건, 가열조리용 굴은 85℃에서 1분 이상</h2>
+    <div class="summary">
+      <p>식품의약품안전처는 11월 20일 겨울철 노로바이러스 식중독 주의를 당부했다. 의학신문·베이비뉴스(11월 20일)에 따르면 2021~2025년 노로바이러스 식중독 <strong>273건</strong> 가운데 143건(약 52%)이 12~2월에 났다.</p>
+      <p>'가열조리용'으로 표시된 굴은 중심 온도 <strong>85℃에서 1분 이상</strong> 익혀 먹어야 한다. 손은 흐르는 물에 비누로 30초 이상 씻고, 구토·설사 증상이 있으면 조리하지 말고 회복 뒤에도 2~3일은 쉬어야 한다. 어린이집·유치원은 하원 뒤 화장실·문손잡이·수도꼭지를 염소 소독제로 소독하라고 안내했다(베이비뉴스).</p>
+    </div>
+    <ul class="spec">
+      <li><span class="k">최근 5년</span><span>2021~2025년 273건 · 12~2월 143건(약 52%)</span></li>
+      <li><span class="k">굴</span><span>'가열조리용'은 중심 85℃ 1분 이상</span></li>
+      <li><span class="k">손 씻기</span><span>흐르는 물에 비누로 30초 이상</span></li>
+      <li><span class="k">증상자</span><span>조리 금지 · 회복 뒤에도 2~3일 쉬기</span></li>
+      <li><span class="k">어린이집·유치원</span><span>하원 뒤 화장실·문손잡이·수도꼭지 염소 소독</span></li>
+    </ul>
+    <div class="insight">
+      <span class="tag">🩺 알고 보면 달라지는 것</span>
+      <p>굴 포장에 '가열조리용'이라고 적혀 있으면 날로 먹는 굴이 아니다. 증상이 멎어도 2~3일은 가족 식사를 만들지 않는 것이 핵심이다. 진단·처방이 아니며, 증상이 있으면 의료진과 상담하세요.</p>
+    </div>
+    <a class="source" href="https://www.bosa.co.kr/news/articleView.html?idxno=3016913">의학신문 11/20 — 5년 통계·굴</a> <a class="source" href="https://www.ibabynews.com/news/articleView.html?idxno=157113">베이비뉴스 11/20 — 예방수칙·소독</a>
+    <span class="ref-note">273건·143건·85℃ 1분·30초·2~3일은 의학신문(11/20 08:27)·베이비뉴스(11/20 13:00) 일치 · 약 52%는 두 기사 표기 · 어린이집 소독은 베이비뉴스 · 환자 수는 기사에 없음 · 식약처 원문은 첨부파일이라 열지 못함 (확인 2026-11-24)</span>
+    <div class="cn" hidden>
+      <p class="cn-t">겨울 노로바이러스,<br>굴은 꼭 익혀 드세요</p>
+      <p class="cn-s">최근 5년 노로바이러스 식중독 273건 가운데 143건이 12~2월에 났어요. '가열조리용' 굴은 중심 85℃에서 1분 이상 익혀 드세요.</p>
+      <p class="cn-ring">52|약 52%|노로 식중독 중 12~2월 발생|최근 5년 273건 중 143건</p>
+      <p class="cn-img">A pot of steaming soup with oysters on a stove in a cozy home kitchen, a wooden ladle beside it, warm winter evening light, flat illustration, no people, no text, no numbers, no logos</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="pipe">파이프라인</span> · 리서치 → 편집 → 팩트체크 → 디테일 포인트 부착 → 디자인 렌더링 → 검토<br>
+    2026년 11월 24일 화요일 헬스 브리프 · 감염병 2 + 항생제 1 + 연구 1 + 식중독 1<br>
+    진단·처방이 아니며, 증상이 있으면 의료진과 상담하세요. 연구는 대상·규모·한계를 함께 적었고 효과를 단정하지 않았습니다.<br>
+    카드의 일부 그림은 AI 생성 이미지이며, 실존 인물·환부·브랜드 로고를 그리지 않았습니다. 콜레라 카드는 AI 그림을 쓰지 않았습니다.<br>
+    📊 독감 입원 추이는 막대, 콜레라 경과는 단계 그림, 접근 항생제·노로 계절 비율은 고리, 손위생 연구는 맞대결 막대로 그렸습니다.<br>
+    ⚠ 유행 수치·제도 시행 시점은 바뀔 수 있습니다 — 질병관리청·보건복지부·식약처 공지를 확인하세요.<br>
+    모든 정보는 참고용이며, 최종 확인은 각 카드의 출처 링크를 권장합니다.
+    <!-- tracker: 2026-11-24 (헬스 서브 플러스)
+         [오늘 다룬 항목] ①독감 46주 37.0명·입원 926명(질병청 11/20 https://www.kdca.go.kr/bbs/kdca/42/313513/artclView.do · 의학신문 11/20 https://www.bosa.co.kr/news/articleView.html?idxno=3016965) ②콜레라 창원 국내발생 추정(질병청 11/20 https://www.kdca.go.kr/bbs/kdca/42/313518/artclView.do · 아시아경제 11/20 https://view.asiae.co.kr/article/2026112014390816167) ③항생제 통합보고서 1,897톤(질병청 11/23 https://www.kdca.go.kr/bbs/kdca/42/313522/artclView.do · 메디칼트리뷴 11/23 https://www.medical-tribune.co.kr/news/articleView.html?idxno=215995) ④요양시설 손위생 80% vs 12%(이데일리 11/19 · 뉴스1 11/23 https://news1.kr/bio/welfare-medical/6362307) ⑤노로바이러스 273건 중 143건(의학신문 11/20 https://www.bosa.co.kr/news/articleView.html?idxno=3016913 · 베이비뉴스 11/20 https://www.ibabynews.com/news/articleView.html?idxno=157113)
+         [다음 회차 추적] 독감 47주(이번 주 후반)·입원 · 콜레라 감염원 역학조사 결과·추가 환자 · 희귀·중증난치 본인부담 10→7%(12/1 진료분 예정, 국무회의 의결 미확인) · 한랭질환 응급실 감시(예년 12/1) · 에볼라 민주콩고(11/16 누적 11,376명, 질병청 11/20 단일) · RSV 65세 이상 · 안전상비의약품 입법예고(의견 마감 12/22)
+         [제외한 항목] CRE 균혈증 30일 사망 34.1%(논문 9월 게재·이번 주는 보도만) · 본인부담 10→7%(국무회의 의결 확인 못 함·11/4 기사) · 에볼라(질병청 단일·지난 2주 다룸) · 난임 간담회(제도 변경 없음) · 아리바이오 치매약(기업 발표) · 마약류 진통제 당부(본문 첨부파일) · 소아 콩팥병 영양 가이드(지난주 콩팥병과 겹침) · 메주 회수(지난주 회수와 같은 유형)
+         [그림] 카드 1·3·4·5 AI 그림 요청 · 카드 2 콜레라는 사건 성격이라 AI 없이 단계 그림
+         [리서치 도구] mcp__Firecrawl__* 호출 0회. WebSearch 발견 → WebFetch 검증.
+         reel-opening: 읽는정보
+    -->
+  </footer>
+
+</div></body>
+</html>
