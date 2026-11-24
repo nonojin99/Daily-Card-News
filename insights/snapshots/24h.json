@@ -3397,5 +3397,25 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "sports:18159099655528996": {
+  "account": "sports",
+  "type": "REELS",
+  "posted_utc": "2026-11-22T22:44:08+0000",
+  "snapshot_utc": "2026-11-24T05:55:42Z",
+  "age_h": 31.2,
+  "first_line": "[🏟 밤사이 결과] 결과판 4장 한 번에",
+  "metrics": {
+   "views": 123,
+   "reach": 108,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 3852,
+   "ig_reels_video_view_total_time": 412167,
+   "reels_skip_rate": 64.5
+  }
  }
 }
