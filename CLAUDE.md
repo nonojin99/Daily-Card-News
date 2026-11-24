@@ -146,13 +146,14 @@ README 는 형식·도구 사용법을 찾아보는 매뉴얼이고, 지난 결�
 ## 5. 카드 검토 하네스 (push 전, 메인·서브 모두)
 1. **1단계(기계)**:
    ```bash
+   python3 tools/check_brief.py <브리프>.html --pre-actions   # 브리프 형식·출처 규칙(3·4절 중 기계 판정 가능한 것)
    python3 tools/check_cards.py <브리프>.html
    node tools/render_cards.js <브리프>.html /tmp/card-review/<브리프 이름>
    ```
    종료 코드 1 이면 FAIL → 고친다.
 2. **2단계(독립 시각 검토)**: `card-visual-reviewer` 에 PNG 폴더와 브리프 경로를 주고 4축(규칙·전문성·가독성·흐름)을 카드별 PASS/FAIL. FAIL 이면 고치고 1단계부터(최대 3회).
 3. 통과하면 `/tmp/card-review/<브리프 이름>.stage2.md` 에 카드별 결과·고친 것·반복 횟수를 쓴다. **실제로 통과했을 때만.**
-- **push 관문**: `.claude/settings.json` 훅이 `git push` 전에 `tools/prepush_gate.py` 를 돌린다(1단계 재실행 + 2단계 기록이 브리프보다 나중인지). 막히면 고친다. 훅 끄기·`--no-verify`·기록 위조 금지.
+- **push 관문**: `.claude/settings.json` 훅이 `git push` 전에 `tools/prepush_gate.py` 를 돌린다(`check_brief.py` + 1단계 재실행 + 2단계 기록이 브리프보다 나중인지). 막히면 고친다. 훅 끄기·`--no-verify`·기록 위조 금지.
 
 ---
 

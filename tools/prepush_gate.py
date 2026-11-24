@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """push 관문 — Claude Code PreToolUse 훅(.claude/settings.json)이 Bash 명령마다 부른다.
 `git push` 일 때만 동작: origin/main 에 아직 없는 브리프 HTML 이 있으면 카드 검토 하네스를 강제한다.
+  0단계: tools/check_brief.py (날짜·원고 분량·출처 도메인·날씨 줄 등 브리프 규칙) 를 돌려 FAIL 이면 push 차단
   1단계: tools/check_cards.py (규칙) + tools/render_cards.js (렌더·넘침) 를 직접 돌려 FAIL 이면 push 차단
   2단계: 독립 시각 검토를 통과했다는 기록 /tmp/card-review/<브리프 이름>.stage2.md 가 있고
          그 기록이 브리프 파일보다 나중이어야 통과 (검토 뒤 브리프를 고쳤다면 다시 검토)
@@ -33,6 +34,13 @@ def main():
         return 0
     problems = []
     for b in briefs:
+        # 0단계: 브리프 형식·출처 규칙(CLAUDE.md 3·4절 중 기계 판정 가능한 것). origin 에 아직 없는 첫 push 면
+        # Actions 가 넣는 요소(audio-player·cn-gen·로컬 사진 경로)도 검사한다.
+        pre = sh("git", "cat-file", "-e", f"origin/main:{b}").returncode != 0
+        r = sh("python3", "tools/check_brief.py", b, *(["--pre-actions"] if pre else []), timeout=60)
+        if r.returncode:
+            fails = [l for l in r.stdout.splitlines() if "FAIL:" in l][:8]
+            problems.append(f"[0단계 브리프 규칙] {b}\n" + "\n".join(fails))
         r = sh("python3", "tools/check_cards.py", b, timeout=60)
         if r.returncode:
             fails = [l for l in r.stdout.splitlines() if "FAIL:" in l][:8]
