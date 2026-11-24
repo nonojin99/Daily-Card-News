@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-23T20:50:37Z",
-  "count": 378,
+  "generated": "2026-11-24T01:00:52Z",
+  "count": 379,
   "files": [
     {
       "date": "2026-11-24",
@@ -10,6 +10,15 @@
       "day": "24",
       "type": "daily",
       "path": "2026-11-24_daily-brief.html"
+    },
+    {
+      "date": "2026-11-24",
+      "month": "2026-11",
+      "year": "2026",
+      "mon": "11",
+      "day": "24",
+      "type": "health",
+      "path": "2026-11-24_health-brief.html"
     },
     {
       "date": "2026-11-23",
