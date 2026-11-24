@@ -2,12 +2,20 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-23_ai-brief",
-   "caption": "captions/2026-11-23_ai.txt",
+   "media": "cards/2026-11/2026-11-24_money-brief",
+   "caption": "captions/2026-11-24_money.txt",
+   "dry_run": "false",
+   "is_ai": "true",
+   "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-24_health-brief",
+   "caption": "captions/2026-11-24_health.txt",
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
   }
  ],
- "note": "11/23 월 AI·테크 캐러셀 7장(본계정). card-visual-reviewer 실물 JPG PASS(2회차 — 1회차 카드3 AI 그림 금화 문양 FAIL → 다시 그림). 릴스는 publish/evening/2026-11-23_ai.json(21:07). 11/22 항목은 지난 날짜라 정리."
+ "note": "11/24 화 서브 플러스 캐러셀 — 머니 → 헬스 순, 각 7장. card-visual-reviewer 실물 JPG PASS(머니 2회차 — 1회차 카드 1 '10곳' 주체 누락 FAIL → 수정·재굽기 / 헬스 1회차). 릴스는 publish/evening/2026-11-24_money.json·_health.json(21:07). 11/23 항목은 지난 날짜라 정리."
 }

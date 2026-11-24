@@ -1,0 +1,1 @@
+{"requests": [{"kind":"reel","media":"reels/2026-11/2026-11-24_money.mp4","caption":"captions/2026-11-24_money_reel.txt","dry_run":"false","is_ai":"true","ab":"short","review":"required"}], "note": "11/24 머니 릴스 — 페이지 전환형 짧은판 8.6초, 저녁 21:07 게시(check_reel FAIL 0 · reel-reviewer PASS 2회차, Actions 가 짧은판을 만들지 않아 세션에서 make_reel.js --short 로 생성)"}
