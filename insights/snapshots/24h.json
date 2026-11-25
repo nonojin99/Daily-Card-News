@@ -3511,5 +3511,22 @@
    "ig_reels_video_view_total_time": 197600,
    "reels_skip_rate": 89.4
   }
+ },
+ "main:18418836010086197": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-24T20:58:25+0000",
+  "snapshot_utc": "2026-11-25T22:25:30Z",
+  "age_h": 25.5,
+  "first_line": "[문화] 샤갈 원작 65점 여의도에 · 쿤스트하우스 취리히 소장품 85점 국립중앙박물관 · 박훈정 〈슬픈 열대〉 개봉 — 11월 25일 문화 브",
+  "metrics": {
+   "views": 5,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
