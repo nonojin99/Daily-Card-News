@@ -3437,5 +3437,39 @@
    "ig_reels_video_view_total_time": 271392,
    "reels_skip_rate": 75.7
   }
+ },
+ "main:18129454819857867": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-24T02:45:57+0000",
+  "snapshot_utc": "2026-11-25T10:00:30Z",
+  "age_h": 31.2,
+  "first_line": "[🩺 헬스] 독감 입원 한 주 새 639명→926명 · 경남 창원 콜레라 10년 만 · 항생제 44.2%는 가축",
+  "metrics": {
+   "views": 7,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "main:18136157407827494": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-24T02:45:09+0000",
+  "snapshot_utc": "2026-11-25T10:00:30Z",
+  "age_h": 31.3,
+  "first_line": "[💰 머니] 26일 금통위 3.25% 인상 전망 · 환율 장중 1,351.6원 · 은행 약관 73개 조항 시정 요청",
+  "metrics": {
+   "views": 8,
+   "reach": 4,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
