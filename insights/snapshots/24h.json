@@ -3471,5 +3471,45 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:18242625526319409": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-11-24T12:12:17+0000",
+  "snapshot_utc": "2026-11-25T12:38:16Z",
+  "age_h": 24.4,
+  "first_line": "[💰 머니] 26일 금통위 3.25% 인상 전망 · 환율 장중 1,351.6원 · 은행 약관 73개 💰",
+  "metrics": {
+   "views": 111,
+   "reach": 101,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1901,
+   "ig_reels_video_view_total_time": 192076,
+   "reels_skip_rate": 91.1
+  }
+ },
+ "main:18122746025103097": {
+  "account": "main",
+  "type": "REELS",
+  "posted_utc": "2026-11-24T12:11:36+0000",
+  "snapshot_utc": "2026-11-25T12:38:16Z",
+  "age_h": 24.4,
+  "first_line": "[🩺 헬스] 독감 입원 926명 · 경남 창원 콜레라 10년 만 · 항생제 44.2%는 가축 🩺",
+  "metrics": {
+   "views": 114,
+   "reach": 106,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 1900,
+   "ig_reels_video_view_total_time": 197600,
+   "reels_skip_rate": 89.4
+  }
  }
 }
