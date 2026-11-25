@@ -1,0 +1,4 @@
+⚠ [운영 감시] 문제 2건
+1) 본계정 캐러셀 출처 장에 종료한 '@hannun.sports' 홍보 줄이 계속 실림(오늘 문화·OTT). app/cards.html 851행 — 빼라고 지시 필요
+2) Score alert 1회 failure(02:37), 영향 없음·사슬 정상
+nonojin99.github.io/Daily-Card-News/app/
