@@ -2,20 +2,12 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-25_culture-brief",
-   "caption": "captions/2026-11-25_culture.txt",
-   "dry_run": "false",
-   "is_ai": "true",
-   "review": "required"
-  },
-  {
-   "kind": "carousel",
-   "media": "cards/2026-11/2026-11-25_ott-brief",
-   "caption": "captions/2026-11-25_ott.txt",
+   "media": "cards/2026-11/2026-11-26_activity-brief",
+   "caption": "captions/2026-11-26_activity.txt",
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
   }
  ],
- "note": "11/25 수 06:00 문화 캐러셀 5장(+표지·출처 7장). card-visual-reviewer 실물 JPG PASS(1회차, WARN: 출처 장 @hannun.sports 템플릿 문구 — 사용자 보고). 11/24 항목은 지난 날짜라 정리. 09:30 OTT 루틴 항목은 그 루틴이 추가. | 11/25 수 09:30 OTT 캐러셀 5장(+표지·출처 7장) 추가 — card-visual-reviewer 실물 JPG PASS(1회차, WARN: 출처 장 @hannun.sports 템플릿 문구 — 사용자 보고). 릴스는 publish/evening/2026-11-25_ott.json(21:07)."
+ "note": "11/26 목 06:00 액티비티 캐러셀 6장(+표지·출처 8장). card-visual-reviewer 실물 JPG PASS(1회차, WARN: 출처 장 @hannun.sports 템플릿 문구 — 사용자 보고, 카드4 AI 그림 눈). 11/25 항목은 지난 날짜라 정리. 09:30 푸드 루틴 항목은 그 루틴이 추가."
 }
