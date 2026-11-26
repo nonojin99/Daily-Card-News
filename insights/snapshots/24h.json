@@ -3528,5 +3528,22 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:18130412092968397": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-25T01:06:15+0000",
+  "snapshot_utc": "2026-11-26T04:56:10Z",
+  "age_h": 27.8,
+  "first_line": "[📺 OTT·게임] 푸른길 공개 사흘 만에 비영어 쇼 7위 230만 · 재혼 황후 25일 완결 · GTA 6 첫날 37억 9천만 달러",
+  "metrics": {
+   "views": 6,
+   "reach": 3,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
