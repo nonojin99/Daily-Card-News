@@ -3565,5 +3565,22 @@
    "ig_reels_video_view_total_time": 279042,
    "reels_skip_rate": 79.4
   }
+ },
+ "main:18031035614703773": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-25T20:58:20+0000",
+  "snapshot_utc": "2026-11-26T23:45:08Z",
+  "age_h": 26.8,
+  "first_line": "[주말 액티비티] 해운대 빛축제 28일 점등 · 파주 장단콩축제 부스 342곳 · 전주 김장 10kg 세트 69,000원 — 11월 26일 액티",
+  "metrics": {
+   "views": 14,
+   "reach": 5,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
