@@ -1,0 +1,8 @@
+{
+ "verdict": "PASS",
+ "sha1": "91ca0ddff62881cdd288ca5dfa7647dee91f7c8d",
+ "by": "agent",
+ "cards": 7,
+ "at": "2026-11-26T21:00:34Z",
+ "note": "card-visual-reviewer 실물 JPG 검수 2회(04 AI 그림 일본풍 FAIL → 재생성 PASS), 캡션 대조 PASS"
+}

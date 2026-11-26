@@ -2,20 +2,20 @@
  "requests": [
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-26_activity-brief",
-   "caption": "captions/2026-11-26_activity.txt",
+   "media": "cards/2026-11/2026-11-27_travel-brief",
+   "caption": "captions/2026-11-27_travel.txt",
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
   },
   {
    "kind": "carousel",
-   "media": "cards/2026-11/2026-11-26_food-brief",
-   "caption": "captions/2026-11-26_food.txt",
+   "media": "cards/2026-11/2026-11-27_weekend",
+   "caption": "captions/2026-11-27_weekend.txt",
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
   }
  ],
- "note": "11/26 목 06:00 액티비티 캐러셀 6장(+표지·출처 8장). card-visual-reviewer 실물 JPG PASS(1회차, WARN: 출처 장 @hannun.sports 템플릿 문구 — 사용자 보고, 카드4 AI 그림 눈). 11/25 항목은 지난 날짜라 정리. + 09:30 푸드 캐러셀 5장(+표지·출처 7장) 추가 — card-visual-reviewer 실물 JPG·캡션 PASS(카드 검토 2단계 3회 반복). 목요일 릴스 없음. 06:00 액티비티 항목은 그대로 둠."
+ "note": "11/27 금 06:00 여행 캐러셀 5장(+표지·출처 7장) + 주말 뭐하지 7장(+표지·출처 9장). card-visual-reviewer 실물 JPG·캡션 PASS(여행 04 AI 그림 일본풍 FAIL → 재생성 후 PASS). WARN: 출처 장 @hannun.sports 템플릿 문구 — 사용자 보고. 금요일 릴스 없음. 11/26 항목은 지난 날짜라 정리."
 }
