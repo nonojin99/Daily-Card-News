@@ -7,7 +7,15 @@
    "dry_run": "false",
    "is_ai": "true",
    "review": "required"
+  },
+  {
+   "kind": "carousel",
+   "media": "cards/2026-11/2026-11-26_food-brief",
+   "caption": "captions/2026-11-26_food.txt",
+   "dry_run": "false",
+   "is_ai": "true",
+   "review": "required"
   }
  ],
- "note": "11/26 목 06:00 액티비티 캐러셀 6장(+표지·출처 8장). card-visual-reviewer 실물 JPG PASS(1회차, WARN: 출처 장 @hannun.sports 템플릿 문구 — 사용자 보고, 카드4 AI 그림 눈). 11/25 항목은 지난 날짜라 정리. 09:30 푸드 루틴 항목은 그 루틴이 추가."
+ "note": "11/26 목 06:00 액티비티 캐러셀 6장(+표지·출처 8장). card-visual-reviewer 실물 JPG PASS(1회차, WARN: 출처 장 @hannun.sports 템플릿 문구 — 사용자 보고, 카드4 AI 그림 눈). 11/25 항목은 지난 날짜라 정리. + 09:30 푸드 캐러셀 5장(+표지·출처 7장) 추가 — card-visual-reviewer 실물 JPG·캡션 PASS(카드 검토 2단계 3회 반복). 목요일 릴스 없음. 06:00 액티비티 항목은 그대로 둠."
 }
