@@ -1,11 +1,65 @@
 {
- "collected_kst": "2026-11-25 19:00",
+ "collected_kst": "2026-11-26 18:45",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-25T10:00:31.704290Z",
+   "checked_at": "2026-11-26T09:44:36.416214Z",
    "media": [
+    {
+     "id": "18157622815534356",
+     "type": "FEED",
+     "timestamp": "2026-11-26T01:07:50+0000",
+     "permalink": "https://www.instagram.com/p/DgL420wDSiv/",
+     "first_line": "[🍜 푸드] 가로수길 머랭롤 대기 2~3시간 · GS25 식물원 김밥 한 달 100만 개 · 투썸 케이크 예약가 3만 7,800원",
+     "metrics": {
+      "views": 7,
+      "reach": 3,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18031035614703773",
+     "type": "FEED",
+     "timestamp": "2026-11-25T20:58:20+0000",
+     "permalink": "https://www.instagram.com/p/DgLcSROFLsP/",
+     "first_line": "[주말 액티비티] 해운대 빛축제 28일 점등 · 파주 장단콩축제 부스 342곳 · 전주 김장 10kg 세트 69,000원 — 11월 26일 액티",
+     "metrics": {
+      "views": 10,
+      "reach": 4,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18125708045472980",
+     "type": "REELS",
+     "timestamp": "2026-11-25T12:11:01+0000",
+     "permalink": "https://www.instagram.com/reel/DgKf63oTyCC/",
+     "first_line": "[📺 OTT·게임] 푸른길 사흘 만에 비영어 쇼 7위 · 재혼 황후 25일 완결 · GTA 6 첫날 37억 9천만 달러 📺",
+     "tag": "📺 OTT·게임",
+     "variant": "short",
+     "opening": "motion",
+     "metrics": {
+      "views": 109,
+      "reach": 99,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2756,
+      "ig_reels_video_view_total_time": 270176,
+      "reels_skip_rate": 78.4
+     }
+    },
     {
      "id": "18130412092968397",
      "type": "FEED",
@@ -13,8 +67,8 @@
      "permalink": "https://www.instagram.com/p/DgJT3I8li1t/",
      "first_line": "[📺 OTT·게임] 푸른길 공개 사흘 만에 비영어 쇼 7위 230만 · 재혼 황후 25일 완결 · GTA 6 첫날 37억 9천만 달러",
      "metrics": {
-      "views": 1,
-      "reach": 1,
+      "views": 6,
+      "reach": 3,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -29,8 +83,8 @@
      "permalink": "https://www.instagram.com/p/DgI3hJGGZaD/",
      "first_line": "[문화] 샤갈 원작 65점 여의도에 · 쿤스트하우스 취리히 소장품 85점 국립중앙박물관 · 박훈정 〈슬픈 열대〉 개봉 — 11월 25일 문화 브",
      "metrics": {
-      "views": 4,
-      "reach": 3,
+      "views": 14,
+      "reach": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -48,16 +102,16 @@
      "variant": "short",
      "opening": "motion",
      "metrics": {
-      "views": 111,
-      "reach": 101,
+      "views": 112,
+      "reach": 102,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1901,
-      "ig_reels_video_view_total_time": 192076,
-      "reels_skip_rate": 91.1
+      "ig_reels_avg_watch_time": 1929,
+      "ig_reels_video_view_total_time": 196821,
+      "reels_skip_rate": 90.2
      }
     },
     {
@@ -70,16 +124,16 @@
      "variant": "short",
      "opening": "motion",
      "metrics": {
-      "views": 114,
-      "reach": 106,
+      "views": 115,
+      "reach": 107,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1900,
-      "ig_reels_video_view_total_time": 197600,
-      "reels_skip_rate": 89.4
+      "ig_reels_avg_watch_time": 1888,
+      "ig_reels_video_view_total_time": 200223,
+      "reels_skip_rate": 89.5
      }
     },
     {
@@ -131,8 +185,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3822,
-      "ig_reels_video_view_total_time": 271392,
+      "ig_reels_avg_watch_time": 3785,
+      "ig_reels_video_view_total_time": 272524,
       "reels_skip_rate": 75.7
      }
     },
@@ -169,8 +223,8 @@
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2878,
-      "ig_reels_video_view_total_time": 316597,
+      "ig_reels_avg_watch_time": 2860,
+      "ig_reels_video_view_total_time": 317557,
       "reels_skip_rate": 78
      }
     },
@@ -479,71 +533,17 @@
       "saved": 0,
       "total_interactions": 0
      }
-    },
-    {
-     "id": "18118943690321909",
-     "type": "FEED",
-     "timestamp": "2026-11-10T22:54:03+0000",
-     "permalink": "https://www.instagram.com/p/DflBnyjkS-A/",
-     "first_line": "[🩺 헬스] 독감 44주 외래 1,000명당 22.8명 · 털진드기 밀도 150%↑ · 나이지리아 에볼라 검역",
-     "metrics": {
-      "views": 34,
-      "reach": 6,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1
-     }
-    },
-    {
-     "id": "18084552767398366",
-     "type": "FEED",
-     "timestamp": "2026-11-10T21:03:51+0000",
-     "permalink": "https://www.instagram.com/p/Dfk0_MZAU3k/",
-     "first_line": "[문화] 로트렉·발라동 110여 점이 세종미술관에 · 박민준 개인전은 무료 · 최수종·하희라의 연극 〈러브레터〉 — 11월 11일 문화 브리프 ",
-     "metrics": {
-      "views": 13,
-      "reach": 5,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1
-     }
-    },
-    {
-     "id": "18359986495221901",
-     "type": "REELS",
-     "timestamp": "2026-11-09T12:10:43+0000",
-     "permalink": "https://www.instagram.com/reel/DfhTMRmCQcJ/",
-     "first_line": "[AI·테크] Claude 개인금융 베타 최대 2년치 거래내역 · Claude Code 설정 파일 1,122개에서 비밀정보 · AI 해킹 도구 ",
-     "tag": "AI·테크",
-     "variant": "short",
-     "opening": "static",
-     "metrics": {
-      "views": 158,
-      "reach": 133,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3189,
-      "ig_reels_video_view_total_time": 433775,
-      "reels_skip_rate": 75.2
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 91
+   "posts": 96
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-25T10:00:40.944219Z",
+   "checked_at": "2026-11-26T09:44:48.875471Z",
    "media": [
     {
      "id": "18159099655528996",
