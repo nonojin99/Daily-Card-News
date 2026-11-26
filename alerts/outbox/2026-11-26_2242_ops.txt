@@ -1,0 +1,3 @@
+⚠ [운영 감시] 문제 2건 — 본계정 캐러셀 출처 장에 종료한 @hannun.sports 홍보 줄이 계속 나감(app/cards.html 851행, 오늘 액티비티·푸드 게시물). 고칠지 지시 필요.
+· 스포츠 묶음 릴스 작업이 하루 2회 계속 돎(결과판 0개라 게시 없음). 끌지 허락 필요.
+nonojin99.github.io/Daily-Card-News/app/
