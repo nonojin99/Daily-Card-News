@@ -1,8 +1,0 @@
-{
- "verdict": "PASS",
- "sha1": "6341ad69b604c54a5ff9f9eca5dc2b509c9b1372",
- "by": "agent",
- "cards": 9,
- "at": "2026-11-26T21:00:34Z",
- "note": "card-visual-reviewer 실물 JPG 검수 2회 PASS(WARN: 출처 장 @hannun.sports 템플릿 문구), 캡션 대조 PASS"
-}
