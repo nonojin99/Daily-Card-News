@@ -3582,5 +3582,22 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:18157622815534356": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-26T01:07:50+0000",
+  "snapshot_utc": "2026-11-27T08:09:57Z",
+  "age_h": 31.0,
+  "first_line": "[🍜 푸드] 가로수길 머랭롤 대기 2~3시간 · GS25 식물원 김밥 한 달 100만 개 · 투썸 케이크 예약가 3만 7,800원",
+  "metrics": {
+   "views": 16,
+   "reach": 5,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
