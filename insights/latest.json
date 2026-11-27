@@ -1,11 +1,43 @@
 {
- "collected_kst": "2026-11-26 18:45",
+ "collected_kst": "2026-11-27 18:50",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-26T09:44:36.416214Z",
+   "checked_at": "2026-11-27T09:50:17.678835Z",
    "media": [
+    {
+     "id": "18112569845211609",
+     "type": "FEED",
+     "timestamp": "2026-11-26T21:02:35+0000",
+     "permalink": "https://www.instagram.com/p/DgOBlZCiVH2/",
+     "first_line": "[주말 뭐하지] 주말 계획용 요약 — 수·목·금 브리프에서 이번 주말(11/28~29)에 쓸 카드만 모았어요 · 해운대 빛축제 28일 점등 · ",
+     "metrics": {
+      "views": 15,
+      "reach": 4,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
+    {
+     "id": "18128210518832764",
+     "type": "FEED",
+     "timestamp": "2026-11-26T21:01:51+0000",
+     "permalink": "https://www.instagram.com/p/DgOBgJ2iSa3/",
+     "first_line": "[여행] 주말 서울 토 아침 3도 → 일 영하 2도 · 엘리시안강촌 28일(토) 개장 첫날 1만 원 · 서울윈터페스티벌 12월 11일부터 52일",
+     "metrics": {
+      "views": 16,
+      "reach": 4,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
     {
      "id": "18157622815534356",
      "type": "FEED",
@@ -13,8 +45,8 @@
      "permalink": "https://www.instagram.com/p/DgL420wDSiv/",
      "first_line": "[🍜 푸드] 가로수길 머랭롤 대기 2~3시간 · GS25 식물원 김밥 한 달 100만 개 · 투썸 케이크 예약가 3만 7,800원",
      "metrics": {
-      "views": 7,
-      "reach": 3,
+      "views": 16,
+      "reach": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -29,8 +61,8 @@
      "permalink": "https://www.instagram.com/p/DgLcSROFLsP/",
      "first_line": "[주말 액티비티] 해운대 빛축제 28일 점등 · 파주 장단콩축제 부스 342곳 · 전주 김장 10kg 세트 69,000원 — 11월 26일 액티",
      "metrics": {
-      "views": 10,
-      "reach": 4,
+      "views": 14,
+      "reach": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -48,16 +80,16 @@
      "variant": "short",
      "opening": "motion",
      "metrics": {
-      "views": 109,
-      "reach": 99,
+      "views": 117,
+      "reach": 106,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 2756,
-      "ig_reels_video_view_total_time": 270176,
-      "reels_skip_rate": 78.4
+      "ig_reels_avg_watch_time": 2724,
+      "ig_reels_video_view_total_time": 288800,
+      "reels_skip_rate": 78.8
      }
     },
     {
@@ -67,8 +99,8 @@
      "permalink": "https://www.instagram.com/p/DgJT3I8li1t/",
      "first_line": "[📺 OTT·게임] 푸른길 공개 사흘 만에 비영어 쇼 7위 230만 · 재혼 황후 25일 완결 · GTA 6 첫날 37억 9천만 달러",
      "metrics": {
-      "views": 6,
-      "reach": 3,
+      "views": 8,
+      "reach": 4,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -102,16 +134,16 @@
      "variant": "short",
      "opening": "motion",
      "metrics": {
-      "views": 112,
-      "reach": 102,
+      "views": 113,
+      "reach": 103,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 1929,
-      "ig_reels_video_view_total_time": 196821,
-      "reels_skip_rate": 90.2
+      "ig_reels_avg_watch_time": 1964,
+      "ig_reels_video_view_total_time": 202349,
+      "reels_skip_rate": 89.3
      }
     },
     {
@@ -501,49 +533,17 @@
       "saved": 0,
       "total_interactions": 1
      }
-    },
-    {
-     "id": "18222459373349106",
-     "type": "FEED",
-     "timestamp": "2026-11-11T01:04:15+0000",
-     "permalink": "https://www.instagram.com/p/DflQgM1msUC/",
-     "first_line": "[📺 OTT·게임] 재혼 황후 오늘 오후 5시 5·6화 · 꿀알바 비영어 쇼 세계 1위(시청수 870만) · GTA 6 사전 다운로드 212GB",
-     "metrics": {
-      "views": 17,
-      "reach": 7,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
-    },
-    {
-     "id": "18007144683006339",
-     "type": "FEED",
-     "timestamp": "2026-11-10T22:55:54+0000",
-     "permalink": "https://www.instagram.com/p/DflB0JZESAf/",
-     "first_line": "[💰 머니] 실손 11월 할인 · 26일 금통위 인상 관측 · 환율 1,340원대",
-     "metrics": {
-      "views": 10,
-      "reach": 4,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 0
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 96
+   "posts": 100
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-26T09:44:48.875471Z",
+   "checked_at": "2026-11-27T09:50:28.093040Z",
    "media": [
     {
      "id": "18159099655528996",
@@ -615,16 +615,16 @@
      "variant": "short",
      "opening": "static",
      "metrics": {
-      "views": 122,
-      "reach": 114,
+      "views": 123,
+      "reach": 115,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "saved": 0,
       "total_interactions": 0,
-      "ig_reels_avg_watch_time": 3244,
-      "ig_reels_video_view_total_time": 366631,
-      "reels_skip_rate": 72.3
+      "ig_reels_avg_watch_time": 3258,
+      "ig_reels_video_view_total_time": 371456,
+      "reels_skip_rate": 71.7
      }
     },
     {
