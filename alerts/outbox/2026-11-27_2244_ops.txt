@@ -1,0 +1,3 @@
+⚠ [운영 감시] 문제 2건(미해결 반복) — 오늘 캐러셀 출처 장에도 종료한 @hannun.sports 홍보 줄(app/cards.html). 뺄지 지시 필요.
+· 스포츠 묶음 릴스 작업 하루 2회 계속(게시 없음). 끌지 허락 필요.
+nonojin99.github.io/Daily-Card-News/app/
