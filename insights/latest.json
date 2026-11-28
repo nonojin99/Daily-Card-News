@@ -1,11 +1,27 @@
 {
- "collected_kst": "2026-11-27 18:50",
+ "collected_kst": "2026-11-28 18:02",
  "api": "https://graph.instagram.com/v23.0",
  "accounts": [
   {
    "account": "main",
-   "checked_at": "2026-11-27T09:50:17.678835Z",
+   "checked_at": "2026-11-28T09:02:23.732590Z",
    "media": [
+    {
+     "id": "18111264881311301",
+     "type": "FEED",
+     "timestamp": "2026-11-27T20:59:56+0000",
+     "permalink": "https://www.instagram.com/p/DgQmDeQn7ps/",
+     "first_line": "[이번 주 숫자] 11/23~11/27, 한 주를 숫자 7개로 — 코스피 하루 6.16% 급락, 서울지하철 신규채용 500명, 기준금리 3.25",
+     "metrics": {
+      "views": 10,
+      "reach": 5,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "saved": 0,
+      "total_interactions": 0
+     }
+    },
     {
      "id": "18112569845211609",
      "type": "FEED",
@@ -29,8 +45,8 @@
      "permalink": "https://www.instagram.com/p/DgOBgJ2iSa3/",
      "first_line": "[여행] 주말 서울 토 아침 3도 → 일 영하 2도 · 엘리시안강촌 28일(토) 개장 첫날 1만 원 · 서울윈터페스티벌 12월 11일부터 52일",
      "metrics": {
-      "views": 16,
-      "reach": 4,
+      "views": 17,
+      "reach": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -175,8 +191,8 @@
      "permalink": "https://www.instagram.com/p/DgG6ejtjLRf/",
      "first_line": "[🩺 헬스] 독감 입원 한 주 새 639명→926명 · 경남 창원 콜레라 10년 만 · 항생제 44.2%는 가축",
      "metrics": {
-      "views": 7,
-      "reach": 3,
+      "views": 10,
+      "reach": 4,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -517,33 +533,17 @@
       "saved": 0,
       "total_interactions": 0
      }
-    },
-    {
-     "id": "17954256525050600",
-     "type": "FEED",
-     "timestamp": "2026-11-12T02:46:03+0000",
-     "permalink": "https://www.instagram.com/p/DfoA8mJlbON/",
-     "first_line": "[주말 액티비티] 판매자 500여 명이 여의도공원에 · 백화점 3사 겨울 세일 · 영암 서킷은 1대 2만 원부터 — 11월 12일 액티비티 브리",
-     "metrics": {
-      "views": 17,
-      "reach": 6,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "saved": 0,
-      "total_interactions": 1
-     }
     }
    ],
    "errors": [],
    "username": "hannun.brief",
    "account_type": "MEDIA_CREATOR",
    "followers": 8,
-   "posts": 100
+   "posts": 102
   },
   {
    "account": "sports",
-   "checked_at": "2026-11-27T09:50:28.093040Z",
+   "checked_at": "2026-11-28T09:02:33.461417Z",
    "media": [
     {
      "id": "18159099655528996",
