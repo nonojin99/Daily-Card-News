@@ -3599,5 +3599,39 @@
    "saved": 0,
    "total_interactions": 0
   }
+ },
+ "main:18112569845211609": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-26T21:02:35+0000",
+  "snapshot_utc": "2026-11-28T01:54:22Z",
+  "age_h": 28.9,
+  "first_line": "[주말 뭐하지] 주말 계획용 요약 — 수·목·금 브리프에서 이번 주말(11/28~29)에 쓸 카드만 모았어요 · 해운대 빛축제 28일 점등 · ",
+  "metrics": {
+   "views": 15,
+   "reach": 4,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
+ },
+ "main:18128210518832764": {
+  "account": "main",
+  "type": "FEED",
+  "posted_utc": "2026-11-26T21:01:51+0000",
+  "snapshot_utc": "2026-11-28T01:54:22Z",
+  "age_h": 28.9,
+  "first_line": "[여행] 주말 서울 토 아침 3도 → 일 영하 2도 · 엘리시안강촌 28일(토) 개장 첫날 1만 원 · 서울윈터페스티벌 12월 11일부터 52일",
+  "metrics": {
+   "views": 16,
+   "reach": 4,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saved": 0,
+   "total_interactions": 0
+  }
  }
 }
